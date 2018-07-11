@@ -39,8 +39,8 @@ public class ItemPVJBlock extends ItemBlock
             	if(block instanceof BlockPVJLog)
             	{
                     items.add(new ItemStack(this, 1, 0));
-                    items.add(new ItemStack(this, 1, 4));
-                    items.add(new ItemStack(this, 1, 8));
+                    items.add(new ItemStack(this, 1, 1));
+                    items.add(new ItemStack(this, 1, 2));
             	}
             	else
             	{
@@ -68,5 +68,11 @@ public class ItemPVJBlock extends ItemBlock
         	IBlockState state = this.getBlock().getStateFromMeta(stack.getMetadata());
         	return super.getUnlocalizedName() + "_" + block.getStateName(state);
         }
+	}
+	
+	@Override
+	public int getMetadata(int damage)
+	{
+		return damage;
 	}
 }

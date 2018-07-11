@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -27,8 +28,8 @@ public class ModBlocks
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
-		pvj_planks = registerBlockWithVariants(new BlockPVJPlanks(), "pvj_planks");
-		pvj_log = registerBlockWithVariants(new BlockPVJLog(), "pvj_log");
+		pvj_planks = registerBlockWithVariants(new BlockPVJPlanks(), "planks");
+		pvj_log = registerBlockWithVariants(new BlockPVJLog(), "log");
 	}
 	
 	private static Block registerBlock(Block block, String name)
@@ -57,8 +58,8 @@ public class ModBlocks
 		{
 			String variantName = PVJblock.getStateName(state);
 			int meta = block.getMetaFromState(state);
-			Item itemBlock = new ItemPVJBlock(block);
-			ProjectVibrantJourneys.proxy.registerItemVariantRenderer(itemBlock, variantName, meta);
+			ModelResourceLocation resource = new ModelResourceLocation(new ResourceLocation(Reference.MOD_ID, name + "_" + variantName), "inventory");
+			ProjectVibrantJourneys.proxy.registerItemVariantRenderer(Item.getItemFromBlock(block), meta, resource);
 		}
 		
 		return block;

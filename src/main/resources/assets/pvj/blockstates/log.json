@@ -1,0 +1,17 @@
+{
+	"variants":
+	{
+		"axis=x,variant=willow": { "model": "pvj:log_willow", "x": 90, "y": 90},
+		"axis=y,variant=willow": { "model": "pvj:log_willow"},
+		"axis=z,variant=willow": { "model": "pvj:log_willow", "x": 90},
+		"axis=none,variant=willow": { "model": "pvj:log_willow_bark", "x": 90, "y": 90},
+		"axis=x,variant=mangrove": { "model": "pvj:log_mangrove", "x": 90, "y": 90},
+		"axis=y,variant=mangrove": { "model": "pvj:log_mangrove"},
+		"axis=z,variant=mangrove": { "model": "pvj:log_mangrove", "x": 90},
+		"axis=none,variant=mangrove": { "model": "pvj:log_mangrove_bark", "x": 90, "y": 90},
+		"axis=x,variant=palm": { "model": "pvj:log_palm", "x": 90, "y": 90},
+		"axis=y,variant=palm": { "model": "pvj:log_palm"},
+		"axis=z,variant=palm": { "model": "pvj:log_palm", "x": 90},
+		"axis=none,variant=palm": { "model": "pvj:log_palm_bark", "x": 90, "y": 90}
+	}
+}
