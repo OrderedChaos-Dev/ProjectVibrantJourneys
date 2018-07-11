@@ -9,11 +9,11 @@ import vibrantjourneys.util.Reference;
 
 public class ModItems
 {
-	public static Item slimeDroplet;
+	public static Item slime_droplet;
 	
 	public static void initItems()
 	{
-		slimeDroplet = registerItem(new Item(), "slime_droplet");
+		slime_droplet = registerItem(new Item(), "slime_droplet");
 	}
 	
 	public static Item registerItem(Item item, String name)

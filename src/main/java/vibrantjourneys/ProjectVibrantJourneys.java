@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import vibrantjourneys.init.ModBiomes;
+import vibrantjourneys.init.ModBlocks;
 import vibrantjourneys.init.ModEntities;
 import vibrantjourneys.init.ModItems;
 import vibrantjourneys.util.Reference;
@@ -26,6 +27,7 @@ public class ProjectVibrantJourneys
     	ModEntities.initEntities();
     	ModBiomes.initBiomes();
     	ModItems.initItems();
+    	ModBlocks.initBlocks();
     }
 
     @EventHandler

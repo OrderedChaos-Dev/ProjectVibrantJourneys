@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "pvj",
+  "name": "Project: Vibrant Journeys",
+  "description": "A mod that adds new things that spice up your game. Aimed at decorating the world while not being intrusive on gameplay.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["jt9"],
+  "credits": "Notch hehe",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
