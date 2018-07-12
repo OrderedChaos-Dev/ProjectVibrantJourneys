@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
-import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.util.IPVJBlock;
 
 public class ItemPVJBlock extends ItemBlock
@@ -34,13 +34,19 @@ public class ItemPVJBlock extends ItemBlock
             ImmutableList<IBlockState> variants = block.getVariants();
             if(!variants.isEmpty())
             {
-            	//each log rotation is a blockstate, this is my workaround for the creative tab holding every rotation
-            	//because i'm lazy
+            	//each log rotation is a blockstate, this is my workaround for holding one
+            	// of each type of log in the creative tab, because i'm lazy
             	if(block instanceof BlockPVJLog)
             	{
                     items.add(new ItemStack(this, 1, 0));
                     items.add(new ItemStack(this, 1, 1));
                     items.add(new ItemStack(this, 1, 2));
+            	}
+            	else if(block instanceof BlockPVJLeaves) //haha same for leaves (checkDecay=false, decayable=false)
+            	{
+                    items.add(new ItemStack(this, 1, 4));
+                    items.add(new ItemStack(this, 1, 5));
+                    items.add(new ItemStack(this, 1, 6));
             	}
             	else
             	{

@@ -3,7 +3,6 @@ package vibrantjourneys;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -18,17 +17,15 @@ public class ClientProxy extends CommonProxy
 	}
 	
 	@Override
-	public void registerItemRenderer(Item item)
+	public void registerItemRenderer(Item item, String name)
 	{
 		ModelLoader.setCustomModelResourceLocation(item, 0, 
-				new ModelResourceLocation(Reference.MOD_ID + ":" + item.getUnlocalizedName()));
+				new ModelResourceLocation(Reference.MOD_ID + ":" + name));
 	}
 	
 	@Override
 	public void registerItemVariantRenderer(Item item, int meta, ModelResourceLocation resource)
 	{
-		//ModelLoader.registerItemVariants(item, item.getRegistryName());
 		ModelLoader.setCustomModelResourceLocation(item, meta, resource);
-		System.out.println(resource.getResourcePath());
 	}
 }

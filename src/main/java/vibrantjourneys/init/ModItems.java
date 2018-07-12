@@ -22,7 +22,7 @@ public class ModItems
 		item.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		item.setCreativeTab(CreativeTabPVJ.instance);
 		ForgeRegistries.ITEMS.register(item);
-		ProjectVibrantJourneys.proxy.registerItemRenderer(item);
+		ProjectVibrantJourneys.proxy.registerItemRenderer(item, name);
 		
 		return item;
 	}

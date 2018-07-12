@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
+import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.items.ItemPVJBlock;
@@ -27,12 +28,13 @@ public class ModBlocks
 	
 	public static void initBlocks()
 	{
-		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
+		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick", false);
 		pvj_planks = registerBlockWithVariants(new BlockPVJPlanks(), "planks");
 		pvj_log = registerBlockWithVariants(new BlockPVJLog(), "log");
+		pvj_leaves = registerBlockWithVariants(new BlockPVJLeaves(), "leaves");
 	}
 	
-	private static Block registerBlock(Block block, String name)
+	private static Block registerBlock(Block block, String name, boolean hasVariants)
 	{
 		block.setUnlocalizedName(name);
 		block.setCreativeTab(CreativeTabPVJ.instance);
@@ -44,12 +46,15 @@ public class ModBlocks
 		itemBlock.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		ForgeRegistries.ITEMS.register(itemBlock);
 		
+		if(!hasVariants)
+			ProjectVibrantJourneys.proxy.registerItemRenderer(Item.getItemFromBlock(block), name);
+		
 		return block;
 	}
 	
 	private static Block registerBlockWithVariants(Block block, String name)
 	{
-		registerBlock(block, name);
+		registerBlock(block, name, true);
 		IPVJBlock PVJblock = (IPVJBlock)block;
 		
 		ImmutableList<IBlockState> variants = PVJblock.getVariants();
