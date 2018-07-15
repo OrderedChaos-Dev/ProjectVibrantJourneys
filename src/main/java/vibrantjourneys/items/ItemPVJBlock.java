@@ -41,12 +41,14 @@ public class ItemPVJBlock extends ItemBlock
                     items.add(new ItemStack(this, 1, 0));
                     items.add(new ItemStack(this, 1, 1));
                     items.add(new ItemStack(this, 1, 2));
+                    items.add(new ItemStack(this, 1, 3));
             	}
             	else if(block instanceof BlockPVJLeaves) //haha same for leaves (checkDecay=false, decayable=false)
             	{
-                    items.add(new ItemStack(this, 1, 4));
                     items.add(new ItemStack(this, 1, 5));
                     items.add(new ItemStack(this, 1, 6));
+                    items.add(new ItemStack(this, 1, 7));
+                    items.add(new ItemStack(this, 1, 8));
             	}
             	else
             	{

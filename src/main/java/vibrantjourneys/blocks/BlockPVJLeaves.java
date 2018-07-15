@@ -61,6 +61,7 @@ public class BlockPVJLeaves extends BlockLeaves implements IPVJBlock
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.WILLOW.getMeta()));
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.MANGROVE.getMeta()));
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.PALM.getMeta()));
+        items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.REDWOOD.getMeta()));
     }
 
     @Override

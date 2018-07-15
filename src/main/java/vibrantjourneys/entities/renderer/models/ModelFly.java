@@ -4,11 +4,11 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelFirefly extends ModelBase
+public class ModelFly extends ModelBase
 {
     public ModelRenderer body;
 
-    public ModelFirefly()
+    public ModelFly()
     {
         this.textureWidth = 64;
         this.textureHeight = 32;

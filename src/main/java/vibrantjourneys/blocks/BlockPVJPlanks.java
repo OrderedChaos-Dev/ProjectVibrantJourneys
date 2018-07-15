@@ -95,7 +95,8 @@ public class BlockPVJPlanks extends Block implements IPVJBlock
     {
         WILLOW(0, "willow", MapColor.GRAY),
         MANGROVE(1, "mangrove", MapColor.DIRT),
-        PALM(2, "palm", MapColor.BROWN);
+        PALM(2, "palm", MapColor.BROWN),
+        REDWOOD(3, "redwood", MapColor.BROWN);
 
         private static final BlockPVJPlanks.EnumType[] META_LOOKUP = new BlockPVJPlanks.EnumType[values().length];
         private final int meta;

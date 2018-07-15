@@ -7,9 +7,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.entities.monster.EntityShade;
+import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.passive.EntityFirefly;
+import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.renderer.RenderFirefly;
+import vibrantjourneys.entities.renderer.RenderFly;
+import vibrantjourneys.entities.renderer.RenderGhost;
+import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSnail;
 import vibrantjourneys.util.Reference;
 
@@ -20,7 +26,11 @@ public class ModEntities
 	public static void initEntities()
 	{
 		registerEntity("snail", EntitySnail.class, 64, 0x6D453D, 0x677B5C, RenderSnail::new);
+		registerEntity("fly", EntityFly.class, 64, 0x3F000D, 0xE8E93D, RenderFly::new);
 		registerEntity("firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D, RenderFirefly::new);
+		
+		registerEntity("ghost", EntityGhost.class, 64, 0x000000, 0x000000, RenderGhost::new);
+		registerEntity("shade", EntityShade.class, 64, 0x0000F0, 0x000F00, RenderShade::new);
 		addSpawns();
 	}
 
@@ -36,7 +46,11 @@ public class ModEntities
 	
 	private static void addSpawns()
 	{
-		EntityRegistry.addSpawn(EntitySnail.class, 25, 1, 3, EnumCreatureType.CREATURE, Biomes.FOREST, Biomes.PLAINS);
-		EntityRegistry.addSpawn(EntityFirefly.class, 300, 6, 9, EnumCreatureType.AMBIENT, Biomes.FOREST, Biomes.PLAINS, ModBiomes.prairie);
+		EntityRegistry.addSpawn(EntitySnail.class, 50, 1, 3, EnumCreatureType.CREATURE, Biomes.FOREST, Biomes.PLAINS);
+		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, Reference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, Reference.ALL_BIOMES);
+		
+		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
 	}
 }

@@ -59,6 +59,8 @@ public class BlockPVJLog extends BlockLog implements IPVJBlock
                         return BlockPVJPlanks.EnumType.MANGROVE.getMapColor();
                     case PALM:
                         return BlockPVJPlanks.EnumType.PALM.getMapColor();
+                    case REDWOOD:
+                    	return BlockPVJPlanks.EnumType.REDWOOD.getMapColor();
                 }
 
             case Y:
@@ -73,6 +75,7 @@ public class BlockPVJLog extends BlockLog implements IPVJBlock
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.WILLOW.getMeta()));
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.MANGROVE.getMeta()));
         items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.PALM.getMeta()));
+        items.add(new ItemStack(this, 1, BlockPVJPlanks.EnumType.REDWOOD.getMeta()));
     }
 
     @Override

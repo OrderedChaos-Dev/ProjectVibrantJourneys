@@ -13,6 +13,7 @@ import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
+import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.IPVJBlock;
@@ -32,6 +33,7 @@ public class ModBlocks
 		pvj_planks = registerBlockWithVariants(new BlockPVJPlanks(), "planks");
 		pvj_log = registerBlockWithVariants(new BlockPVJLog(), "log");
 		pvj_leaves = registerBlockWithVariants(new BlockPVJLeaves(), "leaves");
+		pvj_sapling = registerBlockWithVariants(new BlockPVJSapling(), "sapling");
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)

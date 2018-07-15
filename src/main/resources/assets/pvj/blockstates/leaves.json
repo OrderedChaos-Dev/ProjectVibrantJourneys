@@ -11,6 +11,10 @@
         "check_decay=false,decayable=false,variant=palm": { "model": "pvj:leaves_palm" },
         "check_decay=false,decayable=true,variant=palm": { "model": "pvj:leaves_palm" },
         "check_decay=true,decayable=false,variant=palm": { "model": "pvj:leaves_palm" },
-        "check_decay=true,decayable=true,variant=palm": { "model": "pvj:leaves_palm" }
+        "check_decay=true,decayable=true,variant=palm": { "model": "pvj:leaves_palm" },
+        "check_decay=false,decayable=false,variant=redwood": { "model": "pvj:leaves_redwood" },
+        "check_decay=false,decayable=true,variant=redwood": { "model": "pvj:leaves_redwood" },
+        "check_decay=true,decayable=false,variant=redwood": { "model": "pvj:leaves_redwood" },
+        "check_decay=true,decayable=true,variant=redwood": { "model": "pvj:leaves_redwood" }
     }
 }
