@@ -15,7 +15,7 @@
 		"axis=none,variant=palm": { "model": "pvj:log_palm_bark", "x": 90, "y": 90},
 		"axis=x,variant=redwood": { "model": "pvj:log_redwood", "x": 90, "y": 90},
 		"axis=y,variant=redwood": { "model": "pvj:log_redwood"},
-		"axis=z,variant=redwod": { "model": "pvj:log_redwood", "x": 90},
+		"axis=z,variant=redwood": { "model": "pvj:log_redwood", "x": 90},
 		"axis=none,variant=redwood": { "model": "pvj:log_redwood_bark", "x": 90, "y": 90}
 	}
 }

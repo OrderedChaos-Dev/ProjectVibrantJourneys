@@ -6,9 +6,10 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.util.Reference;
 
-public class ClientProxy extends CommonProxy
+public class ClientProxy implements ICommonProxy
 {
 	@Override
 	public <T extends Entity> void registerEntityRenderer(Class<T> entity, IRenderFactory<? super T> factory)
@@ -28,4 +29,7 @@ public class ClientProxy extends CommonProxy
 	{
 		ModelLoader.setCustomModelResourceLocation(item, meta, resource);
 	}
+
+	@Override
+	public void registerWorldGenerator(IWorldGenerator worldgen){}
 }

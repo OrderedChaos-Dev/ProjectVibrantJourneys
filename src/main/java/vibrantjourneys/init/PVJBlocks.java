@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
+import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
@@ -19,21 +20,26 @@ import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.IPVJBlock;
 import vibrantjourneys.util.Reference;
 
-public class ModBlocks
+public class PVJBlocks
 {
 	public static Block cobblestone_brick;
+	
 	public static Block pvj_planks;
 	public static Block pvj_log;
 	public static Block pvj_leaves;
 	public static Block pvj_sapling;
+	public static Block coconut;
 	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick", false);
+		
 		pvj_planks = registerBlockWithVariants(new BlockPVJPlanks(), "planks");
 		pvj_log = registerBlockWithVariants(new BlockPVJLog(), "log");
 		pvj_leaves = registerBlockWithVariants(new BlockPVJLeaves(), "leaves");
 		pvj_sapling = registerBlockWithVariants(new BlockPVJSapling(), "sapling");
+		
+		coconut = registerBlock(new BlockCoconut(), "coconut", false);
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)

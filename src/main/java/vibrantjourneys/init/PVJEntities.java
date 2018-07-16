@@ -19,7 +19,7 @@ import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSnail;
 import vibrantjourneys.util.Reference;
 
-public class ModEntities
+public class PVJEntities
 {
 	public static int id = 1;
 	

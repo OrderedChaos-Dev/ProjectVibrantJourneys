@@ -24,6 +24,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.util.IPVJBlock;
+import vibrantjourneys.worldgen.WorldGenPalmTree;
+import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
 
 public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
@@ -88,6 +90,34 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
         switch ((BlockPVJPlanks.EnumType)state.getValue(TYPE))
         {
             case REDWOOD:
+            	check:
+                for (i = 0; i >= -1; --i)
+                {
+                    for (j = 0; j >= -1; --j)
+                    {
+                        if (this.isTwoByTwoOfType(worldIn, pos, i, j, BlockPVJPlanks.EnumType.REDWOOD))
+                        {
+                            worldgenerator = new WorldGenRedwoodLarge(false, 30, 20, rand.nextBoolean());
+                            flag = true;
+                            break check;
+                        }
+                    }
+                }
+            
+	            if(!flag)
+	            {
+	                i = 0;
+	                j = 0;
+	                worldgenerator = new WorldGenRedwoodSmall();
+	            }
+	            break;
+            
+            case PALM:
+            	worldgenerator = new WorldGenPalmTree();
+            	break;
+            case WILLOW:
+            default:
+            	break;
         }
 
         IBlockState iblockstate2 = Blocks.AIR.getDefaultState();
@@ -146,36 +176,59 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
             items.add(new ItemStack(this, 1, BlockPVJPlanks$enumtype.getMeta()));
         }
     }
+    
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        IBlockState soil = worldIn.getBlockState(pos.down());
+    	if(this.getBlockState() == this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.PALM))
+    	{
+    		return (super.canPlaceBlockAt(worldIn, pos) && 
+    				soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || soil.getBlock() == Blocks.SAND;
+    	}
+        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+    }
+    
+    @Override
+    protected boolean canSustainBush(IBlockState state)
+    {
+    	if(this.getBlockState() == this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.PALM))
+    	{
+            return state.getBlock() == Blocks.GRASS || 
+            		state.getBlock() == Blocks.DIRT || 
+            		state.getBlock() == Blocks.FARMLAND || 
+            		state.getBlock() == Blocks.SAND;
+    	}
+        return state.getBlock() == Blocks.GRASS || 
+        		state.getBlock() == Blocks.DIRT || 
+        		state.getBlock() == Blocks.FARMLAND;
+    }
 
-    /**
-     * Whether this IGrowable can grow
-     */
+    @Override
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
     {
         return true;
     }
 
+    @Override
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
         return (double)worldIn.rand.nextFloat() < 0.45D;
     }
 
+    @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
         this.grow(worldIn, pos, state, rand);
     }
 
-    /**
-     * Convert the given metadata into a BlockState for this Block
-     */
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
-    /**
-     * Convert the BlockState into the correct metadata value
-     */
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         int i = 0;
@@ -184,6 +237,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
         return i;
     }
 
+    @Override
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {TYPE, STAGE});

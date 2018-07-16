@@ -7,7 +7,7 @@ import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.Reference;
 
-public class ModItems
+public class PVJItems
 {
 	public static Item slime_droplet;
 	

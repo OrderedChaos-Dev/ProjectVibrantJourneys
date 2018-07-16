@@ -8,13 +8,17 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.biomes.BiomePrairie;
+import vibrantjourneys.biomes.BiomeRedwoods;
 
-public class ModBiomes 
+public class PVJBiomes 
 {
 	public static Biome prairie = new BiomePrairie();
+	public static Biome redwoods = new BiomeRedwoods();
+	
 	public static void initBiomes()
 	{
 		registerBiome(prairie, "prairie", true, BiomeType.WARM, Type.PLAINS);
+		registerBiome(redwoods, "redwoods", false, BiomeType.COOL, Type.CONIFEROUS, Type.FOREST);
 	}
 	
 	public static void registerBiome(Biome biome, String name, boolean hasVillages, BiomeType biomeType, Type... types)
@@ -25,7 +29,7 @@ public class ModBiomes
 		BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 10));
 		BiomeManager.addSpawnBiome(biome);
 		if(hasVillages)
-			BiomeManager.addVillageBiome(prairie, true);
+			BiomeManager.addVillageBiome(biome, true);
 		System.out.println("registered biome");
 	}
 }

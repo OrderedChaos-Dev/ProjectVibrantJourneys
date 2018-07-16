@@ -12,14 +12,14 @@ import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJSapling;
-import vibrantjourneys.init.ModBlocks;
+import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenRedwoodSmall extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = ModBlocks.pvj_log.getDefaultState()
+    private static final IBlockState LOG = PVJBlocks.pvj_log.getDefaultState()
     		.withProperty(BlockPVJLog.VARIANT, BlockPVJPlanks.EnumType.REDWOOD);
     
-    private static final IBlockState LEAF = ModBlocks.pvj_leaves.getDefaultState()
+    private static final IBlockState LEAF = PVJBlocks.pvj_leaves.getDefaultState()
     		.withProperty(BlockPVJLeaves.VARIANT, BlockPVJPlanks.EnumType.REDWOOD)
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
@@ -79,7 +79,7 @@ public class WorldGenRedwoodSmall extends WorldGenAbstractTree
 			{
 				BlockPos down = position.down();
 				IBlockState state = world.getBlockState(down);
-				boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (BlockPVJSapling)ModBlocks.pvj_sapling);
+				boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (BlockPVJSapling)PVJBlocks.pvj_sapling);
 				
 				if(isSoil && yGen + height + 1 <= 256)
 				{
