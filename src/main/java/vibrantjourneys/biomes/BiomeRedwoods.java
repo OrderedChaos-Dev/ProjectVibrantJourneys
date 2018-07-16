@@ -46,7 +46,7 @@ public class BiomeRedwoods extends Biome
 	    WorldGenRedwoodSmall REDWOOD_LARGE = new WorldGenRedwoodSmall();
 	    WorldGenRedwoodLarge REDWOOD_SMALL = new WorldGenRedwoodLarge(false, 30, 20, rand.nextBoolean());
 	    
-        return rand.nextInt(13) < 10 ? REDWOOD_LARGE : REDWOOD_SMALL;
+        return rand.nextInt(14) < 11 ? REDWOOD_LARGE : REDWOOD_SMALL;
     }
 	
 	@Override
