@@ -3,11 +3,12 @@ package vibrantjourneys.util;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemBlock;
 
-public interface IPVJBlock
+/**
+ * Used by PVJ blocks with variants for use in registering models
+ *
+ */
+public interface IVariantHelper
 {
-	public Class<? extends ItemBlock> getItem();
 	public ImmutableList<IBlockState> getVariants();
-	public String getStateName(IBlockState state);
 }

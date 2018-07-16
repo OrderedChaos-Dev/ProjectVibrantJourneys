@@ -7,6 +7,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import vibrantjourneys.util.Reference;
 
 public class ClientProxy implements ICommonProxy
@@ -31,5 +32,8 @@ public class ClientProxy implements ICommonProxy
 	}
 
 	@Override
-	public void registerWorldGenerator(IWorldGenerator worldgen){}
+	public void registerWorldGenerator(IWorldGenerator worldgen)
+	{
+		GameRegistry.registerWorldGenerator(worldgen, 0);
+	}
 }

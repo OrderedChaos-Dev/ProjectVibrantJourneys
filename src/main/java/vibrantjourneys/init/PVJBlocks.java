@@ -18,7 +18,7 @@ import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IPVJBlock;
+import vibrantjourneys.util.IVariantHelper;
 import vibrantjourneys.util.Reference;
 
 public class PVJBlocks
@@ -98,7 +98,7 @@ public class PVJBlocks
 	private static Block registerBlockWithVariants(Block block, String name)
 	{
 		registerBlock(block, name, true);
-		IPVJBlock PVJblock = (IPVJBlock)block;
+		IVariantHelper PVJblock = (IVariantHelper)block;
 		
 		ImmutableList<IBlockState> variants = PVJblock.getVariants();
 		

@@ -17,12 +17,10 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
     private static final IBlockState LEAF = PVJBlocks.redwood_leaves.getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
-    private final boolean useBaseHeight;
     
-    public WorldGenRedwoodLarge(boolean notify, int baseHeightIn, int extraRandomHeightIn, boolean useBaseHeight)
+    public WorldGenRedwoodLarge(boolean notify, int baseHeightIn, int extraRandomHeightIn)
     {
         super(notify, baseHeightIn, extraRandomHeightIn, LOG, LEAF);
-        this.useBaseHeight = useBaseHeight;
     }
 
     //this is a combination of WorldGenMegaJungle and WorldGenMegaTaiga
@@ -52,7 +50,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                     this.setBlockAndNotifyAdequately(worldIn, new BlockPos(k, j - 3 + i1 / 2, l), this.woodMetadata);
                 }
 
-                int j2 = 1 + rand.nextInt(2);
+                int j2 = 2 + rand.nextInt(2);
                 int j1 = j;
 
                 for (int k1 = j - j2; k1 <= j1; ++k1)
@@ -186,7 +184,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 
     private void createCrown(World worldIn, BlockPos pos, int p_150541_5_, Random rand)
     {
-        int i = rand.nextInt(5) + (this.useBaseHeight ? this.baseHeight : 3);
+        int i = rand.nextInt(5) + 3;
         int j = 0;
         int y = pos.getY();
         int x = pos.getX();

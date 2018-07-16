@@ -30,6 +30,5 @@ public class PVJBiomes
 		BiomeManager.addSpawnBiome(biome);
 		if(hasVillages)
 			BiomeManager.addVillageBiome(biome, true);
-		System.out.println("registered biome");
 	}
 }

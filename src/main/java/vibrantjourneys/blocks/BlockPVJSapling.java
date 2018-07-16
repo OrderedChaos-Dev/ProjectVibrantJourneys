@@ -6,25 +6,27 @@ import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IPVJBlock;
+import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenPalmTree;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
+import vibrantjourneys.worldgen.WorldGenWillowTree;
 
-public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
+public class BlockPVJSapling extends BlockBush implements IGrowable, IVariantHelper
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = 
@@ -34,6 +36,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
 
     public BlockPVJSapling(EnumWoodType woodType)
     {
+    	this.setSoundType(SoundType.PLANT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
         this.woodType = woodType;
     }
@@ -89,7 +92,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
                     {
                         if (this.isTwoByTwoOfType(worldIn, pos, i, j, EnumWoodType.REDWOOD))
                         {
-                            worldgenerator = new WorldGenRedwoodLarge(false, 30, 20, rand.nextBoolean());
+                            worldgenerator = new WorldGenRedwoodLarge(false, 30, 20);
                             flag = true;
                             break check;
                         }
@@ -108,6 +111,11 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
             	worldgenerator = new WorldGenPalmTree();
             	break;
             case WILLOW:
+            	worldgenerator = new WorldGenWillowTree();
+            	break;
+            case MANGROVE:
+            	worldgenerator = new WorldGenMangroveTree();
+            	break;
             default:
             	break;
         }
@@ -176,18 +184,17 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(woodType == EnumWoodType.PALM)
+    	if(woodType == EnumWoodType.PALM || woodType == EnumWoodType.MANGROVE)
     	{
-    		return (super.canPlaceBlockAt(worldIn, pos) && 
-    				soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || soil.getBlock() == Blocks.SAND;
+    		return super.canPlaceBlockAt(worldIn, pos) || soil.getBlock() == Blocks.SAND;
     	}
-        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), EnumFacing.UP, this);
     }
     
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-    	if(woodType == EnumWoodType.PALM)
+    	if(woodType == EnumWoodType.PALM || woodType == EnumWoodType.MANGROVE)
     	{
             return state.getBlock() == Blocks.GRASS || 
             		state.getBlock() == Blocks.DIRT || 
@@ -235,22 +242,10 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
     {
         return new BlockStateContainer(this, new IProperty[] {STAGE});
     }
-
-	@Override
-	public Class<? extends ItemBlock> getItem()
-	{
-		return ItemPVJBlock.class;
-	}
-
+    
 	@Override
 	public ImmutableList<IBlockState> getVariants()
 	{
 		return this.blockState.getValidStates();
-	}
-
-	@Override
-	public String getStateName(IBlockState state)
-	{
-		return "";
 	}
 }

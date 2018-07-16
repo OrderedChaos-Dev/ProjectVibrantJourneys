@@ -5,7 +5,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ServerProxy implements ICommonProxy
 {
@@ -19,8 +18,5 @@ public class ServerProxy implements ICommonProxy
 	public void registerItemVariantRenderer(Item item, int meta, ModelResourceLocation resource){}
 	
 	@Override
-	public void registerWorldGenerator(IWorldGenerator worldgen)
-	{
-		GameRegistry.registerWorldGenerator(worldgen, 0);
-	}
+	public void registerWorldGenerator(IWorldGenerator worldgen){}
 }

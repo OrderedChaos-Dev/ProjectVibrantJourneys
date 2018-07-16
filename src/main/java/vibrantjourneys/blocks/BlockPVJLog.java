@@ -3,20 +3,17 @@ package vibrantjourneys.blocks;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IPVJBlock;
+import vibrantjourneys.util.IVariantHelper;
 
-public class BlockPVJLog extends BlockLog implements IPVJBlock
+public class BlockPVJLog extends BlockLog implements IVariantHelper
 {
 	private EnumWoodType woodType;
     public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
@@ -84,22 +81,10 @@ public class BlockPVJLog extends BlockLog implements IPVJBlock
     {
         return new BlockStateContainer(this, new IProperty[] {LOG_AXIS});
     }
-
-	@Override
-	public Class<? extends ItemBlock> getItem()
-	{
-		return ItemPVJBlock.class;
-	}
-
+    
 	@Override
 	public ImmutableList<IBlockState> getVariants()
 	{
 		return this.blockState.getValidStates();
-	}
-
-	@Override
-	public String getStateName(IBlockState state)
-	{
-		return "";
 	}
 }
