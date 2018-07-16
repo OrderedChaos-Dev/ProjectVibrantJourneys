@@ -9,18 +9,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import vibrantjourneys.blocks.BlockPVJLeaves;
-import vibrantjourneys.blocks.BlockPVJLog;
-import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenPalmTree extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = PVJBlocks.pvj_log.getDefaultState()
-    		.withProperty(BlockPVJLog.VARIANT, BlockPVJPlanks.EnumType.PALM);
+    private static final IBlockState LOG = PVJBlocks.palm_log.getDefaultState();
     
-    private static final IBlockState LEAF = PVJBlocks.pvj_leaves.getDefaultState()
-    		.withProperty(BlockPVJLeaves.VARIANT, BlockPVJPlanks.EnumType.PALM)
+    private static final IBlockState LEAF = PVJBlocks.palm_leaves.getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
     private static final IBlockState COCONUT = PVJBlocks.coconut.getDefaultState();
@@ -82,7 +78,7 @@ public class WorldGenPalmTree extends WorldGenAbstractTree
                 BlockPos down = position.down();
                 IBlockState state = worldIn.getBlockState(down);
                 boolean isSoil = state.getBlock()
-                		.canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP, (BlockPVJSapling)PVJBlocks.pvj_sapling)
+                		.canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP, (BlockPVJSapling)PVJBlocks.palm_sapling)
                 		|| state.getBlock() == Blocks.SAND;
 
                 if (isSoil && position.getY() < worldIn.getHeight() - height - 1)
@@ -112,7 +108,6 @@ public class WorldGenPalmTree extends WorldGenAbstractTree
                         if (state.getBlock().isAir(state, worldIn, blockpos) || state.getBlock().isLeaves(state, worldIn, blockpos))
                         {
                         	this.setBlockAndNotifyAdequately(worldIn, blockpos, LOG);
-                        	System.out.println(blockpos);
                         	if(i > trunk)
                         	{
                         		if(rand.nextInt(2) == 0)

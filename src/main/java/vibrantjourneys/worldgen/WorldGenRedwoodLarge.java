@@ -8,17 +8,13 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenHugeTrees;
 import vibrantjourneys.blocks.BlockPVJLeaves;
-import vibrantjourneys.blocks.BlockPVJLog;
-import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 {
-    private static final IBlockState LOG = PVJBlocks.pvj_log.getDefaultState()
-    		.withProperty(BlockPVJLog.VARIANT, BlockPVJPlanks.EnumType.REDWOOD);
+    private static final IBlockState LOG = PVJBlocks.redwood_log.getDefaultState();
     
-    private static final IBlockState LEAF = PVJBlocks.pvj_leaves.getDefaultState()
-    		.withProperty(BlockPVJLeaves.VARIANT, BlockPVJPlanks.EnumType.REDWOOD)
+    private static final IBlockState LEAF = PVJBlocks.redwood_leaves.getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
     private final boolean useBaseHeight;

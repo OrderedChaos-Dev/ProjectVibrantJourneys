@@ -27,7 +27,7 @@ public class BlockCoconut extends Block implements IPVJBlock
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos.up());
-        return iblockstate.getBlock() == PVJBlocks.pvj_leaves && iblockstate.getValue(BlockPVJLog.VARIANT) == BlockPVJPlanks.EnumType.PALM;
+        return iblockstate.getBlock() == PVJBlocks.palm_leaves;
     }
 
 	@Override

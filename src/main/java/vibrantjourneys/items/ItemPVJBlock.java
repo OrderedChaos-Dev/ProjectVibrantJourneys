@@ -36,19 +36,10 @@ public class ItemPVJBlock extends ItemBlock
             {
             	//each log rotation is a blockstate, this is my workaround for holding one
             	// of each type of log in the creative tab, because i'm lazy
-            	if(block instanceof BlockPVJLog)
+            	//haha same for leaves (checkDecay=false, decayable=false)
+            	if(block instanceof BlockPVJLog || block instanceof BlockPVJLeaves)
             	{
                     items.add(new ItemStack(this, 1, 0));
-                    items.add(new ItemStack(this, 1, 1));
-                    items.add(new ItemStack(this, 1, 2));
-                    items.add(new ItemStack(this, 1, 3));
-            	}
-            	else if(block instanceof BlockPVJLeaves) //haha same for leaves (checkDecay=false, decayable=false)
-            	{
-                    items.add(new ItemStack(this, 1, 5));
-                    items.add(new ItemStack(this, 1, 6));
-                    items.add(new ItemStack(this, 1, 7));
-                    items.add(new ItemStack(this, 1, 8));
             	}
             	else
             	{
@@ -68,14 +59,7 @@ public class ItemPVJBlock extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
-        ImmutableList<IBlockState> variants = block.getVariants();
-        if(variants.isEmpty())
-        	return super.getUnlocalizedName();
-        else
-        {
-        	IBlockState state = this.getBlock().getStateFromMeta(stack.getMetadata());
-        	return super.getUnlocalizedName() + "_" + block.getStateName(state);
-        }
+        return super.getUnlocalizedName();
 	}
 	
 	@Override

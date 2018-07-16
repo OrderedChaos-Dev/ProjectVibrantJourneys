@@ -7,22 +7,18 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.items.ItemPVJBlock;
+import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPVJBlock;
 import vibrantjourneys.worldgen.WorldGenPalmTree;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
@@ -30,14 +26,16 @@ import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
 
 public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
 {
-    public static final PropertyEnum<BlockPVJPlanks.EnumType> TYPE = PropertyEnum.<BlockPVJPlanks.EnumType>create("type", BlockPVJPlanks.EnumType.class);
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
-    protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+    protected static final AxisAlignedBB SAPLING_AABB = 
+    		new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+    
+	private EnumWoodType woodType;
 
-    public BlockPVJSapling()
+    public BlockPVJSapling(EnumWoodType woodType)
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(TYPE, BlockPVJPlanks.EnumType.WILLOW).withProperty(STAGE, Integer.valueOf(0)));
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
+        this.woodType = woodType;
     }
 
     @Override
@@ -45,13 +43,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
     {
         return SAPLING_AABB;
     }
-
-    @Override
-    public String getLocalizedName()
-    {
-        return I18n.translateToLocal(this.getUnlocalizedName() + "." + BlockPVJPlanks.EnumType.WILLOW.getUnlocalizedName() + ".name");
-    }
-
+    
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
@@ -87,7 +79,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
         int j = 0;
         boolean flag = false;
 
-        switch ((BlockPVJPlanks.EnumType)state.getValue(TYPE))
+        switch (this.woodType)
         {
             case REDWOOD:
             	check:
@@ -95,7 +87,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
                 {
                     for (j = 0; j >= -1; --j)
                     {
-                        if (this.isTwoByTwoOfType(worldIn, pos, i, j, BlockPVJPlanks.EnumType.REDWOOD))
+                        if (this.isTwoByTwoOfType(worldIn, pos, i, j, EnumWoodType.REDWOOD))
                         {
                             worldgenerator = new WorldGenRedwoodLarge(false, 30, 20, rand.nextBoolean());
                             flag = true;
@@ -149,39 +141,42 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
             }
         }
     }
-
     
-    private boolean isTwoByTwoOfType(World worldIn, BlockPos pos, int p_181624_3_, int p_181624_4_, BlockPVJPlanks.EnumType type)
+    /**
+     * Used by PVJ saplings to generate large trees by comparing wood types
+     * 
+     */
+    public EnumWoodType getWoodType()
     {
-        return this.isTypeAt(worldIn, pos.add(p_181624_3_, 0, p_181624_4_), type) && this.isTypeAt(worldIn, pos.add(p_181624_3_ + 1, 0, p_181624_4_), type) && this.isTypeAt(worldIn, pos.add(p_181624_3_, 0, p_181624_4_ + 1), type) && this.isTypeAt(worldIn, pos.add(p_181624_3_ + 1, 0, p_181624_4_ + 1), type);
+    	return woodType;
     }
 
-    public boolean isTypeAt(World worldIn, BlockPos pos, BlockPVJPlanks.EnumType type)
+    
+    private boolean isTwoByTwoOfType(World worldIn, BlockPos pos, int xOffset, int zOffset, EnumWoodType type)
+    {
+        return this.isTypeAt(worldIn, pos.add(xOffset, 0, zOffset), type) && this.isTypeAt(worldIn, pos.add(xOffset + 1, 0, zOffset), type) && this.isTypeAt(worldIn, pos.add(xOffset, 0, zOffset + 1), type) && this.isTypeAt(worldIn, pos.add(xOffset + 1, 0, zOffset + 1), type);
+    }
+
+    public boolean isTypeAt(World worldIn, BlockPos pos, EnumWoodType type)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos);
-        return iblockstate.getBlock() == this && iblockstate.getValue(TYPE) == type;
+        if(iblockstate.getBlock() instanceof BlockPVJSapling)
+        	return ((BlockPVJSapling)iblockstate.getBlock()).getWoodType() == woodType;
+        else
+        	return false;
     }
 
     @Override
     public int damageDropped(IBlockState state)
     {
-        return ((BlockPVJPlanks.EnumType)state.getValue(TYPE)).getMeta();
-    }
-
-    @Override
-    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
-    {
-        for (BlockPVJPlanks.EnumType BlockPVJPlanks$enumtype : BlockPVJPlanks.EnumType.values())
-        {
-            items.add(new ItemStack(this, 1, BlockPVJPlanks$enumtype.getMeta()));
-        }
+        return 0;
     }
     
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(this.getBlockState() == this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.PALM))
+    	if(woodType == EnumWoodType.PALM)
     	{
     		return (super.canPlaceBlockAt(worldIn, pos) && 
     				soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this)) || soil.getBlock() == Blocks.SAND;
@@ -192,13 +187,14 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-    	if(this.getBlockState() == this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.PALM))
+    	if(woodType == EnumWoodType.PALM)
     	{
             return state.getBlock() == Blocks.GRASS || 
             		state.getBlock() == Blocks.DIRT || 
             		state.getBlock() == Blocks.FARMLAND || 
             		state.getBlock() == Blocks.SAND;
     	}
+    	
         return state.getBlock() == Blocks.GRASS || 
         		state.getBlock() == Blocks.DIRT || 
         		state.getBlock() == Blocks.FARMLAND;
@@ -225,22 +221,19 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(TYPE, BlockPVJPlanks.EnumType.byMetadata(meta & 7)).withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
+        return this.getDefaultState().withProperty(STAGE, meta);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int i = 0;
-        i = i | ((BlockPVJPlanks.EnumType)state.getValue(TYPE)).getMeta();
-        i = i | ((Integer)state.getValue(STAGE)).intValue() << 3;
-        return i;
+    	return state.getValue(STAGE).intValue();
     }
 
     @Override
     protected BlockStateContainer createBlockState()
     {
-        return new BlockStateContainer(this, new IProperty[] {TYPE, STAGE});
+        return new BlockStateContainer(this, new IProperty[] {STAGE});
     }
 
 	@Override
@@ -258,6 +251,6 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPVJBlock
 	@Override
 	public String getStateName(IBlockState state)
 	{
-		return ((BlockPVJPlanks.EnumType)state.getValue(TYPE)).getName();
+		return "";
 	}
 }
