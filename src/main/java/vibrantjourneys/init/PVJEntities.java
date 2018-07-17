@@ -19,6 +19,7 @@ import vibrantjourneys.entities.renderer.RenderGhost;
 import vibrantjourneys.entities.renderer.RenderIceCube;
 import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSnail;
+import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.Reference;
 
 public class PVJEntities
@@ -50,11 +51,11 @@ public class PVJEntities
 	private static void addSpawns()
 	{
 		EntityRegistry.addSpawn(EntitySnail.class, 50, 1, 3, EnumCreatureType.CREATURE, Biomes.FOREST, Biomes.PLAINS);
-		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, Reference.ALL_BIOMES);
-		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, Reference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
 		
-		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
-		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
 		EntityRegistry.addSpawn(EntityIceCube.class, 35, 2, 3, EnumCreatureType.MONSTER, Biomes.ICE_PLAINS);
 	}
 }

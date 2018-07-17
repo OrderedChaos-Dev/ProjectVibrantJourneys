@@ -56,5 +56,7 @@ public class BiomeReference
 	
 	public static final List<Biome> FRESHWATER_BIOMES = ForgeRegistries.BIOMES.getValuesCollection().stream()
 			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach)).collect(Collectors.toList());
+	
+    public static final Biome[] ALL_BIOMES = ForgeRegistries.BIOMES.getValuesCollection().toArray(new Biome[0]);
 
 }
