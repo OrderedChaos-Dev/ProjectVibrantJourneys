@@ -2,8 +2,8 @@ package vibrantjourneys.init;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
@@ -50,12 +50,12 @@ public class PVJEntities
 	
 	private static void addSpawns()
 	{
-		EntityRegistry.addSpawn(EntitySnail.class, 50, 1, 3, EnumCreatureType.CREATURE, Biomes.FOREST, Biomes.PLAINS);
+		EntityRegistry.addSpawn(EntitySnail.class, 50, 1, 3, EnumCreatureType.CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
 		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
 		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
 		
 		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
 		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
-		EntityRegistry.addSpawn(EntityIceCube.class, 35, 2, 3, EnumCreatureType.MONSTER, Biomes.ICE_PLAINS);
+		EntityRegistry.addSpawn(EntityIceCube.class, 35, 2, 3, EnumCreatureType.MONSTER, BiomeReference.SNOW_BIOMES);
 	}
 }

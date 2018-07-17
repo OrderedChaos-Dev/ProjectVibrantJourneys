@@ -8,6 +8,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeBeach;
 import net.minecraft.world.biome.BiomeOcean;
 import net.minecraft.world.biome.BiomeStoneBeach;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.init.PVJBiomes;
 
@@ -55,7 +57,10 @@ public class BiomeReference
 		Biomes.MUTATED_MESA_CLEAR_ROCK, Biomes.MUTATED_MESA_ROCK};
 	
 	public static final List<Biome> FRESHWATER_BIOMES = ForgeRegistries.BIOMES.getValuesCollection().stream()
-			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach)).collect(Collectors.toList());
+			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach))
+			.collect(Collectors.toList());
+	
+	public static final Biome[] SNOW_BIOMES = BiomeDictionary.getBiomes(Type.SNOWY).toArray(new Biome[0]);
 	
     public static final Biome[] ALL_BIOMES = ForgeRegistries.BIOMES.getValuesCollection().toArray(new Biome[0]);
 
