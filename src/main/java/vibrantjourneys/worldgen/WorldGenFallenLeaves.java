@@ -47,8 +47,8 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(8);
-				int zPos = z + random.nextInt(8);
+				int xPos = x + random.nextInt(4) - random.nextInt(4);
+				int zPos = z + random.nextInt(4) - random.nextInt(4);
 				
 				for(int j = 0; j < 10; j++)
 				{
