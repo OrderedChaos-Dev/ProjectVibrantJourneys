@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCoconut;
+import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
@@ -25,7 +26,7 @@ public class PVJBlocks
 {
 	public static Block cobblestone_brick;
 	
-	//THE FLATTENING..DUN DUN DUNNN
+	//flattened for 1.13
 	public static Block willow_planks;
 	public static Block mangrove_planks;
 	public static Block palm_planks;
@@ -47,6 +48,18 @@ public class PVJBlocks
 	public static Block mangrove_sapling;
 	public static Block palm_sapling;
 	public static Block redwood_sapling;
+	
+	public static Block fallenleaves_oak;
+	public static Block fallenleaves_birch;
+	public static Block fallenleaves_spruce;
+	public static Block fallenleaves_jungle;
+	public static Block fallenleaves_darkoak;
+	public static Block fallenleaves_acacia;
+	public static Block fallenleaves_willow;
+	public static Block fallenleaves_mangrove;
+	public static Block fallenleaves_palm;
+	public static Block fallenleaves_redwood;
+	public static Block fallenleaves_dead;
 	
 	public static Block coconut;
 	
@@ -73,6 +86,18 @@ public class PVJBlocks
 		mangrove_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.MANGROVE), "sapling_mangrove");
 		palm_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.PALM), "sapling_palm");
 		redwood_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.REDWOOD), "sapling_redwood");
+		
+		fallenleaves_oak = registerBlock(new BlockFallenLeaves(), "fallenleaves_oak", false);
+		fallenleaves_birch = registerBlock(new BlockFallenLeaves(), "fallenleaves_birch", false);
+		fallenleaves_spruce = registerBlock(new BlockFallenLeaves(), "fallenleaves_spruce", false);
+		fallenleaves_jungle = registerBlock(new BlockFallenLeaves(), "fallenleaves_jungle", false);
+		fallenleaves_darkoak = registerBlock(new BlockFallenLeaves(), "fallenleaves_darkoak", false);
+		fallenleaves_acacia = registerBlock(new BlockFallenLeaves(), "fallenleaves_acacia", false);
+		fallenleaves_willow = registerBlock(new BlockFallenLeaves(), "fallenleaves_willow", false);
+		fallenleaves_mangrove = registerBlock(new BlockFallenLeaves(), "fallenleaves_mangrove", false);
+		fallenleaves_palm = registerBlock(new BlockFallenLeaves(), "fallenleaves_palm", false);
+		fallenleaves_redwood = registerBlock(new BlockFallenLeaves(), "fallenleaves_redwood", false);
+		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead", false);
 		
 		coconut = registerBlock(new BlockCoconut(), "coconut", false);
 	}

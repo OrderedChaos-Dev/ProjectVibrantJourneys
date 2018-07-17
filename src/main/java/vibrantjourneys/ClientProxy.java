@@ -1,6 +1,10 @@
 package vibrantjourneys;
 
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -35,5 +39,17 @@ public class ClientProxy implements ICommonProxy
 	public void registerWorldGenerator(IWorldGenerator worldgen)
 	{
 		GameRegistry.registerWorldGenerator(worldgen, 0);
+	}
+	
+	@Override
+	public void registerBlockColor(IBlockColor iblockcolor, Block block)
+	{
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(iblockcolor, block);
+	}
+	
+	@Override
+	public void registerItemColor(IItemColor iitemcolor, Item item)
+	{
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(iitemcolor, item);
 	}
 }

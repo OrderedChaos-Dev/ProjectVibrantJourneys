@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.passive.EntityFirefly;
@@ -15,6 +16,7 @@ import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.renderer.RenderFirefly;
 import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
+import vibrantjourneys.entities.renderer.RenderIceCube;
 import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSnail;
 import vibrantjourneys.util.Reference;
@@ -31,6 +33,7 @@ public class PVJEntities
 		
 		registerEntity("ghost", EntityGhost.class, 64, 0x000000, 0x000000, RenderGhost::new);
 		registerEntity("shade", EntityShade.class, 64, 0x0000F0, 0x000F00, RenderShade::new);
+		registerEntity("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xb3f0ff, RenderIceCube::new);
 		addSpawns();
 	}
 
@@ -52,5 +55,6 @@ public class PVJEntities
 		
 		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
 		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, Reference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityIceCube.class, 35, 2, 3, EnumCreatureType.MONSTER, Biomes.ICE_PLAINS);
 	}
 }

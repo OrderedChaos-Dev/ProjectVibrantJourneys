@@ -1,6 +1,9 @@
 package vibrantjourneys;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IBlockColor;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -19,4 +22,10 @@ public class ServerProxy implements ICommonProxy
 	
 	@Override
 	public void registerWorldGenerator(IWorldGenerator worldgen){}
+	
+	@Override
+	public void registerBlockColor(IBlockColor iblockcolor, Block block){}
+	
+	@Override
+	public void registerItemColor(IItemColor iitemcolor, Item item){}
 }
