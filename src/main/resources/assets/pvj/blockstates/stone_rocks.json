@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:stone_rocks0"},
+		"model=1": { "model": "pvj:stone_rocks1"},
+		"model=2": { "model": "pvj:stone_rocks2"},
+		"model=3": { "model": "pvj:stone_rocks3"},
+		"model=4": { "model": "pvj:stone_rocks4"}
+	}
+}

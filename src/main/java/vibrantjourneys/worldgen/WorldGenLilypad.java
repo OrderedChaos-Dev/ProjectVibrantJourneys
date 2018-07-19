@@ -32,6 +32,7 @@ public class WorldGenLilypad implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
+		
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		
@@ -43,13 +44,26 @@ public class WorldGenLilypad implements IWorldGenerator
 		
 		if(biome == Biomes.RIVER || (isFreshwater && !isRiver && !BiomeDictionary.hasType(biome, Type.SNOWY)))
 		{	
+			int yPos = 62;
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(4) - random.nextInt(4);
-				int zPos = z + random.nextInt(4) - random.nextInt(4);
-				int yPos = isRiver? 63 : 63 + random.nextInt(30);
+				int xPos = x + random.nextInt(8) - random.nextInt(8);
+				int zPos = z + random.nextInt(8) - random.nextInt(8);
+				
+				if(!isRiver)
+				{
+					yPos = 60;
+					for(int j = 0; j < 20; j++)
+					{
+						yPos += 1;
+						BlockPos waterPos = new BlockPos(xPos, yPos, zPos);
+						if(world.getBlockState(waterPos).getMaterial() == Material.WATER)
+							break;
+					}
+				}
+				
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
-				IBlockState state = world.getBlockState(pos.down());
+				IBlockState state = world.getBlockState(pos);
 				if(random.nextInt(4) == 0)
 				{
 					if(state.getMaterial() == Material.WATER)
@@ -69,17 +83,17 @@ public class WorldGenLilypad implements IWorldGenerator
 							
 							if(depth <= 3)
 							{
-								if(world.isAirBlock(pos))
+								if(world.isAirBlock(pos.up()))
 								{
-									world.setBlockState(pos, Blocks.WATERLILY.getDefaultState());
+									world.setBlockState(pos.up(), Blocks.WATERLILY.getDefaultState());
 								}
 							}
 						}
 						else
 						{
-							if(world.isAirBlock(pos))
+							if(world.isAirBlock(pos.up()))
 							{
-								world.setBlockState(pos, Blocks.WATERLILY.getDefaultState());
+								world.setBlockState(pos.up(), Blocks.WATERLILY.getDefaultState());
 							}
 						}
 					}

@@ -1,0 +1,8 @@
+{
+	"parent": "pvj:block/twigs3",
+    "textures": {
+        "particle": "blocks/log_acacia",
+        "0": "blocks/log_acacia",
+        "1": "pvj:blocks/leaves_redwood"
+    }
+}

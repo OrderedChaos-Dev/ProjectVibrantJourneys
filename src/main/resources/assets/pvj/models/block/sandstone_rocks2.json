@@ -1,0 +1,7 @@
+{
+	"parent": "pvj:block/rocks2",
+    "textures": {
+    	"particle": "blocks/sandstone_top",
+        "0": "blocks/sandstone_top"
+    }
+}

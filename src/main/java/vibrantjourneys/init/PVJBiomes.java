@@ -9,6 +9,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.biomes.BiomePrairie;
 import vibrantjourneys.biomes.BiomeRedwoods;
+import vibrantjourneys.util.BiomeReference;
 
 public class PVJBiomes 
 {
@@ -24,11 +25,15 @@ public class PVJBiomes
 	public static void registerBiome(Biome biome, String name, boolean hasVillages, BiomeType biomeType, Type... types)
 	{
 		biome.setRegistryName(name);
+
 		ForgeRegistries.BIOMES.register(biome);
 		BiomeDictionary.addTypes(biome, types);
 		BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 10));
 		BiomeManager.addSpawnBiome(biome);
 		if(hasVillages)
 			BiomeManager.addVillageBiome(biome, true);
+		
+		BiomeReference.ALL_BIOMES.add(biome);
+		BiomeReference.FRESHWATER_BIOMES.add(biome);
 	}
 }

@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "0": "pvj:blocks/coconut_side",
+        "1": "pvj:blocks/coconut_top"
+    },
+    "elements": [
+        {
+            "name": "coconut",
+            "from": [ 4.0, 10.0, 4.0 ], 
+            "to": [ 11.0, 16.0, 11.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 0.0, 0.0, 7.0, 6.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 7.0, 6.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 7.0, 6.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 7.0, 6.0 ] },
+                "up": { "texture": "#1", "uv": [ 0.0, 0.0, 7.0, 7.0 ] },
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 7.0, 7.0 ] }
+            }
+        }
+    ]
+}

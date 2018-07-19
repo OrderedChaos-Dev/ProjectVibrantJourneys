@@ -26,10 +26,10 @@ public class WorldGenWillowTreeSwamp implements IWorldGenerator
 
 		if(BiomeDictionary.hasType(biome, Type.SWAMP))
 		{
-			for(int i = 0; i < 15; i++)
+			for(int i = 0; i < 20; i++)
 			{
-				int xPos = x + random.nextInt(16) - random.nextInt(16);
-				int zPos = z + random.nextInt(16) - random.nextInt(16);
+				int xPos = x + random.nextInt(7) - random.nextInt(7);
+				int zPos = z + random.nextInt(7) - random.nextInt(7);
 				int yPos;
 				if(random.nextInt(10) == 0)
 				{

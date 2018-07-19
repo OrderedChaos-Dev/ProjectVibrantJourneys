@@ -29,8 +29,8 @@ public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 		{
 			for(int i = 0; i < 5; i++)
 			{
-				int xPos = x + random.nextInt(16) - random.nextInt(16);
-				int zPos = z + random.nextInt(16) - random.nextInt(16);
+				int xPos = x + random.nextInt(7) - random.nextInt(7);
+				int zPos = z + random.nextInt(7) - random.nextInt(7);
 				int yPos = 63;
 				if(random.nextInt(20) == 0)
 				{

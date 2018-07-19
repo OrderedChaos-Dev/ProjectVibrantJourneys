@@ -3,6 +3,8 @@ package vibrantjourneys.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -58,20 +60,24 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 					
 					if(world.isSideSolid(pos.down(), EnumFacing.UP))
 					{
-						if(world.isAirBlock(pos))
+						IBlockState state = world.getBlockState(pos);
+						if(world.isAirBlock(pos) || world.getBlockState(pos).getBlock().isReplaceable(world, pos))
 						{
-							if(yPos < 60 && world.canSeeSky(pos))
+							if(state.getMaterial() != Material.WATER)
 							{
-								if(world.setBlockState(pos, block.getDefaultState()))
+								if(yPos < 60 && world.canSeeSky(pos))
 								{
-									break;
+									if(world.setBlockState(pos, block.getDefaultState()))
+									{
+										break;
+									}
 								}
-							}
-							else
-							{
-								if(world.setBlockState(pos, block.getDefaultState()))
+								else if(yPos > 60)
 								{
-									break;
+									if(world.setBlockState(pos, block.getDefaultState()))
+									{
+										break;
+									}
 								}
 							}
 						}

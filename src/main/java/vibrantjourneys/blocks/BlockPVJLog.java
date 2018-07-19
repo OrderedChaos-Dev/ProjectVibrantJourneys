@@ -68,6 +68,7 @@ public class BlockPVJLog extends BlockLog implements IVariantHelper
                 break;
             case Z:
                 i = 2;
+                break;
             default:
 			i = 0;
 				break;

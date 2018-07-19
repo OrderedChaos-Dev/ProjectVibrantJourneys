@@ -51,11 +51,11 @@ public class PVJEntities
 	private static void addSpawns()
 	{
 		EntityRegistry.addSpawn(EntitySnail.class, 50, 1, 3, EnumCreatureType.CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
-		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
-		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityFly.class, 30, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityFirefly.class, 350, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES_ARRAY);
 		
-		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
-		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES);
+		EntityRegistry.addSpawn(EntityGhost.class, 75, 3, 4, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityShade.class, 95, 2, 3, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES_ARRAY);
 		EntityRegistry.addSpawn(EntityIceCube.class, 35, 2, 3, EnumCreatureType.MONSTER, BiomeReference.SNOW_BIOMES);
 	}
 }

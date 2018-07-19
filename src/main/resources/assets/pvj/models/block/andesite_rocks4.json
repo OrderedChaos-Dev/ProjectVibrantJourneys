@@ -1,0 +1,7 @@
+{
+	"parent": "pvj:block/rocks4",
+    "textures": {
+    	"particle": "blocks/stone_andesite",
+        "0": "blocks/stone_andesite"
+    }
+}

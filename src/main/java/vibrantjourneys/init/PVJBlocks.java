@@ -3,6 +3,7 @@ package vibrantjourneys.init;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -12,6 +13,7 @@ import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockFallenLeaves;
+import vibrantjourneys.blocks.BlockGroundLitter;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
@@ -49,6 +51,8 @@ public class PVJBlocks
 	public static Block palm_sapling;
 	public static Block redwood_sapling;
 	
+	public static Block coconut;
+	
 	public static Block fallenleaves_oak;
 	public static Block fallenleaves_birch;
 	public static Block fallenleaves_spruce;
@@ -61,7 +65,27 @@ public class PVJBlocks
 	public static Block fallenleaves_redwood;
 	public static Block fallenleaves_dead;
 	
-	public static Block coconut;
+	public static Block stone_rocks;
+	public static Block cobblestone_rocks;
+	public static Block mossy_cobblestone_rocks;
+	public static Block andesite_rocks;
+	public static Block granite_rocks;
+	public static Block diorite_rocks;
+	public static Block sandstone_rocks;
+	public static Block red_sandstone_rocks;
+	
+	public static Block oak_twigs;
+	public static Block birch_twigs;
+	public static Block spruce_twigs;
+	public static Block jungle_twigs;
+	public static Block acacia_twigs;
+	public static Block dark_oak_twigs;
+	public static Block willow_twigs;
+	public static Block mangrove_twigs;
+	public static Block palm_twigs;
+	public static Block redwood_twigs;
+	
+	public static Block bones;
 	
 	public static void initBlocks()
 	{
@@ -87,6 +111,8 @@ public class PVJBlocks
 		palm_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.PALM), "sapling_palm");
 		redwood_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.REDWOOD), "sapling_redwood");
 		
+		coconut = registerBlock(new BlockCoconut(), "coconut", false);
+		
 		fallenleaves_oak = registerBlock(new BlockFallenLeaves(), "fallenleaves_oak", false);
 		fallenleaves_birch = registerBlock(new BlockFallenLeaves(), "fallenleaves_birch", false);
 		fallenleaves_spruce = registerBlock(new BlockFallenLeaves(), "fallenleaves_spruce", false);
@@ -99,7 +125,27 @@ public class PVJBlocks
 		fallenleaves_redwood = registerBlock(new BlockFallenLeaves(), "fallenleaves_redwood", false);
 		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead", false);
 		
-		coconut = registerBlock(new BlockCoconut(), "coconut", false);
+		stone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "stone_rocks");
+		cobblestone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "cobblestone_rocks");
+		mossy_cobblestone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "mossy_cobblestone_rocks");
+		andesite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "andesite_rocks");
+		granite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "granite_rocks");
+		diorite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "diorite_rocks");
+		sandstone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "sandstone_rocks");
+		red_sandstone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "red_sandstone_rocks");
+		
+		oak_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "oak_twigs");
+		birch_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "birch_twigs");
+		spruce_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "spruce_twigs");
+		jungle_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "jungle_twigs");
+		acacia_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "acacia_twigs");
+		dark_oak_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "dark_oak_twigs");
+		willow_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "willow_twigs");
+		mangrove_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "mangrove_twigs");
+		palm_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "palm_twigs");
+		redwood_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "redwood_twigs");
+		
+		bones = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "bones");
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)

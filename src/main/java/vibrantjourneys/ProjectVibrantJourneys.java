@@ -58,7 +58,6 @@ public class ProjectVibrantJourneys
     	registerFallenLeavesColors2(PVJBlocks.fallenleaves_darkoak, BlockPlanks.EnumType.DARK_OAK);
     	registerFallenLeavesColors2(PVJBlocks.fallenleaves_acacia, BlockPlanks.EnumType.ACACIA);
     	
-		System.out.println(BiomeReference.FRESHWATER_BIOMES);
 		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
     }
     

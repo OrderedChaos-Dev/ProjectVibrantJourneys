@@ -25,12 +25,12 @@ public class WorldGenPalmTreeBeach implements IWorldGenerator
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		//beach but not cold beach
 		//who wants a palm tree in the middle of a frozen beach?
-		if(BiomeDictionary.hasType(biome, Type.BEACH) && !BiomeDictionary.hasType(biome, Type.COLD))
+		if(BiomeDictionary.hasType(biome, Type.JUNGLE) || (BiomeDictionary.hasType(biome, Type.BEACH) && !BiomeDictionary.hasType(biome, Type.COLD)))
 		{
-			for(int i = 0; i < 6; i++)
+			for(int i = 0; i < 5; i++)
 			{
-				int xPos = x + random.nextInt(16) - random.nextInt(16);
-				int zPos = z + random.nextInt(16) - random.nextInt(16);
+				int xPos = x + random.nextInt(4) - random.nextInt(4);
+				int zPos = z + random.nextInt(4) - random.nextInt(4);
 				int yPos;
 				if(random.nextInt(6) == 0)
 				{

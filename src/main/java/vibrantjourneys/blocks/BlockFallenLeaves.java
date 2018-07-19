@@ -12,6 +12,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -74,6 +75,26 @@ public class BlockFallenLeaves extends Block
     public boolean isFullCube(IBlockState state)
     {
         return false;
+    }
+	
+    private boolean canBlockStay(World world, BlockPos pos)
+    {
+        return world.isSideSolid(pos.down(), EnumFacing.UP);
+    }
+    
+	@Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return super.canPlaceBlockAt(worldIn, pos) ? this.canBlockStay(worldIn, pos) : false;
+    }
+	
+	@Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
+    {
+        if (!this.canBlockStay(worldIn, pos))
+        {
+            worldIn.setBlockToAir(pos);
+        }
     }
 	
 	@Override

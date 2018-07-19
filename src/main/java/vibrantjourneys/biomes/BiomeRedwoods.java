@@ -84,26 +84,26 @@ public class BiomeRedwoods extends Biome
     }
 
 	@Override
-    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
+    public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimer, int x, int z, double noiseVal)
     {
     	this.topBlock = Blocks.GRASS.getDefaultState();
     	this.fillerBlock = Blocks.DIRT.getDefaultState();
 
-    	if (noiseVal > 1.85D)
+    	if (noiseVal > 1.75D)
     	{
     		this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
     	}
-    	else if(noiseVal <= 1.85 && noiseVal > 1.55)
+    	else if(noiseVal <= 1.75D && noiseVal > 1.35D)
     	{
-    		this.topBlock = Blocks.STONE.getDefaultState();
-    		this.fillerBlock = Blocks.STONE.getDefaultState();
+        	this.topBlock = Blocks.STONE.getDefaultState();
+        	this.fillerBlock = Blocks.STONE.getDefaultState();
     	}
     	else if (noiseVal > -0.90D)
     	{
     		this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
     	}
 
-        this.generateBiomeTerrain(worldIn, rand, chunkPrimerIn, x, z, noiseVal);
+        this.generateBiomeTerrain(worldIn, rand, chunkPrimer, x, z, noiseVal);
     }
 	
     @SideOnly(Side.CLIENT)

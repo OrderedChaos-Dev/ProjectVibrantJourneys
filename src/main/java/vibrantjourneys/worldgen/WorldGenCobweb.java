@@ -30,8 +30,8 @@ public class WorldGenCobweb implements IWorldGenerator
 		{
 			for(int i = 0; i < 100; i++)
 			{
-				int xPos = x + random.nextInt(16) - random.nextInt(16);
-				int zPos = z + random.nextInt(16) - random.nextInt(16);
+				int xPos = x + random.nextInt(8) - random.nextInt(8);
+				int zPos = z + random.nextInt(8) - random.nextInt(8);
 				int yPos = 63 + random.nextInt(20);
 				if(random.nextInt(7) == 0)
 				{
