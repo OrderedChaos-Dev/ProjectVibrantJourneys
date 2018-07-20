@@ -15,6 +15,13 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenPalmTreeBeach implements IWorldGenerator
 {
+	private int frequency;
+	
+	public WorldGenPalmTreeBeach(int frequency)
+	{
+		this.frequency = frequency;
+	}
+	
 	public WorldGenPalmTree palmtreegen = new WorldGenPalmTree();
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
@@ -27,7 +34,7 @@ public class WorldGenPalmTreeBeach implements IWorldGenerator
 		//who wants a palm tree in the middle of a frozen beach?
 		if(BiomeDictionary.hasType(biome, Type.JUNGLE) || (BiomeDictionary.hasType(biome, Type.BEACH) && !BiomeDictionary.hasType(biome, Type.COLD)))
 		{
-			for(int i = 0; i < 5; i++)
+			for(int i = 0; i < frequency; i++)
 			{
 				int xPos = x + random.nextInt(4) - random.nextInt(4);
 				int zPos = z + random.nextInt(4) - random.nextInt(4);

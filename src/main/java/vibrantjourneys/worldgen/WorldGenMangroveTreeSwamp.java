@@ -16,6 +16,12 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 {
 	public WorldGenMangroveTree mangrovetreegen = new WorldGenMangroveTree();
+	private int frequency;
+	
+	public WorldGenMangroveTreeSwamp(int frequency)
+	{
+		this.frequency = frequency;
+	}
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
@@ -27,7 +33,7 @@ public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 		
 		if(BiomeDictionary.hasType(biome, Type.SWAMP) || BiomeDictionary.hasType(biome, Type.JUNGLE))
 		{
-			for(int i = 0; i < 5; i++)
+			for(int i = 0; i < frequency; i++)
 			{
 				int xPos = x + random.nextInt(7) - random.nextInt(7);
 				int zPos = z + random.nextInt(7) - random.nextInt(7);

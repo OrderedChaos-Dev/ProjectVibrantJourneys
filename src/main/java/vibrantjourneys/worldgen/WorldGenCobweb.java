@@ -2,7 +2,6 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -17,7 +16,12 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenCobweb implements IWorldGenerator
 {
-	public Block cobweb = Blocks.WEB;
+	private int frequency;
+	
+	public WorldGenCobweb(int frequency)
+	{
+		this.frequency = frequency;
+	}
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
@@ -28,7 +32,7 @@ public class WorldGenCobweb implements IWorldGenerator
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		if(BiomeDictionary.hasType(biome, Type.FOREST) || BiomeDictionary.hasType(biome, Type.SWAMP) || BiomeDictionary.hasType(biome, Type.JUNGLE))
 		{
-			for(int i = 0; i < 100; i++)
+			for(int i = 0; i < frequency; i++)
 			{
 				int xPos = x + random.nextInt(8) - random.nextInt(8);
 				int zPos = z + random.nextInt(8) - random.nextInt(8);
@@ -42,7 +46,7 @@ public class WorldGenCobweb implements IWorldGenerator
 					{
 						if(world.isAirBlock(pos))
 						{
-							world.setBlockState(pos, cobweb.getDefaultState());
+							world.setBlockState(pos,Blocks.WEB.getDefaultState());
 						}
 					}
 				}

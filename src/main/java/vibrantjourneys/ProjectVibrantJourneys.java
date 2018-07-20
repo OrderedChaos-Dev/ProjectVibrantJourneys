@@ -13,6 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -44,6 +45,8 @@ public class ProjectVibrantJourneys
     	PVJBiomes.initBiomes();
     	PVJItems.initItems();
     	PVJBlocks.initBlocks();
+    	
+    	MinecraftForge.EVENT_BUS.register(new PVJConfig.ConfigEventHandler());
     }
 
     @EventHandler
