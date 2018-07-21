@@ -72,9 +72,7 @@ public class BiomeReference
 			.filter(biome -> !(BiomeDictionary.hasType(biome, Type.NETHER) || BiomeDictionary.hasType(biome, Type.END)))
 			.collect(Collectors.toList()));
     
-    public static final Biome[] OVERWORLD_BIOMES_ARRAY = new ArrayList<Biome>(ALL_BIOMES.stream()
-			.filter(biome -> !(BiomeDictionary.hasType(biome, Type.NETHER) || BiomeDictionary.hasType(biome, Type.END)))
-			.collect(Collectors.toList())).toArray(new Biome[0]);
+    public static final Biome[] OVERWORLD_BIOMES_ARRAY = OVERWORLD_BIOMES.toArray(new Biome[0]);
     
 	public static final ArrayList<Biome> FRESHWATER_BIOMES = new ArrayList<Biome>(OVERWORLD_BIOMES.stream()
 			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach))

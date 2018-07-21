@@ -52,7 +52,7 @@ public class EntityFly extends EntityAmbientCreature
 
         if(!this.world.isRemote)
         {
-	        if(this.world.isDaytime())
+	        if(this.world.isDaytime() && this instanceof EntityFirefly)
 	        {
 	        	if(this.getRNG().nextInt(500) == 0)
 	        	{
@@ -101,6 +101,11 @@ public class EntityFly extends EntityAmbientCreature
         	this.motionX = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
         	this.motionY = 0;
         	this.motionZ = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
+        	
+        	if(this.getRNG().nextInt(2000) == 0)
+        	{
+        		world.removeEntity(this);
+        	}
 		}
     }
     

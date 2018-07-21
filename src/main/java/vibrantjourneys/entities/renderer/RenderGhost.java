@@ -15,7 +15,7 @@ import vibrantjourneys.util.Reference;
 @SideOnly(Side.CLIENT)
 public class RenderGhost extends RenderBiped<EntityGhost>
 {
-    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "ghost");
+    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/ghost.png");
 
     public RenderGhost(RenderManager renderManagerIn)
     {

@@ -13,7 +13,7 @@ import vibrantjourneys.util.Reference;
 
 public class RenderFirefly extends RenderLiving<EntityFirefly>
 {
-    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "firefly");
+    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/firefly.png");
 
     public RenderFirefly(RenderManager rendermanagerIn)
     {

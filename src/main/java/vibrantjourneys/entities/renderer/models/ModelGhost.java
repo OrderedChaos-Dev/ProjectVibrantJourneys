@@ -1,6 +1,7 @@
 package vibrantjourneys.entities.renderer.models;
 
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
@@ -14,6 +15,15 @@ public class ModelGhost extends ModelBiped
     public ModelGhost(float modelSize, boolean p_i1168_2_)
     {
         super(modelSize, 0.0F, 64, p_i1168_2_ ? 32 : 64);
+    }
+    
+    @Override
+    public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale)
+    {
+        GlStateManager.enableBlend();
+        GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
+    	super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+        GlStateManager.disableBlend();
     }
 
     @Override

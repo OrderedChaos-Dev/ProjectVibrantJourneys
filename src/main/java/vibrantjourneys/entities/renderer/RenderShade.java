@@ -15,7 +15,7 @@ import vibrantjourneys.util.Reference;
 @SideOnly(Side.CLIENT)
 public class RenderShade extends RenderBiped<EntityShade>
 {
-    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "shade");
+    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/shade.png");
 
     public RenderShade(RenderManager renderManagerIn)
     {

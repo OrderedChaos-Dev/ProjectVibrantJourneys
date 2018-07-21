@@ -10,8 +10,8 @@ public class ModelFly extends ModelBase
 
     public ModelFly()
     {
-        this.textureWidth = 64;
-        this.textureHeight = 32;
+        this.textureWidth = 1;
+        this.textureHeight = 1;
         this.body = new ModelRenderer(this, 0, 0);
         this.body.setRotationPoint(0.0F, 32.5F, 0F);
         this.body.addBox(0.0F, -10.0F, 0.0F, 1, 1, 1, 0.0F);

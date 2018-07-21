@@ -13,7 +13,7 @@ import vibrantjourneys.util.Reference;
 
 public class RenderSnail extends RenderLiving<EntitySnail>
 {
-    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "snail");
+    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/snail.png");
 
     public RenderSnail(RenderManager rendermanagerIn)
     {

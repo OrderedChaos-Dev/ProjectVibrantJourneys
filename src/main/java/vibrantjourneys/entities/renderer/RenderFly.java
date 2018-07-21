@@ -13,7 +13,7 @@ import vibrantjourneys.util.Reference;
 
 public class RenderFly extends RenderLiving<EntityFly>
 {
-    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "fly");
+    private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/fly.png");
 
     public RenderFly(RenderManager rendermanagerIn)
     {
