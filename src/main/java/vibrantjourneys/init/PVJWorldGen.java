@@ -75,11 +75,11 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.red_sandstone_rocks, 55, 75, PVJConfig.worldgen.redSandstoneRocksDensity, BiomeReference.DEAD_TREE_BIOMES));
 		
 		//underground
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.stone_rocks, 1, 60, PVJConfig.worldgen.stoneRocksCaveDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.cobblestone_rocks, 1, 60, PVJConfig.worldgen.cobblestoneRocksCaveDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.andesite_rocks, 1, 60, PVJConfig.worldgen.andesiteRocksCaveDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.granite_rocks, 1, 60, PVJConfig.worldgen.graniteCaveDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.diorite_rocks, 1, 60, PVJConfig.worldgen.dioriteRocksCaveDensity, BiomeReference.ALL_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.stone_rocks, 1, 60, PVJConfig.worldgen.stoneRocksCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.cobblestone_rocks, 1, 60, PVJConfig.worldgen.cobblestoneRocksCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.andesite_rocks, 1, 60, PVJConfig.worldgen.andesiteRocksCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.granite_rocks, 1, 60, PVJConfig.worldgen.graniteCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.diorite_rocks, 1, 60, PVJConfig.worldgen.dioriteRocksCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.oak_twigs, 60, 100, PVJConfig.worldgen.oakTwigsDensity, BiomeReference.OAK_TREE_BIOMES));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.oak_twigs, 60, 100, PVJConfig.worldgen.oakTwigsSparseDensity, BiomeReference.OAK_TREE_SPARSE_BIOMES));
@@ -95,8 +95,9 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.palm_twigs, 60, 100, PVJConfig.worldgen.palmTwigsDensity, BiomeReference.PALM_TREE_BIOMES));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.redwood_twigs, 60, 100, PVJConfig.worldgen.redwoodTwigsDensity, BiomeReference.REDWOOD_TREE_BIOMES));
 		
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.ALL_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDesertDensity, BiomeDictionary.getBiomes(Type.SANDY).toArray(new Biome[0])));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 150, PVJConfig.worldgen.bonesNetherDensity, BiomeReference.NETHER));
 	}
 	
 	public static void registerWorldGen(IWorldGenerator worldgen)

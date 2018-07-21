@@ -92,6 +92,7 @@ public class PVJConfig
 		public int redwoodTwigsDensity = 600;
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
+		public int bonesNetherDensity = 15;
 	}
 	
 	public static class BiomesSubCategory

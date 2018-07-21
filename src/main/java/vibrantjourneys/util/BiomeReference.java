@@ -68,12 +68,23 @@ public class BiomeReference
     public static final ArrayList<Biome> ALL_BIOMES = new ArrayList<Biome>(ForgeRegistries.BIOMES.getValuesCollection());
     public static final Biome[] ALL_BIOMES_ARRAY = ALL_BIOMES.toArray(new Biome[0]);
     
-	//don't ask why.
-	public static final ArrayList<Biome> FRESHWATER_BIOMES = new ArrayList<Biome>(ALL_BIOMES.stream()
+    public static final ArrayList<Biome> OVERWORLD_BIOMES = new ArrayList<Biome>(ALL_BIOMES.stream()
+			.filter(biome -> !(BiomeDictionary.hasType(biome, Type.NETHER) || BiomeDictionary.hasType(biome, Type.END)))
+			.collect(Collectors.toList()));
+    
+    public static final Biome[] OVERWORLD_BIOMES_ARRAY = new ArrayList<Biome>(ALL_BIOMES.stream()
+			.filter(biome -> !(BiomeDictionary.hasType(biome, Type.NETHER) || BiomeDictionary.hasType(biome, Type.END)))
+			.collect(Collectors.toList())).toArray(new Biome[0]);
+    
+	public static final ArrayList<Biome> FRESHWATER_BIOMES = new ArrayList<Biome>(OVERWORLD_BIOMES.stream()
 			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach))
 			.collect(Collectors.toList()));
 	
 	public static final Biome[] SNOW_BIOMES = BiomeDictionary.getBiomes(Type.SNOWY).toArray(new Biome[0]);
+	
+	public static final Biome[] NETHER = BiomeDictionary.getBiomes(Type.NETHER).toArray(new Biome[0]);
+	
+	public static final Biome[] END = BiomeDictionary.getBiomes(Type.END).toArray(new Biome[0]);
     
     //REMOVE IN 1.13
     //---------------------------------------------------

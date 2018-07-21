@@ -52,11 +52,11 @@ public class PVJEntities
 	private static void addSpawns()
 	{
 		EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 1, 3, EnumCreatureType.CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
-		EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES_ARRAY);
-		EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.ALL_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.OVERWORLD_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.OVERWORLD_BIOMES_ARRAY);
 		
-		EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 3, 4, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES_ARRAY);
-		EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.ALL_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 3, 4, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
 		EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.SNOW_BIOMES);
 	}
 }
