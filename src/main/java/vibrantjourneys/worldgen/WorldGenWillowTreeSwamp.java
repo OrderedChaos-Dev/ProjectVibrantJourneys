@@ -16,12 +16,14 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenWillowTreeSwamp implements IWorldGenerator
 {
 	private int frequency;
+	
 	public WorldGenWillowTreeSwamp(int frequency)
 	{
 		this.frequency = frequency;
 	}
 	
 	public WorldGenWillowTree willowtreegen = new WorldGenWillowTree();
+	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
 	{

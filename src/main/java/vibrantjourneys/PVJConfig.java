@@ -108,8 +108,9 @@ public class PVJConfig
 		public int fireflySpawnWeight = 350;
 		
 		public int ghostSpawnWeight = 75;
-		public int shadeSpawnWeight = 95;
+		public int shadeSpawnWeight = 85;
 		public int icecubeSpawnWeight = 35;
+		public int skeletalKnightWeight = 85;
 	}
 	
 	@Mod.EventBusSubscriber

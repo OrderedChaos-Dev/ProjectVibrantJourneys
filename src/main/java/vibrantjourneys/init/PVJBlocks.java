@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCoconut;
+import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundLitter;
 import vibrantjourneys.blocks.BlockPVJLeaves;
@@ -87,6 +88,9 @@ public class PVJBlocks
 	
 	public static Block bones;
 	
+	public static Block cracked_sand;
+	public static Block red_cracked_sand;
+	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick", false);
@@ -96,20 +100,20 @@ public class PVJBlocks
 		palm_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.PALM), "planks_palm", false);
 		redwood_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.REDWOOD), "planks_redwood", false);
 		
-		willow_log = registerBlockWithVariants(new BlockPVJLog(EnumWoodType.WILLOW), "log_willow");
-		mangrove_log = registerBlockWithVariants(new BlockPVJLog(EnumWoodType.MANGROVE), "log_mangrove");
-		palm_log = registerBlockWithVariants(new BlockPVJLog(EnumWoodType.PALM), "log_palm");
-		redwood_log = registerBlockWithVariants(new BlockPVJLog(EnumWoodType.REDWOOD), "log_redwood");
+		willow_log = registerBlockWithProperties(new BlockPVJLog(EnumWoodType.WILLOW), "log_willow");
+		mangrove_log = registerBlockWithProperties(new BlockPVJLog(EnumWoodType.MANGROVE), "log_mangrove");
+		palm_log = registerBlockWithProperties(new BlockPVJLog(EnumWoodType.PALM), "log_palm");
+		redwood_log = registerBlockWithProperties(new BlockPVJLog(EnumWoodType.REDWOOD), "log_redwood");
 		
-		willow_leaves = registerBlockWithVariants(new BlockPVJLeaves(EnumWoodType.WILLOW), "leaves_willow");
-		mangrove_leaves = registerBlockWithVariants(new BlockPVJLeaves(EnumWoodType.MANGROVE), "leaves_mangrove");
-		palm_leaves = registerBlockWithVariants(new BlockPVJLeaves(EnumWoodType.PALM), "leaves_palm");
-		redwood_leaves = registerBlockWithVariants(new BlockPVJLeaves(EnumWoodType.REDWOOD), "leaves_redwood");
+		willow_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.WILLOW), "leaves_willow");
+		mangrove_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.MANGROVE), "leaves_mangrove");
+		palm_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.PALM), "leaves_palm");
+		redwood_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.REDWOOD), "leaves_redwood");
 		
-		willow_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.WILLOW), "sapling_willow");
-		mangrove_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.MANGROVE), "sapling_mangrove");
-		palm_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.PALM), "sapling_palm");
-		redwood_sapling = registerBlockWithVariants(new BlockPVJSapling(EnumWoodType.REDWOOD), "sapling_redwood");
+		willow_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.WILLOW), "sapling_willow");
+		mangrove_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.MANGROVE), "sapling_mangrove");
+		palm_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.PALM), "sapling_palm");
+		redwood_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.REDWOOD), "sapling_redwood");
 		
 		coconut = registerBlock(new BlockCoconut(), "coconut", false);
 		
@@ -125,27 +129,30 @@ public class PVJBlocks
 		fallenleaves_redwood = registerBlock(new BlockFallenLeaves(), "fallenleaves_redwood", false);
 		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead", false);
 		
-		stone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "stone_rocks");
-		cobblestone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "cobblestone_rocks");
-		mossy_cobblestone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "mossy_cobblestone_rocks");
-		andesite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "andesite_rocks");
-		granite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "granite_rocks");
-		diorite_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "diorite_rocks");
-		sandstone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "sandstone_rocks");
-		red_sandstone_rocks = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "red_sandstone_rocks");
+		stone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "stone_rocks");
+		cobblestone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "cobblestone_rocks");
+		mossy_cobblestone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "mossy_cobblestone_rocks");
+		andesite_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "andesite_rocks");
+		granite_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "granite_rocks");
+		diorite_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "diorite_rocks");
+		sandstone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "sandstone_rocks");
+		red_sandstone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "red_sandstone_rocks");
 		
-		oak_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "oak_twigs");
-		birch_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "birch_twigs");
-		spruce_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "spruce_twigs");
-		jungle_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "jungle_twigs");
-		acacia_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "acacia_twigs");
-		dark_oak_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "dark_oak_twigs");
-		willow_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "willow_twigs");
-		mangrove_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "mangrove_twigs");
-		palm_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "palm_twigs");
-		redwood_twigs = registerBlockWithVariants(new BlockGroundLitter(Material.PLANTS), "redwood_twigs");
+		oak_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "oak_twigs");
+		birch_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "birch_twigs");
+		spruce_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "spruce_twigs");
+		jungle_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "jungle_twigs");
+		acacia_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "acacia_twigs");
+		dark_oak_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "dark_oak_twigs");
+		willow_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "willow_twigs");
+		mangrove_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "mangrove_twigs");
+		palm_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "palm_twigs");
+		redwood_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "redwood_twigs");
 		
-		bones = registerBlockWithVariants(new BlockGroundLitter(Material.ROCK), "bones");
+		bones = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "bones");
+		
+		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand", false);
+		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand", false);		
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)
@@ -166,7 +173,7 @@ public class PVJBlocks
 		return block;
 	}
 	
-	private static Block registerBlockWithVariants(Block block, String name)
+	private static Block registerBlockWithProperties(Block block, String name)
 	{
 		registerBlock(block, name, true);
 		IVariantHelper PVJblock = (IVariantHelper)block;

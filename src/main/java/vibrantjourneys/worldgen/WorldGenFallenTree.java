@@ -50,79 +50,79 @@ public class WorldGenFallenTree implements IWorldGenerator
 			}
 		}
 		
-		if(!isValidBiome)
-			return;
-		
-		int length = 3 + random.nextInt(4);
-		boolean hasBranch = random.nextBoolean();
-		EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
-		
-		int xPos = x;
-		int zPos = z;
-		
-		for(int i = 0; i < frequency; i++)
+		if(isValidBiome)
 		{
-			xPos = x + random.nextInt(3);
-			zPos = z + random.nextInt(3);
+			int length = 3 + random.nextInt(4);
+			boolean hasBranch = random.nextBoolean();
+			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
 			
-			y = 60 + random.nextInt(30);
-			BlockPos testpos = new BlockPos(xPos, y, zPos);
+			int xPos = x;
+			int zPos = z;
 			
-			if(world.isAirBlock(new BlockPos(xPos, y, zPos)) && world.isSideSolid(testpos.down(), EnumFacing.UP))
-				break;
-		}
-		
-		if(!world.isSideSolid(new BlockPos(xPos, y - 1, zPos), EnumFacing.UP)) return;
-		
-		IBlockState log = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
-		
-		for(int i = 0; i < length; i++)
-		{
-			xPos += facing.getFrontOffsetX();
-			zPos += facing.getFrontOffsetZ();
-			BlockPos pos = new BlockPos(xPos, y , zPos);
-			IBlockState state = world.getBlockState(pos);
-			
-			//so it doesn't float in the air
-			while(world.isAirBlock(pos.down()) || world.getBlockState(pos.down()).getBlock().isReplaceable(world, pos.down()))
+			for(int i = 0; i < frequency; i++)
 			{
-				pos = pos.down();
-				state = world.getBlockState(pos);
+				xPos = x + random.nextInt(3);
+				zPos = z + random.nextInt(3);
+				
+				y = 60 + random.nextInt(30);
+				BlockPos testpos = new BlockPos(xPos, y, zPos);
+				
+				if(world.isAirBlock(new BlockPos(xPos, y, zPos)) && world.isSideSolid(testpos.down(), EnumFacing.UP))
+					break;
 			}
 			
-			if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+			if(!world.isSideSolid(new BlockPos(xPos, y - 1, zPos), EnumFacing.UP)) return;
+			
+			IBlockState log = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
+			
+			for(int i = 0; i < length; i++)
 			{
-				world.setBlockState(pos, log);
-				if(hasBranch)
+				xPos += facing.getFrontOffsetX();
+				zPos += facing.getFrontOffsetZ();
+				BlockPos pos = new BlockPos(xPos, y , zPos);
+				IBlockState state = world.getBlockState(pos);
+				
+				//so it doesn't float in the air
+				while(world.isAirBlock(pos.down()) || world.getBlockState(pos.down()).getBlock().isReplaceable(world, pos.down()))
 				{
-					if(random.nextInt(length) < i)
+					pos = pos.down();
+					state = world.getBlockState(pos);
+				}
+				
+				if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+				{
+					world.setBlockState(pos, log);
+					if(hasBranch)
 					{
-						EnumFacing branchfacing = getHorizontalPerpendicular(facing.getHorizontalIndex());
-						
-						int xbranch = xPos + branchfacing.getFrontOffsetX();
-						int zbranch = zPos + branchfacing.getFrontOffsetZ();
-						
-						pos = new BlockPos(xbranch, y, zbranch);
-						state = world.getBlockState(pos);
-						
-						if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+						if(random.nextInt(length) < i)
 						{
-							while(world.isAirBlock(pos.down()))
-							{
-								pos = pos.down();
-								state = world.getBlockState(pos);
-							}
+							EnumFacing branchfacing = getHorizontalPerpendicular(facing.getHorizontalIndex());
 							
-							state = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(branchfacing.getAxis()));
-							world.setBlockState(pos, state);
-							hasBranch = false;
+							int xbranch = xPos + branchfacing.getFrontOffsetX();
+							int zbranch = zPos + branchfacing.getFrontOffsetZ();
+							
+							pos = new BlockPos(xbranch, y, zbranch);
+							state = world.getBlockState(pos);
+							
+							if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+							{
+								while(world.isAirBlock(pos.down()))
+								{
+									pos = pos.down();
+									state = world.getBlockState(pos);
+								}
+								
+								state = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(branchfacing.getAxis()));
+								world.setBlockState(pos, state);
+								hasBranch = false;
+							}
 						}
 					}
 				}
-			}
-			else
-			{
-				break;
+				else
+				{
+					break;
+				}
 			}
 		}
 	}

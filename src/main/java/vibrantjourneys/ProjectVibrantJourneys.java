@@ -1,5 +1,8 @@
 package vibrantjourneys;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockNewLeaf;
 import net.minecraft.block.BlockOldLeaf;
@@ -13,6 +16,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -62,6 +66,21 @@ public class ProjectVibrantJourneys
     	registerFallenLeavesColors2(PVJBlocks.fallenleaves_acacia, BlockPlanks.EnumType.ACACIA);
     	
 		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
+		
+		//removes wheat seed drop...yes ignore the raw type
+		Field field;
+		try
+		{
+			field = ForgeHooks.class.getDeclaredField("seedList");
+			field.setAccessible(true);
+			
+			ArrayList seeds = (ArrayList) field.get(ForgeHooks.class);
+			seeds.remove(0);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
     }
     
     public void registerFallenLeavesColors(Block leafBlock, BlockPlanks.EnumType type)

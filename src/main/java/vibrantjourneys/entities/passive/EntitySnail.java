@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -43,6 +44,19 @@ public class EntitySnail extends EntityAnimal
     public void onLivingUpdate()
     {
         super.onLivingUpdate();
+
+    }
+	
+	@Override
+    protected boolean canDespawn()
+    {
+        return true;
+    }
+	
+	@Override
+    protected int getExperiencePoints(EntityPlayer player)
+    {
+        return 1;
     }
     
     //Override parent for no collision/no fall damage

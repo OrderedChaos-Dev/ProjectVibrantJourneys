@@ -10,6 +10,7 @@ import vibrantjourneys.PVJConfig;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
+import vibrantjourneys.entities.monster.EntitySkeletalKnight;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
@@ -19,6 +20,7 @@ import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
 import vibrantjourneys.entities.renderer.RenderIceCube;
 import vibrantjourneys.entities.renderer.RenderShade;
+import vibrantjourneys.entities.renderer.RenderSkeletalKnight;
 import vibrantjourneys.entities.renderer.RenderSnail;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.Reference;
@@ -36,6 +38,8 @@ public class PVJEntities
 		registerEntity("ghost", EntityGhost.class, 64, 0x000000, 0x000000, RenderGhost::new);
 		registerEntity("shade", EntityShade.class, 64, 0x0000F0, 0x000F00, RenderShade::new);
 		registerEntity("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xb3f0ff, RenderIceCube::new);
+		registerEntity("skeletal_knight", EntitySkeletalKnight.class, 64, 0x66e0ff, 0xbcf3ff, RenderSkeletalKnight::new);
+		
 		addSpawns();
 	}
 
@@ -55,8 +59,9 @@ public class PVJEntities
 		EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.OVERWORLD_BIOMES_ARRAY);
 		EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.OVERWORLD_BIOMES_ARRAY);
 		
-		EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 3, 4, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
-		EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
+		EntityRegistry.addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.OVERWORLD_BIOMES_ARRAY);
 		EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.SNOW_BIOMES);
 	}
 }

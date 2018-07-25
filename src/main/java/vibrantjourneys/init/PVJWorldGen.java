@@ -65,12 +65,12 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, BiomeReference.OAK_TREE_SPARSE_BIOMES));
 	
 		//surface
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.stone_rocks, 60, 100, PVJConfig.worldgen.stoneRocksDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.cobblestone_rocks, 60, 100, PVJConfig.worldgen.cobblestoneRocksDensity, BiomeReference.ALL_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.stone_rocks, 60, 100, PVJConfig.worldgen.stoneRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.cobblestone_rocks, 60, 100, PVJConfig.worldgen.cobblestoneRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.mossy_cobblestone_rocks, 40, 100, PVJConfig.worldgen.mossyCobblestoneRocksDensity, BiomeReference.MOSSY_COBBLESTONE_BOMES));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.andesite_rocks, 60, 100, PVJConfig.worldgen.andesiteRocksDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.granite_rocks, 60, 100, PVJConfig.worldgen.graniteRocksDensity, BiomeReference.ALL_BIOMES_ARRAY));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.diorite_rocks, 60, 100, PVJConfig.worldgen.dioriteRocksDensity, BiomeReference.ALL_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.andesite_rocks, 60, 100, PVJConfig.worldgen.andesiteRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.granite_rocks, 60, 100, PVJConfig.worldgen.graniteRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.diorite_rocks, 60, 100, PVJConfig.worldgen.dioriteRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.sandstone_rocks, 50, 100, PVJConfig.worldgen.sandstoneRocksDensity, BiomeReference.SANDSTONE_BIOMES));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.red_sandstone_rocks, 55, 75, PVJConfig.worldgen.redSandstoneRocksDensity, BiomeReference.DEAD_TREE_BIOMES));
 		
