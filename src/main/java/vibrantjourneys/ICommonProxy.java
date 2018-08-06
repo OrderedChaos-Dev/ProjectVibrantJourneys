@@ -1,6 +1,7 @@
 package vibrantjourneys;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -22,4 +23,6 @@ public interface ICommonProxy
 	public void registerBlockColor(IBlockColor iblockcolor, Block block);
 	
 	public void registerItemColor(IItemColor iitemcolor, Item item);
+	
+	public void setIgnoredPropertiesForModel(Item item, IProperty<?>... properties);
 }

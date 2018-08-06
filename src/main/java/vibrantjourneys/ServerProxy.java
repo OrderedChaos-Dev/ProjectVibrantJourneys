@@ -1,6 +1,7 @@
 package vibrantjourneys;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -28,4 +29,7 @@ public class ServerProxy implements ICommonProxy
 	
 	@Override
 	public void registerItemColor(IItemColor iitemcolor, Item item){}
+	
+	@Override
+	public void setIgnoredPropertiesForModel(Item item, IProperty<?>... properties){}
 }

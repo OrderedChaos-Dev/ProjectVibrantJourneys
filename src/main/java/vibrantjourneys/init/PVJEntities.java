@@ -8,6 +8,7 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.PVJConfig;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.entities.item.EntityPVJBoat;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
@@ -19,6 +20,7 @@ import vibrantjourneys.entities.renderer.RenderFirefly;
 import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
 import vibrantjourneys.entities.renderer.RenderIceCube;
+import vibrantjourneys.entities.renderer.RenderPVJBoat;
 import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSkeletalKnight;
 import vibrantjourneys.entities.renderer.RenderSnail;
@@ -31,26 +33,34 @@ public class PVJEntities
 	
 	public static void initEntities()
 	{
-		registerEntity("snail", EntitySnail.class, 64, 0x6D453D, 0x677B5C, RenderSnail::new);
-		registerEntity("fly", EntityFly.class, 64, 0x3F000D, 0xE8E93D, RenderFly::new);
-		registerEntity("firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D, RenderFirefly::new);
+		registerEntityWithEgg("snail", EntitySnail.class, 64, 0x6D453D, 0x677B5C, RenderSnail::new);
+		registerEntityWithEgg("fly", EntityFly.class, 64, 0x3F000D, 0xE8E93D, RenderFly::new);
+		registerEntityWithEgg("firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D, RenderFirefly::new);
 		
-		registerEntity("ghost", EntityGhost.class, 64, 0x000000, 0x000000, RenderGhost::new);
-		registerEntity("shade", EntityShade.class, 64, 0x0000F0, 0x000F00, RenderShade::new);
-		registerEntity("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xb3f0ff, RenderIceCube::new);
-		registerEntity("skeletal_knight", EntitySkeletalKnight.class, 64, 0x66e0ff, 0xbcf3ff, RenderSkeletalKnight::new);
+		registerEntityWithEgg("ghost", EntityGhost.class, 64, 0x000000, 0x000000, RenderGhost::new);
+		registerEntityWithEgg("shade", EntityShade.class, 64, 0x0000F0, 0x000F00, RenderShade::new);
+		registerEntityWithEgg("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xb3f0ff, RenderIceCube::new);
+		registerEntityWithEgg("skeletal_knight", EntitySkeletalKnight.class, 64, 0x66e0ff, 0xbcf3ff, RenderSkeletalKnight::new);
+		
+		registerEntity("pvj_boat", EntityPVJBoat.class, 64, RenderPVJBoat::new);
 		
 		addSpawns();
 	}
 
-	private static <T extends Entity> void registerEntity(String name, Class<T> entityClass, int trackingRange, 
-			int eggPrimary, int eggSecondary, IRenderFactory<? super T> renderer)
+	private static <T extends Entity> void registerEntity(String name, Class<T> entityClass, int trackingRange, IRenderFactory<? super T> renderer)
 	{
 		ResourceLocation entityResource = new ResourceLocation(Reference.MOD_ID, name);
 		EntityRegistry.registerModEntity(entityResource, entityClass, name, id++,
-				ProjectVibrantJourneys.instance, trackingRange, 3, true, eggPrimary, eggSecondary);
+				ProjectVibrantJourneys.instance, trackingRange, 3, true);
 		
 		ProjectVibrantJourneys.proxy.registerEntityRenderer(entityClass, renderer);
+	}
+	
+	private static <T extends Entity> void registerEntityWithEgg(String name, Class<T> entityClass, int trackingRange, int eggPrimary, int eggSecondary, IRenderFactory<? super T> renderer)
+	{
+		registerEntity(name, entityClass, trackingRange, renderer);
+		ResourceLocation entityResource = new ResourceLocation(Reference.MOD_ID, name);
+		EntityRegistry.registerEgg(entityResource, eggPrimary, eggSecondary);
 	}
 	
 	private static void addSpawns()

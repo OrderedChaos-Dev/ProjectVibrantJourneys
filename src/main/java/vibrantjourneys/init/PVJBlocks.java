@@ -8,6 +8,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
@@ -17,6 +18,7 @@ import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundLitter;
 import vibrantjourneys.blocks.BlockPVJButton;
+import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJDoubleSlab;
 import vibrantjourneys.blocks.BlockPVJFence;
 import vibrantjourneys.blocks.BlockPVJFenceGate;
@@ -27,6 +29,7 @@ import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
+import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -144,6 +147,17 @@ public class PVJBlocks
 	public static Block palm_fence_gate;
 	public static Block redwood_fence_gate;
 	
+	//trapdoor, boat
+	public static Block willow_door;
+	public static Block mangrove_door;
+	public static Block palm_door;
+	public static Block redwood_door;
+	
+	public static Block willow_trapdoor;
+	public static Block mangrove_trapdoor;
+	public static Block palm_trapdoor;
+	public static Block redwood_trapdoor;
+	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick", false);
@@ -162,14 +176,14 @@ public class PVJBlocks
 		mangrove_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.MANGROVE), "leaves_mangrove");
 		palm_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.PALM), "leaves_palm");
 		redwood_leaves = registerBlockWithProperties(new BlockPVJLeaves(EnumWoodType.REDWOOD), "leaves_redwood");
-		
+
 		willow_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.WILLOW), "sapling_willow");
 		mangrove_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.MANGROVE), "sapling_mangrove");
 		palm_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.PALM), "sapling_palm");
 		redwood_sapling = registerBlockWithProperties(new BlockPVJSapling(EnumWoodType.REDWOOD), "sapling_redwood");
-		
+
 		coconut = registerBlock(new BlockCoconut(), "coconut", false);
-		
+
 		fallenleaves_oak = registerBlock(new BlockFallenLeaves(), "fallenleaves_oak", false);
 		fallenleaves_birch = registerBlock(new BlockFallenLeaves(), "fallenleaves_birch", false);
 		fallenleaves_spruce = registerBlock(new BlockFallenLeaves(), "fallenleaves_spruce", false);
@@ -181,7 +195,7 @@ public class PVJBlocks
 		fallenleaves_palm = registerBlock(new BlockFallenLeaves(), "fallenleaves_palm", false);
 		fallenleaves_redwood = registerBlock(new BlockFallenLeaves(), "fallenleaves_redwood", false);
 		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead", false);
-		
+
 		stone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "stone_rocks");
 		cobblestone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "cobblestone_rocks");
 		mossy_cobblestone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "mossy_cobblestone_rocks");
@@ -190,7 +204,7 @@ public class PVJBlocks
 		diorite_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "diorite_rocks");
 		sandstone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "sandstone_rocks");
 		red_sandstone_rocks = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "red_sandstone_rocks");
-		
+
 		oak_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "oak_twigs");
 		birch_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "birch_twigs");
 		spruce_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "spruce_twigs");
@@ -201,12 +215,12 @@ public class PVJBlocks
 		mangrove_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "mangrove_twigs");
 		palm_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "palm_twigs");
 		redwood_twigs = registerBlockWithProperties(new BlockGroundLitter(Material.PLANTS), "redwood_twigs");
-		
+
 		bones = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "bones");
-		
+
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand", false);
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand", false);
-		
+
 		cobblestone_brick_stairs = registerBlockWithProperties(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
 		willow_stairs = registerBlockWithProperties(new BlockPVJStairs(willow_planks.getDefaultState()), "willow_stairs");
 		mangrove_stairs = registerBlockWithProperties(new BlockPVJStairs(mangrove_planks.getDefaultState()), "mangrove_stairs");
@@ -252,6 +266,18 @@ public class PVJBlocks
 		mangrove_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.MANGROVE), "mangrove_fence_gate");
 		palm_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.PALM), "palm_fence_gate");
 		redwood_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.REDWOOD), "redwood_fence_gate");
+		
+		willow_door = registerDoor(new BlockPVJDoor(EnumWoodType.WILLOW), PVJItems.willow_door, "willow_door");
+		mangrove_door = registerDoor(new BlockPVJDoor(EnumWoodType.MANGROVE), PVJItems.mangrove_door, "mangrove_door");
+		palm_door = registerDoor(new BlockPVJDoor(EnumWoodType.PALM), PVJItems.palm_door, "palm_door");
+		redwood_door = registerDoor(new BlockPVJDoor(EnumWoodType.REDWOOD), PVJItems.redwood_door, "redwood_door");
+		
+		willow_trapdoor = registerBlockWithProperties(new BlockPVJTrapdoor(), "willow_trapdoor");
+		mangrove_trapdoor = registerBlockWithProperties(new BlockPVJTrapdoor(), "mangrove_trapdoor");
+		palm_trapdoor = registerBlockWithProperties(new BlockPVJTrapdoor(), "palm_trapdoor");
+		redwood_trapdoor = registerBlockWithProperties(new BlockPVJTrapdoor(), "redwood_trapdoor");
+		
+		setCustomMaps();
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)
@@ -304,6 +330,19 @@ public class PVJBlocks
 		return block;
 	}
 	
+	//Doors must be registered alongside its item 
+	private static Block registerDoor(BlockPVJDoor door, Item item, String name)
+	{
+		door = (BlockPVJDoor) registerBlock(door, name, true);
+		door.setCreativeTab(null);
+		
+		item = PVJItems.registerItem(new ItemDoor(door), name + "_item");
+		door.setDoorItem(item);
+		
+		ProjectVibrantJourneys.proxy.registerItemRenderer(Item.getItemFromBlock(door), name);
+		return door;
+	}
+	
 	private static void registerSlab(BlockPVJHalfSlab halfSlab, BlockPVJDoubleSlab doubleSlab, String name1, String name2)
 	{
 		ItemPVJSlab itemSlab = new ItemPVJSlab(halfSlab, halfSlab, doubleSlab);
@@ -311,5 +350,18 @@ public class PVJBlocks
 		
 		doubleSlab.setRegistryName(new ResourceLocation(Reference.MOD_ID, name2));
 		ForgeRegistries.BLOCKS.register(doubleSlab);
+	}
+	
+	private static void setCustomMaps()
+	{
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(willow_door), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(mangrove_door), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(palm_door), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(redwood_door), BlockPVJDoor.POWERED);
+		
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(willow_fence_gate), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(mangrove_fence_gate), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(palm_fence_gate), BlockPVJDoor.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(redwood_fence_gate), BlockPVJDoor.POWERED);
 	}
 }

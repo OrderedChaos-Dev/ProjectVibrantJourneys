@@ -1,6 +1,7 @@
 package vibrantjourneys;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
@@ -14,7 +15,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import vibrantjourneys.blocks.BlockPVJFenceGate;
 import vibrantjourneys.util.Reference;
 
 public class ClientProxy implements ICommonProxy
@@ -35,14 +35,14 @@ public class ClientProxy implements ICommonProxy
 	@Override
 	public void registerItemVariantRenderer(Item item, int meta, ModelResourceLocation resource)
 	{
-		//Here we use a custom state mapper to ignore the fence gate's POWERED property from the model
-		//I could write a method to make it for any block, but im lazy so yeah
-		if(Block.getBlockFromItem(item) instanceof BlockPVJFenceGate)
-		{
-			IStateMapper mapper = (new StateMap.Builder()).ignore(BlockPVJFenceGate.POWERED).build();
-			ModelLoader.setCustomStateMapper(Block.getBlockFromItem(item), mapper);
-		}
 		ModelLoader.setCustomModelResourceLocation(item, meta, resource);
+	}
+	
+	@Override
+	public void setIgnoredPropertiesForModel(Item item, IProperty<?>... properties)
+	{
+		IStateMapper mapper = (new StateMap.Builder()).ignore(properties).build();
+		ModelLoader.setCustomStateMapper(Block.getBlockFromItem(item), mapper);
 	}
 
 	@Override
