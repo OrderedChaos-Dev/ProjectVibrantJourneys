@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:willow_pressure_plate_up" },
+        "powered=true": { "model": "pvj:willow_pressure_plate_down" }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:palm_pressure_plate_up" },
+        "powered=true": { "model": "pvj:palm_pressure_plate_down" }
+    }
+}

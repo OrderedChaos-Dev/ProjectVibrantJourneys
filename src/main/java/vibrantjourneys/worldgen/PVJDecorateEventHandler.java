@@ -17,7 +17,7 @@ public class PVJDecorateEventHandler
 		{
 			if(event.getType() == Decorate.EventType.TREE)
 			{
-				if(event.getRand().nextInt(4) < 3)
+				if(event.getRand().nextInt(50) < 45)
 					event.setResult(Result.DENY);
 			}
 		}

@@ -21,6 +21,7 @@ public class BlockPVJPlanks extends Block
 		this.setSoundType(SoundType.WOOD);
 		this.woodType = woodType;
 	}
+	
 	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {

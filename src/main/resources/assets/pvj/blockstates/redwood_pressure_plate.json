@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:redwood_pressure_plate_up" },
+        "powered=true": { "model": "pvj:redwood_pressure_plate_down" }
+    }
+}

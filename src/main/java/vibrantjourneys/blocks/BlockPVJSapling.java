@@ -19,14 +19,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenPalmTree;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
 import vibrantjourneys.worldgen.WorldGenWillowTree;
 
-public class BlockPVJSapling extends BlockBush implements IGrowable, IVariantHelper
+public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHelper
 {
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
     protected static final AxisAlignedBB SAPLING_AABB = 
@@ -244,7 +244,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IVariantHel
     }
     
 	@Override
-	public ImmutableList<IBlockState> getVariants()
+	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
 	}

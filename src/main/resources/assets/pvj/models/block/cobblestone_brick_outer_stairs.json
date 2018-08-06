@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "pvj:blocks/cobblestone_brick",
+        "top": "pvj:blocks/cobblestone_brick",
+        "side": "pvj:blocks/cobblestone_brick"
+    }
+}

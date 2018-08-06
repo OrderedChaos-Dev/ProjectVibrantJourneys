@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "pvj:half_slab_redwood" },
+        "half=top": { "model": "pvj:upper_slab_redwood" }
+    }
+}

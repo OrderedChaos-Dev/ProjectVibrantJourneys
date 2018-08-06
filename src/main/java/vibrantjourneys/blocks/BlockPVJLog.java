@@ -11,9 +11,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockPVJLog extends BlockLog implements IVariantHelper
+public class BlockPVJLog extends BlockLog implements IPropertyHelper
 {
 	private EnumWoodType woodType;
     public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
@@ -84,7 +84,7 @@ public class BlockPVJLog extends BlockLog implements IVariantHelper
     }
     
 	@Override
-	public ImmutableList<IBlockState> getVariants()
+	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
 	}

@@ -68,18 +68,21 @@ public class ProjectVibrantJourneys
 		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
 		
 		//removes wheat seed drop...yes ignore the raw type
-		Field field;
-		try
+		if(!PVJConfig.doGrassDropSeeds)
 		{
-			field = ForgeHooks.class.getDeclaredField("seedList");
-			field.setAccessible(true);
-			
-			ArrayList seeds = (ArrayList) field.get(ForgeHooks.class);
-			seeds.remove(0);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
+			Field field;
+			try
+			{
+				field = ForgeHooks.class.getDeclaredField("seedList");
+				field.setAccessible(true);
+				
+				ArrayList seeds = (ArrayList) field.get(ForgeHooks.class);
+				seeds.remove(0);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
     }
     

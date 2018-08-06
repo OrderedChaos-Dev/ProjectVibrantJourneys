@@ -31,6 +31,12 @@ public class PVJConfig
 	})
 	public static EntitiesSubCategory entities = new EntitiesSubCategory();
 	
+	@Comment({
+		"All changes require a restart! Set this to true to allow tall grass to",
+		"drop wheat seeds."
+	})
+	public static boolean doGrassDropSeeds = false;
+	
 	public static class WorldGenSubCategory
 	{
 		public int cobwebDensity = 100;

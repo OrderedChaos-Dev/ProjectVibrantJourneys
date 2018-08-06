@@ -19,9 +19,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockGroundLitter extends Block implements IVariantHelper
+public class BlockGroundLitter extends Block implements IPropertyHelper
 {
 	public static final PropertyInteger MODEL = PropertyInteger.create("model", 0, 4);
 	
@@ -164,7 +164,7 @@ public class BlockGroundLitter extends Block implements IVariantHelper
     }
     
 	@Override
-	public ImmutableList<IBlockState> getVariants()
+	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
 	}

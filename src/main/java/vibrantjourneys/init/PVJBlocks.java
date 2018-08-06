@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
@@ -15,14 +16,22 @@ import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundLitter;
+import vibrantjourneys.blocks.BlockPVJButton;
+import vibrantjourneys.blocks.BlockPVJDoubleSlab;
+import vibrantjourneys.blocks.BlockPVJFence;
+import vibrantjourneys.blocks.BlockPVJFenceGate;
+import vibrantjourneys.blocks.BlockPVJHalfSlab;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
+import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
+import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.items.ItemPVJBlock;
+import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.util.Reference;
 
 public class PVJBlocks
@@ -66,6 +75,7 @@ public class PVJBlocks
 	public static Block fallenleaves_redwood;
 	public static Block fallenleaves_dead;
 	
+	//1.13: allow waterlogged
 	public static Block stone_rocks;
 	public static Block cobblestone_rocks;
 	public static Block mossy_cobblestone_rocks;
@@ -86,10 +96,53 @@ public class PVJBlocks
 	public static Block palm_twigs;
 	public static Block redwood_twigs;
 	
+	//1.13: allow waterlogged
 	public static Block bones;
 	
 	public static Block cracked_sand;
 	public static Block red_cracked_sand;
+	
+	//1.13: allow waterlogged
+	public static Block cobblestone_brick_stairs;
+	public static Block willow_stairs;
+	public static Block mangrove_stairs;
+	public static Block palm_stairs;
+	public static Block redwood_stairs;
+	
+	//1.13: allow waterlogged
+	public static BlockPVJHalfSlab cobblestone_brick_half_slab;
+	public static BlockPVJHalfSlab willow_half_slab;
+	public static BlockPVJHalfSlab mangrove_half_slab;
+	public static BlockPVJHalfSlab palm_half_slab;
+	public static BlockPVJHalfSlab redwood_half_slab;
+	
+	//1.13: allow waterlogged
+	public static BlockPVJDoubleSlab cobblestone_brick_double_slab;
+	public static BlockPVJDoubleSlab willow_double_slab;
+	public static BlockPVJDoubleSlab mangrove_double_slab;
+	public static BlockPVJDoubleSlab palm_double_slab;
+	public static BlockPVJDoubleSlab redwood_double_slab;
+	
+	//pressure plates, buttons, and trapdoors for all wood types for 1.13
+	public static Block willow_pressure_plate;
+	public static Block mangrove_pressure_plate;
+	public static Block palm_pressure_plate;
+	public static Block redwood_pressure_plate;
+	
+	public static Block willow_button;
+	public static Block mangrove_button;
+	public static Block palm_button;
+	public static Block redwood_button;
+	
+	public static Block willow_fence;
+	public static Block mangrove_fence;
+	public static Block palm_fence;
+	public static Block redwood_fence;
+	
+	public static Block willow_fence_gate;
+	public static Block mangrove_fence_gate;
+	public static Block palm_fence_gate;
+	public static Block redwood_fence_gate;
 	
 	public static void initBlocks()
 	{
@@ -152,7 +205,53 @@ public class PVJBlocks
 		bones = registerBlockWithProperties(new BlockGroundLitter(Material.ROCK), "bones");
 		
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand", false);
-		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand", false);		
+		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand", false);
+		
+		cobblestone_brick_stairs = registerBlockWithProperties(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
+		willow_stairs = registerBlockWithProperties(new BlockPVJStairs(willow_planks.getDefaultState()), "willow_stairs");
+		mangrove_stairs = registerBlockWithProperties(new BlockPVJStairs(mangrove_planks.getDefaultState()), "mangrove_stairs");
+		palm_stairs = registerBlockWithProperties(new BlockPVJStairs(palm_planks.getDefaultState()), "palm_stairs");
+		redwood_stairs = registerBlockWithProperties(new BlockPVJStairs(redwood_planks.getDefaultState()), "redwood_stairs");
+		
+		cobblestone_brick_half_slab = new BlockPVJHalfSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
+		cobblestone_brick_double_slab = new BlockPVJDoubleSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
+		registerSlab(cobblestone_brick_half_slab, cobblestone_brick_double_slab, "cobblestone_brick_slab", "cobblestone_brick_double_slab");
+		
+		willow_half_slab = new BlockPVJHalfSlab(willow_planks.getDefaultState(), willow_half_slab);
+		willow_double_slab = new BlockPVJDoubleSlab(willow_planks.getDefaultState(), willow_half_slab);
+		registerSlab(willow_half_slab, willow_double_slab, "willow_slab", "willow_double_slab");
+		
+		mangrove_half_slab = new BlockPVJHalfSlab(mangrove_planks.getDefaultState(), mangrove_half_slab);
+		mangrove_double_slab = new BlockPVJDoubleSlab(mangrove_planks.getDefaultState(), mangrove_half_slab);
+		registerSlab(mangrove_half_slab, mangrove_double_slab, "mangrove_slab", "mangrove_double_slab");
+		
+		palm_half_slab = new BlockPVJHalfSlab(palm_planks.getDefaultState(), palm_half_slab);
+		palm_double_slab = new BlockPVJDoubleSlab(palm_planks.getDefaultState(), palm_half_slab);
+		registerSlab(palm_half_slab, palm_double_slab, "palm_slab", "palm_double_slab");
+		
+		redwood_half_slab = new BlockPVJHalfSlab(redwood_planks.getDefaultState(), redwood_half_slab);
+		redwood_double_slab = new BlockPVJDoubleSlab(redwood_planks.getDefaultState(), redwood_half_slab);
+		registerSlab(redwood_half_slab, redwood_double_slab, "redwood_slab", "redwood_double_slab");
+		
+		willow_pressure_plate = registerBlockWithProperties(new BlockPVJPressurePlate(), "willow_pressure_plate");
+		mangrove_pressure_plate = registerBlockWithProperties(new BlockPVJPressurePlate(), "mangrove_pressure_plate");
+		palm_pressure_plate = registerBlockWithProperties(new BlockPVJPressurePlate(), "palm_pressure_plate");
+		redwood_pressure_plate = registerBlockWithProperties(new BlockPVJPressurePlate(), "redwood_pressure_plate");
+		
+		willow_button = registerBlockWithProperties(new BlockPVJButton(), "willow_button");
+		mangrove_button = registerBlockWithProperties(new BlockPVJButton(), "mangrove_button");
+		palm_button = registerBlockWithProperties(new BlockPVJButton(), "palm_button");
+		redwood_button = registerBlockWithProperties(new BlockPVJButton(), "redwood_button");
+		
+		willow_fence = registerBlockWithProperties(new BlockPVJFence(EnumWoodType.WILLOW), "willow_fence");
+		mangrove_fence = registerBlockWithProperties(new BlockPVJFence(EnumWoodType.MANGROVE), "mangrove_fence");
+		palm_fence = registerBlockWithProperties(new BlockPVJFence(EnumWoodType.PALM), "palm_fence");
+		redwood_fence = registerBlockWithProperties(new BlockPVJFence(EnumWoodType.REDWOOD), "redwood_fence");
+		
+		willow_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.WILLOW), "willow_fence_gate");
+		mangrove_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.MANGROVE), "mangrove_fence_gate");
+		palm_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.PALM), "palm_fence_gate");
+		redwood_fence_gate = registerBlockWithProperties(new BlockPVJFenceGate(EnumWoodType.REDWOOD), "redwood_fence_gate");
 	}
 	
 	private static Block registerBlock(Block block, String name, boolean hasVariants)
@@ -173,12 +272,27 @@ public class PVJBlocks
 		return block;
 	}
 	
+	private static Block registerBlockWithItem(Block block, String name, ItemBlock itemblock)
+	{
+		block.setUnlocalizedName(name);
+		block.setCreativeTab(CreativeTabPVJ.instance);
+		
+		block.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
+		ForgeRegistries.BLOCKS.register(block);
+		
+		itemblock.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
+		ForgeRegistries.ITEMS.register(itemblock);
+		
+		ProjectVibrantJourneys.proxy.registerItemRenderer(Item.getItemFromBlock(block), name);
+		return block;
+	}
+	
 	private static Block registerBlockWithProperties(Block block, String name)
 	{
 		registerBlock(block, name, true);
-		IVariantHelper PVJblock = (IVariantHelper)block;
+		IPropertyHelper PVJblock = (IPropertyHelper)block;
 		
-		ImmutableList<IBlockState> variants = PVJblock.getVariants();
+		ImmutableList<IBlockState> variants = PVJblock.getProperties();
 		
 		for(IBlockState state : variants)
 		{
@@ -188,5 +302,14 @@ public class PVJBlocks
 		}
 		
 		return block;
+	}
+	
+	private static void registerSlab(BlockPVJHalfSlab halfSlab, BlockPVJDoubleSlab doubleSlab, String name1, String name2)
+	{
+		ItemPVJSlab itemSlab = new ItemPVJSlab(halfSlab, halfSlab, doubleSlab);
+		registerBlockWithItem(halfSlab, name1, itemSlab);
+		
+		doubleSlab.setRegistryName(new ResourceLocation(Reference.MOD_ID, name2));
+		ForgeRegistries.BLOCKS.register(doubleSlab);
 	}
 }

@@ -29,9 +29,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.IVariantHelper;
+import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockPVJLeaves extends BlockLeaves implements IVariantHelper
+public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 {
 	private EnumWoodType woodType;
 
@@ -162,7 +162,7 @@ public class BlockPVJLeaves extends BlockLeaves implements IVariantHelper
 	//---------------------------------------------------------------
 	
 	@Override
-	public ImmutableList<IBlockState> getVariants()
+	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
 	}
