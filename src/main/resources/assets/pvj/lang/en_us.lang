@@ -9,6 +9,8 @@ item.willow_boat.name=Willow Boat
 item.mangrove_boat.name=Mangrove Boat
 item.palm_boat.name=Palm Boat
 item.redwood_boat.name=Redwood Boat
+item.cracked_coconut.name=Cracked Coconut
+item.spectral_wrappings.name=Spectral Wrappings
 
 tile.cobblestone_brick.name=Cobblestone Bricks
 tile.planks_willow.name=Willow Wood Planks

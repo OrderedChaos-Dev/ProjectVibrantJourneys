@@ -99,6 +99,8 @@ public class PVJConfig
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
 		public int bonesNetherDensity = 15;
+		public int crackedSandDensity = 75;
+		public int redCrackedSandDensity = 75;
 	}
 	
 	public static class BiomesSubCategory

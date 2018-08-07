@@ -1,5 +1,6 @@
 package vibrantjourneys.init;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -10,6 +11,7 @@ import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.worldgen.PVJDecorateEventHandler;
 import vibrantjourneys.worldgen.WorldGenCobweb;
+import vibrantjourneys.worldgen.WorldGenCrackedSand;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenGroundLitter;
@@ -45,7 +47,7 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_mangrove, PVJConfig.worldgen.fallenLeavesMangroveDensity, BiomeReference.MANGROVE_TREE_BIOMES));
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_redwood, PVJConfig.worldgen.fallenLeavesRedwoodDensity, BiomeReference.REDWOOD_TREE_BIOMES));
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_palm, PVJConfig.worldgen.fallenLeavesPalmDensity, BiomeReference.PALM_TREE_BIOMES));
-		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.DEAD_TREE_BIOMES));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.MESA_BIOMES));
 		
 		registerWorldGen(new WorldGenLilypad(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 		registerWorldGen(new WorldGenLilypad(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
@@ -72,7 +74,7 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.granite_rocks, 60, 100, PVJConfig.worldgen.graniteRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.diorite_rocks, 60, 100, PVJConfig.worldgen.dioriteRocksDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.sandstone_rocks, 50, 100, PVJConfig.worldgen.sandstoneRocksDensity, BiomeReference.SANDSTONE_BIOMES));
-		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.red_sandstone_rocks, 55, 75, PVJConfig.worldgen.redSandstoneRocksDensity, BiomeReference.DEAD_TREE_BIOMES));
+		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.red_sandstone_rocks, 55, 75, PVJConfig.worldgen.redSandstoneRocksDensity, BiomeReference.MESA_BIOMES));
 		
 		//underground
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.stone_rocks, 1, 60, PVJConfig.worldgen.stoneRocksCaveDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
@@ -98,6 +100,9 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.OVERWORLD_BIOMES_ARRAY));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDesertDensity, BiomeDictionary.getBiomes(Type.SANDY).toArray(new Biome[0])));
 		registerWorldGen(new WorldGenGroundLitter(PVJBlocks.bones, 1, 150, PVJConfig.worldgen.bonesNetherDensity, BiomeReference.NETHER));
+		
+		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.DESERT_BIOMES));
+		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.MESA_BIOMES));
 	}
 	
 	public static void registerWorldGen(IWorldGenerator worldgen)

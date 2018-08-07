@@ -12,8 +12,10 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityShade extends EntityMob
 {	
@@ -50,6 +52,12 @@ public class EntityShade extends EntityMob
     {
         return EnumCreatureAttribute.UNDEAD;
     }
+	
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.GHOST;
+	}
 	
     @Override
     public void fall(float distance, float damageMultiplier){}

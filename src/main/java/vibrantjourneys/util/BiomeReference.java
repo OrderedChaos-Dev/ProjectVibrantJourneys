@@ -61,8 +61,10 @@ public class BiomeReference
 	
 	public static final Biome[] REDWOOD_TREE_BIOMES = {PVJBiomes.redwoods};
 	
-	public static final Biome[] DEAD_TREE_BIOMES = {Biomes.MESA, Biomes.MESA_CLEAR_ROCK, Biomes.MESA_ROCK, Biomes.MUTATED_MESA,
+	public static final Biome[] MESA_BIOMES = {Biomes.MESA, Biomes.MESA_CLEAR_ROCK, Biomes.MESA_ROCK, Biomes.MUTATED_MESA,
 		Biomes.MUTATED_MESA_CLEAR_ROCK, Biomes.MUTATED_MESA_ROCK};
+	
+	public static final Biome[] DESERT_BIOMES = {Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.DESERT_HILLS};
 	
 	//don't ask why.
     public static final ArrayList<Biome> ALL_BIOMES = new ArrayList<Biome>(ForgeRegistries.BIOMES.getValuesCollection());
@@ -76,6 +78,12 @@ public class BiomeReference
     
 	public static final ArrayList<Biome> FRESHWATER_BIOMES = new ArrayList<Biome>(OVERWORLD_BIOMES.stream()
 			.filter(biome -> !(biome instanceof BiomeOcean || biome instanceof BiomeBeach || biome instanceof BiomeStoneBeach))
+			.collect(Collectors.toList()));
+	
+	public static final ArrayList<Biome> FRESHWATER_BIOMES_LUSH = new ArrayList<Biome>(FRESHWATER_BIOMES.stream()
+			.filter(biome -> (!BiomeDictionary.hasType(biome, Type.MESA)
+								&& !BiomeDictionary.hasType(biome, Type.DRY)
+								&& !BiomeDictionary.hasType(biome, Type.SNOWY)))
 			.collect(Collectors.toList()));
 	
 	public static final Biome[] SNOW_BIOMES = BiomeDictionary.getBiomes(Type.SNOWY).toArray(new Biome[0]);

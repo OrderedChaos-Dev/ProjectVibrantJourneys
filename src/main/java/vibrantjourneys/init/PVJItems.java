@@ -2,11 +2,12 @@ package vibrantjourneys.init;
 
 import java.util.ArrayList;
 
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemFood;
+import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.item.EntityPVJBoat;
 import vibrantjourneys.items.ItemPVJBoat;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -28,13 +29,24 @@ public class PVJItems
 	public static Item palm_boat;
 	public static Item redwood_boat;
 	
+	public static Item cracked_coconut;
+	
+	public static Item spectral_wrappings;
+	
 	public static void initItems()
 	{
 		slime_droplet = registerItem(new Item(), "slime_droplet");
+		
 		willow_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.WILLOW), "willow_boat");
 		mangrove_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.MANGROVE), "mangrove_boat");
 		palm_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.PALM), "palm_boat");
 		redwood_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.REDWOOD), "redwood_boat");
+		
+		cracked_coconut = registerItem(new ItemFood(3, 0.35F, false), "cracked_coconut");
+		
+		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
+		
+		PotionHelper.addMix(PotionTypes.AWKWARD, spectral_wrappings, PotionTypes.INVISIBILITY);
 	}
 	
 	public static Item registerItem(Item item, String name)

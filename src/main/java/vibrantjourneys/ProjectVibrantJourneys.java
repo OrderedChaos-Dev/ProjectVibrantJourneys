@@ -38,7 +38,7 @@ import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJOreDictionary;
 import vibrantjourneys.util.Reference;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}")
 public class ProjectVibrantJourneys
 {   
     @Instance(Reference.MOD_ID)

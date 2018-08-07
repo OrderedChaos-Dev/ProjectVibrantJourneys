@@ -13,11 +13,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityGhost extends EntityMob
 {
@@ -107,6 +109,12 @@ public class EntityGhost extends EntityMob
     {
         return EnumCreatureAttribute.UNDEAD;
     }
+	
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.GHOST;
+	}
 	
     @Override
     public void fall(float distance, float damageMultiplier){}

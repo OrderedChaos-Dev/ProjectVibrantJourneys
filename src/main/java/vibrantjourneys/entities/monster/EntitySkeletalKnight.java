@@ -7,9 +7,11 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntitySkeletalKnight extends AbstractSkeleton
 {
@@ -65,4 +67,9 @@ public class EntitySkeletalKnight extends AbstractSkeleton
         this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.STONE_SWORD));
     }
 	
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.SKELETAL_KNIGHT;
+	}
 }

@@ -11,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.util.BiomeReference;
 
@@ -39,10 +37,13 @@ public class WorldGenLilypad implements IWorldGenerator
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		
 		boolean isFreshwater = true;
-		if(!BiomeReference.FRESHWATER_BIOMES.contains(biome))
+		if(!BiomeReference.FRESHWATER_BIOMES_LUSH.contains(biome))
 			isFreshwater = false;
 		
-		if(biome == Biomes.RIVER || (isFreshwater && !isRiver && !BiomeDictionary.hasType(biome, Type.SNOWY)))
+		if(isRiver && !(biome == Biomes.RIVER))
+			isFreshwater = false;
+		
+		if(isFreshwater)
 		{	
 			int yPos = 62;
 			for(int i = 0; i < frequency; i++)

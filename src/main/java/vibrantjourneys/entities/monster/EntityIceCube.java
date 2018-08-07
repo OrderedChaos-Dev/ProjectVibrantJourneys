@@ -3,8 +3,10 @@ package vibrantjourneys.entities.monster;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityIceCube extends EntitySlime
 {
@@ -84,4 +86,9 @@ public class EntityIceCube extends EntitySlime
     {
         return super.getAttackStrength() + 1;
     }
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.ICE_CUBE;
+	}
 }

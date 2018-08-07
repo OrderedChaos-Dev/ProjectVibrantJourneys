@@ -39,5 +39,6 @@ public class PVJBiomes
 		
 		BiomeReference.ALL_BIOMES.add(biome);
 		BiomeReference.FRESHWATER_BIOMES.add(biome);
+		BiomeReference.FRESHWATER_BIOMES_LUSH.add(biome);
 	}
 }

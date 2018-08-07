@@ -9,7 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import vibrantjourneys.util.LootTableHandler;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntitySnail extends EntityAnimal
 {
@@ -56,7 +56,7 @@ public class EntitySnail extends EntityAnimal
 	@Override
     protected int getExperiencePoints(EntityPlayer player)
     {
-        return 1;
+        return 0;
     }
     
     //Override parent for no collision/no fall damage
@@ -80,7 +80,7 @@ public class EntitySnail extends EntityAnimal
 	@Override
 	protected ResourceLocation getLootTable()
 	{
-		return LootTableHandler.SNAIL;
+		return PVJLootTableList.SNAIL;
 	}
     
 	@Override
