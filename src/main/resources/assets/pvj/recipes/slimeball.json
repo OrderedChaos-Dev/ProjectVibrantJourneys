@@ -1,20 +1,17 @@
 {
 	"type": "minecraft:crafting_shaped",
-	"pattern":
-	[
+	"pattern": [
 		"SSS",
 		"SSS",
 		"SSS"
 	],
-	"key":
-	{
-		"S":
-		{
-			"item": "pvj:slime_droplet"
+	"key": {
+		"S": {
+			"item": "pvj:slime_droplet",
+			"data": 0
 		}
 	},
-	"result":
-	{
+	"result": {
 		"item": "minecraft:slime_ball"
 	}
 }

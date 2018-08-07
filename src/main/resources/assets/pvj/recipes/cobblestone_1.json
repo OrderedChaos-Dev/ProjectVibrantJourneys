@@ -6,13 +6,13 @@
 	],
 	"key": {
 		"C": {
-			"item": "minecraft:cobblestone",
+			"item": "pvj:stone_rocks",
 			"data": 0
 		}
 	},
 	"result": {
-		"item": "pvj:cobblestone_brick",
-		"count": 4,
+		"item": "minecraft:cobblestone",
+		"count": 1,
 		"data": 0
 	}
 }

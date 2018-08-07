@@ -34,6 +34,7 @@ import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.PVJOreDictionary;
 import vibrantjourneys.util.Reference;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
@@ -52,6 +53,8 @@ public class ProjectVibrantJourneys
     	PVJBiomes.initBiomes();
     	PVJItems.initItems();
     	PVJBlocks.initBlocks();
+    	
+    	PVJOreDictionary.setValues();
     	
     	MinecraftForge.EVENT_BUS.register(new PVJConfig.ConfigEventHandler());
     }

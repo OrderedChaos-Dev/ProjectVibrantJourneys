@@ -1,17 +1,21 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"CC",
-		"CC"
+		"CSC",
+		"CSC"
 	],
 	"key": {
 		"C": {
-			"item": "minecraft:cobblestone",
+			"item": "pvj:planks_redwood",
+			"data": 0
+		},
+		"S": {
+			"item": "minecraft:stick",
 			"data": 0
 		}
 	},
 	"result": {
-		"item": "pvj:cobblestone_brick",
+		"item": "pvj:redwood_fence",
 		"count": 4,
 		"data": 0
 	}

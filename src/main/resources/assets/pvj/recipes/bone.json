@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:bones",
+			"data": 0
+		},
+		{
+			"item": "pvj:bones",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "minecraft:bone",
+		"count": 1,
+		"data": 0
+	}
+}
