@@ -2,13 +2,13 @@ package vibrantjourneys.util;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.init.PVJBlocks;
 
 public class CreativeTabPVJ extends CreativeTabs
 {
@@ -22,7 +22,7 @@ public class CreativeTabPVJ extends CreativeTabs
 	@Override
 	public ItemStack getTabIconItem()
 	{
-		return new ItemStack(Blocks.GRASS);
+		return new ItemStack(PVJBlocks.redwood_leaves);
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class CreativeTabPVJ extends CreativeTabs
 	{
 		super.displayAllRelevantItems(itemList);
 		
-		//Adds entity spawn eggs to this tab
+		//Adds the mod's entity spawn eggs to this tab
 		for(EntityList.EntityEggInfo egg : EntityList.ENTITY_EGGS.values())
 		{
 			if(egg.spawnedID.getResourceDomain().equals(Reference.MOD_ID))

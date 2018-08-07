@@ -15,7 +15,6 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import vibrantjourneys.util.Reference;
 
 public class ClientProxy implements ICommonProxy
 {
@@ -26,10 +25,9 @@ public class ClientProxy implements ICommonProxy
 	}
 	
 	@Override
-	public void registerItemRenderer(Item item, String name)
+	public void registerItemRenderer(Item item)
 	{
-		ModelLoader.setCustomModelResourceLocation(item, 0, 
-				new ModelResourceLocation(Reference.MOD_ID + ":" + name));
+		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 	
 	@Override

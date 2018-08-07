@@ -14,7 +14,7 @@ public interface ICommonProxy
 {
 	public <T extends Entity> void registerEntityRenderer(Class<T> entity, IRenderFactory<? super T> factory);
 	
-	public void registerItemRenderer(Item item, String name);
+	public void registerItemRenderer(Item item);
 	
 	public void registerItemVariantRenderer(Item item, int meta, ModelResourceLocation resource);
 	

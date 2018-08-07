@@ -1,5 +1,7 @@
 package vibrantjourneys.init;
 
+import java.util.ArrayList;
+
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -14,6 +16,7 @@ import vibrantjourneys.util.BiomeReference;
 
 public class PVJBiomes 
 {
+	public static final ArrayList<Biome> BIOMES = new ArrayList<Biome>();
 	public static Biome prairie = new BiomePrairie();
 	public static Biome redwoods = new BiomeRedwoods();
 	

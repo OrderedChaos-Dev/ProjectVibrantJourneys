@@ -1,5 +1,7 @@
 package vibrantjourneys.init;
 
+import java.util.ArrayList;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
@@ -12,6 +14,7 @@ import vibrantjourneys.util.Reference;
 
 public class PVJItems
 {
+	public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
 	public static Item slime_droplet;
 	
 	//These are registered with the door blocks in PVJBlocks
@@ -39,8 +42,7 @@ public class PVJItems
 		item.setUnlocalizedName(name);
 		item.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		item.setCreativeTab(CreativeTabPVJ.instance);
-		ForgeRegistries.ITEMS.register(item);
-		ProjectVibrantJourneys.proxy.registerItemRenderer(item, name);
+		ITEMS.add(item);
 		
 		return item;
 	}

@@ -32,6 +32,7 @@ import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
+import vibrantjourneys.init.PVJRegistryEventHandler;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJOreDictionary;
@@ -54,7 +55,8 @@ public class ProjectVibrantJourneys
     	PVJItems.initItems();
     	PVJBlocks.initBlocks();
     	
-    	PVJOreDictionary.setValues();
+    	// Items, blocks, entities, and item/block models are registered here
+    	MinecraftForge.EVENT_BUS.register(new PVJRegistryEventHandler());
     	
     	MinecraftForge.EVENT_BUS.register(new PVJConfig.ConfigEventHandler());
     }
@@ -90,6 +92,8 @@ public class ProjectVibrantJourneys
 				e.printStackTrace();
 			}
 		}
+		
+    	PVJOreDictionary.setValues();
     }
     
     public void registerFallenLeavesColors(Block leafBlock, PropertyEnum<EnumType> property, BlockPlanks.EnumType type, Block leaf, int color)
