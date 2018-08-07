@@ -105,5 +105,4 @@ public class BiomeReference
     		Biomes.SWAMPLAND, Biomes.MUTATED_SWAMPLAND, PVJBiomes.redwoods};
     
     public static final Biome[] SANDSTONE_BIOMES = {Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.MUTATED_DESERT, Biomes.BEACH};
-    
 }
