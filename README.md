@@ -36,4 +36,4 @@ You can also message me at modding.jt9@gmail.com or send me a PM on PlanetMinecr
 -------------------------------------------------
 
 Project: Vibrant Journeys is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-<div><img src ="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.eu.png" /></div>
+<div><img src ="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.eu.png" style="height:10%;"></div>
