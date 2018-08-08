@@ -54,7 +54,6 @@ public class PVJEntities
 
 	private static <T extends Entity> void registerEntity(String name, Class<T> entityClass, int trackingRange, IRenderFactory<? super T> renderer)
 	{
-
 		ResourceLocation entityResource = new ResourceLocation(Reference.MOD_ID, name);
 		EntityEntry entity = EntityEntryBuilder.create()
 			.entity(entityClass)

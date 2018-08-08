@@ -10,9 +10,9 @@ Project: Vibrant Journeys is a Minecraft mod that aims to add some spice to surv
 
 The current version was built with Minecraft 1.12.2 and MinecraftForge v14.23.4.2705.
 
-If you have any issues, feel free to submit an issue here in this repository, or comment on either the PlanetMinecraft or MinecraftForum thread.
+If you have any issues, feel free to submit an issue here in this repository, or comment on either the [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/) or [MinecraftForum thread](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919262-project-vibrant-journeys-v1-0-0-enhance-your-world).
 If you have any feature requests, please check the wiki to see if it is already there. If not, submit a feature request here under the issues tab (and follow the guidelines), or comment on either the PlanetMinecraft or MinecraftForum thread.
-If you have any questions, read the FAQ below. If your question is not answered, ask on either the PlanetMinecraft or MinecraftForum thread.
+If you have any questions, read the FAQ below. If your question is not answered, ask on either the [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/) or [MinecraftForum thread](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919262-project-vibrant-journeys-v1-0-0-enhance-your-world).
 
 **FAQ**
 
