@@ -10,9 +10,14 @@ Project: Vibrant Journeys is a Minecraft mod that aims to add some spice to surv
 
 The current version was built with Minecraft 1.12.2 and MinecraftForge v14.23.4.2705.
 
-If you have any issues, feel free to submit an issue here in this repository, or comment on either the [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/) or [MinecraftForum thread](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919274-project-vibrant-journeys-v1-0-0-enhance-your-world).
-If you have any feature requests, please check the wiki to see if it is already there. If not, submit a feature request here under the issues tab (and follow the guidelines), or comment on either the PlanetMinecraft or MinecraftForum thread.
-If you have any questions, read the FAQ below. If your question is not answered, ask on either the [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/) or [MinecraftForum thread](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919274-project-vibrant-journeys-v1-0-0-enhance-your-world).
+**These links are the official threads for this mod:**
+[MinecraftForum](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919274-project-vibrant-journeys-v1-0-0-enhance-your-world)
+[PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/)
+[CurseForge](https://minecraft.curseforge.com/projects/project-vibrant-journeys)
+
+If you have any issues or feature requests, feel free to submit them here under the "issues" tab or comment on one of the forum links above.
+For feature requests, please check the wiki to see if it is already planned.
+If you have any questions, ask on one of the forums.
 
 **FAQ**
 
@@ -31,7 +36,7 @@ As long as your modpack is NOT monetized, and it links to either the PlanetMinec
 5. Can I modify this mod for my own reasons?
 Yes, actually. Feel free to download the source and make your own changes/additions, under the conditions stated in the license below. For any modifications to improve anything in the code, submit a pull request and I will review it.
 
-You can also message me at modding.jt9@gmail.com or send me a PM on PlanetMinecraft or the MinecraftForum.
+You can also message me at modding.jt9@gmail.com or send me a PM on any of the above forum sites.
 
 -------------------------------------------------
 
