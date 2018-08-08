@@ -92,6 +92,7 @@ tile.willow_trapdoor.name=Willow Trapdoor
 tile.mangrove_trapdoor.name=Mangrove Trapdoor
 tile.palm_trapdoor.name=Palm Trapdoor
 tile.redwood_trapdoor.name=Redwood Trapdoor
+tile.wild_wheat.name=Wild Wheat
 
 entity.snail.name=Snail
 entity.fly.name=Fly

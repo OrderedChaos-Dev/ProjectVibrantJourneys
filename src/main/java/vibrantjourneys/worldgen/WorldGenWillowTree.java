@@ -93,7 +93,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
         {
             BlockPos down = pos.down();
             IBlockState state = world.getBlockState(down);
-            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, net.minecraft.util.EnumFacing.UP, (BlockPVJSapling)PVJBlocks.willow_sapling);
+            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (BlockPVJSapling)PVJBlocks.willow_sapling);
             
             int baseHeight = 1;// + rand.nextInt(2);
             EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);

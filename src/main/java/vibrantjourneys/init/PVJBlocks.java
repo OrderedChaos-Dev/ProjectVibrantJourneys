@@ -26,6 +26,7 @@ import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
+import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -154,6 +155,8 @@ public class PVJBlocks
 	public static Block palm_trapdoor;
 	public static Block redwood_trapdoor;
 	
+	public static Block wild_wheat;
+	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
@@ -272,6 +275,8 @@ public class PVJBlocks
 		mangrove_trapdoor = registerBlock(new BlockPVJTrapdoor(), "mangrove_trapdoor");
 		palm_trapdoor = registerBlock(new BlockPVJTrapdoor(), "palm_trapdoor");
 		redwood_trapdoor = registerBlock(new BlockPVJTrapdoor(), "redwood_trapdoor");
+		
+		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 	}
 	
 	private static Block registerBlock(Block block, String name)

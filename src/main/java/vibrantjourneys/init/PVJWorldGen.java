@@ -20,6 +20,7 @@ import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
+import vibrantjourneys.worldgen.WorldGenWildWheat;
 import vibrantjourneys.worldgen.WorldGenWillowTreeSwamp;
 
 public class PVJWorldGen
@@ -103,6 +104,8 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.DESERT_BIOMES));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.MESA_BIOMES));
+		
+		registerWorldGen(new WorldGenWildWheat(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
 	}
 	
 	public static void registerWorldGen(IWorldGenerator worldgen)
