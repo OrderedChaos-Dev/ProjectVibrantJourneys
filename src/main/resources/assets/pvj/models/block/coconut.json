@@ -1,4 +1,5 @@
 {
+    "parent": "block/cube_all",
     "textures": {
         "particle": "pvj:blocks/coconut_side",
         "0": "pvj:blocks/coconut_side",
