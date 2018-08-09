@@ -54,7 +54,7 @@ public class BlockFallenLeaves extends Block
 	@Override
 	public boolean isOpaqueCube(IBlockState state)
 	{
-		return Blocks.LEAVES.isOpaqueCube(state);
+		return false;
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
+import vibrantjourneys.blocks.BlockChimney;
 import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
@@ -157,6 +158,14 @@ public class PVJBlocks
 	
 	public static Block wild_wheat;
 	
+	public static Block cobblestone_chimney;
+	public static Block stone_chimney;
+	public static Block brick_chimney;
+	public static Block stonebrick_chimney;
+	public static Block cobblestone_brick_chimney;
+	public static Block sandstone_chimney;
+	public static Block netherbrick_chimney;
+	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
@@ -277,6 +286,8 @@ public class PVJBlocks
 		redwood_trapdoor = registerBlock(new BlockPVJTrapdoor(), "redwood_trapdoor");
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
+		
+		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
 	}
 	
 	private static Block registerBlock(Block block, String name)

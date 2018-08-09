@@ -1,0 +1,7 @@
+{
+ 	"parent": "pvj:block/chimney",
+ 	"textures": {
+ 	 	"particle": "blocks/cobblestone",
+ 		"all": "blocks/cobblestone"
+ 	}
+ }
