@@ -9,3 +9,5 @@ A clear and concise description of what the bug is. Include steps to reproduce
 
 **Crash Logs**
 INCLUDE CRASH REPORTS if necessary.
+
+**USE https://pastebin.com/** FOR CRASH LOGS PLEASE
