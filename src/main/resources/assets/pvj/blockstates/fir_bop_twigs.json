@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:bop/fir_twigs0"},
+		"model=1": { "model": "pvj:bop/fir_twigs1"},
+		"model=2": { "model": "pvj:bop/fir_twigs2"},
+		"model=3": { "model": "pvj:bop/fir_twigs3"},
+		"model=4": { "model": "pvj:bop/fir_twigs4"}
+	}
+}

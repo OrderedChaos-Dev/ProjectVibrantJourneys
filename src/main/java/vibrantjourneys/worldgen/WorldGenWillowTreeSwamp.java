@@ -9,14 +9,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.util.BiomeReference;
 
 public class WorldGenWillowTreeSwamp implements IWorldGenerator
 {
 	private int frequency;
-	
 	public WorldGenWillowTreeSwamp(int frequency)
 	{
 		this.frequency = frequency;
@@ -31,8 +29,8 @@ public class WorldGenWillowTreeSwamp implements IWorldGenerator
 		int z = chunkZ * 16 + 8;
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
-
-		if(BiomeDictionary.hasType(biome, Type.SWAMP))
+		
+		if(BiomeReference.WEEPING_WILLOW_TREES.contains(biome))
 		{
 			for(int i = 0; i < frequency; i++)
 			{
@@ -50,7 +48,6 @@ public class WorldGenWillowTreeSwamp implements IWorldGenerator
 						{
 							if(willowtreegen.generate(world, random, pos))
 							{
-								System.out.println(pos);
 								break;
 							}
 						}

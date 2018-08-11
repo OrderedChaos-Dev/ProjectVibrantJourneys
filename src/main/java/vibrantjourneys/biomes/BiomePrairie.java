@@ -15,12 +15,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BiomePrairie extends Biome
 {
-	public BiomePrairie()
+	public BiomePrairie(BiomeProperties properties)
 	{
-		super(new BiomeProperties("Prairie").setBaseHeight(0.02F)
-				.setHeightVariation(0.005F)
-				.setTemperature(0.8F)
-				.setRainfall(0.25F));
+		super(properties);
 		
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 2, 2, 6));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));

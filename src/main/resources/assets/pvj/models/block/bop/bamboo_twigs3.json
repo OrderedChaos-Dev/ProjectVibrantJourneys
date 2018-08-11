@@ -1,0 +1,8 @@
+{
+	"parent": "pvj:block/twigs3",
+    "textures": {
+        "particle": "biomesoplenty:blocks/bamboo",
+        "0": "biomesoplenty:blocks/bamboo",
+        "1": "biomesoplenty:blocks/bamboo"
+    }
+}

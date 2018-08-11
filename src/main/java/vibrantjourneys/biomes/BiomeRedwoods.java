@@ -20,17 +20,15 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType
 import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
 
 public class BiomeRedwoods extends Biome
 {    
-	public BiomeRedwoods()
+	public BiomeRedwoods(BiomeProperties properties)
 	{
-		super(new BiomeProperties("Redwoods").setBaseHeight(0.2F)
-				.setHeightVariation(0.3F)
-				.setTemperature(0.23F)
-				.setRainfall(0.7F));
+		super(properties);
 		
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
 		
@@ -93,7 +91,7 @@ public class BiomeRedwoods extends Biome
     	{
     		this.topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
     	}
-    	else if(noiseVal <= 1.75D && noiseVal > 1.35D)
+    	else if(noiseVal <= 1.75D && noiseVal > (this == PVJBiomes.redwood_peaks ? 1.10D : 1.35D))
     	{
         	this.topBlock = Blocks.STONE.getDefaultState();
         	this.fillerBlock = Blocks.STONE.getDefaultState();

@@ -28,6 +28,7 @@ import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockWildWheat;
+import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -288,9 +289,12 @@ public class PVJBlocks
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		
 		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
+		
+		if(Reference.isBOPLoaded)
+			PVJBlocksBOP.initBOPBlocks();
 	}
 	
-	private static Block registerBlock(Block block, String name)
+	public static Block registerBlock(Block block, String name)
 	{
 		block.setUnlocalizedName(name);
 		block.setCreativeTab(CreativeTabPVJ.instance);
@@ -306,7 +310,7 @@ public class PVJBlocks
 		return block;
 	}
 	
-	private static Block registerBlockWithItem(Block block, String name, ItemBlock itemblock)
+	public static Block registerBlockWithItem(Block block, String name, ItemBlock itemblock)
 	{
 		block.setUnlocalizedName(name);
 		block.setCreativeTab(CreativeTabPVJ.instance);
@@ -321,7 +325,7 @@ public class PVJBlocks
 	}
 	
 	//Doors must be registered alongside its item 
-	private static Block registerDoor(BlockPVJDoor door, Item item, String name)
+	public static Block registerDoor(BlockPVJDoor door, Item item, String name)
 	{
 		door = (BlockPVJDoor) registerBlock(door, name);
 		door.setCreativeTab(null);
@@ -332,7 +336,7 @@ public class PVJBlocks
 		return door;
 	}
 	
-	private static void registerSlab(BlockPVJHalfSlab halfSlab, BlockPVJDoubleSlab doubleSlab, String name1, String name2)
+	public static void registerSlab(BlockPVJHalfSlab halfSlab, BlockPVJDoubleSlab doubleSlab, String name1, String name2)
 	{
 		ItemPVJSlab itemSlab = new ItemPVJSlab(halfSlab, halfSlab, doubleSlab);
 		registerBlockWithItem(halfSlab, name1, itemSlab);

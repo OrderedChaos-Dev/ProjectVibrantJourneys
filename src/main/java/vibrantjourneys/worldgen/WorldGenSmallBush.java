@@ -57,7 +57,7 @@ public class WorldGenSmallBush implements IWorldGenerator
 					{
 						IBlockState soil = world.getBlockState(pos.down());
 						
-						if(soil.getBlock().canSustainPlant(soil, world, pos, EnumFacing.UP,(BlockSapling)Blocks.SAPLING))
+						if(soil.getBlock().canSustainPlant(soil, world, pos.down(), EnumFacing.UP,(BlockSapling)Blocks.SAPLING))
 						{
 							world.setBlockState(pos, Blocks.LOG.getDefaultState());
 							if(world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()))

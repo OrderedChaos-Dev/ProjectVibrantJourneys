@@ -37,7 +37,7 @@ public class WorldGenLilypad implements IWorldGenerator
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		
 		boolean isFreshwater = true;
-		if(!BiomeReference.FRESHWATER_BIOMES_LUSH.contains(biome))
+		if(!BiomeReference.LILYPAD_BIOMES.contains(biome))
 			isFreshwater = false;
 		
 		if(isRiver && !(biome == Biomes.RIVER))

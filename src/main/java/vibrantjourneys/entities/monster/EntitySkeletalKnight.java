@@ -1,5 +1,6 @@
 package vibrantjourneys.entities.monster;
 
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.init.Items;
@@ -18,6 +19,13 @@ public class EntitySkeletalKnight extends AbstractSkeleton
     public EntitySkeletalKnight(World world)
     {
         super(world);
+    }
+    
+    @Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.235D);
     }
 	
 	@Override

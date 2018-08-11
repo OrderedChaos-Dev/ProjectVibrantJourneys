@@ -45,7 +45,6 @@ public class PVJRegistryEventHandler
 		{
 			ProjectVibrantJourneys.proxy.registerItemRenderer(Item.getItemFromBlock(block));
 			
-			//used to register inventory models of blocks for their properties
 			if(block instanceof IPropertyHelper)
 			{
 				IPropertyHelper PVJBlock = (IPropertyHelper)block;

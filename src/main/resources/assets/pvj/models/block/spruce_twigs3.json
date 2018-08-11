@@ -3,6 +3,6 @@
     "textures": {
         "particle": "blocks/log_spruce",
         "0": "blocks/log_spruce",
-        "1": "pvj:blocks/leaves_redwood"
+        "1": "blocks/leaves_spruce"
     }
 }

@@ -58,7 +58,7 @@ public class WorldGenWildWheat implements IWorldGenerator
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
 				IBlockState state = world.getBlockState(pos.down());
 				
-				if(state.getBlock().canSustainPlant(state, world, pos, EnumFacing.UP, (BlockWildWheat)PVJBlocks.wild_wheat) && world.isAirBlock(pos))
+				if(state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, (BlockWildWheat)PVJBlocks.wild_wheat) && world.isAirBlock(pos))
 				{
 					world.setBlockState(pos, block.getDefaultState());
 				}

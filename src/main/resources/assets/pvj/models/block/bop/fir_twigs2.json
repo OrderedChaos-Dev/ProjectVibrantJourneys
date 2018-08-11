@@ -1,0 +1,8 @@
+{
+	"parent": "pvj:block/twigs2",
+    "textures": {
+        "particle": "biomesoplenty:blocks/fir_log",
+        "0": "biomesoplenty:blocks/fir_log",
+        "1": "biomesoplenty:blocks/leaves_fir"
+    }
+}
