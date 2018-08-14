@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.item.EntityPVJBoat;
+import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
@@ -21,6 +23,7 @@ import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.renderer.RenderFirefly;
 import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
+import vibrantjourneys.entities.renderer.RenderGoon;
 import vibrantjourneys.entities.renderer.RenderIceCube;
 import vibrantjourneys.entities.renderer.RenderPVJBoat;
 import vibrantjourneys.entities.renderer.RenderShade;
@@ -45,6 +48,7 @@ public class PVJEntities
 		registerEntityWithEgg("shade", EntityShade.class, 64, 0x333333, 0x595959, RenderShade::new);
 		registerEntityWithEgg("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xccf5ff, RenderIceCube::new);
 		registerEntityWithEgg("skeletal_knight", EntitySkeletalKnight.class, 64, 0xa6a6a6, 0x808080, RenderSkeletalKnight::new);
+		registerEntityWithEgg("goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080, RenderGoon::new);
 		
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64, RenderPVJBoat::new);
 	}
@@ -93,11 +97,17 @@ public class PVJEntities
 		
 		if(PVJConfig.entities.ghostSpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		
 		if(PVJConfig.entities.shadeSpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		if(PVJConfig.entities.skeletalKnightWeight > 0)
 			EntityRegistry.addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		if(PVJConfig.entities.icecubeSpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
+		if(PVJConfig.entities.goonSpawnWeight > 0)
+			EntityRegistry.addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		
+		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "shade"), 100);
+		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "skeletal_knight"), 100);
 	}
 }

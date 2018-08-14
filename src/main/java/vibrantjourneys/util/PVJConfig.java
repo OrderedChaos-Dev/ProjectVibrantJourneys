@@ -124,10 +124,12 @@ public class PVJConfig
 		public int flySpawnWeight = 30;
 		public int fireflySpawnWeight = 350;
 		
-		public int ghostSpawnWeight = 75;
-		public int shadeSpawnWeight = 85;
+		public int ghostSpawnWeight = 65;
+		
+		public int shadeSpawnWeight = 55;
 		public int icecubeSpawnWeight = 35;
-		public int skeletalKnightWeight = 85;
+		public int skeletalKnightWeight = 55;
+		public int goonSpawnWeight = 20;
 	}
 	
 	public static class BOPSubCategory

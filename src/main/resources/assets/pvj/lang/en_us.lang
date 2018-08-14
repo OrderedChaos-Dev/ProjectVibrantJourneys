@@ -101,6 +101,16 @@ entity.ghost.name=Ghost
 entity.shade.name=Shade
 entity.icecube.name=Ice Cube
 entity.skeletal_knight.name=Skeletal Knight
+entity.goon.name=Goon
+
+subtitles.fly.ambient=Fly buzzes
+subtitles.ghost.ambient=Ghost sighs
+subtitles.ghost.hurt=Ghost hurts
+subtitles.ghost.death=Ghost dies
+subtitles.goon.ambient=Goon burps
+subtitles.goon.hurt=Goon hurts
+subtitles.goon.death=Goon dies
+subtitles.goon.puke=Goon pukes
 
 #BOP Objects
 #----------------------------------------------------------------------------------------------------

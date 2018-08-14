@@ -2,6 +2,8 @@ package vibrantjourneys.integration.biomesoplenty;
 
 import java.util.ArrayList;
 
+import com.google.common.base.Optional;
+
 import biomesoplenty.api.biome.BOPBiomes;
 import biomesoplenty.api.enums.BOPWoods;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -30,130 +32,146 @@ public class BiomeReferenceBOP
 	public static void loadBOPBiomes()
 	{
 		//gotta preserve the origin island
-		BiomeReference.ALL_BIOMES.remove(BOPBiomes.origin_beach.get());
-		BiomeReference.ALL_BIOMES.remove(BOPBiomes.origin_island.get());
-		BiomeReference.OVERWORLD_BIOMES.remove(BOPBiomes.origin_beach.get());
-		BiomeReference.OVERWORLD_BIOMES.remove(BOPBiomes.origin_island.get());
-		BiomeReference.FRESHWATER_BIOMES.remove(BOPBiomes.origin_beach.get());
-		BiomeReference.FRESHWATER_BIOMES.remove(BOPBiomes.origin_island.get());
+		removeBiomeFromList(BiomeReference.ALL_BIOMES, BOPBiomes.origin_beach);
+		removeBiomeFromList(BiomeReference.ALL_BIOMES, BOPBiomes.origin_island);
+		removeBiomeFromList(BiomeReference.OVERWORLD_BIOMES, BOPBiomes.origin_beach);
+		removeBiomeFromList(BiomeReference.OVERWORLD_BIOMES, BOPBiomes.origin_island);
+		removeBiomeFromList(BiomeReference.FRESHWATER_BIOMES, BOPBiomes.origin_beach);
+		removeBiomeFromList(BiomeReference.FRESHWATER_BIOMES, BOPBiomes.origin_island);
 		
-		BiomeReference.OAK_TREES.add(BOPBiomes.temperate_rainforest.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.mystic_grove.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.rainforest.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.woodland.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.orchard.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.dead_forest.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.seasonal_forest.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.land_of_lakes.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.boreal_forest.get());
-		BiomeReference.OAK_TREES.add(BOPBiomes.sacred_springs.get());
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.temperate_rainforest);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.mystic_grove);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.rainforest);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.woodland);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.orchard);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.dead_forest);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.seasonal_forest);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.land_of_lakes);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.boreal_forest);
+		addBiomeToList(BiomeReference.OAK_TREES, BOPBiomes.sacred_springs);
 		
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.shrubland.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.snowy_forest.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.meadow.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.chaparral.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.tundra.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.prairie.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.shield.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.shrubland.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.lavender_fields.get());
-		BiomeReference.OAK_TREES_SPARSE.add(BOPBiomes.corrupted_sands.get());
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.shrubland);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.snowy_forest);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.meadow);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.chaparral);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.tundra);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.prairie);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.shield);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.shrubland);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.lavender_fields);
+		addBiomeToList(BiomeReference.OAK_TREES_SPARSE, BOPBiomes.corrupted_sands);
 		
-		BiomeReference.BIRCH_TREES.add(BOPBiomes.boreal_forest.get());
+		addBiomeToList(BiomeReference.BIRCH_TREES, BOPBiomes.boreal_forest);
 		
-		BiomeReference.BIRCH_TREES_SPARSE.add(BOPBiomes.rainforest.get());
-		BiomeReference.BIRCH_TREES_SPARSE.add(BOPBiomes.grove.get());
-		BiomeReference.BIRCH_TREES_SPARSE.add(BOPBiomes.bog.get());
+		addBiomeToList(BiomeReference.BIRCH_TREES_SPARSE, BOPBiomes.rainforest);
+		addBiomeToList(BiomeReference.BIRCH_TREES_SPARSE, BOPBiomes.grove);
+		addBiomeToList(BiomeReference.BIRCH_TREES_SPARSE, BOPBiomes.bog);
 		
-		BiomeReference.SPRUCE_TREES.add(BOPBiomes.wetland.get());
-		BiomeReference.SPRUCE_TREES.add(BOPBiomes.maple_woods.get());
-		BiomeReference.SPRUCE_TREES.add(BOPBiomes.land_of_lakes.get());
-		BiomeReference.SPRUCE_TREES.add(BOPBiomes.shield.get());
-		BiomeReference.SPRUCE_TREES.add(BOPBiomes.boreal_forest.get());
+		addBiomeToList(BiomeReference.SPRUCE_TREES, BOPBiomes.wetland);
+		addBiomeToList(BiomeReference.SPRUCE_TREES, BOPBiomes.maple_woods);
+		addBiomeToList(BiomeReference.SPRUCE_TREES, BOPBiomes.land_of_lakes);
+		addBiomeToList(BiomeReference.SPRUCE_TREES, BOPBiomes.shield);
+		addBiomeToList(BiomeReference.SPRUCE_TREES, BOPBiomes.boreal_forest);
 		
-		BiomeReference.SPRUCE_TREES_SPARSE.add(BOPBiomes.meadow.get());
-		BiomeReference.SPRUCE_TREES_SPARSE.add(BOPBiomes.dead_forest.get());
+		addBiomeToList(BiomeReference.SPRUCE_TREES_SPARSE, BOPBiomes.meadow);
+		addBiomeToList(BiomeReference.SPRUCE_TREES_SPARSE, BOPBiomes.dead_forest);
 		
-		BiomeReference.JUNGLE_TREES_SPARSE.add(BOPBiomes.oasis.get());
-		BiomeReference.JUNGLE_TREES_SPARSE.add(BOPBiomes.tropical_rainforest.get());
-		BiomeReference.JUNGLE_TREES_SPARSE.add(BOPBiomes.overgrown_cliffs.get());
+		addBiomeToList(BiomeReference.JUNGLE_TREES_SPARSE, BOPBiomes.oasis);
+		addBiomeToList(BiomeReference.JUNGLE_TREES_SPARSE, BOPBiomes.tropical_rainforest);
+		addBiomeToList(BiomeReference.JUNGLE_TREES_SPARSE, BOPBiomes.overgrown_cliffs);
 		
-		BiomeReference.ACACIA_TREES.add(BOPBiomes.lush_desert.get());
+		addBiomeToList(BiomeReference.ACACIA_TREES, BOPBiomes.lush_desert);
 		
-		BiomeReference.ACACIA_TREES_SPARSE.add(BOPBiomes.brushland.get());
-		BiomeReference.ACACIA_TREES_SPARSE.add(BOPBiomes.outback.get());
+		addBiomeToList(BiomeReference.ACACIA_TREES_SPARSE, BOPBiomes.brushland);
+		addBiomeToList(BiomeReference.ACACIA_TREES_SPARSE, BOPBiomes.outback);
 		
-		BiomeReference.DARKOAK_TREES.add(BOPBiomes.fen.get());
+		addBiomeToList(BiomeReference.DARKOAK_TREES, BOPBiomes.fen);
 		
-		BiomeReference.DARKOAK_TREES_SPARSE.add(BOPBiomes.grove.get());
-		BiomeReference.DARKOAK_TREES.add(BOPBiomes.bog.get());
+		addBiomeToList(BiomeReference.DARKOAK_TREES_SPARSE, BOPBiomes.grove);
+		addBiomeToList(BiomeReference.DARKOAK_TREES, BOPBiomes.bog);
 		
-		BiomeReference.WEEPING_WILLOW_TREES.add(BOPBiomes.lush_swamp.get());
-		BiomeReference.WEEPING_WILLOW_TREES.add(BOPBiomes.bayou.get());
+		addBiomeToList(BiomeReference.WEEPING_WILLOW_TREES, BOPBiomes.lush_swamp);
+		addBiomeToList(BiomeReference.WEEPING_WILLOW_TREES, BOPBiomes.bayou);
 		
-		BiomeReference.RED_MANGROVE_TREES.add(BOPBiomes.lush_swamp.get());
-		BiomeReference.RED_MANGROVE_TREES.add(BOPBiomes.mangrove.get());
-		BiomeReference.RED_MANGROVE_TREES.add(BOPBiomes.marsh.get());
+		addBiomeToList(BiomeReference.RED_MANGROVE_TREES, BOPBiomes.lush_swamp);
+		addBiomeToList(BiomeReference.RED_MANGROVE_TREES, BOPBiomes.mangrove);
+		addBiomeToList(BiomeReference.RED_MANGROVE_TREES, BOPBiomes.marsh);
 		
-		BiomeReference.BAMBOO_TREES.add(BOPBiomes.bamboo_forest.get());
+		addBiomeToList(BiomeReference.BAMBOO_TREES, BOPBiomes.bamboo_forest);
 		
-		BiomeReference.MANGROVE_TREES.add(BOPBiomes.mangrove.get());
+		addBiomeToList(BiomeReference.MANGROVE_TREES, BOPBiomes.mangrove);
 
-		BiomeReference.FLOWERING_OAK_TREES.add(BOPBiomes.mystic_grove.get());
-		BiomeReference.FLOWERING_OAK_TREES.add(BOPBiomes.rainforest.get());
-		BiomeReference.FLOWERING_OAK_TREES.add(BOPBiomes.orchard.get());
-		BiomeReference.FLOWERING_OAK_TREES.add(BOPBiomes.flower_island.get());
-		BiomeReference.FLOWERING_OAK_TREES.add(BOPBiomes.lavender_fields.get());
+		addBiomeToList(BiomeReference.FLOWERING_OAK_TREES, BOPBiomes.mystic_grove);
+		addBiomeToList(BiomeReference.FLOWERING_OAK_TREES, BOPBiomes.rainforest);
+		addBiomeToList(BiomeReference.FLOWERING_OAK_TREES, BOPBiomes.orchard);
+		addBiomeToList(BiomeReference.FLOWERING_OAK_TREES, BOPBiomes.flower_island);
+		addBiomeToList(BiomeReference.FLOWERING_OAK_TREES, BOPBiomes.lavender_fields);
 		
-		BiomeReference.JACARANDA_TREES.add(BOPBiomes.lavender_fields.get());
-		BiomeReference.JACARANDA_TREES.add(BOPBiomes.mystic_grove.get());
+		addBiomeToList(BiomeReference.JACARANDA_TREES, BOPBiomes.lavender_fields);
+		addBiomeToList(BiomeReference.JACARANDA_TREES, BOPBiomes.mystic_grove);
 		
-		BiomeReference.MAGIC_TREES.add(BOPBiomes.mystic_grove.get());
+		addBiomeToList(BiomeReference.MAGIC_TREES, BOPBiomes.mystic_grove);
 		
-		BiomeReference.EUCALYPTUS_TREES.add(BOPBiomes.eucalyptus_forest.get());
+		addBiomeToList(BiomeReference.EUCALYPTUS_TREES, BOPBiomes.eucalyptus_forest);
 		
-		BiomeReference.EBONY_TREES.add(BOPBiomes.brushland.get());
+		addBiomeToList(BiomeReference.EBONY_TREES, BOPBiomes.brushland);
 		
-		BiomeReference.PINE_TREES.add(BOPBiomes.mountain_foothills.get());
-		BiomeReference.PINE_TREES.add(BOPBiomes.mountain.get());
-		BiomeReference.PINE_TREES.add(BOPBiomes.shield.get());
+		addBiomeToList(BiomeReference.PINE_TREES, BOPBiomes.mountain_foothills);
+		addBiomeToList(BiomeReference.PINE_TREES, BOPBiomes.mountain);
+		addBiomeToList(BiomeReference.PINE_TREES, BOPBiomes.shield);
 		
-		BiomeReference.DEAD_TREES.add(BOPBiomes.dead_forest.get());
-		BiomeReference.DEAD_TREES.add(BOPBiomes.dead_swamp.get());
-		BiomeReference.DEAD_TREES.add(BOPBiomes.ominous_woods.get());
-		BiomeReference.DEAD_TREES.add(BOPBiomes.wasteland.get());
+		addBiomeToList(BiomeReference.DEAD_TREES, BOPBiomes.dead_forest);
+		addBiomeToList(BiomeReference.DEAD_TREES, BOPBiomes.dead_swamp);
+		addBiomeToList(BiomeReference.DEAD_TREES, BOPBiomes.ominous_woods);
+		addBiomeToList(BiomeReference.DEAD_TREES, BOPBiomes.wasteland);
 		
-		BiomeReference.FIR_TREES.add(BOPBiomes.coniferous_forest.get());
-		BiomeReference.FIR_TREES.add(BOPBiomes.snowy_coniferous_forest.get());
+		addBiomeToList(BiomeReference.FIR_TREES, BOPBiomes.coniferous_forest);
+		addBiomeToList(BiomeReference.FIR_TREES, BOPBiomes.snowy_coniferous_forest);
 		
-		BiomeReference.REDWOOD_TREES.add(BOPBiomes.redwood_forest.get());
+		addBiomeToList(BiomeReference.REDWOOD_TREES, BOPBiomes.redwood_forest);
 		
-		BiomeReference.YELLOW_AUTUMN_TREES.add(BOPBiomes.seasonal_forest.get());
-		BiomeReference.ORANGE_AUTUMN_TREES.add(BOPBiomes.seasonal_forest.get());
+		addBiomeToList(BiomeReference.YELLOW_AUTUMN_TREES, BOPBiomes.seasonal_forest);
+		addBiomeToList(BiomeReference.ORANGE_AUTUMN_TREES, BOPBiomes.seasonal_forest);
 		
-		BiomeReference.MAPLE_TREES.add(BOPBiomes.seasonal_forest.get());
-		BiomeReference.MAPLE_TREES.add(BOPBiomes.maple_woods.get());
+		addBiomeToList(BiomeReference.MAPLE_TREES, BOPBiomes.seasonal_forest);
+		addBiomeToList(BiomeReference.MAPLE_TREES, BOPBiomes.maple_woods);
 		
-		BiomeReference.PALM_TREES.add(BOPBiomes.oasis.get());
-		BiomeReference.PALM_TREES.add(BOPBiomes.tropical_island.get());
+		addBiomeToList(BiomeReference.PALM_TREES, BOPBiomes.oasis);
+		addBiomeToList(BiomeReference.PALM_TREES, BOPBiomes.tropical_island);
 		
-		BiomeReference.WHITE_CHERRY_TREES.add(BOPBiomes.cherry_blossom_grove.get());
+		addBiomeToList(BiomeReference.WHITE_CHERRY_TREES, BOPBiomes.cherry_blossom_grove);
 		
-		BiomeReference.PINK_CHERRY_TREES.add(BOPBiomes.cherry_blossom_grove.get());
+		addBiomeToList(BiomeReference.PINK_CHERRY_TREES, BOPBiomes.cherry_blossom_grove);
 		
-		BiomeReference.MAHOGANY_TREES.add(BOPBiomes.tropical_island.get());
-		BiomeReference.MAHOGANY_TREES.add(BOPBiomes.overgrown_cliffs.get());
+		addBiomeToList(BiomeReference.MAHOGANY_TREES, BOPBiomes.tropical_island);
+		addBiomeToList(BiomeReference.MAHOGANY_TREES, BOPBiomes.overgrown_cliffs);
 		
-		BiomeReference.UMBRAN_TREES.add(BOPBiomes.ominous_woods.get());
+		addBiomeToList(BiomeReference.UMBRAN_TREES, BOPBiomes.ominous_woods);
 		
-		BiomeReference.HELLBARK_TREES.add(BOPBiomes.undergarden.get());
+		addBiomeToList(BiomeReference.HELLBARK_TREES, BOPBiomes.undergarden);
 		
-		BiomeReference.SACRED_OAK_TREES.add(BOPBiomes.sacred_springs.get());
+		addBiomeToList(BiomeReference.SACRED_OAK_TREES, BOPBiomes.sacred_springs);
 		
-		BiomeReference.SANDSTONE_BIOMES.add(BOPBiomes.oasis.get());
-		BiomeReference.SANDSTONE_BIOMES.add(BOPBiomes.lush_desert.get());
+		addBiomeToList(BiomeReference.SANDSTONE_BIOMES, BOPBiomes.oasis);
+		addBiomeToList(BiomeReference.SANDSTONE_BIOMES, BOPBiomes.lush_desert);
 		
-		BiomeReference.MESA_BIOMES.add(BOPBiomes.outback.get());
+		addBiomeToList(BiomeReference.MESA_BIOMES, BOPBiomes.outback);
+	}
+	
+	public static void addBiomeToList(ArrayList<Biome> list, Optional<Biome> biome)
+	{
+		if(biome.isPresent())
+		{
+			list.add(biome.get());
+		}
+	}
+	
+	public static void removeBiomeFromList(ArrayList<Biome> list, Optional<Biome> biome)
+	{
+		if(biome.isPresent())
+		{
+			list.remove(biome.get());
+		}
 	}
 	
 	public static ArrayList<Biome> getBiomeReference(String name)

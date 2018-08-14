@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -93,6 +94,16 @@ public class PVJRegistryEventHandler
 		for(EntityEntry entity : PVJEntities.ENTITIES)
 		{
 			registry.register(entity);
+		}
+	}
+	
+	@SubscribeEvent
+	public void registerSounds(RegistryEvent.Register<SoundEvent> event)
+	{
+		IForgeRegistry<SoundEvent> registry = event.getRegistry();
+		for(SoundEvent sound : PVJSounds.SOUND_EVENTS)
+		{
+			registry.register(sound);
 		}
 	}
 }

@@ -4,11 +4,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.init.PVJSounds;
 
 public class EntityFly extends EntityAmbientCreature
 {
@@ -126,6 +128,12 @@ public class EntityFly extends EntityAmbientCreature
     public boolean doesEntityNotTriggerPressurePlate()
     {
         return true;
+    }
+	
+	@Override
+    protected SoundEvent getAmbientSound()
+    {
+        return PVJSounds.FLY_AMBIENT;
     }
 	
     //Forces client to render the firefly over large distances

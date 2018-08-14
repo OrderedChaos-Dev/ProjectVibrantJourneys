@@ -1,0 +1,51 @@
+{
+  "entity.fly.ambient": {
+    "sounds": [
+      "pvj:entity/fly/idle1"
+    ],
+    "subtitle": "subtitles.fly.ambient"
+  },
+  "entity.ghost.ambient": {
+    "sounds": [
+      "pvj:entity/ghost/idle1"
+    ],
+    "subtitle": "subtitles.ghost.ambient"
+  },
+  "entity.ghost.hurt": {
+    "sounds": [
+      "pvj:entity/ghost/hurt1"
+    ],
+    "subtitle": "subtitles.ghost.hurt"
+  },
+  "entity.ghost.death": {
+    "sounds": [
+      "pvj:entity/ghost/death1",
+      "pvj:entity/ghost/death2"
+    ],
+    "subtitle": "subtitles.ghost.death"
+  },
+    "entity.goon.ambient": {
+    "sounds": [
+      "pvj:entity/goon/idle1"
+    ],
+    "subtitle": "subtitles.goon.ambient"
+  },
+    "entity.goon.hurt": {
+    "sounds": [
+      "pvj:entity/goon/hurt1"
+    ],
+    "subtitle": "subtitles.goon.hurt"
+  },
+    "entity.goon.death": {
+    "sounds": [
+      "pvj:entity/goon/hurt1"
+    ],
+    "subtitle": "subtitles.goon.death"
+  },
+    "entity.goon.puke": {
+    "sounds": [
+      "pvj:entity/goon/puke"
+    ],
+    "subtitle": "subtitles.goon.puke"
+  }
+}

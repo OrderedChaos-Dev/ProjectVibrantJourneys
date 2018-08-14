@@ -3,6 +3,7 @@ package vibrantjourneys.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -12,6 +13,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.common.Loader;
 
 public class WorldGenFallenTree implements IWorldGenerator
 {
@@ -69,6 +71,20 @@ public class WorldGenFallenTree implements IWorldGenerator
 				
 				if(world.isAirBlock(new BlockPos(xPos, y, zPos)) && world.isSideSolid(testpos.down(), EnumFacing.UP))
 					break;
+			}
+			
+			//checks if lostcities is installed and disables fallen trees in city buildings by adding world.canSeeSky() check
+			if(Loader.isModLoaded("lostcities"))
+			{
+				if(!world.canSeeSky(new BlockPos(xPos, y, zPos)))
+				{
+					for(int i = 0; i < 255 - y; i++)
+					{
+						BlockPos pos = new BlockPos(xPos, y + i, zPos);
+						if(!(world.getBlockState(pos).getBlock() instanceof BlockLeaves))
+							return;
+					}
+				}
 			}
 			
 			if(!world.isSideSolid(new BlockPos(xPos, y - 1, zPos), EnumFacing.UP)) return;

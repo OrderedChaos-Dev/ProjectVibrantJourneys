@@ -12,9 +12,12 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
+import vibrantjourneys.init.PVJSounds;
 import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityShade extends EntityMob
@@ -58,6 +61,24 @@ public class EntityShade extends EntityMob
 	{
 		return PVJLootTableList.GHOST;
 	}
+	
+	@Override
+    protected SoundEvent getAmbientSound()
+    {
+        return PVJSounds.GHOST_AMBIENT;
+    }
+
+	@Override
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
+        return PVJSounds.GHOST_HURT;
+    }
+
+	@Override
+    protected SoundEvent getDeathSound()
+    {
+        return PVJSounds.GHOST_DEATH;
+    }
 	
     @Override
     public void fall(float distance, float damageMultiplier){}
