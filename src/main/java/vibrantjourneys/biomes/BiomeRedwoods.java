@@ -70,12 +70,14 @@ public class BiomeRedwoods extends Biome
         DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
 
         if(TerrainGen.decorate(worldIn, rand, new ChunkPos(pos), EventType.FLOWERS))
-        for (int i1 = 0; i1 < 7; ++i1)
         {
-            int j1 = rand.nextInt(16) + 8;
-            int k1 = rand.nextInt(16) + 8;
-            int l1 = rand.nextInt(worldIn.getHeight(pos.add(j1, 0, k1)).getY() + 32);
-            DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j1, l1, k1));
+            for (int i1 = 0; i1 < 7; ++i1)
+            {
+                int j1 = rand.nextInt(16) + 8;
+                int k1 = rand.nextInt(16) + 8;
+                int l1 = rand.nextInt(worldIn.getHeight(pos.add(j1, 0, k1)).getY() + 32);
+                DOUBLE_PLANT_GENERATOR.generate(worldIn, rand, pos.add(j1, l1, k1));
+            }
         }
 
         super.decorate(worldIn, rand, pos);

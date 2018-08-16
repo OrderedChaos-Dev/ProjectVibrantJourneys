@@ -8,9 +8,12 @@ import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.IWorldGenerator;
@@ -59,5 +62,11 @@ public class ClientProxy implements ICommonProxy
 	public void registerItemColor(IItemColor iitemcolor, Item item)
 	{
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(iitemcolor, item);
+	}
+	
+	@Override
+	public <T extends TileEntity> void registerTESR(Class<T> te, TileEntitySpecialRenderer<? super T> tesr)
+	{
+		ClientRegistry.bindTileEntitySpecialRenderer(te, tesr);
 	}
 }

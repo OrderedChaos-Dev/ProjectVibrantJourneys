@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" P ",
+		"SBS",
+		" P "
+	],
+	"key": {
+		"S": {
+			"item": "pvj:spectral_wrappings",
+			"data": 0
+		},
+		"P": {
+			"item": "minecraft:blaze_powder",
+			"data": 0
+		},
+		"B": {
+			"item": "pvj:goon_bile",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:unstable_essence",
+		"count": 2,
+		"data": 0
+	}
+}

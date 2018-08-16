@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"DOD",
+		"OBO",
+		"DOD"
+	],
+	"key": {
+		"D": {
+			"item": "minecraft:diamond",
+			"data": 0
+		},
+		"O": {
+			"item": "minecraft:obsidian",
+			"data": 0
+		},
+		"B": {
+			"item": "minecraft:blaze_rod",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:mystical_grill",
+		"count": 1,
+		"data": 0
+	}
+}

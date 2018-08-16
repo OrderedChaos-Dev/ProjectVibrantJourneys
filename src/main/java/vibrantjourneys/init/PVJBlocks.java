@@ -14,6 +14,7 @@ import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundLitter;
+import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockPVJButton;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJDoubleSlab;
@@ -167,6 +168,8 @@ public class PVJBlocks
 	public static Block sandstone_chimney;
 	public static Block netherbrick_chimney;
 	
+	public static Block mystical_grill;
+	
 	public static void initBlocks()
 	{
 		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
@@ -289,6 +292,8 @@ public class PVJBlocks
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		
 		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
+		
+		mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

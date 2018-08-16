@@ -11,6 +11,16 @@ item.palm_boat.name=Palm Boat
 item.redwood_boat.name=Redwood Boat
 item.cracked_coconut.name=Cracked Coconut
 item.spectral_wrappings.name=Spectral Wrappings
+item.goon_bile.name=Goon Bile
+item.unstable_essence.name=Unstable Essence
+item.mystical_porkchop.name=Mystical Porkchop
+item.mystical_beef.name=Mystical Beef
+item.mystical_chicken.name=Mystical Chicken
+item.mystical_mutton.name=Mystical Mutton
+item.mystical_rabbit.name=Mystical Rabbit
+item.mystical_cod.name=Mystical Cod
+item.mystical_salmon.name=Mystical Salmon
+item.mystical_potato.name=Mystical Potato
 
 tile.cobblestone_brick.name=Cobblestone Bricks
 tile.planks_willow.name=Willow Wood Planks
@@ -93,24 +103,25 @@ tile.mangrove_trapdoor.name=Mangrove Trapdoor
 tile.palm_trapdoor.name=Palm Trapdoor
 tile.redwood_trapdoor.name=Redwood Trapdoor
 tile.wild_wheat.name=Wild Wheat
+tile.mystical_grill.name=Mystical Grill
 
-entity.snail.name=Snail
-entity.fly.name=Fly
-entity.firefly.name=Firefly
-entity.ghost.name=Ghost
-entity.shade.name=Shade
-entity.icecube.name=Ice Cube
-entity.skeletal_knight.name=Skeletal Knight
-entity.goon.name=Goon
+entity.pvj_snail.name=Snail
+entity.pvj_fly.name=Fly
+entity.pvj_firefly.name=Firefly
+entity.pvj_ghost.name=Ghost
+entity.pvj_shade.name=Shade
+entity.pvj_icecube.name=Ice Cube
+entity.pvj_skeletal_knight.name=Skeletal Knight
+entity.pvj_goon.name=Goon
 
-subtitles.fly.ambient=Fly buzzes
-subtitles.ghost.ambient=Ghost sighs
-subtitles.ghost.hurt=Ghost hurts
-subtitles.ghost.death=Ghost dies
-subtitles.goon.ambient=Goon burps
-subtitles.goon.hurt=Goon hurts
-subtitles.goon.death=Goon dies
-subtitles.goon.puke=Goon pukes
+subtitles.pvj_fly.ambient=Fly buzzes
+subtitles.pvj_ghost.ambient=Ghost sighs
+subtitles.pvj_ghost.hurt=Ghost hurts
+subtitles.pvj_ghost.death=Ghost dies
+subtitles.pvj_goon.ambient=Goon burps
+subtitles.pvj_goon.hurt=Goon hurts
+subtitles.pvj_goon.death=Goon dies
+subtitles.pvj_goon.puke=Goon pukes
 
 #BOP Objects
 #----------------------------------------------------------------------------------------------------

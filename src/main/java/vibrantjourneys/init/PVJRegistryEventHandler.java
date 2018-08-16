@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJFenceGate;
 import vibrantjourneys.util.IPropertyHelper;
@@ -74,6 +75,8 @@ public class PVJRegistryEventHandler
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mangrove_fence_gate), BlockPVJFenceGate.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.palm_fence_gate), BlockPVJFenceGate.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_fence_gate), BlockPVJFenceGate.POWERED);
+		
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mystical_grill), BlockMysticalGrill.IS_COOKING);
 	}
 	
 	/*

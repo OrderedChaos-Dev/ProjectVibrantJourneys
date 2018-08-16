@@ -9,4 +9,5 @@ public class PVJLootTableList
 	public static final ResourceLocation GHOST = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "ghost"));
 	public static final ResourceLocation SKELETAL_KNIGHT = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "skeletal_knight"));
 	public static final ResourceLocation ICE_CUBE = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "ice_cube"));
+	public static final ResourceLocation GOON = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "goon"));
 }

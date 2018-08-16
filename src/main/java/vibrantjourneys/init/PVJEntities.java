@@ -40,15 +40,15 @@ public class PVJEntities
 	
 	public static void initEntities()
 	{
-		registerEntityWithEgg("snail", EntitySnail.class, 64, 0x6D453D, 0x677B5C, RenderSnail::new);
-		registerEntityWithEgg("fly", EntityFly.class, 64, 0x669999, 0x737373, RenderFly::new);
-		registerEntityWithEgg("firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D, RenderFirefly::new);
+		registerEntityWithEgg("pvj_snail", EntitySnail.class, 64, 0x6D453D, 0x677B5C, RenderSnail::new);
+		registerEntityWithEgg("pvj_fly", EntityFly.class, 64, 0x669999, 0x737373, RenderFly::new);
+		registerEntityWithEgg("pvj_firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D, RenderFirefly::new);
 		
-		registerEntityWithEgg("ghost", EntityGhost.class, 64, 0xb3b3b3, 0x404040, RenderGhost::new);
-		registerEntityWithEgg("shade", EntityShade.class, 64, 0x333333, 0x595959, RenderShade::new);
-		registerEntityWithEgg("icecube", EntityIceCube.class, 64, 0x66e0ff, 0xccf5ff, RenderIceCube::new);
-		registerEntityWithEgg("skeletal_knight", EntitySkeletalKnight.class, 64, 0xa6a6a6, 0x808080, RenderSkeletalKnight::new);
-		registerEntityWithEgg("goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080, RenderGoon::new);
+		registerEntityWithEgg("pvj_ghost", EntityGhost.class, 64, 0xb3b3b3, 0x404040, RenderGhost::new);
+		registerEntityWithEgg("pvj_shade", EntityShade.class, 64, 0x333333, 0x595959, RenderShade::new);
+		registerEntityWithEgg("pvj_icecube", EntityIceCube.class, 64, 0x66e0ff, 0xccf5ff, RenderIceCube::new);
+		registerEntityWithEgg("pvj_skeletal_knight", EntitySkeletalKnight.class, 64, 0xa6a6a6, 0x808080, RenderSkeletalKnight::new);
+		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080, RenderGoon::new);
 		
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64, RenderPVJBoat::new);
 	}

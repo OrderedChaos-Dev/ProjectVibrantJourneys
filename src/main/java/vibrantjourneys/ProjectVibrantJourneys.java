@@ -37,8 +37,11 @@ import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.init.PVJRegistryEventHandler;
+import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
+import vibrantjourneys.tileentities.TileEntityMysticalGrill;
+import vibrantjourneys.tileentities.renderer.TileEntityMysticalGrillRenderer;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJOreDictionary;
@@ -66,6 +69,7 @@ public class ProjectVibrantJourneys
     	PVJBiomes.initBiomes();
     	PVJItems.initItems();
     	PVJBlocks.initBlocks();
+    	PVJTileEntities.initTileEntities();
     	
     	// Items, blocks, entities, and item/block models are registered here
     	MinecraftForge.EVENT_BUS.register(new PVJRegistryEventHandler());
@@ -76,6 +80,8 @@ public class ProjectVibrantJourneys
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+    	proxy.registerTESR(TileEntityMysticalGrill.class, new TileEntityMysticalGrillRenderer());
+    	
     	PVJOreDictionary.setValues();
     	BiomeReference.loadAllBiomeReferences();
     	PVJEntities.addSpawns();

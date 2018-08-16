@@ -19,15 +19,16 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 import vibrantjourneys.entities.ai.EntityAIGoonPukeSilverfish;
 import vibrantjourneys.entities.ai.EntityAISilverfishDeathTimer;
 import vibrantjourneys.init.PVJSounds;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityGoon extends EntityMob
 {
@@ -103,7 +104,7 @@ public class EntityGoon extends EntityMob
     @Override
     protected ResourceLocation getLootTable()
     {
-        return LootTableList.ENTITIES_ZOMBIE;
+        return PVJLootTableList.GOON;
     }
     
 	@Override
@@ -157,5 +158,19 @@ public class EntityGoon extends EntityMob
         	
         	incrementSilverfish();
     	}
+    }
+    
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound)
+    {
+        super.writeEntityToNBT(compound);
+        compound.setInteger("SilverfishSpawned", silverfishSpawned);
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound)
+    {
+        super.readEntityFromNBT(compound);
+        silverfishSpawned = compound.getInteger("SilverfishSpawned");
     }
 }
