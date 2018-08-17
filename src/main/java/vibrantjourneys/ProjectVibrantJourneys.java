@@ -24,6 +24,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -80,7 +81,7 @@ public class ProjectVibrantJourneys
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-    	proxy.registerTESR(TileEntityMysticalGrill.class, new TileEntityMysticalGrillRenderer());
+    	proxy.registerTESRs();
     	
     	PVJOreDictionary.setValues();
     	BiomeReference.loadAllBiomeReferences();
@@ -106,50 +107,5 @@ public class ProjectVibrantJourneys
 				e.printStackTrace();
 			}
 		}
-		
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_oak, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_birch, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_spruce, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_jungle, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_darkoak, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_acacia, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
-    	
-    	registerFallenLeavesColors(PVJBlocks.oak_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.birch_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
-    	registerFallenLeavesColors(PVJBlocks.spruce_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
-    	registerFallenLeavesColors(PVJBlocks.jungle_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.dark_oak_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
-    	registerFallenLeavesColors(PVJBlocks.acacia_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
-    	
-    	if(Reference.isBOPLoaded)
-    		PVJRenderingHandlerBOP.registerBOPColors();
-    }
-    
-    public void registerFallenLeavesColors(Block leafBlock, PropertyEnum<EnumType> property, BlockPlanks.EnumType type, Block leaf, int color)
-    {
-    	BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
-    	IBlockState leafState = leaf.getDefaultState();
-
-    	IBlockColor blockColor = new IBlockColor(){
-
-			@Override
-			public int colorMultiplier(IBlockState state, IBlockAccess world, BlockPos pos, int tintIndex)
-			{
-				if(world != null && pos != null)
-					return BiomeColorHelper.getFoliageColorAtPos(world, pos);
-				else
-					return ColorizerFoliage.getFoliageColorBasic();
-			}
-    	};
-    	
-    	//set color to -1 to use the biome foliage color
-    	if(color == -1)
-    		ProjectVibrantJourneys.proxy.registerBlockColor(blockColor, leafBlock);
-    	else
-    		ProjectVibrantJourneys.proxy.registerBlockColor((state, world, pos, tintindex) -> color, leafBlock);
-    	
-    	ProjectVibrantJourneys.proxy.registerItemColor((stack, tintindex) -> 
-    		blockColors.colorMultiplier(leafState.withProperty(property, type), null, null, tintindex), 
-    		Item.getItemFromBlock(leafBlock));
     }
 }
