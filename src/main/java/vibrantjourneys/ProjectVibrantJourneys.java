@@ -3,28 +3,11 @@ package vibrantjourneys;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockNewLeaf;
-import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.block.BlockPlanks;
-import net.minecraft.block.BlockPlanks.EnumType;
-import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntitySquid;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -40,9 +23,6 @@ import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.init.PVJRegistryEventHandler;
 import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
-import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
-import vibrantjourneys.tileentities.TileEntityMysticalGrill;
-import vibrantjourneys.tileentities.renderer.TileEntityMysticalGrillRenderer;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJOreDictionary;
@@ -87,6 +67,8 @@ public class ProjectVibrantJourneys
     	BiomeReference.loadAllBiomeReferences();
     	PVJEntities.addSpawns();
     	PVJWorldGen.initWorldGen();
+    	
+		ProjectVibrantJourneys.proxy.registerBlockColors();
     	
 		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
 		

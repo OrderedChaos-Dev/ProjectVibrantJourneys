@@ -92,8 +92,6 @@ public class PVJRegistryEventHandler
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_fence_gate), BlockPVJFenceGate.POWERED);
 		
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mystical_grill), BlockMysticalGrill.IS_COOKING);
-		
-		ProjectVibrantJourneys.proxy.registerBlockColors();
 	}
 	
 

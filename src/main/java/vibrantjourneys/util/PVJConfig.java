@@ -109,6 +109,8 @@ public class PVJConfig
 		public int crackedSandDensity = 75;
 		public int redCrackedSandDensity = 75;
 		public int wildWheatDensity = 20;
+		
+		public boolean modifyDungeons = true;
 	}
 	
 	public static class BiomesSubCategory
