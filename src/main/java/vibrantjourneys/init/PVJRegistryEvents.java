@@ -33,7 +33,7 @@ import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
 import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.util.Reference;
 
-public class PVJRegistryEventHandler
+public class PVJRegistryEvents
 {
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> event)

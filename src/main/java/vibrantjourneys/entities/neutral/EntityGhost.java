@@ -10,34 +10,30 @@ import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
 import vibrantjourneys.init.PVJSounds;
 import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityGhost extends EntityMob
 {
-    protected static final DataParameter<Boolean> IS_FADING = EntityDataManager.<Boolean>createKey(EntityGhost.class, DataSerializers.BOOLEAN);
+    private boolean isFading;
 	
 	public EntityGhost(World world)
 	{
 		super(world);
+		isFading = false;
 	}
 	
 	@Override
     protected void entityInit()
     {
         super.entityInit();
-        this.getDataManager().register(IS_FADING, Boolean.valueOf(false));
     }
 	
 	@Override
@@ -61,10 +57,9 @@ public class EntityGhost extends EntityMob
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(2.0D);
     }
 	
-	@SideOnly(Side.CLIENT)
 	public boolean getIsFading()
 	{
-		return this.getDataManager().get(IS_FADING).booleanValue();
+		return isFading;
 	}
 	
 	//poof!
@@ -89,14 +84,14 @@ public class EntityGhost extends EntityMob
                 if(i > 7)
                 {
                 	if(this.getRNG().nextInt(300) == 0)
-                		this.dataManager.set(IS_FADING, Boolean.valueOf(true));
+                		isFading = true;
                 }
             }
             if(getIsFading())
             {
             	//stop fading process when ghost returns to the dark
             	if(i <= 7)
-            		this.dataManager.set(IS_FADING, Boolean.valueOf(false));
+            		isFading = false;
             	else
             	{
                 	this.tasks.removeTask(new EntityAIHurtByTarget(this, false, new Class[0]));
@@ -139,4 +134,12 @@ public class EntityGhost extends EntityMob
 	
     @Override
     public void fall(float distance, float damageMultiplier){}
+    
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
+        return super.getCanSpawnHere();
+    }
 }

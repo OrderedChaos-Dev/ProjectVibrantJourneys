@@ -6,10 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.monster.EntitySpider;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -28,12 +24,9 @@ public class WorldGenPVJDungeon extends WorldGenerator
 
     public boolean generate(World world, Random rand, BlockPos pos)
     {
-        int i = 3;
         int j = rand.nextInt(2) + 2;
         int k = -j - 1;
         int l = j + 1;
-        int i1 = -1;
-        int j1 = 4;
         int k1 = rand.nextInt(2) + 2;
         int l1 = -k1 - 1;
         int i2 = k1 + 1;
@@ -101,7 +94,7 @@ public class WorldGenPVJDungeon extends WorldGenerator
                             	else
                             		world.setBlockState(blockpos1, PVJBlocks.cobblestone_brick.getDefaultState(), 2);
                             }
-                            if(world.isAirBlock(blockpos1.up()) && rand.nextInt(4) == 0)
+                            if(world.isAirBlock(blockpos1.up()) && rand.nextInt(6) == 0)
                             {
                             	world.setBlockState(blockpos1.up(), PVJBlocks.bones.getDefaultState(), 2);
                             }

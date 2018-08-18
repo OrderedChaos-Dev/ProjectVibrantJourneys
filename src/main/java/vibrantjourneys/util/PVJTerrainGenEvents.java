@@ -1,4 +1,4 @@
-package vibrantjourneys.worldgen;
+package vibrantjourneys.util;
 
 import java.util.Random;
 
@@ -7,9 +7,9 @@ import net.minecraft.world.gen.ChunkGeneratorSettings;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import vibrantjourneys.util.PVJConfig;
+import vibrantjourneys.worldgen.WorldGenPVJDungeon;
 
-public class PVJDecorateEventHandler
+public class PVJTerrainGenEvents
 {
 	@SubscribeEvent
 	public void onDecorate(PopulateChunkEvent.Populate event)
@@ -25,9 +25,9 @@ public class PVJDecorateEventHandler
 			
 			for(int i = 0; i < dungeonSpawnChance; i++)
 			{
-				int x = chunkX * 16 + 8 + rand.nextInt(16) - rand.nextInt(16);
+				int x = chunkX * 16 + 6;
 				int y = rand.nextInt(256);
-				int z = chunkZ * 16 + 8 + rand.nextInt(16) - rand.nextInt(16);
+				int z = chunkZ * 16 + 6;
 				(new WorldGenPVJDungeon()).generate(event.getWorld(), rand, new BlockPos(x, y, z));
 			}
 			event.setResult(Result.DENY);

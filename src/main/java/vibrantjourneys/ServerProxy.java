@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class ServerProxy implements ICommonProxy
 {	
@@ -16,9 +15,6 @@ public class ServerProxy implements ICommonProxy
 	
 	@Override
 	public void registerItemVariantRenderer(Item item, int meta, ModelResourceLocation resource){}
-	
-	@Override
-	public void registerWorldGenerator(IWorldGenerator worldgen){}
 	
 	@Override
 	public void registerBlockColor(IBlockColor iblockcolor, Block block){}

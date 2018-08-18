@@ -13,7 +13,7 @@ import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
-import vibrantjourneys.blocks.BlockGroundLitter;
+import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockPVJButton;
 import vibrantjourneys.blocks.BlockPVJDoor;
@@ -160,6 +160,8 @@ public class PVJBlocks
 	
 	public static Block wild_wheat;
 	
+	public static Block mystical_grill;
+	
 	public static Block cobblestone_chimney;
 	public static Block stone_chimney;
 	public static Block brick_chimney;
@@ -168,7 +170,6 @@ public class PVJBlocks
 	public static Block sandstone_chimney;
 	public static Block netherbrick_chimney;
 	
-	public static Block mystical_grill;
 	
 	public static void initBlocks()
 	{
@@ -208,27 +209,27 @@ public class PVJBlocks
 		fallenleaves_redwood = registerBlock(new BlockFallenLeaves(), "fallenleaves_redwood");
 		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead");
 
-		stone_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "stone_rocks");
-		cobblestone_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "cobblestone_rocks");
-		mossy_cobblestone_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "mossy_cobblestone_rocks");
-		andesite_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "andesite_rocks");
-		granite_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "granite_rocks");
-		diorite_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "diorite_rocks");
-		sandstone_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new BlockGroundLitter(Material.ROCK), "red_sandstone_rocks");
+		stone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "stone_rocks");
+		cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "cobblestone_rocks");
+		mossy_cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "mossy_cobblestone_rocks");
+		andesite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "andesite_rocks");
+		granite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "granite_rocks");
+		diorite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "diorite_rocks");
+		sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "red_sandstone_rocks");
 
-		oak_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "oak_twigs");
-		birch_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "birch_twigs");
-		spruce_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "spruce_twigs");
-		jungle_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "jungle_twigs");
-		acacia_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "acacia_twigs");
-		dark_oak_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "dark_oak_twigs");
-		willow_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "willow_twigs");
-		mangrove_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "mangrove_twigs");
-		palm_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "palm_twigs");
-		redwood_twigs = registerBlock(new BlockGroundLitter(Material.PLANTS), "redwood_twigs");
+		oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "oak_twigs");
+		birch_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "birch_twigs");
+		spruce_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "spruce_twigs");
+		jungle_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "jungle_twigs");
+		acacia_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "acacia_twigs");
+		dark_oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "dark_oak_twigs");
+		willow_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "willow_twigs");
+		mangrove_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "mangrove_twigs");
+		palm_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "palm_twigs");
+		redwood_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "redwood_twigs");
 
-		bones = registerBlock(new BlockGroundLitter(Material.ROCK), "bones");
+		bones = registerBlock(new BlockGroundCover(Material.ROCK), "bones");
 
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
@@ -291,9 +292,15 @@ public class PVJBlocks
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		
-		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
-		
 		mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
+		
+		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
+		/*stone_chimney = registerBlock(new BlockChimney(), "stone_chimney");
+		brick_chimney = registerBlock(new BlockChimney(), "brick_chimney");
+		stonebrick_chimney = registerBlock(new BlockChimney(), "stonebrick_chimney");
+		cobblestone_brick_chimney = registerBlock(new BlockChimney(), "cobblestone_brick_chimney");
+		sandstone_chimney = registerBlock(new BlockChimney(), "sandstone_chimney");
+		netherbrick_chimney = registerBlock(new BlockChimney(), "netherbrick_chimney");*/
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

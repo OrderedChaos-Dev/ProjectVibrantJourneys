@@ -15,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
 import vibrantjourneys.init.PVJSounds;
@@ -82,4 +83,12 @@ public class EntityShade extends EntityMob
 	
     @Override
     public void fall(float distance, float damageMultiplier){}
+    
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
+        return super.getCanSpawnHere();
+    }
 }

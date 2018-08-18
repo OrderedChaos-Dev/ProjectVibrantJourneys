@@ -1,12 +1,7 @@
 package vibrantjourneys;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntitySquid;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -20,12 +15,14 @@ import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
-import vibrantjourneys.init.PVJRegistryEventHandler;
+import vibrantjourneys.init.PVJRegistryEvents;
 import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
+import vibrantjourneys.util.PVJEvents;
 import vibrantjourneys.util.PVJOreDictionary;
+import vibrantjourneys.util.PVJTerrainGenEvents;
 import vibrantjourneys.util.Reference;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:*")
@@ -53,7 +50,7 @@ public class ProjectVibrantJourneys
     	PVJTileEntities.initTileEntities();
     	
     	// Items, blocks, entities, and item/block models are registered here
-    	MinecraftForge.EVENT_BUS.register(new PVJRegistryEventHandler());
+    	MinecraftForge.EVENT_BUS.register(new PVJRegistryEvents());
     	
     	MinecraftForge.EVENT_BUS.register(new PVJConfig.ConfigEventHandler());
     }
@@ -62,32 +59,14 @@ public class ProjectVibrantJourneys
     public void init(FMLInitializationEvent event)
     {
     	proxy.registerTESRs();
-    	
     	PVJOreDictionary.setValues();
     	BiomeReference.loadAllBiomeReferences();
     	PVJEntities.addSpawns();
     	PVJWorldGen.initWorldGen();
-    	
 		ProjectVibrantJourneys.proxy.registerBlockColors();
+		MinecraftForge.EVENT_BUS.register(new PVJEvents());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new PVJTerrainGenEvents());
     	
-		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.FRESHWATER_BIOMES.toArray(new Biome[0]));
-		
-		//removes wheat seed drop
-		if(!PVJConfig.doGrassDropSeeds)
-		{
-			Field field;
-			try
-			{
-				field = ForgeHooks.class.getDeclaredField("seedList");
-				field.setAccessible(true);
-				
-				ArrayList<?> seeds = (ArrayList<?>) field.get(ForgeHooks.class);
-				seeds.remove(0);
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
     }
 }

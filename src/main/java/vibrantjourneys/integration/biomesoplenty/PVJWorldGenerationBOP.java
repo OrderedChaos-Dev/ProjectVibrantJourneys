@@ -6,7 +6,7 @@ import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
-import vibrantjourneys.worldgen.WorldGenGroundLitter;
+import vibrantjourneys.worldgen.WorldGenGroundCover;
 
 public class PVJWorldGenerationBOP
 {
@@ -57,7 +57,7 @@ public class PVJWorldGenerationBOP
 		
 		for(BOPBlockInfo info : PVJBlocksBOP.BLOCK_INFO_TWIGS)
 		{
-			PVJWorldGen.registerWorldGen(new WorldGenGroundLitter(info.getBlock(), 60, 150, info.getWorldGenDensity(), info.getBiomes()));
+			PVJWorldGen.registerWorldGen(new WorldGenGroundCover(info.getBlock(), 60, 150, info.getWorldGenDensity(), info.getBiomes()));
 		}
 	}
 	

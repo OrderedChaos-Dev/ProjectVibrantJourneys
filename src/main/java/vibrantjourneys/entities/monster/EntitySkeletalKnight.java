@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.util.PVJLootTableList;
 
@@ -80,4 +81,12 @@ public class EntitySkeletalKnight extends AbstractSkeleton
 	{
 		return PVJLootTableList.SKELETAL_KNIGHT;
 	}
+	
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
+        return super.getCanSpawnHere();
+    }
 }

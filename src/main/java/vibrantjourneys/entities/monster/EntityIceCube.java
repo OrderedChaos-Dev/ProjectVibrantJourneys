@@ -5,6 +5,7 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
@@ -116,6 +117,8 @@ public class EntityIceCube extends EntitySlime
 	@Override
     public boolean getCanSpawnHere()
     {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
         return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
     }
 }

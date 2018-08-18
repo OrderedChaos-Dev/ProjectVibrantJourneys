@@ -92,7 +92,7 @@ public class PVJEntities
 		if(PVJConfig.entities.goonSpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		
-		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "shade"), 100);
-		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "skeletal_knight"), 100);
+		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);
+		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_skeletal_knight"), 100);
 	}
 }

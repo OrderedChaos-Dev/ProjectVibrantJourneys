@@ -21,11 +21,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockGroundLitter extends Block implements IPropertyHelper
+public class BlockGroundCover extends Block implements IPropertyHelper
 {
 	public static final PropertyInteger MODEL = PropertyInteger.create("model", 0, 4);
 	
-	public BlockGroundLitter(Material material)
+	public BlockGroundCover(Material material)
 	{
 		super(material);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
@@ -103,7 +103,7 @@ public class BlockGroundLitter extends Block implements IPropertyHelper
 	@Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state)
     {
-		int model = BlockGroundLitter.RANDOM.nextInt(5);
+		int model = BlockGroundCover.RANDOM.nextInt(5);
 		world.setBlockState(pos, this.getDefaultState().withProperty(MODEL, model));
     }
 	

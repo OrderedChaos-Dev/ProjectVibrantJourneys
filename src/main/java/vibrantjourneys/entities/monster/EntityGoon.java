@@ -24,6 +24,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIGoonPukeSilverfish;
 import vibrantjourneys.entities.ai.EntityAISilverfishDeathTimer;
@@ -172,5 +173,13 @@ public class EntityGoon extends EntityMob
     {
         super.readEntityFromNBT(compound);
         silverfishSpawned = compound.getInteger("SilverfishSpawned");
+    }
+    
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
+        return super.getCanSpawnHere();
     }
 }

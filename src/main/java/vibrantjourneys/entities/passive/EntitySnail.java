@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.util.PVJLootTableList;
 
@@ -88,4 +89,12 @@ public class EntitySnail extends EntityAnimal
 	{
 		return null;
 	}
+	
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
+		return super.getCanSpawnHere();
+    }
 }

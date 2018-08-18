@@ -2,6 +2,7 @@ package vibrantjourneys.entities.passive;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -37,6 +38,8 @@ public class EntityFirefly extends EntityFly
 	@Override
     public boolean getCanSpawnHere()
     {
+		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
+			return false;
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
         if (blockpos.getY() <= this.world.getSeaLevel())
@@ -50,5 +53,5 @@ public class EntityFirefly extends EntityFly
 
             return i > this.rand.nextInt(j) ? false : super.getCanSpawnHere();
         }
-    }
+    }	
 }
