@@ -41,8 +41,8 @@ public class BiomeRedwoods extends Biome
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-	    WorldGenRedwoodSmall REDWOOD_LARGE = new WorldGenRedwoodSmall();
-	    WorldGenRedwoodLarge REDWOOD_SMALL = new WorldGenRedwoodLarge(false, 30, 20);
+	    WorldGenRedwoodSmall REDWOOD_SMALL = new WorldGenRedwoodSmall();
+	    WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
 	    
         return rand.nextInt(14) < 11 ? REDWOOD_LARGE : REDWOOD_SMALL;
     }

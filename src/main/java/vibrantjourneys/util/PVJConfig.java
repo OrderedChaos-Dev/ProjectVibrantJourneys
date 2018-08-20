@@ -109,15 +109,18 @@ public class PVJConfig
 		public int crackedSandDensity = 75;
 		public int redCrackedSandDensity = 75;
 		public int wildWheatDensity = 20;
+		public int seashellsDensity = 100;
 		
 		public boolean modifyDungeons = true;
 	}
 	
 	public static class BiomesSubCategory
 	{
-		public int prarieWeight = 10;
+		public int prarieWeight = 7;
 		public int redwoodsWeight = 10;
 		public int willowSwampWeight = 6;
+		public int borealForestWeight = 10;
+		public int snowyBorealForestWeight = 9;
 	}
 	
 	public static class EntitiesSubCategory

@@ -89,17 +89,30 @@ public class BlockChimney extends Block
         double y = (double)pos.getY() + 0.95D;
         double z = (double)pos.getZ() + 0.5D;
         
-        if(canSmoke(world, pos))
+        if(canSmoke(world, pos) && !(world.getBlockState(pos.up()).getBlock() instanceof BlockChimneyTop))
         {
         	double xPos = x + (0.2 * rand.nextDouble()) - (0.2 * rand.nextDouble());
         	double zPos = z + (0.2 * rand.nextDouble()) - (0.2 * rand.nextDouble());
         	
-        	for(int i = 0; i < 20; i ++)
+        	for(int i = 0; i < 10; i++)
         	{
                 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, true, xPos, y, zPos, 0.0D, 0.0D, 0.0D);
                 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, true, xPos, y, zPos, 0.0D, 0.0D, 0.0D);
                 world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, true, xPos, y, zPos, 0.0D, 0.0D, 0.0D);
         	}
         }
+    }
+    
+	@Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return false;
+    }
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+    {
+        return true;
     }
 }

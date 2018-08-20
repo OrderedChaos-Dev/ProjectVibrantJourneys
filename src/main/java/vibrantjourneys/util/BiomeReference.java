@@ -28,6 +28,7 @@ public class BiomeReference
     public static final ArrayList<Biome> FRESHWATER_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> DESERT_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> MESA_BIOMES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BEACH_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> SNOWY_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> NETHER_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> END_BIOMES = new ArrayList<Biome>();
@@ -106,6 +107,9 @@ public class BiomeReference
 		SNOWY_BIOMES.addAll(BiomeDictionary.getBiomes(Type.SNOWY));
 		NETHER_BIOMES.addAll(BiomeDictionary.getBiomes(Type.NETHER));
 		END_BIOMES.addAll(BiomeDictionary.getBiomes(Type.END));
+		BEACH_BIOMES.addAll(OVERWORLD_BIOMES.stream()
+				.filter(biome -> BiomeDictionary.hasType(biome, Type.BEACH))
+				.collect(Collectors.toList()));
 		loadMesaBiomes();
 		loadDesertBiomes();
 		loadMossyCobblestoneBiomes();

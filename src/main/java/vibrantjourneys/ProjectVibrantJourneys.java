@@ -44,14 +44,13 @@ public class ProjectVibrantJourneys
     		Reference.isBOPLoaded = true;
     	}
     	PVJEntities.initEntities();
-    	PVJBiomes.initBiomes();
     	PVJItems.initItems();
     	PVJBlocks.initBlocks();
+    	PVJBiomes.initBiomes();
     	PVJTileEntities.initTileEntities();
     	
     	// Items, blocks, entities, and item/block models are registered here
     	MinecraftForge.EVENT_BUS.register(new PVJRegistryEvents());
-    	
     	MinecraftForge.EVENT_BUS.register(new PVJConfig.ConfigEventHandler());
     }
 

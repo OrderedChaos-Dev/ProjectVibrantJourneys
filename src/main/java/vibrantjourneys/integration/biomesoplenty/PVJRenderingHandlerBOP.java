@@ -1,18 +1,26 @@
 package vibrantjourneys.integration.biomesoplenty;
 
+import com.google.common.collect.ImmutableList;
+
 import biomesoplenty.api.enums.BOPTrees;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
+import net.minecraftforge.client.model.ModelLoader;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.util.IPropertyHelper;
+import vibrantjourneys.util.Reference;
+import vibrantjourneys.util.StateMapperIntegration;
 
 public class PVJRenderingHandlerBOP
 {

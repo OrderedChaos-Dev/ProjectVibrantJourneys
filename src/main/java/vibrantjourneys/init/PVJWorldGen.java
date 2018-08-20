@@ -106,6 +106,8 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenWildWheat(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
 		
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.seashells, 60, 80, PVJConfig.worldgen.seashellsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
+		
 		if(Reference.isBOPLoaded)
 		{
 			PVJWorldGenerationBOP.initWorldGenBOP();

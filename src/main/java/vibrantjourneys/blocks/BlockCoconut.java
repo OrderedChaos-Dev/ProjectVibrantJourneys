@@ -18,8 +18,14 @@ public class BlockCoconut extends Block
 		this.setResistance(7.0F);
 		this.setSoundType(SoundType.WOOD);
 	}
+	
+	@Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return this.canBlockStay(worldIn, pos);
+    }
 
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    public boolean canBlockStay(World worldIn, BlockPos pos)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos.up());
         return iblockstate.getBlock() == PVJBlocks.palm_leaves;
@@ -40,7 +46,7 @@ public class BlockCoconut extends Block
 	@Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-        if (!this.canBlockStay(worldIn, pos, state))
+        if (!this.canBlockStay(worldIn, pos))
         {
             this.dropBlock(worldIn, pos, state);
         }

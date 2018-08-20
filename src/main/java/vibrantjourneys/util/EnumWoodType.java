@@ -8,7 +8,12 @@ public enum EnumWoodType implements IStringSerializable
     WILLOW("willow", MapColor.GRAY),
     MANGROVE("mangrove", MapColor.DIRT),
     PALM("palm", MapColor.BROWN),
-    REDWOOD("redwood", MapColor.BROWN);
+    REDWOOD("redwood", MapColor.BROWN),
+    FIR("willow", MapColor.DIRT),
+    PINE("mangrove", MapColor.DIRT),
+    ASPEN("palm", MapColor.BROWN_STAINED_HARDENED_CLAY),
+    MAPLE("maple", MapColor.BROWN),
+    BAOBAB("baobab", MapColor.SAND);
 
     private final String name;
     private final MapColor mapColor;

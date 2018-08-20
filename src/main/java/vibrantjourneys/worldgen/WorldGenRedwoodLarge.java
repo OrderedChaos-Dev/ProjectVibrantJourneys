@@ -17,7 +17,6 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
     private static final IBlockState LEAF = PVJBlocks.redwood_leaves.getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
-    
     public WorldGenRedwoodLarge(boolean notify, int baseHeightIn, int extraRandomHeightIn)
     {
         super(notify, baseHeightIn, extraRandomHeightIn, LOG, LEAF);
@@ -184,7 +183,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 
     private void createCrown(World worldIn, BlockPos pos, int p_150541_5_, Random rand)
     {
-        int i = rand.nextInt(5) + 3;
+    	//this rand.nextBoolean() determines whether its a regular redwood or sequoia
+        int i = rand.nextInt(5) + (rand.nextBoolean() ? this.baseHeight : 3);
         int j = 0;
         int y = pos.getY();
         int x = pos.getX();

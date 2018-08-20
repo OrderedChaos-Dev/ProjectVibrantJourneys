@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:seashells0"},
+		"model=1": { "model": "pvj:seashells1"},
+		"model=2": { "model": "pvj:seashells2"},
+		"model=3": { "model": "pvj:seashells3"},
+		"model=4": { "model": "pvj:seashells4"}
+	}
+}

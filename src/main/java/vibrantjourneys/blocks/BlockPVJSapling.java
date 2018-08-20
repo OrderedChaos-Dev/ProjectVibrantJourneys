@@ -20,8 +20,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
+import vibrantjourneys.worldgen.WorldGenFirTree;
 import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenPalmTree;
+import vibrantjourneys.worldgen.WorldGenPineTree;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
 import vibrantjourneys.worldgen.WorldGenWillowTree;
@@ -115,6 +117,12 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	break;
             case MANGROVE:
             	worldgenerator = new WorldGenMangroveTree();
+            	break;
+            case FIR:
+            	worldgenerator = new WorldGenFirTree(true);
+            	break;
+            case PINE:
+            	worldgenerator = new WorldGenPineTree(true);
             	break;
             default:
             	break;

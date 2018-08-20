@@ -54,7 +54,9 @@ public class ClientProxy implements ICommonProxy
 	@Override
 	public void registerItemRenderer(Item item)
 	{
-		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		//Item.getItemFromBlock() gives the air block for blocks that do not have an item form
+		if(item != Item.getItemFromBlock(Blocks.AIR))
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}
 	
 	@Override

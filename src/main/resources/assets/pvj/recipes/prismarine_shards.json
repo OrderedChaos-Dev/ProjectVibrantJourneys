@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:seashells",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "minecraft:prismarine_shard",
+		"count": 1,
+		"data": 0
+	}
+}

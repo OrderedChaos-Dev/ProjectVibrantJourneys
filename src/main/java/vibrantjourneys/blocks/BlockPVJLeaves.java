@@ -95,6 +95,21 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 	    	case REDWOOD:
 	    		block = PVJBlocks.redwood_sapling;
 	    		break;
+	    	case FIR:
+	    		block = PVJBlocks.fir_sapling;
+	    		break;
+	    	case PINE:
+	    		block = PVJBlocks.pine_sapling;
+	    		break;
+	    	case ASPEN:
+	    		block = PVJBlocks.aspen_sapling;
+	    		break;
+	    	case MAPLE:
+	    		block = PVJBlocks.maple_sapling;
+	    		break;
+	    	case BAOBAB:
+	    		block = PVJBlocks.baobab_sapling;
+	    		break;
 	    	default:
 	    		block = PVJBlocks.willow_sapling;
     	}
