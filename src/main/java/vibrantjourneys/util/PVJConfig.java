@@ -42,6 +42,12 @@ public class PVJConfig
 	})
 	public static boolean doGrassDropSeeds = false;
 	
+	@Comment({
+		"This is measured in ticks. 20 ticks = 1 second",
+		"6000 ticks = 5 minutes"
+	})
+	public static int mysticalGrillCookTime = 6000;
+	
 	public static class WorldGenSubCategory
 	{
 		public int cobwebDensity = 100;
@@ -64,6 +70,12 @@ public class PVJConfig
 		public int fallenLeavesRedwoodDensity = 70;
 		public int fallenLeavesPalmDensity = 15;
 		public int fallenLeavesDeadDensity = 20;
+		public int fallenLeavesFirDensity = 40;
+		public int fallenLeavesPineDensity = 20;
+		public int fallenLeavesAspenDensity = 30;
+		public int fallenLeavesRedMapleDensity = 30;
+		public int fallenLeavesOrangeMapleDensity = 30;
+		public int fallenLeavesBaobabDensity = 5;
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
 		public int fallenTreeOakDensity = 25;
@@ -75,6 +87,11 @@ public class PVJConfig
 		public int fallenTreeAcaciaDensity = 15;
 		public int fallenTreeWillowDensity = 30;
 		public int fallenTreeRedwoodDensity = 50;
+		public int fallenTreeFirDensity = 25;
+		public int fallenTreePineDensity = 10;
+		public int fallenTreeAspenDensity = 25;
+		public int fallenTreeMapleDensity = 10;
+		public int fallenTreeBaobabDensity = 3;
 		public int mangroveRootDensity = 2;
 		public int bushDensity = 3;
 		public int stoneRocksDensity = 400;
@@ -103,6 +120,12 @@ public class PVJConfig
 		public int mangroveTwigsDensity = 100;
 		public int palmTwigsDensity = 30;
 		public int redwoodTwigsDensity = 600;
+		public int firTwigsDensity = 500;
+		public int pineTwigsDensity = 100;
+		public int aspenTwigsDensity = 300;
+		public int redMapleTwigsDensity = 300;
+		public int orangeMapleTwigsDensity = 300;
+		public int baobabTwigsDensity = 20;
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
 		public int bonesNetherDensity = 15;
@@ -110,6 +133,7 @@ public class PVJConfig
 		public int redCrackedSandDensity = 75;
 		public int wildWheatDensity = 20;
 		public int seashellsDensity = 100;
+		public int pineconesDensity = 150;
 		
 		public boolean modifyDungeons = true;
 	}
@@ -120,13 +144,15 @@ public class PVJConfig
 		public int redwoodsWeight = 10;
 		public int willowSwampWeight = 6;
 		public int borealForestWeight = 10;
-		public int snowyBorealForestWeight = 9;
+		public int snowyBorealForestWeight = 10;
+		public int aspenGroveWeight = 10;
 	}
 	
 	public static class EntitiesSubCategory
 	{
-		public int snailSpawnWeight = 50;
-		public int flySpawnWeight = 30;
+		public int snailSpawnWeight = 120;
+		public int flySpawnWeight = 120;
+		public int flySwampSpawnWeight = 200;
 		public int fireflySpawnWeight = 350;
 		
 		public int ghostSpawnWeight = 65;

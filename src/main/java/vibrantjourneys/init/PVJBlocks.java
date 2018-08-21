@@ -72,7 +72,8 @@ public class PVJBlocks
 	public static Block fir_leaves;
 	public static Block pine_leaves;
 	public static Block aspen_leaves;
-	public static Block maple_leaves;
+	public static Block red_maple_leaves;
+	public static Block orange_maple_leaves;
 	public static Block baobab_leaves;
 	
 	//1.13: mangrove saplings can be waterlogged
@@ -83,7 +84,8 @@ public class PVJBlocks
 	public static Block fir_sapling;
 	public static Block pine_sapling;
 	public static Block aspen_sapling;
-	public static Block maple_sapling;
+	public static Block red_maple_sapling;
+	public static Block orange_maple_sapling;
 	public static Block baobab_sapling;
 	
 	public static Block coconut;
@@ -102,7 +104,8 @@ public class PVJBlocks
 	public static Block fallenleaves_fir;
 	public static Block fallenleaves_pine;
 	public static Block fallenleaves_aspen;
-	public static Block fallenleaves_maple;
+	public static Block fallenleaves_red_maple;
+	public static Block fallenleaves_orange_maple;
 	public static Block fallenleaves_baobab;
 	
 	//1.13: allow waterlogged
@@ -128,7 +131,8 @@ public class PVJBlocks
 	public static Block fir_twigs;
 	public static Block pine_twigs;
 	public static Block aspen_twigs;
-	public static Block maple_twigs;
+	public static Block red_maple_twigs;
+	public static Block orange_maple_twigs;
 	public static Block baobab_twigs;
 	
 	//1.13: allow waterlogged
@@ -271,7 +275,7 @@ public class PVJBlocks
 		fir_log = registerBlock(new BlockPVJLog(EnumWoodType.FIR), "log_fir");
 		pine_log = registerBlock(new BlockPVJLog(EnumWoodType.PINE), "log_pine");
 		aspen_log = registerBlock(new BlockPVJLog(EnumWoodType.ASPEN), "log_aspen");
-		maple_log = registerBlock(new BlockPVJLog(EnumWoodType.MAPLE), "log_maple");
+		maple_log = registerBlock(new BlockPVJLog(EnumWoodType.RED_MAPLE), "log_maple");
 		baobab_log = registerBlock(new BlockPVJLog(EnumWoodType.BAOBAB), "log_baobab");
 		
 		willow_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.WILLOW), "leaves_willow");
@@ -281,7 +285,8 @@ public class PVJBlocks
 		fir_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.FIR), "leaves_fir");
 		pine_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.PINE), "leaves_pine");
 		aspen_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.ASPEN), "leaves_aspen");
-		maple_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.MAPLE), "leaves_maple");
+		red_maple_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.RED_MAPLE), "leaves_red_maple");
+		orange_maple_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.ORANGE_MAPLE), "leaves_orange_maple");
 		baobab_leaves = registerBlock(new BlockPVJLeaves(EnumWoodType.BAOBAB), "leaves_baobab");
 		
 		willow_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.WILLOW), "planks_willow");
@@ -291,7 +296,7 @@ public class PVJBlocks
 		fir_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.FIR), "planks_fir");
 		pine_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.PINE), "planks_pine");
 		aspen_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.ASPEN), "planks_aspen");
-		maple_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.MAPLE), "planks_maple");
+		maple_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.RED_MAPLE), "planks_maple");
 		baobab_planks = registerBlock(new BlockPVJPlanks(EnumWoodType.BAOBAB), "planks_baobab");
 
 		willow_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.WILLOW), "sapling_willow");
@@ -301,7 +306,8 @@ public class PVJBlocks
 		fir_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.FIR), "sapling_fir");
 		pine_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.PINE), "sapling_pine");
 		aspen_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.ASPEN), "sapling_aspen");
-		maple_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.MAPLE), "sapling_maple");
+		red_maple_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.RED_MAPLE), "sapling_red_maple");
+		orange_maple_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.ORANGE_MAPLE), "sapling_orange_maple");
 		baobab_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.BAOBAB), "sapling_baobab");
 
 		coconut = registerBlock(new BlockCoconut(), "coconut");
@@ -320,7 +326,8 @@ public class PVJBlocks
 		fallenleaves_fir = registerBlock(new BlockFallenLeaves(), "fallenleaves_fir");
 		fallenleaves_pine = registerBlock(new BlockFallenLeaves(), "fallenleaves_pine");
 		fallenleaves_aspen = registerBlock(new BlockFallenLeaves(), "fallenleaves_aspen");
-		fallenleaves_maple = registerBlock(new BlockFallenLeaves(), "fallenleaves_maple");
+		fallenleaves_red_maple = registerBlock(new BlockFallenLeaves(), "fallenleaves_red_maple");
+		fallenleaves_orange_maple = registerBlock(new BlockFallenLeaves(), "fallenleaves_orange_maple");
 		fallenleaves_baobab = registerBlock(new BlockFallenLeaves(), "fallenleaves_baobab");
 
 		stone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "stone_rocks");
@@ -345,7 +352,8 @@ public class PVJBlocks
 		fir_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "fir_twigs");
 		pine_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "pine_twigs");
 		aspen_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "aspen_twigs");
-		maple_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "maple_twigs");
+		red_maple_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "red_maple_twigs");
+		orange_maple_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "orange_maple_twigs");
 		baobab_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "baobab_twigs");
 
 		bones = registerBlock(new BlockGroundCover(Material.ROCK), "bones");

@@ -47,6 +47,18 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     @Override
     protected int getSaplingDropChance(IBlockState state)
     {
+    	if(woodType == EnumWoodType.BAOBAB)
+    	{
+    		return 80;
+    	}
+    	else if(woodType == EnumWoodType.REDWOOD)
+    	{
+    		return 50;
+    	}
+    	else if(woodType == EnumWoodType.PINE)
+    	{
+    		return 15;
+    	}
         return super.getSaplingDropChance(state);
     }
 
@@ -104,8 +116,11 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 	    	case ASPEN:
 	    		block = PVJBlocks.aspen_sapling;
 	    		break;
-	    	case MAPLE:
-	    		block = PVJBlocks.maple_sapling;
+	    	case RED_MAPLE:
+	    		block = PVJBlocks.red_maple_sapling;
+	    		break;
+	    	case ORANGE_MAPLE:
+	    		block = PVJBlocks.orange_maple_sapling;
 	    		break;
 	    	case BAOBAB:
 	    		block = PVJBlocks.baobab_sapling;

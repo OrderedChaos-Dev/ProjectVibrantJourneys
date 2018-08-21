@@ -2,10 +2,15 @@ package vibrantjourneys.init;
 
 import java.util.ArrayList;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -17,6 +22,7 @@ import vibrantjourneys.entities.monster.EntitySkeletalKnight;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
+import vibrantjourneys.entities.passive.EntityPVJAnimal;
 import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
@@ -26,6 +32,8 @@ public class PVJEntities
 {
 	public static int id = 1;
 	public static final ArrayList<EntityEntry> ENTITIES = new ArrayList<EntityEntry>();
+	
+	public static final EnumCreatureType PVJ_ANIMAL = EnumHelper.addCreatureType("pvj_animal", EntityPVJAnimal.class, 15, Material.AIR, true, true);
 	
 	public static void initEntities()
 	{
@@ -73,10 +81,11 @@ public class PVJEntities
 		//these if condition checks prevent crashes, and allow the config to disable spawning
 		
 		if(PVJConfig.entities.snailSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 1, 3, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
-		
+			EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, PVJ_ANIMAL, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
 		if(PVJConfig.entities.flySpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		if(PVJConfig.entities.flySwampSpawnWeight > 0)
+			EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
 		if(PVJConfig.entities.fireflySpawnWeight > 0)
 			EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		

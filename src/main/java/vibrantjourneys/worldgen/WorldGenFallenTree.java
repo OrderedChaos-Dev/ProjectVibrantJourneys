@@ -3,8 +3,11 @@ package vibrantjourneys.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -28,14 +31,14 @@ public class WorldGenFallenTree implements IWorldGenerator
 		this.biomes = biomes;
 	}
 	
-	public WorldGenFallenTree(Block log, Block leaves, int frequency, Biome... biomes)
+	public WorldGenFallenTree(Block log, int frequency, Biome... biomes)
 	{
 		this(log.getDefaultState(), frequency, biomes);
 	}
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-	{
+	{	
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		int y = 0;
@@ -69,8 +72,9 @@ public class WorldGenFallenTree implements IWorldGenerator
 				y = 60 + random.nextInt(30);
 				BlockPos testpos = new BlockPos(xPos, y, zPos);
 				
-				if(world.isAirBlock(new BlockPos(xPos, y, zPos)) && world.isSideSolid(testpos.down(), EnumFacing.UP))
-					break;
+				if(world.isAirBlock(testpos) && world.isSideSolid(testpos.down(), EnumFacing.UP))
+					if(!(world.getBlockState(testpos.down()).getBlock() instanceof BlockLog))
+						break;
 			}
 			
 			//checks if lostcities is installed and disables fallen trees in city buildings by adding world.canSeeSky() check
@@ -99,13 +103,13 @@ public class WorldGenFallenTree implements IWorldGenerator
 				IBlockState state = world.getBlockState(pos);
 				
 				//so it doesn't float in the air
-				while(world.isAirBlock(pos.down()) || world.getBlockState(pos.down()).getBlock().isReplaceable(world, pos.down()))
+				while(canReplace(world, pos.down()))
 				{
 					pos = pos.down();
 					state = world.getBlockState(pos);
 				}
 				
-				if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+				if(canReplace(world, pos))
 				{
 					world.setBlockState(pos, log);
 					if(hasBranch)
@@ -120,9 +124,9 @@ public class WorldGenFallenTree implements IWorldGenerator
 							pos = new BlockPos(xbranch, y, zbranch);
 							state = world.getBlockState(pos);
 							
-							if(world.isAirBlock(pos) || state.getBlock().isLeaves(state, world, pos) || state.getBlock().isReplaceable(world, pos))
+							if(canReplace(world, pos))
 							{
-								while(world.isAirBlock(pos.down()))
+								while(canReplace(world, pos.down()))
 								{
 									pos = pos.down();
 									state = world.getBlockState(pos);
@@ -141,6 +145,17 @@ public class WorldGenFallenTree implements IWorldGenerator
 				}
 			}
 		}
+	}
+	
+	public boolean canReplace(World world, BlockPos pos)
+	{
+		IBlockState state = world.getBlockState(pos);
+		return world.isAirBlock(pos)
+				|| state.getBlock().isReplaceable(world, pos)
+				|| state.getBlock().isLeaves(state, world, pos)
+				|| state.getBlock() instanceof BlockLilyPad
+				|| state.getBlock() instanceof BlockMushroom
+				|| state.getBlock() instanceof BlockFlower;
 	}
 	
 	private EnumFacing getHorizontalPerpendicular(int facingIndex)

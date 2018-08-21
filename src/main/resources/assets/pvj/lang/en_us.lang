@@ -27,19 +27,46 @@ tile.planks_willow.name=Willow Wood Planks
 tile.planks_mangrove.name=Mangrove Wood Planks
 tile.planks_palm.name=Palm Wood Planks
 tile.planks_redwood.name=Redwood Wood Planks
+tile.planks_fir.name=Fir Wood Planks
+tile.planks_pine.name=Pine Wood Planks
+tile.planks_aspen.name=Aspen Wood Planks
+tile.planks_maple.name=Maple Wood Planks
+tile.planks_baobab.name=Baobab Wood Planks
+
 tile.log_willow.name=Willow Wood
 tile.log_mangrove.name=Mangrove Wood
 tile.log_palm.name=Palm Wood
 tile.log_redwood.name=Redwood Wood
+tile.log_fir.name=Fir Wood
+tile.log_pine.name=Pine Wood
+tile.log_aspen.name=Aspen Wood
+tile.log_maple.name=Maple Wood
+tile.log_baobab.name=Baobab Wood
+
 tile.leaves_willow.name=Willow Leaves
 tile.leaves_mangrove.name=Mangrove Leaves
 tile.leaves_palm.name=Palm Leaves
 tile.leaves_redwood.name=Redwood Leaves
+tile.leaves_fir.name=Fir Leaves
+tile.leaves_pine.name=Pine Leaves
+tile.leaves_aspen.name=Aspen Leaves
+tile.leaves_red_maple.name=Red Maple Leaves
+tile.leaves_orange_maple.name=Orange Maple Leaves
+tile.leaves_baobab.name=Baobab Leaves
+
 tile.sapling_willow.name=Willow Sapling
 tile.sapling_mangrove.name=Mangrove Sapling
 tile.sapling_palm.name=Palm Sapling
-tile.sapling_redwod.name=Redwood Sapling
+tile.sapling_redwood.name=Redwood Sapling
+tile.sapling_fir.name=Fir Sapling
+tile.sapling_pine.name=Pine Sapling
+tile.sapling_aspen.name=Aspen Sapling
+tile.sapling_red_maple.name=Red Maple Sapling
+tile.sapling_orange_maple.name=Orange Maple Sapling
+tile.sapling_baobab.name=Baobab Sapling
+
 tile.coconut.name=Coconut
+
 tile.fallenleaves_oak.name=Oak Fallen Leaves
 tile.fallenleaves_birch.name=Birch Fallen Leaves
 tile.fallenleaves_spruce.name=Spruce Fallen Leaves
@@ -51,6 +78,7 @@ tile.fallenleaves_mangrove.name=Mangrove Fallen Leaves
 tile.fallenleaves_palm.name=Palm Fallen Leaves
 tile.fallenleaves_redwood.name=Redwood Fallen Leaves
 tile.fallenleaves_dead.name=Dead Fallen Leaves
+
 tile.stone_rocks.name=Stone Rocks
 tile.cobblestone_rocks.name=Cobblestone Rocks
 tile.mossy_cobblestone_rocks.name=Mossy Cobblestone Rocks
@@ -59,6 +87,7 @@ tile.granite_rocks.name=Granite Rocks
 tile.diorite_rocks.name=Diorite Rocks
 tile.sandstone_rocks.name=Sandstone Rocks
 tile.red_sandstone_rocks.name=Red Sandstone Rocks
+
 tile.oak_twigs.name=Oak Twigs
 tile.birch_twigs.name=Birch Twigs
 tile.spruce_twigs.name=Spruce Twigs
@@ -69,6 +98,7 @@ tile.willow_twigs.name=Willow Twigs
 tile.mangrove_twigs.name=Mangrove Twigs
 tile.palm_twigs.name=Palm Twigs
 tile.redwood_twigs.name=Redwood Twigs
+
 tile.bones.name=Bones
 tile.cracked_sand.name=Cracked Sand
 tile.red_cracked_sand.name=Red Cracked Sand

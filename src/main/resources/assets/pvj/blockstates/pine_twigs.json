@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:pine_twigs0"},
+		"model=1": { "model": "pvj:pine_twigs1"},
+		"model=2": { "model": "pvj:pine_twigs2"},
+		"model=3": { "model": "pvj:pine_twigs3"},
+		"model=4": { "model": "pvj:pine_twigs4"}
+	}
+}

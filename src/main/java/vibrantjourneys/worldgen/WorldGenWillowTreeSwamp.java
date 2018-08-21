@@ -30,7 +30,7 @@ public class WorldGenWillowTreeSwamp implements IWorldGenerator
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		
-		if(BiomeReference.WEEPING_WILLOW_TREES.contains(biome))
+		if(BiomeReference.WILLOW_TREES.contains(biome))
 		{
 			for(int i = 0; i < frequency; i++)
 			{

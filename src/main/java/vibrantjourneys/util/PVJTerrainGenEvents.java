@@ -3,10 +3,14 @@ package vibrantjourneys.util;
 import java.util.Random;
 
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import vibrantjourneys.worldgen.WorldGenBaobabTree;
 import vibrantjourneys.worldgen.WorldGenPVJDungeon;
 
 public class PVJTerrainGenEvents
@@ -31,6 +35,24 @@ public class PVJTerrainGenEvents
 				(new WorldGenPVJDungeon()).generate(event.getWorld(), rand, new BlockPos(x, y, z));
 			}
 			event.setResult(Result.DENY);
+		}
+	}
+	
+	@SubscribeEvent
+	public void spawnBaobab(DecorateBiomeEvent.Decorate event)
+	{
+		if(event.getType() == Decorate.EventType.TREE)
+		{
+			Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
+			if(BiomeReference.BAOBAB_TREES.contains(biome))
+			{
+				if(event.getRand().nextInt(20) == 0)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
 		}
 	}
 }

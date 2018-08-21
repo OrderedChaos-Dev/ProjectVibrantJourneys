@@ -55,34 +55,40 @@ public class BiomeReference
 	//Project: Vibrant Journeys TREES
 	//I call them differently here to distinguish between different mod's trees
 	//They also make sense
-	public static final ArrayList<Biome> WEEPING_WILLOW_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> RED_MANGROVE_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> COCONUT_PALM_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> COAST_REDWOOD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> WILLOW_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> MANGROVE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> PALM_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> REDWOOD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> FIR_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> PINE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> ASPEN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> RED_MAPLE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> ORANGE_MAPLE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BAOBAB_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
-	public static final ArrayList<Biome> MANGROVE_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> WILLOW_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> BAMBOO_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> FLOWERING_OAK_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> JACARANDA_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> MAGIC_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> EUCALYPTUS_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> EBONY_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> PINE_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> FIR_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> DEAD_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> REDWOOD_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> YELLOW_AUTUMN_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> ORANGE_AUTUMN_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> MAPLE_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> PALM_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> WHITE_CHERRY_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> PINK_CHERRY_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> MAHOGANY_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> UMBRAN_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> HELLBARK_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> SACRED_OAK_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_MANGROVE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_WILLOW_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_BAMBOO_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_FLOWERING_OAK_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_JACARANDA_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_MAGIC_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_EUCALYPTUS_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_EBONY_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_PINE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_FIR_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_DEAD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_REDWOOD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_YELLOW_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_ORANGE_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_MAPLE_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_PALM_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_WHITE_CHERRY_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_PINK_CHERRY_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_MAHOGANY_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_UMBRAN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_HELLBARK_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> BOP_SACRED_OAK_TREES = new ArrayList<Biome>();
 	
 	public static void loadAllBiomeReferences()
 	{
@@ -96,6 +102,11 @@ public class BiomeReference
 		loadMangroveTrees();
 		loadPalmTrees();
 		loadRedwoodTrees();
+		loadFirTrees();
+		loadPineTrees();
+		loadAspenTrees();
+		loadMapleTrees();
+		loadBaobabTrees();
 		
 		ALL_BIOMES.addAll(ForgeRegistries.BIOMES.getValuesCollection());
 		OVERWORLD_BIOMES.addAll(ALL_BIOMES.stream()
@@ -137,7 +148,7 @@ public class BiomeReference
 		OAK_TREES_SPARSE.add(Biomes.ROOFED_FOREST);
 		OAK_TREES_SPARSE.add(Biomes.MUTATED_ROOFED_FOREST);
 		OAK_TREES_SPARSE.add(PVJBiomes.prairie);
-		
+		OAK_TREES_SPARSE.add(PVJBiomes.aspen_grove);
 	}
 	
 	public static void loadBirchTrees()
@@ -167,6 +178,8 @@ public class BiomeReference
 		SPRUCE_TREES_SPARSE.add(Biomes.EXTREME_HILLS_WITH_TREES);
 		SPRUCE_TREES_SPARSE.add(Biomes.MUTATED_EXTREME_HILLS_WITH_TREES);
 		SPRUCE_TREES_SPARSE.add(Biomes.EXTREME_HILLS_EDGE);
+		SPRUCE_TREES_SPARSE.add(PVJBiomes.boreal_forest);
+		SPRUCE_TREES_SPARSE.add(PVJBiomes.snowy_boreal_forest);
 	}
 	
 	public static void loadJungleTrees()
@@ -194,30 +207,62 @@ public class BiomeReference
 
 	public static void loadWillowTrees()
 	{
-		WEEPING_WILLOW_TREES.add(PVJBiomes.willow_swamp);
+		WILLOW_TREES.add(PVJBiomes.willow_swamp);
 	}
 	
 	public static void loadMangroveTrees()
 	{
-		RED_MANGROVE_TREES.add(PVJBiomes.willow_swamp);
-		RED_MANGROVE_TREES.add(Biomes.SWAMPLAND);
-		RED_MANGROVE_TREES.add(Biomes.MUTATED_SWAMPLAND);
-		RED_MANGROVE_TREES.add(Biomes.JUNGLE);
-		RED_MANGROVE_TREES.add(Biomes.JUNGLE_EDGE);
-		RED_MANGROVE_TREES.add(Biomes.JUNGLE_HILLS);
-		RED_MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE);
-		RED_MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
+		MANGROVE_TREES.add(PVJBiomes.willow_swamp);
+		MANGROVE_TREES.add(Biomes.SWAMPLAND);
+		MANGROVE_TREES.add(Biomes.MUTATED_SWAMPLAND);
+		MANGROVE_TREES.add(Biomes.JUNGLE);
+		MANGROVE_TREES.add(Biomes.JUNGLE_EDGE);
+		MANGROVE_TREES.add(Biomes.JUNGLE_HILLS);
+		MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE);
+		MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
 	}
 	
 	public static void loadPalmTrees()
 	{
-		COCONUT_PALM_TREES.add(Biomes.BEACH);
+		PALM_TREES.add(Biomes.BEACH);
 	}
 	
 	public static void loadRedwoodTrees()
 	{
-		COAST_REDWOOD_TREES.add(PVJBiomes.redwoods);
-		COAST_REDWOOD_TREES.add(PVJBiomes.redwood_peaks);
+		REDWOOD_TREES.add(PVJBiomes.redwoods);
+		REDWOOD_TREES.add(PVJBiomes.redwood_peaks);
+	}
+	
+	public static void loadFirTrees()
+	{
+		FIR_TREES.add(PVJBiomes.boreal_forest);
+		FIR_TREES.add(PVJBiomes.snowy_boreal_forest);
+	}
+	
+	public static void loadPineTrees()
+	{
+		PINE_TREES.add(PVJBiomes.boreal_forest);
+		PINE_TREES.add(PVJBiomes.snowy_boreal_forest);
+	}
+	
+	public static void loadAspenTrees()
+	{
+		ASPEN_TREES.add(PVJBiomes.aspen_grove);
+	}
+	
+	public static void loadMapleTrees()
+	{
+		RED_MAPLE_TREES.add(PVJBiomes.aspen_grove);
+		
+		ORANGE_MAPLE_TREES.add(PVJBiomes.aspen_grove);
+	}
+	
+	public static void loadBaobabTrees()
+	{
+		BAOBAB_TREES.add(Biomes.SAVANNA);
+		BAOBAB_TREES.add(Biomes.SAVANNA_PLATEAU);
+		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA);
+		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
 	}
 	
 	public static void loadMesaBiomes()

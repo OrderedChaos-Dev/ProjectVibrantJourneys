@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJItems;
+import vibrantjourneys.util.PVJConfig;
 
 public class TileEntityMysticalGrill extends TileEntity implements ITickable
 {
@@ -61,7 +62,7 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
     		if(isCooking)
     		{
     			//6000 ticks = 5 mins
-    			if(cookTime >= 6000)
+    			if(cookTime >= PVJConfig.mysticalGrillCookTime)
     			{
     				ItemStack cookedItem = getCookedFood(food);
     				setFood(cookedItem);

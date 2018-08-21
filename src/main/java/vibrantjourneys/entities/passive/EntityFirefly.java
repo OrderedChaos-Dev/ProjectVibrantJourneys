@@ -1,6 +1,5 @@
 package vibrantjourneys.entities.passive;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
@@ -27,12 +26,6 @@ public class EntityFirefly extends EntityFly
     public float getBrightness()
     {
         return 1.0F;
-    }
-	
-	@Override
-    protected int getExperiencePoints(EntityPlayer player)
-    {
-        return 0;
     }
     
 	@Override

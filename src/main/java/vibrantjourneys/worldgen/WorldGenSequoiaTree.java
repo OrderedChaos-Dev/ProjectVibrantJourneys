@@ -23,12 +23,10 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
         super(notify, baseHeightIn, extraRandomHeightIn, LOG, LEAF);
     }
 
-    //this is a combination of WorldGenMegaJungle and WorldGenMegaTaiga
-    //jungle for branches, taiga for everything else
+    @Override
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
         int i = this.getHeight(rand);
-
         if (!this.ensureGrowable(worldIn, rand, position, i))
         {
             return false;
@@ -36,27 +34,30 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
         else
         {
             this.createCrown(worldIn, position.up(i), 0, rand);
-
-            for (int j = position.getY() + i - 2 - rand.nextInt(4); j > position.getY() + i / 2; j -= 2 + rand.nextInt(4))
+            for (int j = 0; j < i; ++j)
             {
-                float f = rand.nextFloat() * ((float)Math.PI * 2F);
-                int k = position.getX() + (int)(0.5F + MathHelper.cos(f) * 4.0F);
-                int l = position.getZ() + (int)(0.5F + MathHelper.sin(f) * 4.0F);
-
-                for (int i1 = 0; i1 < 5; ++i1)
+                if (isAirLeaves(worldIn, position.up(j)))
                 {
-                    k = position.getX() + (int)(1.5F + MathHelper.cos(f) * (float)i1);
-                    l = position.getZ() + (int)(1.5F + MathHelper.sin(f) * (float)i1);
-                    this.setBlockAndNotifyAdequately(worldIn, new BlockPos(k, j - 3 + i1 / 2, l), this.woodMetadata);
+                    this.setBlockAndNotifyAdequately(worldIn, position.up(j), this.woodMetadata);
                 }
 
-                int j2 = 2 + rand.nextInt(2);
-                int j1 = j;
-
-                for (int k1 = j - j2; k1 <= j1; ++k1)
+                if (j < i - 1)
                 {
-                    int l1 = k1 - j1;
-                    this.growLeavesLayer(worldIn, new BlockPos(k, k1, l), 1 - l1);
+                    if (isAirLeaves(worldIn, position.add(1, j, 0)))
+                    {
+                        this.setBlockAndNotifyAdequately(worldIn, position.add(1, j, 0), this.woodMetadata);
+                    }
+
+                    if (isAirLeaves(worldIn, position.add(1, j, 1)))
+                    {
+                        this.setBlockAndNotifyAdequately(worldIn, position.add(1, j, 1), this.woodMetadata);
+                    }
+
+
+                    if (isAirLeaves(worldIn, position.add(0, j, 1)))
+                    {
+                        this.setBlockAndNotifyAdequately(worldIn, position.add(0, j, 1), this.woodMetadata);
+                    }
                 }
             }
 

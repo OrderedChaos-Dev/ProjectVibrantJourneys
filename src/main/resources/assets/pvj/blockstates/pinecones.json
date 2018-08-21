@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:pinecones0"},
+		"model=1": { "model": "pvj:pinecones1"},
+		"model=2": { "model": "pvj:pinecones2"},
+		"model=3": { "model": "pvj:pinecones3"},
+		"model=4": { "model": "pvj:pinecones4"}
+	}
+}

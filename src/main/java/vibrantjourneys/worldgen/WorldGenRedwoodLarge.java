@@ -24,6 +24,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 
     //this is a combination of WorldGenMegaJungle and WorldGenMegaTaiga
     //jungle for branches, taiga for everything else
+    @Override
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
         int i = this.getHeight(rand);
@@ -183,8 +184,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 
     private void createCrown(World worldIn, BlockPos pos, int p_150541_5_, Random rand)
     {
-    	//this rand.nextBoolean() determines whether its a regular redwood or sequoia
-        int i = rand.nextInt(5) + (rand.nextBoolean() ? this.baseHeight : 3);
+        int i = rand.nextInt(5) + 3;
         int j = 0;
         int y = pos.getY();
         int x = pos.getX();

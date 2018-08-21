@@ -1,9 +1,7 @@
 package vibrantjourneys.entities.passive;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -29,18 +27,6 @@ public class EntityFly extends EntityAmbientCreature
         return false;
     }
     
-    //Override parent for no collision/no fall damage
-    //----------------------------------------
-    @Override
-    protected void collideWithEntity(Entity entityIn){}
-
-    @Override
-    protected void collideWithNearbyEntities(){}
-    
-    @Override
-    public void fall(float distance, float damageMultiplier){}
-    //----------------------------------------
-    
 	@Override
     protected void applyEntityAttributes()
     {
@@ -53,6 +39,7 @@ public class EntityFly extends EntityAmbientCreature
     {
         super.onUpdate();
         this.motionY *= 0.6000000238418579D;
+        this.fallDistance = 0;
 
         if(!this.world.isRemote)
         {
@@ -65,12 +52,6 @@ public class EntityFly extends EntityAmbientCreature
 	        }
         }
 
-    }
-	
-	@Override
-    protected int getExperiencePoints(EntityPlayer player)
-    {
-        return 0;
     }
     
     //Taken from EntityBat
@@ -120,12 +101,6 @@ public class EntityFly extends EntityAmbientCreature
     }
     
 	@Override
-    protected boolean canTriggerWalking()
-    {
-        return false;
-    }
-    
-	@Override
     public boolean doesEntityNotTriggerPressurePlate()
     {
         return true;
@@ -158,5 +133,5 @@ public class EntityFly extends EntityAmbientCreature
             return false;
         }
 		return super.getCanSpawnHere();
-    }	
+    }
 }

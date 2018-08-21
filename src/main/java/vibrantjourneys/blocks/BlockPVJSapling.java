@@ -20,8 +20,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
+import vibrantjourneys.worldgen.WorldGenAspenTree;
+import vibrantjourneys.worldgen.WorldGenBaobabTree;
 import vibrantjourneys.worldgen.WorldGenFirTree;
 import vibrantjourneys.worldgen.WorldGenMangroveTree;
+import vibrantjourneys.worldgen.WorldGenMapleTree;
 import vibrantjourneys.worldgen.WorldGenPalmTree;
 import vibrantjourneys.worldgen.WorldGenPineTree;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
@@ -94,7 +97,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
                     {
                         if (this.isTwoByTwoOfType(worldIn, pos, i, j, EnumWoodType.REDWOOD))
                         {
-                            worldgenerator = new WorldGenRedwoodLarge(false, 30, 20);
+                            worldgenerator = new WorldGenRedwoodLarge(true, 30, 20);
                             flag = true;
                             break check;
                         }
@@ -108,7 +111,21 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
 	                worldgenerator = new WorldGenRedwoodSmall();
 	            }
 	            break;
-            
+            case BAOBAB:
+            	check:
+                for (i = 0; i >= -1; --i)
+                {
+                    for (j = 0; j >= -1; --j)
+                    {
+                        if (this.isTwoByTwoOfType(worldIn, pos, i, j, EnumWoodType.BAOBAB))
+                        {
+                            worldgenerator = new WorldGenBaobabTree(true, 15, 6);
+                            flag = true;
+                            break check;
+                        }
+                    }
+                }
+	            break;
             case PALM:
             	worldgenerator = new WorldGenPalmTree();
             	break;
@@ -123,6 +140,15 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	break;
             case PINE:
             	worldgenerator = new WorldGenPineTree(true);
+            	break;
+            case ASPEN:
+            	worldgenerator = new WorldGenAspenTree(true);
+            	break;
+            case RED_MAPLE:
+            	worldgenerator = new WorldGenMapleTree(true, EnumWoodType.RED_MAPLE);
+            	break;
+            case ORANGE_MAPLE:
+            	worldgenerator = new WorldGenMapleTree(true, EnumWoodType.ORANGE_MAPLE);
             	break;
             default:
             	break;

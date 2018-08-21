@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityRabbit;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
 import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
+import vibrantjourneys.worldgen.WorldGenSequoiaTree;
 
 public class BiomeRedwoods extends Biome
 {    
@@ -31,8 +33,9 @@ public class BiomeRedwoods extends Biome
 		super(properties);
 		
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 		
-        this.decorator.treesPerChunk = 9;
+        this.decorator.treesPerChunk = 5;
         this.decorator.grassPerChunk = 9;
         this.decorator.flowersPerChunk = 2;
         this.decorator.mushroomsPerChunk = 4;
@@ -43,8 +46,9 @@ public class BiomeRedwoods extends Biome
     {
 	    WorldGenRedwoodSmall REDWOOD_SMALL = new WorldGenRedwoodSmall();
 	    WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
+	    WorldGenSequoiaTree SEQUOIA = new WorldGenSequoiaTree(false, 30, 20);
 	    
-        return rand.nextInt(14) < 11 ? REDWOOD_LARGE : REDWOOD_SMALL;
+        return rand.nextInt(14) < 11 ? (rand.nextInt(10) < 7 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
     }
 	
 	@Override

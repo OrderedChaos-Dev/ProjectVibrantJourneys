@@ -2,6 +2,8 @@ package vibrantjourneys.init;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vibrantjourneys.integration.biomesoplenty.PVJWorldGenerationBOP;
@@ -43,11 +45,17 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_darkoak, PVJConfig.worldgen.fallenLeavesDarkOakSparseDensity, BiomeReference.getValidBiomes(BiomeReference.DARKOAK_TREES_SPARSE)));
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_acacia, PVJConfig.worldgen.fallenLeavesAcaciaDensity, BiomeReference.getValidBiomes(BiomeReference.ACACIA_TREES)));
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_acacia, PVJConfig.worldgen.fallenLeavesAcaciaDensity, BiomeReference.getValidBiomes(BiomeReference.ACACIA_TREES_SPARSE)));
-		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_willow, PVJConfig.worldgen.fallenLeavesWillowDensity, BiomeReference.getValidBiomes(BiomeReference.WEEPING_WILLOW_TREES)));
-		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_mangrove, PVJConfig.worldgen.fallenLeavesMangroveDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MANGROVE_TREES)));
-		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_redwood, PVJConfig.worldgen.fallenLeavesRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.COAST_REDWOOD_TREES)));
-		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_palm, PVJConfig.worldgen.fallenLeavesPalmDensity, BiomeReference.getValidBiomes(BiomeReference.COCONUT_PALM_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_willow, PVJConfig.worldgen.fallenLeavesWillowDensity, BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_mangrove, PVJConfig.worldgen.fallenLeavesMangroveDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_redwood, PVJConfig.worldgen.fallenLeavesRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.REDWOOD_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_palm, PVJConfig.worldgen.fallenLeavesPalmDensity, BiomeReference.getValidBiomes(BiomeReference.PALM_TREES)));
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_fir, PVJConfig.worldgen.fallenLeavesFirDensity, BiomeReference.getValidBiomes(BiomeReference.FIR_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_pine, PVJConfig.worldgen.fallenLeavesPineDensity, BiomeReference.getValidBiomes(BiomeReference.PINE_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_aspen, PVJConfig.worldgen.fallenLeavesAspenDensity, BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_red_maple, PVJConfig.worldgen.fallenLeavesRedMapleDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_orange_maple, PVJConfig.worldgen.fallenLeavesOrangeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES)));
+		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_baobab, PVJConfig.worldgen.fallenLeavesBaobabDensity, BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES)));
 		
 		registerWorldGen(new WorldGenLilypad(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 		registerWorldGen(new WorldGenLilypad(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
@@ -59,10 +67,15 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenFallenTree(BiomeReference.SPRUCE_LOG, PVJConfig.worldgen.fallenTreeSpruceDensity, BiomeReference.getValidBiomes(BiomeReference.SPRUCE_TREES)));
 		registerWorldGen(new WorldGenFallenTree(BiomeReference.SPRUCE_LOG, PVJConfig.worldgen.fallenTreeSpruceSparseDensity, BiomeReference.getValidBiomes(BiomeReference.SPRUCE_TREES_SPARSE)));
 		registerWorldGen(new WorldGenFallenTree(BiomeReference.ACACIA_LOG, PVJConfig.worldgen.fallenTreeAcaciaDensity, BiomeReference.getValidBiomes(BiomeReference.ACACIA_TREES)));
-		registerWorldGen(new WorldGenFallenTree(PVJBlocks.willow_log, PVJBlocks.willow_leaves, PVJConfig.worldgen.fallenTreeWillowDensity, BiomeReference.getValidBiomes(BiomeReference.WEEPING_WILLOW_TREES)));
-		registerWorldGen(new WorldGenFallenTree(PVJBlocks.redwood_log, PVJBlocks.redwood_leaves, PVJConfig.worldgen.fallenTreeRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.COAST_REDWOOD_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.willow_log, PVJConfig.worldgen.fallenTreeWillowDensity, BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.redwood_log, PVJConfig.worldgen.fallenTreeRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.REDWOOD_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.fir_log, PVJConfig.worldgen.fallenTreeFirDensity, BiomeReference.getValidBiomes(BiomeReference.FIR_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.pine_log, PVJConfig.worldgen.fallenTreePineDensity, BiomeReference.getValidBiomes(BiomeReference.PINE_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.aspen_log, PVJConfig.worldgen.fallenTreeAspenDensity, BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.maple_log, PVJConfig.worldgen.fallenTreeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES)));
+		registerWorldGen(new WorldGenFallenTree(PVJBlocks.baobab_log, PVJConfig.worldgen.fallenTreeBaobabDensity, BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES)));
 		
-		registerWorldGen(new WorldGenMangroveRoot(PVJConfig.worldgen.mangroveRootDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MANGROVE_TREES)));
+		registerWorldGen(new WorldGenMangroveRoot(PVJConfig.worldgen.mangroveRootDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
 		
 		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
 	
@@ -83,19 +96,24 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.granite_rocks, 1, 60, PVJConfig.worldgen.graniteCaveDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.diorite_rocks, 1, 60, PVJConfig.worldgen.dioriteRocksCaveDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 100, PVJConfig.worldgen.oakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 100, PVJConfig.worldgen.oakTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.birch_twigs, 60, 100, PVJConfig.worldgen.birchTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.BIRCH_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.birch_twigs, 60, 100, PVJConfig.worldgen.birchTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.BIRCH_TREES_SPARSE)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.spruce_twigs, 60, 100, PVJConfig.worldgen.spruceTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.SPRUCE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 150, PVJConfig.worldgen.oakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 150, PVJConfig.worldgen.oakTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.birch_twigs, 60, 150, PVJConfig.worldgen.birchTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.BIRCH_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.birch_twigs, 60, 150, PVJConfig.worldgen.birchTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.BIRCH_TREES_SPARSE)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.spruce_twigs, 60, 150, PVJConfig.worldgen.spruceTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.SPRUCE_TREES)));
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.spruce_twigs, 60, 150, PVJConfig.worldgen.spruceTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.SPRUCE_TREES_SPARSE)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.jungle_twigs, 60, 120, PVJConfig.worldgen.jungleTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.acacia_twigs, 60, 100, PVJConfig.worldgen.acaciaTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.ACACIA_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.dark_oak_twigs, 60, 100, PVJConfig.worldgen.darkOakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.DARKOAK_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.willow_twigs, 60, 100, PVJConfig.worldgen.willowTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.WEEPING_WILLOW_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.mangrove_twigs, 60, 100, PVJConfig.worldgen.mangroveTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MANGROVE_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.palm_twigs, 60, 100, PVJConfig.worldgen.palmTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.COCONUT_PALM_TREES)));
-		registerWorldGen(new WorldGenGroundCover(PVJBlocks.redwood_twigs, 60, 100, PVJConfig.worldgen.redwoodTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.COAST_REDWOOD_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.jungle_twigs, 60, 150, PVJConfig.worldgen.jungleTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.acacia_twigs, 60, 150, PVJConfig.worldgen.acaciaTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.ACACIA_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.dark_oak_twigs, 60, 150, PVJConfig.worldgen.darkOakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.DARKOAK_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.willow_twigs, 60, 150, PVJConfig.worldgen.willowTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.mangrove_twigs, 60, 150, PVJConfig.worldgen.mangroveTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.palm_twigs, 60, 150, PVJConfig.worldgen.palmTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.PALM_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.fir_twigs, 60, 150, PVJConfig.worldgen.firTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.FIR_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.pine_twigs, 60, 150, PVJConfig.worldgen.pineTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.PINE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.aspen_twigs, 60, 150, PVJConfig.worldgen.aspenTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.red_maple_twigs, 60, 150, PVJConfig.worldgen.redMapleTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.orange_maple_twigs, 60, 150, PVJConfig.worldgen.orangeMapleTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.baobab_twigs, 60, 100, PVJConfig.worldgen.baobabTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES)));
 		
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDesertDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
@@ -107,6 +125,7 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenWildWheat(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
 		
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.seashells, 60, 80, PVJConfig.worldgen.seashellsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
+		registerWorldGen(new WorldGenGroundCover(PVJBlocks.pinecones, 60, 80, PVJConfig.worldgen.pineconesDensity, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0])));
 		
 		if(Reference.isBOPLoaded)
 		{
