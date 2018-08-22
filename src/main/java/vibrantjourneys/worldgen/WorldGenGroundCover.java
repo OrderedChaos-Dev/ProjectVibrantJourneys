@@ -11,6 +11,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.blocks.BlockGroundCover;
 
 public class WorldGenGroundCover implements IWorldGenerator
 {
@@ -57,9 +58,11 @@ public class WorldGenGroundCover implements IWorldGenerator
 				int yPos = minY + random.nextInt(maxY - minY + 1);
 				
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
+				int model = random.nextInt(5);
+				
 				if(world.isSideSolid(pos.down(), EnumFacing.UP) && world.isAirBlock(pos))
 				{
-					world.setBlockState(pos, block.getDefaultState());
+					world.setBlockState(pos, block.getDefaultState().withProperty(BlockGroundCover.MODEL, model));
 				}
 			}
 		}

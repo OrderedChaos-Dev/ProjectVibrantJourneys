@@ -1,5 +1,7 @@
 package vibrantjourneys.blocks;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
@@ -12,6 +14,9 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -103,20 +108,35 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 	@Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state)
     {
-		int model = BlockGroundCover.RANDOM.nextInt(5);
-		world.setBlockState(pos, this.getDefaultState().withProperty(MODEL, model));
+		world.setBlockState(pos, this.getDefaultState());
     }
 	
 	@Override
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        int meta = getMetaFromState(state);
-        if(meta != 4)
-        	meta++;
-        else
-        	meta = 0;
-        
-        world.setBlockState(pos, getStateFromMeta(meta));
+		if(world.isRemote)
+		{
+			return true;
+		}
+		else
+		{
+			if(player.isSneaking())
+			{
+				ItemStack stack = new ItemStack(this, 1, 0);
+				InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+				world.setBlockToAir(pos);
+			}
+			else
+			{
+		        int meta = getMetaFromState(state);
+		        if(meta != 4)
+		        	meta++;
+		        else
+		        	meta = 0;
+		        
+		        world.setBlockState(pos, getStateFromMeta(meta));	
+			}
+		}
         
         return true;
     }
@@ -131,6 +151,12 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos)
     {
         return true;
+    }
+	
+	@Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return Items.AIR;
     }
 	
 	@Override
