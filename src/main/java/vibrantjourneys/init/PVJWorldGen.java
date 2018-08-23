@@ -18,10 +18,9 @@ import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenLilypad;
 import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
+import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
-import vibrantjourneys.worldgen.WorldGenWildWheat;
-import vibrantjourneys.worldgen.WorldGenWillowTreeSwamp;
 
 public class PVJWorldGen
 {
@@ -30,7 +29,6 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenCobweb(PVJConfig.worldgen.cobwebDensity));
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
-		registerWorldGen(new WorldGenWillowTreeSwamp(PVJConfig.worldgen.willowDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
 		
 		registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_oak, PVJConfig.worldgen.fallenLeavesOakDensity, BiomeReference.OAK_TREES.toArray(new Biome[0])));
@@ -122,7 +120,12 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 		
-		registerWorldGen(new WorldGenWildWheat(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
+		
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, 0, 255, PVJConfig.worldgen.bloodnettleDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, 0, 255, PVJConfig.worldgen.glowcapDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 		
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.seashells, 60, 80, PVJConfig.worldgen.seashellsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
 		registerWorldGen(new WorldGenGroundCover(PVJBlocks.pinecones, 60, 80, PVJConfig.worldgen.pineconesDensity, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0])));

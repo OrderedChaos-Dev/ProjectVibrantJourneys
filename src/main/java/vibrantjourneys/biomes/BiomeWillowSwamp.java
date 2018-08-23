@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeSwamp;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenWillowTree;
 
 public class BiomeWillowSwamp extends BiomeSwamp
@@ -15,13 +16,13 @@ public class BiomeWillowSwamp extends BiomeSwamp
 	{
 		super(properties);
 		
-        this.decorator.treesPerChunk = 3;
+        this.decorator.treesPerChunk = 2;
 	}
 	
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        return new WorldGenWillowTree();
+        return rand.nextBoolean() ? new WorldGenWillowTree() : new WorldGenMangroveTree();
     }
     
 	@Override

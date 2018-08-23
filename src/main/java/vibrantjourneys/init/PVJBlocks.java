@@ -15,8 +15,10 @@ import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
+import vibrantjourneys.blocks.BlockGlowcap;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockMysticalGrill;
+import vibrantjourneys.blocks.BlockNetherPlant;
 import vibrantjourneys.blocks.BlockPVJButton;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJDoubleSlab;
@@ -26,6 +28,7 @@ import vibrantjourneys.blocks.BlockPVJHalfSlab;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJPlanks;
+import vibrantjourneys.blocks.BlockPVJPlant;
 import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
@@ -54,7 +57,7 @@ public class PVJBlocks
 	public static Block maple_planks;
 	public static Block baobab_planks;
 	
-	//1.13: add bark
+	//1.13: add bark/ stripped bark
 	public static Block willow_log;
 	public static Block mangrove_log;
 	public static Block palm_log;
@@ -165,17 +168,16 @@ public class PVJBlocks
 	public static BlockPVJHalfSlab maple_half_slab;
 	public static BlockPVJHalfSlab baobab_half_slab;
 	
-	//1.13: allow waterlogged
 	public static BlockPVJDoubleSlab cobblestone_brick_double_slab;
 	public static BlockPVJDoubleSlab willow_double_slab;
 	public static BlockPVJDoubleSlab mangrove_double_slab;
 	public static BlockPVJDoubleSlab palm_double_slab;
 	public static BlockPVJDoubleSlab redwood_double_slab;
-	public static BlockPVJHalfSlab fir_double_slab;
-	public static BlockPVJHalfSlab pine_double_slab;
-	public static BlockPVJHalfSlab aspen_double_slab;
-	public static BlockPVJHalfSlab maple_double_slab;
-	public static BlockPVJHalfSlab baobab_double_slab;
+	public static BlockPVJDoubleSlab fir_double_slab;
+	public static BlockPVJDoubleSlab pine_double_slab;
+	public static BlockPVJDoubleSlab aspen_double_slab;
+	public static BlockPVJDoubleSlab maple_double_slab;
+	public static BlockPVJDoubleSlab baobab_double_slab;
 	
 	//pressure plates, buttons, and trapdoors for all wood types for 1.13
 	public static Block willow_pressure_plate;
@@ -263,6 +265,12 @@ public class PVJBlocks
 	//1.13: allow waterlogged
 	public static Block seashells;
 	public static Block pinecones;
+	
+	public static Block frost_lotus;
+	public static Block silverleaf;
+	
+	public static Block bloodnettle;
+	public static Block glowcap;
 	
 	public static void initBlocks()
 	{
@@ -368,6 +376,11 @@ public class PVJBlocks
 		mangrove_stairs = registerBlock(new BlockPVJStairs(mangrove_planks.getDefaultState()), "mangrove_stairs");
 		palm_stairs = registerBlock(new BlockPVJStairs(palm_planks.getDefaultState()), "palm_stairs");
 		redwood_stairs = registerBlock(new BlockPVJStairs(redwood_planks.getDefaultState()), "redwood_stairs");
+		fir_stairs = registerBlock(new BlockPVJStairs(fir_planks.getDefaultState()), "fir_stairs");
+		pine_stairs = registerBlock(new BlockPVJStairs(pine_planks.getDefaultState()), "pine_stairs");
+		aspen_stairs = registerBlock(new BlockPVJStairs(aspen_planks.getDefaultState()), "aspen_stairs");
+		maple_stairs = registerBlock(new BlockPVJStairs(maple_planks.getDefaultState()), "maple_stairs");
+		baobab_stairs = registerBlock(new BlockPVJStairs(baobab_planks.getDefaultState()), "baobab_stairs");
 		
 		cobblestone_brick_half_slab = new BlockPVJHalfSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
 		cobblestone_brick_double_slab = new BlockPVJDoubleSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
@@ -389,37 +402,85 @@ public class PVJBlocks
 		redwood_double_slab = new BlockPVJDoubleSlab(redwood_planks.getDefaultState(), redwood_half_slab);
 		registerSlab(redwood_half_slab, redwood_double_slab, "redwood_slab", "redwood_double_slab");
 		
+		fir_half_slab = new BlockPVJHalfSlab(fir_planks.getDefaultState(), fir_half_slab);
+		fir_double_slab = new BlockPVJDoubleSlab(fir_planks.getDefaultState(), fir_half_slab);
+		registerSlab(fir_half_slab, fir_double_slab, "fir_slab", "fir_double_slab");
+		
+		pine_half_slab = new BlockPVJHalfSlab(pine_planks.getDefaultState(), pine_half_slab);
+		pine_double_slab = new BlockPVJDoubleSlab(pine_planks.getDefaultState(), pine_half_slab);
+		registerSlab(pine_half_slab, pine_double_slab, "pine_slab", "pine_double_slab");
+		
+		aspen_half_slab = new BlockPVJHalfSlab(aspen_planks.getDefaultState(), aspen_half_slab);
+		aspen_double_slab = new BlockPVJDoubleSlab(aspen_planks.getDefaultState(), aspen_half_slab);
+		registerSlab(aspen_half_slab, aspen_double_slab, "aspen_slab", "aspen_double_slab");
+		
+		maple_half_slab = new BlockPVJHalfSlab(maple_planks.getDefaultState(), maple_half_slab);
+		maple_double_slab = new BlockPVJDoubleSlab(maple_planks.getDefaultState(), maple_half_slab);
+		registerSlab(maple_half_slab, maple_double_slab, "maple_slab", "maple_double_slab");
+		
+		baobab_half_slab = new BlockPVJHalfSlab(baobab_planks.getDefaultState(), baobab_half_slab);
+		baobab_double_slab = new BlockPVJDoubleSlab(baobab_planks.getDefaultState(), baobab_half_slab);
+		registerSlab(baobab_half_slab, baobab_double_slab, "baobab_slab", "baobab_double_slab");
+		
 		willow_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "willow_pressure_plate");
 		mangrove_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "mangrove_pressure_plate");
 		palm_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "palm_pressure_plate");
 		redwood_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "redwood_pressure_plate");
+		fir_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "fir_pressure_plate");
+		pine_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "pine_pressure_plate");
+		aspen_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "aspen_pressure_plate");
+		maple_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "maple_pressure_plate");
+		baobab_pressure_plate = registerBlock(new BlockPVJPressurePlate(), "baobab_pressure_plate");
 		
 		willow_button = registerBlock(new BlockPVJButton(), "willow_button");
 		mangrove_button = registerBlock(new BlockPVJButton(), "mangrove_button");
 		palm_button = registerBlock(new BlockPVJButton(), "palm_button");
 		redwood_button = registerBlock(new BlockPVJButton(), "redwood_button");
+		fir_button = registerBlock(new BlockPVJButton(), "fir_button");
+		pine_button = registerBlock(new BlockPVJButton(), "pine_button");
+		aspen_button = registerBlock(new BlockPVJButton(), "aspen_button");
+		maple_button = registerBlock(new BlockPVJButton(), "maple_button");
+		baobab_button = registerBlock(new BlockPVJButton(), "baobab_button");
 		
 		willow_fence = registerBlock(new BlockPVJFence(EnumWoodType.WILLOW), "willow_fence");
 		mangrove_fence = registerBlock(new BlockPVJFence(EnumWoodType.MANGROVE), "mangrove_fence");
 		palm_fence = registerBlock(new BlockPVJFence(EnumWoodType.PALM), "palm_fence");
 		redwood_fence = registerBlock(new BlockPVJFence(EnumWoodType.REDWOOD), "redwood_fence");
+		fir_fence = registerBlock(new BlockPVJFence(EnumWoodType.FIR), "fir_fence");
+		pine_fence = registerBlock(new BlockPVJFence(EnumWoodType.PINE), "pine_fence");
+		aspen_fence = registerBlock(new BlockPVJFence(EnumWoodType.ASPEN), "aspen_fence");
+		maple_fence = registerBlock(new BlockPVJFence(EnumWoodType.RED_MAPLE), "maple_fence");
+		baobab_fence = registerBlock(new BlockPVJFence(EnumWoodType.BAOBAB), "baobab_fence");
 		
 		willow_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.WILLOW), "willow_fence_gate");
 		mangrove_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.MANGROVE), "mangrove_fence_gate");
 		palm_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.PALM), "palm_fence_gate");
 		redwood_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.REDWOOD), "redwood_fence_gate");
+		fir_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.FIR), "fir_fence_gate");
+		pine_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.PINE), "pine_fence_gate");
+		aspen_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.ASPEN), "aspen_fence_gate");
+		maple_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.RED_MAPLE), "maple_fence_gate");
+		baobab_fence_gate = registerBlock(new BlockPVJFenceGate(EnumWoodType.BAOBAB), "baobab_fence_gate");
 		
 		willow_door = registerDoor(new BlockPVJDoor(EnumWoodType.WILLOW), PVJItems.willow_door, "willow_door");
 		mangrove_door = registerDoor(new BlockPVJDoor(EnumWoodType.MANGROVE), PVJItems.mangrove_door, "mangrove_door");
 		palm_door = registerDoor(new BlockPVJDoor(EnumWoodType.PALM), PVJItems.palm_door, "palm_door");
 		redwood_door = registerDoor(new BlockPVJDoor(EnumWoodType.REDWOOD), PVJItems.redwood_door, "redwood_door");
+		fir_door = registerDoor(new BlockPVJDoor(EnumWoodType.FIR), PVJItems.fir_door, "fir_door");
+		pine_door = registerDoor(new BlockPVJDoor(EnumWoodType.PINE), PVJItems.pine_door, "pine_door");
+		aspen_door = registerDoor(new BlockPVJDoor(EnumWoodType.ASPEN), PVJItems.aspen_door, "aspen_door");
+		maple_door = registerDoor(new BlockPVJDoor(EnumWoodType.RED_MAPLE), PVJItems.maple_door, "maple_door");
+		baobab_door = registerDoor(new BlockPVJDoor(EnumWoodType.BAOBAB), PVJItems.baobab_door, "baobab_door");
 		
 		willow_trapdoor = registerBlock(new BlockPVJTrapdoor(), "willow_trapdoor");
 		mangrove_trapdoor = registerBlock(new BlockPVJTrapdoor(), "mangrove_trapdoor");
 		palm_trapdoor = registerBlock(new BlockPVJTrapdoor(), "palm_trapdoor");
 		redwood_trapdoor = registerBlock(new BlockPVJTrapdoor(), "redwood_trapdoor");
-		
-		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
+		fir_trapdoor = registerBlock(new BlockPVJTrapdoor(), "fir_trapdoor");
+		pine_trapdoor = registerBlock(new BlockPVJTrapdoor(), "pine_trapdoor");
+		aspen_trapdoor = registerBlock(new BlockPVJTrapdoor(), "aspen_trapdoor");
+		maple_trapdoor = registerBlock(new BlockPVJTrapdoor(), "maple_trapdoor");
+		baobab_trapdoor = registerBlock(new BlockPVJTrapdoor(), "baobab_trapdoor");
 		
 		mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
 		
@@ -440,6 +501,13 @@ public class PVJBlocks
 		netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
 		
 		cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
+		
+		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
+		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
+		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
+		
+		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
+		glowcap = registerBlock(new BlockGlowcap(), "glowcap");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

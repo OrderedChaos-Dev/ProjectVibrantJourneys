@@ -19,7 +19,12 @@ public class RenderPVJBoat extends Render<EntityPVJBoat>
     		new ResourceLocation("pvj:textures/entity/boat/boat_willow.png"), 
     		new ResourceLocation("pvj:textures/entity/boat/boat_mangrove.png"), 
     		new ResourceLocation("pvj:textures/entity/boat/boat_palm.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_redwood.png")};
+    		new ResourceLocation("pvj:textures/entity/boat/boat_redwood.png"),
+    		new ResourceLocation("pvj:textures/entity/boat/boat_fir.png"), 
+    		new ResourceLocation("pvj:textures/entity/boat/boat_pine.png"), 
+    		new ResourceLocation("pvj:textures/entity/boat/boat_aspen.png"), 
+    		new ResourceLocation("pvj:textures/entity/boat/boat_maple.png"),
+    		new ResourceLocation("pvj:textures/entity/boat/boat_baobab.png")};
     
     protected ModelBase modelBoat = new ModelPVJBoat();
 

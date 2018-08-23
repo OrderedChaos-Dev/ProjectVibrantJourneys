@@ -106,12 +106,6 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     }
 	
 	@Override
-    public void onBlockAdded(World world, BlockPos pos, IBlockState state)
-    {
-		world.setBlockState(pos, this.getDefaultState());
-    }
-	
-	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
 		if(world.isRemote)

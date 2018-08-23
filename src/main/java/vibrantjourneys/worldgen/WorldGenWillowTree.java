@@ -95,7 +95,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
             IBlockState state = world.getBlockState(down);
             boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (BlockPVJSapling)PVJBlocks.willow_sapling);
             
-            int baseHeight = 1;// + rand.nextInt(2);
+            int baseHeight = 3 + rand.nextInt(4);
             EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);
             if (isSoil && pos.getY() < world.getHeight() - baseHeight - 1)
             {
@@ -155,8 +155,11 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                 
                 for(int h = 0; h <= baseHeight; h++)
                 {
-                	x += facing.getFrontOffsetX();
-                	z += facing.getFrontOffsetZ();
+                	if(rand.nextInt(8) < 5)
+                	{
+                    	x += facing.getFrontOffsetX();
+                    	z += facing.getFrontOffsetZ();
+                	}
                 	
                 	if(rand.nextInt(6) < 5)
                 		y += 1;
@@ -240,7 +243,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                             {
                             	if(Math.abs(up) != 1 && Math.abs(west) != 1 && Math.abs(north) != 1)
                             	{
-                                	if(rand.nextInt(8) < 5)
+                                	if(rand.nextInt(13) < 5)
                                 	{
                                 		this.setBlockAndNotifyAdequately(world, leafpos, LEAVES);
                                 		outerLeaves.add(leafpos);

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:aspen_pressure_plate_up" },
+        "powered=true": { "model": "pvj:aspen_pressure_plate_down" }
+    }
+}

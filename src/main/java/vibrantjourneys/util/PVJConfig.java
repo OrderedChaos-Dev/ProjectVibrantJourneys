@@ -72,7 +72,7 @@ public class PVJConfig
 		public int fallenLeavesDeadDensity = 20;
 		public int fallenLeavesFirDensity = 40;
 		public int fallenLeavesPineDensity = 20;
-		public int fallenLeavesAspenDensity = 30;
+		public int fallenLeavesAspenDensity = 40;
 		public int fallenLeavesRedMapleDensity = 30;
 		public int fallenLeavesOrangeMapleDensity = 30;
 		public int fallenLeavesBaobabDensity = 5;
@@ -128,13 +128,16 @@ public class PVJConfig
 		public int baobabTwigsDensity = 20;
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
-		public int bonesNetherDensity = 15;
+		public int bonesNetherDensity = 30;
 		public int crackedSandDensity = 75;
 		public int redCrackedSandDensity = 75;
-		public int wildWheatDensity = 20;
-		public int seashellsDensity = 100;
+		public int seashellsDensity = 120;
 		public int pineconesDensity = 150;
-		
+		public int wildWheatDensity = 20;
+		public int frostLotusDensity = 15;
+		public int silverleafDensity = 10;
+		public int bloodnettleDensity = 60;
+		public int glowcapDensity = 25;
 		public boolean modifyDungeons = true;
 	}
 	

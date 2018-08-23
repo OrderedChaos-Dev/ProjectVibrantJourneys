@@ -964,10 +964,15 @@ public class EntityPVJBoat extends EntityBoat
 
     public static enum Type
     {
-        WILLOW(0, "oak", PVJItems.willow_boat, PVJBlocks.willow_planks),
-        MANGROVE(1, "spruce", PVJItems.mangrove_boat, PVJBlocks.mangrove_planks),
-        PALM(2, "birch", PVJItems.palm_boat, PVJBlocks.palm_planks),
-        REDWOOD(3, "jungle", PVJItems.redwood_boat, PVJBlocks.redwood_planks);
+        WILLOW(0, "willow", PVJItems.willow_boat, PVJBlocks.willow_planks),
+        MANGROVE(1, "mangrove", PVJItems.mangrove_boat, PVJBlocks.mangrove_planks),
+        PALM(2, "palm", PVJItems.palm_boat, PVJBlocks.palm_planks),
+        REDWOOD(3, "redwood", PVJItems.redwood_boat, PVJBlocks.redwood_planks),
+        FIR(4, "fir", PVJItems.fir_boat, PVJBlocks.fir_planks),
+        PINE(5, "pine", PVJItems.pine_boat, PVJBlocks.pine_planks),
+        ASPEN(6, "aspen", PVJItems.aspen_boat, PVJBlocks.aspen_planks),
+        MAPLE(7, "maple", PVJItems.maple_boat, PVJBlocks.maple_planks),
+        BAOBAB(8, "baobab", PVJItems.baobab_boat, PVJBlocks.baobab_planks);
 
         private final String name;
         private final int id;

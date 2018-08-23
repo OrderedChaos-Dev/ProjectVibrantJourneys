@@ -35,7 +35,7 @@ public class BiomeRedwoods extends Biome
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
 		
-        this.decorator.treesPerChunk = 5;
+        this.decorator.treesPerChunk = 4;
         this.decorator.grassPerChunk = 9;
         this.decorator.flowersPerChunk = 2;
         this.decorator.mushroomsPerChunk = 4;
@@ -48,7 +48,7 @@ public class BiomeRedwoods extends Biome
 	    WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
 	    WorldGenSequoiaTree SEQUOIA = new WorldGenSequoiaTree(false, 30, 20);
 	    
-        return rand.nextInt(14) < 11 ? (rand.nextInt(10) < 7 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
+        return rand.nextInt(14) < 11 ? (rand.nextInt(10) < 9 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
     }
 	
 	@Override

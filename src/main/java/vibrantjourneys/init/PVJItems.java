@@ -25,11 +25,21 @@ public class PVJItems
 	public static ItemDoor mangrove_door;
 	public static ItemDoor palm_door;
 	public static ItemDoor redwood_door;
+	public static ItemDoor fir_door;
+	public static ItemDoor pine_door;
+	public static ItemDoor aspen_door;
+	public static ItemDoor maple_door;
+	public static ItemDoor baobab_door;
 	
 	public static Item willow_boat;
 	public static Item mangrove_boat;
 	public static Item palm_boat;
 	public static Item redwood_boat;
+	public static Item fir_boat;
+	public static Item pine_boat;
+	public static Item aspen_boat;
+	public static Item maple_boat;
+	public static Item baobab_boat;
 	
 	public static Item cracked_coconut;
 	
@@ -54,6 +64,11 @@ public class PVJItems
 		mangrove_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.MANGROVE), "mangrove_boat");
 		palm_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.PALM), "palm_boat");
 		redwood_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.REDWOOD), "redwood_boat");
+		fir_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.FIR), "fir_boat");
+		pine_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.PINE),"pine_boat");
+		aspen_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.ASPEN), "aspen_boat");
+		maple_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.MAPLE), "maple_boat");
+		baobab_boat = registerItem(new ItemPVJBoat(EntityPVJBoat.Type.BAOBAB), "baobab_boat");
 		
 		cracked_coconut = registerItem(new ItemFood(3, 0.35F, false), "cracked_coconut");
 		

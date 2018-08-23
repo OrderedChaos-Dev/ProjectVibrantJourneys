@@ -10,18 +10,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.blocks.BlockWildWheat;
-import vibrantjourneys.init.PVJBlocks;
 
-public class WorldGenWildWheat implements IWorldGenerator
+public class WorldGenPVJPlant implements IWorldGenerator
 {
 	private Block block;
 	private int minY, maxY;
 	private int frequency;
 	private Biome[] biomes;
 	
-	public WorldGenWildWheat(Block block, int minY, int maxY, int frequency, Biome... biomes)
+	public WorldGenPVJPlant(Block block, int minY, int maxY, int frequency, Biome... biomes)
 	{
 		this.block = block;
 		this.minY = minY;
@@ -58,7 +57,8 @@ public class WorldGenWildWheat implements IWorldGenerator
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
 				IBlockState state = world.getBlockState(pos.down());
 				
-				if(state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, (BlockWildWheat)PVJBlocks.wild_wheat) && world.isAirBlock(pos))
+				if((state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, (IPlantable) block)  ||
+						block.canPlaceBlockAt(world, pos.down())) && world.isAirBlock(pos) && state.isSideSolid(world, pos.down(), EnumFacing.UP))
 				{
 					world.setBlockState(pos, block.getDefaultState());
 				}

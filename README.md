@@ -22,6 +22,9 @@ If you have any issues or feature requests, feel free to submit them here under 
 For feature requests, please check the wiki to see if it is already planned.
 If you have any questions, ask on one of the forums.
 
+**Cascading World Gen Issues**
+You will see these errors pop up in the log, especially when generating willow swamps and redwoods for the first time. Depending on how many mods you have or how strong your PC is, it may lag your game. Sometimes it is easy to fix, but not always, especially when it comes to large trees. I try to fix as much as I can.
+
 **FAQ**
 
 1. Can you make this for xyz Minecraft version?  

@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "pvj:blocks/planks_maple",
+        "top": "pvj:blocks/planks_maple",
+        "side": "pvj:blocks/planks_maple"
+    }
+}

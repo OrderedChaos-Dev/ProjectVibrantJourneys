@@ -16,9 +16,7 @@ import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJFenceGate;
-import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
 import vibrantjourneys.util.IPropertyHelper;
-import vibrantjourneys.util.Reference;
 
 public class PVJRegistryEvents
 {
@@ -60,6 +58,10 @@ public class PVJRegistryEvents
 					ProjectVibrantJourneys.proxy.registerItemVariantRenderer(Item.getItemFromBlock(block), meta, resource);
 				}
 			}
+			if(block instanceof BlockPVJDoor)
+				ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(block), BlockPVJDoor.POWERED);
+			if(block instanceof BlockPVJFenceGate)
+				ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(block), BlockPVJFenceGate.POWERED);
 		}
 		
 		for(Item item : PVJItems.ITEMS)
@@ -68,7 +70,7 @@ public class PVJRegistryEvents
 		}
 		
 		//these block properties are ignored in the blockstates jsons
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.willow_door), BlockPVJDoor.POWERED);
+		/*ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.willow_door), BlockPVJDoor.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mangrove_door), BlockPVJDoor.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.palm_door), BlockPVJDoor.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_door), BlockPVJDoor.POWERED);
@@ -76,7 +78,7 @@ public class PVJRegistryEvents
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.willow_fence_gate), BlockPVJFenceGate.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mangrove_fence_gate), BlockPVJFenceGate.POWERED);
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.palm_fence_gate), BlockPVJFenceGate.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_fence_gate), BlockPVJFenceGate.POWERED);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_fence_gate), BlockPVJFenceGate.POWERED);*/
 		
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mystical_grill), BlockMysticalGrill.IS_COOKING);
 	}

@@ -1,14 +1,27 @@
 itemGroup.tabProjectVibrantJourneys=Project: Vibrant Journeys
 
 item.slime_droplet.name=Slime Droplet
+
 item.willow_door_item.name=Willow Door
 item.mangrove_door_item.name=Mangrove Door
 item.palm_door_item.name=Palm Door
 item.redwood_door_item.name=Redwood Door
+item.fir_door_item.name=Fir Door
+item.pine_door_item.name=Pine Door
+item.aspen_door_item.name=Aspen Door
+item.maple_door_item.name=Maple Door
+item.baobab_door_item.name=Baobab Door
+
 item.willow_boat.name=Willow Boat
 item.mangrove_boat.name=Mangrove Boat
 item.palm_boat.name=Palm Boat
 item.redwood_boat.name=Redwood Boat
+item.fir_boat.name=Fir Boat
+item.pine_boat.name=Pine Boat
+item.aspen_boat.name=Aspen Boat
+item.maple_boat.name=Maple Boat
+item.baobab_boat.name=Baobab Boat
+
 item.cracked_coconut.name=Cracked Coconut
 item.spectral_wrappings.name=Spectral Wrappings
 item.goon_bile.name=Goon Bile
@@ -98,42 +111,91 @@ tile.willow_twigs.name=Willow Twigs
 tile.mangrove_twigs.name=Mangrove Twigs
 tile.palm_twigs.name=Palm Twigs
 tile.redwood_twigs.name=Redwood Twigs
+tile.fir_twigs.name=Fir Twigs
+tile.pine_twigs.name=Pine Twigs
+tile.aspen_twigs.name=Aspen Twigs
+tile.maple_twigs.name=Maple Twigs
+tile.baobab_twigs.name=Baobab Twigs
 
 tile.bones.name=Bones
+
+tile.wild_wheat.name=Wild Wheat
+tile.mystical_grill.name=Mystical Grill
 tile.cracked_sand.name=Cracked Sand
 tile.red_cracked_sand.name=Red Cracked Sand
+
 tile.willow_stairs.name=Willow Stairs
 tile.mangrove_stairs.name=Mangrove Stairs
 tile.palm_stairs.name=Palm Stairs
 tile.redwood_stairs.name=Redwood Stairs
+tile.fir_stairs.name=Fir Stairs
+tile.pine_stairs.name=Pine Stairs
+tile.aspen_stairs.name=Aspen Stairs
+tile.maple_stairs.name=Maple Stairs
+tile.baobab_stairs.name=Baobab Stairs
 tile.cobblestone_brick_stairs.name=Cobblestone Bricks Stairs
+
 tile.willow_slab.name=Willow Slab
 tile.mangrove_slab.name=Mangrove Slab
 tile.palm_slab.name=Palm Slab
 tile.redwood_slab.name=Redwood Slab
+tile.fir_slab.name=Fir Slab
+tile.pine_slab.name=Pine Slab
+tile.aspen_slab.name=Aspen Slab
+tile.maple_slab.name=Maple Slab
+tile.baobab_slab.name=Baobab Slab
 tile.cobblestone_brick_slab.name=Cobblestone Bricks Slab
+
 tile.willow_pressure_plate.name=Willow Pressure Plate
 tile.mangrove_pressure_plate.name=Mangrove Pressure Plate
 tile.palm_pressure_plate.name=Palm Pressure Plate
 tile.redwood_pressure_plate.name=Redwood Pressure Plate
+tile.fir_pressure_plate.name=Fir Pressure Plate
+tile.pine_pressure_plate.name=Pine Pressure Plate
+tile.aspen_pressure_plate.name=Aspen Pressure Plate
+tile.maple_pressure_plate.name=Maple Pressure Plate
+tile.baobab_pressure_plate.name=Baobab Pressure Plate
+
 tile.willow_button.name=Willow Button
 tile.mangrove_button.name=Mangrove Button
 tile.palm_button.name=Palm Button
 tile.redwood_button.name=Redwood Button
+tile.fir_button.name=Fir Button
+tile.pine_button.name=Pine Button
+tile.aspen_button.name=Aspen Button
+tile.maple_button.name=Maple Button
+tile.baobab_button.name=Baobab Button
+
 tile.willow_fence.name=Willow Fence
 tile.mangrove_fence.name=Mangrove Fence
 tile.palm_fence.name=Palm Fence
 tile.redwood_fence.name=Redwood Fence
+tile.fir_fence.name=Fir Fence
+tile.pine_fence.name=Pine Fence
+tile.aspen_fence.name=Aspen Fence
+tile.maple_fence.name=Maple Fence
+tile.baobab_fence.name=Baobab Fence
+
 tile.willow_fence_gate.name=Willow Fence Gate
 tile.mangrove_fence_gate.name=Mangrove Fence Gate
 tile.palm_fence_gate.name=Palm Fence Gate
 tile.redwood_fence_gate.name=Redwood Fence Gate
+tile.fir_fence_gate.name=Fir Fence Gate
+tile.pine_fence_gate.name=Pine Fence Gate
+tile.aspen_fence_gate.name=Aspen Fence Gate
+tile.maple_fence_gate.name=Maple Fence Gate
+tile.baobab_fence_gate.name=Baobab Fence Gate
+
 tile.willow_trapdoor.name=Willow Trapdoor
 tile.mangrove_trapdoor.name=Mangrove Trapdoor
 tile.palm_trapdoor.name=Palm Trapdoor
 tile.redwood_trapdoor.name=Redwood Trapdoor
-tile.wild_wheat.name=Wild Wheat
-tile.mystical_grill.name=Mystical Grill
+tile.fir_trapdoor.name=Fir Trapdoor
+tile.pine_trapdoor.name=Pine Trapdoor
+tile.aspen_trapdoor.name=Aspen Trapdoor
+tile.maple_trapdoor.name=Maple Trapdoor
+tile.baobab_trapdoor.name=Baobab Trapdoor
+
 tile.cobblestone_chimney.name=Cobblestone Chimney
 tile.stone_chimney.name=Stone Chimney
 tile.brick_chimney.name=Brick Chimney
@@ -141,6 +203,7 @@ tile.cobblestone_brick_chimney.name=Cobblestone Brick Chimney
 tile.stonebrick_chimney.name=Stone Brick Chimney
 tile.sandstone_chimney.name=Sandstone Chimney
 tile.netherbrick_chimney.name=Netherbrick Chimney
+
 tile.cobblestone_chimney_top.name=Cobblestone Chimney Top
 tile.stone_chimney_top.name=Stone Chimney Top
 tile.brick_chimney_top.name=Brick Chimney Top
@@ -148,6 +211,7 @@ tile.cobblestone_brick_chimney_top.name=Cobblestone Brick Chimney Top
 tile.stonebrick_chimney_top.name=Stone Brick Chimney Top
 tile.sandstone_chimney_top.name=Sandstone Chimney Top
 tile.netherbrick_chimney_top.name=Netherbrick Chimney Top
+
 tile.cobblestone_brick_wall.name=Cobblestone Brick Wall
 tile.seashells.name=Seashells
 

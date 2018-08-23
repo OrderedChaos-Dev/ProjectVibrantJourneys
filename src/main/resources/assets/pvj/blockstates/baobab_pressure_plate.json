@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:baobab_pressure_plate_up" },
+        "powered=true": { "model": "pvj:baobab_pressure_plate_down" }
+    }
+}
