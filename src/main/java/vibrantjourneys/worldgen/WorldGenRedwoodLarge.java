@@ -184,7 +184,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 
     private void createCrown(World worldIn, BlockPos pos, int p_150541_5_, Random rand)
     {
-        int i = rand.nextInt(5) + 6;
+        int i = rand.nextInt(8) + 7;
         int j = 0;
         int y = pos.getY();
         int x = pos.getX();

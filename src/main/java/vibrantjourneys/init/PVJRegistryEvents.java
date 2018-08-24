@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
+import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJFenceGate;
@@ -69,18 +70,8 @@ public class PVJRegistryEvents
 			ProjectVibrantJourneys.proxy.registerItemRenderer(item);
 		}
 		
-		//these block properties are ignored in the blockstates jsons
-		/*ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.willow_door), BlockPVJDoor.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mangrove_door), BlockPVJDoor.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.palm_door), BlockPVJDoor.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_door), BlockPVJDoor.POWERED);
-		
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.willow_fence_gate), BlockPVJFenceGate.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mangrove_fence_gate), BlockPVJFenceGate.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.palm_fence_gate), BlockPVJFenceGate.POWERED);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.redwood_fence_gate), BlockPVJFenceGate.POWERED);*/
-		
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mystical_grill), BlockMysticalGrill.IS_COOKING);
+		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.ceiling_lamp), BlockCeilingLamp.POWERED);
 	}
 	
 	/*

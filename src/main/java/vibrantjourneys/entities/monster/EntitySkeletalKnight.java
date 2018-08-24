@@ -1,6 +1,7 @@
 package vibrantjourneys.entities.monster;
 
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.init.Items;
@@ -20,6 +21,13 @@ public class EntitySkeletalKnight extends AbstractSkeleton
     public EntitySkeletalKnight(World world)
     {
         super(world);
+    }
+    
+    @Override
+    protected void initEntityAI()
+    {
+    	super.initEntityAI();
+        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.2D, false));
     }
     
     @Override
@@ -88,5 +96,11 @@ public class EntitySkeletalKnight extends AbstractSkeleton
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
         return super.getCanSpawnHere();
+    }
+	
+	@Override
+    public void setCombatTask()
+    {
+		
     }
 }

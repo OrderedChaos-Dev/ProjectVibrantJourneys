@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
@@ -19,6 +20,7 @@ import vibrantjourneys.init.PVJRegistryEvents;
 import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.GuiHandler;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJEvents;
 import vibrantjourneys.util.PVJOreDictionary;
@@ -58,14 +60,20 @@ public class ProjectVibrantJourneys
     public void init(FMLInitializationEvent event)
     {
     	proxy.registerTESRs();
+    	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+    	
     	PVJOreDictionary.setValues();
+    	
     	BiomeReference.loadAllBiomeReferences();
-    	PVJEntities.addSpawns();
     	PVJWorldGen.initWorldGen();
+    	
+    	PVJEntities.addSpawns();
+		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
+    	
 		ProjectVibrantJourneys.proxy.registerBlockColors();
+		
 		MinecraftForge.EVENT_BUS.register(new PVJEvents());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new PVJTerrainGenEvents());
     	
-		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
     }
 }
