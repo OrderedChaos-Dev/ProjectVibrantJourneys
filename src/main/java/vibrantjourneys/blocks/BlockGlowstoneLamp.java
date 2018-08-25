@@ -1,6 +1,7 @@
 package vibrantjourneys.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -19,6 +20,7 @@ public class BlockGlowstoneLamp extends Block
 		this.setLightLevel(1.0F);
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
+		this.setSoundType(SoundType.GLASS);
 	}
 	
 	@Override

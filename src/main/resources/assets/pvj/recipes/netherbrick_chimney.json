@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C C",
+		"C C",
+		"C C"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:nether_brick",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:netherbrick_chimney",
+		"count": 3,
+		"data": 0
+	}
+}

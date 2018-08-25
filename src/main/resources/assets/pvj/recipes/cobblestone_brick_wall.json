@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:cobblestone_brick",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:cobblestone_brick_wall",
+		"count": 6,
+		"data": 0
+	}
+}

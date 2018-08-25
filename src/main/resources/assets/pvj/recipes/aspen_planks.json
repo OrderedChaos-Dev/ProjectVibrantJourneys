@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:log_aspen",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:planks_aspen",
+		"count": 4,
+		"data": 0
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:log_pine",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:planks_pine",
+		"count": 4,
+		"data": 0
+	}
+}

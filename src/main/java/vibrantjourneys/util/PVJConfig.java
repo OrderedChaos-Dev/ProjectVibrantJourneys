@@ -43,6 +43,12 @@ public class PVJConfig
 	public static boolean doGrassDropSeeds = false;
 	
 	@Comment({
+		"All changes require a restart! Set this to true to allow tall grass to",
+		"drop wheat seeds."
+	})
+	public static boolean restrictSquidsToOceans = true;
+	
+	@Comment({
 		"This is measured in ticks. 20 ticks = 1 second",
 		"6000 ticks = 5 minutes"
 	})

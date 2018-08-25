@@ -35,8 +35,8 @@ public class BlockLantern extends Block implements IPropertyHelper
 	
 	public BlockLantern(Type type)
 	{
-		super(Material.ROCK);
-		this.setSoundType(SoundType.STONE);
+		super(Material.CIRCUITS);
+		this.setSoundType(type == Type.PAPER ? SoundType.PLANT : SoundType.STONE);
 		this.setLightLevel(0.7F + (type == Type.LAVA ? 0.07F : 0.0F));
 		this.type = type;
 		this.setHardness(0.1F);
@@ -116,18 +116,7 @@ public class BlockLantern extends Block implements IPropertyHelper
 	@Override
     public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
-		if(canBlockStay(world, pos))
-		{
-			if(world.isSideSolid(pos.up(), EnumFacing.DOWN) || world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.down()).getBlock() instanceof BlockWall)
-			{
-				world.setBlockState(pos, this.getDefaultState().withProperty(HANGING, true));
-			}
-			else
-			{
-				world.setBlockState(pos, this.getDefaultState().withProperty(HANGING, false));
-			}
-		}
-		else
+		if(!canBlockStay(world, pos))
 		{
 			this.dropBlockAsItem(world, pos, state, 0);
 			world.setBlockToAir(pos);
@@ -166,7 +155,8 @@ public class BlockLantern extends Block implements IPropertyHelper
 	@Override
     public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand)
     {
-		if(world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.up()).getBlock() instanceof BlockWall)
+		if(world.getBlockState(pos.up()).getBlock() instanceof BlockFence || world.getBlockState(pos.up()).getBlock() instanceof BlockWall
+				|| world.isSideSolid(pos.up(), EnumFacing.DOWN))
 		{
 			return this.getDefaultState().withProperty(HANGING, true);
 		}

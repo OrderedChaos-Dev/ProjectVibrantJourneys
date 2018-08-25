@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CC",
+		"CC",
+		"CC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_fir",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:fir_door_item",
+		"count": 3,
+		"data": 0
+	}
+}

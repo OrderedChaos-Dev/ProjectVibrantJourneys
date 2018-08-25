@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C C",
+		"C C",
+		"C C"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:stone",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:stone_chimney",
+		"count": 3,
+		"data": 0
+	}
+}

@@ -31,7 +31,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.inventory.ContainerCampfire;
 
 public class TileEntityCampfire extends TileEntityLockable implements ITickable, ISidedInventory

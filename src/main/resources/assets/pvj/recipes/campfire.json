@@ -1,0 +1,23 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"CCC",
+		"CSC",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"type": "forge:ore_dict",
+			"ore": "rocks"
+		},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "twigs"
+		}
+	},
+	"result": {
+		"item": "pvj:campfire",
+		"count": 1,
+		"data": 0
+	}
+}

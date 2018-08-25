@@ -1,6 +1,20 @@
 itemGroup.tabProjectVibrantJourneys=Project: Vibrant Journeys
 
 item.slime_droplet.name=Slime Droplet
+item.cracked_coconut.name=Cracked Coconut
+item.coconut_milk.name=Coconut Milk
+item.wax.name=Wax
+item.spectral_wrappings.name=Spectral Wrappings
+item.goon_bile.name=Goon Bile
+item.unstable_essence.name=Unstable Essence
+item.mystical_porkchop.name=Mystical Porkchop
+item.mystical_beef.name=Mystical Beef
+item.mystical_chicken.name=Mystical Chicken
+item.mystical_mutton.name=Mystical Mutton
+item.mystical_rabbit.name=Mystical Rabbit
+item.mystical_cod.name=Mystical Cod
+item.mystical_salmon.name=Mystical Salmon
+item.mystical_potato.name=Mystical Potato
 
 item.willow_door_item.name=Willow Door
 item.mangrove_door_item.name=Mangrove Door
@@ -21,19 +35,6 @@ item.pine_boat.name=Pine Boat
 item.aspen_boat.name=Aspen Boat
 item.maple_boat.name=Maple Boat
 item.baobab_boat.name=Baobab Boat
-
-item.cracked_coconut.name=Cracked Coconut
-item.spectral_wrappings.name=Spectral Wrappings
-item.goon_bile.name=Goon Bile
-item.unstable_essence.name=Unstable Essence
-item.mystical_porkchop.name=Mystical Porkchop
-item.mystical_beef.name=Mystical Beef
-item.mystical_chicken.name=Mystical Chicken
-item.mystical_mutton.name=Mystical Mutton
-item.mystical_rabbit.name=Mystical Rabbit
-item.mystical_cod.name=Mystical Cod
-item.mystical_salmon.name=Mystical Salmon
-item.mystical_potato.name=Mystical Potato
 
 tile.cobblestone_brick.name=Cobblestone Bricks
 tile.planks_willow.name=Willow Wood Planks
@@ -91,6 +92,12 @@ tile.fallenleaves_mangrove.name=Mangrove Fallen Leaves
 tile.fallenleaves_palm.name=Palm Fallen Leaves
 tile.fallenleaves_redwood.name=Redwood Fallen Leaves
 tile.fallenleaves_dead.name=Dead Fallen Leaves
+tile.fallenleaves_fir.name=Fir Fallen Leaves
+tile.fallenleaves_pine.name=Pine Fallen Leaves
+tile.fallenleaves_aspen.name=Aspen Fallen Leaves
+tile.fallenleaves_red_maple.name=Red Maple Fallen Leaves
+tile.fallenleaves_orange_maple.name=Orange Maple Fallen Leaves
+tile.fallenleaves_baobab.name=Baobab Fallen Leaves
 
 tile.stone_rocks.name=Stone Rocks
 tile.cobblestone_rocks.name=Cobblestone Rocks
@@ -114,12 +121,20 @@ tile.redwood_twigs.name=Redwood Twigs
 tile.fir_twigs.name=Fir Twigs
 tile.pine_twigs.name=Pine Twigs
 tile.aspen_twigs.name=Aspen Twigs
-tile.maple_twigs.name=Maple Twigs
+tile.red_maple_twigs.name=Red Maple Twigs
+tile.orange_maple_twigs.name=Orange Maple Twigs
 tile.baobab_twigs.name=Baobab Twigs
 
 tile.bones.name=Bones
+tile.seashells.name=Seashells
+tile.pinecones.name=Pinecones
 
 tile.wild_wheat.name=Wild Wheat
+tile.frost_lotus.name=Frost Lotus
+tile.silverleaf.name=Silverleaf
+tile.bloodnettle.name=Bloodnettle
+tile.glowcap.name=Glowcap
+
 tile.mystical_grill.name=Mystical Grill
 tile.cracked_sand.name=Cracked Sand
 tile.red_cracked_sand.name=Red Cracked Sand
@@ -213,7 +228,19 @@ tile.sandstone_chimney_top.name=Sandstone Chimney Top
 tile.netherbrick_chimney_top.name=Netherbrick Chimney Top
 
 tile.cobblestone_brick_wall.name=Cobblestone Brick Wall
-tile.seashells.name=Seashells
+
+tile.campfire.name=Campfire
+tile.glowstone_lamp_wood.name=Wooden Glowstone Lamp
+tile.glowstone_lamp_stone.name=Stone Glowstone Lamp
+tile.glowstone_lamp_iron.name=Iron Glowstone Lamp
+tile.candle.name=Candle
+tile.lantern.name=Lantern
+tile.lava_lamp.name=Lava Lamp
+tile.lantern_candle.name=Candle Lantern
+tile.paper_lantern.name=Paper Lantern
+tile.lightbulb.name=Light Bulb
+tile.ceiling_lamp.name=Ceiling Lamp
+tile.circuit_breaker.name=Circuit Breaker
 
 entity.pvj_snail.name=Snail
 entity.pvj_fly.name=Fly

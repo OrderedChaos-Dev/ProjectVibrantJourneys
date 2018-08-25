@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:cracked_coconut",
+			"data": 0
+		},
+		{
+			"item": "pvj:cracked_coconut",
+			"data": 0
+		},
+		{
+			"item": "pvj:cracked_coconut",
+			"data": 0
+		},
+		{
+			"item": "minecraft:glass_bottle",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:coconut_milk",
+		"count": 1,
+		"data": 0
+	}
+}

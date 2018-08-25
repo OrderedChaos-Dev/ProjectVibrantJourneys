@@ -1,7 +1,6 @@
 package vibrantjourneys.tileentities;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
@@ -23,7 +22,6 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJItems;
@@ -31,8 +29,21 @@ import vibrantjourneys.util.PVJConfig;
 
 public class TileEntityMysticalGrill extends TileEntity implements ITickable
 {
-	public static final ArrayList<Potion> BENEFICIAL_POTIONS = ForgeRegistries.POTIONS.getValuesCollection().stream()
-			.filter(potion -> potion.isBeneficial() && !potion.getName().equals("effect.harm")).collect(Collectors.toCollection(ArrayList::new));
+	public static final Potion[] BENEFICIAL_POTIONS = new Potion[] {
+		Potion.getPotionFromResourceLocation("speed"),
+		Potion.getPotionFromResourceLocation("haste"),
+		Potion.getPotionFromResourceLocation("strength"),
+		Potion.getPotionFromResourceLocation("instant_health"),
+		Potion.getPotionFromResourceLocation("jump_boost"),
+		Potion.getPotionFromResourceLocation("regeneration"),
+		Potion.getPotionFromResourceLocation("resistance"),
+		Potion.getPotionFromResourceLocation("fire_resistance"),
+		Potion.getPotionFromResourceLocation("water_breathing"),
+		Potion.getPotionFromResourceLocation("invisibility"),
+		Potion.getPotionFromResourceLocation("health_boost"),
+		Potion.getPotionFromResourceLocation("absorption"),
+		Potion.getPotionFromResourceLocation("luck")
+	};
 	
 	private ItemStack food;
 	private int cookTime;
@@ -184,18 +195,18 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
 	public ArrayList<PotionEffect> getRandomEffects()
 	{
 		ArrayList<PotionEffect> effects = new ArrayList<PotionEffect>();
-		int size = BENEFICIAL_POTIONS.size();
-		Potion effect = BENEFICIAL_POTIONS.get(this.world.rand.nextInt(size));
-		Potion effect2 = BENEFICIAL_POTIONS.get(this.world.rand.nextInt(size));
+		int size = BENEFICIAL_POTIONS.length;
+		Potion effect = BENEFICIAL_POTIONS[this.world.rand.nextInt(size)];
+		Potion effect2 = BENEFICIAL_POTIONS[this.world.rand.nextInt(size)];
 		if(effect == effect2)
 		{
-			int duration = effect.isInstant() ? 0 : 600 + this.world.rand.nextInt(600);
+			int duration = effect.isInstant() ? 0 : 1200 + this.world.rand.nextInt(1200);
 			effects.add(new PotionEffect(effect, duration, 1));
 		}
 		else
 		{
-			int duration = effect.isInstant() ? 0 : 400 + this.world.rand.nextInt(400);
-			int duration2 = effect2.isInstant() ? 0 : 400 + this.world.rand.nextInt(400);
+			int duration = effect.isInstant() ? 0 : 800 + this.world.rand.nextInt(800);
+			int duration2 = effect2.isInstant() ? 0 : 800 + this.world.rand.nextInt(800);
 			effects.add(new PotionEffect(effect, duration, 0));
 			effects.add(new PotionEffect(effect2, duration2, 0));
 		}
@@ -277,8 +288,8 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
     }
 	
 	@Override
-    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate)
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState)
     {
-        return !(newSate.getBlock() instanceof BlockMysticalGrill);
+        return !(newState.getBlock() instanceof BlockMysticalGrill);
     }
 }

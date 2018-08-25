@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -24,9 +25,8 @@ public class BlockCampfire extends Block
 {
 	public BlockCampfire()
 	{
-		super(Material.ROCK);
-		this.setHarvestLevel("pickaxe", 0);
-		this.setHardness(0.0F);
+		super(Material.CIRCUITS);
+		this.setHardness(0.1F);
 		this.setLightLevel(0.8F);
 	}
 	
@@ -42,6 +42,19 @@ public class BlockCampfire extends Block
 			}
 		}
 		return true;
+    }
+	
+	@Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+        if (tileentity instanceof TileEntityCampfire)
+        {
+            InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityCampfire)tileentity);
+        }
+
+        super.breakBlock(worldIn, pos, state);
     }
 	
 	@Override
