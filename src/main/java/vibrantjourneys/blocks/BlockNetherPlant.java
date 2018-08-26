@@ -24,4 +24,10 @@ public class BlockNetherPlant extends BlockPVJPlant
     {
     	return EnumPlantType.Nether;
     }
+    
+    @Override
+    protected boolean canSustainBush(IBlockState state)
+    {
+        return state.getBlock() == Blocks.NETHERRACK || state.getBlock() == Blocks.SOUL_SAND;
+    }
 }
