@@ -20,6 +20,7 @@ import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
+import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 
 public class PVJWorldGen
@@ -119,6 +120,8 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
+		
+		registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		
 		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
 		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));

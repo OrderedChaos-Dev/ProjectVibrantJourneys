@@ -40,6 +40,8 @@ import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
+import vibrantjourneys.blocks.BlockShortGrass;
+import vibrantjourneys.blocks.BlockShortGrass.EnumGrassType;
 import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemPVJBlock;
@@ -247,7 +249,16 @@ public class PVJBlocks
 	public static Block maple_trapdoor;
 	public static Block baobab_trapdoor;
 	
+	public static Block short_grass;
+	public static Block ferns;
+	public static Block dead_bush;
+	
 	public static Block wild_wheat;
+	public static Block frost_lotus;
+	public static Block silverleaf;
+	
+	public static Block bloodnettle;
+	public static Block glowcap;
 	
 	public static Block mystical_grill;
 	
@@ -273,12 +284,6 @@ public class PVJBlocks
 	public static Block seashells;
 	public static Block pinecones;
 	
-	public static Block frost_lotus;
-	public static Block silverleaf;
-	
-	public static Block bloodnettle;
-	public static Block glowcap;
-	
 	public static Block campfire;
 	public static Block candle;
 	public static Block glowstone_lamp_wood;
@@ -294,7 +299,16 @@ public class PVJBlocks
 	
 	public static void initBlocks()
 	{
-		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
+		short_grass = registerBlock(new BlockShortGrass(EnumGrassType.GRASS), "short_grass");
+		ferns = registerBlock(new BlockShortGrass(EnumGrassType.FERN), "ferns");
+		dead_bush = registerBlock(new BlockShortGrass(EnumGrassType.DEAD), "dead_bushes");
+		
+		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
+		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
+		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
+		
+		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
+		glowcap = registerBlock(new BlockGlowcap(), "glowcap");
 		
 		willow_log = registerBlock(new BlockPVJLog(EnumWoodType.WILLOW), "log_willow");
 		mangrove_log = registerBlock(new BlockPVJLog(EnumWoodType.MANGROVE), "log_mangrove");
@@ -391,6 +405,7 @@ public class PVJBlocks
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
 
+		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
 		cobblestone_brick_stairs = registerBlock(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
 		willow_stairs = registerBlock(new BlockPVJStairs(willow_planks.getDefaultState()), "willow_stairs");
 		mangrove_stairs = registerBlock(new BlockPVJStairs(mangrove_planks.getDefaultState()), "mangrove_stairs");
@@ -521,13 +536,6 @@ public class PVJBlocks
 		netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
 		
 		cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
-		
-		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
-		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
-		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
-		
-		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
-		glowcap = registerBlock(new BlockGlowcap(), "glowcap");
 		
 		campfire = registerBlock(new BlockCampfire(), "campfire");
 		candle = registerBlock(new BlockCandle(), "candle");

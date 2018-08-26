@@ -5,6 +5,7 @@ import net.minecraft.block.BlockNewLeaf;
 import net.minecraft.block.BlockOldLeaf;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
@@ -108,25 +109,42 @@ public class ClientProxy implements ICommonProxy
 	@Override
 	public void registerBlockColors()
 	{
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_oak, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_birch, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_spruce, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_jungle, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_darkoak, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
-    	registerFallenLeavesColors(PVJBlocks.fallenleaves_acacia, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
+		registerGrassColor(PVJBlocks.short_grass);
+		
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_oak, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_birch, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_spruce, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_jungle, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_darkoak, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
+    	registerFallenLeavesColor(PVJBlocks.fallenleaves_acacia, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
     	
-    	registerFallenLeavesColors(PVJBlocks.oak_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.birch_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
-    	registerFallenLeavesColors(PVJBlocks.spruce_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
-    	registerFallenLeavesColors(PVJBlocks.jungle_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
-    	registerFallenLeavesColors(PVJBlocks.dark_oak_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
-    	registerFallenLeavesColors(PVJBlocks.acacia_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
+    	registerFallenLeavesColor(PVJBlocks.oak_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
+    	registerFallenLeavesColor(PVJBlocks.birch_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
+    	registerFallenLeavesColor(PVJBlocks.spruce_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.SPRUCE, Blocks.LEAVES, ColorizerFoliage.getFoliageColorPine());
+    	registerFallenLeavesColor(PVJBlocks.jungle_twigs, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.JUNGLE, Blocks.LEAVES, -1);
+    	registerFallenLeavesColor(PVJBlocks.dark_oak_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.DARK_OAK, Blocks.LEAVES2, -1);
+    	registerFallenLeavesColor(PVJBlocks.acacia_twigs, BlockNewLeaf.VARIANT, BlockPlanks.EnumType.ACACIA, Blocks.LEAVES2, -1);
     	
     	if(Reference.isBOPLoaded)
     		PVJRenderingHandlerBOP.registerBOPColors();
 	}
 	
-    public void registerFallenLeavesColors(Block leafBlock, PropertyEnum<EnumType> property, BlockPlanks.EnumType type, Block leaf, int color)
+	public void registerGrassColor(Block grass)
+	{
+    	BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
+    	
+		IBlockColor blockColor = (state, world, pos, tint) -> (world != null && pos != null) ? BiomeColorHelper.getGrassColorAtPos(world, pos) :
+			ColorizerFoliage.getFoliageColorBasic();
+		
+		IItemColor itemColor = (stack, tintindex) -> blockColors.colorMultiplier(Blocks.TALLGRASS.getDefaultState()
+				.withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS), null, null, tintindex);
+		
+		ProjectVibrantJourneys.proxy.registerBlockColor(blockColor, grass);
+		
+    	ProjectVibrantJourneys.proxy.registerItemColor(itemColor, Item.getItemFromBlock(grass));
+	}
+	
+    public void registerFallenLeavesColor(Block leafBlock, PropertyEnum<EnumType> property, BlockPlanks.EnumType type, Block leaf, int color)
     {
     	BlockColors blockColors = Minecraft.getMinecraft().getBlockColors();
     	IBlockState leafState = leaf.getDefaultState();

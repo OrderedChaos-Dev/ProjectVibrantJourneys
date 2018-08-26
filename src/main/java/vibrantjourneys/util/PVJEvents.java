@@ -10,6 +10,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.items.ItemMysticalFood;
 
 public class PVJEvents
@@ -20,7 +21,7 @@ public class PVJEvents
 		Block block = event.getState().getBlock();
 		if(!PVJConfig.doGrassDropSeeds)
 		{
-			if(block instanceof BlockTallGrass)
+			if(block instanceof BlockTallGrass || block instanceof BlockShortGrass)
 			{
 				boolean flag = false;
 				for(ItemStack item : event.getDrops())

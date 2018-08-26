@@ -1,0 +1,12 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:short_grass0"},
+		"model=1": { "model": "pvj:short_grass1"},
+		"model=2": { "model": "pvj:short_grass2"},
+		"model=3": { "model": "pvj:short_grass3"},
+		"model=4": { "model": "pvj:short_grass4"},
+		"model=5": { "model": "pvj:short_grass5"},
+		"model=6": { "model": "pvj:short_grass6"}
+	}
+}

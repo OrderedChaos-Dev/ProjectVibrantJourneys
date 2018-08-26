@@ -144,6 +144,7 @@ public class PVJConfig
 		public int silverleafDensity = 10;
 		public int bloodnettleDensity = 60;
 		public int glowcapDensity = 25;
+		public int shortGrassDensity = 7;
 		public boolean modifyDungeons = true;
 	}
 	
