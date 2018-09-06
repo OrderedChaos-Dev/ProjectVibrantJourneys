@@ -192,7 +192,7 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
 	@Override
     public Block.EnumOffsetType getOffsetType()
     {
-        return Block.EnumOffsetType.XYZ;
+        return Block.EnumOffsetType.XZ;
     }
 	
 	public static enum EnumGrassType

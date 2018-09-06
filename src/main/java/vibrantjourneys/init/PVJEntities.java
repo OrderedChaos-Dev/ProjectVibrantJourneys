@@ -72,29 +72,36 @@ public class PVJEntities
 	}
 	
 	public static void addSpawns()
-	{
-		//these if condition checks prevent crashes, and allow the config to disable spawning
+	{	
+		if(!PVJConfig.master.disablePassiveMobs)
+		{
+			if(PVJConfig.entities.snailSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
+			if(PVJConfig.entities.flySpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			if(PVJConfig.entities.flySwampSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
+			if(PVJConfig.entities.fireflySpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		}
+
+		if(!PVJConfig.master.disableNeutralMobs)
+		{
+			if(PVJConfig.entities.ghostSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		}
 		
-		if(PVJConfig.entities.snailSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
-		if(PVJConfig.entities.flySpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-		if(PVJConfig.entities.flySwampSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
-		if(PVJConfig.entities.fireflySpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-		
-		if(PVJConfig.entities.ghostSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-		
-		if(PVJConfig.entities.shadeSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-		if(PVJConfig.entities.skeletalKnightWeight > 0)
-			EntityRegistry.addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-		if(PVJConfig.entities.icecubeSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
-		if(PVJConfig.entities.goonSpawnWeight > 0)
-			EntityRegistry.addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		if(!PVJConfig.master.disableAggressiveMobs)
+		{
+			if(PVJConfig.entities.shadeSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			if(PVJConfig.entities.skeletalKnightWeight > 0)
+				EntityRegistry.addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			if(PVJConfig.entities.icecubeSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
+			if(PVJConfig.entities.goonSpawnWeight > 0)
+				EntityRegistry.addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		}
 		
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_skeletal_knight"), 100);

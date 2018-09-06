@@ -2,6 +2,7 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -27,6 +28,7 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
+    	IBlockState BARK = PVJBlocks.redwood_log.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.NONE);
         int i = this.getHeight(rand);
 
         if (!this.ensureGrowable(worldIn, rand, position, i))
@@ -99,39 +101,64 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 	for(int ilike = -2; ilike < 2; ilike++)
                 	{
                 		int height = 3 + rand.nextInt(3);
-                		for(int tacos = 0; tacos < height; tacos++)
+                		int rootStart = 0;
+                		BlockPos blockpos1 = blockpos.north().west(ilike);
+                		while(worldIn.getBlockState(blockpos1.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos1.up(rootStart)) || this.isAirLeaves(worldIn, blockpos1.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.north().west(ilike).up(tacos)))
+                			rootStart--;
+                		}
+                		for(int tacos = rootStart; tacos < height; tacos++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos1.up(tacos)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.north().west(ilike).up(tacos), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos1.up(tacos), BARK);
                             }
                 		}
+                		
                 		height = 3 + rand.nextInt(3);
-                		for(int sausages = 0; sausages < height; sausages++)
+                		rootStart = 0;
+                		BlockPos blockpos2 = blockpos.south(2).west(ilike);
+                		while(worldIn.getBlockState(blockpos2.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos2.up(rootStart)) || this.isAirLeaves(worldIn, blockpos2.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.south(2).west(ilike).up(sausages)))
+                			rootStart--;
+                		}
+                		for(int sausages = rootStart; sausages < height; sausages++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos2.up(sausages)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.south(2).west(ilike).up(sausages), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos2.up(sausages), BARK);
                             }
                 		}
                 	}
                 	for(int jugs = 0; jugs < 2; jugs++)
                 	{
                 		int height = 3 + rand.nextInt(3);
-                		for(int and = 0; and < height; and++)
+                		int rootStart = 0;
+                		BlockPos blockpos3 = blockpos.west().south(jugs);
+                		while(worldIn.getBlockState(blockpos3.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos3.up(rootStart)) || this.isAirLeaves(worldIn, blockpos3.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.west().south(jugs).up(and)))
+                			rootStart--;
+                		}
+                		for(int and = rootStart; and < height; and++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos3.up(and)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.west().south(jugs).up(and), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos3.up(and), BARK);
                             }
                 		}
                 		
                 		height = 3 + rand.nextInt(3);
-                		for(int buns = 0; buns < height; buns++)
+                		rootStart = 0;
+                		BlockPos blockpos4 = blockpos.east(2).south(jugs);
+                		while(worldIn.getBlockState(blockpos4.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos4.up(rootStart)) || this.isAirLeaves(worldIn, blockpos4.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.east(2).south(jugs).up(buns)))
+                			rootStart--;
+                		}
+                		for(int buns = rootStart; buns < height; buns++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos4.up(buns)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.east(2).south(jugs).up(buns), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos4.up(buns), BARK);
                             }
                 		}
                 	}
@@ -140,38 +167,62 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 	for(int l = 0; l < 2; l++)
                 	{
                 		int height = 1 + rand.nextInt(3);
-                		for(int g = 0; g < height; g++)
+                		int rootStart = 0;
+                		BlockPos blockpos5 = blockpos.west(2).south(l);
+                		while(worldIn.getBlockState(blockpos5.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos5.up(rootStart)) || this.isAirLeaves(worldIn, blockpos5.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.west(2).south(l).up(g)))
+                			rootStart--;
+                		}
+                		for(int g = rootStart; g < height; g++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos5.up(g)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.west(2).south(l).up(g), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos5.up(g), BARK);
                             }
                 		}
                 		
                 		height = 1 + rand.nextInt(3);
-                		for(int b = 0; b < height; b++)
+                		rootStart = 0;
+                		BlockPos blockpos6 = blockpos.east(3).south(l);
+                		while(worldIn.getBlockState(blockpos6.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos6.up(rootStart)) || this.isAirLeaves(worldIn, blockpos6.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.east(3).south(l).up(b)))
+                			rootStart--;
+                		}
+                		for(int b = rootStart; b < height; b++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos6.up(b)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.east(3).south(l).up(b), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos6.up(b), BARK);
                             }
                 		}
                 		
                 		height = 1 + rand.nextInt(3);
-                		for(int t = 0; t < height; t++)
+                		rootStart = 0;
+                		BlockPos blockpos7 = blockpos.north(2).east(l);
+                		while(worldIn.getBlockState(blockpos7.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos7.up(rootStart)) || this.isAirLeaves(worldIn, blockpos7.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.north(2).east(l).up(t)))
+                			rootStart--;
+                		}
+                		for(int t = rootStart; t < height; t++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos7.up(t)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.north(2).east(l).up(t), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos7.up(t), BARK);
                             }
                 		}
                 		
                 		height = 1 + rand.nextInt(3);
-                		for(int pride = 0; pride < height; pride++)
+                		rootStart = 0;
+                		BlockPos blockpos8 = blockpos.south(3).east(l);
+                		while(worldIn.getBlockState(blockpos8.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos8.up(rootStart)) || this.isAirLeaves(worldIn, blockpos8.up(rootStart)))
                 		{
-                            if (this.isAirLeaves(worldIn, blockpos.south(3).east(l).up(pride)))
+                			rootStart--;
+                		}
+                		for(int pride = rootStart; pride < height; pride++)
+                		{
+                            if (this.isAirLeaves(worldIn, blockpos8.up(pride)))
                             {
-                                this.setBlockAndNotifyAdequately(worldIn, blockpos.south(3).east(l).up(pride), this.woodMetadata);
+                                this.setBlockAndNotifyAdequately(worldIn, blockpos8.up(pride), BARK);
                             }
                 		}
                 	}

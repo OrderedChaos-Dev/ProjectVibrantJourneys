@@ -2,6 +2,7 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -27,6 +28,7 @@ public class WorldGenRedwoodSmall extends WorldGenAbstractTree
 	@Override
 	public boolean generate(World world, Random rand, BlockPos position)
 	{
+    	IBlockState BARK = PVJBlocks.redwood_log.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.NONE);
 		int yGen = position.getY();
 		int height = 9 + rand.nextInt(3); //height of tree
 		int crown = height - 8 + rand.nextInt(3); //height of crown (where leaves are)
@@ -92,44 +94,44 @@ public class WorldGenRedwoodSmall extends WorldGenAbstractTree
 						
 						if(h == 0)
 						{
-							this.setBlockAndNotifyAdequately(world, genPos.east(), LOG);
-							this.setBlockAndNotifyAdequately(world, genPos.west(), LOG);
-							this.setBlockAndNotifyAdequately(world, genPos.north(), LOG);
-							this.setBlockAndNotifyAdequately(world, genPos.south(), LOG);
+							this.setBlockAndNotifyAdequately(world, genPos.east(), BARK);
+							this.setBlockAndNotifyAdequately(world, genPos.west(), BARK);
+							this.setBlockAndNotifyAdequately(world, genPos.north(), BARK);
+							this.setBlockAndNotifyAdequately(world, genPos.south(), BARK);
 
 						}
 						if(h == 1)
 						{
 							if(rand.nextInt(10) < 7)
 							{
-								this.setBlockAndNotifyAdequately(world, genPos.east(), LOG);
+								this.setBlockAndNotifyAdequately(world, genPos.east(), BARK);
 								if(rand.nextInt(10) < 6)
 								{
-									this.setBlockAndNotifyAdequately(world, genPos.east().up(), LOG);
+									this.setBlockAndNotifyAdequately(world, genPos.east().up(), BARK);
 								}
 							}
 							if(rand.nextInt(10) < 7)
 							{
-								this.setBlockAndNotifyAdequately(world, genPos.west(), LOG);
+								this.setBlockAndNotifyAdequately(world, genPos.west(), BARK);
 								if(rand.nextInt(10) < 6)
 								{
-									this.setBlockAndNotifyAdequately(world, genPos.west().up(), LOG);
+									this.setBlockAndNotifyAdequately(world, genPos.west().up(), BARK);
 								}
 							}
 							if(rand.nextInt(10) < 7)
 							{
-								this.setBlockAndNotifyAdequately(world, genPos.north(), LOG);
+								this.setBlockAndNotifyAdequately(world, genPos.north(), BARK);
 								if(rand.nextInt(10) < 6)
 								{
-									this.setBlockAndNotifyAdequately(world, genPos.north().up(), LOG);
+									this.setBlockAndNotifyAdequately(world, genPos.north().up(), BARK);
 								}
 							}
 							if(rand.nextInt(10) < 7)
 							{
-								this.setBlockAndNotifyAdequately(world, genPos.north(), LOG);
+								this.setBlockAndNotifyAdequately(world, genPos.north(), BARK);
 								if(rand.nextInt(10) < 6)
 								{
-									this.setBlockAndNotifyAdequately(world, genPos.north().up(), LOG);
+									this.setBlockAndNotifyAdequately(world, genPos.north().up(), BARK);
 								}
 							}
 						}			

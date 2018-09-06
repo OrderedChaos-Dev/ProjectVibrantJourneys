@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenAspenTree;
 import vibrantjourneys.worldgen.WorldGenMapleTree;
 
@@ -37,15 +38,15 @@ public class BiomeAspenGrove extends Biome
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
     	int num = rand.nextInt(100);
-    	if(num > 70)
+    	if(num > 70 && rand.nextInt(PVJConfig.worldgen.aspenDensity) < PVJConfig.worldgen.aspenDensity - 2)
     	{
     		return ASPEN;
     	}
-    	else if(num > 40)
+    	else if(num > 40 && rand.nextInt(PVJConfig.worldgen.redMapleDensity) < PVJConfig.worldgen.redMapleDensity - 2)
     	{
     		return RED_MAPLE;
     	}
-    	else if(num > 10)
+    	else if(num > 10 && rand.nextInt(PVJConfig.worldgen.orangeMapleDensity) < PVJConfig.worldgen.orangeMapleDensity - 2)
     	{	
     		return ORANGE_MAPLE;
     	}

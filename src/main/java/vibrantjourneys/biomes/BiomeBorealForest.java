@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenFirTree;
 import vibrantjourneys.worldgen.WorldGenPineTree;
 
@@ -43,11 +44,11 @@ public class BiomeBorealForest extends Biome
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
     	int num = rand.nextInt(100);
-    	if(num > 45)
+    	if(num > 45 && rand.nextInt(PVJConfig.worldgen.firDensity) < PVJConfig.worldgen.firDensity - 2)
     	{
     		return FIR;
     	}
-    	else if(num > 10)
+    	else if(num > 10 && rand.nextInt(PVJConfig.worldgen.pineDensity) < PVJConfig.worldgen.pineDensity - 2)
     	{
     		return PINE;
     	}

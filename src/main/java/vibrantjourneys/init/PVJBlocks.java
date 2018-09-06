@@ -300,8 +300,8 @@ public class PVJBlocks
 	public static void initBlocks()
 	{
 		short_grass = registerBlock(new BlockShortGrass(EnumGrassType.GRASS), "short_grass");
-		ferns = registerBlock(new BlockShortGrass(EnumGrassType.FERN), "ferns");
-		dead_bush = registerBlock(new BlockShortGrass(EnumGrassType.DEAD), "dead_bushes");
+		//ferns = registerBlock(new BlockShortGrass(EnumGrassType.FERN), "ferns");
+		//dead_bush = registerBlock(new BlockShortGrass(EnumGrassType.DEAD), "dead_bushes");
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");

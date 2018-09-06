@@ -12,6 +12,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class PVJConfig
 {
 	@Comment({
+		"All changes require a restart!",
+		"This is where you can disable entire parts of the mod.",
+	})
+	public static MasterCategory master = new MasterCategory();
+	
+	@Comment({
 		"All changes require a restart! Set to 0 to disable from generation",
 		"\"Sparse\" means biomes in which tree types rarely generate.",
 		"e.g. birch trees rarely generate in forests and roofed forests.",
@@ -31,8 +37,7 @@ public class PVJConfig
 	public static EntitiesSubCategory entities = new EntitiesSubCategory();
 	
 	@Comment({
-		"All changes require a restart! Spawn weight is how much often an entity spawns.",
-		"Set to 0 to disable spawning."
+		"All changes require a restart! This is for Biomes O' Plenty.",
 	})
 	public static BOPSubCategory bopworldgen = new BOPSubCategory();
 	
@@ -43,8 +48,8 @@ public class PVJConfig
 	public static boolean doGrassDropSeeds = false;
 	
 	@Comment({
-		"All changes require a restart! Set this to true to allow tall grass to",
-		"drop wheat seeds."
+		"All changes require a restart! Set this to false to allow squids to spawn in all",
+		"biomes again."
 	})
 	public static boolean restrictSquidsToOceans = true;
 	
@@ -54,12 +59,39 @@ public class PVJConfig
 	})
 	public static int mysticalGrillCookTime = 6000;
 	
+	public static class MasterCategory
+	{
+		public boolean disableGroundcover = false;
+		public boolean disableTwigs = false;
+		public boolean disableRocks = false;
+		public boolean disableFallenLeaves = false;
+		public boolean disableBones = false;
+		public boolean disableSeashells = false;
+		public boolean disablePinecones = false;
+		public boolean disableFallenTrees = false;
+		public boolean disableBiomes = false;
+		public boolean disableOverworldPlants = false;
+		public boolean disableNetherPlants = false;
+		public boolean disablePassiveMobs = false;
+		public boolean disableNeutralMobs = false;
+		public boolean disableAggressiveMobs = false;
+	}
+	
 	public static class WorldGenSubCategory
 	{
 		public int cobwebDensity = 100;
+		
 		public int palmDensity = 5;
-		public int willowDensity = 25;
+		public int willowDensity = 2;
 		public int mangroveDensity = 5;
+		public int redwoodDensity = 4;
+		public int baobabDensity = 5;
+		public int firDensity = 15;
+		public int pineDensity = 15;
+		public int aspenDensity = 20;
+		public int redMapleDensity = 15;
+		public int orangeMapleDensity = 15;
+		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
 		public int fallenLeavesBirchDensity = 35;
@@ -82,8 +114,10 @@ public class PVJConfig
 		public int fallenLeavesRedMapleDensity = 30;
 		public int fallenLeavesOrangeMapleDensity = 30;
 		public int fallenLeavesBaobabDensity = 5;
+		
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
+		
 		public int fallenTreeOakDensity = 25;
 		public int fallenTreeOakSparseDensity = 2;
 		public int fallenTreeBirchDensity = 20;
@@ -98,8 +132,11 @@ public class PVJConfig
 		public int fallenTreeAspenDensity = 25;
 		public int fallenTreeMapleDensity = 10;
 		public int fallenTreeBaobabDensity = 3;
+		
 		public int mangroveRootDensity = 2;
+		
 		public int bushDensity = 3;
+		
 		public int stoneRocksDensity = 400;
 		public int cobblestoneRocksDensity = 250;
 		public int mossyCobblestoneRocksDensity = 90;
@@ -108,11 +145,13 @@ public class PVJConfig
 		public int dioriteRocksDensity = 150;
 		public int sandstoneRocksDensity = 200;
 		public int redSandstoneRocksDensity = 200;
+		
 		public int stoneRocksCaveDensity = 400;
 		public int cobblestoneRocksCaveDensity = 250;
 		public int andesiteRocksCaveDensity = 150;
 		public int graniteCaveDensity = 150;
 		public int dioriteRocksCaveDensity = 150;
+		
 		public int oakTwigsDensity = 300;
 		public int oakTwigsSparseDensity = 50;
 		public int birchTwigsDensity = 300;
@@ -132,25 +171,31 @@ public class PVJConfig
 		public int redMapleTwigsDensity = 300;
 		public int orangeMapleTwigsDensity = 300;
 		public int baobabTwigsDensity = 20;
+		
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
 		public int bonesNetherDensity = 30;
+		
 		public int crackedSandDensity = 75;
 		public int redCrackedSandDensity = 75;
+		
 		public int seashellsDensity = 120;
+		
 		public int pineconesDensity = 150;
+		
 		public int wildWheatDensity = 20;
 		public int frostLotusDensity = 15;
 		public int silverleafDensity = 10;
 		public int bloodnettleDensity = 60;
 		public int glowcapDensity = 25;
-		public int shortGrassDensity = 7;
+		public int shortGrassDensity = 5;
+		
 		public boolean modifyDungeons = true;
 	}
 	
 	public static class BiomesSubCategory
 	{
-		public int prarieWeight = 7;
+		public int prairieWeight = 7;
 		public int redwoodsWeight = 10;
 		public int willowSwampWeight = 6;
 		public int borealForestWeight = 10;

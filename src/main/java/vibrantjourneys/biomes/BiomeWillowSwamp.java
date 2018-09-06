@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeSwamp;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenWillowTree;
 
@@ -16,7 +17,7 @@ public class BiomeWillowSwamp extends BiomeSwamp
 	{
 		super(properties);
 		
-        this.decorator.treesPerChunk = 2;
+        this.decorator.treesPerChunk = PVJConfig.worldgen.willowDensity;
 	}
 	
 	@Override
