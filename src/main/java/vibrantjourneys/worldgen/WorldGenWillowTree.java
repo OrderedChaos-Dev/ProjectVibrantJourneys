@@ -100,7 +100,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
             if (isSoil && pos.getY() < world.getHeight() - baseHeight - 1)
             {
             	state = world.getBlockState(pos);
-                if (state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos))
+                if (canGenerateLogAt(state, world, pos))
                 {
                 	BlockPos pos1 = pos.west();
                 	BlockPos pos2 = pos.east();
@@ -111,7 +111,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                 	if(rand.nextInt(5) < 4)
                 	{
                 		state = world.getBlockState(pos1);
-                        if (state.getBlock().isAir(state, world, pos1) || state.getBlock().isLeaves(state, world, pos1))
+                        if (canGenerateLogAt(state, world, pos1))
                         {
                         	this.setBlockAndNotifyAdequately(world, pos1, LOG);
                         }
@@ -119,7 +119,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                 	if(rand.nextInt(5) < 4)
                 	{
                 		state = world.getBlockState(pos2);
-                        if (state.getBlock().isAir(state, world, pos2) || state.getBlock().isLeaves(state, world, pos2))
+                        if (canGenerateLogAt(state, world, pos2))
                         {
                         	this.setBlockAndNotifyAdequately(world, pos2, LOG);
                         }
@@ -127,7 +127,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                 	if(rand.nextInt(5) < 4)
                 	{
                 		state = world.getBlockState(pos3);
-                        if (state.getBlock().isAir(state, world, pos3) || state.getBlock().isLeaves(state, world, pos3))
+                        if (canGenerateLogAt(state, world, pos3))
                         {
                         	this.setBlockAndNotifyAdequately(world, pos3, LOG);
                         }
@@ -135,14 +135,14 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                 	if(rand.nextInt(5) < 4)
                 	{
                 		state = world.getBlockState(pos4);
-                        if (state.getBlock().isAir(state, world, pos4) || state.getBlock().isLeaves(state, world, pos4))
+                        if (canGenerateLogAt(state, world, pos4))
                         {
                         	this.setBlockAndNotifyAdequately(world, pos4, LOG);
                         }
                 	}
                 }
                 state = world.getBlockState(pos.up());
-                if (state.getBlock().isAir(state, world, pos.up()) || state.getBlock().isLeaves(state, world, pos.up()))
+                if (canGenerateLogAt(state, world, pos.up()))
                 {
                 	this.setBlockAndNotifyAdequately(world, pos.up(), LOG);
                 }
@@ -260,6 +260,11 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
             }
 		}
 		generateVines(world, rand, outerLeaves);
+	}
+	
+	public boolean canGenerateLogAt(IBlockState state, World world, BlockPos pos)
+	{
+		return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos) || state.getMaterial() == Material.WATER;
 	}
 	
 	private void generateVines(World world, Random rand, ArrayList<BlockPos> outerLeaves)

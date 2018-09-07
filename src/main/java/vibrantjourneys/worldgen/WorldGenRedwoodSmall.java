@@ -2,7 +2,6 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -28,7 +27,7 @@ public class WorldGenRedwoodSmall extends WorldGenAbstractTree
 	@Override
 	public boolean generate(World world, Random rand, BlockPos position)
 	{
-    	IBlockState BARK = PVJBlocks.redwood_log.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.NONE);
+    	IBlockState BARK = PVJBlocks.redwood_bark.getDefaultState();
 		int yGen = position.getY();
 		int height = 9 + rand.nextInt(3); //height of tree
 		int crown = height - 8 + rand.nextInt(3); //height of crown (where leaves are)

@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
+import vibrantjourneys.blocks.BlockBark;
 import vibrantjourneys.blocks.BlockCampfire;
 import vibrantjourneys.blocks.BlockCandle;
 import vibrantjourneys.blocks.BlockCeilingLamp;
@@ -297,6 +298,8 @@ public class PVJBlocks
 	public static Block ceiling_lamp;
 	public static Block circuit_breaker;
 	
+	public static Block redwood_bark;
+	
 	public static void initBlocks()
 	{
 		short_grass = registerBlock(new BlockShortGrass(EnumGrassType.GRASS), "short_grass");
@@ -549,6 +552,8 @@ public class PVJBlocks
 		lightbulb = registerBlock(new BlockLightbulb(), "lightbulb");
 		ceiling_lamp = registerBlock(new BlockCeilingLamp(), "ceiling_lamp");
 		circuit_breaker = registerBlock(new BlockCircuitBreaker(), "circuit_breaker");
+		
+		redwood_bark = registerBlock(new BlockBark(redwood_log), "redwood_bark");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();
