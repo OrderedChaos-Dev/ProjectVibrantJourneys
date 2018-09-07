@@ -75,11 +75,17 @@ public class PVJConfig
 		public boolean disablePassiveMobs = false;
 		public boolean disableNeutralMobs = false;
 		public boolean disableAggressiveMobs = false;
+		public boolean disableMysticalGrill = false;
+		public boolean disableChimneys = false;
+		public boolean disableLighting = false;
+		public boolean disableCobblestoneBricks = false;
 	}
 	
 	public static class WorldGenSubCategory
 	{
 		public int cobwebDensity = 100;
+		
+		public int riverGrassDensity = 95;
 		
 		public int palmDensity = 5;
 		public int willowDensity = 2;

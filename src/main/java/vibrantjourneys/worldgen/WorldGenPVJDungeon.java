@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.storage.loot.LootTableList;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPVJDungeon extends WorldGenerator
 {
@@ -92,7 +93,13 @@ public class WorldGenPVJDungeon extends WorldGenerator
                             	if(rand.nextBoolean())
                             		world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);
                             	else
-                            		world.setBlockState(blockpos1, PVJBlocks.cobblestone_brick.getDefaultState(), 2);
+                            	{
+                            		if(!PVJConfig.master.disableCobblestoneBricks)
+                            			world.setBlockState(blockpos1, PVJBlocks.cobblestone_brick.getDefaultState(), 2);
+                            		else
+                            			world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);
+                            	}
+
                             }
                             if(world.isAirBlock(blockpos1.up()) && rand.nextInt(6) == 0)
                             {

@@ -49,6 +49,7 @@ import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 
 public class PVJBlocks
@@ -408,8 +409,6 @@ public class PVJBlocks
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
 
-		cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
-		cobblestone_brick_stairs = registerBlock(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
 		willow_stairs = registerBlock(new BlockPVJStairs(willow_planks.getDefaultState()), "willow_stairs");
 		mangrove_stairs = registerBlock(new BlockPVJStairs(mangrove_planks.getDefaultState()), "mangrove_stairs");
 		palm_stairs = registerBlock(new BlockPVJStairs(palm_planks.getDefaultState()), "palm_stairs");
@@ -419,10 +418,6 @@ public class PVJBlocks
 		aspen_stairs = registerBlock(new BlockPVJStairs(aspen_planks.getDefaultState()), "aspen_stairs");
 		maple_stairs = registerBlock(new BlockPVJStairs(maple_planks.getDefaultState()), "maple_stairs");
 		baobab_stairs = registerBlock(new BlockPVJStairs(baobab_planks.getDefaultState()), "baobab_stairs");
-		
-		cobblestone_brick_half_slab = new BlockPVJHalfSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
-		cobblestone_brick_double_slab = new BlockPVJDoubleSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
-		registerSlab(cobblestone_brick_half_slab, cobblestone_brick_double_slab, "cobblestone_brick_slab", "cobblestone_brick_double_slab");
 		
 		willow_half_slab = new BlockPVJHalfSlab(willow_planks.getDefaultState(), willow_half_slab);
 		willow_double_slab = new BlockPVJDoubleSlab(willow_planks.getDefaultState(), willow_half_slab);
@@ -520,38 +515,57 @@ public class PVJBlocks
 		maple_trapdoor = registerBlock(new BlockPVJTrapdoor(), "maple_trapdoor");
 		baobab_trapdoor = registerBlock(new BlockPVJTrapdoor(), "baobab_trapdoor");
 		
-		mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
+		if(!PVJConfig.master.disableCobblestoneBricks)
+		{
+			cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
+			cobblestone_brick_stairs = registerBlock(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
+			
+			cobblestone_brick_half_slab = new BlockPVJHalfSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
+			cobblestone_brick_double_slab = new BlockPVJDoubleSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
+			registerSlab(cobblestone_brick_half_slab, cobblestone_brick_double_slab, "cobblestone_brick_slab", "cobblestone_brick_double_slab");
+			
+			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
+		}
 		
-		cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
-		stone_chimney = registerBlock(new BlockChimney(), "stone_chimney");
-		brick_chimney = registerBlock(new BlockChimney(), "brick_chimney");
-		stonebrick_chimney = registerBlock(new BlockChimney(), "stonebrick_chimney");
-		cobblestone_brick_chimney = registerBlock(new BlockChimney(), "cobblestone_brick_chimney");
-		sandstone_chimney = registerBlock(new BlockChimney(), "sandstone_chimney");
-		netherbrick_chimney = registerBlock(new BlockChimney(), "netherbrick_chimney");
+		if(!PVJConfig.master.disableMysticalGrill)
+		{
+			mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
+		}
 		
-		cobblestone_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_chimney_top");
-		stone_chimney_top = registerBlock(new BlockChimneyTop(), "stone_chimney_top");
-		brick_chimney_top = registerBlock(new BlockChimneyTop(), "brick_chimney_top");
-		stonebrick_chimney_top = registerBlock(new BlockChimneyTop(), "stonebrick_chimney_top");
-		cobblestone_brick_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_brick_chimney_top");
-		sandstone_chimney_top = registerBlock(new BlockChimneyTop(), "sandstone_chimney_top");
-		netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
+		if(!PVJConfig.master.disableChimneys)
+		{
+			cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
+			stone_chimney = registerBlock(new BlockChimney(), "stone_chimney");
+			brick_chimney = registerBlock(new BlockChimney(), "brick_chimney");
+			stonebrick_chimney = registerBlock(new BlockChimney(), "stonebrick_chimney");
+			cobblestone_brick_chimney = registerBlock(new BlockChimney(), "cobblestone_brick_chimney");
+			sandstone_chimney = registerBlock(new BlockChimney(), "sandstone_chimney");
+			netherbrick_chimney = registerBlock(new BlockChimney(), "netherbrick_chimney");
+			
+			cobblestone_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_chimney_top");
+			stone_chimney_top = registerBlock(new BlockChimneyTop(), "stone_chimney_top");
+			brick_chimney_top = registerBlock(new BlockChimneyTop(), "brick_chimney_top");
+			stonebrick_chimney_top = registerBlock(new BlockChimneyTop(), "stonebrick_chimney_top");
+			cobblestone_brick_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_brick_chimney_top");
+			sandstone_chimney_top = registerBlock(new BlockChimneyTop(), "sandstone_chimney_top");
+			netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
+		}
 		
-		cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
-		
-		campfire = registerBlock(new BlockCampfire(), "campfire");
-		candle = registerBlock(new BlockCandle(), "candle");
-		glowstone_lamp_wood = registerBlock(new BlockGlowstoneLamp(Material.WOOD), "glowstone_lamp_wood");
-		glowstone_lamp_stone = registerBlock(new BlockGlowstoneLamp(Material.ROCK), "glowstone_lamp_stone");
-		glowstone_lamp_iron = registerBlock(new BlockGlowstoneLamp(Material.IRON), "glowstone_lamp_iron");
-		lantern = registerBlock(new BlockLantern(BlockLantern.Type.NORMAL), "lantern");
-		lantern_candle = registerBlock(new BlockLantern(BlockLantern.Type.CANDLE), "lantern_candle");
-		lava_lamp = registerBlock(new BlockLantern(BlockLantern.Type.LAVA), "lava_lamp");
-		paper_lantern = registerBlock(new BlockLantern(BlockLantern.Type.PAPER), "paper_lantern");
-		lightbulb = registerBlock(new BlockLightbulb(), "lightbulb");
-		ceiling_lamp = registerBlock(new BlockCeilingLamp(), "ceiling_lamp");
-		circuit_breaker = registerBlock(new BlockCircuitBreaker(), "circuit_breaker");
+		if(!PVJConfig.master.disableLighting)
+		{
+			campfire = registerBlock(new BlockCampfire(), "campfire");
+			candle = registerBlock(new BlockCandle(), "candle");
+			glowstone_lamp_wood = registerBlock(new BlockGlowstoneLamp(Material.WOOD), "glowstone_lamp_wood");
+			glowstone_lamp_stone = registerBlock(new BlockGlowstoneLamp(Material.ROCK), "glowstone_lamp_stone");
+			glowstone_lamp_iron = registerBlock(new BlockGlowstoneLamp(Material.IRON), "glowstone_lamp_iron");
+			lantern = registerBlock(new BlockLantern(BlockLantern.Type.NORMAL), "lantern");
+			lantern_candle = registerBlock(new BlockLantern(BlockLantern.Type.CANDLE), "lantern_candle");
+			lava_lamp = registerBlock(new BlockLantern(BlockLantern.Type.LAVA), "lava_lamp");
+			paper_lantern = registerBlock(new BlockLantern(BlockLantern.Type.PAPER), "paper_lantern");
+			lightbulb = registerBlock(new BlockLightbulb(), "lightbulb");
+			ceiling_lamp = registerBlock(new BlockCeilingLamp(), "ceiling_lamp");
+			circuit_breaker = registerBlock(new BlockCircuitBreaker(), "circuit_breaker");
+		}
 		
 		redwood_bark = registerBlock(new BlockBark(redwood_log), "redwood_bark");
 		

@@ -106,6 +106,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos1.up(rootStart)).getBlock().isReplaceable(world, blockpos1.up(rootStart)) || this.isAirLeaves(world, blockpos1.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int tacos = rootStart; tacos < height; tacos++)
                 		{
@@ -121,6 +123,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos2.up(rootStart)).getBlock().isReplaceable(world, blockpos2.up(rootStart)) || this.isAirLeaves(world, blockpos2.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int sausages = rootStart; sausages < height; sausages++)
                 		{
@@ -138,6 +142,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos3.up(rootStart)).getBlock().isReplaceable(world, blockpos3.up(rootStart)) || this.isAirLeaves(world, blockpos3.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int and = rootStart; and < height; and++)
                 		{
@@ -153,6 +159,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos4.up(rootStart)).getBlock().isReplaceable(world, blockpos4.up(rootStart)) || this.isAirLeaves(world, blockpos4.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int buns = rootStart; buns < height; buns++)
                 		{
@@ -172,6 +180,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos5.up(rootStart)).getBlock().isReplaceable(world, blockpos5.up(rootStart)) || this.isAirLeaves(world, blockpos5.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int g = rootStart; g < height; g++)
                 		{
@@ -187,6 +197,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos6.up(rootStart)).getBlock().isReplaceable(world, blockpos6.up(rootStart)) || this.isAirLeaves(world, blockpos6.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int b = rootStart; b < height; b++)
                 		{
@@ -202,6 +214,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos7.up(rootStart)).getBlock().isReplaceable(world, blockpos7.up(rootStart)) || this.isAirLeaves(world, blockpos7.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int t = rootStart; t < height; t++)
                 		{
@@ -217,6 +231,8 @@ public class WorldGenSequoiaTree extends WorldGenHugeTrees
                 		while(world.getBlockState(blockpos8.up(rootStart)).getBlock().isReplaceable(world, blockpos8.up(rootStart)) || this.isAirLeaves(world, blockpos8.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int pride = rootStart; pride < height; pride++)
                 		{

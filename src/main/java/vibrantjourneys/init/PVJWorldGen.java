@@ -20,6 +20,7 @@ import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
+import vibrantjourneys.worldgen.WorldGenRiverGrass;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 
@@ -35,6 +36,8 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenLilypad(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 		registerWorldGen(new WorldGenLilypad(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
+		
+		registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 		
 		if(!PVJConfig.master.disableFallenTrees)
 		{

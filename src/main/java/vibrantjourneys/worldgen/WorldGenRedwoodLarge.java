@@ -105,6 +105,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos1.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos1.up(rootStart)) || this.isAirLeaves(worldIn, blockpos1.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int tacos = rootStart; tacos < height; tacos++)
                 		{
@@ -120,6 +122,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos2.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos2.up(rootStart)) || this.isAirLeaves(worldIn, blockpos2.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int sausages = rootStart; sausages < height; sausages++)
                 		{
@@ -137,6 +141,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos3.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos3.up(rootStart)) || this.isAirLeaves(worldIn, blockpos3.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int and = rootStart; and < height; and++)
                 		{
@@ -152,6 +158,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos4.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos4.up(rootStart)) || this.isAirLeaves(worldIn, blockpos4.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int buns = rootStart; buns < height; buns++)
                 		{
@@ -171,6 +179,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos5.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos5.up(rootStart)) || this.isAirLeaves(worldIn, blockpos5.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int g = rootStart; g < height; g++)
                 		{
@@ -186,6 +196,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos6.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos6.up(rootStart)) || this.isAirLeaves(worldIn, blockpos6.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int b = rootStart; b < height; b++)
                 		{
@@ -201,6 +213,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos7.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos7.up(rootStart)) || this.isAirLeaves(worldIn, blockpos7.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int t = rootStart; t < height; t++)
                 		{
@@ -216,6 +230,8 @@ public class WorldGenRedwoodLarge extends WorldGenHugeTrees
                 		while(worldIn.getBlockState(blockpos8.up(rootStart)).getBlock().isReplaceable(worldIn, blockpos8.up(rootStart)) || this.isAirLeaves(worldIn, blockpos8.up(rootStart)))
                 		{
                 			rootStart--;
+                			if(rootStart < -5)
+                				break;
                 		}
                 		for(int pride = rootStart; pride < height; pride++)
                 		{

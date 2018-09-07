@@ -14,6 +14,7 @@ import vibrantjourneys.items.ItemBeverage;
 import vibrantjourneys.items.ItemMysticalFood;
 import vibrantjourneys.items.ItemPVJBoat;
 import vibrantjourneys.util.CreativeTabPVJ;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 
 public class PVJItems
@@ -81,14 +82,17 @@ public class PVJItems
 		goon_bile = registerItem(new Item(), "goon_bile");
 		unstable_essence = registerItem(new Item(), "unstable_essence");
 		
-		mystical_porkchop = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_PORKCHOP), "mystical_porkchop");
-		mystical_beef = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_BEEF), "mystical_beef");
-		mystical_chicken = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_CHICKEN), "mystical_chicken");
-		mystical_mutton = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_MUTTON), "mystical_mutton");
-		mystical_cod = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_FISH), "mystical_cod");
-		mystical_salmon = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_FISH), "mystical_salmon");
-		mystical_potato = registerItem(new ItemMysticalFood((ItemFood) Items.BAKED_POTATO), "mystical_potato");
-		mystical_rabbit = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_RABBIT), "mystical_rabbit");
+		if(!PVJConfig.master.disableMysticalGrill)
+		{
+			mystical_porkchop = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_PORKCHOP), "mystical_porkchop");
+			mystical_beef = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_BEEF), "mystical_beef");
+			mystical_chicken = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_CHICKEN), "mystical_chicken");
+			mystical_mutton = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_MUTTON), "mystical_mutton");
+			mystical_cod = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_FISH), "mystical_cod");
+			mystical_salmon = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_FISH), "mystical_salmon");
+			mystical_potato = registerItem(new ItemMysticalFood((ItemFood) Items.BAKED_POTATO), "mystical_potato");
+			mystical_rabbit = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_RABBIT), "mystical_rabbit");	
+		}
 		
 		wax = registerItem(new Item(), "wax");
 		
