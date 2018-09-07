@@ -74,7 +74,7 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
     		if(isCooking)
     		{
     			//6000 ticks = 5 mins
-    			if(cookTime >= PVJConfig.mysticalGrillCookTime)
+    			if(cookTime >= PVJConfig.misc.mysticalGrillCookTime)
     			{
     				ItemStack cookedItem = getCookedFood(food);
     				setFood(cookedItem);

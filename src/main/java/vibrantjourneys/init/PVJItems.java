@@ -82,7 +82,7 @@ public class PVJItems
 		goon_bile = registerItem(new Item(), "goon_bile");
 		unstable_essence = registerItem(new Item(), "unstable_essence");
 		
-		if(!PVJConfig.master.disableMysticalGrill)
+		if(PVJConfig.master.enableMysticalGrill)
 		{
 			mystical_porkchop = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_PORKCHOP), "mystical_porkchop");
 			mystical_beef = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_BEEF), "mystical_beef");

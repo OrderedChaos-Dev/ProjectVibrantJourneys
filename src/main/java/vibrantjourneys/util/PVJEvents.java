@@ -19,7 +19,7 @@ public class PVJEvents
 	public void onBreakGrass(BlockEvent.HarvestDropsEvent event)
 	{
 		Block block = event.getState().getBlock();
-		if(!PVJConfig.doGrassDropSeeds)
+		if(!PVJConfig.misc.doGrassDropSeeds)
 		{
 			if(block instanceof BlockTallGrass || block instanceof BlockShortGrass)
 			{

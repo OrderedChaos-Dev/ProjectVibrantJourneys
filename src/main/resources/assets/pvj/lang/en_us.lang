@@ -261,6 +261,34 @@ subtitles.pvj_goon.hurt=Goon hurts
 subtitles.pvj_goon.death=Goon dies
 subtitles.pvj_goon.puke=Goon pukes
 
+#Config
+#----------------------------------------------------------------------------------------------------
+config.pvj.master=1. Master Settings
+config.pvj.worldgen=2. World Generation Settings
+config.pvj.biomes=3. Biome Settings
+config.pvj.mobs=4. Mob Settings
+config.pvj.misc=5. Miscellaneous Settings
+config.pvj.integration=6. Integration Settings
+
+config.pvj.master.enableGroundcover=Groundcover: Enable Groundcover
+config.pvj.master.enableTwigs=Groundcover: Enable Twigs
+config.pvj.master.enableRocks=Groundcover: Enable Rocks
+config.pvj.master.enableFallenLeaves=Groundcover: Enable Fallen Leaves
+config.pvj.master.enableBones=Groundcover: Enable Bones
+config.pvj.master.enableSeashells=Groundcover: Enable Seashells
+config.pvj.master.enablePinecones=Groundcover: Enable Pinecones
+config.pvj.master.enableFallenTrees=Structures: Enable Fallen Trees
+config.pvj.master.enableBiomes=Biomes: Enable Biomes
+config.pvj.master.enableOverworldPlants=Plants: Enable Overworld Plants
+config.pvj.master.enableNetherPlants=Plants: Enable Nether Plants
+config.pvj.master.enablePassiveMobs=Mobs: Enable Passive Mobs
+config.pvj.master.enableNeutralMobs=Mobs: Enable Neutral Mobs
+config.pvj.master.enableAggressiveMobs=Mobs: Enable Aggressive Mobs
+config.pvj.master.enableMysticalGrill=Building: Enable Mystical Grill
+config.pvj.master.enableChimneys=Building: Enable Chimneys
+config.pvj.master.enableLighting=Building: Enable Lighting Blocks
+config.pvj.master.enableCobblestoneBricks=Building: Enable Cobblestone Bricks
+
 #BOP Objects
 #----------------------------------------------------------------------------------------------------
 tile.fallenleaves_bop_yellow_autumn.name=Yellow Autumn Fallen Leaves

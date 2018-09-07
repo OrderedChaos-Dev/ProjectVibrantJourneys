@@ -94,7 +94,7 @@ public class WorldGenPVJDungeon extends WorldGenerator
                             		world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);
                             	else
                             	{
-                            		if(!PVJConfig.master.disableCobblestoneBricks)
+                            		if(PVJConfig.master.enableCobblestoneBricks)
                             			world.setBlockState(blockpos1, PVJBlocks.cobblestone_brick.getDefaultState(), 2);
                             		else
                             			world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);

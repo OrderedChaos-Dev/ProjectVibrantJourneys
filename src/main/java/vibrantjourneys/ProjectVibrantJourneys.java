@@ -69,7 +69,7 @@ public class ProjectVibrantJourneys
     	
     	PVJEntities.addSpawns();
     	
-    	if(PVJConfig.restrictSquidsToOceans)
+    	if(PVJConfig.misc.restrictSquidsToOceans)
     		EntityRegistry.removeSpawn(EntitySquid.class, EnumCreatureType.WATER_CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
     	
 		ProjectVibrantJourneys.proxy.registerBlockColors();

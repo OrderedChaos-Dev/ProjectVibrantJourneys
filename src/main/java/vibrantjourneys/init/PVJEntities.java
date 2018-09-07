@@ -73,7 +73,7 @@ public class PVJEntities
 	
 	public static void addSpawns()
 	{	
-		if(!PVJConfig.master.disablePassiveMobs)
+		if(PVJConfig.master.enablePassiveMobs)
 		{
 			if(PVJConfig.entities.snailSpawnWeight > 0)
 				EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
@@ -85,13 +85,13 @@ public class PVJEntities
 				EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		}
 
-		if(!PVJConfig.master.disableNeutralMobs)
+		if(PVJConfig.master.enableNeutralMobs)
 		{
 			if(PVJConfig.entities.ghostSpawnWeight > 0)
 				EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		}
 		
-		if(!PVJConfig.master.disableAggressiveMobs)
+		if(PVJConfig.master.enableAggressiveMobs)
 		{
 			if(PVJConfig.entities.shadeSpawnWeight > 0)
 				EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));

@@ -12,13 +12,13 @@ public class PVJTileEntities
 {
 	public static void initTileEntities()
 	{
-		if(!PVJConfig.master.disableMysticalGrill)
+		if(PVJConfig.master.enableMysticalGrill)
 			GameRegistry.registerTileEntity(TileEntityMysticalGrill.class, new ResourceLocation(Reference.MOD_ID, "mystical_grill"));
 		
-		if(!PVJConfig.master.disableChimneys)
+		if(PVJConfig.master.enableChimneys)
 			GameRegistry.registerTileEntity(TileEntityChimneyTop.class, new ResourceLocation(Reference.MOD_ID, "chimney_top"));
 		
-		if(!PVJConfig.master.disableLighting)
+		if(PVJConfig.master.enableLighting)
 			GameRegistry.registerTileEntity(TileEntityCampfire.class, new ResourceLocation(Reference.MOD_ID, "campfire"));
 	}
 }

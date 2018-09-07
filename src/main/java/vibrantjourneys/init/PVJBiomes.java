@@ -30,7 +30,7 @@ public class PVJBiomes
 	
 	public static void initBiomes()
 	{
-		if(!PVJConfig.master.disableBiomes)
+		if(PVJConfig.master.enableBiomes)
 		{
 			registerBiome(prairie, "prairie", PVJConfig.biomes.prairieWeight, true, BiomeType.WARM, Type.PLAINS);
 			registerBiome(redwoods, "redwoods", PVJConfig.biomes.redwoodsWeight, false, BiomeType.COOL, Type.CONIFEROUS, Type.FOREST);

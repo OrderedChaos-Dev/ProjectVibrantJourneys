@@ -13,72 +13,100 @@ public class PVJConfig
 {
 	@Comment({
 		"All changes require a restart!",
-		"This is where you can disable entire parts of the mod.",
+		"This is where you can enable entire parts of the mod.",
 	})
+	@Config.LangKey("config.pvj.master")
 	public static MasterCategory master = new MasterCategory();
 	
 	@Comment({
-		"All changes require a restart! Set to 0 to disable from generation",
+		"All changes require a restart! Set to 0 to enable from generation",
 		"\"Sparse\" means biomes in which tree types rarely generate.",
 		"e.g. birch trees rarely generate in forests and roofed forests.",
 	})
+	@Config.LangKey("config.pvj.worldgen")
 	public static WorldGenSubCategory worldgen = new WorldGenSubCategory();
 	
 	@Comment({
-		"All changes require a restart! Set to 0 to disable from generation.",
+		"All changes require a restart! Set to 0 to enable from generation.",
 		"Biome weight is how much chance a biome has to generate."
 	})
+	@Config.LangKey("config.pvj.biomes")
 	public static BiomesSubCategory biomes = new BiomesSubCategory();
 	
 	@Comment({
 		"All changes require a restart! Spawn weight is how much often an entity spawns.",
-		"Set to 0 to disable spawning."
+		"Set to 0 to enable spawning."
 	})
+	@Config.LangKey("config.pvj.mobs")
 	public static EntitiesSubCategory entities = new EntitiesSubCategory();
 	
 	@Comment({
-		"All changes require a restart! This is for Biomes O' Plenty.",
+		"All changes require a restart!"
 	})
-	public static BOPSubCategory bopworldgen = new BOPSubCategory();
+	@Config.LangKey("config.pvj.misc")
+	public static MiscCategory misc = new MiscCategory();
 	
 	@Comment({
-		"All changes require a restart! Set this to true to allow tall grass to",
-		"drop wheat seeds."
+		"All changes require a restart!"
 	})
-	public static boolean doGrassDropSeeds = false;
-	
-	@Comment({
-		"All changes require a restart! Set this to false to allow squids to spawn in all",
-		"biomes again."
-	})
-	public static boolean restrictSquidsToOceans = true;
-	
-	@Comment({
-		"This is measured in ticks. 20 ticks = 1 second",
-		"6000 ticks = 5 minutes"
-	})
-	public static int mysticalGrillCookTime = 6000;
+	@Config.LangKey("config.pvj.integration")
+	public static IntegrationCategory integration = new IntegrationCategory();
 	
 	public static class MasterCategory
 	{
-		public boolean disableGroundcover = false;
-		public boolean disableTwigs = false;
-		public boolean disableRocks = false;
-		public boolean disableFallenLeaves = false;
-		public boolean disableBones = false;
-		public boolean disableSeashells = false;
-		public boolean disablePinecones = false;
-		public boolean disableFallenTrees = false;
-		public boolean disableBiomes = false;
-		public boolean disableOverworldPlants = false;
-		public boolean disableNetherPlants = false;
-		public boolean disablePassiveMobs = false;
-		public boolean disableNeutralMobs = false;
-		public boolean disableAggressiveMobs = false;
-		public boolean disableMysticalGrill = false;
-		public boolean disableChimneys = false;
-		public boolean disableLighting = false;
-		public boolean disableCobblestoneBricks = false;
+		@Config.LangKey("config.pvj.master.enableGroundcover")
+		public boolean enableGroundcover = true;
+		
+		@Config.LangKey("config.pvj.master.enableTwigs")
+		public boolean enableTwigs = true;
+		
+		@Config.LangKey("config.pvj.master.enableRocks")
+		public boolean enableRocks = true;
+		
+		@Config.LangKey("config.pvj.master.enableFallenLeaves")
+		public boolean enableFallenLeaves = true;
+		
+		@Config.LangKey("config.pvj.master.enableBones")
+		public boolean enableBones = true;
+		
+		@Config.LangKey("config.pvj.master.enableSeashells")
+		public boolean enableSeashells = true;
+		
+		@Config.LangKey("config.pvj.master.enablePinecones")
+		public boolean enablePinecones = true;
+		
+		@Config.LangKey("config.pvj.master.enableFallenTrees")
+		public boolean enableFallenTrees = true;
+		
+		@Config.LangKey("config.pvj.master.enableBiomes")
+		public boolean enableBiomes = true;
+		
+		@Config.LangKey("config.pvj.master.enableOverworldPlants")
+		public boolean enableOverworldPlants = true;
+		
+		@Config.LangKey("config.pvj.master.enableNetherPlants")
+		public boolean enableNetherPlants = true;
+		
+		@Config.LangKey("config.pvj.master.enablePassiveMobs")
+		public boolean enablePassiveMobs = true;
+		
+		@Config.LangKey("config.pvj.master.enableNeutralMobs")
+		public boolean enableNeutralMobs = true;
+		
+		@Config.LangKey("config.pvj.master.enableAggressiveMobs")
+		public boolean enableAggressiveMobs = true;
+		
+		@Config.LangKey("config.pvj.master.enableMysticalGrill")
+		public boolean enableMysticalGrill = true;
+		
+		@Config.LangKey("config.pvj.master.enableChimneys")
+		public boolean enableChimneys = true;
+		
+		@Config.LangKey("config.pvj.master.enableLighting")
+		public boolean enableLighting = true;
+		
+		@Config.LangKey("config.pvj.master.enableCobblestoneBricks")
+		public boolean enableCobblestoneBricks = true;
 	}
 	
 	public static class WorldGenSubCategory
@@ -222,6 +250,28 @@ public class PVJConfig
 		public int icecubeSpawnWeight = 35;
 		public int skeletalKnightWeight = 55;
 		public int goonSpawnWeight = 20;
+	}
+	
+	public static class MiscCategory
+	{
+		public boolean doGrassDropSeeds = false;
+		
+		public boolean restrictSquidsToOceans = true;
+		
+		@Comment({
+			"This is measured in ticks. 20 ticks = 1 second",
+			"6000 ticks = 5 minutes"
+		})
+		public int mysticalGrillCookTime = 6000;
+	}
+	
+	public static class IntegrationCategory
+	{
+		@Comment({
+			"All changes require a restart! This is for Biomes O' Plenty.",
+		})
+		@Config.LangKey("config.pvj.bop")
+		public BOPSubCategory bopworldgen = new BOPSubCategory();
 	}
 	
 	public static class BOPSubCategory

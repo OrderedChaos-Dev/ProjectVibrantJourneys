@@ -104,6 +104,16 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     {
         return false;
     }
+    
+    @Override
+    public void onBlockAdded(World world, BlockPos pos, IBlockState state)
+    {
+		if(!world.isRemote)
+		{
+			int meta = world.rand.nextInt(5);
+			world.setBlockState(pos, this.getStateFromMeta(meta));
+		}
+    }
 	
 	@Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
@@ -122,13 +132,16 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 			}
 			else
 			{
-		        int meta = getMetaFromState(state);
-		        if(meta != 4)
-		        	meta++;
-		        else
-		        	meta = 0;
-		        
-		        world.setBlockState(pos, getStateFromMeta(meta));	
+				if(player.isCreative())
+				{
+			        int meta = getMetaFromState(state);
+			        if(meta != 4)
+			        	meta++;
+			        else
+			        	meta = 0;
+			        
+			        world.setBlockState(pos, getStateFromMeta(meta));
+				}
 			}
 		}
         

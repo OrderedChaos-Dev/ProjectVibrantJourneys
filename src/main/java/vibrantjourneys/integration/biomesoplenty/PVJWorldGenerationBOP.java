@@ -12,47 +12,47 @@ public class PVJWorldGenerationBOP
 {
 	public static void initWorldGenBOP()
 	{
-		if(!PVJConfig.master.disableFallenTrees)
+		if(PVJConfig.master.enableFallenTrees)
 		{
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.FIR_LOG, PVJConfig.bopworldgen.fallenTreeFirDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_FIR_TREES)));
+					BiomeReferenceBOP.FIR_LOG, PVJConfig.integration.bopworldgen.fallenTreeFirDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_FIR_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.JACARANDA_LOG, PVJConfig.bopworldgen.fallenTreeJacarandaDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_JACARANDA_TREES)));
+					BiomeReferenceBOP.JACARANDA_LOG, PVJConfig.integration.bopworldgen.fallenTreeJacarandaDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_JACARANDA_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.WILLOW_LOG, PVJConfig.bopworldgen.fallenTreeWillowDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_WILLOW_TREES)));
+					BiomeReferenceBOP.WILLOW_LOG, PVJConfig.integration.bopworldgen.fallenTreeWillowDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_WILLOW_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.PINE_LOG, PVJConfig.bopworldgen.fallenTreePineDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINE_TREES)));
+					BiomeReferenceBOP.PINE_LOG, PVJConfig.integration.bopworldgen.fallenTreePineDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.CHERRY_LOG, PVJConfig.bopworldgen.fallenTreeCherryDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINK_CHERRY_TREES)));
+					BiomeReferenceBOP.CHERRY_LOG, PVJConfig.integration.bopworldgen.fallenTreeCherryDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINK_CHERRY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.DEAD_LOG, PVJConfig.bopworldgen.fallenTreeDeadDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_DEAD_TREES)));
+					BiomeReferenceBOP.DEAD_LOG, PVJConfig.integration.bopworldgen.fallenTreeDeadDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_DEAD_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.EBONY_LOG, PVJConfig.bopworldgen.fallenTreeEbonyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EBONY_TREES)));
+					BiomeReferenceBOP.EBONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeEbonyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EBONY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.EUCALYPTUS_LOG, PVJConfig.bopworldgen.fallenTreeEucalyptusDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EUCALYPTUS_TREES)));
+					BiomeReferenceBOP.EUCALYPTUS_LOG, PVJConfig.integration.bopworldgen.fallenTreeEucalyptusDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EUCALYPTUS_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MAHOGONY_LOG, PVJConfig.bopworldgen.fallenTreeMahoganyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAHOGANY_TREES)));
+					BiomeReferenceBOP.MAHOGONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeMahoganyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAHOGANY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MAGIC_LOG, PVJConfig.bopworldgen.fallenTreeMagicDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAGIC_TREES)));
+					BiomeReferenceBOP.MAGIC_LOG, PVJConfig.integration.bopworldgen.fallenTreeMagicDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAGIC_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.PALM_LOG, PVJConfig.bopworldgen.fallenTreePalmDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PALM_TREES)));
+					BiomeReferenceBOP.PALM_LOG, PVJConfig.integration.bopworldgen.fallenTreePalmDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PALM_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MANGROVE_LOG, PVJConfig.bopworldgen.fallenTreeMangroveDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MANGROVE_TREES)));
+					BiomeReferenceBOP.MANGROVE_LOG, PVJConfig.integration.bopworldgen.fallenTreeMangroveDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MANGROVE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.REDWOOD_LOG, PVJConfig.bopworldgen.fallenTreeRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_REDWOOD_TREES)));
+					BiomeReferenceBOP.REDWOOD_LOG, PVJConfig.integration.bopworldgen.fallenTreeRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_REDWOOD_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.SACRED_OAK_LOG, PVJConfig.bopworldgen.fallenTreeSacredOakDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_SACRED_OAK_TREES)));
+					BiomeReferenceBOP.SACRED_OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeSacredOakDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_SACRED_OAK_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.UMBRAN_LOG, PVJConfig.bopworldgen.fallenTreeUmbranDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_UMBRAN_TREES)));
+					BiomeReferenceBOP.UMBRAN_LOG, PVJConfig.integration.bopworldgen.fallenTreeUmbranDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_UMBRAN_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReference.OAK_LOG, PVJConfig.bopworldgen.fallenTreeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAPLE_TREES)));
+					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAPLE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReference.OAK_LOG, PVJConfig.bopworldgen.fallenTreeAutumnDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_YELLOW_AUTUMN_TREES)));
+					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeAutumnDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_YELLOW_AUTUMN_TREES)));
 		}
 
-		if(!PVJConfig.master.disableGroundcover)
+		if(PVJConfig.master.enableGroundcover)
 		{
-			if(!PVJConfig.master.disableFallenLeaves)
+			if(PVJConfig.master.enableFallenLeaves)
 			{
 				PVJWorldGen.registerWorldGen(new WorldGenFallenLeaves(
 						PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_DEAD_TREES)));
@@ -62,7 +62,7 @@ public class PVJWorldGenerationBOP
 					PVJWorldGen.registerWorldGen(new WorldGenFallenLeaves(info.getBlock(), info.getWorldGenDensity(), info.getBiomes()));
 				}
 			}
-			if(!PVJConfig.master.disableTwigs)
+			if(PVJConfig.master.enableTwigs)
 			{
 				for(BOPBlockInfo info : PVJBlocksBOP.BLOCK_INFO_TWIGS)
 				{
@@ -77,47 +77,47 @@ public class PVJWorldGenerationBOP
 		switch(name)
 		{
 			case "bamboo":
-				return PVJConfig.bopworldgen.fallenLeavesBambooDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesBambooDensity;
 			case "magic":
-				return PVJConfig.bopworldgen.fallenLeavesMagicDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesMagicDensity;
 			case "yellow_autumn":
-				return PVJConfig.bopworldgen.fallenLeavesYellowAutumnDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesYellowAutumnDensity;
 			case "orange_autumn":
-				return PVJConfig.bopworldgen.fallenLeavesOrangeAutumnDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesOrangeAutumnDensity;
 			case "umbran":
-				return PVJConfig.bopworldgen.fallenLeavesUmbranDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesUmbranDensity;
 			case "fir":
-				return PVJConfig.bopworldgen.fallenLeavesFirDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesFirDensity;
 			case "pink_cherry":
-				return PVJConfig.bopworldgen.fallenLeavesPinkCherryDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesPinkCherryDensity;
 			case "white_cherry":
-				return PVJConfig.bopworldgen.fallenLeavesWhiteCherryDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesWhiteCherryDensity;
 			case "maple":
-				return PVJConfig.bopworldgen.fallenLeavesMapleDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesMapleDensity;
 			case "hellbark":
-				return PVJConfig.bopworldgen.fallenLeavesHellbarkDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesHellbarkDensity;
 			case "flowering":
-				return PVJConfig.bopworldgen.fallenLeavesFloweringOakDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesFloweringOakDensity;
 			case "jacaranda":
-				return PVJConfig.bopworldgen.fallenLeavesJacarandaDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesJacarandaDensity;
 			case "sacred_oak":
-				return PVJConfig.bopworldgen.fallenLeavesSacredOakDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesSacredOakDensity;
 			case "mangrove":
-				return PVJConfig.bopworldgen.fallenLeavesMangroveDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesMangroveDensity;
 			case "palm":
-				return PVJConfig.bopworldgen.fallenLeavesPalmDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesPalmDensity;
 			case "redwood":
-				return PVJConfig.bopworldgen.fallenLeavesRedwoodDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesRedwoodDensity;
 			case "willow":
-				return PVJConfig.bopworldgen.fallenLeavesWillowDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesWillowDensity;
 			case "pine":
-				return PVJConfig.bopworldgen.fallenLeavesPineDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesPineDensity;
 			case "mahogany":
-				return PVJConfig.bopworldgen.fallenLeavesMahoganyDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesMahoganyDensity;
 			case "ebony":
-				return PVJConfig.bopworldgen.fallenLeavesEbonyDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesEbonyDensity;
 			case "eucalyptus":
-				return PVJConfig.bopworldgen.fallenLeavesEucalyptusDensity;
+				return PVJConfig.integration.bopworldgen.fallenLeavesEucalyptusDensity;
 			default:
 				return 0;
 		}
@@ -128,43 +128,43 @@ public class PVJWorldGenerationBOP
 		switch(name)
 		{
 			case "magic":
-				return PVJConfig.bopworldgen.twigsMagicDensity;
+				return PVJConfig.integration.bopworldgen.twigsMagicDensity;
 			case "yellow_autumn":
-				return PVJConfig.bopworldgen.twigsAutumnDensity;
+				return PVJConfig.integration.bopworldgen.twigsAutumnDensity;
 			case "orange_autumn":
-				return PVJConfig.bopworldgen.twigsAutumnDensity;
+				return PVJConfig.integration.bopworldgen.twigsAutumnDensity;
 			case "umbran":
-				return PVJConfig.bopworldgen.twigsUmbranDensity;
+				return PVJConfig.integration.bopworldgen.twigsUmbranDensity;
 			case "fir":
-				return PVJConfig.bopworldgen.twigsFirDensity;
+				return PVJConfig.integration.bopworldgen.twigsFirDensity;
 			case "pink_cherry":
-				return PVJConfig.bopworldgen.twigsCherryDensity;
+				return PVJConfig.integration.bopworldgen.twigsCherryDensity;
 			case "white_cherry":
-				return PVJConfig.bopworldgen.twigsCherryDensity;
+				return PVJConfig.integration.bopworldgen.twigsCherryDensity;
 			case "maple":
-				return PVJConfig.bopworldgen.twigsMapleDensity;
+				return PVJConfig.integration.bopworldgen.twigsMapleDensity;
 			case "hellbark":
-				return PVJConfig.bopworldgen.twigsHellbarkDensity;
+				return PVJConfig.integration.bopworldgen.twigsHellbarkDensity;
 			case "jacaranda":
-				return PVJConfig.bopworldgen.twigsJacarandaDensity;
+				return PVJConfig.integration.bopworldgen.twigsJacarandaDensity;
 			case "sacred_oak":
-				return PVJConfig.bopworldgen.twigsSacredOakDensity;
+				return PVJConfig.integration.bopworldgen.twigsSacredOakDensity;
 			case "mangrove":
-				return PVJConfig.bopworldgen.twigsMangroveDensity;
+				return PVJConfig.integration.bopworldgen.twigsMangroveDensity;
 			case "palm":
-				return PVJConfig.bopworldgen.twigsPalmDensity;
+				return PVJConfig.integration.bopworldgen.twigsPalmDensity;
 			case "redwood":
-				return PVJConfig.bopworldgen.twigsRedwoodDensity;
+				return PVJConfig.integration.bopworldgen.twigsRedwoodDensity;
 			case "willow":
-				return PVJConfig.bopworldgen.twigsWillowDensity;
+				return PVJConfig.integration.bopworldgen.twigsWillowDensity;
 			case "pine":
-				return PVJConfig.bopworldgen.twigsPineDensity;
+				return PVJConfig.integration.bopworldgen.twigsPineDensity;
 			case "mahogany":
-				return PVJConfig.bopworldgen.twigsMahoganyDensity;
+				return PVJConfig.integration.bopworldgen.twigsMahoganyDensity;
 			case "ebony":
-				return PVJConfig.bopworldgen.twigsEbonyDensity;
+				return PVJConfig.integration.bopworldgen.twigsEbonyDensity;
 			case "eucalyptus":
-				return PVJConfig.bopworldgen.twigsEucalyptusDensity;
+				return PVJConfig.integration.bopworldgen.twigsEucalyptusDensity;
 			default:
 				return 0;
 		}

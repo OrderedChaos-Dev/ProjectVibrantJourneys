@@ -515,7 +515,7 @@ public class PVJBlocks
 		maple_trapdoor = registerBlock(new BlockPVJTrapdoor(), "maple_trapdoor");
 		baobab_trapdoor = registerBlock(new BlockPVJTrapdoor(), "baobab_trapdoor");
 		
-		if(!PVJConfig.master.disableCobblestoneBricks)
+		if(PVJConfig.master.enableCobblestoneBricks)
 		{
 			cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
 			cobblestone_brick_stairs = registerBlock(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
@@ -527,12 +527,12 @@ public class PVJBlocks
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
 		}
 		
-		if(!PVJConfig.master.disableMysticalGrill)
+		if(PVJConfig.master.enableMysticalGrill)
 		{
 			mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
 		}
 		
-		if(!PVJConfig.master.disableChimneys)
+		if(PVJConfig.master.enableChimneys)
 		{
 			cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
 			stone_chimney = registerBlock(new BlockChimney(), "stone_chimney");
@@ -551,7 +551,7 @@ public class PVJBlocks
 			netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
 		}
 		
-		if(!PVJConfig.master.disableLighting)
+		if(PVJConfig.master.enableLighting)
 		{
 			campfire = registerBlock(new BlockCampfire(), "campfire");
 			candle = registerBlock(new BlockCandle(), "candle");

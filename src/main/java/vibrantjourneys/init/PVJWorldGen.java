@@ -39,7 +39,7 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 		
-		if(!PVJConfig.master.disableFallenTrees)
+		if(PVJConfig.master.enableFallenTrees)
 		{
 			registerWorldGen(new WorldGenFallenTree(BiomeReference.OAK_LOG, PVJConfig.worldgen.fallenTreeOakDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 			registerWorldGen(new WorldGenFallenTree(BiomeReference.OAK_LOG, PVJConfig.worldgen.fallenTreeOakSparseDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
@@ -61,9 +61,9 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
 		
-		if(!PVJConfig.master.disableGroundcover)
+		if(PVJConfig.master.enableGroundcover)
 		{
-			if(!PVJConfig.master.disableFallenLeaves)
+			if(PVJConfig.master.enableFallenLeaves)
 			{
 				registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_oak, PVJConfig.worldgen.fallenLeavesOakDensity, BiomeReference.OAK_TREES.toArray(new Biome[0])));
 				registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_oak, PVJConfig.worldgen.fallenLeavesOakSparseDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
@@ -89,7 +89,7 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_orange_maple, PVJConfig.worldgen.fallenLeavesOrangeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES)));
 				registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.fallenleaves_baobab, PVJConfig.worldgen.fallenLeavesBaobabDensity, BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES)));
 			}
-			if(!PVJConfig.master.disableRocks)
+			if(PVJConfig.master.enableRocks)
 			{
 				//surface
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.stone_rocks, 60, 200, PVJConfig.worldgen.stoneRocksDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
@@ -109,7 +109,7 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.diorite_rocks, 1, 60, PVJConfig.worldgen.dioriteRocksCaveDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			}
 
-			if(!PVJConfig.master.disableTwigs)
+			if(PVJConfig.master.enableTwigs)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 150, PVJConfig.worldgen.oakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.oak_twigs, 60, 150, PVJConfig.worldgen.oakTwigsSparseDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
@@ -130,17 +130,17 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.orange_maple_twigs, 60, 150, PVJConfig.worldgen.orangeMapleTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.baobab_twigs, 60, 100, PVJConfig.worldgen.baobabTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES)));
 			}
-			if(!PVJConfig.master.disableBones)
+			if(PVJConfig.master.enableBones)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDesertDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 150, PVJConfig.worldgen.bonesNetherDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			}
-			if(!PVJConfig.master.disableSeashells)
+			if(PVJConfig.master.enableSeashells)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.seashells, 60, 80, PVJConfig.worldgen.seashellsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
 			}
-			if(!PVJConfig.master.disablePinecones)
+			if(PVJConfig.master.enablePinecones)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.pinecones, 60, 80, PVJConfig.worldgen.pineconesDensity, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0])));
 			}
@@ -153,13 +153,13 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		
-		if(!PVJConfig.master.disableOverworldPlants)
+		if(PVJConfig.master.enableOverworldPlants)
 		{
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));	
 		}
 
-		if(!PVJConfig.master.disableNetherPlants)
+		if(PVJConfig.master.enableNetherPlants)
 		{
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, 0, 255, PVJConfig.worldgen.bloodnettleDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, 0, 255, PVJConfig.worldgen.glowcapDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
