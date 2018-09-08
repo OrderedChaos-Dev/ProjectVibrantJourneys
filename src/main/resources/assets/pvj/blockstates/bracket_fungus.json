@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=south": { "model": "pvj:bracket_fungus" },
+        "facing=west": { "model": "pvj:bracket_fungus", "y": 90 },
+        "facing=north": { "model": "pvj:bracket_fungus", "y": 180 },
+        "facing=east": { "model": "pvj:bracket_fungus", "y": 270 }
+    }
+}

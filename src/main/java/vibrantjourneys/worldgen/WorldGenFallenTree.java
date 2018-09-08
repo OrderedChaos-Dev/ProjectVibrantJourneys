@@ -17,6 +17,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Loader;
+import vibrantjourneys.blocks.BlockBracketFungus;
+import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenFallenTree implements IWorldGenerator
 {
@@ -113,6 +115,14 @@ public class WorldGenFallenTree implements IWorldGenerator
 				if(canReplace(world, pos))
 				{
 					world.setBlockState(pos, log);
+					EnumFacing facing2 = getHorizontalPerpendicular(facing.getHorizontalIndex());
+					if(world.isAirBlock(pos.offset(facing2)));
+					{
+						if(random.nextBoolean())
+						{
+							world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
+						}
+					}
 					if(hasBranch)
 					{
 						if(random.nextInt(length) < i)
@@ -135,6 +145,14 @@ public class WorldGenFallenTree implements IWorldGenerator
 								
 								state = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(branchfacing.getAxis()));
 								world.setBlockState(pos, state);
+								facing2 = getHorizontalPerpendicular(branchfacing.getHorizontalIndex());
+								if(world.isAirBlock(pos.offset(facing2)));
+								{
+									if(random.nextBoolean())
+									{
+										world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
+									}
+								}
 								hasBranch = false;
 							}
 						}
@@ -161,8 +179,12 @@ public class WorldGenFallenTree implements IWorldGenerator
 	
 	private EnumFacing getHorizontalPerpendicular(int facingIndex)
 	{
-		if(facingIndex == 0 || facingIndex == 2)
+		if(facingIndex == 0)
 			return EnumFacing.WEST;
+		else if(facingIndex == 2)
+			return EnumFacing.EAST;
+		else if(facingIndex == 1)
+			return EnumFacing.SOUTH;
 		else
 			return EnumFacing.NORTH;
 	}

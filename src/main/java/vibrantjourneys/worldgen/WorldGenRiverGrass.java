@@ -47,7 +47,7 @@ public class WorldGenRiverGrass implements IWorldGenerator
 			for(BlockPos position : BlockPos.getAllInBoxMutable(new BlockPos(xPos - 7, yPos - 10, zPos - 7), new BlockPos(xPos + 7, yPos + 10, zPos + 7)))
 			{	
 				IBlockState state = world.getBlockState(position.down());
-				if(state.getBlock().canSustainPlant(state, world, position, EnumFacing.UP, Blocks.TALLGRASS))
+				if(state.getBlock().canSustainPlant(state, world, position.down(), EnumFacing.UP, Blocks.TALLGRASS))
 				{
 					if(random.nextInt(100) < frequency)
 					{
@@ -55,10 +55,14 @@ public class WorldGenRiverGrass implements IWorldGenerator
 						Block block = random.nextBoolean() ? Blocks.TALLGRASS : PVJBlocks.short_grass;
 						if(random.nextInt(2) == 0)
 						{
-							if(block == PVJBlocks.short_grass)
-								world.setBlockState(position, block.getDefaultState().withProperty(BlockShortGrass.MODEL, model));
-							else
-								world.setBlockState(position, block.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS));	
+							if(world.isAirBlock(position))
+							{
+								if(block == PVJBlocks.short_grass)
+									world.setBlockState(position, block.getDefaultState().withProperty(BlockShortGrass.MODEL, model));
+								else
+									world.setBlockState(position, block.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS));
+							}
+
 						}
 					}
 				}

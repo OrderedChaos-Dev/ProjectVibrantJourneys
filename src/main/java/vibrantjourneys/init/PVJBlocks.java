@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
 import vibrantjourneys.blocks.BlockBark;
+import vibrantjourneys.blocks.BlockBracketFungus;
 import vibrantjourneys.blocks.BlockCampfire;
 import vibrantjourneys.blocks.BlockCandle;
 import vibrantjourneys.blocks.BlockCeilingLamp;
@@ -46,6 +47,7 @@ import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
+import vibrantjourneys.items.ItemBracketFungus;
 import vibrantjourneys.items.ItemFloatingPlant;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
@@ -263,6 +265,9 @@ public class PVJBlocks
 	public static Block duckweed;
 	public static Block chickweed;
 	public static Block clovers;
+	public static Block crabgrass;
+	public static Block small_cactus;
+	public static Block bracket_fungus;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -310,11 +315,15 @@ public class PVJBlocks
 	{
 		short_grass = registerBlock(new BlockShortGrass(), "short_grass");
 		chickweed = registerBlock(new BlockWeed(), "chickweed");
+		clovers = registerBlock(new BlockWeed(), "clovers");
+		crabgrass = registerBlock(new BlockWeed(), "crabgrass");
+		bracket_fungus = new BlockBracketFungus();
+		registerBlockWithItem(bracket_fungus, "bracket_fungus", new ItemBracketFungus(bracket_fungus));
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
 		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
-		clovers = registerBlock(new BlockWeed(), "clovers");
+		
 		frogbit = new BlockFloatingPlant();
 		registerBlockWithItem(frogbit, "frogbit", new ItemFloatingPlant(frogbit));
 		duckweed = new BlockFloatingPlant();

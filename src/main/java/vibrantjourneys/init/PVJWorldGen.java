@@ -10,6 +10,7 @@ import vibrantjourneys.integration.biomesoplenty.PVJWorldGenerationBOP;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
+import vibrantjourneys.worldgen.WorldGenBracketFungus;
 import vibrantjourneys.worldgen.WorldGenCobweb;
 import vibrantjourneys.worldgen.WorldGenCrackedSand;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
@@ -32,12 +33,6 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
-
-		
-		registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
-		registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
-		
-		registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{
@@ -158,7 +153,12 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, 60, 255, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, 60, 255, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, 60, 255, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.crabgrass, 60, 255, PVJConfig.worldgen.crabgrassDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
+			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
+			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 		}
 
 		if(PVJConfig.master.enableNetherPlants)

@@ -222,6 +222,8 @@ public class PVJConfig
 		public int silverleafDensity = 30;
 		public int chickweedDensity = 350;
 		public int cloversDensity = 400;
+		public int crabgrassDensity = 250;
+		public int bracketFungusDensity = 2000;
 		public int bloodnettleDensity = 60;
 		public int glowcapDensity = 25;
 		public int shortGrassDensity = 5;
