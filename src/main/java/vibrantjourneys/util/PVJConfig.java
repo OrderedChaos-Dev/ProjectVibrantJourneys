@@ -12,100 +12,99 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class PVJConfig
 {
 	@Comment({
-		"All changes require a restart!",
-		"This is where you can enable entire parts of the mod.",
+		"This is where you can enable/disable entire parts of the mod.",
 	})
 	@Config.LangKey("config.pvj.master")
+	@Config.RequiresMcRestart
 	public static MasterCategory master = new MasterCategory();
 	
 	@Comment({
-		"All changes require a restart! Set to 0 to enable from generation",
+		"Set to 0 to disable from generation",
 		"\"Sparse\" means biomes in which tree types rarely generate.",
 		"e.g. birch trees rarely generate in forests and roofed forests.",
 	})
 	@Config.LangKey("config.pvj.worldgen")
+	@Config.RequiresMcRestart
 	public static WorldGenSubCategory worldgen = new WorldGenSubCategory();
 	
 	@Comment({
-		"All changes require a restart! Set to 0 to enable from generation.",
+		"Set to 0 to disable from generation.",
 		"Biome weight is how much chance a biome has to generate."
 	})
 	@Config.LangKey("config.pvj.biomes")
+	@Config.RequiresMcRestart
 	public static BiomesSubCategory biomes = new BiomesSubCategory();
 	
 	@Comment({
-		"All changes require a restart! Spawn weight is how much often an entity spawns.",
-		"Set to 0 to enable spawning."
+		"Spawn weight is how much often an entity spawns.",
+		"Set to 0 to disable spawning."
 	})
 	@Config.LangKey("config.pvj.mobs")
+	@Config.RequiresMcRestart
 	public static EntitiesSubCategory entities = new EntitiesSubCategory();
 	
-	@Comment({
-		"All changes require a restart!"
-	})
 	@Config.LangKey("config.pvj.misc")
+	@Config.RequiresMcRestart
 	public static MiscCategory misc = new MiscCategory();
 	
-	@Comment({
-		"All changes require a restart!"
-	})
 	@Config.LangKey("config.pvj.integration")
+	@Config.RequiresMcRestart
 	public static IntegrationCategory integration = new IntegrationCategory();
 	
 	public static class MasterCategory
 	{
-		@Config.LangKey("config.pvj.master.enableGroundcover")
+		@Config.Name("Groundcover: Enable Groundcover")
 		public boolean enableGroundcover = true;
 		
-		@Config.LangKey("config.pvj.master.enableTwigs")
+		@Config.Name("Groundcover: Enable Twigs")
 		public boolean enableTwigs = true;
 		
-		@Config.LangKey("config.pvj.master.enableRocks")
+		@Config.Name("Groundcover: Enable Rocks")
 		public boolean enableRocks = true;
 		
-		@Config.LangKey("config.pvj.master.enableFallenLeaves")
+		@Config.Name("Groundcover: Enable Fallen Leaves")
 		public boolean enableFallenLeaves = true;
 		
-		@Config.LangKey("config.pvj.master.enableBones")
+		@Config.Name("Groundcover: Enable Bones")
 		public boolean enableBones = true;
 		
-		@Config.LangKey("config.pvj.master.enableSeashells")
+		@Config.Name("Groundcover: Enable Seashells")
 		public boolean enableSeashells = true;
 		
-		@Config.LangKey("config.pvj.master.enablePinecones")
+		@Config.Name("Groundcover: Enable Pinecones")
 		public boolean enablePinecones = true;
 		
-		@Config.LangKey("config.pvj.master.enableFallenTrees")
+		@Config.Name("Structures: Enable Fallen Trees")
 		public boolean enableFallenTrees = true;
 		
-		@Config.LangKey("config.pvj.master.enableBiomes")
+		@Config.Name("Biomes: Enable Biomes")
 		public boolean enableBiomes = true;
 		
-		@Config.LangKey("config.pvj.master.enableOverworldPlants")
+		@Config.Name("Plants: Enable Overworld Plants")
 		public boolean enableOverworldPlants = true;
 		
-		@Config.LangKey("config.pvj.master.enableNetherPlants")
+		@Config.Name("Plants: Enable Nether Plants")
 		public boolean enableNetherPlants = true;
 		
-		@Config.LangKey("config.pvj.master.enablePassiveMobs")
+		@Config.Name("Mobs: Enable Passive Mobs")
 		public boolean enablePassiveMobs = true;
 		
-		@Config.LangKey("config.pvj.master.enableNeutralMobs")
+		@Config.Name("Mobs: Enable Neutral Mobs")
 		public boolean enableNeutralMobs = true;
 		
-		@Config.LangKey("config.pvj.master.enableAggressiveMobs")
+		@Config.Name("Mobs: Enable Aggressive Mobs")
 		public boolean enableAggressiveMobs = true;
 		
-		@Config.LangKey("config.pvj.master.enableMysticalGrill")
+		@Config.Name("Building: Enable Mystical Grill")
 		public boolean enableMysticalGrill = true;
 		
-		@Config.LangKey("config.pvj.master.enableChimneys")
+		@Config.Name("Building: Enable Chimneys")
 		public boolean enableChimneys = true;
 		
-		@Config.LangKey("config.pvj.master.enableLighting")
+		@Config.Name("Building: Enable Lighting Blocks")
 		public boolean enableLighting = true;
 		
-		@Config.LangKey("config.pvj.master.enableCobblestoneBricks")
+		@Config.Name("Building: Enable Cobblestone Bricks")
 		public boolean enableCobblestoneBricks = true;
 	}
 	
@@ -271,9 +270,6 @@ public class PVJConfig
 	
 	public static class IntegrationCategory
 	{
-		@Comment({
-			"All changes require a restart! This is for Biomes O' Plenty.",
-		})
 		@Config.LangKey("config.pvj.bop")
 		public BOPSubCategory bopworldgen = new BOPSubCategory();
 	}

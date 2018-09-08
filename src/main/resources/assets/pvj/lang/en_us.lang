@@ -270,24 +270,7 @@ config.pvj.mobs=4. Mob Settings
 config.pvj.misc=5. Miscellaneous Settings
 config.pvj.integration=6. Integration Settings
 
-config.pvj.master.enableGroundcover=Groundcover: Enable Groundcover
-config.pvj.master.enableTwigs=Groundcover: Enable Twigs
-config.pvj.master.enableRocks=Groundcover: Enable Rocks
-config.pvj.master.enableFallenLeaves=Groundcover: Enable Fallen Leaves
-config.pvj.master.enableBones=Groundcover: Enable Bones
-config.pvj.master.enableSeashells=Groundcover: Enable Seashells
-config.pvj.master.enablePinecones=Groundcover: Enable Pinecones
-config.pvj.master.enableFallenTrees=Structures: Enable Fallen Trees
-config.pvj.master.enableBiomes=Biomes: Enable Biomes
-config.pvj.master.enableOverworldPlants=Plants: Enable Overworld Plants
-config.pvj.master.enableNetherPlants=Plants: Enable Nether Plants
-config.pvj.master.enablePassiveMobs=Mobs: Enable Passive Mobs
-config.pvj.master.enableNeutralMobs=Mobs: Enable Neutral Mobs
-config.pvj.master.enableAggressiveMobs=Mobs: Enable Aggressive Mobs
-config.pvj.master.enableMysticalGrill=Building: Enable Mystical Grill
-config.pvj.master.enableChimneys=Building: Enable Chimneys
-config.pvj.master.enableLighting=Building: Enable Lighting Blocks
-config.pvj.master.enableCobblestoneBricks=Building: Enable Cobblestone Bricks
+config.pvj.bop=Biomes O' Plenty
 
 #BOP Objects
 #----------------------------------------------------------------------------------------------------
