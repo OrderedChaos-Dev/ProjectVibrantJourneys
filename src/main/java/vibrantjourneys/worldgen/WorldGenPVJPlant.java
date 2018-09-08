@@ -57,10 +57,13 @@ public class WorldGenPVJPlant implements IWorldGenerator
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
 				IBlockState state = world.getBlockState(pos.down());
 				
-				if((state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, (IPlantable) block)  ||
-						block.canPlaceBlockAt(world, pos.down())) && world.isAirBlock(pos) && state.isSideSolid(world, pos.down(), EnumFacing.UP))
+				if(world.getBlockState(pos).getBlock().isReplaceable(world, pos))
 				{
-					world.setBlockState(pos, block.getDefaultState());
+					if((state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, (IPlantable) block)  ||
+							block.canPlaceBlockAt(world, pos.down())) && world.isAirBlock(pos) && state.isSideSolid(world, pos.down(), EnumFacing.UP))
+					{
+						world.setBlockState(pos, block.getDefaultState());
+					}
 				}
 			}
 		}

@@ -8,16 +8,10 @@ import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,28 +26,17 @@ import net.minecraftforge.common.IShearable;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockShortGrass extends BlockBush implements IGrowable, IShearable, IPropertyHelper
+public class BlockWeed extends BlockBush implements IShearable, IPropertyHelper
 {
-	public static final PropertyInteger MODEL = PropertyInteger.create("model", 0, 6);
-	
-	public BlockShortGrass()
+	public BlockWeed()
 	{
         super(Material.VINE);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
 	}
-	
-	@Override
-    public void onBlockAdded(World world, BlockPos pos, IBlockState state)
-    {
-		int random = world.rand.nextInt(7);
-		IBlockState newState = this.getDefaultState().withProperty(MODEL, random);
-		world.setBlockState(pos, newState);
-    }
 	
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-        return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
+        return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
     }
 	
 	@Override
@@ -98,28 +81,11 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
         if (!worldIn.isRemote && stack.getItem() == Items.SHEARS)
         {
             player.addStat(StatList.getBlockStats(this));
-            spawnAsEntity(worldIn, pos, new ItemStack(PVJBlocks.short_grass, 1, 0));
+            spawnAsEntity(worldIn, pos, new ItemStack(PVJBlocks.chickweed, 1, 0));
         }
         else
         {
             super.harvestBlock(worldIn, player, pos, state, te, stack);
-        }
-    }
-	
-	@Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        return true;
-    }
-
-	@Override
-    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
-    {
-        BlockDoublePlant.EnumPlantType blockdoubleplant$enumplanttype = BlockDoublePlant.EnumPlantType.GRASS;
-
-        if (Blocks.DOUBLE_PLANT.canPlaceBlockAt(worldIn, pos))
-        {
-            Blocks.DOUBLE_PLANT.placeAt(worldIn, pos, blockdoubleplant$enumplanttype, 2);
         }
     }
 
@@ -140,33 +106,6 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
     {
         return NonNullList.withSize(1, new ItemStack(this, 1, 0));
     }
-    
-    @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
-        if (RANDOM.nextInt(8) != 0) return;
-        ItemStack seed = net.minecraftforge.common.ForgeHooks.getGrassSeed(RANDOM, fortune);
-        if (!seed.isEmpty())
-            drops.add(seed);
-    }
-	
-	@Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(MODEL, meta);
-    }
-
-	@Override
-    public int getMetaFromState(IBlockState state)
-    {
-        return state.getValue(MODEL);
-    }
-
-	@Override
-    protected BlockStateContainer createBlockState()
-    {
-        return new BlockStateContainer(this, new IProperty[] {MODEL});
-    }
 	
 	@Override
     public Block.EnumOffsetType getOffsetType()
@@ -178,11 +117,5 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
 	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
-	}
-
-	@Override
-	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
-	{
-		return true;
 	}
 }

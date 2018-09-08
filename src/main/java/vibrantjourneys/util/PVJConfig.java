@@ -8,7 +8,7 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Config(modid = Reference.MOD_ID, name="PVJ_Configuration", type=Type.INSTANCE)
+@Config(modid = Reference.MOD_ID, name="projectvibrantjourneys", type=Type.INSTANCE)
 public class PVJConfig
 {
 	@Comment({
@@ -219,7 +219,8 @@ public class PVJConfig
 		
 		public int wildWheatDensity = 20;
 		public int frostLotusDensity = 15;
-		public int silverleafDensity = 10;
+		public int silverleafDensity = 30;
+		public int chickweedDensity = 350;
 		public int bloodnettleDensity = 60;
 		public int glowcapDensity = 25;
 		public int shortGrassDensity = 5;

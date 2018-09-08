@@ -43,7 +43,7 @@ import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockShortGrass;
-import vibrantjourneys.blocks.BlockShortGrass.EnumGrassType;
+import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemFloatingPlant;
@@ -262,6 +262,7 @@ public class PVJBlocks
 	public static Block silverleaf;
 	public static Block frogbit;
 	public static Block duckweed;
+	public static Block chickweed;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -307,9 +308,8 @@ public class PVJBlocks
 	
 	public static void initBlocks()
 	{
-		short_grass = registerBlock(new BlockShortGrass(EnumGrassType.GRASS), "short_grass");
-		//ferns = registerBlock(new BlockShortGrass(EnumGrassType.FERN), "ferns");
-		//dead_bush = registerBlock(new BlockShortGrass(EnumGrassType.DEAD), "dead_bushes");
+		short_grass = registerBlock(new BlockShortGrass(), "short_grass");
+		chickweed = registerBlock(new BlockWeed(), "chickweed");
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
