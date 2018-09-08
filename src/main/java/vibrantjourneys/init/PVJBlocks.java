@@ -255,7 +255,6 @@ public class PVJBlocks
 	
 	public static Block short_grass;
 	public static Block ferns;
-	public static Block dead_bush;
 	
 	public static Block wild_wheat;
 	public static Block frost_lotus;
@@ -263,6 +262,7 @@ public class PVJBlocks
 	public static Block frogbit;
 	public static Block duckweed;
 	public static Block chickweed;
+	public static Block clovers;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -314,6 +314,7 @@ public class PVJBlocks
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
 		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
+		clovers = registerBlock(new BlockWeed(), "clovers");
 		frogbit = new BlockFloatingPlant();
 		registerBlockWithItem(frogbit, "frogbit", new ItemFloatingPlant(frogbit));
 		duckweed = new BlockFloatingPlant();

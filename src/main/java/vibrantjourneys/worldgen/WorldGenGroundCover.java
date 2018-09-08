@@ -12,7 +12,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockGroundCover;
-import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenGroundCover implements IWorldGenerator
 {
@@ -31,9 +30,9 @@ public class WorldGenGroundCover implements IWorldGenerator
 	}
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		
+		Random random = new Random();
 		if(world.provider.getDimensionType() != DimensionType.OVERWORLD && world.provider.getDimensionType() != DimensionType.NETHER)
 			return;
 		
@@ -55,8 +54,8 @@ public class WorldGenGroundCover implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(7) - random.nextInt(7);
-				int zPos = z + random.nextInt(7) - random.nextInt(7);
+				int xPos = x + random.nextInt(8) - random.nextInt(8);
+				int zPos = z + random.nextInt(8) - random.nextInt(8);
 				int yPos = minY + random.nextInt(maxY - minY + 1);
 				
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);

@@ -37,8 +37,9 @@ public class WorldGenFallenTree implements IWorldGenerator
 	}
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-	{	
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	{
+		Random random = new Random();
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		int y = 0;

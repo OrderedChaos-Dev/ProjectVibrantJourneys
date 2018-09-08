@@ -7,9 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -26,13 +24,8 @@ import net.minecraftforge.common.IShearable;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockWeed extends BlockBush implements IShearable, IPropertyHelper
+public class BlockWeed extends BlockPVJPlant implements IShearable, IPropertyHelper
 {
-	public BlockWeed()
-	{
-        super(Material.VINE);
-	}
-	
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {

@@ -12,7 +12,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFallenLeaves implements IWorldGenerator
 {
@@ -30,6 +29,7 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
+		Random rand = new Random();
 		//generating fallen leaves in a forest without adding +8 caused the worst cascading world gen lag i have ever seen
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
@@ -50,12 +50,12 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(4) - random.nextInt(4);
-				int zPos = z + random.nextInt(4) - random.nextInt(4);
+				int xPos = x + rand.nextInt(4) - rand.nextInt(4);
+				int zPos = z + rand.nextInt(4) - rand.nextInt(4);
 				
 				for(int j = 0; j < 10; j++)
 				{
-					int yPos = 25 + random.nextInt(150);
+					int yPos = 25 + rand.nextInt(150);
 					
 					BlockPos pos = new BlockPos(xPos, yPos, zPos);
 					

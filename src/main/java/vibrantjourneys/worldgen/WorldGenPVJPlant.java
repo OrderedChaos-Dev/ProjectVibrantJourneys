@@ -32,6 +32,7 @@ public class WorldGenPVJPlant implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
+		Random rand = new Random();
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		
@@ -50,9 +51,9 @@ public class WorldGenPVJPlant implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(7) - random.nextInt(7);
-				int zPos = z + random.nextInt(7) - random.nextInt(7);
-				int yPos = minY + random.nextInt(maxY - minY + 1);
+				int xPos = x + rand.nextInt(7) - rand.nextInt(7);
+				int zPos = z + rand.nextInt(7) - rand.nextInt(7);
+				int yPos = minY + rand.nextInt(maxY - minY + 1);
 				
 				BlockPos pos = new BlockPos(xPos, yPos, zPos);
 				IBlockState state = world.getBlockState(pos.down());

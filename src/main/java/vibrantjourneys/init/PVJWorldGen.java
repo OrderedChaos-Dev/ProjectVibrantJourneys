@@ -158,6 +158,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, 60, 255, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, 60, 255, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
 		}
 
 		if(PVJConfig.master.enableNetherPlants)

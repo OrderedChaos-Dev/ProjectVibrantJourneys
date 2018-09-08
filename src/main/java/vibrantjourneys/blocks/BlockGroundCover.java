@@ -110,7 +110,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     {
 		if(!world.isRemote)
 		{
-			int meta = world.rand.nextInt(5);
+			int meta = new Random().nextInt(5);
 			world.setBlockState(pos, this.getStateFromMeta(meta));
 		}
     }
