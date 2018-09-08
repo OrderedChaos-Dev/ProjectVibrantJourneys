@@ -1,0 +1,9 @@
+{
+	"variants": {
+		"model=0": { "model": "pvj:duckweed0" },
+		"model=1": { "model": "pvj:duckweed1" },
+		"model=2": { "model": "pvj:duckweed2" },
+		"model=3": { "model": "pvj:duckweed3" }
+	}
+}
+

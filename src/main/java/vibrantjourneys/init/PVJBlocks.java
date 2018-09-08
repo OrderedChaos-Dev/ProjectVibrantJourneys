@@ -20,6 +20,7 @@ import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
+import vibrantjourneys.blocks.BlockFloatingPlant;
 import vibrantjourneys.blocks.BlockGlowcap;
 import vibrantjourneys.blocks.BlockGlowstoneLamp;
 import vibrantjourneys.blocks.BlockGroundCover;
@@ -45,6 +46,7 @@ import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockShortGrass.EnumGrassType;
 import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
+import vibrantjourneys.items.ItemFloatingPlant;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -258,6 +260,8 @@ public class PVJBlocks
 	public static Block wild_wheat;
 	public static Block frost_lotus;
 	public static Block silverleaf;
+	public static Block frogbit;
+	public static Block duckweed;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -310,6 +314,10 @@ public class PVJBlocks
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
 		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
+		frogbit = new BlockFloatingPlant();
+		registerBlockWithItem(frogbit, "frogbit", new ItemFloatingPlant(frogbit));
+		duckweed = new BlockFloatingPlant();
+		registerBlockWithItem(duckweed, "duckweed", new ItemFloatingPlant(duckweed));
 		
 		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
 		glowcap = registerBlock(new BlockGlowcap(), "glowcap");

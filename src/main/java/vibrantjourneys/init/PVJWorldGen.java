@@ -15,7 +15,7 @@ import vibrantjourneys.worldgen.WorldGenCrackedSand;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenGroundCover;
-import vibrantjourneys.worldgen.WorldGenLilypad;
+import vibrantjourneys.worldgen.WorldGenFloaters;
 import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
@@ -34,8 +34,8 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
 
 		
-		registerWorldGen(new WorldGenLilypad(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
-		registerWorldGen(new WorldGenLilypad(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
+		registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
+		registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 		
 		registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 		

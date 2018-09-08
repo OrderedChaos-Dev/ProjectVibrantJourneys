@@ -12,15 +12,16 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.BiomeReference;
 
-public class WorldGenLilypad implements IWorldGenerator
+public class WorldGenFloaters implements IWorldGenerator
 {
 	private boolean isRiver;
 	private int frequency;
 	private boolean checkDepth;
 	
-	public WorldGenLilypad(boolean isRiver, int frequency, boolean checkDepth)
+	public WorldGenFloaters(boolean isRiver, int frequency, boolean checkDepth)
 	{
 		this.isRiver = isRiver;
 		this.frequency = frequency;
@@ -30,7 +31,6 @@ public class WorldGenLilypad implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		
@@ -86,7 +86,7 @@ public class WorldGenLilypad implements IWorldGenerator
 							{
 								if(world.isAirBlock(pos.up()))
 								{
-									world.setBlockState(pos.up(), Blocks.WATERLILY.getDefaultState());
+									world.setBlockState(pos.up(), pickRandomFloater(world.rand));
 								}
 							}
 						}
@@ -94,12 +94,20 @@ public class WorldGenLilypad implements IWorldGenerator
 						{
 							if(world.isAirBlock(pos.up()))
 							{
-								world.setBlockState(pos.up(), Blocks.WATERLILY.getDefaultState());
+								world.setBlockState(pos.up(), pickRandomFloater(world.rand));
 							}
 						}
 					}
 				}
 			}
 		}
+	}
+	
+	public IBlockState pickRandomFloater(Random rand)
+	{
+		int x = rand.nextInt(3);
+		if(x == 0) return Blocks.WATERLILY.getDefaultState();
+		else if(x == 1) return PVJBlocks.frogbit.getDefaultState();
+		else return PVJBlocks.duckweed.getDefaultState();
 	}
 }

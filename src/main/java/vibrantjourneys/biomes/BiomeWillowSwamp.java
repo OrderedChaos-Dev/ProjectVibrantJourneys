@@ -18,6 +18,9 @@ public class BiomeWillowSwamp extends BiomeSwamp
 		super(properties);
 		
         this.decorator.treesPerChunk = PVJConfig.worldgen.willowDensity;
+        this.decorator.grassPerChunk = 7;
+        this.decorator.reedsPerChunk = 13;
+        this.decorator.mushroomsPerChunk = 9;
 	}
 	
 	@Override
