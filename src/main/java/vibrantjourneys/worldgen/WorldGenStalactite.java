@@ -3,7 +3,7 @@ package vibrantjourneys.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockStone;
+import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
@@ -62,7 +62,7 @@ public class WorldGenStalactite implements IWorldGenerator
 				if(world.canSeeSky(pos.up())) //caves only!
 					return;
 				
-				if(world.getBlockState(pos.up()).getBlock() instanceof BlockStone)
+				if(world.getBlockState(pos.up()).getMaterial() == Material.ROCK)
 				{
 					for(int size = 0; size < 3; size++)
 					{

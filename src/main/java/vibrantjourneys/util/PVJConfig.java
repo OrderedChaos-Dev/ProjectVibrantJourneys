@@ -230,6 +230,7 @@ public class PVJConfig
 		public int deathcapDensity = 2;
 		public int orangeMushroomDensity = 3;
 		public int smallCactusDensity = 6;
+		public int cattailDensity = 900;
 		
 		public int stalactiteDensity = 400;
 		public int stalagmiteDensity = 400;

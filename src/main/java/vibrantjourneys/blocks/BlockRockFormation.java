@@ -2,6 +2,8 @@ package vibrantjourneys.blocks;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
@@ -13,7 +15,9 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -69,6 +73,31 @@ public class BlockRockFormation extends Block implements IPropertyHelper
     			}
     		}
     	}
+    }
+    
+    @Nullable
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+    	int meta = state.getValue(SIZE);
+    	if(meta == 0)
+    		return new AxisAlignedBB(0.1875, 0, 0.1875, 0.8125, 1, 0.8125);
+    	else if(meta == 1)
+    		return new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 1, 0.6875);
+    	else
+    		return new AxisAlignedBB(0.4375, 0, 0.4375, 0.5625, 1, 0.5625);
+    }
+    
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+    	int meta = state.getValue(SIZE);
+    	if(meta == 0)
+    		return new AxisAlignedBB(0.1875, 0, 0.1875, 0.8125, 1, 0.8125);
+    	else if(meta == 1)
+    		return new AxisAlignedBB(0.3125, 0, 0.3125, 0.6875, 1, 0.6875);
+    	else
+    		return new AxisAlignedBB(0.4375, 0, 0.4375, 0.5625, 1, 0.5625);
     }
 	
 	@Override

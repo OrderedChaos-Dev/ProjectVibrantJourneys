@@ -11,6 +11,7 @@ import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 import vibrantjourneys.worldgen.WorldGenBracketFungus;
+import vibrantjourneys.worldgen.WorldGenCattail;
 import vibrantjourneys.worldgen.WorldGenCobweb;
 import vibrantjourneys.worldgen.WorldGenCrackedSand;
 import vibrantjourneys.worldgen.WorldGenDesertCaves;
@@ -181,6 +182,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 			registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
+			registerWorldGen(new WorldGenCattail(PVJConfig.worldgen.cattailDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
 
 		if(PVJConfig.master.enableNetherPlants)

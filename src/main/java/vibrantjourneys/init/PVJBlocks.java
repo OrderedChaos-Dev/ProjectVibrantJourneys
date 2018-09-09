@@ -12,6 +12,7 @@ import vibrantjourneys.blocks.BlockBark;
 import vibrantjourneys.blocks.BlockBracketFungus;
 import vibrantjourneys.blocks.BlockCampfire;
 import vibrantjourneys.blocks.BlockCandle;
+import vibrantjourneys.blocks.BlockCattail;
 import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockChimney;
 import vibrantjourneys.blocks.BlockChimneyTop;
@@ -274,6 +275,7 @@ public class PVJBlocks
 	public static Block waxcap;
 	public static Block orange_mushroom;
 	public static Block deathcap;
+	public static Block cattail;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -331,6 +333,8 @@ public class PVJBlocks
 		waxcap = registerBlock(new BlockPVJMushroom(), "waxcap");
 		orange_mushroom = registerBlock(new BlockPVJMushroom(), "orange_mushroom");
 		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
+		
+		cattail = registerBlock(new BlockCattail(), "cattail");
 		
 		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
 		

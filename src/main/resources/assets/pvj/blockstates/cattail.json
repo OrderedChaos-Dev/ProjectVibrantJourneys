@@ -1,0 +1,7 @@
+{
+	"variants":
+	{
+		"half=upper": { "model": "pvj:cattail_upper"},
+		"half=lower": { "model": "pvj:cattail_lower"}
+	}
+}
