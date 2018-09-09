@@ -76,7 +76,7 @@ public class PVJEntities
 		if(PVJConfig.master.enablePassiveMobs)
 		{
 			if(PVJConfig.entities.snailSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
+				EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
 			if(PVJConfig.entities.flySpawnWeight > 0)
 				EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			if(PVJConfig.entities.flySwampSpawnWeight > 0)

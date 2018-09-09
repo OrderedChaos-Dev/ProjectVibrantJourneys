@@ -1,5 +1,7 @@
 package vibrantjourneys.blocks;
 
+import javax.annotation.Nullable;
+
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
@@ -16,6 +18,7 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -48,6 +51,36 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
     public boolean isOpaqueCube(IBlockState state)
     {
         return false;
+    }
+    
+    @Nullable
+    @Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
+    {
+        return NULL_AABB;
+    }
+    
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    {
+    	EnumFacing facing = state.getValue(FACING);
+        if(facing == EnumFacing.NORTH)
+        {
+        	return new AxisAlignedBB(0, 0, 0.7, 1, 1, 1);
+        }
+        if(facing == EnumFacing.SOUTH)
+        {
+        	return new AxisAlignedBB(0, 0, 0, 1, 1, 0.3);
+        }
+        if(facing == EnumFacing.WEST)
+        {
+        	return new AxisAlignedBB(0.7, 0, 0, 1, 1, 1);
+        }
+        if(facing == EnumFacing.EAST)
+        {
+        	return new AxisAlignedBB(0, 0, 0, 0.3, 1, 1);
+        }
+        return new AxisAlignedBB(0, 0, 0, 0.25, 1, 1);
     }
     
     @Override

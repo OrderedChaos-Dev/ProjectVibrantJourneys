@@ -2,14 +2,13 @@ package vibrantjourneys.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockGlowcap extends BlockMushroom
+public class BlockGlowcap extends BlockPVJMushroom
 {
 	public BlockGlowcap()
 	{

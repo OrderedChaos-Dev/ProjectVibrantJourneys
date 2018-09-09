@@ -30,6 +30,7 @@ import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockNetherPlant;
 import vibrantjourneys.blocks.BlockPVJButton;
+import vibrantjourneys.blocks.BlockPVJCactus;
 import vibrantjourneys.blocks.BlockPVJDoor;
 import vibrantjourneys.blocks.BlockPVJDoubleSlab;
 import vibrantjourneys.blocks.BlockPVJFence;
@@ -37,6 +38,7 @@ import vibrantjourneys.blocks.BlockPVJFenceGate;
 import vibrantjourneys.blocks.BlockPVJHalfSlab;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
+import vibrantjourneys.blocks.BlockPVJMushroom;
 import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJPlant;
 import vibrantjourneys.blocks.BlockPVJPressurePlate;
@@ -269,6 +271,9 @@ public class PVJBlocks
 	public static Block crabgrass;
 	public static Block small_cactus;
 	public static Block bracket_fungus;
+	public static Block waxcap;
+	public static Block orange_mushroom;
+	public static Block deathcap;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -322,6 +327,12 @@ public class PVJBlocks
 		crabgrass = registerBlock(new BlockWeed(), "crabgrass");
 		bracket_fungus = new BlockBracketFungus();
 		registerBlockWithItem(bracket_fungus, "bracket_fungus", new ItemBracketFungus(bracket_fungus));
+		
+		waxcap = registerBlock(new BlockPVJMushroom(), "waxcap");
+		orange_mushroom = registerBlock(new BlockPVJMushroom(), "orange_mushroom");
+		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
+		
+		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
 		
 		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
 		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");

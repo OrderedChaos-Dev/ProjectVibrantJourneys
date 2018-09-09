@@ -223,9 +223,13 @@ public class PVJConfig
 		public int cloversDensity = 400;
 		public int crabgrassDensity = 250;
 		public int bracketFungusDensity = 2000;
-		public int bloodnettleDensity = 60;
+		public int bloodnettleDensity = 20;
 		public int glowcapDensity = 25;
 		public int shortGrassDensity = 5;
+		public int waxcapDensity = 3;
+		public int deathcapDensity = 2;
+		public int orangeMushroomDensity = 3;
+		public int smallCactusDensity = 6;
 		
 		public int stalactiteDensity = 400;
 		public int stalagmiteDensity = 400;

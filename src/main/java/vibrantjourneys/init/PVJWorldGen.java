@@ -172,6 +172,11 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, 60, 255, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, 60, 255, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.crabgrass, 60, 255, PVJConfig.worldgen.crabgrassDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.waxcap, 40, 190, PVJConfig.worldgen.waxcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.orange_mushroom, 40, 190, PVJConfig.worldgen.orangeMushroomDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.deathcap, 40, 190, PVJConfig.worldgen.deathcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, 40, 190, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, 40, 190, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));

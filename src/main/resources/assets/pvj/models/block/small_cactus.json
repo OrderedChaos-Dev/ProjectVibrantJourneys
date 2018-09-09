@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pvj:blocks/small_cactus"
+    }
+}
