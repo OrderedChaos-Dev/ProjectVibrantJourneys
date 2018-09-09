@@ -1,5 +1,7 @@
 package vibrantjourneys.blocks;
 
+import com.google.common.collect.ImmutableList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLog;
@@ -19,8 +21,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockBracketFungus extends BlockHorizontal
+public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelper
 {
 	public BlockBracketFungus()
 	{
@@ -115,4 +118,10 @@ public class BlockBracketFungus extends BlockHorizontal
     {
         return BlockFaceShape.UNDEFINED;
     }
+    
+	@Override
+	public ImmutableList<IBlockState> getProperties()
+	{
+		return this.blockState.getValidStates();
+	}
 }

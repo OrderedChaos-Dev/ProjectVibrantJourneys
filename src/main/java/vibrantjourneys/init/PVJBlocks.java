@@ -43,6 +43,7 @@ import vibrantjourneys.blocks.BlockPVJPressurePlate;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
+import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWildWheat;
@@ -271,6 +272,8 @@ public class PVJBlocks
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
+	
+	public static Block rock_formation;
 	
 	public static Block mystical_grill;
 	
@@ -586,6 +589,8 @@ public class PVJBlocks
 		}
 		
 		redwood_bark = registerBlock(new BlockBark(redwood_log), "redwood_bark");
+		
+		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

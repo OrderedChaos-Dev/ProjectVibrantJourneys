@@ -1,0 +1,8 @@
+{
+	"variants":
+	{
+		"size=0": { "model": "pvj:rock_formation0"},
+		"size=1": { "model": "pvj:rock_formation1"},
+		"size=2": { "model": "pvj:rock_formation2"}
+	}
+}

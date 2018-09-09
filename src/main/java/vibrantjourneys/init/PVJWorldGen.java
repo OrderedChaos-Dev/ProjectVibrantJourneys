@@ -13,17 +13,22 @@ import vibrantjourneys.util.Reference;
 import vibrantjourneys.worldgen.WorldGenBracketFungus;
 import vibrantjourneys.worldgen.WorldGenCobweb;
 import vibrantjourneys.worldgen.WorldGenCrackedSand;
+import vibrantjourneys.worldgen.WorldGenDesertCaves;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
-import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenFloaters;
+import vibrantjourneys.worldgen.WorldGenFrozenCaves;
+import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
+import vibrantjourneys.worldgen.WorldGenOvergrownCaves;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenRiverGrass;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
+import vibrantjourneys.worldgen.WorldGenStalactite;
+import vibrantjourneys.worldgen.WorldGenStalagmite;
 
 public class PVJWorldGen
 {
@@ -33,6 +38,18 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
+		
+		registerWorldGen(new WorldGenStalagmite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalagmiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+		registerWorldGen(new WorldGenStalactite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalactiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+		
+		if(PVJConfig.worldgen.enableOvergrownCaves)
+			registerWorldGen(new WorldGenOvergrownCaves(BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
+		
+		if(PVJConfig.worldgen.enableFrozenCaves)
+			registerWorldGen(new WorldGenFrozenCaves(BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+		
+		if(PVJConfig.worldgen.enableSandstoneCaves)
+			registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{

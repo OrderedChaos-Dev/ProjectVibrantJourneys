@@ -227,7 +227,13 @@ public class PVJConfig
 		public int glowcapDensity = 25;
 		public int shortGrassDensity = 5;
 		
+		public int stalactiteDensity = 400;
+		public int stalagmiteDensity = 400;
+		
 		public boolean modifyDungeons = true;
+		public boolean enableFrozenCaves = true;
+		public boolean enableSandstoneCaves = true;
+		public boolean enableOvergrownCaves = true;
 	}
 	
 	public static class BiomesSubCategory
