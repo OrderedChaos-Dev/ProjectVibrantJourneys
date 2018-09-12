@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -31,6 +32,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.IPropertyHelper;
+import vibrantjourneys.util.PVJConfig;
 
 public class BlockShortGrass extends BlockBush implements IGrowable, IShearable, IPropertyHelper
 {
@@ -40,6 +42,7 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
 	{
         super(Material.VINE);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
+		this.setSoundType(SoundType.PLANT);
 	}
 	
 	@Override
@@ -144,10 +147,13 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-        if (RANDOM.nextInt(8) != 0) return;
-        ItemStack seed = net.minecraftforge.common.ForgeHooks.getGrassSeed(RANDOM, fortune);
-        if (!seed.isEmpty())
-            drops.add(seed);
+    	if(PVJConfig.misc.doGrassDropSeeds)
+    	{
+            if (RANDOM.nextInt(8) != 0) return;
+            ItemStack seed = net.minecraftforge.common.ForgeHooks.getGrassSeed(RANDOM, fortune);
+            if (!seed.isEmpty())
+                drops.add(seed);
+    	}
     }
 	
 	@Override

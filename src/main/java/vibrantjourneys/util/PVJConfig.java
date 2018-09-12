@@ -257,6 +257,7 @@ public class PVJConfig
 		public int flySpawnWeight = 120;
 		public int flySwampSpawnWeight = 200;
 		public int fireflySpawnWeight = 350;
+		public int spiderSpawnWeight = 100;
 		
 		public int ghostSpawnWeight = 65;
 		

@@ -2,6 +2,8 @@ package vibrantjourneys.entities.passive;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
+import net.minecraft.pathfinding.PathNavigate;
+import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DimensionType;
@@ -29,6 +31,12 @@ public class EntitySnail extends EntityPVJAnimal
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(1.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.05D);
+    }
+	
+    @Override
+    protected PathNavigate createNavigator(World worldIn)
+    {
+        return new PathNavigateClimber(this, worldIn);
     }
 
 	@Override
