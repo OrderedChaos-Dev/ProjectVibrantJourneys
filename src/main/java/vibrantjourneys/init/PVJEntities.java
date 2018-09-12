@@ -18,7 +18,6 @@ import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
 import vibrantjourneys.entities.neutral.EntityGhost;
-import vibrantjourneys.entities.passive.EntityAnt;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
@@ -38,7 +37,6 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_fly", EntityFly.class, 64, 0x669999, 0x737373);
 		registerEntityWithEgg("pvj_firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D);
 		registerEntityWithEgg("pvj_small_spider", EntitySmallSpider.class, 64, 0x001a00, 0x4d0000);
-		registerEntityWithEgg("pvj_ant", EntityAnt.class, 64, 0x334d4d, 0x206040);
 		
 		registerEntityWithEgg("pvj_ghost", EntityGhost.class, 64, 0xb3b3b3, 0x404040);
 		registerEntityWithEgg("pvj_shade", EntityShade.class, 64, 0x333333, 0x595959);

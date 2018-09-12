@@ -32,12 +32,10 @@ import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
 import vibrantjourneys.entities.neutral.EntityGhost;
-import vibrantjourneys.entities.passive.EntityAnt;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
-import vibrantjourneys.entities.renderer.RenderAnt;
 import vibrantjourneys.entities.renderer.RenderFirefly;
 import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
@@ -102,7 +100,6 @@ public class ClientProxy implements ICommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityFly.class, RenderFly::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, RenderFirefly::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmallSpider.class, RenderSmallSpider::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityAnt.class, RenderAnt::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhost.class, RenderGhost::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityShade.class, RenderShade::new);
