@@ -119,6 +119,6 @@ public class EntityIceCube extends EntitySlime
     {
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
-        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel();
     }
 }

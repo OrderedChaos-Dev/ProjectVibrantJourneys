@@ -36,17 +36,14 @@ public class WorldGenCattail implements IWorldGenerator
 		
 		if(Arrays.asList(biomes).contains(biome))
 		{	
-			int yPos = 62;
+			int yPos = 60;
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(8) - random.nextInt(8);
-				int zPos = z + random.nextInt(8) - random.nextInt(8);
-				
 				yPos = 60;
 				for(int j = 0; j < 20; j++)
 				{
 					yPos += 1;
-					BlockPos pos = new BlockPos(xPos, yPos, zPos);
+					BlockPos pos = new BlockPos(x, yPos, z);
 					if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
 					{
 						for(EnumFacing facing : EnumFacing.HORIZONTALS)

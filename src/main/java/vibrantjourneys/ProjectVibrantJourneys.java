@@ -51,7 +51,6 @@ public class ProjectVibrantJourneys
     	PVJBlocks.initBlocks();
     	PVJBiomes.initBiomes();
     	PVJTileEntities.initTileEntities();
-    	PVJRecipes.initRecipes();
     	
     	// Items, blocks, entities, and item/block models are registered here
     	MinecraftForge.EVENT_BUS.register(new PVJRegistryEvents());
@@ -65,6 +64,7 @@ public class ProjectVibrantJourneys
     	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     	
     	PVJOreDictionary.setValues();
+    	PVJRecipes.initRecipes();
     	
     	BiomeReference.loadAllBiomeReferences();
     	PVJWorldGen.initWorldGen();
