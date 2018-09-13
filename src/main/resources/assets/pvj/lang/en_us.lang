@@ -135,6 +135,18 @@ tile.silverleaf.name=Silverleaf
 tile.bloodnettle.name=Bloodnettle
 tile.glowcap.name=Glowcap
 tile.short_grass.name=Short Grass
+tile.frogbit.name=Frogbit
+tile.duckweed.name=Duckweed
+tile.cattail.name=Cattail
+tile.chickweed.name=Chickweed
+tile.clovers.name=Clover Patch
+tile.crabgrass.name=Crabgrass
+tile.bracket_fungus.name=Shelf Fungus
+tile.waxcap.name=Waxcap
+tile.orange_mushroom.name=Jack O' Lantern Mushroom
+tile.deathcap.name=Deathcap
+tile.small_cactus.name=Small Cactus
+tile.rock_formation.name=Rock Formation
 
 tile.mystical_grill.name=Mystical Grill
 tile.cracked_sand.name=Cracked Sand
@@ -251,6 +263,8 @@ entity.pvj_shade.name=Shade
 entity.pvj_icecube.name=Ice Cube
 entity.pvj_skeletal_knight.name=Skeletal Knight
 entity.pvj_goon.name=Goon
+entity.pvj_small_spider.name=Small Spider
+entity.pvj_grizzly_bear.name=Grizzly Bear
 
 subtitles.pvj_fly.ambient=Fly buzzes
 subtitles.pvj_ghost.ambient=Ghost sighs

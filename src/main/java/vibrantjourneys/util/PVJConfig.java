@@ -235,8 +235,8 @@ public class PVJConfig
 		public int smallCactusDensity = 6;
 		public int cattailDensity = 900;
 		
-		public int stalactiteDensity = 400;
-		public int stalagmiteDensity = 400;
+		public int stalactiteDensity = 450;
+		public int stalagmiteDensity = 450;
 		
 		public boolean modifyDungeons = true;
 		public boolean enableFrozenCaves = true;

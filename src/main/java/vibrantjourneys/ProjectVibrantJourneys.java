@@ -16,6 +16,7 @@ import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
+import vibrantjourneys.init.PVJRecipes;
 import vibrantjourneys.init.PVJRegistryEvents;
 import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
@@ -50,6 +51,7 @@ public class ProjectVibrantJourneys
     	PVJBlocks.initBlocks();
     	PVJBiomes.initBiomes();
     	PVJTileEntities.initTileEntities();
+    	PVJRecipes.initRecipes();
     	
     	// Items, blocks, entities, and item/block models are registered here
     	MinecraftForge.EVENT_BUS.register(new PVJRegistryEvents());

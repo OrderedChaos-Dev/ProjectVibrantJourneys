@@ -67,7 +67,7 @@ public class WorldGenCattail implements IWorldGenerator
 												{
 													if(world.isAirBlock(position.up()) && world.isAirBlock(position.up(2)))
 													{
-														if(random.nextInt(5) < 3)
+														if(random.nextInt(7) < 3)
 														{
 															((BlockCattail) PVJBlocks.cattail).placeAt(world, position.up(), 2);
 															break;
