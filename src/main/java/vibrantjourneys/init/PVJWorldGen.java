@@ -40,17 +40,20 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
 		
-		registerWorldGen(new WorldGenStalagmite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalagmiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-		registerWorldGen(new WorldGenStalactite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalactiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-		
-		if(PVJConfig.worldgen.enableOvergrownCaves)
-			registerWorldGen(new WorldGenOvergrownCaves(BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
-		
-		if(PVJConfig.worldgen.enableFrozenCaves)
-			registerWorldGen(new WorldGenFrozenCaves(BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
-		
-		if(PVJConfig.worldgen.enableSandstoneCaves)
-			registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
+		if(PVJConfig.master.enableCaves)
+		{
+			registerWorldGen(new WorldGenStalagmite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalagmiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenStalactite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalactiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			
+			if(PVJConfig.worldgen.enableOvergrownCaves)
+				registerWorldGen(new WorldGenOvergrownCaves(BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
+			
+			if(PVJConfig.worldgen.enableFrozenCaves)
+				registerWorldGen(new WorldGenFrozenCaves(BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+			
+			if(PVJConfig.worldgen.enableSandstoneCaves)
+				registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
+		}
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{
@@ -164,10 +167,9 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 		
-		registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-		
 		if(PVJConfig.master.enableOverworldPlants)
 		{
+			registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, 60, 255, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	

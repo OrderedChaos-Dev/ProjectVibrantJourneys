@@ -53,6 +53,9 @@ public class PVJConfig
 	
 	public static class MasterCategory
 	{
+		@Config.Name("Caves: Enable Caves")
+		public boolean enableCaves = true;
+		
 		@Config.Name("Groundcover: Enable Groundcover")
 		public boolean enableGroundcover = true;
 		
@@ -258,6 +261,8 @@ public class PVJConfig
 		public int flySwampSpawnWeight = 200;
 		public int fireflySpawnWeight = 350;
 		public int spiderSpawnWeight = 100;
+		
+		public int grizzlyBearSpawnWeight = 5;
 		
 		public int ghostSpawnWeight = 65;
 		

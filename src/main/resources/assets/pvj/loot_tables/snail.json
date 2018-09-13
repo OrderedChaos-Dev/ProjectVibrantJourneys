@@ -2,26 +2,26 @@
     "pools": [
         {
         	"name": "snail",
-            "rolls": {
-                "min": 0,
-                "max": 1
-            },
+            "rolls": 1,
             "entries": [
                 {
                     "type": "item",
-                    "weight": 1,
                     "name": "pvj:slime_droplet",
-                    "quality": 1,
-                    "conditions": [
-                        {
-                            "condition": "random_chance",
-                            "chance": 0.7
-                        }
-                    ],
+                    "weight": 1,
                     "functions": [
                         {
                             "function": "set_count",
-                            "count": 1
+                            "count": {
+                                "min": 1,
+                                "max": 3
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
                         }
                     ]
                 }
