@@ -68,7 +68,7 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
         	if(isCooking && !canCook())
         	{
         		isCooking = false;
-        		world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getStateFromMeta(0));
+        		world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getDefaultState().withProperty(BlockMysticalGrill.IS_COOKING, false));
         	}
         	
     		if(isCooking)
@@ -86,7 +86,7 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
     				IBlockState cauldron = world.getBlockState(pos.down());
     				int level = cauldron.getBlock().getMetaFromState(cauldron) - 1;
     				world.setBlockState(pos.down(), cauldron.withProperty(BlockCauldron.LEVEL, level));
-    				world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getStateFromMeta(0));
+    				world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getDefaultState().withProperty(BlockMysticalGrill.IS_COOKING, false));
     			}
     			else
     			{
@@ -98,7 +98,7 @@ public class TileEntityMysticalGrill extends TileEntity implements ITickable
     			if(canCook())
     			{
     				isCooking = true;
-    				world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getStateFromMeta(1));
+    				world.setBlockState(this.getPos(), PVJBlocks.mystical_grill.getDefaultState().withProperty(BlockMysticalGrill.IS_COOKING, true));
     			}
     		}
         }

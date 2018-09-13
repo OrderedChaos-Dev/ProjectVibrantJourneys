@@ -12,6 +12,7 @@ import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import vibrantjourneys.entities.item.EntityCoconut;
 import vibrantjourneys.entities.item.EntityPVJBoat;
 import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
@@ -45,6 +46,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
 		
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64);
+		registerEntity("pvj_coconut", EntityCoconut.class, 64);
 	}
 
 	private static <T extends Entity> void registerEntity(String name, Class<T> entityClass, int trackingRange)

@@ -52,6 +52,7 @@ import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWildWheat;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemBracketFungus;
+import vibrantjourneys.items.ItemCoconut;
 import vibrantjourneys.items.ItemFloatingPlant;
 import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
@@ -394,7 +395,8 @@ public class PVJBlocks
 		orange_maple_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.ORANGE_MAPLE), "sapling_orange_maple");
 		baobab_sapling = registerBlock(new BlockPVJSapling(EnumWoodType.BAOBAB), "sapling_baobab");
 
-		coconut = registerBlock(new BlockCoconut(), "coconut");
+		coconut = new BlockCoconut();
+		registerBlockWithItem(coconut, "coconut", new ItemCoconut(coconut));
 
 		fallenleaves_oak = registerBlock(new BlockFallenLeaves(), "fallenleaves_oak");
 		fallenleaves_birch = registerBlock(new BlockFallenLeaves(), "fallenleaves_birch");

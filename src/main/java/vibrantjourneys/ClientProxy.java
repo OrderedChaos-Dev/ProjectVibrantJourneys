@@ -26,6 +26,7 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import vibrantjourneys.entities.item.EntityCoconut;
 import vibrantjourneys.entities.item.EntityPVJBoat;
 import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
@@ -36,6 +37,7 @@ import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
+import vibrantjourneys.entities.renderer.RenderCoconut;
 import vibrantjourneys.entities.renderer.RenderFirefly;
 import vibrantjourneys.entities.renderer.RenderFly;
 import vibrantjourneys.entities.renderer.RenderGhost;
@@ -108,6 +110,7 @@ public class ClientProxy implements ICommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoon.class, RenderGoon::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityPVJBoat.class, RenderPVJBoat::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityCoconut.class, new RenderCoconut());
 	}
 
 	@Override
