@@ -2,6 +2,7 @@ package vibrantjourneys.blocks;
 
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockMushroom;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -9,6 +10,11 @@ import net.minecraft.world.World;
 
 public class BlockPVJMushroom extends BlockMushroom
 {
+	public BlockPVJMushroom()
+	{
+		this.setSoundType(SoundType.PLANT);
+	}
+	
 	@Override
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {

@@ -86,7 +86,7 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return null;
+        return Items.AIR;
     }
 
 	@Override

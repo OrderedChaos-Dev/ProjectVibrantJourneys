@@ -1,5 +1,6 @@
 package vibrantjourneys.worldgen;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import net.minecraft.block.BlockLog;
@@ -11,7 +12,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import scala.actors.threadpool.Arrays;
 import vibrantjourneys.blocks.BlockBracketFungus;
 import vibrantjourneys.init.PVJBlocks;
 
