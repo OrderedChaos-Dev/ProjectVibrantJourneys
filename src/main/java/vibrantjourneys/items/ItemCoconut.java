@@ -34,7 +34,7 @@ public class ItemCoconut extends ItemPVJBlock
         if (!worldIn.isRemote)
         {
             EntityCoconut coconut = new EntityCoconut(worldIn, playerIn);
-            coconut.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 0.7F, 1.0F);
+            coconut.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.0F, 1.0F);
             worldIn.spawnEntity(coconut);
         }
 

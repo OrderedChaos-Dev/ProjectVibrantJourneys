@@ -79,7 +79,7 @@ public class PVJEntities
 	}
 	
 	public static void addSpawns()
-	{	
+	{
 		if(PVJConfig.master.enablePassiveMobs)
 		{
 			if(PVJConfig.entities.snailSpawnWeight > 0)
