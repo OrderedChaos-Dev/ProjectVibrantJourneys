@@ -322,8 +322,6 @@ public class PVJBlocks
 	
 	public static Block redwood_bark;
 	
-	public static Block anthill;
-	
 	public static void initBlocks()
 	{
 		short_grass = registerBlock(new BlockShortGrass(), "short_grass");
