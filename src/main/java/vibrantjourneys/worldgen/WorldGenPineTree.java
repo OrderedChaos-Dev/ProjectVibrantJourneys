@@ -11,11 +11,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenPineTree extends WorldGenAbstractTree
 {
-    private static final IBlockState TRUNK = PVJBlocks.pine_log.getDefaultState();
-    private static final IBlockState LEAF = PVJBlocks.pine_leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+    private static final IBlockState TRUNK = PVJBlocks.LOGS.get(EnumWoodType.PINE.getID()).getDefaultState();
+    private static final IBlockState LEAF = PVJBlocks.LEAVES.get(EnumLeafType.PINE.getID()).getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
 
     public WorldGenPineTree(boolean notify)
     {

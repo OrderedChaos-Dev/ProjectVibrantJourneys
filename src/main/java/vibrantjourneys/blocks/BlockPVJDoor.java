@@ -15,15 +15,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockPVJDoor extends BlockDoor implements IPropertyHelper
 {
-	private EnumWoodType woodType;
 	private Item doorItem;
 	
-	public BlockPVJDoor(EnumWoodType woodType)
+	public BlockPVJDoor()
 	{
 		super(Material.WOOD);
 		this.setHardness(3.0F);
@@ -51,7 +49,7 @@ public class BlockPVJDoor extends BlockDoor implements IPropertyHelper
 	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-        return woodType.getMapColor();
+        return MapColor.WOOD;
     }
 	
 	@Override

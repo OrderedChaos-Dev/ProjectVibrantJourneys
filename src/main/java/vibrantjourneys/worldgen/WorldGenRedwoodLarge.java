@@ -9,12 +9,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenHugeTrees;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenRedwoodLarge extends WorldGenHugeTrees
 {
-    private static final IBlockState LOG = PVJBlocks.redwood_log.getDefaultState();
+    private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.REDWOOD.getID()).getDefaultState();
     
-    private static final IBlockState LEAF = PVJBlocks.redwood_leaves.getDefaultState()
+    private static final IBlockState LEAF = PVJBlocks.LEAVES.get(EnumLeafType.REDWOOD.getID()).getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
     public WorldGenRedwoodLarge(boolean notify, int baseHeightIn, int extraRandomHeightIn)

@@ -9,20 +9,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenMapleTree extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = PVJBlocks.maple_log.getDefaultState();
+    private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.MAPLE.getID()).getDefaultState();
     private IBlockState LEAF;
 
-    public WorldGenMapleTree(boolean notify, EnumWoodType woodType)
+    public WorldGenMapleTree(boolean notify, EnumLeafType leafType)
     {
         super(notify);
-        if(woodType == EnumWoodType.RED_MAPLE)
-        	LEAF = PVJBlocks.red_maple_leaves.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
-        else
-        	LEAF  = PVJBlocks.orange_maple_leaves.getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
+        LEAF = PVJBlocks.LEAVES.get(leafType.getID()).getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
     }
 
     public boolean generate(World worldIn, Random rand, BlockPos position)

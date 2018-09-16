@@ -28,34 +28,34 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBlocks;
-import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 {
-	private EnumWoodType woodType;
+	private EnumLeafType leafType;
 
-    public BlockPVJLeaves(EnumWoodType woodType)
+    public BlockPVJLeaves(EnumLeafType leafType)
     {
         this.setDefaultState(this.blockState.getBaseState()
         		.withProperty(CHECK_DECAY, Boolean.valueOf(true))
         		.withProperty(DECAYABLE, Boolean.valueOf(true)));
         
-        this.woodType = woodType;
+        this.leafType = leafType;
     }
 
     @Override
     protected int getSaplingDropChance(IBlockState state)
     {
-    	if(woodType == EnumWoodType.BAOBAB)
+    	if(leafType == EnumLeafType.BAOBAB)
     	{
     		return 80;
     	}
-    	else if(woodType == EnumWoodType.REDWOOD)
+    	else if(leafType == EnumLeafType.REDWOOD)
     	{
     		return 50;
     	}
-    	else if(woodType == EnumWoodType.PINE)
+    	else if(leafType == EnumLeafType.PINE)
     	{
     		return 15;
     	}
@@ -91,43 +91,7 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-    	Block block;
-    	
-    	switch(woodType)
-    	{
-	    	case WILLOW:
-	    		block = PVJBlocks.willow_sapling;
-	    		break;
-	    	case MANGROVE:
-	    		block = PVJBlocks.mangrove_sapling;
-	    		break;
-	    	case PALM:
-	    		block = PVJBlocks.palm_sapling;
-	    		break;
-	    	case REDWOOD:
-	    		block = PVJBlocks.redwood_sapling;
-	    		break;
-	    	case FIR:
-	    		block = PVJBlocks.fir_sapling;
-	    		break;
-	    	case PINE:
-	    		block = PVJBlocks.pine_sapling;
-	    		break;
-	    	case ASPEN:
-	    		block = PVJBlocks.aspen_sapling;
-	    		break;
-	    	case RED_MAPLE:
-	    		block = PVJBlocks.red_maple_sapling;
-	    		break;
-	    	case ORANGE_MAPLE:
-	    		block = PVJBlocks.orange_maple_sapling;
-	    		break;
-	    	case BAOBAB:
-	    		block = PVJBlocks.baobab_sapling;
-	    		break;
-	    	default:
-	    		block = PVJBlocks.willow_sapling;
-    	}
+    	Block block = PVJBlocks.SAPLINGS.get(leafType.getID());
         return Item.getItemFromBlock(block);
     }
     

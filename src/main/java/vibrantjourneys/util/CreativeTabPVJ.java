@@ -22,7 +22,7 @@ public class CreativeTabPVJ extends CreativeTabs
 	@Override
 	public ItemStack getTabIconItem()
 	{
-		return new ItemStack(PVJBlocks.redwood_leaves);
+		return new ItemStack(PVJBlocks.LEAVES.get(EnumLeafType.REDWOOD.getID()));
 	}
 	
 	@Override

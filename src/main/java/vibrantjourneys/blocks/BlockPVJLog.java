@@ -10,24 +10,21 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockPVJLog extends BlockLog implements IPropertyHelper
 {
-	private EnumWoodType woodType;
     public static final PropertyEnum<BlockLog.EnumAxis> LOG_AXIS = PropertyEnum.<BlockLog.EnumAxis>create("axis", BlockLog.EnumAxis.class);
 
-    public BlockPVJLog(EnumWoodType woodType)
+    public BlockPVJLog()
     {
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
-        this.woodType = woodType;
     }
 
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-    	return woodType.getMapColor();
+    	return MapColor.WOOD;
     }
 
     @Override

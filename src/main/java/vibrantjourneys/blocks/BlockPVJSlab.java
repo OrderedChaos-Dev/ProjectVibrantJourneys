@@ -1,6 +1,5 @@
 package vibrantjourneys.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -16,8 +15,7 @@ public abstract class BlockPVJSlab extends BlockSlab
 {
 	private IBlockState state;
 
-	
-    public BlockPVJSlab(IBlockState state, Block half)
+    public BlockPVJSlab(IBlockState state)
     {
         super(state.getMaterial());
         this.state = state;

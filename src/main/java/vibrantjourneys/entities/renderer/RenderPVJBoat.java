@@ -14,18 +14,7 @@ import vibrantjourneys.entities.renderer.models.ModelPVJBoat;
 
 @SideOnly(Side.CLIENT)
 public class RenderPVJBoat extends Render<EntityPVJBoat>
-{
-    private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[] {
-    		new ResourceLocation("pvj:textures/entity/boat/boat_willow.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_mangrove.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_palm.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_redwood.png"),
-    		new ResourceLocation("pvj:textures/entity/boat/boat_fir.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_pine.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_aspen.png"), 
-    		new ResourceLocation("pvj:textures/entity/boat/boat_maple.png"),
-    		new ResourceLocation("pvj:textures/entity/boat/boat_baobab.png")};
-    
+{   
     protected ModelBase modelBoat = new ModelPVJBoat();
 
     public RenderPVJBoat(RenderManager renderManagerIn)
@@ -85,7 +74,7 @@ public class RenderPVJBoat extends Render<EntityPVJBoat>
 
     protected ResourceLocation getEntityTexture(EntityPVJBoat entity)
     {
-        return BOAT_TEXTURES[entity.getPVJBoatType().getID()];
+    	return new ResourceLocation("pvj:textures/entity/boat/boat_" + entity.getPVJBoatType().getName() + ".png");
     }
 
     public boolean isMultipass()

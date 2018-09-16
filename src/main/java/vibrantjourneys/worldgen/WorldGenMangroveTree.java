@@ -10,11 +10,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenMangroveTree extends WorldGenAbstractTree
 {
-	private static final IBlockState LOG = PVJBlocks.mangrove_log.getDefaultState();
-	private static final IBlockState LEAVES = PVJBlocks.mangrove_leaves.getDefaultState();
+	private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.MANGROVE.getID()).getDefaultState();
+	private static final IBlockState LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.MANGROVE.getID()).getDefaultState();
 	
 	public WorldGenMangroveTree()
 	{
@@ -73,7 +75,8 @@ public class WorldGenMangroveTree extends WorldGenAbstractTree
                 BlockPos down = pos.down();
                 IBlockState state = world.getBlockState(down);
                 boolean isSoil = state.getBlock()
-                		.canSustainPlant(state, world, down, net.minecraft.util.EnumFacing.UP, (BlockPVJSapling)PVJBlocks.mangrove_sapling)
+                		.canSustainPlant(state, world, down, net.minecraft.util.EnumFacing.UP,
+                				(BlockPVJSapling)PVJBlocks.SAPLINGS.get(EnumLeafType.MANGROVE.getID()))
                 		|| state.getMaterial() == Material.WATER || state.getBlock() == Blocks.SAND;
                 
                 if (isSoil && pos.getY() < world.getHeight() - height - 1)

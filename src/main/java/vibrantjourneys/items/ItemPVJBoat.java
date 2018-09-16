@@ -18,14 +18,15 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.item.EntityPVJBoat;
+import vibrantjourneys.util.EnumWoodType;
 
 public class ItemPVJBoat extends Item
 {
-    private final EntityPVJBoat.Type type;
+    private final EnumWoodType type;
 
-    public ItemPVJBoat(EntityPVJBoat.Type typeIn)
+    public ItemPVJBoat(EnumWoodType type)
     {
-        this.type = typeIn;
+        this.type = type;
         this.maxStackSize = 1;
     }
 

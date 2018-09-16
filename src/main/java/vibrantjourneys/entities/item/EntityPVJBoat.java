@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +18,6 @@ import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -41,6 +39,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJItems;
+import vibrantjourneys.util.EnumWoodType;
 
 public class EntityPVJBoat extends EntityBoat
 {
@@ -101,7 +100,7 @@ public class EntityPVJBoat extends EntityBoat
         this.dataManager.register(TIME_SINCE_HIT, Integer.valueOf(0));
         this.dataManager.register(FORWARD_DIRECTION, Integer.valueOf(1));
         this.dataManager.register(DAMAGE_TAKEN, Float.valueOf(0.0F));
-        this.dataManager.register(BOAT_TYPE, Integer.valueOf(EntityPVJBoat.Type.WILLOW.ordinal()));
+        this.dataManager.register(BOAT_TYPE, Integer.valueOf(EnumWoodType.WILLOW.ordinal()));
 
         for (DataParameter<Boolean> dataparameter : DATA_ID_PADDLE)
         {
@@ -160,12 +159,11 @@ public class EntityPVJBoat extends EntityBoat
                 {
                     if (!flag && this.world.getGameRules().getBoolean("doEntityDrops"))
                     {
-                        this.dropItemWithOffset(Items.APPLE, 1, 0.0F);
+                        this.dropItemWithOffset(PVJItems.BOATS.get(this.getPVJBoatType().getID()), 1, 0.0F);
                     }
 
                     this.setDead();
                 }
-
                 return true;
             }
         }
@@ -189,24 +187,6 @@ public class EntityPVJBoat extends EntityBoat
         {
             super.applyEntityCollision(entityIn);
         }
-    }
-
-    @Override
-    public Item getItemBoat()
-    {
-    	switch(this.getPVJBoatType())
-    	{
-    		case WILLOW:
-    		default:
-    			return PVJItems.willow_boat;
-    		case MANGROVE:
-    			return PVJItems.mangrove_boat;
-    		case PALM:
-    			return PVJItems.palm_boat;
-    		case REDWOOD:
-    			return PVJItems.redwood_boat;
-    		
-    	}
     }
 
     @Override
@@ -639,7 +619,6 @@ public class EntityPVJBoat extends EntityBoat
 
     private void updateMotion()
     {
-        double d0 = -0.03999999910593033D;
         double d1 = this.hasNoGravity() ? 0.0D : -0.03999999910593033D;
         double d2 = 0.0D;
         this.momentum = 0.05F;
@@ -690,9 +669,7 @@ public class EntityPVJBoat extends EntityBoat
 
             if (d2 > 0.0D)
             {
-                double d3 = 0.65D;
                 this.motionY += d2 * 0.06153846016296973D;
-                double d4 = 0.75D;
                 this.motionY *= 0.75D;
             }
         }
@@ -800,16 +777,13 @@ public class EntityPVJBoat extends EntityBoat
     @Override
     protected void writeEntityToNBT(NBTTagCompound compound)
     {
-        compound.setString("Type", this.getPVJBoatType().getName());
+    	compound.setInteger("Type", this.getPVJBoatType().getID());
     }
 
     @Override
     protected void readEntityFromNBT(NBTTagCompound compound)
     {
-        if (compound.hasKey("Type", 8))
-        {
-            this.setBoatType(EntityPVJBoat.Type.getTypeFromString(compound.getString("Type")));
-        }
+    	this.setBoatType(EnumWoodType.byId(compound.getInteger("Type")));
     }
 
     @Override
@@ -857,7 +831,7 @@ public class EntityPVJBoat extends EntityBoat
                         {
                             for (int i = 0; i < 3; ++i)
                             {
-                                this.entityDropItem(new ItemStack(Item.getItemFromBlock(this.getPVJBoatType().getPlanks())), 0.0F);
+                                this.entityDropItem(new ItemStack(PVJBlocks.PLANKS.get(this.getPVJBoatType().getID())), 0.0F);
                             }
 
                             for (int j = 0; j < 2; ++j)
@@ -919,14 +893,14 @@ public class EntityPVJBoat extends EntityBoat
         return ((Integer)this.dataManager.get(FORWARD_DIRECTION)).intValue();
     }
 
-    public void setBoatType(EntityPVJBoat.Type boatType)
+    public void setBoatType(EnumWoodType woodType)
     {
-        this.dataManager.set(BOAT_TYPE, Integer.valueOf(boatType.ordinal()));
+        this.dataManager.set(BOAT_TYPE, Integer.valueOf(woodType.ordinal()));
     }
 
-    public EntityPVJBoat.Type getPVJBoatType()
+    public EnumWoodType getPVJBoatType()
     {
-        return EntityPVJBoat.Type.byId(((Integer)this.dataManager.get(BOAT_TYPE)).intValue());
+        return EnumWoodType.byId(((Integer)this.dataManager.get(BOAT_TYPE)).intValue());
     }
 
     @Override
@@ -960,80 +934,6 @@ public class EntityPVJBoat extends EntityBoat
         UNDER_FLOWING_WATER,
         ON_LAND,
         IN_AIR;
-    }
-
-    public static enum Type
-    {
-        WILLOW(0, "willow", PVJItems.willow_boat, PVJBlocks.willow_planks),
-        MANGROVE(1, "mangrove", PVJItems.mangrove_boat, PVJBlocks.mangrove_planks),
-        PALM(2, "palm", PVJItems.palm_boat, PVJBlocks.palm_planks),
-        REDWOOD(3, "redwood", PVJItems.redwood_boat, PVJBlocks.redwood_planks),
-        FIR(4, "fir", PVJItems.fir_boat, PVJBlocks.fir_planks),
-        PINE(5, "pine", PVJItems.pine_boat, PVJBlocks.pine_planks),
-        ASPEN(6, "aspen", PVJItems.aspen_boat, PVJBlocks.aspen_planks),
-        MAPLE(7, "maple", PVJItems.maple_boat, PVJBlocks.maple_planks),
-        BAOBAB(8, "baobab", PVJItems.baobab_boat, PVJBlocks.baobab_planks);
-
-        private final String name;
-        private final int id;
-        private final Item boatItem;
-        private final Block planks;
-
-        private Type(int id, String name, Item boatItem, Block planks)
-        {
-            this.name = name;
-            this.id = id;
-            this.boatItem = boatItem;
-            this.planks = planks;
-        }
-
-        public String getName()
-        {
-            return this.name;
-        }
-
-        public int getID()
-        {
-            return this.id;
-        }
-
-        public String toString()
-        {
-            return this.name;
-        }
-        
-        public Item getBoatItem()
-        {
-        	return boatItem;
-        }
-        
-        public Block getPlanks()
-        {
-        	return planks;
-        }
-
-        public static EntityPVJBoat.Type byId(int id)
-        {
-            if (id < 0 || id >= values().length)
-            {
-                id = 0;
-            }
-
-            return values()[id];
-        }
-
-        public static EntityPVJBoat.Type getTypeFromString(String nameIn)
-        {
-            for (int i = 0; i < values().length; ++i)
-            {
-                if (values()[i].getName().equals(nameIn))
-                {
-                    return values()[i];
-                }
-            }
-
-            return values()[0];
-        }
     }
 
     @Override

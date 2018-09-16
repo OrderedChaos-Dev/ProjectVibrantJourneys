@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.worldgen.WorldGenAspenTree;
@@ -37,13 +38,13 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     protected static final AxisAlignedBB SAPLING_AABB = 
     		new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
     
-	private EnumWoodType woodType;
+	private EnumLeafType leafType;
 
-    public BlockPVJSapling(EnumWoodType woodType)
+    public BlockPVJSapling(EnumLeafType leafType)
     {
     	this.setSoundType(SoundType.PLANT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
-        this.woodType = woodType;
+        this.leafType = leafType;
     }
 
     @Override
@@ -87,7 +88,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
         int j = 0;
         boolean flag = false;
 
-        switch (this.woodType)
+        switch (this.leafType)
         {
             case REDWOOD:
             	check:
@@ -145,10 +146,10 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	worldgenerator = new WorldGenAspenTree(true);
             	break;
             case RED_MAPLE:
-            	worldgenerator = new WorldGenMapleTree(true, EnumWoodType.RED_MAPLE);
+            	worldgenerator = new WorldGenMapleTree(true, EnumLeafType.RED_MAPLE);
             	break;
             case ORANGE_MAPLE:
-            	worldgenerator = new WorldGenMapleTree(true, EnumWoodType.ORANGE_MAPLE);
+            	worldgenerator = new WorldGenMapleTree(true, EnumLeafType.ORANGE_MAPLE);
             	break;
             default:
             	break;
@@ -188,9 +189,9 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
      * Used by PVJ saplings to generate large trees by comparing wood types
      * 
      */
-    public EnumWoodType getWoodType()
+    public EnumLeafType getLeafType()
     {
-    	return woodType;
+    	return leafType;
     }
 
     
@@ -203,7 +204,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     {
         IBlockState iblockstate = worldIn.getBlockState(pos);
         if(iblockstate.getBlock() instanceof BlockPVJSapling)
-        	return ((BlockPVJSapling)iblockstate.getBlock()).getWoodType() == woodType;
+        	return ((BlockPVJSapling)iblockstate.getBlock()).getLeafType() == leafType;
         else
         	return false;
     }
@@ -218,7 +219,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(woodType == EnumWoodType.PALM || woodType == EnumWoodType.MANGROVE)
+    	if(leafType == EnumLeafType.PALM || leafType == EnumLeafType.MANGROVE)
     	{
     		return super.canPlaceBlockAt(worldIn, pos) || soil.getBlock() == Blocks.SAND;
     	}
@@ -228,7 +229,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     @Override
     protected boolean canSustainBush(IBlockState state)
     {
-    	if(woodType == EnumWoodType.PALM || woodType == EnumWoodType.MANGROVE)
+    	if(leafType == EnumLeafType.PALM || leafType == EnumLeafType.MANGROVE)
     	{
             return state.getBlock() == Blocks.GRASS || 
             		state.getBlock() == Blocks.DIRT || 

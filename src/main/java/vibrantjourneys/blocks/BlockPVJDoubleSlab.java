@@ -12,7 +12,7 @@ public class BlockPVJDoubleSlab extends BlockPVJSlab
 	
 	public BlockPVJDoubleSlab(IBlockState state, Block half)
 	{
-		super(state, half);
+		super(state);
         this.half = half;
 	}
 	

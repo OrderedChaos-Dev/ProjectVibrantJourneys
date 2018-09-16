@@ -11,12 +11,14 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJSapling;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenPalmTree extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = PVJBlocks.palm_log.getDefaultState();
+    private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.PALM.getID()).getDefaultState();
     
-    private static final IBlockState LEAF = PVJBlocks.palm_leaves.getDefaultState()
+    private static final IBlockState LEAF = PVJBlocks.LEAVES.get(EnumLeafType.PALM.getID()).getDefaultState()
     		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     
     private static final IBlockState COCONUT = PVJBlocks.coconut.getDefaultState();
@@ -78,7 +80,8 @@ public class WorldGenPalmTree extends WorldGenAbstractTree
                 BlockPos down = position.down();
                 IBlockState state = worldIn.getBlockState(down);
                 boolean isSoil = state.getBlock()
-                		.canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP, (BlockPVJSapling)PVJBlocks.palm_sapling)
+                		.canSustainPlant(state, worldIn, down, net.minecraft.util.EnumFacing.UP,
+                				(BlockPVJSapling)PVJBlocks.SAPLINGS.get(EnumLeafType.PALM.getID()))
                 		|| state.getBlock() == Blocks.SAND;
 
                 if (isSoil && position.getY() < worldIn.getHeight() - height - 1)

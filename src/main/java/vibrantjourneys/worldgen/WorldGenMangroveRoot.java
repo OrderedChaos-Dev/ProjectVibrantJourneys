@@ -12,12 +12,13 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenMangroveRoot implements IWorldGenerator
 {
 	private int frequency;
 	private Biome[] biomes;
-	private IBlockState LOG = PVJBlocks.mangrove_log.getDefaultState().withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.Y);
+	private IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.MANGROVE.getID()).getDefaultState();
 	
 	public WorldGenMangroveRoot(int frequency, Biome... biomes)
 	{

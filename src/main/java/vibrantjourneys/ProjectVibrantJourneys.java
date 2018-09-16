@@ -47,8 +47,8 @@ public class ProjectVibrantJourneys
     		Reference.isBOPLoaded = true;
     	}
     	PVJEntities.initEntities();
-    	PVJItems.initItems();
     	PVJBlocks.initBlocks();
+    	PVJItems.initItems();
     	PVJBiomes.initBiomes();
     	PVJTileEntities.initTileEntities();
     	

@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenAspenTree;
 import vibrantjourneys.worldgen.WorldGenMapleTree;
@@ -19,8 +19,8 @@ import vibrantjourneys.worldgen.WorldGenMapleTree;
 public class BiomeAspenGrove extends Biome
 {
     private static final WorldGenAspenTree ASPEN = new WorldGenAspenTree(false);
-    private static final WorldGenMapleTree RED_MAPLE = new WorldGenMapleTree(false, EnumWoodType.RED_MAPLE);
-    private static final WorldGenMapleTree ORANGE_MAPLE = new WorldGenMapleTree(false, EnumWoodType.ORANGE_MAPLE);
+    private static final WorldGenMapleTree RED_MAPLE = new WorldGenMapleTree(false, EnumLeafType.RED_MAPLE);
+    private static final WorldGenMapleTree ORANGE_MAPLE = new WorldGenMapleTree(false, EnumLeafType.ORANGE_MAPLE);
     
 	public BiomeAspenGrove(BiomeProperties properties)
 	{

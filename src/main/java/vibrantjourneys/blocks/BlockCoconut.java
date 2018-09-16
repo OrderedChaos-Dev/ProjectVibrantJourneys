@@ -8,6 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
 
 public class BlockCoconut extends Block
 {
@@ -28,7 +29,7 @@ public class BlockCoconut extends Block
     public boolean canBlockStay(World worldIn, BlockPos pos)
     {
         IBlockState iblockstate = worldIn.getBlockState(pos.up());
-        return iblockstate.getBlock() == PVJBlocks.palm_leaves;
+        return iblockstate.getBlock() == PVJBlocks.LEAVES.get(EnumLeafType.PALM.getID());
     }
 
 	@Override

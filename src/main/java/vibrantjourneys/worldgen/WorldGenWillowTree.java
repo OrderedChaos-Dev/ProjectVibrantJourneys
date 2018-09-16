@@ -12,13 +12,15 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import vibrantjourneys.blocks.BlockPVJSapling;
+import net.minecraftforge.common.IPlantable;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenWillowTree extends WorldGenAbstractTree
 {
-	private static final IBlockState LOG = PVJBlocks.willow_log.getDefaultState();
-	private static final IBlockState LEAVES = PVJBlocks.willow_leaves.getDefaultState();
+	private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.WILLOW.getID()).getDefaultState();
+	private static final IBlockState LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.WILLOW.getID()).getDefaultState();
 	
 	public WorldGenWillowTree()
 	{
@@ -93,7 +95,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
         {
             BlockPos down = pos.down();
             IBlockState state = world.getBlockState(down);
-            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (BlockPVJSapling)PVJBlocks.willow_sapling);
+            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING);
             
             int baseHeight = 3 + rand.nextInt(4);
             EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);

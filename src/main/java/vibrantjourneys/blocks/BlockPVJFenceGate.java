@@ -9,14 +9,11 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockPVJFenceGate extends BlockFenceGate implements IPropertyHelper
 {
-	private EnumWoodType woodType;
-	
-	public BlockPVJFenceGate(EnumWoodType woodType)
+	public BlockPVJFenceGate()
 	{
 		/*
 		 * BlockFenceGate uses BlockPlanks.EnumType for map color, I use OAK for the sake of invoking its constructor
@@ -26,14 +23,12 @@ public class BlockPVJFenceGate extends BlockFenceGate implements IPropertyHelper
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
 		this.setSoundType(SoundType.WOOD);
-		this.woodType = woodType;
 	}
 	
-	//here is where we set the map color
 	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
-        return woodType.getMapColor();
+        return MapColor.WOOD;
     }
 	
 	@Override

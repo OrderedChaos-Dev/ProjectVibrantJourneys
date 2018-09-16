@@ -1,42 +1,83 @@
 package vibrantjourneys.util;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.biome.Biome;
 
-public enum EnumWoodType implements IStringSerializable
+public enum EnumWoodType
 {
-    WILLOW("willow", MapColor.GRAY),
-    MANGROVE("mangrove", MapColor.DIRT),
-    PALM("palm", MapColor.BROWN),
-    REDWOOD("redwood", MapColor.BROWN),
-    FIR("willow", MapColor.DIRT),
-    PINE("mangrove", MapColor.DIRT),
-    ASPEN("palm", MapColor.BROWN_STAINED_HARDENED_CLAY),
-    RED_MAPLE("red_maple", MapColor.RED),
-    ORANGE_MAPLE("orange_maple", MapColor.ORANGE_STAINED_HARDENED_CLAY),
-    BAOBAB("baobab", MapColor.SAND);
+    WILLOW(0, "willow", PVJConfig.worldgen.fallenTreeWillowDensity),
+    MANGROVE(1, "mangrove", -1),
+    PALM(2, "palm", -1),
+    REDWOOD(3, "redwood", PVJConfig.worldgen.fallenTreeRedwoodDensity),
+    FIR(4, "fir", PVJConfig.worldgen.fallenTreeFirDensity),
+    PINE(5, "pine", PVJConfig.worldgen.fallenTreePineDensity),
+    ASPEN(6, "aspen", PVJConfig.worldgen.fallenTreeAspenDensity),
+    MAPLE(7, "maple", PVJConfig.worldgen.fallenTreeMapleDensity),
+    BAOBAB(8, "baobab", PVJConfig.worldgen.fallenTreeBaobabDensity);
 
     private final String name;
-    private final MapColor mapColor;
+    private final int id;
+    private final int fallenTreeDensity;
 
-    private EnumWoodType(String name, MapColor mapColor)
+    private EnumWoodType(int id, String name, int fallenTreeDensity)
     {
         this.name = name;
-        this.mapColor = mapColor;
+        this.id = id;
+        this.fallenTreeDensity = fallenTreeDensity;
     }
-
-    public MapColor getMapColor()
-    {
-        return this.mapColor;
-    }
-
-    public String toString()
-    {
-        return this.name;
-    }
-
+    
     public String getName()
     {
         return this.name;
+    }
+    
+    public int getID()
+    {
+    	return id;
+    }
+    
+    /**
+     * Returns -1 for trees that have no associated fallen tree
+     */
+    public int getFallenTreeDensity()
+    {
+    	return this.fallenTreeDensity;
+    }
+    
+    public Biome[] getTreeBiomes()
+    {
+    	switch(id)
+    	{
+    		case 0:
+    		default:
+    			return BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES);
+    		case 1:
+    			return BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES);
+    		case 2:
+    			return BiomeReference.getValidBiomes(BiomeReference.PALM_TREES);
+    		case 3:
+    			return BiomeReference.getValidBiomes(BiomeReference.REDWOOD_TREES);
+    		case 4:
+    			return BiomeReference.getValidBiomes(BiomeReference.FIR_TREES);
+    		case 5:
+    			return BiomeReference.getValidBiomes(BiomeReference.PINE_TREES);
+    		case 6:
+    			return BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES);
+    		case 7:
+    			return BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES);
+    		case 8:
+    			return BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES);
+    	}
+    }
+    
+    public static EnumWoodType byId(int id)
+    {
+    	for(EnumWoodType woodType : EnumWoodType.values())
+    	{
+    		if(woodType.id == id)
+    		{
+    			return woodType;
+    		}
+    	}
+		return EnumWoodType.WILLOW;
     }
 }
