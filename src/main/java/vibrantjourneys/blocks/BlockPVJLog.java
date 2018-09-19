@@ -8,6 +8,8 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import vibrantjourneys.util.IPropertyHelper;
@@ -25,6 +27,18 @@ public class BlockPVJLog extends BlockLog implements IPropertyHelper
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
     {
     	return MapColor.WOOD;
+    }
+    
+	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.LOG.getFlammability(world, pos, face);
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.LOG.getFireSpreadSpeed(world, pos, face);
     }
 
     @Override

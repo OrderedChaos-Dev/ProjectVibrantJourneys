@@ -1,4 +1,10 @@
 {
+	"conditions": [
+		{
+			"type": "pvj:chimneys_enabled",
+			"value": "true"
+		}
+	],
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"C C",

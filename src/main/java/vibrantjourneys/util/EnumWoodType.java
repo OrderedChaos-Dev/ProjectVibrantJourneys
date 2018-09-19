@@ -5,8 +5,8 @@ import net.minecraft.world.biome.Biome;
 public enum EnumWoodType
 {
     WILLOW(0, "willow", PVJConfig.worldgen.fallenTreeWillowDensity),
-    MANGROVE(1, "mangrove", -1),
-    PALM(2, "palm", -1),
+    MANGROVE(1, "mangrove", PVJConfig.worldgen.fallenTreeMangroveDensity),
+    PALM(2, "palm", PVJConfig.worldgen.fallenTreePalmDensity),
     REDWOOD(3, "redwood", PVJConfig.worldgen.fallenTreeRedwoodDensity),
     FIR(4, "fir", PVJConfig.worldgen.fallenTreeFirDensity),
     PINE(5, "pine", PVJConfig.worldgen.fallenTreePineDensity),

@@ -162,6 +162,8 @@ public class PVJConfig
 		public int fallenTreeSpruceSparseDensity = 10;
 		public int fallenTreeAcaciaDensity = 15;
 		public int fallenTreeWillowDensity = 30;
+		public int fallenTreeMangroveDensity = 5;
+		public int fallenTreePalmDensity = 5;
 		public int fallenTreeRedwoodDensity = 50;
 		public int fallenTreeFirDensity = 25;
 		public int fallenTreePineDensity = 10;
@@ -220,6 +222,9 @@ public class PVJConfig
 		public int pineconesDensity = 150;
 		
 		public int wildWheatDensity = 20;
+		public int wildPotatoDensity = 5;
+		public int wildCarrotDensity = 5;
+		public int wildBeetrootDensity = 5;
 		public int frostLotusDensity = 15;
 		public int silverleafDensity = 30;
 		public int chickweedDensity = 350;
@@ -237,6 +242,7 @@ public class PVJConfig
 		
 		public int stalactiteDensity = 450;
 		public int stalagmiteDensity = 450;
+		public int icicleDensity = 450;
 		
 		public boolean modifyDungeons = true;
 		public boolean enableFrozenCaves = true;
@@ -256,11 +262,11 @@ public class PVJConfig
 	
 	public static class EntitiesSubCategory
 	{
-		public int snailSpawnWeight = 120;
+		public int snailSpawnWeight = 60;
 		public int flySpawnWeight = 120;
 		public int flySwampSpawnWeight = 200;
 		public int fireflySpawnWeight = 350;
-		public int spiderSpawnWeight = 100;
+		public int spiderSpawnWeight = 50;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		

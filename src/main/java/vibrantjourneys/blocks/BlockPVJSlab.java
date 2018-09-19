@@ -7,7 +7,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
@@ -59,6 +61,24 @@ public abstract class BlockPVJSlab extends BlockSlab
     public Comparable<?> getTypeForItem(ItemStack stack)
     {
         return EnumBlockHalf.BOTTOM;
+    }
+    
+	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+		if(world.getBlockState(pos).getMaterial() == Material.WOOD)
+			return Blocks.WOODEN_SLAB.getFlammability(world, pos, face);
+		
+		return 0;
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+		if(world.getBlockState(pos).getMaterial() == Material.WOOD)
+			return Blocks.WOODEN_SLAB.getFireSpreadSpeed(world, pos, face);
+		
+		return 0;
     }
 
     @Override

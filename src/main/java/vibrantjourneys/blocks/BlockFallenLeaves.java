@@ -144,6 +144,18 @@ public class BlockFallenLeaves extends Block implements IShearable
 	{
 		return true;
 	}
+	
+	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.LEAVES.getFlammability(world, pos, face);
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.LEAVES.getFireSpreadSpeed(world, pos, face);
+    }
 
     @Override
     public NonNullList<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune)

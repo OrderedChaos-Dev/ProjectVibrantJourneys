@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
@@ -49,7 +50,7 @@ import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockWeed;
-import vibrantjourneys.blocks.BlockWildWheat;
+import vibrantjourneys.blocks.BlockWildCrop;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemBracketFungus;
 import vibrantjourneys.items.ItemCoconut;
@@ -125,6 +126,9 @@ public class PVJBlocks
 	
 	public static Block short_grass;
 	public static Block wild_wheat;
+	public static Block wild_potato;
+	public static Block wild_carrot;
+	public static Block wild_beetroot;
 	public static Block frost_lotus;
 	public static Block silverleaf;
 	public static Block frogbit;
@@ -143,6 +147,7 @@ public class PVJBlocks
 	public static Block glowcap;
 	
 	public static Block rock_formation;
+	public static Block ice_formation;
 	
 	public static Block mystical_grill;
 	
@@ -186,33 +191,32 @@ public class PVJBlocks
 	public static void initBlocks()
 	{
 		short_grass = registerBlock(new BlockShortGrass(), "short_grass");
+		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
+		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
 		chickweed = registerBlock(new BlockWeed(), "chickweed");
 		clovers = registerBlock(new BlockWeed(), "clovers");
 		crabgrass = registerBlock(new BlockWeed(), "crabgrass");
 		bracket_fungus = new BlockBracketFungus();
 		registerBlockWithItem(bracket_fungus, "bracket_fungus", new ItemBracketFungus(bracket_fungus));
-		
-		waxcap = registerBlock(new BlockPVJMushroom(), "waxcap");
-		orange_mushroom = registerBlock(new BlockPVJMushroom(), "orange_mushroom");
-		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
-		
-		cattail = registerBlock(new BlockCattail(), "cattail");
-		
-		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
-		
-		wild_wheat = registerBlock(new BlockWildWheat(), "wild_wheat");
-		frost_lotus = registerBlock(new BlockPVJPlant(), "frost_lotus");
-		silverleaf = registerBlock(new BlockPVJPlant(), "silverleaf");
-		
 		frogbit = new BlockFloatingPlant();
 		registerBlockWithItem(frogbit, "frogbit", new ItemFloatingPlant(frogbit));
 		duckweed = new BlockFloatingPlant();
 		registerBlockWithItem(duckweed, "duckweed", new ItemFloatingPlant(duckweed));
+		waxcap = registerBlock(new BlockPVJMushroom(), "waxcap");
+		orange_mushroom = registerBlock(new BlockPVJMushroom(), "orange_mushroom");
+		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
+		cattail = registerBlock(new BlockCattail(), "cattail");
+		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
 		
+		wild_wheat = registerBlock(new BlockWildCrop(Items.WHEAT), "wild_wheat");
+		wild_potato = registerBlock(new BlockWildCrop(Items.POTATO), "wild_potato");
+		wild_carrot = registerBlock(new BlockWildCrop(Items.CARROT), "wild_carrot");
+		wild_beetroot = registerBlock(new BlockWildCrop(Items.BEETROOT), "wild_beetroot");
+
 		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
 		glowcap = registerBlock(new BlockGlowcap(), "glowcap");
 		
-		//separate loops for the creative inventory
+		//separate loops to keep the creative inventory neat
 		for(EnumWoodType woodType : EnumWoodType.values())
 			LOGS.add(registerBlock(new BlockPVJLog(), "log_" + woodType.getName()));
 		
@@ -351,6 +355,7 @@ public class PVJBlocks
 		redwood_bark = registerBlock(new BlockBark(LOGS.get(EnumWoodType.REDWOOD.getID())), "redwood_bark");
 		
 		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
+		ice_formation = registerBlock(new BlockRockFormation(), "ice_formation");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

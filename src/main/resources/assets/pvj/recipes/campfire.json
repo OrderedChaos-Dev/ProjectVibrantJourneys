@@ -1,4 +1,10 @@
 {
+	"conditions": [
+		{
+			"type": "pvj:lighting_enabled",
+			"value": "true"
+		}
+	],
 	"type": "forge:ore_shaped",
 	"pattern": [
 		"CCC",

@@ -130,6 +130,9 @@ tile.seashells.name=Seashells
 tile.pinecones.name=Pinecones
 
 tile.wild_wheat.name=Wild Wheat
+tile.wild_potato.name=Wild Potato
+tile.wild_carrot.name=Wild Carrot
+tile.wild_beetroot.name=Wild Beetroot
 tile.frost_lotus.name=Frost Lotus
 tile.silverleaf.name=Silverleaf
 tile.bloodnettle.name=Bloodnettle
@@ -147,6 +150,7 @@ tile.orange_mushroom.name=Jack O' Lantern Mushroom
 tile.deathcap.name=Deathcap
 tile.small_cactus.name=Small Cactus
 tile.rock_formation.name=Rock Formation
+tile.redwood_bark.name=Redwood Bark
 
 tile.mystical_grill.name=Mystical Grill
 tile.cracked_sand.name=Cracked Sand

@@ -24,6 +24,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -178,6 +179,18 @@ public class BlockShortGrass extends BlockBush implements IGrowable, IShearable,
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
+    }
+	
+	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.TALLGRASS.getFlammability(world, pos, face);
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.TALLGRASS.getFireSpreadSpeed(world, pos, face);
     }
 
 	@Override

@@ -259,6 +259,18 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     {
         this.grow(worldIn, pos, state, rand);
     }
+    
+	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.SAPLING.getFlammability(world, pos, face);
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.SAPLING.getFireSpreadSpeed(world, pos, face);
+    }
 
     @Override
     public IBlockState getStateFromMeta(int meta)

@@ -1,5 +1,6 @@
 package vibrantjourneys.init;
 
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -46,6 +47,9 @@ public class PVJWorldGen
 		{
 			registerWorldGen(new WorldGenStalagmite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalagmiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenStalactite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalactiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenStalagmite(PVJBlocks.ice_formation, 0, 70, PVJConfig.worldgen.icicleDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+			registerWorldGen(new WorldGenStalactite(PVJBlocks.ice_formation, 0, 70, PVJConfig.worldgen.icicleDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+			
 			
 			if(PVJConfig.worldgen.enableOvergrownCaves)
 				registerWorldGen(new WorldGenOvergrownCaves(BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
@@ -156,6 +160,9 @@ public class PVJWorldGen
 		}
 
 		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_potato, 60, 90, PVJConfig.worldgen.wildPotatoDensity, Biomes.PLAINS));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_carrot, 60, 90, PVJConfig.worldgen.wildCarrotDensity, BiomeDictionary.getBiomes(Type.COLD).toArray(new Biome[0])));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_beetroot, 60, 90, PVJConfig.worldgen.wildBeetrootDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 		
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));

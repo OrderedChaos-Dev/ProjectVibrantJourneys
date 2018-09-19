@@ -12,11 +12,18 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockWildWheat extends BlockPVJPlant
+public class BlockWildCrop extends BlockPVJPlant
 {
+	private Item cropItem;
+	
+	public BlockWildCrop(Item cropItem)
+	{
+		this.cropItem = cropItem;
+	}
+	
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Items.WHEAT;
+        return cropItem;
     }
     
 	//BlockBush AABB is not a full block
@@ -29,14 +36,37 @@ public class BlockWildWheat extends BlockPVJPlant
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
     {
-		super.getDrops(drops, world, pos, state, 0);
 		Random rand = world instanceof World ? ((World) world).rand : new Random();
-
-		for (int i = 0; i < 2 + fortune; ++i)
+		if(cropItem == Items.WHEAT)
 		{
-			if (rand.nextInt(20) <= 7)
+			super.getDrops(drops, world, pos, state, 0);
+			for (int i = 0; i < 2 + fortune; ++i)
 			{
-				drops.add(new ItemStack(Items.WHEAT_SEEDS, 1, 0));
+				if (rand.nextInt(20) <= 7)
+				{
+					drops.add(new ItemStack(Items.WHEAT_SEEDS, 1, 0));
+				}
+			}
+		}
+		else if(cropItem == Items.BEETROOT)
+		{
+			super.getDrops(drops, world, pos, state, 0);
+			for (int i = 0; i < 2 + fortune; ++i)
+			{
+				if (rand.nextInt(20) <= 7)
+				{
+					drops.add(new ItemStack(Items.BEETROOT_SEEDS, 1, 0));
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 2 + fortune; ++i)
+			{
+				if (rand.nextInt(20) <= 7)
+				{
+					drops.add(new ItemStack(cropItem, 1, 0));
+				}
 			}
 		}
 	}

@@ -156,6 +156,18 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 	//---------------------------------------------------------------
 	
 	@Override
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+    	return Blocks.LEAVES.getFlammability(world, pos, face);
+    }
+	
+	@Override
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return Blocks.LEAVES.getFireSpreadSpeed(world, pos, face);
+    }
+	
+	@Override
 	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
