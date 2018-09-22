@@ -27,6 +27,7 @@ import vibrantjourneys.blocks.BlockFloatingPlant;
 import vibrantjourneys.blocks.BlockGlowcap;
 import vibrantjourneys.blocks.BlockGlowstoneLamp;
 import vibrantjourneys.blocks.BlockGroundCover;
+import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMysticalGrill;
@@ -271,31 +272,31 @@ public class PVJBlocks
 		for(EnumLeafType leafType : EnumLeafType.values())
 			FALLEN_LEAVES.add(registerBlock(new BlockFallenLeaves(), "fallenleaves_" + leafType.getName()));
 		
-		oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "oak_twigs");
-		birch_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "birch_twigs");
-		spruce_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "spruce_twigs");
-		jungle_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "jungle_twigs");
-		acacia_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "acacia_twigs");
-		dark_oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS), "dark_oak_twigs");
+		oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "oak_twigs");
+		birch_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "birch_twigs");
+		spruce_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "spruce_twigs");
+		jungle_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "jungle_twigs");
+		acacia_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "acacia_twigs");
+		dark_oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "dark_oak_twigs");
 		
 		for(EnumLeafType leafType : EnumLeafType.values())
-			TWIGS.add(registerBlock(new BlockGroundCover(Material.PLANTS), leafType.getName() + "_twigs"));
+			TWIGS.add(registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), leafType.getName() + "_twigs"));
 
 		coconut = new BlockCoconut();
 		registerBlockWithItem(coconut, "coconut", new ItemCoconut(coconut));
 
-		stone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "stone_rocks");
-		cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "cobblestone_rocks");
-		mossy_cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "mossy_cobblestone_rocks");
-		andesite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "andesite_rocks");
-		granite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "granite_rocks");
-		diorite_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "diorite_rocks");
-		sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK), "red_sandstone_rocks");
+		stone_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "stone_rocks");
+		cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "cobblestone_rocks");
+		mossy_cobblestone_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "mossy_cobblestone_rocks");
+		andesite_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "andesite_rocks");
+		granite_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "granite_rocks");
+		diorite_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "diorite_rocks");
+		sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.ROCKS), "red_sandstone_rocks");
 
-		bones = registerBlock(new BlockGroundCover(Material.ROCK), "bones");
-		seashells = registerBlock(new BlockGroundCover(Material.ROCK), "seashells");
-		pinecones = registerBlock(new BlockGroundCover(Material.PLANTS), "pinecones");
+		bones = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.BONES), "bones");
+		seashells = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.SEASHELLS), "seashells");
+		pinecones = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.PINECONES), "pinecones");
 
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");

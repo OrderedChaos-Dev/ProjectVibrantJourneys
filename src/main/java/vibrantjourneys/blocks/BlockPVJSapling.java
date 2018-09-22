@@ -23,6 +23,7 @@ import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.worldgen.WorldGenAspenTree;
 import vibrantjourneys.worldgen.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.WorldGenCottonwoodTree;
 import vibrantjourneys.worldgen.WorldGenFirTree;
 import vibrantjourneys.worldgen.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.WorldGenMapleTree;
@@ -150,6 +151,9 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	break;
             case ORANGE_MAPLE:
             	worldgenerator = new WorldGenMapleTree(true, EnumLeafType.ORANGE_MAPLE);
+            	break;
+            case COTTONWOOD:
+            	worldgenerator = new WorldGenCottonwoodTree(true);
             	break;
             default:
             	break;

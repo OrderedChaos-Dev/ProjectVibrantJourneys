@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "pvj:blocks/planks_cottonwood",
+        "top": "pvj:blocks/planks_cottonwood",
+        "side": "pvj:blocks/planks_cottonwood"
+    }
+}

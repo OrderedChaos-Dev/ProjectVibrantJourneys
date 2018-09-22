@@ -3,6 +3,7 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
@@ -82,39 +83,37 @@ public class PVJEntities
 	{
 		if(PVJConfig.master.enablePassiveMobs)
 		{
-			if(PVJConfig.entities.snailSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
-			if(PVJConfig.entities.flySpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			if(PVJConfig.entities.flySwampSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
-			if(PVJConfig.entities.fireflySpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			if(PVJConfig.entities.spiderSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntitySmallSpider.class, PVJConfig.entities.spiderSpawnWeight, 1, 6, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntitySnail.class, PVJConfig.entities.snailSpawnWeight, 2, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES));
+			addSpawn(EntityFly.class, PVJConfig.entities.flySpawnWeight, 3, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
+			addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntitySmallSpider.class, PVJConfig.entities.spiderSpawnWeight, 1, 6, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		}
 
 		if(PVJConfig.master.enableNeutralMobs)
 		{
-			if(PVJConfig.entities.ghostSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			if(PVJConfig.entities.grizzlyBearSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityGrizzlyBear.class, PVJConfig.entities.grizzlyBearSpawnWeight, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0]));
+			addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntityGrizzlyBear.class, PVJConfig.entities.grizzlyBearSpawnWeight, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0]));
 		}
 		
 		if(PVJConfig.master.enableAggressiveMobs)
 		{
-			if(PVJConfig.entities.shadeSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			if(PVJConfig.entities.skeletalKnightWeight > 0)
-				EntityRegistry.addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			if(PVJConfig.entities.icecubeSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
-			if(PVJConfig.entities.goonSpawnWeight > 0)
-				EntityRegistry.addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
+			addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		}
 		
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_skeletal_knight"), 100);
+	}
+	
+	public static void addSpawn(Class <? extends EntityLiving > entityClass, int weightedProb,
+			int min, int max, EnumCreatureType typeOfCreature, Biome... biomes)
+	{
+		if(weightedProb > 0)
+		{
+			EntityRegistry.addSpawn(entityClass, weightedProb, min, max, typeOfCreature, biomes);
+		}
 	}
 }

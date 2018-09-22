@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:cottonwood_pressure_plate_up" },
+        "powered=true": { "model": "pvj:cottonwood_pressure_plate_down" }
+    }
+}

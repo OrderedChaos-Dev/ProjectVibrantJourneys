@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundCover;
+import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.init.PVJBlocks;
 
 public class PVJBlocksBOP
@@ -29,7 +30,7 @@ public class PVJBlocksBOP
 		for(BOPTrees trees : BOPTrees.values())
 		{
 			String name = trees.getName();
-			Block block = PVJBlocks.registerBlock(new BlockGroundCover(Material.PLANTS), name + "_bop_twigs");
+			Block block = PVJBlocks.registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), name + "_bop_twigs");
 			TWIGS_BOP.add(block);
 			BLOCK_INFO_TWIGS.add(new BOPBlockInfo(block, PVJWorldGenerationBOP.getDensityTwigs(name), BiomeReferenceBOP.getBiomeReference(name)));
 		}

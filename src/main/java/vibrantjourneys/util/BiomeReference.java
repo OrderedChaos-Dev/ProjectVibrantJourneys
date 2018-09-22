@@ -53,8 +53,6 @@ public class BiomeReference
 	public static final ArrayList<Biome> DARKOAK_TREES_SPARSE = new ArrayList<Biome>();
 	
 	//Project: Vibrant Journeys TREES
-	//I call them differently here to distinguish between different mod's trees
-	//They also make sense
 	public static final ArrayList<Biome> WILLOW_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> MANGROVE_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> PALM_TREES = new ArrayList<Biome>();
@@ -65,6 +63,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> RED_MAPLE_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> ORANGE_MAPLE_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> BAOBAB_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> COTTONWOOD_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
 	public static final ArrayList<Biome> BOP_MANGROVE_TREES = new ArrayList<Biome>();
@@ -107,6 +106,7 @@ public class BiomeReference
 		loadAspenTrees();
 		loadMapleTrees();
 		loadBaobabTrees();
+		loadCottonwoodTrees();
 		
 		ALL_BIOMES.addAll(ForgeRegistries.BIOMES.getValuesCollection());
 		OVERWORLD_BIOMES.addAll(ALL_BIOMES.stream()
@@ -263,6 +263,13 @@ public class BiomeReference
 		BAOBAB_TREES.add(Biomes.SAVANNA_PLATEAU);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
+	}
+	
+	public static void loadCottonwoodTrees()
+	{
+		COTTONWOOD_TREES.add(Biomes.PLAINS);
+		COTTONWOOD_TREES.add(Biomes.MUTATED_PLAINS);
+		COTTONWOOD_TREES.add(PVJBiomes.prairie);
 	}
 	
 	public static void loadMesaBiomes()

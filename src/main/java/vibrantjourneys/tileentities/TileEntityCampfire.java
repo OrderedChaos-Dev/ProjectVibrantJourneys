@@ -2,6 +2,7 @@ package vibrantjourneys.tileentities;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -31,6 +32,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import vibrantjourneys.blocks.BlockGroundCover;
+import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.inventory.ContainerCampfire;
 
 public class TileEntityCampfire extends TileEntityLockable implements ITickable, ISidedInventory
@@ -326,10 +329,13 @@ public class TileEntityCampfire extends TileEntityLockable implements ITickable,
             {
                 return 100;
             }
-            //yeah im lazy sorry
-            else if(stack.getDisplayName().contains("Twigs"))
+
+            else if(Block.getBlockFromItem(item) instanceof BlockGroundCover)
             {
-            	return 100;
+            	if(((BlockGroundCover)Block.getBlockFromItem(item)).getGroundcoverType() == GroundcoverType.TWIGS)
+            	{
+                	return 100;
+            	}
             }
             return 0;
         }

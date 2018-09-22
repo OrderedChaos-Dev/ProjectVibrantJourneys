@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import vibrantjourneys.crafting.PVJOreDictionary;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJEntities;
@@ -24,7 +25,6 @@ import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.GuiHandler;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJEvents;
-import vibrantjourneys.util.PVJOreDictionary;
 import vibrantjourneys.util.PVJTerrainGenEvents;
 import vibrantjourneys.util.Reference;
 

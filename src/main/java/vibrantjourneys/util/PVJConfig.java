@@ -121,12 +121,13 @@ public class PVJConfig
 		public int willowDensity = 2;
 		public int mangroveDensity = 5;
 		public int redwoodDensity = 4;
-		public int baobabDensity = 5;
 		public int firDensity = 15;
 		public int pineDensity = 15;
 		public int aspenDensity = 20;
 		public int redMapleDensity = 15;
 		public int orangeMapleDensity = 15;
+		public int baobabDensity = 5;
+		public int cottonwoodDensity = 6;
 		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
@@ -150,6 +151,7 @@ public class PVJConfig
 		public int fallenLeavesRedMapleDensity = 30;
 		public int fallenLeavesOrangeMapleDensity = 30;
 		public int fallenLeavesBaobabDensity = 5;
+		public int fallenLeavesCottonwoodDensity = 2;
 		
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
@@ -170,6 +172,7 @@ public class PVJConfig
 		public int fallenTreeAspenDensity = 25;
 		public int fallenTreeMapleDensity = 10;
 		public int fallenTreeBaobabDensity = 3;
+		public int fallenTreeCottonwoodDensity = 1;
 		
 		public int mangroveRootDensity = 2;
 		
@@ -209,6 +212,7 @@ public class PVJConfig
 		public int redMapleTwigsDensity = 300;
 		public int orangeMapleTwigsDensity = 300;
 		public int baobabTwigsDensity = 20;
+		public int cottonwoodTwigsDensity = 10;
 		
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;

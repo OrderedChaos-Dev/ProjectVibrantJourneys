@@ -44,13 +44,16 @@ public class PVJBiomes
 	
 	public static void registerBiome(Biome biome, String name, int weight, boolean hasVillages, BiomeType biomeType, Type... types)
 	{
-		biome.setRegistryName(name);
+		if(weight > 0)
+		{
+			biome.setRegistryName(name);
 
-		ForgeRegistries.BIOMES.register(biome);
-		BiomeDictionary.addTypes(biome, types);
-		BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
-		BiomeManager.addSpawnBiome(biome);
-		if(hasVillages)
-			BiomeManager.addVillageBiome(biome, true);
+			ForgeRegistries.BIOMES.register(biome);
+			BiomeDictionary.addTypes(biome, types);
+			BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+			BiomeManager.addSpawnBiome(biome);
+			if(hasVillages)
+				BiomeManager.addVillageBiome(biome, true);
+		}
 	}
 }

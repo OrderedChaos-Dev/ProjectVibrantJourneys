@@ -13,7 +13,8 @@ public enum EnumLeafType
     ASPEN(6, "aspen", EnumWoodType.ASPEN, PVJConfig.worldgen.fallenLeavesAspenDensity, PVJConfig.worldgen.aspenTwigsDensity),
     RED_MAPLE(7, "red_maple", EnumWoodType.MAPLE, PVJConfig.worldgen.fallenLeavesRedMapleDensity, PVJConfig.worldgen.redMapleTwigsDensity),
     ORANGE_MAPLE(8, "orange_maple", EnumWoodType.MAPLE, PVJConfig.worldgen.fallenLeavesOrangeMapleDensity, PVJConfig.worldgen.orangeMapleTwigsDensity),
-    BAOBAB(9, "baobab", EnumWoodType.BAOBAB, PVJConfig.worldgen.fallenLeavesBaobabDensity, PVJConfig.worldgen.baobabTwigsDensity);
+    BAOBAB(9, "baobab", EnumWoodType.BAOBAB, PVJConfig.worldgen.fallenLeavesBaobabDensity, PVJConfig.worldgen.baobabTwigsDensity),
+    COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity);
     
     private String name;
     private int id;
@@ -80,6 +81,8 @@ public enum EnumLeafType
     			return BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES);
     		case 9:
     			return BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES);
+    		case 10:
+    			return BiomeReference.getValidBiomes(BiomeReference.COTTONWOOD_TREES);
     	}
     }
 }

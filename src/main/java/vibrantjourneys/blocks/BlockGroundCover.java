@@ -14,7 +14,6 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
@@ -30,11 +29,18 @@ import vibrantjourneys.util.IPropertyHelper;
 public class BlockGroundCover extends Block implements IPropertyHelper
 {
 	public static final PropertyInteger MODEL = PropertyInteger.create("model", 0, 4);
+	private GroundcoverType groundcoverType;
 	
-	public BlockGroundCover(Material material)
+	public BlockGroundCover(Material material, GroundcoverType type)
 	{
 		super(material);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
+		this.groundcoverType = type;
+	}
+	
+	public GroundcoverType getGroundcoverType()
+	{
+		return this.groundcoverType;
 	}
 	
 	@Override
@@ -164,6 +170,13 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
+		if(this.getGroundcoverType() == GroundcoverType.TWIGS)
+		{
+			if(rand.nextBoolean())
+			{
+				return Items.STICK;
+			}
+		}
         return Items.AIR;
     }
 	
@@ -201,5 +214,14 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 	public ImmutableList<IBlockState> getProperties()
 	{
 		return this.blockState.getValidStates();
+	}
+	
+	public static enum GroundcoverType
+	{
+		TWIGS,
+		ROCKS,
+		BONES,
+		SEASHELLS,
+		PINECONES;
 	}
 }

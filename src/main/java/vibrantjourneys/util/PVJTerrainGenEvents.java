@@ -11,6 +11,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vibrantjourneys.worldgen.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.WorldGenCottonwoodTree;
 import vibrantjourneys.worldgen.WorldGenPVJDungeon;
 
 public class PVJTerrainGenEvents
@@ -50,6 +51,15 @@ public class PVJTerrainGenEvents
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
+			if(BiomeReference.COTTONWOOD_TREES.contains(biome))
+			{
+				if(event.getRand().nextInt(20) <= PVJConfig.worldgen.cottonwoodDensity)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenCottonwoodTree(false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
 			}

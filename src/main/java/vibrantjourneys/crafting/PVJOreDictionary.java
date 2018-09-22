@@ -1,7 +1,9 @@
-package vibrantjourneys.util;
+package vibrantjourneys.crafting;
 
 import net.minecraftforge.oredict.OreDictionary;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class PVJOreDictionary
 {
@@ -23,6 +25,7 @@ public class PVJOreDictionary
 			OreDictionary.registerOre("treeLeaves", PVJBlocks.LEAVES.get(leafType.getID()));
 			OreDictionary.registerOre("twigs", PVJBlocks.TWIGS.get(leafType.getID()));
 		}
+		
 		OreDictionary.registerOre("twigs", PVJBlocks.acacia_twigs);
 		OreDictionary.registerOre("twigs", PVJBlocks.birch_twigs);
 		OreDictionary.registerOre("twigs", PVJBlocks.dark_oak_twigs);
