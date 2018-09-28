@@ -18,7 +18,6 @@ import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockChimney;
 import vibrantjourneys.blocks.BlockChimneyTop;
 import vibrantjourneys.blocks.BlockCircuitBreaker;
-import vibrantjourneys.blocks.BlockCobblestoneBrick;
 import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
@@ -50,6 +49,7 @@ import vibrantjourneys.blocks.BlockPVJStairs;
 import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockShortGrass;
+import vibrantjourneys.blocks.BlockStoneBlock;
 import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWildCrop;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
@@ -60,6 +60,7 @@ import vibrantjourneys.items.ItemPVJBlock;
 import vibrantjourneys.items.ItemPVJSlab;
 import vibrantjourneys.util.CreativeTabPVJ;
 import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
@@ -82,7 +83,7 @@ public class PVJBlocks
 	public static final ArrayList<Block> FALLEN_LEAVES = new ArrayList<Block>();
 	public static final ArrayList<Block> TWIGS = new ArrayList<Block>();
 	
-	public static Block cobblestone_brick;
+	public static final ArrayList<Block> STONES = new ArrayList<Block>();
 	
 	//1.13: add bark/ stripped bark
 	//1.13: mangrove saplings can be waterlogged
@@ -120,11 +121,6 @@ public class PVJBlocks
 	public static Block cracked_sand;
 	public static Block red_cracked_sand;
 
-	//1.13: allow waterlogged
-	public static BlockPVJHalfSlab cobblestone_brick_half_slab;
-	public static BlockPVJDoubleSlab cobblestone_brick_double_slab;
-	public static Block cobblestone_brick_stairs;
-	
 	public static Block short_grass;
 	public static Block wild_wheat;
 	public static Block wild_potato;
@@ -301,14 +297,23 @@ public class PVJBlocks
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
 		
-		if(PVJConfig.master.enableCobblestoneBricks)
+		if(PVJConfig.master.enableStoneTypeBlocks)
 		{
-			cobblestone_brick = registerBlock(new BlockCobblestoneBrick(), "cobblestone_brick");
-			cobblestone_brick_stairs = registerBlock(new BlockPVJStairs(cobblestone_brick.getDefaultState()), "cobblestone_brick_stairs");
+			for(EnumStoneType stone : EnumStoneType.values())
+				STONES.add(registerBlock(new BlockStoneBlock(stone.getHardness(), stone.getResistance(), stone.getMapColor()), stone.getName()));
 			
-			cobblestone_brick_half_slab = new BlockPVJHalfSlab(cobblestone_brick.getDefaultState());
-			cobblestone_brick_double_slab = new BlockPVJDoubleSlab(cobblestone_brick.getDefaultState(), cobblestone_brick_half_slab);
-			registerSlab(cobblestone_brick_half_slab, cobblestone_brick_double_slab, "cobblestone_brick_slab", "cobblestone_brick_double_slab");
+			for(EnumStoneType stone : EnumStoneType.values())
+				STAIRS.add(registerBlock(new BlockPVJStairs(STONES.get(stone.getID()).getDefaultState()), stone.getName() + "_stairs"));
+
+			for(EnumStoneType stone : EnumStoneType.values())
+			{
+				BlockPVJHalfSlab slab1 = new BlockPVJHalfSlab(STONES.get(stone.getID()).getDefaultState());
+				BlockPVJDoubleSlab slab2 = new BlockPVJDoubleSlab(STONES.get(stone.getID()).getDefaultState(), slab1);
+				
+				registerSlab(slab1, slab2, stone.getName()+ "_slab", stone.getName() + "_double_slab");
+				
+				SLABS.add(slab1);
+			}
 			
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
 		}

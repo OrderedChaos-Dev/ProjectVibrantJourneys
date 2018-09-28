@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "pvj:blocks/limestone",
+        "top": "pvj:blocks/limestone",
+        "side": "pvj:blocks/limestone"
+    }
+}

@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.storage.loot.LootTableList;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPVJDungeon extends WorldGenerator
@@ -94,8 +95,8 @@ public class WorldGenPVJDungeon extends WorldGenerator
                             		world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);
                             	else
                             	{
-                            		if(PVJConfig.master.enableCobblestoneBricks)
-                            			world.setBlockState(blockpos1, PVJBlocks.cobblestone_brick.getDefaultState(), 2);
+                            		if(PVJConfig.master.enableStoneTypeBlocks)
+                            			world.setBlockState(blockpos1, PVJBlocks.STONES.get(EnumStoneType.COBBLESTONE_BRICK.getID()).getDefaultState(), 2);
                             		else
                             			world.setBlockState(blockpos1, Blocks.COBBLESTONE.getDefaultState(), 2);
                             	}

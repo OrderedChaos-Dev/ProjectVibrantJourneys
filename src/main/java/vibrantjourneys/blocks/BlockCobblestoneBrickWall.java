@@ -7,13 +7,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockCobblestoneBrickWall extends BlockWall implements IPropertyHelper
 {
 	public BlockCobblestoneBrickWall()
 	{
-		super(PVJBlocks.cobblestone_brick);
+		super(PVJBlocks.STONES.get(EnumStoneType.COBBLESTONE_BRICK.getID()));
 	}
 	
 	@Override

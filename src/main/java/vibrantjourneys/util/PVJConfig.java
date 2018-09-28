@@ -107,8 +107,10 @@ public class PVJConfig
 		@Config.Name("Building: Enable Lighting Blocks")
 		public boolean enableLighting = true;
 		
-		@Config.Name("Building: Enable Cobblestone Bricks")
-		public boolean enableCobblestoneBricks = true;
+		@Config.Name("Building: Enable Stone Type Blocks")
+		public boolean enableStoneTypeBlocks = true;
+		
+		
 	}
 	
 	public static class WorldGenSubCategory

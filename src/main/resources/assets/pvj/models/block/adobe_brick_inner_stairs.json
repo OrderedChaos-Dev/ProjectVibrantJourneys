@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "pvj:blocks/adobe_brick",
+        "top": "pvj:blocks/adobe_brick",
+        "side": "pvj:blocks/adobe_brick"
+    }
+}
