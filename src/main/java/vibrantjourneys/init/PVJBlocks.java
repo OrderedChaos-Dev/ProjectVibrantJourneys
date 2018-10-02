@@ -3,6 +3,7 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -41,6 +42,7 @@ import vibrantjourneys.blocks.BlockPVJHalfSlab;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJMushroom;
+import vibrantjourneys.blocks.BlockPVJOre;
 import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJPlant;
 import vibrantjourneys.blocks.BlockPVJPressurePlate;
@@ -145,6 +147,9 @@ public class PVJBlocks
 	
 	public static Block rock_formation;
 	public static Block ice_formation;
+	
+	public static Block aquamarine_ore;
+	public static Block aquamarine_block;
 	
 	public static Block mystical_grill;
 	
@@ -316,6 +321,12 @@ public class PVJBlocks
 			}
 			
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
+		}
+		
+		if(PVJConfig.master.enableAquamarine)
+		{
+			aquamarine_ore = registerBlock(new BlockPVJOre(PVJItems.aquamarine), "aquamarine_ore");
+			aquamarine_block = registerBlock(new BlockStoneBlock(5.0F, 10.0F, MapColor.DIAMOND), "aquamarine_block");
 		}
 		
 		if(PVJConfig.master.enableMysticalGrill)

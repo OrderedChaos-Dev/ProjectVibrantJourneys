@@ -28,6 +28,7 @@ import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenOvergrownCaves;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
+import vibrantjourneys.worldgen.WorldGenPillowBasalt;
 import vibrantjourneys.worldgen.WorldGenRiverGrass;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
@@ -60,6 +61,8 @@ public class PVJWorldGen
 			if(PVJConfig.worldgen.enableSandstoneCaves)
 				registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		}
+		
+		registerWorldGen(new WorldGenPillowBasalt(PVJConfig.worldgen.pillowBasaltDensity));
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{

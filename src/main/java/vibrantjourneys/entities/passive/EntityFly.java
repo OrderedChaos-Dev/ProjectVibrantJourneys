@@ -2,6 +2,7 @@ package vibrantjourneys.entities.passive;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -110,6 +111,12 @@ public class EntityFly extends EntityAmbientCreature
     protected SoundEvent getAmbientSound()
     {
         return PVJSounds.FLY_AMBIENT;
+    }
+	
+	@Override
+    protected SoundEvent getDeathSound()
+    {
+        return null;
     }
 	
     //Forces client to render the firefly over large distances

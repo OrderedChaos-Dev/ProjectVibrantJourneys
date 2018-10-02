@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Loader;
 import vibrantjourneys.blocks.BlockBracketFungus;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFallenTree implements IWorldGenerator
 {
@@ -120,7 +121,8 @@ public class WorldGenFallenTree implements IWorldGenerator
 					{
 						if(random.nextBoolean())
 						{
-							world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
+							if(PVJConfig.worldgen.bracketFungusDensity > 0)
+								world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
 						}
 					}
 					if(hasBranch)
@@ -150,7 +152,8 @@ public class WorldGenFallenTree implements IWorldGenerator
 								{
 									if(random.nextBoolean())
 									{
-										world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
+										if(PVJConfig.worldgen.bracketFungusDensity > 0)
+											world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
 									}
 								}
 								hasBranch = false;

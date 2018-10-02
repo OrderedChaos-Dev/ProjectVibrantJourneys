@@ -110,7 +110,8 @@ public class PVJConfig
 		@Config.Name("Building: Enable Stone Type Blocks")
 		public boolean enableStoneTypeBlocks = true;
 		
-		
+		@Config.Name("Ores: Enable Aquamarine")
+		public boolean enableAquamarine = true;
 	}
 	
 	public static class WorldGenSubCategory
@@ -254,6 +255,8 @@ public class PVJConfig
 		public boolean enableFrozenCaves = true;
 		public boolean enableSandstoneCaves = true;
 		public boolean enableOvergrownCaves = true;
+		
+		public int pillowBasaltDensity = 70;
 	}
 	
 	public static class BiomesSubCategory

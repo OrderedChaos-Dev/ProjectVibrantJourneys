@@ -38,6 +38,8 @@ public class PVJItems
 	public static Item mystical_potato;
 	public static Item mystical_rabbit;
 	
+	public static Item aquamarine;
+	
 	public static Item wax;
 	
 	public static void initItems()
@@ -56,6 +58,10 @@ public class PVJItems
 		goon_bile = registerItem(new Item(), "goon_bile");
 		unstable_essence = registerItem(new Item(), "unstable_essence");
 		
+		aquamarine = registerItem(new Item(), "aquamarine");
+		
+		wax = registerItem(new Item(), "wax");
+		
 		if(PVJConfig.master.enableMysticalGrill)
 		{
 			mystical_porkchop = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_PORKCHOP), "mystical_porkchop");
@@ -67,8 +73,6 @@ public class PVJItems
 			mystical_potato = registerItem(new ItemMysticalFood((ItemFood) Items.BAKED_POTATO), "mystical_potato");
 			mystical_rabbit = registerItem(new ItemMysticalFood((ItemFood) Items.COOKED_RABBIT), "mystical_rabbit");	
 		}
-		
-		wax = registerItem(new Item(), "wax");
 		
 		PotionHelper.addMix(PotionTypes.AWKWARD, spectral_wrappings, PotionTypes.INVISIBILITY);
 		PotionHelper.addMix(PotionTypes.AWKWARD, goon_bile, PotionTypes.POISON);
