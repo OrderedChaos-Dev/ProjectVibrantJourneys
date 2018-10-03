@@ -97,6 +97,8 @@ public class BiomeReferenceBOP
 		addBiomeToList(BiomeReference.MANGROVE_TREES, BOPBiomes.mangrove);
 		addBiomeToList(BiomeReference.MANGROVE_TREES, BOPBiomes.marsh);
 		
+		addBiomeToList(BiomeReference.COTTONWOOD_TREES, BOPBiomes.orchard);
+		
 		addBiomeToList(BiomeReference.BOP_BAMBOO_TREES, BOPBiomes.bamboo_forest);
 		
 		addBiomeToList(BiomeReference.BOP_MANGROVE_TREES, BOPBiomes.mangrove);

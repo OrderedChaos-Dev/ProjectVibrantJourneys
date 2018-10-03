@@ -129,8 +129,8 @@ public class PVJConfig
 		public int aspenDensity = 20;
 		public int redMapleDensity = 15;
 		public int orangeMapleDensity = 15;
-		public int baobabDensity = 5;
-		public int cottonwoodDensity = 6;
+		public int baobabDensity = 4;
+		public int cottonwoodDensity = 2;
 		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
@@ -256,7 +256,11 @@ public class PVJConfig
 		public boolean enableSandstoneCaves = true;
 		public boolean enableOvergrownCaves = true;
 		
-		public int pillowBasaltDensity = 70;
+		public int basaltDensity = 20;
+		public int pillowBasaltDensity = 30;
+		public int marbleDensity = 15;
+		public int limestoneDensity = 20;
+		public int siltstoneDensity = 20;
 	}
 	
 	public static class BiomesSubCategory

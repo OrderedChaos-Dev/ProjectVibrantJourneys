@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import vibrantjourneys.integration.biomesoplenty.PVJWorldGenerationBOP;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
@@ -30,6 +31,7 @@ import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenPillowBasalt;
 import vibrantjourneys.worldgen.WorldGenRiverGrass;
+import vibrantjourneys.worldgen.WorldGenRocks;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 import vibrantjourneys.worldgen.WorldGenStalactite;
@@ -62,7 +64,14 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		}
 		
-		registerWorldGen(new WorldGenPillowBasalt(PVJConfig.worldgen.pillowBasaltDensity));
+		if(PVJConfig.master.enableStoneTypeBlocks)
+		{
+			registerWorldGen(new WorldGenPillowBasalt(PVJConfig.worldgen.pillowBasaltDensity));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.BASALT.getID()), 25, 65, PVJConfig.worldgen.basaltDensity, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 20, 65, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 18, 65, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 20, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+		}
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{

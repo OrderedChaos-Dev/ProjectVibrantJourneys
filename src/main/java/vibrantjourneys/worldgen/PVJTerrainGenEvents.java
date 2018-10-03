@@ -1,4 +1,4 @@
-package vibrantjourneys.util;
+package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
@@ -9,10 +9,9 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.PVJConfig;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import vibrantjourneys.worldgen.WorldGenBaobabTree;
-import vibrantjourneys.worldgen.WorldGenCottonwoodTree;
-import vibrantjourneys.worldgen.WorldGenPVJDungeon;
 
 public class PVJTerrainGenEvents
 {

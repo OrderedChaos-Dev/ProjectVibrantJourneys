@@ -25,8 +25,8 @@ import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.GuiHandler;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJEvents;
-import vibrantjourneys.util.PVJTerrainGenEvents;
 import vibrantjourneys.util.Reference;
+import vibrantjourneys.worldgen.PVJTerrainGenEvents;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:*")
 public class ProjectVibrantJourneys
