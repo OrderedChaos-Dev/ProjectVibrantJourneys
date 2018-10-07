@@ -12,7 +12,6 @@ public class BlockGlowcap extends BlockPVJMushroom
 {
 	public BlockGlowcap()
 	{
-		super();
 		this.setLightLevel(0.75F);
 	}
 	

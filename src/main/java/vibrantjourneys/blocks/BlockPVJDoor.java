@@ -49,12 +49,6 @@ public class BlockPVJDoor extends BlockDoor implements IPropertyHelper
     }
 	
 	@Override
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
-    {
-        return MapColor.WOOD;
-    }
-	
-	@Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
     	return Blocks.OAK_DOOR.getFlammability(world, pos, face);

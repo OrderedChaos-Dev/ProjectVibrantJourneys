@@ -9,7 +9,7 @@ public class BlockStoneBlock extends Block
 {
 	public BlockStoneBlock(float hardness, float resistance, MapColor mapColor)
 	{
-		super(Material.ROCK, mapColor);
+		super(Material.ROCK);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
 		this.setSoundType(SoundType.STONE);
