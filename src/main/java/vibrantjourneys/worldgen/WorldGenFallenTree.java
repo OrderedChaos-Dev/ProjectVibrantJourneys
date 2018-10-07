@@ -84,7 +84,7 @@ public class WorldGenFallenTree implements IWorldGenerator
 			//checks if lostcities is installed and disables fallen trees in city buildings by adding world.canSeeSky() check
 			if(Loader.isModLoaded("lostcities"))
 			{
-				if(!world.canSeeSky(new BlockPos(xPos, y, zPos)))
+				if(!world.canBlockSeeSky(new BlockPos(xPos, y, zPos)))
 				{
 					for(int i = 0; i < 255 - y; i++)
 					{

@@ -243,6 +243,8 @@ tile.maple_trapdoor.name=Maple Trapdoor
 tile.baobab_trapdoor.name=Baobab Trapdoor
 tile.cottonwood_trapdoor.name=Cottonwood Trapdoor
 
+tile.wet_adobe.name=Wet Adobe
+
 tile.basalt.name=Basalt
 tile.limestone.name=Limestone
 tile.marble.name=Marble

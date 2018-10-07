@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:adobe",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:adobe_slab",
+		"count": 6,
+		"data": 0
+	}
+}

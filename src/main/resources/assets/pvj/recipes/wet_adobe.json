@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CSC",
+		"SDS",
+		"CSC"
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:clay",
+			"data": 0
+		},
+		"S": {
+			"item": "minecraft:sand",
+			"data": 0
+		},
+		"D": {
+			"item": "minecraft:dirt",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:wet_adobe",
+		"count": 8,
+		"data": 0
+	}
+}

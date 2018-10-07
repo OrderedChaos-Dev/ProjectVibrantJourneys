@@ -3,7 +3,6 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -42,7 +41,6 @@ import vibrantjourneys.blocks.BlockPVJHalfSlab;
 import vibrantjourneys.blocks.BlockPVJLeaves;
 import vibrantjourneys.blocks.BlockPVJLog;
 import vibrantjourneys.blocks.BlockPVJMushroom;
-import vibrantjourneys.blocks.BlockPVJOre;
 import vibrantjourneys.blocks.BlockPVJPlanks;
 import vibrantjourneys.blocks.BlockPVJPlant;
 import vibrantjourneys.blocks.BlockPVJPressurePlate;
@@ -53,6 +51,7 @@ import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockStoneBlock;
 import vibrantjourneys.blocks.BlockWeed;
+import vibrantjourneys.blocks.BlockWetAdobe;
 import vibrantjourneys.blocks.BlockWildCrop;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.items.ItemBracketFungus;
@@ -105,6 +104,7 @@ public class PVJBlocks
 	public static Block pinecones;
 	
 	public static Block cracked_sand, red_cracked_sand;
+	public static Block wet_adobe;
 	public static Block silt, mud, loam;
 
 	public static Block short_grass;
@@ -263,6 +263,8 @@ public class PVJBlocks
 		
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{
+			wet_adobe = registerBlock(new BlockWetAdobe(), "wet_adobe");
+			
 			for(EnumStoneType stone : EnumStoneType.values())
 				STONES.add(registerBlock(new BlockStoneBlock(stone.getHardness(), stone.getResistance(), stone.getMapColor()), stone.getName()));
 			

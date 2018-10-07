@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CC",
+		"CC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:basalt",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:basalt_brick",
+		"count": 4,
+		"data": 0
+	}
+}
