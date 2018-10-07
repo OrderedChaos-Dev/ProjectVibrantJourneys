@@ -28,7 +28,7 @@ import vibrantjourneys.util.PVJEvents;
 import vibrantjourneys.util.Reference;
 import vibrantjourneys.worldgen.PVJTerrainGenEvents;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:*")
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:biomesoplenty")
 public class ProjectVibrantJourneys
 {   
     @Instance(Reference.MOD_ID)

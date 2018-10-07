@@ -107,11 +107,11 @@ public class PVJConfig
 		@Config.Name("Building: Enable Lighting Blocks")
 		public boolean enableLighting = true;
 		
-		@Config.Name("Building: Enable Stone Type Blocks")
+		@Config.Name("Building: Enable Stone Blocks")
 		public boolean enableStoneTypeBlocks = true;
 		
-		@Config.Name("Ores: Enable Aquamarine")
-		public boolean enableAquamarine = true;
+		//@Config.Name("Ores: Enable Aquamarine")
+		//public boolean enableAquamarine = true;
 	}
 	
 	public static class WorldGenSubCategory

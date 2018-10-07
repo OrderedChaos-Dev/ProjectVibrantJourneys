@@ -92,94 +92,53 @@ public class PVJBlocks
 	
 	public static Block coconut;
 	
-	public static Block fallenleaves_oak;
-	public static Block fallenleaves_birch;
-	public static Block fallenleaves_spruce;
-	public static Block fallenleaves_jungle;
-	public static Block fallenleaves_darkoak;
-	public static Block fallenleaves_acacia;
-	public static Block fallenleaves_dead;
+	public static Block fallenleaves_oak, fallenleaves_birch, fallenleaves_spruce, fallenleaves_jungle, fallenleaves_darkoak,
+						fallenleaves_acacia, fallenleaves_dead;
 	
 	//1.13: allow waterlogged
-	public static Block stone_rocks;
-	public static Block cobblestone_rocks;
-	public static Block mossy_cobblestone_rocks;
-	public static Block andesite_rocks;
-	public static Block granite_rocks;
-	public static Block diorite_rocks;
-	public static Block sandstone_rocks;
-	public static Block red_sandstone_rocks;
+	public static Block stone_rocks, cobblestone_rocks, mossy_cobblestone_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
+						red_sandstone_rocks;
 	
-	public static Block oak_twigs;
-	public static Block birch_twigs;
-	public static Block spruce_twigs;
-	public static Block jungle_twigs;
-	public static Block acacia_twigs;
-	public static Block dark_oak_twigs;
-	
-	//1.13: allow waterlogged
+	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, acacia_twigs, dark_oak_twigs;
 	public static Block bones;
+	public static Block seashells;
+	public static Block pinecones;
 	
-	public static Block cracked_sand;
-	public static Block red_cracked_sand;
+	public static Block cracked_sand, red_cracked_sand;
+	public static Block silt, mud, loam;
 
 	public static Block short_grass;
-	public static Block wild_wheat;
-	public static Block wild_potato;
-	public static Block wild_carrot;
-	public static Block wild_beetroot;
+	public static Block wild_wheat, wild_potato, wild_carrot, wild_beetroot;
 	public static Block frost_lotus;
 	public static Block silverleaf;
-	public static Block frogbit;
-	public static Block duckweed;
-	public static Block chickweed;
-	public static Block clovers;
-	public static Block crabgrass;
+	public static Block frogbit, duckweed;
+	public static Block chickweed, clovers, crabgrass;
 	public static Block small_cactus;
 	public static Block bracket_fungus;
-	public static Block waxcap;
-	public static Block orange_mushroom;
-	public static Block deathcap;
+	public static Block waxcap, orange_mushroom, deathcap;
 	public static Block cattail;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
 	
-	public static Block rock_formation;
-	public static Block ice_formation;
+	public static Block rock_formation, ice_formation;
 	
 	public static Block aquamarine_ore;
 	public static Block aquamarine_block;
 	
 	public static Block mystical_grill;
 	
-	public static Block cobblestone_chimney;
-	public static Block stone_chimney;
-	public static Block brick_chimney;
-	public static Block stonebrick_chimney;
-	public static Block cobblestone_brick_chimney;
-	public static Block sandstone_chimney;
-	public static Block netherbrick_chimney;
+	public static Block cobblestone_chimney, stone_chimney, brick_chimney, stonebrick_chimney, cobblestone_brick_chimney,
+						sandstone_chimney, netherbrick_chimney;
 	
-	public static Block cobblestone_chimney_top;
-	public static Block stone_chimney_top;
-	public static Block brick_chimney_top;
-	public static Block stonebrick_chimney_top;
-	public static Block cobblestone_brick_chimney_top;
-	public static Block sandstone_chimney_top;
-	public static Block netherbrick_chimney_top;
+	public static Block cobblestone_chimney_top, stone_chimney_top, brick_chimney_top, stonebrick_chimney_top, cobblestone_brick_chimney_top,
+						sandstone_chimney_top, netherbrick_chimney_top;
 	
 	public static Block cobblestone_brick_wall;
 	
-	//1.13: allow waterlogged
-	public static Block seashells;
-	public static Block pinecones;
-	
 	public static Block campfire;
 	public static Block candle;
-	public static Block glowstone_lamp_wood;
-	public static Block glowstone_lamp_stone;
-	public static Block glowstone_lamp_iron;
+	public static Block glowstone_lamp_wood, glowstone_lamp_stone, glowstone_lamp_iron;
 	public static Block lantern;
 	public static Block lantern_candle;
 	public static Block lava_lamp;
@@ -323,11 +282,11 @@ public class PVJBlocks
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
 		}
 		
-		if(PVJConfig.master.enableAquamarine)
+		/*if(PVJConfig.master.enableAquamarine)
 		{
 			aquamarine_ore = registerBlock(new BlockPVJOre(PVJItems.aquamarine), "aquamarine_ore");
 			aquamarine_block = registerBlock(new BlockStoneBlock(5.0F, 10.0F, MapColor.DIAMOND), "aquamarine_block");
-		}
+		}*/
 		
 		if(PVJConfig.master.enableMysticalGrill)
 		{
