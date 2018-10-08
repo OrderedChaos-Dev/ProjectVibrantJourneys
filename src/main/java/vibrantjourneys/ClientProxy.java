@@ -121,6 +121,9 @@ public class ClientProxy implements ICommonProxy
 	public void registerBlockColors()
 	{
 		registerGrassColor(PVJBlocks.short_grass);
+		registerGrassColor(PVJBlocks.chickweed);
+		registerGrassColor(PVJBlocks.crabgrass);
+		registerGrassColor(PVJBlocks.clovers);
 		
     	registerFallenLeavesColor(PVJBlocks.fallenleaves_oak, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK, Blocks.LEAVES, -1);
     	registerFallenLeavesColor(PVJBlocks.fallenleaves_birch, BlockOldLeaf.VARIANT, BlockPlanks.EnumType.BIRCH, Blocks.LEAVES, ColorizerFoliage.getFoliageColorBirch());
