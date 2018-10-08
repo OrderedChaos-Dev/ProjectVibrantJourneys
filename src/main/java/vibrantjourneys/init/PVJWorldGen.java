@@ -7,7 +7,8 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import vibrantjourneys.integration.biomesoplenty.PVJWorldGenerationBOP;
+import vibrantjourneys.integration.biomesoplenty.PVJWorldGenBOP;
+import vibrantjourneys.integration.traverse.PVJWorldGenTraverse;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumStoneType;
@@ -206,9 +207,10 @@ public class PVJWorldGen
 		}
 		
 		if(Reference.isBOPLoaded)
-		{
-			PVJWorldGenerationBOP.initWorldGenBOP();
-		}
+			PVJWorldGenBOP.initWorldGenBOP();
+		
+		if(Reference.isTraverseLoaded)
+			PVJWorldGenTraverse.initWorldGenBOP();
 	}
 	
 	public static void registerWorldGen(IWorldGenerator worldgen)

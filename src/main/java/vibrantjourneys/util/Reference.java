@@ -8,4 +8,5 @@ public class Reference
     public static final String SERVER = "vibrantjourneys.ServerProxy";
     
     public static boolean isBOPLoaded = false;
+    public static boolean isTraverseLoaded = false;
 }

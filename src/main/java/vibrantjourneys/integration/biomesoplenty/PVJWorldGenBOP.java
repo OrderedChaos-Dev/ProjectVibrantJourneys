@@ -8,7 +8,7 @@ import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenGroundCover;
 
-public class PVJWorldGenerationBOP
+public class PVJWorldGenBOP
 {
 	public static void initWorldGenBOP()
 	{

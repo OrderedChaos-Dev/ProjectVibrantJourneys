@@ -54,6 +54,7 @@ import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWetAdobe;
 import vibrantjourneys.blocks.BlockWildCrop;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
+import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.items.ItemBracketFungus;
 import vibrantjourneys.items.ItemCoconut;
 import vibrantjourneys.items.ItemFloatingPlant;
@@ -337,6 +338,9 @@ public class PVJBlocks
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();
+		
+		if(Reference.isTraverseLoaded)
+			PVJBlocksTraverse.initTraverseBlocks();
 	}
 	
 	public static Block registerBlock(Block block, String name)

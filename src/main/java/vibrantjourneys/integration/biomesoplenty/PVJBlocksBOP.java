@@ -25,14 +25,14 @@ public class PVJBlocksBOP
 			String name = trees.getName();
 			Block block = PVJBlocks.registerBlock(new BlockFallenLeaves(), "fallenleaves_bop_" + name);
 			FALLENLEAVES_BOP.add(block);
-			BLOCK_INFO_FALLENLEAVES.add(new BOPBlockInfo(block, PVJWorldGenerationBOP.getDensityFallenLeaves(name), BiomeReferenceBOP.getBiomeReference(name)));
+			BLOCK_INFO_FALLENLEAVES.add(new BOPBlockInfo(block, PVJWorldGenBOP.getDensityFallenLeaves(name), BiomeReferenceBOP.getBiomeReference(name)));
 		}
 		for(BOPTrees trees : BOPTrees.values())
 		{
 			String name = trees.getName();
 			Block block = PVJBlocks.registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), name + "_bop_twigs");
 			TWIGS_BOP.add(block);
-			BLOCK_INFO_TWIGS.add(new BOPBlockInfo(block, PVJWorldGenerationBOP.getDensityTwigs(name), BiomeReferenceBOP.getBiomeReference(name)));
+			BLOCK_INFO_TWIGS.add(new BOPBlockInfo(block, PVJWorldGenBOP.getDensityTwigs(name), BiomeReferenceBOP.getBiomeReference(name)));
 		}
 	}
 }

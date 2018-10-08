@@ -28,7 +28,7 @@ import vibrantjourneys.util.PVJEvents;
 import vibrantjourneys.util.Reference;
 import vibrantjourneys.worldgen.PVJTerrainGenEvents;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:biomesoplenty")
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = "{@pvjVersion}", dependencies="after:biomesoplenty;after:traverse")
 public class ProjectVibrantJourneys
 {   
     @Instance(Reference.MOD_ID)
@@ -46,6 +46,13 @@ public class ProjectVibrantJourneys
     		System.out.println("Project: Vibrant Journeys has detected that you also have Biomes O' Plenty installed!");
     		Reference.isBOPLoaded = true;
     	}
+    	
+    	if(Loader.isModLoaded("traverse"))
+    	{
+    		System.out.println("Project: Vibrant Journeys has detected that you also have Traverse installed!");
+    		Reference.isTraverseLoaded = true;
+    	}
+    	
     	PVJEntities.initEntities();
     	PVJBlocks.initBlocks();
     	PVJItems.initItems();
