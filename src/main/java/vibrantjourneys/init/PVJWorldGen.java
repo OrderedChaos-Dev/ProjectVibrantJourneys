@@ -51,7 +51,6 @@ public class PVJWorldGen
 		{
 			registerWorldGen(new WorldGenStalagmite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalagmiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenStalactite(PVJBlocks.rock_formation, 0, 70, PVJConfig.worldgen.stalactiteDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenStalagmite(PVJBlocks.ice_formation, 0, 70, PVJConfig.worldgen.icicleDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			registerWorldGen(new WorldGenStalactite(PVJBlocks.ice_formation, 0, 70, PVJConfig.worldgen.icicleDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
 			
 			

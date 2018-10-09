@@ -13,6 +13,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockRockFormation;
+import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenStalactite implements IWorldGenerator
 {
@@ -63,7 +64,9 @@ public class WorldGenStalactite implements IWorldGenerator
 				if(world.canSeeSky(pos.up())) //caves only!
 					return;
 				
-				if(world.getBlockState(pos.up()).getMaterial() == Material.ROCK && world.isSideSolid(pos.up(), EnumFacing.DOWN))
+				if((world.getBlockState(pos.up()).getMaterial() == Material.ROCK ||
+						block == PVJBlocks.ice_formation && world.getBlockState(pos.up()).getMaterial() == Material.PACKED_ICE)
+						&& world.isSideSolid(pos.up(), EnumFacing.DOWN))
 				{
 					for(int size = 0; size < 3; size++)
 					{
