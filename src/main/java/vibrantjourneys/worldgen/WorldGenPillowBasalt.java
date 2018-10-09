@@ -46,6 +46,16 @@ public class WorldGenPillowBasalt implements IWorldGenerator
 					for(int up = 1; up < rand.nextInt(3) + 2; up++)
 						this.formCircleLayer(world, pos.up(up), 4 - up);
 					
+					for(int p = 0; p <= 2; p++)
+					{
+						if(rand.nextBoolean())
+						{
+							BlockPos pos1 = pos.add(rand.nextInt(5) - rand.nextInt(5), 0, rand.nextInt(5) - rand.nextInt(5));
+							for(int up = 1; up < rand.nextInt(3) + 2; up++)
+								this.formCircleLayer(world, pos1.up(up), 4 - up);
+						}
+					}
+					
 					break;
 				}
 			}

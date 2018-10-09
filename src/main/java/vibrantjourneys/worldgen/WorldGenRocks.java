@@ -1,5 +1,6 @@
 package vibrantjourneys.worldgen;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -10,7 +11,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import scala.actors.threadpool.Arrays;
 
 public class WorldGenRocks implements IWorldGenerator
 {
@@ -30,6 +30,7 @@ public class WorldGenRocks implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
+		Random rand = new Random();
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		
@@ -41,11 +42,11 @@ public class WorldGenRocks implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				xPos = x + random.nextInt(8);
-				yPos = 1 + random.nextInt(maxHeight);
-				zPos = z + random.nextInt(8);
+				xPos = x + rand.nextInt(5) -  + rand.nextInt(5);
+				yPos = 1 + rand.nextInt(maxHeight);
+				zPos = z + rand.nextInt(5) -  + rand.nextInt(5);
 				
-				this.rockGen.generate(world, random, new BlockPos(xPos, yPos, zPos));
+				this.rockGen.generate(world, rand, new BlockPos(xPos, yPos, zPos));
 			}
 		}
 	}

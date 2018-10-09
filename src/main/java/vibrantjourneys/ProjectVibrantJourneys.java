@@ -43,13 +43,13 @@ public class ProjectVibrantJourneys
     	//BoP support :)
     	if(Loader.isModLoaded("biomesoplenty"))
     	{
-    		System.out.println("Project: Vibrant Journeys has detected that you also have Biomes O' Plenty installed!");
+    		System.out.println("Project: Vibrant Journeys detected that you also have Biomes O' Plenty installed!");
     		Reference.isBOPLoaded = true;
     	}
-    	
+    	//Traverse support :)
     	if(Loader.isModLoaded("traverse"))
     	{
-    		System.out.println("Project: Vibrant Journeys has detected that you also have Traverse installed!");
+    		System.out.println("Project: Vibrant Journeys detected that you also have Traverse installed!");
     		Reference.isTraverseLoaded = true;
     	}
     	

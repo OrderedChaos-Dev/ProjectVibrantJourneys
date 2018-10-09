@@ -229,9 +229,9 @@ public class PVJConfig
 		public int pineconesDensity = 150;
 		
 		public int wildWheatDensity = 20;
-		public int wildPotatoDensity = 5;
-		public int wildCarrotDensity = 5;
-		public int wildBeetrootDensity = 5;
+		public int wildPotatoDensity = 2;
+		public int wildCarrotDensity = 2;
+		public int wildBeetrootDensity = 2;
 		public int frostLotusDensity = 15;
 		public int silverleafDensity = 30;
 		public int chickweedDensity = 350;
@@ -257,7 +257,7 @@ public class PVJConfig
 		public boolean enableOvergrownCaves = true;
 		
 		public int basaltDensity = 20;
-		public int pillowBasaltDensity = 30;
+		public int pillowBasaltDensity = 3;
 		public int marbleDensity = 15;
 		public int limestoneDensity = 20;
 		public int siltstoneDensity = 20;
@@ -275,11 +275,11 @@ public class PVJConfig
 	
 	public static class EntitiesSubCategory
 	{
-		public int snailSpawnWeight = 60;
-		public int flySpawnWeight = 120;
-		public int flySwampSpawnWeight = 200;
+		public int snailSpawnWeight = 40;
+		public int flySpawnWeight = 100;
+		public int flySwampSpawnWeight = 170;
 		public int fireflySpawnWeight = 350;
-		public int spiderSpawnWeight = 50;
+		public int spiderSpawnWeight = 40;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		

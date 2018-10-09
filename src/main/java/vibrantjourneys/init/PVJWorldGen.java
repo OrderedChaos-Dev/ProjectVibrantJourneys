@@ -68,10 +68,10 @@ public class PVJWorldGen
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{
 			registerWorldGen(new WorldGenPillowBasalt(PVJConfig.worldgen.pillowBasaltDensity));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.BASALT.getID()), 25, 65, PVJConfig.worldgen.basaltDensity, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0])));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 20, 65, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 18, 65, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 20, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.BASALT.getID()), 12, 65, PVJConfig.worldgen.basaltDensity, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 12, 65, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 65, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 12, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
 		
 		if(PVJConfig.master.enableFallenTrees)

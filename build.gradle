@@ -47,7 +47,8 @@ minecraft {
 }
 
 dependencies {
-	provided 'biomesoplenty:BiomesOPlenty:1.12.2:universal'
+	//provided 'biomesoplenty:BiomesOPlenty:1.12.2:universal'
+	//provided 'traverse:Traverse:1.12.2:1.6.0'
 
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..

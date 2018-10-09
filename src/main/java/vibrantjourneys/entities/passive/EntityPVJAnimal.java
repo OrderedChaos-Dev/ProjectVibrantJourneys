@@ -65,6 +65,6 @@ public class EntityPVJAnimal extends EntityAnimal
 	@Override
     public boolean processInteract(EntityPlayer player, EnumHand hand)
     {
-		return super.processInitialInteract(player, hand);
+		return false;
     }
 }
