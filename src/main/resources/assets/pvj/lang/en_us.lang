@@ -390,3 +390,17 @@ tile.ebony_bop_twigs.name=Ebony Twigs
 tile.eucalyptus_bop_twigs.name=Eucalyptus Twigs
 tile.red_big_flower_bop_twigs.name=unused
 tile.yellow_big_flower_bop_twigs.name=unused
+
+#Traverse Objects
+#----------------------------------------------------------------------------------------------------
+tile.fallenleaves_traverse_red_autumn.name=Red Autumnal Fallen Leaves
+tile.fallenleaves_traverse_brown_autumn.name=Brown Autumnal Fallen Leaves
+tile.fallenleaves_traverse_orange_autumn.name=Orange Autumnal Fallen Leaves
+tile.fallenleaves_traverse_yellow_autumn.name=Yellow Autumnal Fallen Leaves
+tile.fallenleaves_traverse_fir.name=Fir Fallen Leaves
+
+tile.red_autumn_traverse_twigs.name=Red Autumnal Twigs
+tile.brown_autumn_traverse_twigs.name=Brown Autumnal Twigs
+tile.orange_autumn_traverse_twigs.name=Orange Autumnal Twigs
+tile.yellow_autumn_traverse_twigs.name=Yellow Autumnal Twigs
+tile.fir_traverse_twigs.name=Fir Twigs

@@ -15,6 +15,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.integration.biomesoplenty.BiomeReferenceBOP;
+import vibrantjourneys.integration.traverse.BiomeReferenceTraverse;
 
 /**
  * Used by PVJWorldGen.class to generate biome/tree based structures.
@@ -89,6 +90,13 @@ public class BiomeReference
 	public static final ArrayList<Biome> BOP_HELLBARK_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> BOP_SACRED_OAK_TREES = new ArrayList<Biome>();
 	
+	//TRAVERSE TREES
+	public static final ArrayList<Biome> TRAVERSE_RED_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> TRAVERSE_BROWN_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> TRAVERSE_ORANGE_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> TRAVERSE_YELLOW_AUTUMN_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> TRAVERSE_FIR_TREES = new ArrayList<Biome>();
+	
 	public static void loadAllBiomeReferences()
 	{
 		loadOakTrees();
@@ -128,9 +136,9 @@ public class BiomeReference
 		loadLilyPadBiomes();
 		
 		if(Reference.isBOPLoaded)
-		{
 			BiomeReferenceBOP.loadBOPBiomes();
-		}
+		if(Reference.isTraverseLoaded)
+			BiomeReferenceTraverse.loadTraverseBiomes();
 	}
 	
 	public static void loadOakTrees()

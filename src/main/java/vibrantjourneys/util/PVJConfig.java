@@ -306,8 +306,11 @@ public class PVJConfig
 	
 	public static class IntegrationCategory
 	{
-		@Config.LangKey("config.pvj.bop")
+		@Config.Name("Biomes O' Plenty")
 		public BOPSubCategory bopworldgen = new BOPSubCategory();
+		
+		@Config.Name("Traverse")
+		public TraverseSubCategory traverseworldgen = new TraverseSubCategory();
 	}
 	
 	public static class BOPSubCategory
@@ -370,6 +373,24 @@ public class PVJConfig
 		public int twigsCherryDensity = 200;
 		public int twigsAutumnDensity = 200;
 		public int twigsMapleDensity = 200;
+	}
+	
+	public static class TraverseSubCategory
+	{
+		public int fallenTreeAutumnDensity = 5;
+		public int fallenTreeFirDensity = 20;
+		
+		public int fallenLeavesRedAutumnDensity = 15;
+		public int fallenLeavesBrownAutumnDensity = 15;
+		public int fallenLeavesYellowAutumnDensity = 15;
+		public int fallenLeavesOrangeAutumnDensity = 15;
+		public int fallenLeavesFirDensity = 30;
+		
+		public int twigsRedAutumnDensity = 60;
+		public int twigsBrownAutumnDensity = 60;
+		public int twigsYellowAutumnDensity = 60;
+		public int twigsOrangeAutumnDensity = 60;
+		public int twigsFirDensity = 200;
 	}
 	
 	@Mod.EventBusSubscriber
