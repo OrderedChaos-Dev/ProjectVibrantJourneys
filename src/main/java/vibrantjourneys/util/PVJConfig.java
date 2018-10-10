@@ -130,7 +130,7 @@ public class PVJConfig
 		public int redMapleDensity = 15;
 		public int orangeMapleDensity = 15;
 		public int baobabDensity = 4;
-		public int cottonwoodDensity = 2;
+		public int cottonwoodDensity = 3;
 		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
@@ -270,16 +270,16 @@ public class PVJConfig
 		public int willowSwampWeight = 6;
 		public int borealForestWeight = 10;
 		public int snowyBorealForestWeight = 10;
-		public int aspenGroveWeight = 10;
+		public int aspenGroveWeight = 9;
 	}
 	
 	public static class EntitiesSubCategory
 	{
 		public int snailSpawnWeight = 40;
-		public int flySpawnWeight = 100;
-		public int flySwampSpawnWeight = 170;
+		public int flySpawnWeight = 95;
+		public int flySwampSpawnWeight = 160;
 		public int fireflySpawnWeight = 350;
-		public int spiderSpawnWeight = 40;
+		public int spiderSpawnWeight = 35;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		
@@ -287,7 +287,7 @@ public class PVJConfig
 		
 		public int shadeSpawnWeight = 55;
 		public int icecubeSpawnWeight = 35;
-		public int skeletalKnightWeight = 55;
+		public int skeletalKnightWeight = 45;
 		public int goonSpawnWeight = 20;
 	}
 	

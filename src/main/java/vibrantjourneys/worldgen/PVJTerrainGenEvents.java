@@ -55,7 +55,7 @@ public class PVJTerrainGenEvents
 			}
 			if(BiomeReference.COTTONWOOD_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(25) <= PVJConfig.worldgen.cottonwoodDensity)
+				if(event.getRand().nextInt(25) < PVJConfig.worldgen.cottonwoodDensity)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCottonwoodTree(false)).generate(event.getWorld(), event.getRand(), pos);
