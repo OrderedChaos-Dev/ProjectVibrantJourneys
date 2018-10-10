@@ -2,7 +2,7 @@ package vibrantjourneys.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumStoneType;
 
-public class BlockWetAdobe extends Block
+public class BlockWetAdobe extends BlockFalling
 {
 	public BlockWetAdobe()
 	{
@@ -24,6 +24,8 @@ public class BlockWetAdobe extends Block
 	@Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
+		super.updateTick(world, pos, state, rand);
+		
     	if(this.canBlockSeeSky(world, pos))
     	{
     		if(!world.isRaining())
