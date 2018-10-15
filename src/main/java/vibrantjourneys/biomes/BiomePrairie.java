@@ -24,7 +24,7 @@ public class BiomePrairie extends Biome
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 3, 2, 3));
 		
         this.decorator.treesPerChunk = 0;
-        this.decorator.extraTreeChance = 0.03F;
+        this.decorator.extraTreeChance = 0.01F;
         this.decorator.flowersPerChunk = 1;
 	}
 	

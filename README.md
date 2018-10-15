@@ -12,11 +12,12 @@ The current version was built with Minecraft 1.12.2 and MinecraftForge v14.23.4.
 
 **These links are the official threads for this mod:**
 
+[CurseForge](https://minecraft.curseforge.com/projects/project-vibrant-journeys)
+
 [MinecraftForum](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/2919274-project-vibrant-journeys-v1-0-0-enhance-your-world)
 
 [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/)
 
-[CurseForge](https://minecraft.curseforge.com/projects/project-vibrant-journeys)
 
 If you have any issues or feature requests, feel free to submit them here under the "issues" tab or comment on one of the forum links above.
 For feature requests, please check the wiki to see if it is already planned.
@@ -38,7 +39,7 @@ Be patient. Many mods are worked on by a team of programmers. I am only one pers
 Read somewhere above.
 
 4. Can I put this in my modpack?  
-As long as your modpack is NOT monetized, and it links to either the PlanetMinecraft thread, the MinecraftForum thread, or this Github repo, as well as give credits to me (jt9), then sure, go ahead. Read the license below for further info.
+As long as your modpack is NOT monetized, and it links to either the CurseForge page, the PlanetMinecraft thread, the MinecraftForum thread, or this Github repo, as well as give credits to me (jt9), then sure, go ahead. Read the license below for further info.
 
 5. Can I modify this mod for my own reasons?  
 Yes, actually. Feel free to download the source and make your own changes/additions, under the conditions stated in the license below. For any modifications to improve anything in the code, submit a pull request and I will review it.

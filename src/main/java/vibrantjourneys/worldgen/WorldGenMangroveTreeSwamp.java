@@ -12,6 +12,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.init.PVJBiomes;
 
 public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 {
@@ -33,20 +34,23 @@ public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 		
 		if(BiomeDictionary.hasType(biome, Type.SWAMP) || BiomeDictionary.hasType(biome, Type.JUNGLE))
 		{
-			for(int i = 0; i < frequency; i++)
+			if(biome != PVJBiomes.mudlands)
 			{
-				int xPos = x + random.nextInt(7) - random.nextInt(7);
-				int zPos = z + random.nextInt(7) - random.nextInt(7);
-				int yPos = 63;
-				if(random.nextInt(20) == 0)
+				for(int i = 0; i < frequency; i++)
 				{
-					BlockPos pos = new BlockPos(xPos, yPos, zPos);
-					IBlockState state = world.getBlockState(pos.down());
-					if(state.getMaterial() == Material.WATER)
+					int xPos = x + random.nextInt(7) - random.nextInt(7);
+					int zPos = z + random.nextInt(7) - random.nextInt(7);
+					int yPos = 63;
+					if(random.nextInt(20) == 0)
 					{
-						mangrovetreegen.generate(world, random, pos);
+						BlockPos pos = new BlockPos(xPos, yPos, zPos);
+						IBlockState state = world.getBlockState(pos.down());
+						if(state.getMaterial() == Material.WATER)
+						{
+							mangrovetreegen.generate(world, random, pos);
+						}
 					}
-				}
+				}	
 			}
 		}
 	}

@@ -14,7 +14,10 @@ public enum EnumLeafType
     RED_MAPLE(7, "red_maple", EnumWoodType.MAPLE, PVJConfig.worldgen.fallenLeavesRedMapleDensity, PVJConfig.worldgen.redMapleTwigsDensity),
     ORANGE_MAPLE(8, "orange_maple", EnumWoodType.MAPLE, PVJConfig.worldgen.fallenLeavesOrangeMapleDensity, PVJConfig.worldgen.orangeMapleTwigsDensity),
     BAOBAB(9, "baobab", EnumWoodType.BAOBAB, PVJConfig.worldgen.fallenLeavesBaobabDensity, PVJConfig.worldgen.baobabTwigsDensity),
-    COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity);
+    COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity),
+    CRYSTALBARK(11, "crystalbark", EnumWoodType.CRYSTALBARK, PVJConfig.worldgen.fallenLeavesCrystalbarkDensity, PVJConfig.worldgen.crystalbarkTwigsDensity),
+    BLUE_ARCWOOD(12, "blue_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesBlueArcwoodDensity, PVJConfig.worldgen.blueArcwoodTwigsDensity),
+    PURPLE_ARCWOOD(13, "purple_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesPurpleArcwoodDensity, PVJConfig.worldgen.purpleArcwoodTwigsDensity);
     
     private String name;
     private int id;
@@ -58,7 +61,8 @@ public enum EnumLeafType
     
     public Biome[] getTreeBiomes()
     {
-    	switch(id)
+    	return woodType.getTreeBiomes();
+    	/*switch(id)
     	{
     		case 0:
     		default:
@@ -83,6 +87,6 @@ public enum EnumLeafType
     			return BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES);
     		case 10:
     			return BiomeReference.getValidBiomes(BiomeReference.COTTONWOOD_TREES);
-    	}
+    	}*/
     }
 }

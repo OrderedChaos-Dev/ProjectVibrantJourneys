@@ -155,6 +155,9 @@ public class PVJConfig
 		public int fallenLeavesOrangeMapleDensity = 30;
 		public int fallenLeavesBaobabDensity = 5;
 		public int fallenLeavesCottonwoodDensity = 2;
+		public int fallenLeavesCrystalbarkDensity = 20;
+		public int fallenLeavesBlueArcwoodDensity = 35;
+		public int fallenLeavesPurpleArcwoodDensity = 35;
 		
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
@@ -176,6 +179,8 @@ public class PVJConfig
 		public int fallenTreeMapleDensity = 10;
 		public int fallenTreeBaobabDensity = 3;
 		public int fallenTreeCottonwoodDensity = 1;
+		public int fallenTreeCrystalbarkDensity = 15;
+		public int fallenTreeArcwoodDensity = 15;
 		
 		public int mangroveRootDensity = 2;
 		
@@ -216,6 +221,9 @@ public class PVJConfig
 		public int orangeMapleTwigsDensity = 300;
 		public int baobabTwigsDensity = 20;
 		public int cottonwoodTwigsDensity = 10;
+		public int crystalbarkTwigsDensity = 20;
+		public int blueArcwoodTwigsDensity = 30;
+		public int purpleArcwoodTwigsDensity = 30;
 		
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
@@ -267,10 +275,15 @@ public class PVJConfig
 	{
 		public int prairieWeight = 7;
 		public int redwoodsWeight = 10;
+		public int redwoodPeaksWeight = 9;
 		public int willowSwampWeight = 6;
 		public int borealForestWeight = 10;
 		public int snowyBorealForestWeight = 10;
 		public int aspenGroveWeight = 9;
+		public int mudlandsWeight = 8;
+		public int baobabFieldsWeight = 6;
+		public int paleForestWeight = 7;
+		public int overgrownHeightsWeight = 8;
 	}
 	
 	public static class EntitiesSubCategory

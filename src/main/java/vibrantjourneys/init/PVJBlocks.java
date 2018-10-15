@@ -29,6 +29,7 @@ import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
+import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockNetherPlant;
 import vibrantjourneys.blocks.BlockPVJButton;
@@ -106,7 +107,7 @@ public class PVJBlocks
 	
 	public static Block cracked_sand, red_cracked_sand;
 	public static Block wet_adobe;
-	public static Block silt, mud, loam;
+	public static Block mud;
 
 	public static Block short_grass;
 	public static Block wild_wheat, wild_potato, wild_carrot, wild_beetroot;
@@ -261,6 +262,8 @@ public class PVJBlocks
 
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
+		
+		mud = registerBlock(new BlockMud(), "mud");
 		
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{

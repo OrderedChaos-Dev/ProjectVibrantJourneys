@@ -65,6 +65,8 @@ public class BiomeReference
 	public static final ArrayList<Biome> ORANGE_MAPLE_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> BAOBAB_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> COTTONWOOD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> CRYSTALBARK_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> ARCWOOD_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
 	public static final ArrayList<Biome> BOP_MANGROVE_TREES = new ArrayList<Biome>();
@@ -148,6 +150,7 @@ public class BiomeReference
 		OAK_TREES.add(Biomes.SWAMPLAND);
 		OAK_TREES.add(Biomes.MUTATED_FOREST);
 		OAK_TREES.add(Biomes.MUTATED_SWAMPLAND);
+		OAK_TREES.add(PVJBiomes.pale_forest);
 		
 		OAK_TREES_SPARSE.add(Biomes.JUNGLE);
 		OAK_TREES_SPARSE.add(Biomes.MUTATED_JUNGLE);
@@ -205,6 +208,8 @@ public class BiomeReference
 		ACACIA_TREES.add(Biomes.SAVANNA_PLATEAU);
 		ACACIA_TREES.add(Biomes.MUTATED_SAVANNA);
 		ACACIA_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
+		
+		ACACIA_TREES_SPARSE.add(PVJBiomes.baobab_fields);
 	}
 	
 	public static void loadDarkOakTrees()
@@ -261,7 +266,6 @@ public class BiomeReference
 	public static void loadMapleTrees()
 	{
 		RED_MAPLE_TREES.add(PVJBiomes.aspen_grove);
-		
 		ORANGE_MAPLE_TREES.add(PVJBiomes.aspen_grove);
 	}
 	
@@ -271,6 +275,7 @@ public class BiomeReference
 		BAOBAB_TREES.add(Biomes.SAVANNA_PLATEAU);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
+		BAOBAB_TREES.add(PVJBiomes.baobab_fields);
 	}
 	
 	public static void loadCottonwoodTrees()
@@ -278,6 +283,7 @@ public class BiomeReference
 		COTTONWOOD_TREES.add(Biomes.PLAINS);
 		COTTONWOOD_TREES.add(Biomes.MUTATED_PLAINS);
 		COTTONWOOD_TREES.add(PVJBiomes.prairie);
+		COTTONWOOD_TREES.add(PVJBiomes.pale_forest);
 	}
 	
 	public static void loadMesaBiomes()
