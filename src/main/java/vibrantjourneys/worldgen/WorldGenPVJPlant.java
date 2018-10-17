@@ -12,6 +12,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.biomes.BiomeMudlands;
 
 public class WorldGenPVJPlant implements IWorldGenerator
 {
@@ -37,6 +38,9 @@ public class WorldGenPVJPlant implements IWorldGenerator
 		int z = chunkZ * 16 + 8;
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		if(biome instanceof BiomeMudlands)
+			return;
+		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)
 		{

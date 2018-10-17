@@ -42,7 +42,7 @@ public class BiomeOvergrownSpires extends Biome
     public BiomeOvergrownSpires(Biome.BiomeProperties properties)
     {
         super(properties);
-        this.decorator.treesPerChunk = 12;
+        this.decorator.treesPerChunk = 15;
         this.decorator.grassPerChunk = 25;
         this.decorator.reedsPerChunk = 5;
         this.decorator.flowersPerChunk = 3;
@@ -53,30 +53,17 @@ public class BiomeOvergrownSpires extends Biome
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        if (rand.nextInt(10) == 0)
-        {
-            return TREE_FEATURE;
-        }
-        else if (rand.nextInt(2) == 0)
-        {
-            return new WorldGenShrub(JUNGLE_LOG, OAK_LEAF);
-        }
-        else if (rand.nextInt(4) == 0)
-        {
-            return (WorldGenAbstractTree)(new WorldGenTrees(false, 4 + rand.nextInt(7), JUNGLE_LOG, JUNGLE_LEAF, true));
-        }
-        else if (rand.nextInt(4) == 0)
-        {
-            return (WorldGenAbstractTree)(new WorldGenTrees(false, 4 + rand.nextInt(7), JUNGLE_LOG, JUNGLE_LEAF, true));
-        }
-        else if (rand.nextInt(4) == 0)
-        {
-            return ROOF_TREE;
-        }
-        else
-        {
-        	return BIG_TREE_FEATURE;
-        }
+    	int num = rand.nextInt(100);
+    	if(num > 80)
+    		return TREE_FEATURE;
+    	else if(num > 60)
+    		return new WorldGenShrub(JUNGLE_LOG, OAK_LEAF);
+    	else if(num > 35)
+    		return (WorldGenAbstractTree)(new WorldGenTrees(false, 4 + rand.nextInt(7), JUNGLE_LOG, JUNGLE_LEAF, true));
+    	else if(num > 10)
+    		return ROOF_TREE;
+    	else
+    		return BIG_TREE_FEATURE;
     }
 
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)

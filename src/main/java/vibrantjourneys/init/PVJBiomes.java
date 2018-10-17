@@ -35,6 +35,7 @@ public class PVJBiomes
 	public static Biome baobab_fields = new BiomeBaobabFields(new BiomeProperties("Baobab Fields").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(1.2F).setRainfall(0.0F).setRainDisabled());
 	public static Biome pale_forest = new BiomePaleForest(new BiomeProperties("Pale Forest").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
+	public static Biome alpine_heights = new BiomeBorealForest(new BiomeProperties("Alpine Heights").setBaseHeight(1.4F).setHeightVariation(0.05F).setTemperature(0.25F).setRainfall(0.5F));
 	
 	public static void initBiomes()
 	{
@@ -47,10 +48,11 @@ public class PVJBiomes
 			registerBiome(boreal_forest, "boreal_forest", PVJConfig.biomes.borealForestWeight, false, BiomeType.COOL, Type.CONIFEROUS, Type.COLD, Type.FOREST);
 			registerBiome(snowy_boreal_forest, "snowy_boreal_forest", PVJConfig.biomes.snowyBorealForestWeight, false, BiomeType.ICY, Type.CONIFEROUS, Type.COLD, Type.FOREST, Type.SNOWY);
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
-			registerBiome(mudlands, "mudlands", PVJConfig.biomes.mudlandsWeight, false, BiomeType.WARM, Type.SWAMP, Type.WASTELAND);
+			registerBiome(mudlands, "mudlands", PVJConfig.biomes.mudlandsWeight, false, BiomeType.WARM, Type.SWAMP, Type.WASTELAND, Type.WET);
 			registerBiome(baobab_fields, "baobab_fields", PVJConfig.biomes.baobabFieldsWeight, true, BiomeType.WARM, Type.SAVANNA, Type.HOT, Type.SPARSE);
 			registerBiome(pale_forest, "pale_forest", PVJConfig.biomes.paleForestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
+			registerBiome(alpine_heights, "alpine_heights", PVJConfig.biomes.alpineHeightsWeight, false, BiomeType.COOL, Type.FOREST, Type.CONIFEROUS, Type.MOUNTAIN, Type.COLD);
 		}
 	}
 	
