@@ -283,7 +283,7 @@ public class PVJConfig
 		public int mudlandsWeight = 8;
 		public int baobabFieldsWeight = 6;
 		public int paleForestWeight = 7;
-		public int overgrownHeightsWeight = 8;
+		public int overgrownSpiresWeight = 8;
 	}
 	
 	public static class EntitiesSubCategory

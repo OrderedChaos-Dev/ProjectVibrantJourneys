@@ -72,6 +72,7 @@ public class BiomeAspenGrove extends Biome
     @Override
     public int getFoliageColorAtPos(BlockPos pos)
     {
-    	return 0xB8E83E;
+        double d0 = GRASS_COLOR_NOISE.getValue((double)pos.getX() * 0.0225D, (double)pos.getZ() * 0.0225D);
+    	return d0 < -0.1 ? 0xB8E83E : 0x996600;
     }
 }

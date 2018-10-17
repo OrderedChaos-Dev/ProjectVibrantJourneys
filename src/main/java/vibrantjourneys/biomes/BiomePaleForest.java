@@ -23,7 +23,7 @@ public class BiomePaleForest extends BiomeForest
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
 		int random = rand.nextInt(10);
-		if(random > 5)
+		if(random >= 3)
 			return TREE_FEATURE;
 		else if(random > 1)
 			return COTTONWOOD_TREE;

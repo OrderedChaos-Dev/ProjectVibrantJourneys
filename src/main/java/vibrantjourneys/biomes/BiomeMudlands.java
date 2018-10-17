@@ -35,7 +35,7 @@ public class BiomeMudlands extends Biome
         this.fillerBlock = PVJBlocks.mud.getDefaultState();
         
         this.spawnableCreatureList.clear();
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 8, 3, 7));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 8, 1, 5));
 	}
 	
 	@Override
