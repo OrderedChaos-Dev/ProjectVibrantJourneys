@@ -12,8 +12,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.entity.passive.EntityParrot;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -23,9 +21,7 @@ import net.minecraft.world.gen.feature.WorldGenCanopyTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
 public class BiomeOvergrownSpires extends Biome
 {
@@ -42,9 +38,9 @@ public class BiomeOvergrownSpires extends Biome
     public BiomeOvergrownSpires(Biome.BiomeProperties properties)
     {
         super(properties);
-        this.decorator.treesPerChunk = 15;
-        this.decorator.grassPerChunk = 25;
-        this.decorator.reedsPerChunk = 5;
+        this.decorator.treesPerChunk = 20;
+        this.decorator.grassPerChunk = 35;
+        this.decorator.reedsPerChunk = 9;
         this.decorator.flowersPerChunk = 3;
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityParrot.class, 40, 1, 2));
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityOcelot.class, 2, 1, 1));
@@ -165,21 +161,5 @@ public class BiomeOvergrownSpires extends Biome
     public WorldGenerator getRandomWorldGenForGrass(Random rand)
     {
         return rand.nextInt(4) == 0 ? new WorldGenTallGrass(BlockTallGrass.EnumType.FERN) : new WorldGenTallGrass(BlockTallGrass.EnumType.GRASS);
-    }
-    
-    @Override
-    public void decorate(World worldIn, Random rand, BlockPos pos)
-    {
-        super.decorate(worldIn, rand, pos);
-
-        WorldGenVines worldgenvines = new WorldGenVines();
-
-        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
-        for (int j1 = 0; j1 < 50; ++j1)
-        {
-        	int k = rand.nextInt(16) + 8;
-            int i1 = rand.nextInt(16) + 8;
-            worldgenvines.generate(worldIn, rand, pos.add(k, 128, i1));
-        }
     }
 }

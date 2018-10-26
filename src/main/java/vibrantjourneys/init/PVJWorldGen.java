@@ -95,6 +95,7 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenMangroveRoot(PVJConfig.worldgen.mangroveRootDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
 		
 		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
+		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, PVJBiomes.red_rock_badlands));
 		
 		if(PVJConfig.master.enableGroundcover)
 		{
@@ -116,7 +117,8 @@ public class PVJWorldGen
 				
 				for(EnumLeafType leafType : EnumLeafType.values())
 				{
-					registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.FALLEN_LEAVES.get(leafType.getID()), leafType.getFallenLeavesDensity(), leafType.getTreeBiomes()));
+					if(leafType.getFallenLeavesDensity() != -1)
+						registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.FALLEN_LEAVES.get(leafType.getID()), leafType.getFallenLeavesDensity(), leafType.getTreeBiomes()));
 				}
 			}
 			if(PVJConfig.master.enableRocks)
@@ -152,7 +154,8 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.dark_oak_twigs, 60, 150, PVJConfig.worldgen.darkOakTwigsDensity, BiomeReference.getValidBiomes(BiomeReference.DARKOAK_TREES)));
 				for(EnumLeafType leafType : EnumLeafType.values())
 				{
-					registerWorldGen(new WorldGenGroundCover(PVJBlocks.TWIGS.get(leafType.getID()), 60, 150, leafType.getTwigsDensity(), leafType.getTreeBiomes()));
+					if(leafType.getTwigsDensity() != -1)
+						registerWorldGen(new WorldGenGroundCover(PVJBlocks.TWIGS.get(leafType.getID()), 60, 150, leafType.getTwigsDensity(), leafType.getTreeBiomes()));
 				}
 			}
 			if(PVJConfig.master.enableBones)

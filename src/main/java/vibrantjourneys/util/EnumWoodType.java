@@ -17,7 +17,8 @@ public enum EnumWoodType
     BAOBAB(8, "baobab", PVJConfig.worldgen.fallenTreeBaobabDensity, BiomeReference.BAOBAB_TREES),
     COTTONWOOD(9, "cottonwood", PVJConfig.worldgen.fallenTreeCottonwoodDensity, BiomeReference.COTTONWOOD_TREES),
     CRYSTALBARK(10, "crystalbark", PVJConfig.worldgen.fallenTreeCottonwoodDensity, BiomeReference.CRYSTALBARK_TREES),
-    ARCWOOD(11, "arcwood", PVJConfig.worldgen.fallenTreeArcwoodDensity, BiomeReference.ARCWOOD_TREES);
+    ARCWOOD(11, "arcwood", PVJConfig.worldgen.fallenTreeArcwoodDensity, BiomeReference.ARCWOOD_TREES),
+    JUNIPER(12, "juniper", PVJConfig.worldgen.fallenTreeJuniperDensity, BiomeReference.JUNIPER_TREES);
 
     private final String name;
     private final int id;
@@ -53,31 +54,6 @@ public enum EnumWoodType
     public Biome[] getTreeBiomes()
     {
     	return BiomeReference.getValidBiomes(this.homeBiomes);
-    	/*switch(id)
-    	{
-    		case 0:
-    		default:
-    			return BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES);
-    		case 1:
-    			return BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES);
-    		case 2:
-    			return BiomeReference.getValidBiomes(BiomeReference.PALM_TREES);
-    		case 3:
-    			return BiomeReference.getValidBiomes(BiomeReference.REDWOOD_TREES);
-    		case 4:
-    			return BiomeReference.getValidBiomes(BiomeReference.FIR_TREES);
-    		case 5:
-    			return BiomeReference.getValidBiomes(BiomeReference.PINE_TREES);
-    		case 6:
-    			return BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES);
-    		case 7:
-    			return BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES);
-    		case 8:
-    			return BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES);
-    		case 9:
-    			return BiomeReference.getValidBiomes(BiomeReference.COTTONWOOD_TREES);
-    			
-    	}*/
     }
     
     public static EnumWoodType byId(int id)

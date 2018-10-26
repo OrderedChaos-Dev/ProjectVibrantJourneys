@@ -58,8 +58,6 @@ public class PVJItems
 		goon_bile = registerItem(new Item(), "goon_bile");
 		unstable_essence = registerItem(new Item(), "unstable_essence");
 		
-		//aquamarine = registerItem(new Item(), "aquamarine");
-		
 		wax = registerItem(new Item(), "wax");
 		
 		if(PVJConfig.master.enableMysticalGrill)

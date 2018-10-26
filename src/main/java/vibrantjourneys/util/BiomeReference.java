@@ -67,6 +67,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> COTTONWOOD_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> CRYSTALBARK_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> ARCWOOD_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> JUNIPER_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
 	public static final ArrayList<Biome> BOP_MANGROVE_TREES = new ArrayList<Biome>();
@@ -160,6 +161,7 @@ public class BiomeReference
 		OAK_TREES_SPARSE.add(Biomes.MUTATED_ROOFED_FOREST);
 		OAK_TREES_SPARSE.add(PVJBiomes.prairie);
 		OAK_TREES_SPARSE.add(PVJBiomes.aspen_grove);
+		OAK_TREES_SPARSE.add(PVJBiomes.overgrown_spires);
 	}
 	
 	public static void loadBirchTrees()
@@ -191,6 +193,7 @@ public class BiomeReference
 		SPRUCE_TREES_SPARSE.add(Biomes.EXTREME_HILLS_EDGE);
 		SPRUCE_TREES_SPARSE.add(PVJBiomes.boreal_forest);
 		SPRUCE_TREES_SPARSE.add(PVJBiomes.snowy_boreal_forest);
+		SPRUCE_TREES_SPARSE.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadJungleTrees()
@@ -200,6 +203,7 @@ public class BiomeReference
 		JUNGLE_TREES.add(Biomes.JUNGLE_HILLS);
 		JUNGLE_TREES.add(Biomes.MUTATED_JUNGLE);
 		JUNGLE_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
+		JUNGLE_TREES.add(PVJBiomes.overgrown_spires);
 	}
 	
 	public static void loadAcaciaTrees()
@@ -216,6 +220,7 @@ public class BiomeReference
 	{
 		DARKOAK_TREES.add(Biomes.ROOFED_FOREST);
 		DARKOAK_TREES.add(Biomes.MUTATED_ROOFED_FOREST);
+		DARKOAK_TREES.add(PVJBiomes.overgrown_spires);
 	}
 
 	public static void loadWillowTrees()
@@ -250,12 +255,14 @@ public class BiomeReference
 	{
 		FIR_TREES.add(PVJBiomes.boreal_forest);
 		FIR_TREES.add(PVJBiomes.snowy_boreal_forest);
+		FIR_TREES.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadPineTrees()
 	{
 		PINE_TREES.add(PVJBiomes.boreal_forest);
 		PINE_TREES.add(PVJBiomes.snowy_boreal_forest);
+		PINE_TREES.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadAspenTrees()
@@ -294,6 +301,7 @@ public class BiomeReference
 		MESA_BIOMES.add(Biomes.MUTATED_MESA);
 		MESA_BIOMES.add(Biomes.MUTATED_MESA_CLEAR_ROCK);
 		MESA_BIOMES.add(Biomes.MUTATED_MESA_ROCK);
+		MESA_BIOMES.add(PVJBiomes.red_rock_badlands);
 	}
 	
 	public static void loadDesertBiomes()

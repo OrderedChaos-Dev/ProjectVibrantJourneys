@@ -17,7 +17,9 @@ public enum EnumLeafType
     COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity),
     CRYSTALBARK(11, "crystalbark", EnumWoodType.CRYSTALBARK, PVJConfig.worldgen.fallenLeavesCrystalbarkDensity, PVJConfig.worldgen.crystalbarkTwigsDensity),
     BLUE_ARCWOOD(12, "blue_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesBlueArcwoodDensity, PVJConfig.worldgen.blueArcwoodTwigsDensity),
-    PURPLE_ARCWOOD(13, "purple_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesPurpleArcwoodDensity, PVJConfig.worldgen.purpleArcwoodTwigsDensity);
+    PURPLE_ARCWOOD(13, "purple_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesPurpleArcwoodDensity, PVJConfig.worldgen.purpleArcwoodTwigsDensity),
+    JUNIPER(14, "juniper", EnumWoodType.JUNIPER, PVJConfig.worldgen.fallenLeavesJuniperDensity, PVJConfig.worldgen.juniperTwigsDensity),
+    JUNIPER_BERRIED(15, "juniper_berried", EnumWoodType.JUNIPER, -1, -1);
     
     private String name;
     private int id;
@@ -49,11 +51,17 @@ public enum EnumLeafType
     	return woodType;
     }
     
+    /**
+     * Returns -1 for trees that have no associated fallen leaves
+     */
     public int getFallenLeavesDensity()
     {
     	return fallenLeavesDensity;
     }
     
+    /**
+     * Returns -1 for trees that have no associated twigs
+     */
     public int getTwigsDensity()
     {
     	return twigsDensity;
@@ -62,31 +70,5 @@ public enum EnumLeafType
     public Biome[] getTreeBiomes()
     {
     	return woodType.getTreeBiomes();
-    	/*switch(id)
-    	{
-    		case 0:
-    		default:
-    			return BiomeReference.getValidBiomes(BiomeReference.WILLOW_TREES);
-    		case 1:
-    			return BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES);
-    		case 2:
-    			return BiomeReference.getValidBiomes(BiomeReference.PALM_TREES);
-    		case 3:
-    			return BiomeReference.getValidBiomes(BiomeReference.REDWOOD_TREES);
-    		case 4:
-    			return BiomeReference.getValidBiomes(BiomeReference.FIR_TREES);
-    		case 5:
-    			return BiomeReference.getValidBiomes(BiomeReference.PINE_TREES);
-    		case 6:
-    			return BiomeReference.getValidBiomes(BiomeReference.ASPEN_TREES);
-    		case 7:
-    			return BiomeReference.getValidBiomes(BiomeReference.RED_MAPLE_TREES);
-    		case 8:
-    			return BiomeReference.getValidBiomes(BiomeReference.ORANGE_MAPLE_TREES);
-    		case 9:
-    			return BiomeReference.getValidBiomes(BiomeReference.BAOBAB_TREES);
-    		case 10:
-    			return BiomeReference.getValidBiomes(BiomeReference.COTTONWOOD_TREES);
-    	}*/
     }
 }
