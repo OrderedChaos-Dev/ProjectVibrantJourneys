@@ -13,12 +13,14 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.worldgen.WorldGenJuniperTree;
 
 public class BiomeRedRockBadlands extends Biome
 {
     protected static final IBlockState COARSE_DIRT = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.COARSE_DIRT);
     protected static final IBlockState GRASS = Blocks.GRASS.getDefaultState();
     protected static final IBlockState RED_SAND = Blocks.SAND.getDefaultState().withProperty(BlockSand.VARIANT, BlockSand.EnumType.RED_SAND);
+    private static final WorldGenJuniperTree JUNIPER = new WorldGenJuniperTree();
 
     public BiomeRedRockBadlands(BiomeProperties properties)
     {
@@ -36,7 +38,7 @@ public class BiomeRedRockBadlands extends Biome
 
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        return TREE_FEATURE;
+        return JUNIPER;
     }
 
 	@Override

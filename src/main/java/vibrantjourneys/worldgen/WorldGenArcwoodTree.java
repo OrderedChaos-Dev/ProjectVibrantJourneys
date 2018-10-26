@@ -13,6 +13,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 
 public class WorldGenArcwoodTree extends WorldGenAbstractTree
 {
@@ -34,11 +37,16 @@ public class WorldGenArcwoodTree extends WorldGenAbstractTree
     int leafDistanceLimit = 4;
     List<WorldGenArcwoodTree.FoliageCoordinates> foliageCoords;
 
-    public WorldGenArcwoodTree(boolean notify, IBlockState log, IBlockState leaf)
+    public WorldGenArcwoodTree(boolean notify, boolean isBlue)
     {
         super(notify);
-        this.LOG = log;
-        this.LEAF = leaf;
+        this.LOG = PVJBlocks.LOGS.get(EnumWoodType.ARCWOOD.getID()).getDefaultState();
+        this.LEAF = PVJBlocks.LEAVES.get(EnumLeafType.BLUE_ARCWOOD.getID()).getDefaultState();
+        
+        if(!isBlue)
+        {
+        	this.LEAF = PVJBlocks.LEAVES.get(EnumLeafType.PURPLE_ARCWOOD.getID()).getDefaultState();
+        }
     }
 
     /**

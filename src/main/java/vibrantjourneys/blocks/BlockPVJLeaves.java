@@ -92,6 +92,9 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
     	Block block = PVJBlocks.SAPLINGS.get(leafType.getID());
+    	if(leafType.getID() == EnumLeafType.JUNIPER_BERRIED.getID())
+    		block = PVJBlocks.SAPLINGS.get(EnumLeafType.JUNIPER.getID());
+    	
         return Item.getItemFromBlock(block);
     }
     
