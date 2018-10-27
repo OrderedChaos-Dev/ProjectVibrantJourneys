@@ -32,7 +32,7 @@ public class WorldGenCrystalbarkTree extends WorldGenAbstractTree
 	public boolean generate(World world, Random rand, BlockPos position)
 	{
 		int yGen = position.getY();
-		int height = 10 + rand.nextInt(4);
+		int height = 14 + rand.nextInt(6);
 		int base = 5 + rand.nextInt(2);
 		
 		if(yGen >= 1 && yGen + height + 1 <= 256)
@@ -189,7 +189,7 @@ public class WorldGenCrystalbarkTree extends WorldGenAbstractTree
 					}
 					else
 					{
-						if(rand.nextInt(5) == 0)
+						if(rand.nextInt(4) == 0)
 						{
 		                    if(state.getBlock().canBeReplacedByLeaves(state, world, leafPos))
 		                    {

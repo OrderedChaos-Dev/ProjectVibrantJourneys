@@ -287,10 +287,11 @@ public class PVJConfig
 		public int mudlandsWeight = 7;
 		public int baobabFieldsWeight = 4;
 		public int paleForestWeight = 7;
-		public int overgrownSpiresWeight = 9;
-		public int alpineHeightsWeight = 9;
-		public int redRockBadlands = 9;
-		public int enchantedGroveWeight = 9;
+		public int overgrownSpiresWeight = 8;
+		public int alpineHeightsWeight = 7;
+		public int redRockBadlands = 8;
+		public int enchantedGroveWeight = 7;
+		public int crystallineThicketWeight = 7;
 	}
 	
 	public static class EntitiesSubCategory
