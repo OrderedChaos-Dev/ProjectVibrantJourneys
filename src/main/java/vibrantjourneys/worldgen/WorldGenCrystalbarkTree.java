@@ -32,7 +32,7 @@ public class WorldGenCrystalbarkTree extends WorldGenAbstractTree
 	public boolean generate(World world, Random rand, BlockPos position)
 	{
 		int yGen = position.getY();
-		int height = 14 + rand.nextInt(6);
+		int height = 11 + rand.nextInt(6);
 		int base = 5 + rand.nextInt(2);
 		
 		if(yGen >= 1 && yGen + height + 1 <= 256)

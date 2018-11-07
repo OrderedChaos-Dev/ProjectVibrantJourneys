@@ -26,10 +26,10 @@ public class BiomeRedRockBadlands extends Biome
     {
         super(properties);
         this.spawnableCreatureList.clear();
-        this.decorator.treesPerChunk = -999;
+        this.decorator.treesPerChunk = 0;
         this.decorator.deadBushPerChunk = 20;
         this.decorator.reedsPerChunk = 3;
-        this.decorator.cactiPerChunk = 5;
+        this.decorator.cactiPerChunk = 10;
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 3;
         this.decorator.extraTreeChance = 0.02F;
@@ -59,12 +59,12 @@ public class BiomeRedRockBadlands extends Biome
     @SideOnly(Side.CLIENT)
     public int getFoliageColorAtPos(BlockPos pos)
     {
-        return 0xcbbeb5;
+        return 0xb3b300;
     }
 
     @SideOnly(Side.CLIENT)
     public int getGrassColorAtPos(BlockPos pos)
     {
-        return 0xcbbeb5;
+        return 0xb3b300;
     }
 }

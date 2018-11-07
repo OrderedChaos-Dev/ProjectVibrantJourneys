@@ -41,6 +41,9 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
         		.withProperty(CHECK_DECAY, Boolean.valueOf(true))
         		.withProperty(DECAYABLE, Boolean.valueOf(true)));
         
+        if(leafType == EnumLeafType.CRYSTALBARK)
+        	this.setLightLevel(0.85F);
+        
         this.leafType = leafType;
     }
 

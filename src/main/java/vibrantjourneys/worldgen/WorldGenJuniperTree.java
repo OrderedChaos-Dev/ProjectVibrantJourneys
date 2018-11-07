@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -95,7 +96,7 @@ public class WorldGenJuniperTree extends WorldGenAbstractTree
         {
             BlockPos down = pos.down();
             IBlockState state = world.getBlockState(down);
-            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING);
+            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING) || state.getBlock() instanceof BlockSand;
             
             int baseHeight = 3 + rand.nextInt(4);
             EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);
@@ -210,19 +211,18 @@ public class WorldGenJuniperTree extends WorldGenAbstractTree
                             		for(EnumFacing facing2 : EnumFacing.VALUES)
                             			if(world.getBlockState(leafpos.offset(facing2)) instanceof BlockLeaves)
                             			{
-                                        	if(rand.nextInt(12) < 3)
+                                        	if(rand.nextInt(9) < 3)
                                         	{
                                         		if(rand.nextInt(9) == 0)
                                         			this.setBlockAndNotifyAdequately(world, leafpos, LEAVES_BERRIED);
                                         		else
                                         			this.setBlockAndNotifyAdequately(world, leafpos, LEAVES);
                                         	}
-                                        	break;
                             			}
                             	}
                             	else
                             	{
-                                	if(rand.nextInt(12) < 3)
+                                	if(rand.nextInt(9) < 3)
                                 	{
                                 		if(rand.nextInt(9) == 0)
                                 			this.setBlockAndNotifyAdequately(world, leafpos, LEAVES_BERRIED);

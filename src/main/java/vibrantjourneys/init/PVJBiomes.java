@@ -38,10 +38,10 @@ public class PVJBiomes
 	public static Biome baobab_fields = new BiomeBaobabFields(new BiomeProperties("Baobab Fields").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(1.2F).setRainfall(0.0F).setRainDisabled());
 	public static Biome pale_forest = new BiomePaleForest(new BiomeProperties("Pale Forest").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
-	public static Biome alpine_heights = new BiomeBorealForest(new BiomeProperties("Alpine Heights").setBaseHeight(1.7F).setHeightVariation(0.04F).setTemperature(0.25F).setRainfall(0.5F));
+	public static Biome alpine_heights = new BiomeBorealForest(new BiomeProperties("Alpine Heights").setBaseHeight(2.0F).setHeightVariation(0.04F).setTemperature(0.25F).setRainfall(0.5F));
 	public static Biome red_rock_badlands = new BiomeRedRockBadlands(new BiomeProperties("Red Rock Badlands").setBaseHeight(0.1F).setHeightVariation(0.2F).setTemperature(1.F).setRainfall(0.0F).setRainDisabled());
 	public static Biome enchanted_grove = new BiomeEnchantedGrove(new BiomeProperties("Enchanted Grove").setTemperature(0.69F).setRainfall(0.8F));
-	public static Biome crystalline_thicket = new BiomeCrystallineThicket(new BiomeProperties("Crystalline Thicket").setTemperature(0.5F).setRainfall(0.3F));
+	public static Biome crystalline_thicket = new BiomeCrystallineThicket(new BiomeProperties("Crystalline Thicket").setTemperature(0.7F).setRainfall(0.85F));
 	
 	public static void initBiomes()
 	{
