@@ -38,7 +38,7 @@ public class BiomeAspenGrove extends Biome
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
     	int num = rand.nextInt(100);
-    	if(num > 70 && rand.nextInt(PVJConfig.worldgen.aspenDensity) < PVJConfig.worldgen.aspenDensity - 2)
+    	if(num > 60 && rand.nextInt(PVJConfig.worldgen.aspenDensity) < PVJConfig.worldgen.aspenDensity - 2)
     	{
     		return ASPEN;
     	}
@@ -46,7 +46,7 @@ public class BiomeAspenGrove extends Biome
     	{
     		return RED_MAPLE;
     	}
-    	else if(num > 10 && rand.nextInt(PVJConfig.worldgen.orangeMapleDensity) < PVJConfig.worldgen.orangeMapleDensity - 2)
+    	else if(num > 20 && rand.nextInt(PVJConfig.worldgen.orangeMapleDensity) < PVJConfig.worldgen.orangeMapleDensity - 2)
     	{	
     		return ORANGE_MAPLE;
     	}
