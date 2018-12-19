@@ -11,6 +11,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenRocks implements IWorldGenerator
 {
@@ -23,7 +24,7 @@ public class WorldGenRocks implements IWorldGenerator
 	{
 		this.rockGen = new WorldGenMinable(stone.getDefaultState(), count);
 		this.maxHeight = maxHeight;
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.stoneDepositsDensity / 100.0));
 		this.biomes = biomes;
 	}
 	

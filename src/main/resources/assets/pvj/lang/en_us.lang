@@ -327,13 +327,12 @@ subtitles.pvj_goon.puke=Goon pukes
 #Config
 #----------------------------------------------------------------------------------------------------
 config.pvj.master=1. Master Settings
-config.pvj.worldgen=2. World Generation Settings
-config.pvj.biomes=3. Biome Settings
-config.pvj.mobs=4. Mob Settings
-config.pvj.misc=5. Miscellaneous Settings
-config.pvj.integration=6. Integration Settings
-
-config.pvj.bop=Biomes O' Plenty
+config.pvj.global=2. Global Density Settings
+config.pvj.worldgen=3. World Generation Settings
+config.pvj.biomes=4. Biome Settings
+config.pvj.mobs=5. Mob Settings
+config.pvj.misc=6. Miscellaneous Settings
+config.pvj.integration=7. Integration Settings
 
 #BOP Objects
 #----------------------------------------------------------------------------------------------------

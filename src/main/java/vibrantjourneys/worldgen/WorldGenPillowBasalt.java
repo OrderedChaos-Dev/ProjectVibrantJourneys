@@ -15,6 +15,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumStoneType;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPillowBasalt implements IWorldGenerator
 {
@@ -22,7 +23,7 @@ public class WorldGenPillowBasalt implements IWorldGenerator
 	
 	public WorldGenPillowBasalt(int frequency)
 	{
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.stoneDepositsDensity / 100.0));
 	}
 	
 	@Override

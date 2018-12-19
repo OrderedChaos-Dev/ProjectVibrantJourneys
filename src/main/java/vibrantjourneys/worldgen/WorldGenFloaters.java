@@ -14,6 +14,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFloaters implements IWorldGenerator
 {
@@ -24,7 +25,7 @@ public class WorldGenFloaters implements IWorldGenerator
 	public WorldGenFloaters(boolean isRiver, int frequency, boolean checkDepth)
 	{
 		this.isRiver = isRiver;
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
 		this.checkDepth = checkDepth;
 	}
 	

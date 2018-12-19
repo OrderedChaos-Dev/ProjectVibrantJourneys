@@ -12,6 +12,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFallenLeaves implements IWorldGenerator
 {
@@ -22,7 +23,7 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 	public WorldGenFallenLeaves(Block block, int frequency, Biome... biomes)
 	{
 		this.block = block;
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.fallenLeavesDensity / 100.0) * (PVJConfig.global.groundcoverDensity / 100.0));
 		this.biomes = biomes;
 	}
 	

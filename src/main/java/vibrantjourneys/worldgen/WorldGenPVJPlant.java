@@ -10,9 +10,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.biomes.BiomeMudlands;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPVJPlant implements IWorldGenerator
 {
@@ -26,8 +29,12 @@ public class WorldGenPVJPlant implements IWorldGenerator
 		this.block = block;
 		this.minY = minY;
 		this.maxY = maxY;
-		this.frequency = frequency;
 		this.biomes = biomes;
+		
+		if(BiomeDictionary.getTypes(biomes[0]).contains(Type.NETHER))
+			this.frequency = (int)(frequency * (PVJConfig.global.netherPlantsDensity / 100.0));
+		else
+			this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
 	}
 
 	@Override

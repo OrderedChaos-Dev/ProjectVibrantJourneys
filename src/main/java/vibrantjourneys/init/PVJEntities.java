@@ -113,7 +113,13 @@ public class PVJEntities
 	{
 		if(weightedProb > 0)
 		{
-			EntityRegistry.addSpawn(entityClass, weightedProb, min, max, typeOfCreature, biomes);
+			double multiplier = 1.0;
+			if(typeOfCreature == EnumCreatureType.AMBIENT)
+				multiplier = PVJConfig.global.animalsDensity / 100.0;
+			if(typeOfCreature == EnumCreatureType.MONSTER)
+				multiplier = PVJConfig.global.mobsDensity / 100.0;
+			
+			EntityRegistry.addSpawn(entityClass, (int)(weightedProb * multiplier), min, max, typeOfCreature, biomes);
 		}
 	}
 }

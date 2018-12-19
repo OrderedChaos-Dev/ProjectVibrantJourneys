@@ -14,6 +14,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockCattail;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenCattail implements IWorldGenerator
 {
@@ -22,7 +23,7 @@ public class WorldGenCattail implements IWorldGenerator
 	
 	public WorldGenCattail(int frequency, Biome... biomes)
 	{
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
 		this.biomes = biomes;
 	}
 	

@@ -30,7 +30,7 @@ public class WorldGenFallenTree implements IWorldGenerator
 	public WorldGenFallenTree(IBlockState log, int frequency, Biome... biomes)
 	{
 		this.logBase = log;
-		this.frequency = frequency;
+		this.frequency = (int)(frequency * (PVJConfig.global.fallenTreeDensity / 100.0));
 		this.biomes = biomes;
 	}
 	

@@ -12,6 +12,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockGroundCover;
+import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenGroundCover implements IWorldGenerator
 {
@@ -25,7 +26,14 @@ public class WorldGenGroundCover implements IWorldGenerator
 		this.block = block;
 		this.minY = minY;
 		this.maxY = maxY;
-		this.frequency = frequency;
+		double multiplier = 1.0;
+		
+		if(((BlockGroundCover)block).getGroundcoverType() == BlockGroundCover.GroundcoverType.TWIGS)
+			multiplier = PVJConfig.global.twigsDensity / 100.0;
+		if(((BlockGroundCover)block).getGroundcoverType() == BlockGroundCover.GroundcoverType.ROCKS)
+			multiplier = PVJConfig.global.rocksDensity / 100.0;
+		
+		this.frequency = (int)(frequency * (PVJConfig.global.groundcoverDensity / 100.0) * multiplier);
 		this.biomes = biomes;
 	}
 

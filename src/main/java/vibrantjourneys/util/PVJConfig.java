@@ -19,6 +19,15 @@ public class PVJConfig
 	public static MasterCategory master = new MasterCategory();
 	
 	@Comment({
+		"Set global modifiers that affect entire parts of the mod.",
+		"Everything is based around a value of 100",
+		"e.g. setting twigs to 150 increases twigs spawn rate by 50%"
+	})
+	@Config.LangKey("config.pvj.global")
+	@Config.RequiresMcRestart
+	public static GlobalModifiersCategory global = new GlobalModifiersCategory();
+	
+	@Comment({
 		"Set to 0 to disable from generation",
 		"\"Sparse\" means biomes in which tree types rarely generate.",
 		"e.g. birch trees rarely generate in forests and roofed forests.",
@@ -114,6 +123,40 @@ public class PVJConfig
 		//public boolean enableAquamarine = true;
 	}
 	
+	public static class GlobalModifiersCategory
+	{
+		@Config.Name("Groundcover Density")
+		public int groundcoverDensity = 100;
+		
+		@Config.Name("Fallen Leaves Density")
+		public int fallenLeavesDensity = 100;
+		
+		@Config.Name("Fallen Tree Density")
+		public int fallenTreeDensity = 100;
+		
+		@Config.Name("Twigs Density")
+		public int twigsDensity = 100;
+		
+		@Config.Name("Rocks Density")
+		public int rocksDensity = 100;
+		
+		@Config.Name("Overworld Plants Density")
+		public int overworldPlantsDensity = 100;
+		
+		@Config.Name("Nether Plants Density")
+		public int netherPlantsDensity = 100;
+		
+		@Config.Name("Animals Density")
+		public int animalsDensity = 100;
+		
+		@Config.Name("Mobs Density")
+		public int mobsDensity = 100;
+		
+		@Config.Name("Stone Deposits Density")
+		public int stoneDepositsDensity = 100;
+		
+	}
+	
 	public static class WorldGenSubCategory
 	{
 		public int cobwebDensity = 100;
@@ -129,7 +172,7 @@ public class PVJConfig
 		public int aspenDensity = 20;
 		public int redMapleDensity = 15;
 		public int orangeMapleDensity = 15;
-		public int baobabDensity = 4;
+		public int baobabDensity = 2;
 		public int cottonwoodDensity = 3;
 		public int juniperDensity = 1;
 		
@@ -297,11 +340,11 @@ public class PVJConfig
 	
 	public static class EntitiesSubCategory
 	{
-		public int snailSpawnWeight = 40;
+		public int snailSpawnWeight = 20;
 		public int flySpawnWeight = 95;
 		public int flySwampSpawnWeight = 160;
 		public int fireflySpawnWeight = 350;
-		public int spiderSpawnWeight = 35;
+		public int spiderSpawnWeight = 15;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		
