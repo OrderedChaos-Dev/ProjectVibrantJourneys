@@ -9,6 +9,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -18,6 +19,7 @@ public class PVJTerrainGenEvents
 	@SubscribeEvent
 	public void onDecorate(PopulateChunkEvent.Populate event)
 	{
+		//Add PVJ Dungeon decorations
 		if(event.getType().equals(PopulateChunkEvent.Populate.EventType.DUNGEON) && PVJConfig.worldgen.modifyDungeons)
 		{
 			int chunkX = event.getChunkX();
@@ -61,6 +63,15 @@ public class PVJTerrainGenEvents
 					(new WorldGenCottonwoodTree(false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
+			}
+		}
+		//remove water lakes in red rock badlands
+		if(event.getType() == Decorate.EventType.LAKE_LAVA)
+		{
+			Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
+			if(biome == PVJBiomes.red_rock_badlands)
+			{
+				event.setResult(Result.DENY);
 			}
 		}
 	}

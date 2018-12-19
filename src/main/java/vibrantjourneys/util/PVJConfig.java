@@ -131,6 +131,7 @@ public class PVJConfig
 		public int orangeMapleDensity = 15;
 		public int baobabDensity = 4;
 		public int cottonwoodDensity = 3;
+		public int juniperDensity = 1;
 		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
@@ -277,21 +278,21 @@ public class PVJConfig
 	
 	public static class BiomesSubCategory
 	{
-		public int prairieWeight = 7;
-		public int redwoodsWeight = 10;
-		public int redwoodPeaksWeight = 9;
+		public int prairieWeight = 6;
+		public int redwoodsWeight = 9;
+		public int redwoodPeaksWeight = 8;
 		public int willowSwampWeight = 6;
-		public int borealForestWeight = 10;
-		public int snowyBorealForestWeight = 10;
-		public int aspenGroveWeight = 9;
-		public int mudlandsWeight = 7;
+		public int borealForestWeight = 9;
+		public int snowyBorealForestWeight = 9;
+		public int aspenGroveWeight = 8;
+		public int mudlandsWeight = 5;
 		public int baobabFieldsWeight = 4;
-		public int paleForestWeight = 7;
-		public int overgrownSpiresWeight = 8;
-		public int alpineHeightsWeight = 7;
-		public int redRockBadlands = 8;
-		public int enchantedGroveWeight = 7;
-		public int crystallineThicketWeight = 7;
+		public int paleForestWeight = 6;
+		public int overgrownSpiresWeight = 7;
+		public int alpineHeightsWeight = 6;
+		public int redRockBadlands = 7;
+		public int enchantedGroveWeight = 5;
+		public int crystallineThicketWeight = 5;
 	}
 	
 	public static class EntitiesSubCategory

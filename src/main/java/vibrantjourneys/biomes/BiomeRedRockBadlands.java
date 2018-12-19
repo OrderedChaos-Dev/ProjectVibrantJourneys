@@ -13,6 +13,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.WorldGenJuniperTree;
 
 public class BiomeRedRockBadlands extends Biome
@@ -28,11 +29,10 @@ public class BiomeRedRockBadlands extends Biome
         this.spawnableCreatureList.clear();
         this.decorator.treesPerChunk = 0;
         this.decorator.deadBushPerChunk = 20;
-        this.decorator.reedsPerChunk = 3;
-        this.decorator.cactiPerChunk = 10;
+        this.decorator.cactiPerChunk = 15;
         this.decorator.flowersPerChunk = 0;
         this.decorator.grassPerChunk = 3;
-        this.decorator.extraTreeChance = 0.02F;
+        this.decorator.extraTreeChance = (float)(PVJConfig.worldgen.juniperTwigsDensity / 100.0);
         this.spawnableCreatureList.clear();
     }
 
@@ -44,7 +44,7 @@ public class BiomeRedRockBadlands extends Biome
 	@Override
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimer, int x, int z, double noiseVal)
     {
-		int n = rand.nextInt(6);
+		int n = rand.nextInt(7);
 		
 		if(n == 0)
 			this.topBlock = GRASS;

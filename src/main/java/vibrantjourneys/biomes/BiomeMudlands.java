@@ -26,7 +26,7 @@ public class BiomeMudlands extends Biome
         this.decorator.treesPerChunk = 0;
         this.decorator.grassPerChunk = -999;
         this.decorator.flowersPerChunk = -999;
-        this.decorator.extraTreeChance = 0.04F;
+        this.decorator.extraTreeChance = 0.24F;
         this.decorator.mushroomsPerChunk = 6;
         this.decorator.sandPatchesPerChunk = 0;
         this.decorator.gravelPatchesPerChunk = 0;
