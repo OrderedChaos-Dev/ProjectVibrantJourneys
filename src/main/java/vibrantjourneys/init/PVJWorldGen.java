@@ -87,7 +87,8 @@ public class PVJWorldGen
 			{
 				if(woodType.getFallenTreeDensity() != -1)
 				{
-					registerWorldGen(new WorldGenFallenTree(PVJBlocks.LOGS.get(woodType.getID()), woodType.getFallenTreeDensity(), woodType.getTreeBiomes()));
+					if(woodType.getTreeDensity() > 0)
+						registerWorldGen(new WorldGenFallenTree(PVJBlocks.LOGS.get(woodType.getID()), woodType.getFallenTreeDensity(), woodType.getTreeBiomes()));
 				}
 			}
 		}
@@ -118,7 +119,8 @@ public class PVJWorldGen
 				for(EnumLeafType leafType : EnumLeafType.values())
 				{
 					if(leafType.getFallenLeavesDensity() != -1)
-						registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.FALLEN_LEAVES.get(leafType.getID()), leafType.getFallenLeavesDensity(), leafType.getTreeBiomes()));
+						if(leafType.getWoodType().getTreeDensity() > 0)
+							registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.FALLEN_LEAVES.get(leafType.getID()), leafType.getFallenLeavesDensity(), leafType.getTreeBiomes()));
 				}
 			}
 			if(PVJConfig.master.enableRocks)
@@ -155,7 +157,8 @@ public class PVJWorldGen
 				for(EnumLeafType leafType : EnumLeafType.values())
 				{
 					if(leafType.getTwigsDensity() != -1)
-						registerWorldGen(new WorldGenGroundCover(PVJBlocks.TWIGS.get(leafType.getID()), 60, 150, leafType.getTwigsDensity(), leafType.getTreeBiomes()));
+						if(leafType.getWoodType().getTreeDensity() > 0)
+							registerWorldGen(new WorldGenGroundCover(PVJBlocks.TWIGS.get(leafType.getID()), 60, 150, leafType.getTwigsDensity(), leafType.getTreeBiomes()));
 				}
 			}
 			if(PVJConfig.master.enableBones)

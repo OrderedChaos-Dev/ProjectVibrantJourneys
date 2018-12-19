@@ -66,7 +66,7 @@ public class PVJTerrainGenEvents
 			}
 		}
 		//remove water lakes in red rock badlands
-		if(event.getType() == Decorate.EventType.LAKE_LAVA)
+		if(event.getType() == Decorate.EventType.LAKE_WATER)
 		{
 			Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
 			if(biome == PVJBiomes.red_rock_badlands)
