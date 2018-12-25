@@ -3,6 +3,7 @@ package vibrantjourneys.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHardenedClay;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
@@ -96,7 +97,8 @@ public class WorldGenJuniperTree extends WorldGenAbstractTree
         {
             BlockPos down = pos.down();
             IBlockState state = world.getBlockState(down);
-            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING) || state.getBlock() instanceof BlockSand;
+            boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING) || state.getBlock() instanceof BlockSand
+            					|| state.getBlock() instanceof BlockHardenedClay;
             
             int baseHeight = 3 + rand.nextInt(4);
             EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);

@@ -14,7 +14,6 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.biomes.BiomeMudlands;
 import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPVJPlant implements IWorldGenerator
@@ -45,8 +44,6 @@ public class WorldGenPVJPlant implements IWorldGenerator
 		int z = chunkZ * 16 + 8;
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
-		if(biome instanceof BiomeMudlands)
-			return;
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)

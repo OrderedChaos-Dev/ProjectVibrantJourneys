@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.biomes.BiomeAspenGrove;
 import vibrantjourneys.biomes.BiomeBaobabFields;
 import vibrantjourneys.biomes.BiomeBorealForest;
-import vibrantjourneys.biomes.BiomeMudlands;
 import vibrantjourneys.biomes.BiomeOvergrownSpires;
 import vibrantjourneys.biomes.BiomePaleForest;
 import vibrantjourneys.biomes.BiomePrairie;
@@ -31,7 +30,6 @@ public class PVJBiomes
 	public static Biome boreal_forest = new BiomeBorealForest(new BiomeProperties("Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(0.25F).setRainfall(0.8F));
 	public static Biome snowy_boreal_forest = new BiomeBorealForest(new BiomeProperties("Snowy Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(-0.5F).setRainfall(0.4F).setSnowEnabled());
 	public static Biome aspen_grove = new BiomeAspenGrove(new BiomeProperties("Aspen Grove").setTemperature(0.7F).setRainfall(0.8F));
-	public static Biome mudlands = new BiomeMudlands(new BiomeProperties("Mudlands").setBaseHeight(-0.1F).setHeightVariation(0F).setTemperature(0.8F).setRainfall(0.8F).setWaterColor(7690519));
 	public static Biome baobab_fields = new BiomeBaobabFields(new BiomeProperties("Baobab Fields").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(1.2F).setRainfall(0.0F).setRainDisabled());
 	public static Biome pale_forest = new BiomePaleForest(new BiomeProperties("Pale Forest").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
@@ -48,7 +46,6 @@ public class PVJBiomes
 			registerBiome(boreal_forest, "boreal_forest", PVJConfig.biomes.borealForestWeight, false, BiomeType.COOL, Type.CONIFEROUS, Type.COLD, Type.FOREST);
 			registerBiome(snowy_boreal_forest, "snowy_boreal_forest", PVJConfig.biomes.snowyBorealForestWeight, false, BiomeType.ICY, Type.CONIFEROUS, Type.COLD, Type.FOREST, Type.SNOWY);
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
-			registerBiome(mudlands, "mudlands", PVJConfig.biomes.mudlandsWeight, false, BiomeType.WARM, Type.SWAMP, Type.WASTELAND, Type.WET);
 			registerBiome(baobab_fields, "baobab_fields", PVJConfig.biomes.baobabFieldsWeight, true, BiomeType.WARM, Type.SAVANNA, Type.HOT, Type.SPARSE);
 			registerBiome(pale_forest, "pale_forest", PVJConfig.biomes.paleForestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);

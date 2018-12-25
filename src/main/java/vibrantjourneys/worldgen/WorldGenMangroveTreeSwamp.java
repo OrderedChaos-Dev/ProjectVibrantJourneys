@@ -34,24 +34,21 @@ public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 		
 		if(BiomeDictionary.hasType(biome, Type.SWAMP) || BiomeDictionary.hasType(biome, Type.JUNGLE))
 		{
-			if(biome != PVJBiomes.mudlands)
+			for(int i = 0; i < frequency; i++)
 			{
-				for(int i = 0; i < frequency; i++)
+				int xPos = x + random.nextInt(7) - random.nextInt(7);
+				int zPos = z + random.nextInt(7) - random.nextInt(7);
+				int yPos = 63;
+				if(random.nextInt(20) == 0)
 				{
-					int xPos = x + random.nextInt(7) - random.nextInt(7);
-					int zPos = z + random.nextInt(7) - random.nextInt(7);
-					int yPos = 63;
-					if(random.nextInt(20) == 0)
+					BlockPos pos = new BlockPos(xPos, yPos, zPos);
+					IBlockState state = world.getBlockState(pos.down());
+					if(state.getMaterial() == Material.WATER)
 					{
-						BlockPos pos = new BlockPos(xPos, yPos, zPos);
-						IBlockState state = world.getBlockState(pos.down());
-						if(state.getMaterial() == Material.WATER)
-						{
-							mangrovetreegen.generate(world, random, pos);
-						}
+						mangrovetreegen.generate(world, random, pos);
 					}
-				}	
-			}
+				}
+			}	
 		}
 	}
 }
