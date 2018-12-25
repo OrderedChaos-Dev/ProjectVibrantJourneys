@@ -116,6 +116,7 @@ public class BiomeReference
 		loadMapleTrees();
 		loadBaobabTrees();
 		loadCottonwoodTrees();
+		loadJuniperTrees();
 		
 		ALL_BIOMES.addAll(ForgeRegistries.BIOMES.getValuesCollection());
 		OVERWORLD_BIOMES.addAll(ALL_BIOMES.stream()
@@ -149,7 +150,6 @@ public class BiomeReference
 		OAK_TREES.add(Biomes.SWAMPLAND);
 		OAK_TREES.add(Biomes.MUTATED_FOREST);
 		OAK_TREES.add(Biomes.MUTATED_SWAMPLAND);
-		OAK_TREES.add(PVJBiomes.pale_forest);
 		
 		OAK_TREES_SPARSE.add(Biomes.JUNGLE);
 		OAK_TREES_SPARSE.add(Biomes.MUTATED_JUNGLE);
@@ -288,7 +288,16 @@ public class BiomeReference
 		COTTONWOOD_TREES.add(Biomes.PLAINS);
 		COTTONWOOD_TREES.add(Biomes.MUTATED_PLAINS);
 		COTTONWOOD_TREES.add(PVJBiomes.prairie);
-		COTTONWOOD_TREES.add(PVJBiomes.pale_forest);
+	}
+	
+	public static void loadJuniperTrees()
+	{
+		JUNIPER_TREES.add(Biomes.MESA);
+		JUNIPER_TREES.add(Biomes.MESA_CLEAR_ROCK);
+		JUNIPER_TREES.add(Biomes.MESA_ROCK);
+		JUNIPER_TREES.add(Biomes.MUTATED_MESA);
+		JUNIPER_TREES.add(Biomes.MUTATED_MESA_CLEAR_ROCK);
+		JUNIPER_TREES.add(Biomes.MUTATED_MESA_ROCK);
 	}
 	
 	public static void loadMesaBiomes()

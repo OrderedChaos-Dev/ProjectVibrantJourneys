@@ -320,7 +320,6 @@ public class PVJConfig
 		public int borealForestWeight = 9;
 		public int snowyBorealForestWeight = 9;
 		public int aspenGroveWeight = 8;
-		public int paleForestWeight = 6;
 		public int overgrownSpiresWeight = 7;
 		public int alpineHeightsWeight = 6;
 		public int baobabFieldsWeight = 3;

@@ -25,6 +25,7 @@ import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenFloaters;
 import vibrantjourneys.worldgen.WorldGenFrozenCaves;
 import vibrantjourneys.worldgen.WorldGenGroundCover;
+import vibrantjourneys.worldgen.WorldGenJuniperTreeMesa;
 import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
 import vibrantjourneys.worldgen.WorldGenOvergrownCaves;
@@ -46,6 +47,7 @@ public class PVJWorldGen
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
+		registerWorldGen(new WorldGenJuniperTreeMesa(PVJConfig.worldgen.juniperDensity));
 		
 		if(PVJConfig.master.enableCaves)
 		{
