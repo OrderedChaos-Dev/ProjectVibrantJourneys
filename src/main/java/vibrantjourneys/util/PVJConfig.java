@@ -199,9 +199,6 @@ public class PVJConfig
 		public int fallenLeavesOrangeMapleDensity = 30;
 		public int fallenLeavesBaobabDensity = 5;
 		public int fallenLeavesCottonwoodDensity = 2;
-		public int fallenLeavesCrystalbarkDensity = 20;
-		public int fallenLeavesBlueArcwoodDensity = 35;
-		public int fallenLeavesPurpleArcwoodDensity = 35;
 		public int fallenLeavesJuniperDensity = 1;
 		
 		public int lilypadRiverDensity = 20;
@@ -223,9 +220,7 @@ public class PVJConfig
 		public int fallenTreeAspenDensity = 25;
 		public int fallenTreeMapleDensity = 10;
 		public int fallenTreeBaobabDensity = 3;
-		public int fallenTreeCottonwoodDensity = 1;
-		public int fallenTreeCrystalbarkDensity = 15;
-		public int fallenTreeArcwoodDensity = 15;
+		public int fallenTreeCottonwoodDensity = 2;
 		public int fallenTreeJuniperDensity = 1;
 		
 		public int mangroveRootDensity = 2;
@@ -268,9 +263,6 @@ public class PVJConfig
 		public int orangeMapleTwigsDensity = 300;
 		public int baobabTwigsDensity = 20;
 		public int cottonwoodTwigsDensity = 10;
-		public int crystalbarkTwigsDensity = 20;
-		public int blueArcwoodTwigsDensity = 30;
-		public int purpleArcwoodTwigsDensity = 30;
 		public int juniperTwigsDensity = 10;
 		
 		public int bonesDensity = 5;
@@ -329,13 +321,10 @@ public class PVJConfig
 		public int snowyBorealForestWeight = 9;
 		public int aspenGroveWeight = 8;
 		public int mudlandsWeight = 5;
-		public int baobabFieldsWeight = 4;
 		public int paleForestWeight = 6;
 		public int overgrownSpiresWeight = 7;
 		public int alpineHeightsWeight = 6;
-		public int redRockBadlands = 7;
-		public int enchantedGroveWeight = 5;
-		public int crystallineThicketWeight = 5;
+		public int baobabFieldsWeight = 3;
 	}
 	
 	public static class EntitiesSubCategory

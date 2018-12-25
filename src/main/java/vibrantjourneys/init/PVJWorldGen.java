@@ -96,7 +96,6 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenMangroveRoot(PVJConfig.worldgen.mangroveRootDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
 		
 		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES_SPARSE)));
-		registerWorldGen(new WorldGenSmallBush(PVJConfig.worldgen.bushDensity, PVJBiomes.red_rock_badlands));
 		
 		if(PVJConfig.master.enableGroundcover)
 		{

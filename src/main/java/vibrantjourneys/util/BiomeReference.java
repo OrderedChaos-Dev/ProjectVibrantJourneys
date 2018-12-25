@@ -65,8 +65,6 @@ public class BiomeReference
 	public static final ArrayList<Biome> ORANGE_MAPLE_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> BAOBAB_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> COTTONWOOD_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> CRYSTALBARK_TREES = new ArrayList<Biome>();
-	public static final ArrayList<Biome> ARCWOOD_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> JUNIPER_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
@@ -301,7 +299,6 @@ public class BiomeReference
 		MESA_BIOMES.add(Biomes.MUTATED_MESA);
 		MESA_BIOMES.add(Biomes.MUTATED_MESA_CLEAR_ROCK);
 		MESA_BIOMES.add(Biomes.MUTATED_MESA_ROCK);
-		MESA_BIOMES.add(PVJBiomes.red_rock_badlands);
 	}
 	
 	public static void loadDesertBiomes()

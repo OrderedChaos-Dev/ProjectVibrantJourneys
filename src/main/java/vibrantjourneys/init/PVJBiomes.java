@@ -13,13 +13,10 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.biomes.BiomeAspenGrove;
 import vibrantjourneys.biomes.BiomeBaobabFields;
 import vibrantjourneys.biomes.BiomeBorealForest;
-import vibrantjourneys.biomes.BiomeCrystallineThicket;
-import vibrantjourneys.biomes.BiomeEnchantedGrove;
 import vibrantjourneys.biomes.BiomeMudlands;
 import vibrantjourneys.biomes.BiomeOvergrownSpires;
 import vibrantjourneys.biomes.BiomePaleForest;
 import vibrantjourneys.biomes.BiomePrairie;
-import vibrantjourneys.biomes.BiomeRedRockBadlands;
 import vibrantjourneys.biomes.BiomeRedwoods;
 import vibrantjourneys.biomes.BiomeWillowSwamp;
 import vibrantjourneys.util.PVJConfig;
@@ -39,9 +36,6 @@ public class PVJBiomes
 	public static Biome pale_forest = new BiomePaleForest(new BiomeProperties("Pale Forest").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
 	public static Biome alpine_heights = new BiomeBorealForest(new BiomeProperties("Alpine Heights").setBaseHeight(2.0F).setHeightVariation(0.04F).setTemperature(0.25F).setRainfall(0.5F));
-	public static Biome red_rock_badlands = new BiomeRedRockBadlands(new BiomeProperties("Red Rock Badlands").setBaseHeight(0.1F).setHeightVariation(0.2F).setTemperature(1.F).setRainfall(0.0F).setRainDisabled());
-	public static Biome enchanted_grove = new BiomeEnchantedGrove(new BiomeProperties("Enchanted Grove").setTemperature(0.69F).setRainfall(0.8F));
-	public static Biome crystalline_thicket = new BiomeCrystallineThicket(new BiomeProperties("Crystalline Thicket").setTemperature(0.7F).setRainfall(0.85F));
 	
 	public static void initBiomes()
 	{
@@ -59,9 +53,6 @@ public class PVJBiomes
 			registerBiome(pale_forest, "pale_forest", PVJConfig.biomes.paleForestWeight, false, BiomeType.WARM, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
 			registerBiome(alpine_heights, "alpine_heights", PVJConfig.biomes.alpineHeightsWeight, false, BiomeType.COOL, Type.FOREST, Type.CONIFEROUS, Type.MOUNTAIN, Type.COLD);
-			registerBiome(red_rock_badlands, "red_rock_badlands", PVJConfig.biomes.redRockBadlands, true, BiomeType.DESERT, Type.SANDY);
-			registerBiome(enchanted_grove, "enchanted_grove", PVJConfig.biomes.enchantedGroveWeight, false, BiomeType.WARM, Type.MAGICAL, Type.FOREST);
-			registerBiome(crystalline_thicket, "crystalline_thicket", PVJConfig.biomes.crystallineThicketWeight, false, BiomeType.COOL, Type.MAGICAL, Type.FOREST);
 		}
 	}
 	

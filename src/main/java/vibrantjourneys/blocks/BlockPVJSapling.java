@@ -21,7 +21,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
-import vibrantjourneys.worldgen.WorldGenArcwoodTree;
 import vibrantjourneys.worldgen.WorldGenAspenTree;
 import vibrantjourneys.worldgen.WorldGenBaobabTree;
 import vibrantjourneys.worldgen.WorldGenCottonwoodTree;
@@ -156,12 +155,6 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	break;
             case COTTONWOOD:
             	worldgenerator = new WorldGenCottonwoodTree(true);
-            	break;
-            case BLUE_ARCWOOD:
-            	worldgenerator = new WorldGenArcwoodTree(true, true);
-            	break;
-            case PURPLE_ARCWOOD:
-            	worldgenerator = new WorldGenArcwoodTree(true, false);
             	break;
             case JUNIPER:
             	worldgenerator = new WorldGenJuniperTree();

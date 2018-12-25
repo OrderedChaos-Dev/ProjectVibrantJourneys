@@ -15,11 +15,8 @@ public enum EnumLeafType
     ORANGE_MAPLE(8, "orange_maple", EnumWoodType.MAPLE, PVJConfig.worldgen.fallenLeavesOrangeMapleDensity, PVJConfig.worldgen.orangeMapleTwigsDensity),
     BAOBAB(9, "baobab", EnumWoodType.BAOBAB, PVJConfig.worldgen.fallenLeavesBaobabDensity, PVJConfig.worldgen.baobabTwigsDensity),
     COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity),
-    CRYSTALBARK(11, "crystalbark", EnumWoodType.CRYSTALBARK, PVJConfig.worldgen.fallenLeavesCrystalbarkDensity, PVJConfig.worldgen.crystalbarkTwigsDensity),
-    BLUE_ARCWOOD(12, "blue_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesBlueArcwoodDensity, PVJConfig.worldgen.blueArcwoodTwigsDensity),
-    PURPLE_ARCWOOD(13, "purple_arcwood", EnumWoodType.ARCWOOD, PVJConfig.worldgen.fallenLeavesPurpleArcwoodDensity, PVJConfig.worldgen.purpleArcwoodTwigsDensity),
-    JUNIPER(14, "juniper", EnumWoodType.JUNIPER, PVJConfig.worldgen.fallenLeavesJuniperDensity, PVJConfig.worldgen.juniperTwigsDensity),
-    JUNIPER_BERRIED(15, "juniper_berried", EnumWoodType.JUNIPER, -1, -1);
+    JUNIPER(11, "juniper", EnumWoodType.JUNIPER, PVJConfig.worldgen.fallenLeavesJuniperDensity, PVJConfig.worldgen.juniperTwigsDensity),
+    JUNIPER_BERRIED(12, "juniper_berried", EnumWoodType.JUNIPER, -1, -1);
     
     private String name;
     private int id;
