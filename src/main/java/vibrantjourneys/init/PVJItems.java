@@ -6,6 +6,8 @@ import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.ResourceLocation;
 import vibrantjourneys.items.ItemBeverage;
@@ -24,6 +26,7 @@ public class PVJItems
 	
 	public static Item cracked_coconut;
 	public static Item coconut_milk;
+	public static Item juniper_berries;
 	
 	public static Item spectral_wrappings;
 	
@@ -38,8 +41,6 @@ public class PVJItems
 	public static Item mystical_potato;
 	public static Item mystical_rabbit;
 	
-	public static Item aquamarine;
-	
 	public static Item wax;
 	
 	public static void initItems()
@@ -53,6 +54,7 @@ public class PVJItems
 		
 		cracked_coconut = registerItem(new ItemFood(3, 0.35F, false), "cracked_coconut");
 		coconut_milk = registerItem(new ItemBeverage(1, 0.05F, "regeneration", 400), "coconut_milk");
+		juniper_berries = registerItem(new ItemFood(3, 0.2F, false).setPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 60), 1.0F), "juniper_berries");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");

@@ -36,6 +36,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 		super(material);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
 		this.groundcoverType = type;
+		this.setHardness(0.2F);
 	}
 	
 	public GroundcoverType getGroundcoverType()

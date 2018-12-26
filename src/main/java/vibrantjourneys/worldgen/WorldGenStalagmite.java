@@ -63,23 +63,34 @@ public class WorldGenStalagmite implements IWorldGenerator
 				if(world.canSeeSky(pos.down())) //caves only!
 					return;
 				
-				if(world.getBlockState(pos.down()).getMaterial() == Material.ROCK && world.isSideSolid(pos.down(), EnumFacing.UP))
+				//just an extra test
+				boolean flag = false;
+				for(int h = pos.getY() + 1; h < 256; h++)
 				{
-					for(int size = 0; size < 3; size++)
+					if(!world.isAirBlock(pos.up(h)))
 					{
-						if(world.isAirBlock(pos.up(size)))
-						{
-							world.setBlockState(pos.up(size), block.getDefaultState().withProperty(BlockRockFormation.SIZE, size));
-						}
-						else
-						{
-							break;
-						}
+						flag = true;
 					}
+				}
+				
+				if(flag)
+				{
+					if(world.getBlockState(pos.down()).getMaterial() == Material.ROCK && world.isSideSolid(pos.down(), EnumFacing.UP))
+					{
+						for(int size = 0; size < 3; size++)
+						{
+							if(world.isAirBlock(pos.up(size)))
+							{
+								world.setBlockState(pos.up(size), block.getDefaultState().withProperty(BlockRockFormation.SIZE, size));
+							}
+							else
+							{
+								break;
+							}
+						}
+					}	
 				}
 			}
 		}
 	}
-	
-	
 }

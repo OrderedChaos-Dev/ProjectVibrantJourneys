@@ -15,12 +15,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -28,6 +30,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.IPropertyHelper;
 
@@ -96,6 +99,24 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     		block = PVJBlocks.SAPLINGS.get(EnumLeafType.JUNIPER.getID());
     	
         return Item.getItemFromBlock(block);
+    }
+    
+	@Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+		if(!world.isRemote)
+		{
+			if(leafType.getID() == EnumLeafType.JUNIPER_BERRIED.getID())
+			{
+				int amount = world.rand.nextInt(2) + 1;
+				ItemStack berries = new ItemStack(PVJItems.juniper_berries, amount);
+				InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), berries);
+				world.setBlockState(pos, PVJBlocks.LEAVES.get(EnumLeafType.JUNIPER.getID()).getDefaultState()
+						.withProperty(CHECK_DECAY, state.getValue(CHECK_DECAY)).withProperty(DECAYABLE, state.getValue(DECAYABLE)));
+			}
+		}
+		
+		return true;
     }
     
     @Override

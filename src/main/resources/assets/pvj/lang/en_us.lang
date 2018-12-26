@@ -3,6 +3,7 @@ itemGroup.tabProjectVibrantJourneys=Project: Vibrant Journeys
 item.slime_droplet.name=Slime Droplet
 item.cracked_coconut.name=Cracked Coconut
 item.coconut_milk.name=Coconut Milk
+item.juniper_berries.name=Juniper Berries
 item.wax.name=Wax
 item.spectral_wrappings.name=Spectral Wrappings
 item.goon_bile.name=Goon Bile
@@ -26,6 +27,7 @@ item.aspen_door_item.name=Aspen Door
 item.maple_door_item.name=Maple Door
 item.baobab_door_item.name=Baobab Door
 item.cottonwood_door_item.name=Cottonwood Door
+item.juniper_door_item.name=Juniper Door
 
 item.willow_boat.name=Willow Boat
 item.mangrove_boat.name=Mangrove Boat
@@ -37,6 +39,7 @@ item.aspen_boat.name=Aspen Boat
 item.maple_boat.name=Maple Boat
 item.baobab_boat.name=Baobab Boat
 item.cottonwood_boat.name=Cottonwood Boat
+item.juniper_boat.name=Juniper Boat
 
 tile.cobblestone_brick.name=Cobblestone Bricks
 tile.planks_willow.name=Willow Wood Planks
@@ -49,6 +52,7 @@ tile.planks_aspen.name=Aspen Wood Planks
 tile.planks_maple.name=Maple Wood Planks
 tile.planks_baobab.name=Baobab Wood Planks
 tile.planks_cottonwood.name=Cottonwood Planks
+tile.juniper_planks.name=Juniper Planks
 
 tile.log_willow.name=Willow Wood
 tile.log_mangrove.name=Mangrove Wood
@@ -60,6 +64,7 @@ tile.log_aspen.name=Aspen Wood
 tile.log_maple.name=Maple Wood
 tile.log_baobab.name=Baobab Wood
 tile.log_cottonwood.name=Cottonwood Wood
+tile.log_juniper.name=Juniper Wood
 
 tile.leaves_willow.name=Willow Leaves
 tile.leaves_mangrove.name=Mangrove Leaves
@@ -72,6 +77,8 @@ tile.leaves_red_maple.name=Red Maple Leaves
 tile.leaves_orange_maple.name=Orange Maple Leaves
 tile.leaves_baobab.name=Baobab Leaves
 tile.leaves_cottonwood.name=Cottonwood Leaves
+tile.leaves_juniper.name=Juniper Leaves
+tile.leaves_juniper_berried=Berried Juniper Leaves
 
 tile.sapling_willow.name=Willow Sapling
 tile.sapling_mangrove.name=Mangrove Sapling
@@ -84,6 +91,7 @@ tile.sapling_red_maple.name=Red Maple Sapling
 tile.sapling_orange_maple.name=Orange Maple Sapling
 tile.sapling_baobab.name=Baobab Sapling
 tile.sapling_cottonwood.name=Cottonwood Sapling
+tile.sapling_juniper.name=Juniper Sapling
 
 tile.coconut.name=Coconut
 
@@ -105,6 +113,7 @@ tile.fallenleaves_red_maple.name=Red Maple Fallen Leaves
 tile.fallenleaves_orange_maple.name=Orange Maple Fallen Leaves
 tile.fallenleaves_baobab.name=Baobab Fallen Leaves
 tile.fallenleaves_cottonwood.name=Cottonwood Fallen Leaves
+tile.fallenleaves_juniper.name=Juniper Fallen Leaves
 
 tile.stone_rocks.name=Stone Rocks
 tile.cobblestone_rocks.name=Cobblestone Rocks
@@ -132,6 +141,7 @@ tile.red_maple_twigs.name=Red Maple Twigs
 tile.orange_maple_twigs.name=Orange Maple Twigs
 tile.baobab_twigs.name=Baobab Twigs
 tile.cottonwood_twigs.name=Cottonwood Twigs
+tile.juniper_twigs.name=Juniper Twigs
 
 tile.bones.name=Bones
 tile.seashells.name=Seashells
@@ -186,6 +196,7 @@ tile.aspen_slab.name=Aspen Slab
 tile.maple_slab.name=Maple Slab
 tile.baobab_slab.name=Baobab Slab
 tile.cottonwood_slab.name=Cottonwood Slab
+tile.juniper_slab.name=Juniper Slab
 tile.cobblestone_brick_slab.name=Cobblestone Bricks Slab
 
 tile.willow_pressure_plate.name=Willow Pressure Plate
@@ -198,6 +209,7 @@ tile.aspen_pressure_plate.name=Aspen Pressure Plate
 tile.maple_pressure_plate.name=Maple Pressure Plate
 tile.baobab_pressure_plate.name=Baobab Pressure Plate
 tile.cottonwood_pressure_plate.name=Cottonwood Pressure Plate
+tile.juniper_pressure_plate=Juniper Pressure Plate
 
 tile.willow_button.name=Willow Button
 tile.mangrove_button.name=Mangrove Button
@@ -209,6 +221,7 @@ tile.aspen_button.name=Aspen Button
 tile.maple_button.name=Maple Button
 tile.baobab_button.name=Baobab Button
 tile.cottonwood_button.name=Cottonwood Button
+tile.juniper_button.name=Juniper Button
 
 tile.willow_fence.name=Willow Fence
 tile.mangrove_fence.name=Mangrove Fence
@@ -220,6 +233,7 @@ tile.aspen_fence.name=Aspen Fence
 tile.maple_fence.name=Maple Fence
 tile.baobab_fence.name=Baobab Fence
 tile.cottonwood_fence.name=Cottonwood Fence
+tile.juniper_fence.name=Juniper Fence
 
 tile.willow_fence_gate.name=Willow Fence Gate
 tile.mangrove_fence_gate.name=Mangrove Fence Gate
@@ -231,6 +245,7 @@ tile.aspen_fence_gate.name=Aspen Fence Gate
 tile.maple_fence_gate.name=Maple Fence Gate
 tile.baobab_fence_gate.name=Baobab Fence Gate
 tile.cottonwood_fence_gate.name=Cottonwood Fence Gate
+tile.juniper_fence_gate.name=Juniper Fence Gate
 
 tile.willow_trapdoor.name=Willow Trapdoor
 tile.mangrove_trapdoor.name=Mangrove Trapdoor
@@ -242,6 +257,7 @@ tile.aspen_trapdoor.name=Aspen Trapdoor
 tile.maple_trapdoor.name=Maple Trapdoor
 tile.baobab_trapdoor.name=Baobab Trapdoor
 tile.cottonwood_trapdoor.name=Cottonwood Trapdoor
+tile.juniper_trapdoor.name=Juniper Trapdoor
 
 tile.wet_adobe.name=Wet Adobe
 
