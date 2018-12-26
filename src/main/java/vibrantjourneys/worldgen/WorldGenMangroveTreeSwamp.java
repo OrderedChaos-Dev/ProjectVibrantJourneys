@@ -12,7 +12,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.init.PVJBiomes;
 
 public class WorldGenMangroveTreeSwamp implements IWorldGenerator
 {
