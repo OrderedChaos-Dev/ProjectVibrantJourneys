@@ -309,6 +309,8 @@ public class PVJConfig
 		public int marbleDensity = 15;
 		public int limestoneDensity = 20;
 		public int siltstoneDensity = 20;
+		
+		public int mudDensity = 30;
 	}
 	
 	public static class BiomesSubCategory

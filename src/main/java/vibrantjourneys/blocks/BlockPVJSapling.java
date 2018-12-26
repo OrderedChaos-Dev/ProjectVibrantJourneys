@@ -226,10 +226,11 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         IBlockState soil = worldIn.getBlockState(pos.down());
-    	if(leafType == EnumLeafType.PALM || leafType == EnumLeafType.MANGROVE)
+    	if(leafType == EnumLeafType.PALM || leafType == EnumLeafType.MANGROVE || leafType == EnumLeafType.JUNIPER)
     	{
     		return super.canPlaceBlockAt(worldIn, pos) || soil.getBlock() == Blocks.SAND;
     	}
+
         return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), EnumFacing.UP, this);
     }
     

@@ -28,6 +28,7 @@ import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenJuniperTreeMesa;
 import vibrantjourneys.worldgen.WorldGenMangroveRoot;
 import vibrantjourneys.worldgen.WorldGenMangroveTreeSwamp;
+import vibrantjourneys.worldgen.WorldGenMud;
 import vibrantjourneys.worldgen.WorldGenOvergrownCaves;
 import vibrantjourneys.worldgen.WorldGenPVJPlant;
 import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
@@ -74,6 +75,8 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 65, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 12, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
+		
+		registerWorldGen(new WorldGenMud(PVJConfig.worldgen.mudDensity, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0])));
 		
 		if(PVJConfig.master.enableFallenTrees)
 		{
