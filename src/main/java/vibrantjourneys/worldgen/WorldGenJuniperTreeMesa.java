@@ -40,7 +40,7 @@ public class WorldGenJuniperTreeMesa implements IWorldGenerator
 				int xPos = x + random.nextInt(4) - random.nextInt(4);
 				int zPos = z + random.nextInt(4) - random.nextInt(4);
 				int yPos;
-				if(random.nextInt(16) == 0)
+				if(random.nextInt(45) == 0)
 				{
 					for(int y = 0; y < 4; y++)
 					{

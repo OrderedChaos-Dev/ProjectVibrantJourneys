@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_juniper",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:juniper_trapdoor",
+		"count": 2,
+		"data": 0
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C  ",
+		"CC ",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_juniper",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:juniper_stairs",
+		"count": 4,
+		"data": 0
+	}
+}

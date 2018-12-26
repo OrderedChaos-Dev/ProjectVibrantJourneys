@@ -47,7 +47,7 @@ public class PVJTerrainGenEvents
 			Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
 			if(BiomeReference.BAOBAB_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(150) <= PVJConfig.worldgen.baobabDensity)
+				if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
