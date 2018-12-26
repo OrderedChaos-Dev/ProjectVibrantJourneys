@@ -26,7 +26,7 @@ public class WorldGenMud implements IWorldGenerator
 	
 	public WorldGenMud(int frequency, Biome... biomes)
 	{
-		this.mudGen = new WorldGenMinable(PVJBlocks.mud.getDefaultState(), 12, new DirtPredicate());
+		this.mudGen = new WorldGenMinable(PVJBlocks.mud.getDefaultState(), 11, new DirtPredicate());
 		this.maxHeight = 70;
 		this.frequency = (int)(frequency * (PVJConfig.global.stoneDepositsDensity / 100.0));
 		this.biomes = biomes;

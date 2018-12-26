@@ -52,7 +52,7 @@ tile.planks_aspen.name=Aspen Wood Planks
 tile.planks_maple.name=Maple Wood Planks
 tile.planks_baobab.name=Baobab Wood Planks
 tile.planks_cottonwood.name=Cottonwood Planks
-tile.juniper_planks.name=Juniper Planks
+tile.planks_juniper.name=Juniper Planks
 
 tile.log_willow.name=Willow Wood
 tile.log_mangrove.name=Mangrove Wood
@@ -183,6 +183,7 @@ tile.pine_stairs.name=Pine Stairs
 tile.aspen_stairs.name=Aspen Stairs
 tile.maple_stairs.name=Maple Stairs
 tile.baobab_stairs.name=Baobab Stairs
+tile.juniper_stairs.name=Juniper Stairs
 tile.cottonwood_stairs.name=Cottonwood Stairs
 tile.cobblestone_brick_stairs.name=Cobblestone Bricks Stairs
 
