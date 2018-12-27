@@ -211,8 +211,8 @@ public class PVJWorldGen
 
 		if(PVJConfig.master.enableNetherPlants)
 		{
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, 0, 255, PVJConfig.worldgen.bloodnettleDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, 0, 255, PVJConfig.worldgen.glowcapDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, 0, 255, PVJConfig.worldgen.bloodnettleDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, 0, 255, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 		}
 		
 		if(Reference.isBOPLoaded)

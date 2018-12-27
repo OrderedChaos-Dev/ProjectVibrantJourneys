@@ -10,14 +10,16 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenPVJPlant implements IWorldGenerator
 {
+	public static final int OVERWORLD = 0;
+	public static final int NETHER = -1;
+	public static final int END = 1;
+	
 	private Block block;
 	private int minY, maxY;
 	private int frequency;
@@ -25,12 +27,17 @@ public class WorldGenPVJPlant implements IWorldGenerator
 	
 	public WorldGenPVJPlant(Block block, int minY, int maxY, int frequency, Biome... biomes)
 	{
+		this(block, minY, maxY, frequency, OVERWORLD, biomes);
+	}
+	
+	public WorldGenPVJPlant(Block block, int minY, int maxY, int frequency, int dimension, Biome... biomes)
+	{
 		this.block = block;
 		this.minY = minY;
 		this.maxY = maxY;
 		this.biomes = biomes;
 		
-		if(BiomeDictionary.getTypes(biomes[0]).contains(Type.NETHER))
+		if(dimension == NETHER)
 			this.frequency = (int)(frequency * (PVJConfig.global.netherPlantsDensity / 100.0));
 		else
 			this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));

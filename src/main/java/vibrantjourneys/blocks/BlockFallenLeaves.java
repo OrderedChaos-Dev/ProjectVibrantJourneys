@@ -31,7 +31,7 @@ public class BlockFallenLeaves extends Block implements IShearable
 	public BlockFallenLeaves()
 	{
 			super(Material.PLANTS);
-	        this.setHardness(0.2F);
+	        this.setHardness(0.1F);
 	        this.setLightOpacity(1);
 	        this.setSoundType(SoundType.PLANT);
 	}

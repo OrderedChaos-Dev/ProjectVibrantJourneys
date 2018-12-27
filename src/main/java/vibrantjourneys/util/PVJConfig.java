@@ -173,7 +173,7 @@ public class PVJConfig
 		public int redMapleDensity = 15;
 		public int orangeMapleDensity = 15;
 		public int baobabDensity = 2;
-		public int cottonwoodDensity = 3;
+		public int cottonwoodDensity = 1;
 		public int juniperDensity = 1;
 		
 		public int fallenLeavesOakDensity = 45;

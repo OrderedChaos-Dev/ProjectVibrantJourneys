@@ -128,6 +128,10 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
                         }
                     }
                 }
+            	if(!flag)
+            	{
+            		return;
+            	}
 	            break;
             case PALM:
             	worldgenerator = new WorldGenPalmTree();
