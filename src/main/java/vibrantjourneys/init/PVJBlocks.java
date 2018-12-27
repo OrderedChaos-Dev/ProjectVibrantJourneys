@@ -125,9 +125,6 @@ public class PVJBlocks
 	
 	public static Block rock_formation, ice_formation;
 	
-	public static Block aquamarine_ore;
-	public static Block aquamarine_block;
-	
 	public static Block mystical_grill;
 	
 	public static Block cobblestone_chimney, stone_chimney, brick_chimney, stonebrick_chimney, cobblestone_brick_chimney,

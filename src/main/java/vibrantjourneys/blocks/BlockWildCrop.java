@@ -40,7 +40,7 @@ public class BlockWildCrop extends BlockPVJPlant
 		if(cropItem == Items.WHEAT)
 		{
 			super.getDrops(drops, world, pos, state, 0);
-			for (int i = 0; i < 2 + fortune; ++i)
+			for (int i = 0; i < 2 + fortune; i++)
 			{
 				if (rand.nextInt(20) <= 7)
 				{
@@ -51,7 +51,7 @@ public class BlockWildCrop extends BlockPVJPlant
 		else if(cropItem == Items.BEETROOT)
 		{
 			super.getDrops(drops, world, pos, state, 0);
-			for (int i = 0; i < 2 + fortune; ++i)
+			for (int i = 0; i < 2 + fortune; i++)
 			{
 				if (rand.nextInt(20) <= 7)
 				{

@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "check_decay=false,decayable=false": { "model": "pvj:leaves_crystalbark" },
-        "check_decay=false,decayable=true": { "model": "pvj:leaves_crystalbark" },
-        "check_decay=true,decayable=false": { "model": "pvj:leaves_crystalbark" },
-        "check_decay=true,decayable=true": { "model": "pvj:leaves_crystalbark" }
-    }
-}
