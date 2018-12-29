@@ -40,8 +40,8 @@ public class WorldGenCattail implements IWorldGenerator
 			int yPos = 60;
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(3) - random.nextInt(3);
-				int zPos = z + random.nextInt(3) - random.nextInt(3);
+				int xPos = x + random.nextInt(8);
+				int zPos = z + random.nextInt(8);
 				
 				yPos = 60;
 				for(int j = 0; j < 20; j++)

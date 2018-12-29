@@ -236,6 +236,7 @@ public class BiomeReference
 		MANGROVE_TREES.add(Biomes.JUNGLE_HILLS);
 		MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE);
 		MANGROVE_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
+		MANGROVE_TREES.add(PVJBiomes.overgrown_spires);
 	}
 	
 	public static void loadPalmTrees()

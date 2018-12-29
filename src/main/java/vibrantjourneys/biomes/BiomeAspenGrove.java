@@ -13,8 +13,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.PVJConfig;
-import vibrantjourneys.worldgen.WorldGenAspenTree;
-import vibrantjourneys.worldgen.WorldGenMapleTree;
+import vibrantjourneys.worldgen.feature.WorldGenAspenTree;
+import vibrantjourneys.worldgen.feature.WorldGenMapleTree;
 
 public class BiomeAspenGrove extends Biome
 {

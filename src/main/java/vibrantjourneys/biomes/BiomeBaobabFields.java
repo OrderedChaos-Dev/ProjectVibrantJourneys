@@ -6,7 +6,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeSavanna;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenSavannaTree;
-import vibrantjourneys.worldgen.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
 
 public class BiomeBaobabFields extends BiomeSavanna
 {

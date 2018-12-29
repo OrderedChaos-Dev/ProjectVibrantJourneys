@@ -50,6 +50,9 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
+    	if(!worldIn.isAirBlock(pos.up()))
+    		return false;
+    	
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
 

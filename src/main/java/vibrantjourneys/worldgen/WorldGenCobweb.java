@@ -37,7 +37,7 @@ public class WorldGenCobweb implements IWorldGenerator
 				int xPos = x + random.nextInt(8) - random.nextInt(8);
 				int zPos = z + random.nextInt(8) - random.nextInt(8);
 				int yPos = 63 + random.nextInt(20);
-				if(random.nextInt(7) == 0)
+				if(random.nextInt(6) == 0)
 				{
 					BlockPos pos = new BlockPos(xPos, yPos, zPos);
 					IBlockState state = world.getBlockState(pos.up());

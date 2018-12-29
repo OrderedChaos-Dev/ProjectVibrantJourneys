@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.BlockLilyPad;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -22,6 +23,11 @@ import vibrantjourneys.util.IPropertyHelper;
 public class BlockFloatingPlant extends BlockLilyPad implements IPropertyHelper
 {
 	public static final PropertyInteger MODEL = PropertyInteger.create("model", 0, 3);
+	
+	public BlockFloatingPlant()
+	{
+		this.setSoundType(SoundType.PLANT);
+	}
 	
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos)

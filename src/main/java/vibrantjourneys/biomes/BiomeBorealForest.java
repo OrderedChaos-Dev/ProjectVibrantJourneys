@@ -17,8 +17,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.PVJConfig;
-import vibrantjourneys.worldgen.WorldGenFirTree;
-import vibrantjourneys.worldgen.WorldGenPineTree;
+import vibrantjourneys.worldgen.feature.WorldGenFirTree;
+import vibrantjourneys.worldgen.feature.WorldGenPineTree;
 
 public class BiomeBorealForest extends Biome
 {

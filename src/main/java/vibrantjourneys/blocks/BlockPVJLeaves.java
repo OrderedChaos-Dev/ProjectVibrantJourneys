@@ -113,10 +113,11 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
 				InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), berries);
 				world.setBlockState(pos, PVJBlocks.LEAVES.get(EnumLeafType.JUNIPER.getID()).getDefaultState()
 						.withProperty(CHECK_DECAY, state.getValue(CHECK_DECAY)).withProperty(DECAYABLE, state.getValue(DECAYABLE)));
+				return true;
 			}
 		}
 		
-		return true;
+		return false;
     }
     
     @Override

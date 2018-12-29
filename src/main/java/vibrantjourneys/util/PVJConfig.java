@@ -276,23 +276,23 @@ public class PVJConfig
 		
 		public int pineconesDensity = 150;
 		
-		public int wildWheatDensity = 20;
+		public int wildWheatDensity = 2;
 		public int wildPotatoDensity = 2;
-		public int wildCarrotDensity = 2;
-		public int wildBeetrootDensity = 2;
-		public int frostLotusDensity = 15;
-		public int silverleafDensity = 30;
-		public int chickweedDensity = 350;
-		public int cloversDensity = 400;
-		public int crabgrassDensity = 250;
+		public int wildCarrotDensity = 1;
+		public int wildBeetrootDensity = 1;
+		public int frostLotusDensity = 4;
+		public int silverleafDensity = 2;
+		public int chickweedDensity = 12;
+		public int cloversDensity = 12;
+		public int crabgrassDensity = 12;
 		public int bracketFungusDensity = 2000;
-		public int bloodnettleDensity = 10;
-		public int glowcapDensity = 25;
-		public int shortGrassDensity = 5;
-		public int waxcapDensity = 3;
+		public int bloodnettleDensity = 2;
+		public int glowcapDensity = 4;
+		public int shortGrassDensity = 6;
+		public int waxcapDensity = 1;
 		public int deathcapDensity = 2;
-		public int orangeMushroomDensity = 4;
-		public int smallCactusDensity = 7;
+		public int orangeMushroomDensity = 1;
+		public int smallCactusDensity = 1;
 		public int cattailDensity = 1000;
 		
 		public int stalactiteDensity = 450;
@@ -310,7 +310,7 @@ public class PVJConfig
 		public int limestoneDensity = 20;
 		public int siltstoneDensity = 20;
 		
-		public int mudDensity = 40;
+		public int mudDensity = 45;
 	}
 	
 	public static class BiomesSubCategory

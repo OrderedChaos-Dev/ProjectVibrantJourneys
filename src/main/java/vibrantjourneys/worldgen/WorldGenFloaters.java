@@ -49,8 +49,8 @@ public class WorldGenFloaters implements IWorldGenerator
 			int yPos = 62;
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(8) - random.nextInt(8);
-				int zPos = z + random.nextInt(8) - random.nextInt(8);
+				int xPos = x + random.nextInt(8);
+				int zPos = z + random.nextInt(8);
 				
 				if(!isRiver)
 				{

@@ -15,7 +15,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.init.PVJBlocks;
-import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenMud implements IWorldGenerator
 {
@@ -26,9 +25,9 @@ public class WorldGenMud implements IWorldGenerator
 	
 	public WorldGenMud(int frequency, Biome... biomes)
 	{
-		this.mudGen = new WorldGenMinable(PVJBlocks.mud.getDefaultState(), 11, new DirtPredicate());
+		this.mudGen = new WorldGenMinable(PVJBlocks.mud.getDefaultState(), 12, new DirtPredicate());
 		this.maxHeight = 70;
-		this.frequency = (int)(frequency * (PVJConfig.global.stoneDepositsDensity / 100.0));
+		this.frequency = frequency;
 		this.biomes = biomes;
 	}
 	
@@ -47,9 +46,9 @@ public class WorldGenMud implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				xPos = x + rand.nextInt(5) -  + rand.nextInt(5);
+				xPos = x + rand.nextInt(8);
 				yPos = 55 + rand.nextInt(maxHeight);
-				zPos = z + rand.nextInt(5) -  + rand.nextInt(5);
+				zPos = z + rand.nextInt(8);
 				
 				this.mudGen.generate(world, rand, new BlockPos(xPos, yPos, zPos));
 			}

@@ -10,8 +10,12 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJConfig;
+import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
+import vibrantjourneys.worldgen.feature.WorldGenPVJDungeon;
 
 public class PVJTerrainGenEvents
 {
@@ -42,16 +46,20 @@ public class PVJTerrainGenEvents
 	@SubscribeEvent
 	public void spawnBaobab(DecorateBiomeEvent.Decorate event)
 	{
+		Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
+		
 		if(event.getType() == Decorate.EventType.TREE)
 		{
-			Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
 			if(BiomeReference.BAOBAB_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
+				if(biome != PVJBiomes.baobab_fields)
 				{
-					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
-					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
-					event.setResult(Result.DENY);
+					if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
+					{
+						BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(8, 0, 8));
+						(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
+						event.setResult(Result.DENY);
+					}
 				}
 			}
 			if(BiomeReference.COTTONWOOD_TREES.contains(biome))

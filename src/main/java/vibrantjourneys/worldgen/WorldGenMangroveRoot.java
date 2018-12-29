@@ -47,8 +47,8 @@ public class WorldGenMangroveRoot implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				x += random.nextInt(7) - random.nextInt(7);
-				z += random.nextInt(7) - random.nextInt(7);
+				x += random.nextInt(8);
+				z += random.nextInt(8);
 				
 				BlockPos pos = new BlockPos(x, y, z);
 				if(world.isAirBlock(pos) && world.getBlockState(pos.down()).getMaterial() == Material.WATER)

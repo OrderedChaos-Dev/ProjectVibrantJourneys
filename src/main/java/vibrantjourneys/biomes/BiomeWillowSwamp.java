@@ -8,8 +8,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.PVJConfig;
-import vibrantjourneys.worldgen.WorldGenMangroveTree;
-import vibrantjourneys.worldgen.WorldGenWillowTree;
+import vibrantjourneys.worldgen.feature.WorldGenMangroveTree;
+import vibrantjourneys.worldgen.feature.WorldGenWillowTree;
 
 public class BiomeWillowSwamp extends BiomeSwamp
 {

@@ -13,6 +13,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.worldgen.feature.WorldGenJuniperTree;
 
 public class WorldGenJuniperTreeMesa implements IWorldGenerator
 {

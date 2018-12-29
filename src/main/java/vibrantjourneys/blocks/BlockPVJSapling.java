@@ -21,18 +21,18 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
-import vibrantjourneys.worldgen.WorldGenAspenTree;
-import vibrantjourneys.worldgen.WorldGenBaobabTree;
-import vibrantjourneys.worldgen.WorldGenCottonwoodTree;
-import vibrantjourneys.worldgen.WorldGenFirTree;
-import vibrantjourneys.worldgen.WorldGenJuniperTree;
-import vibrantjourneys.worldgen.WorldGenMangroveTree;
-import vibrantjourneys.worldgen.WorldGenMapleTree;
-import vibrantjourneys.worldgen.WorldGenPalmTree;
-import vibrantjourneys.worldgen.WorldGenPineTree;
-import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
-import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
-import vibrantjourneys.worldgen.WorldGenWillowTree;
+import vibrantjourneys.worldgen.feature.WorldGenAspenTree;
+import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
+import vibrantjourneys.worldgen.feature.WorldGenFirTree;
+import vibrantjourneys.worldgen.feature.WorldGenJuniperTree;
+import vibrantjourneys.worldgen.feature.WorldGenMangroveTree;
+import vibrantjourneys.worldgen.feature.WorldGenMapleTree;
+import vibrantjourneys.worldgen.feature.WorldGenPalmTree;
+import vibrantjourneys.worldgen.feature.WorldGenPineTree;
+import vibrantjourneys.worldgen.feature.WorldGenRedwoodLarge;
+import vibrantjourneys.worldgen.feature.WorldGenRedwoodSmall;
+import vibrantjourneys.worldgen.feature.WorldGenWillowTree;
 
 public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHelper
 {

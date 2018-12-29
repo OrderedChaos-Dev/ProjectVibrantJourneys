@@ -43,9 +43,9 @@ public class WorldGenRocks implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				xPos = x + rand.nextInt(5) -  + rand.nextInt(5);
+				xPos = x + rand.nextInt(8);
 				yPos = 1 + rand.nextInt(maxHeight);
-				zPos = z + rand.nextInt(5) -  + rand.nextInt(5);
+				zPos = z + rand.nextInt(8);
 				
 				this.rockGen.generate(world, rand, new BlockPos(xPos, yPos, zPos));
 			}

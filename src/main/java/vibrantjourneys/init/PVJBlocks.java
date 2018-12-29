@@ -285,12 +285,6 @@ public class PVJBlocks
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
 		}
 		
-		/*if(PVJConfig.master.enableAquamarine)
-		{
-			aquamarine_ore = registerBlock(new BlockPVJOre(PVJItems.aquamarine), "aquamarine_ore");
-			aquamarine_block = registerBlock(new BlockStoneBlock(5.0F, 10.0F, MapColor.DIAMOND), "aquamarine_block");
-		}*/
-		
 		if(PVJConfig.master.enableMysticalGrill)
 		{
 			mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");

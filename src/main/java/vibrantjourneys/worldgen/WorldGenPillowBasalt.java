@@ -29,8 +29,8 @@ public class WorldGenPillowBasalt implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		int x = chunkX * 16 + 8 + rand.nextInt(5) - rand.nextInt(5);
-		int z = chunkZ * 16 + 8 + rand.nextInt(5) - rand.nextInt(5);
+		int x = chunkX * 16 + 8 + rand.nextInt(8);
+		int z = chunkZ * 16 + 8 + rand.nextInt(8);
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		if(!BiomeDictionary.hasType(biome, Type.OCEAN))

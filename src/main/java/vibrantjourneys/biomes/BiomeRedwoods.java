@@ -23,9 +23,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.util.PVJConfig;
-import vibrantjourneys.worldgen.WorldGenRedwoodLarge;
-import vibrantjourneys.worldgen.WorldGenRedwoodSmall;
-import vibrantjourneys.worldgen.WorldGenSequoiaTree;
+import vibrantjourneys.worldgen.feature.WorldGenRedwoodLarge;
+import vibrantjourneys.worldgen.feature.WorldGenRedwoodSmall;
+import vibrantjourneys.worldgen.feature.WorldGenSequoiaTree;
 
 public class BiomeRedwoods extends Biome
 {    
@@ -49,7 +49,7 @@ public class BiomeRedwoods extends Biome
 	    WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
 	    WorldGenSequoiaTree SEQUOIA = new WorldGenSequoiaTree(false, 30, 20);
 
-        return rand.nextInt(14) < 11 ? (rand.nextInt(10) < 9 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
+        return rand.nextInt(14) < 10 ? (rand.nextInt(10) < 9 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
     }
 	
 	@Override

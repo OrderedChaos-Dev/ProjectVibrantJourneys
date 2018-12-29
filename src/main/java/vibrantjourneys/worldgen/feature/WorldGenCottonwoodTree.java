@@ -1,4 +1,4 @@
-package vibrantjourneys.worldgen;
+package vibrantjourneys.worldgen.feature;
 
 import java.util.List;
 import java.util.Random;

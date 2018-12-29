@@ -172,12 +172,14 @@ public class WorldGenFallenTree implements IWorldGenerator
 	public boolean canReplace(World world, BlockPos pos)
 	{
 		IBlockState state = world.getBlockState(pos);
+		
 		return world.isAirBlock(pos)
 				|| state.getBlock().isReplaceable(world, pos)
 				|| state.getBlock().isLeaves(state, world, pos)
 				|| state.getBlock() instanceof BlockLilyPad
 				|| state.getBlock() instanceof BlockMushroom
-				|| state.getBlock() instanceof BlockFlower;
+				|| state.getBlock() instanceof BlockFlower
+				|| state.getBlock() instanceof BlockBracketFungus;
 	}
 	
 	private EnumFacing getHorizontalPerpendicular(int facingIndex)

@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.PVJConfig;
-import vibrantjourneys.worldgen.WorldGenJuniperTree;
+import vibrantjourneys.worldgen.feature.WorldGenJuniperTree;
 
 public class BiomeRedRockBadlands extends Biome
 {

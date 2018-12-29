@@ -39,11 +39,24 @@ import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 import vibrantjourneys.worldgen.WorldGenStalactite;
 import vibrantjourneys.worldgen.WorldGenStalagmite;
+import vibrantjourneys.worldgen.feature.WorldGenPlant;
 
 public class PVJWorldGen
-{
+{	
+	public static WorldGenPlant silverleaf_gen;
+	public static WorldGenPlant frost_lotus_gen;
+	public static WorldGenPlant clovers_gen;
+	public static WorldGenPlant crabgrass_gen;
+	public static WorldGenPlant chickweed_gen;
+	
 	public static void initWorldGen()
 	{	
+		silverleaf_gen = new WorldGenPlant(PVJBlocks.silverleaf);
+		frost_lotus_gen = new WorldGenPlant(PVJBlocks.frost_lotus);
+		clovers_gen = new WorldGenPlant(PVJBlocks.clovers);
+		crabgrass_gen = new WorldGenPlant(PVJBlocks.crabgrass);
+		chickweed_gen = new WorldGenPlant(PVJBlocks.chickweed);
+		
 		registerWorldGen(new WorldGenCobweb(PVJConfig.worldgen.cobwebDensity));
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
@@ -70,10 +83,10 @@ public class PVJWorldGen
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{
 			registerWorldGen(new WorldGenPillowBasalt(PVJConfig.worldgen.pillowBasaltDensity));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.BASALT.getID()), 12, 65, PVJConfig.worldgen.basaltDensity, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0])));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 12, 65, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 65, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 12, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.BASALT.getID()), 14, 65, PVJConfig.worldgen.basaltDensity, BiomeDictionary.getBiomes(Type.OCEAN).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 14, 70, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 70, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 15, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
 		
 		registerWorldGen(new WorldGenMud(PVJConfig.worldgen.mudDensity, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0])));
@@ -181,10 +194,10 @@ public class PVJWorldGen
 			}
 		}
 
-		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, 60, 90, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
-		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_potato, 60, 90, PVJConfig.worldgen.wildPotatoDensity, Biomes.PLAINS));
-		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_carrot, 60, 90, PVJConfig.worldgen.wildCarrotDensity, BiomeDictionary.getBiomes(Type.COLD).toArray(new Biome[0])));
-		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_beetroot, 60, 90, PVJConfig.worldgen.wildBeetrootDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_potato, PVJConfig.worldgen.wildPotatoDensity, Biomes.PLAINS));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_carrot, PVJConfig.worldgen.wildCarrotDensity, BiomeDictionary.getBiomes(Type.COLD).toArray(new Biome[0])));
+		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_beetroot, PVJConfig.worldgen.wildBeetrootDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 		
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.crackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 		registerWorldGen(new WorldGenCrackedSand(PVJBlocks.red_cracked_sand, Blocks.SAND, 60, 150, PVJConfig.worldgen.redCrackedSandDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
@@ -192,16 +205,16 @@ public class PVJWorldGen
 		if(PVJConfig.master.enableOverworldPlants)
 		{
 			registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, 60, 255, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, 60, 255, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, 60, 255, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, 60, 255, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.crabgrass, 60, 255, PVJConfig.worldgen.crabgrassDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.waxcap, 40, 190, PVJConfig.worldgen.waxcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.orange_mushroom, 40, 190, PVJConfig.worldgen.orangeMushroomDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.deathcap, 40, 190, PVJConfig.worldgen.deathcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, 40, 190, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, 40, 190, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.crabgrass, PVJConfig.worldgen.crabgrassDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.waxcap, PVJConfig.worldgen.waxcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.orange_mushroom, PVJConfig.worldgen.orangeMushroomDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.deathcap, PVJConfig.worldgen.deathcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
@@ -211,8 +224,8 @@ public class PVJWorldGen
 
 		if(PVJConfig.master.enableNetherPlants)
 		{
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, 0, 255, PVJConfig.worldgen.bloodnettleDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
-			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, 0, 255, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, PVJConfig.worldgen.bloodnettleDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 		}
 		
 		if(Reference.isBOPLoaded)

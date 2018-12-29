@@ -47,7 +47,7 @@ public class WorldGenOvergrownCaves implements IWorldGenerator
 		if(isValidBiome)
 		{
 			int y = 30;
-			for(BlockPos position : BlockPos.getAllInBoxMutable(x - 7, y - 28, z - 7, x + 7, y + 40, z + 7))
+			for(BlockPos position : BlockPos.getAllInBoxMutable(x - 6, y - 28, z - 6, x + 6, y + 40, z + 6))
 			{	
 				if(!world.canSeeSky(position) && world.getBlockState(position).getBlock() instanceof BlockStone)
 				{
