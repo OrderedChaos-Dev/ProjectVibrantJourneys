@@ -311,6 +311,9 @@ public class PVJConfig
 		public int siltstoneDensity = 20;
 		
 		public int mudDensity = 45;
+		
+		public boolean decreasePlainsPonds = true;
+		public boolean decreaseDesertLakes = true;
 	}
 	
 	public static class BiomesSubCategory
@@ -343,6 +346,8 @@ public class PVJConfig
 		public int icecubeSpawnWeight = 35;
 		public int skeletalKnightWeight = 45;
 		public int goonSpawnWeight = 20;
+		
+		public boolean junglesSpawnCaveSpiders = true;
 	}
 	
 	public static class MiscCategory

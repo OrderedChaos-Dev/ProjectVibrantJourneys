@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -102,6 +103,11 @@ public class PVJEntities
 			addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
 			addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+		}
+		
+		if(PVJConfig.entities.junglesSpawnCaveSpiders)
+		{
+			addSpawn(EntityCaveSpider.class, 40, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES));
 		}
 		
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);

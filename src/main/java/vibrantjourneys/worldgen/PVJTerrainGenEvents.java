@@ -2,6 +2,7 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
@@ -43,8 +44,37 @@ public class PVJTerrainGenEvents
 		}
 	}
 	
+	@SubscribeEvent 
+	public void removeLakes(DecorateBiomeEvent.Decorate event)
+	{
+		Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
+		
+		//remove most desert lakes
+		if(BiomeReference.DESERT_BIOMES.contains(biome))
+		{
+			if(PVJConfig.worldgen.decreaseDesertLakes && event.getType() == Decorate.EventType.LAKE_WATER)
+			{
+				if(event.getRand().nextInt(5) < 4)
+				{
+					event.setCanceled(true);
+				}
+			}
+		}
+		//remove most plains ponds
+		if(biome == Biomes.PLAINS)
+		{
+			if(PVJConfig.worldgen.decreasePlainsPonds && event.getType() == Decorate.EventType.LAKE_WATER)
+			{
+				if(event.getRand().nextInt(5) < 4)
+				{
+					event.setCanceled(true);
+				}
+			}
+		}
+	}
+	
 	@SubscribeEvent
-	public void spawnBaobab(DecorateBiomeEvent.Decorate event)
+	public void genTrees(DecorateBiomeEvent.Decorate event)
 	{
 		Biome biome = event.getWorld().getBiomeForCoordsBody(event.getChunkPos().getBlock(8, 0, 8));
 		

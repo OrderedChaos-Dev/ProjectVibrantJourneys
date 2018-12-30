@@ -2,8 +2,11 @@ package vibrantjourneys.crafting;
 
 import net.minecraftforge.oredict.OreDictionary;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
+import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.Reference;
 
 public class PVJOreDictionary
 {
@@ -41,5 +44,11 @@ public class PVJOreDictionary
 		OreDictionary.registerOre("rocks", PVJBlocks.sandstone_rocks);
 		OreDictionary.registerOre("rocks", PVJBlocks.red_sandstone_rocks);
 		OreDictionary.registerOre("rocks", PVJBlocks.mossy_cobblestone_rocks);
+		
+		if(Reference.isBOPLoaded)
+			PVJBlocksBOP.setOreDictValues();
+		
+		if(Reference.isTraverseLoaded)
+			PVJBlocksTraverse.setOreDictValues();
 	}
 }

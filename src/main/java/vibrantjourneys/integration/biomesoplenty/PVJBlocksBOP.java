@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import biomesoplenty.api.enums.BOPTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.oredict.OreDictionary;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
@@ -32,7 +33,12 @@ public class PVJBlocksBOP
 			String name = trees.getName();
 			Block block = PVJBlocks.registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), name + "_bop_twigs");
 			TWIGS_BOP.add(block);
-			BLOCK_INFO_TWIGS.add(new BOPBlockInfo(block, PVJWorldGenBOP.getDensityTwigs(name), BiomeReferenceBOP.getBiomeReference(name)));
 		}
+	}
+	
+	public static void setOreDictValues()
+	{
+		for(Block twig : TWIGS_BOP)
+			OreDictionary.registerOre("twigs", twig);
 	}
 }
