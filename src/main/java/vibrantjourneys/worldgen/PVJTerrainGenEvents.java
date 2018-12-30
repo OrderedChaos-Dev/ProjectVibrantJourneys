@@ -56,7 +56,7 @@ public class PVJTerrainGenEvents
 			{
 				if(event.getRand().nextInt(5) < 4)
 				{
-					event.setCanceled(true);
+					event.setResult(Result.DENY);
 				}
 			}
 		}
@@ -67,7 +67,7 @@ public class PVJTerrainGenEvents
 			{
 				if(event.getRand().nextInt(5) < 4)
 				{
-					event.setCanceled(true);
+					event.setResult(Result.DENY);
 				}
 			}
 		}
