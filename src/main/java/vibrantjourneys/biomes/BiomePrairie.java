@@ -12,9 +12,12 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
 
 public class BiomePrairie extends Biome
 {
+	public static final WorldGenCottonwoodTree COTTONWOOD = new WorldGenCottonwoodTree(false);
+	
 	public BiomePrairie(BiomeProperties properties)
 	{
 		super(properties);
@@ -31,7 +34,7 @@ public class BiomePrairie extends Biome
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-        return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? BIG_TREE_FEATURE : TREE_FEATURE);
+        return (WorldGenAbstractTree)(rand.nextInt(7) > 3 ? COTTONWOOD : TREE_FEATURE);
     }
 	
 	@Override

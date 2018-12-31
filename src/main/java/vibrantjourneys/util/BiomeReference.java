@@ -37,6 +37,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> SANDSTONE_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> LILYPAD_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> MOUNTAIN_BIOMES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> COYOTE_BIOMES = new ArrayList<Biome>();
 	
 	//TREES LISTS
 	//VANILLA TREES
@@ -138,13 +139,14 @@ public class BiomeReference
 		loadSandstoneBiomes();
 		loadLilyPadBiomes();
 		loadMountainBiomes();
+		loadCoyoteBiomes();
 		
 		if(Reference.isBOPLoaded)
 			BiomeReferenceBOP.loadBOPBiomes();
 		if(Reference.isTraverseLoaded)
 			BiomeReferenceTraverse.loadTraverseBiomes();
 	}
-	
+
 	public static void loadOakTrees()
 	{
 		OAK_TREES.add(Biomes.FOREST);
@@ -285,8 +287,6 @@ public class BiomeReference
 	
 	public static void loadCottonwoodTrees()
 	{
-		COTTONWOOD_TREES.add(Biomes.PLAINS);
-		COTTONWOOD_TREES.add(Biomes.MUTATED_PLAINS);
 		COTTONWOOD_TREES.add(PVJBiomes.prairie);
 	}
 	
@@ -359,6 +359,12 @@ public class BiomeReference
 		MOUNTAIN_BIOMES.add(Biomes.EXTREME_HILLS_WITH_TREES);
 		MOUNTAIN_BIOMES.add(Biomes.MUTATED_EXTREME_HILLS);
 		MOUNTAIN_BIOMES.add(Biomes.MUTATED_EXTREME_HILLS_WITH_TREES);
+	}
+	
+	public static void loadCoyoteBiomes()
+	{
+		COYOTE_BIOMES.addAll(DESERT_BIOMES);
+		COYOTE_BIOMES.add(PVJBiomes.prairie);
 	}
     
     //REMOVE IN 1.13

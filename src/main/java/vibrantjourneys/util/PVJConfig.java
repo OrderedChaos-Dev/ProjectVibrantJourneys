@@ -340,6 +340,7 @@ public class PVJConfig
 		public int spiderSpawnWeight = 15;
 		
 		public int grizzlyBearSpawnWeight = 5;
+		public int coyoteSpawnWeight = 2;
 		
 		public int ghostSpawnWeight = 65;
 		public int watcherSpawnWeight = 30;

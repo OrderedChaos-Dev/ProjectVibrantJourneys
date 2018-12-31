@@ -40,24 +40,12 @@ import vibrantjourneys.worldgen.WorldGenSmallBush;
 import vibrantjourneys.worldgen.WorldGenStalactite;
 import vibrantjourneys.worldgen.WorldGenStalagmite;
 import vibrantjourneys.worldgen.WorldGenTerracottaCaves;
-import vibrantjourneys.worldgen.feature.WorldGenPlant;
 
 public class PVJWorldGen
 {	
-	public static WorldGenPlant silverleaf_gen;
-	public static WorldGenPlant frost_lotus_gen;
-	public static WorldGenPlant clovers_gen;
-	public static WorldGenPlant crabgrass_gen;
-	public static WorldGenPlant chickweed_gen;
 	
 	public static void initWorldGen()
 	{	
-		silverleaf_gen = new WorldGenPlant(PVJBlocks.silverleaf);
-		frost_lotus_gen = new WorldGenPlant(PVJBlocks.frost_lotus);
-		clovers_gen = new WorldGenPlant(PVJBlocks.clovers);
-		crabgrass_gen = new WorldGenPlant(PVJBlocks.crabgrass);
-		chickweed_gen = new WorldGenPlant(PVJBlocks.chickweed);
-		
 		registerWorldGen(new WorldGenCobweb(PVJConfig.worldgen.cobwebDensity));
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));

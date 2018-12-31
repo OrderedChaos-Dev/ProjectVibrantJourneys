@@ -47,8 +47,8 @@ public class PVJBiomes
 			registerBiome(alpine_heights, "alpine_heights", PVJConfig.biomes.alpineHeightsWeight, false, BiomeType.COOL, Type.FOREST, Type.CONIFEROUS, Type.MOUNTAIN, Type.COLD);
 		}
 		
-		
-		BiomeManager.addVillageBiome(Biomes.BEACH, true);
+		if(PVJConfig.worldgen.allowBeachVillages)
+			BiomeManager.addVillageBiome(Biomes.BEACH, true);
 	}
 	
 	public static void registerBiome(Biome biome, String name, int weight, boolean hasVillages, BiomeType biomeType, Type... types)
