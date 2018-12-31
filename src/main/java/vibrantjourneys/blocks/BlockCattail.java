@@ -51,12 +51,14 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
     	if(!worldIn.isAirBlock(pos.up()))
-    		return false;
+    	{
+    		return false;	
+    	}
     	
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
 
-        if (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.SAND)
+        if (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.SAND && block != Blocks.GRAVEL)
         {
             return false;
         }
@@ -112,9 +114,34 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
             return worldIn.getBlockState(pos.down()).getBlock() == this;
         }
         else
-        {	
+        {
+        	boolean isSoil = false;
+        	Block block = worldIn.getBlockState(pos.down()).getBlock();
+	        if (block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.GRAVEL)
+	        {
+	        	isSoil = true;
+	        }
+	        
+	        boolean flag = false;
+	        
+	        if(isSoil)
+	        {
+	            BlockPos blockpos = pos.down();
+	
+	            for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
+	            {
+	                IBlockState iblockstate = worldIn.getBlockState(blockpos.offset(enumfacing));
+	
+	                if (iblockstate.getMaterial() == Material.WATER || iblockstate.getBlock() == Blocks.FROSTED_ICE)
+	                {
+	                    flag = true;
+	                    break;
+	                }
+	            }
+	        }
+
             IBlockState iblockstate = worldIn.getBlockState(pos.up());
-            return iblockstate.getBlock() == this && this.canPlaceBlockAt(worldIn, pos);
+            return iblockstate.getBlock() == this && flag;
         }
     }
 
