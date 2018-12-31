@@ -302,6 +302,7 @@ public class PVJConfig
 		public boolean modifyDungeons = true;
 		public boolean enableFrozenCaves = true;
 		public boolean enableSandstoneCaves = true;
+		public boolean enableTerracottaCaves = true;
 		public boolean enableOvergrownCaves = true;
 		
 		public int basaltDensity = 20;
@@ -314,6 +315,7 @@ public class PVJConfig
 		
 		public boolean decreasePlainsPonds = true;
 		public boolean decreaseDesertLakes = true;
+		public boolean allowBeachVillages = true;
 	}
 	
 	public static class BiomesSubCategory
@@ -327,7 +329,6 @@ public class PVJConfig
 		public int aspenGroveWeight = 8;
 		public int overgrownSpiresWeight = 7;
 		public int alpineHeightsWeight = 6;
-		public int baobabFieldsWeight = 3;
 	}
 	
 	public static class EntitiesSubCategory
@@ -341,7 +342,7 @@ public class PVJConfig
 		public int grizzlyBearSpawnWeight = 5;
 		
 		public int ghostSpawnWeight = 65;
-		public int watcherSpawnWeight = 70;
+		public int watcherSpawnWeight = 30;
 		
 		public int shadeSpawnWeight = 55;
 		public int icecubeSpawnWeight = 35;

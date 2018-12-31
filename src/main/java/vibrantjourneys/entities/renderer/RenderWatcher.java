@@ -12,7 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
-import vibrantjourneys.entities.monster.EntityWatcher;
+import vibrantjourneys.entities.neutral.EntityWatcher;
 import vibrantjourneys.entities.renderer.models.ModelWatcher;
 import vibrantjourneys.util.Reference;
 

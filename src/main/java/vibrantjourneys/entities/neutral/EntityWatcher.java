@@ -1,4 +1,4 @@
-package vibrantjourneys.entities.monster;
+package vibrantjourneys.entities.neutral;
 
 import javax.annotation.Nullable;
 
@@ -6,20 +6,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.monster.EntityGuardian;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIStareAt;
 import vibrantjourneys.entities.ai.EntityWatcherAttack;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityWatcher extends EntityMob
 {
-    private static final DataParameter<Integer> TARGET_ENTITY = EntityDataManager.<Integer>createKey(EntityGuardian.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> TARGET_ENTITY = EntityDataManager.<Integer>createKey(EntityWatcher.class, DataSerializers.VARINT);
     private EntityLivingBase targetedEntity;
     private int clientSideAttackTime;
     
@@ -140,6 +141,12 @@ public class EntityWatcher extends EntityMob
     {
         return 70;
     }
+    
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.WATCHER;
+	}
     
     @Override
     public void notifyDataManagerChange(DataParameter<?> key)

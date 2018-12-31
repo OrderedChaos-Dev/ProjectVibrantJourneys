@@ -39,6 +39,7 @@ import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 import vibrantjourneys.worldgen.WorldGenStalactite;
 import vibrantjourneys.worldgen.WorldGenStalagmite;
+import vibrantjourneys.worldgen.WorldGenTerracottaCaves;
 import vibrantjourneys.worldgen.feature.WorldGenPlant;
 
 public class PVJWorldGen
@@ -78,6 +79,9 @@ public class PVJWorldGen
 			
 			if(PVJConfig.worldgen.enableSandstoneCaves)
 				registerWorldGen(new WorldGenDesertCaves(BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
+			
+			if(PVJConfig.worldgen.enableTerracottaCaves)
+				registerWorldGen(new WorldGenTerracottaCaves(BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 		}
 		
 		if(PVJConfig.master.enableStoneTypeBlocks)

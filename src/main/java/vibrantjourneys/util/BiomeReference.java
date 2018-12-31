@@ -36,6 +36,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> MOSSY_COBBLESTONE_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> SANDSTONE_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> LILYPAD_BIOMES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> MOUNTAIN_BIOMES = new ArrayList<Biome>();
 	
 	//TREES LISTS
 	//VANILLA TREES
@@ -136,6 +137,7 @@ public class BiomeReference
 		loadMossyCobblestoneBiomes();
 		loadSandstoneBiomes();
 		loadLilyPadBiomes();
+		loadMountainBiomes();
 		
 		if(Reference.isBOPLoaded)
 			BiomeReferenceBOP.loadBOPBiomes();
@@ -210,8 +212,6 @@ public class BiomeReference
 		ACACIA_TREES.add(Biomes.SAVANNA_PLATEAU);
 		ACACIA_TREES.add(Biomes.MUTATED_SAVANNA);
 		ACACIA_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
-		
-		ACACIA_TREES_SPARSE.add(PVJBiomes.baobab_fields);
 	}
 	
 	public static void loadDarkOakTrees()
@@ -281,7 +281,6 @@ public class BiomeReference
 		BAOBAB_TREES.add(Biomes.SAVANNA_PLATEAU);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA);
 		BAOBAB_TREES.add(Biomes.MUTATED_SAVANNA_ROCK);
-		BAOBAB_TREES.add(PVJBiomes.baobab_fields);
 	}
 	
 	public static void loadCottonwoodTrees()
@@ -351,6 +350,15 @@ public class BiomeReference
 								if(!BiomeDictionary.hasType(biome, Type.WASTELAND))
 									LILYPAD_BIOMES.add(biome);
 		}
+	}
+	
+	public static void loadMountainBiomes()
+	{
+		MOUNTAIN_BIOMES.add(Biomes.EXTREME_HILLS);
+		MOUNTAIN_BIOMES.add(Biomes.EXTREME_HILLS_EDGE);
+		MOUNTAIN_BIOMES.add(Biomes.EXTREME_HILLS_WITH_TREES);
+		MOUNTAIN_BIOMES.add(Biomes.MUTATED_EXTREME_HILLS);
+		MOUNTAIN_BIOMES.add(Biomes.MUTATED_EXTREME_HILLS_WITH_TREES);
 	}
     
     //REMOVE IN 1.13

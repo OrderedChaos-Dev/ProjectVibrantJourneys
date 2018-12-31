@@ -2,21 +2,30 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockLog.EnumAxis;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.init.Biomes;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
+import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import vibrantjourneys.init.PVJBiomes;
+import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
 import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
 import vibrantjourneys.worldgen.feature.WorldGenPVJDungeon;
+import vibrantjourneys.worldgen.feature.WorldGenPineTree;
 
 public class PVJTerrainGenEvents
 {
@@ -82,14 +91,11 @@ public class PVJTerrainGenEvents
 		{
 			if(BiomeReference.BAOBAB_TREES.contains(biome))
 			{
-				if(biome != PVJBiomes.baobab_fields)
+				if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
 				{
-					if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
-					{
-						BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(8, 0, 8));
-						(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
-						event.setResult(Result.DENY);
-					}
+					BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
 				}
 			}
 			if(BiomeReference.COTTONWOOD_TREES.contains(biome))
@@ -100,6 +106,55 @@ public class PVJTerrainGenEvents
 					(new WorldGenCottonwoodTree(false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
+			}
+			if(BiomeReference.COTTONWOOD_TREES.contains(biome))
+			{
+				if(event.getRand().nextInt(25) < PVJConfig.worldgen.cottonwoodDensity)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenCottonwoodTree(false)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
+			if(BiomeReference.MOUNTAIN_BIOMES.contains(biome))
+			{
+				if(event.getRand().nextInt(5) == 0)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenPineTree(false)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void generateBeachVillage(BiomeEvent.GetVillageBlockID event)
+	{
+		if(event.getBiome() == Biomes.BEACH)
+		{
+			Block block = event.getOriginal().getBlock();
+			if(block == Blocks.PLANKS)
+			{
+				event.setReplacement(PVJBlocks.PLANKS.get(EnumWoodType.PALM.getID()).getDefaultState());
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.LOG || block == Blocks.LOG2)
+			{
+				EnumAxis axis = event.getOriginal().getValue(BlockLog.LOG_AXIS);
+				event.setReplacement(PVJBlocks.LOGS.get(EnumWoodType.PALM.getID()).getDefaultState().withProperty(BlockLog.LOG_AXIS, axis));
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.OAK_FENCE)
+			{
+				event.setReplacement(PVJBlocks.FENCES.get(EnumWoodType.PALM.getID()).getDefaultState());
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.OAK_STAIRS)
+			{
+				EnumFacing facing = event.getOriginal().getValue(BlockStairs.FACING);
+				event.setReplacement(PVJBlocks.STAIRS.get(EnumWoodType.PALM.getID()).getDefaultState().withProperty(BlockStairs.FACING, facing));
+				event.setResult(Result.DENY);
 			}
 		}
 	}

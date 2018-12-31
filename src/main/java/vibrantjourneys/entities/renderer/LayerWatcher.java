@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vibrantjourneys.entities.monster.EntityWatcher;
+import vibrantjourneys.entities.neutral.EntityWatcher;
 import vibrantjourneys.entities.renderer.models.ModelWatcher;
 
 @SideOnly(Side.CLIENT)
@@ -29,6 +29,7 @@ public class LayerWatcher implements LayerRenderer<EntityWatcher>
             GlStateManager.enableBlend();
             GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             this.model.setModelAttributes(this.renderer.getMainModel());
+            
             this.model.render(entitylivingbaseIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
             GlStateManager.disableBlend();
             GlStateManager.disableNormalize();

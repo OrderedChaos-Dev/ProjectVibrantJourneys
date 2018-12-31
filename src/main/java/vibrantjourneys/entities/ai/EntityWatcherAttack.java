@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.DamageSource;
-import vibrantjourneys.entities.monster.EntityWatcher;
+import vibrantjourneys.entities.neutral.EntityWatcher;
 
 public class EntityWatcherAttack extends EntityAIBase
 {
@@ -51,7 +51,7 @@ public class EntityWatcherAttack extends EntityAIBase
         {
             this.watcher.setAttackTarget((EntityLivingBase)null);
         }
-        else if(entitylivingbase.getDistanceSq(watcher) < 90.0 * 90.0)
+        else
         {
             ++this.tickCounter;
 
