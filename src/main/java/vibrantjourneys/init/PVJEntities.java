@@ -20,6 +20,7 @@ import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
+import vibrantjourneys.entities.monster.EntityWatcher;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.neutral.EntityGrizzlyBear;
 import vibrantjourneys.entities.passive.EntityFirefly;
@@ -49,6 +50,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_icecube", EntityIceCube.class, 64, 0x66e0ff, 0xccf5ff);
 		registerEntityWithEgg("pvj_skeletal_knight", EntitySkeletalKnight.class, 64, 0xa6a6a6, 0x808080);
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
+		registerEntityWithEgg("pvj_watcher", EntityWatcher.class, 64, 0xb5b3b3, 0x404044);
 		
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64);
 		registerEntity("pvj_coconut", EntityCoconut.class, 64);
@@ -95,6 +97,7 @@ public class PVJEntities
 		{
 			addSpawn(EntityGhost.class, PVJConfig.entities.ghostSpawnWeight, 1, 4, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntityGrizzlyBear.class, PVJConfig.entities.grizzlyBearSpawnWeight, 1, 2, EnumCreatureType.CREATURE, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0]));
+			addSpawn(EntityWatcher.class, PVJConfig.entities.watcherSpawnWeight, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(Type.END).toArray(new Biome[0]));
 		}
 		
 		if(PVJConfig.master.enableAggressiveMobs)

@@ -341,6 +341,7 @@ public class PVJConfig
 		public int grizzlyBearSpawnWeight = 5;
 		
 		public int ghostSpawnWeight = 65;
+		public int watcherSpawnWeight = 70;
 		
 		public int shadeSpawnWeight = 55;
 		public int icecubeSpawnWeight = 35;

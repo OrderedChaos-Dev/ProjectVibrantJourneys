@@ -54,7 +54,7 @@ public class PVJTerrainGenEvents
 		{
 			if(PVJConfig.worldgen.decreaseDesertLakes && event.getType() == Decorate.EventType.LAKE_WATER)
 			{
-				if(event.getRand().nextInt(5) < 4)
+				if(event.getRand().nextInt(6) < 5)
 				{
 					event.setResult(Result.DENY);
 				}
@@ -65,7 +65,7 @@ public class PVJTerrainGenEvents
 		{
 			if(PVJConfig.worldgen.decreasePlainsPonds && event.getType() == Decorate.EventType.LAKE_WATER)
 			{
-				if(event.getRand().nextInt(5) < 4)
+				if(event.getRand().nextInt(6) < 5)
 				{
 					event.setResult(Result.DENY);
 				}

@@ -32,6 +32,7 @@ import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
 import vibrantjourneys.entities.monster.EntitySkeletalKnight;
+import vibrantjourneys.entities.monster.EntityWatcher;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.neutral.EntityGrizzlyBear;
 import vibrantjourneys.entities.passive.EntityFirefly;
@@ -50,6 +51,7 @@ import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSkeletalKnight;
 import vibrantjourneys.entities.renderer.RenderSmallSpider;
 import vibrantjourneys.entities.renderer.RenderSnail;
+import vibrantjourneys.entities.renderer.RenderWatcher;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
 import vibrantjourneys.tileentities.TileEntityMysticalGrill;
@@ -112,6 +114,7 @@ public class ClientProxy implements ICommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityIceCube.class, RenderIceCube::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkeletalKnight.class, RenderSkeletalKnight::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoon.class, RenderGoon::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityWatcher.class, RenderWatcher::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityPVJBoat.class, RenderPVJBoat::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCoconut.class, new RenderCoconut());
