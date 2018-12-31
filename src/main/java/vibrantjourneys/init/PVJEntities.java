@@ -113,7 +113,7 @@ public class PVJEntities
 		
 		if(PVJConfig.entities.junglesSpawnCaveSpiders)
 		{
-			addSpawn(EntityCaveSpider.class, 40, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES));
+			addSpawn(EntityCaveSpider.class, 50, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES));
 		}
 		
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);

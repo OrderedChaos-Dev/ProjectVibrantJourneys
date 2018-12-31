@@ -98,7 +98,7 @@ public class PVJTerrainGenEvents
 					event.setResult(Result.DENY);
 				}
 			}
-			if(BiomeReference.MOUNTAIN_BIOMES.contains(biome))
+			if(BiomeReference.MOUNTAIN_BIOMES.contains(biome) || BiomeReference.SPRUCE_TREES.contains(biome))
 			{
 				if(event.getRand().nextInt(7) == 0)
 				{

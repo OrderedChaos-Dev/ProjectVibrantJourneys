@@ -22,8 +22,8 @@ import vibrantjourneys.util.PVJConfig;
 public class PVJBiomes 
 {
 	public static final ArrayList<Biome> BIOMES = new ArrayList<Biome>();
-	public static Biome prairie = new BiomePrairie(new BiomeProperties("Prairie").setBaseHeight(0.02F).setHeightVariation(0.005F).setTemperature(0.8F).setRainfall(0.25F));
-	public static Biome redwoods = new BiomeRedwoods(new BiomeProperties("Redwoods").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.45F).setRainfall(0.6F));
+	public static Biome prairie = new BiomePrairie(new BiomeProperties("Prairie").setBaseHeight(0.018F).setHeightVariation(0.005F).setTemperature(0.8F).setRainfall(0.25F));
+	public static Biome redwoods = new BiomeRedwoods(new BiomeProperties("Redwoods").setBaseHeight(0.19F).setHeightVariation(0.31F).setTemperature(0.45F).setRainfall(0.6F));
 	public static Biome redwood_peaks = new BiomeRedwoods(new BiomeProperties("Redwood Peaks").setBaseHeight(1.2F).setHeightVariation(0.9F).setTemperature(0.45F).setRainfall(0.55F));
 	public static Biome willow_swamp = new BiomeWillowSwamp(new BiomeProperties("Willow Swamp").setBaseHeight(-0.2F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
 	public static Biome boreal_forest = new BiomeBorealForest(new BiomeProperties("Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(0.25F).setRainfall(0.8F));

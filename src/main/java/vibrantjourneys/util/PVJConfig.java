@@ -333,11 +333,11 @@ public class PVJConfig
 	
 	public static class EntitiesSubCategory
 	{
-		public int snailSpawnWeight = 20;
+		public int snailSpawnWeight = 40;
 		public int flySpawnWeight = 95;
 		public int flySwampSpawnWeight = 160;
 		public int fireflySpawnWeight = 350;
-		public int spiderSpawnWeight = 15;
+		public int spiderSpawnWeight = 35;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		public int coyoteSpawnWeight = 2;
