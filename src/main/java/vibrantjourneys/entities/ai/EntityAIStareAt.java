@@ -25,6 +25,7 @@ public class EntityAIStareAt extends EntityAIBase
         this.setMutexBits(2);
     }
 
+    @Override
     public boolean shouldExecute()
     {
         if (this.entity.getAttackTarget() != null)
@@ -44,9 +45,7 @@ public class EntityAIStareAt extends EntityAIBase
         return this.closestEntity != null;
     }
 
-    /**
-     * Returns whether an in-progress EntityAIBase should continue executing
-     */
+    @Override
     public boolean shouldContinueExecuting()
     {
         if (!this.closestEntity.isEntityAlive())
@@ -63,25 +62,13 @@ public class EntityAIStareAt extends EntityAIBase
         }
     }
 
-    /**
-     * Execute a one shot task or start executing a continuous task
-     */
-    public void startExecuting()
-    {
-
-    }
-
-    /**
-     * Reset the task's internal state. Called when this task is interrupted by another one
-     */
+    @Override
     public void resetTask()
     {
         this.closestEntity = null;
     }
 
-    /**
-     * Keep ticking a continuous task that has already been started
-     */
+    @Override
     public void updateTask()
     {
         this.entity.getLookHelper().setLookPosition(this.closestEntity.posX, this.closestEntity.posY + (double)this.closestEntity.getEyeHeight(), this.closestEntity.posZ, (float)this.entity.getHorizontalFaceSpeed(), (float)this.entity.getVerticalFaceSpeed());
