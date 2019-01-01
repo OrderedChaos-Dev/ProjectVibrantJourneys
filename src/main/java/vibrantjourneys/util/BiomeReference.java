@@ -38,6 +38,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> LILYPAD_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> MOUNTAIN_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> COYOTE_BIOMES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> MARINE_BIOMES = new ArrayList<Biome>();
 	
 	//TREES LISTS
 	//VANILLA TREES
@@ -132,6 +133,9 @@ public class BiomeReference
 		END_BIOMES.addAll(BiomeDictionary.getBiomes(Type.END));
 		BEACH_BIOMES.addAll(OVERWORLD_BIOMES.stream()
 				.filter(biome -> BiomeDictionary.hasType(biome, Type.BEACH))
+				.collect(Collectors.toList()));
+		MARINE_BIOMES.addAll(OVERWORLD_BIOMES.stream()
+				.filter(biome -> BiomeDictionary.hasType(biome, Type.OCEAN))
 				.collect(Collectors.toList()));
 		loadMesaBiomes();
 		loadDesertBiomes();

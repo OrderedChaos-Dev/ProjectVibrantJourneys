@@ -40,6 +40,7 @@ import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
+import vibrantjourneys.entities.passive.EntityStarfish;
 import vibrantjourneys.entities.renderer.RenderCoconut;
 import vibrantjourneys.entities.renderer.RenderCoyote;
 import vibrantjourneys.entities.renderer.RenderFirefly;
@@ -53,6 +54,7 @@ import vibrantjourneys.entities.renderer.RenderShade;
 import vibrantjourneys.entities.renderer.RenderSkeletalKnight;
 import vibrantjourneys.entities.renderer.RenderSmallSpider;
 import vibrantjourneys.entities.renderer.RenderSnail;
+import vibrantjourneys.entities.renderer.RenderStarfish;
 import vibrantjourneys.entities.renderer.RenderWatcher;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.integration.biomesoplenty.PVJRenderingHandlerBOP;
@@ -108,6 +110,7 @@ public class ClientProxy implements ICommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityFly.class, RenderFly::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFirefly.class, RenderFirefly::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmallSpider.class, RenderSmallSpider::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityStarfish.class, RenderStarfish::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrizzlyBear.class, RenderGrizzlyBear::new);
 		

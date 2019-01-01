@@ -1,9 +1,9 @@
 package vibrantjourneys.entities.renderer;
 
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.layers.LayerBipedArmor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,20 +20,17 @@ public class RenderGoon extends RenderBiped<EntityGoon>
     public RenderGoon(RenderManager renderManagerIn)
     {
         super(renderManagerIn, new ModelGoon(), 0.5F);
-        LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this)
-        {
-            protected void initArmor()
-            {
-                this.modelLeggings = new ModelGoon(0.5F, true);
-                this.modelArmor = new ModelGoon(1.0F, true);
-            }
-        };
-        this.addLayer(layerbipedarmor);
     }
 
     protected ResourceLocation getEntityTexture(EntityGoon entity)
     {
         return GOON_TEXTURES;
+    }
+    
+    @Override
+    protected void preRenderCallback(EntityGoon entitylivingbaseIn, float partialTickTime)
+    {
+        GlStateManager.scale(0.85F, 0.85F, 0.85F);
     }
     
     public static class Factory implements IRenderFactory<EntityGoon>
