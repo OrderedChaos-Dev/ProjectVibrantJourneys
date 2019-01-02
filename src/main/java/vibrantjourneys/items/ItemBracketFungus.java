@@ -4,10 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vibrantjourneys.blocks.BlockBark;
@@ -23,7 +25,7 @@ public class ItemBracketFungus extends ItemPVJBlock
 	}
 	
 	@Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack itemstack = player.getHeldItem(hand);
 
@@ -33,7 +35,7 @@ public class ItemBracketFungus extends ItemPVJBlock
         }
         else
         {
-            IBlockState iblockstate = worldIn.getBlockState(pos);
+            IBlockState iblockstate = world.getBlockState(pos);
             Block block = iblockstate.getBlock();
 
             if (block instanceof BlockLog || block instanceof BlockBark || isFlouropore)
@@ -45,20 +47,20 @@ public class ItemBracketFungus extends ItemPVJBlock
 
                 pos = pos.offset(facing);
 
-                if (worldIn.isAirBlock(pos))
+                if (world.isAirBlock(pos))
                 {
                 	IBlockState iblockstate1;
                 	if(!isFlouropore)
-                    	iblockstate1 = PVJBlocks.bracket_fungus.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
+                    	iblockstate1 = PVJBlocks.bracket_fungus.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, 0, player, hand);
                 	else
-                		iblockstate1 = PVJBlocks.flouropore.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
-                    worldIn.setBlockState(pos, iblockstate1, 10);
+                		iblockstate1 = PVJBlocks.flouropore.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, 0, player, hand);
+                    world.setBlockState(pos, iblockstate1, 10);
 
                     if (!player.capabilities.isCreativeMode)
                     {
                         itemstack.shrink(1);
                     }
-
+                    world.playSound(player, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     return EnumActionResult.SUCCESS;
                 }
                 return EnumActionResult.FAIL;

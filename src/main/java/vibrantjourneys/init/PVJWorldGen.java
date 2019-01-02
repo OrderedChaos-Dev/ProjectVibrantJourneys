@@ -211,7 +211,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
-			registerWorldGen(new WorldGenFlouropore(PVJConfig.worldgen.flouroporeDensity, BiomeReference.getValidBiomes(BiomeReference.ALL_BIOMES)));
+			registerWorldGen(new WorldGenFlouropore(PVJConfig.worldgen.flouroporeDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 			registerWorldGen(new WorldGenCattail(PVJConfig.worldgen.cattailDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
@@ -220,6 +220,11 @@ public class PVJWorldGen
 		{
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, PVJConfig.worldgen.bloodnettleDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+		}
+		
+		if(PVJConfig.master.enableEndPlants)
+		{
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.void_grass, PVJConfig.worldgen.voidGrassDensity, WorldGenPVJPlant.END, BiomeReference.getValidBiomes(BiomeReference.END_BIOMES)));
 		}
 		
 		if(Reference.isBOPLoaded)

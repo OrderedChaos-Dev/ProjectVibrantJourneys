@@ -98,6 +98,9 @@ public class PVJConfig
 		@Config.Name("Plants: Enable Nether Plants")
 		public boolean enableNetherPlants = true;
 		
+		@Config.Name("Plants: Enable End Plants")
+		public boolean enableEndPlants = true;
+		
 		@Config.Name("Mobs: Enable Passive Mobs")
 		public boolean enablePassiveMobs = true;
 		
@@ -145,6 +148,9 @@ public class PVJConfig
 		
 		@Config.Name("Nether Plants Density")
 		public int netherPlantsDensity = 100;
+		
+		@Config.Name("End Plants Density")
+		public int endPlantsDensity = 100;
 		
 		@Config.Name("Animals Density")
 		public int animalsDensity = 100;
@@ -295,6 +301,7 @@ public class PVJConfig
 		public int orangeMushroomDensity = 1;
 		public int smallCactusDensity = 1;
 		public int cattailDensity = 1000;
+		public int voidGrassDensity = 3;
 		
 		public int stalactiteDensity = 450;
 		public int stalagmiteDensity = 450;

@@ -52,6 +52,7 @@ import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockStoneBlock;
+import vibrantjourneys.blocks.BlockVoidGrass;
 import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWetAdobe;
 import vibrantjourneys.blocks.BlockWildCrop;
@@ -121,6 +122,7 @@ public class PVJBlocks
 	public static Block flouropore;
 	public static Block waxcap, orange_mushroom, deathcap;
 	public static Block cattail;
+	public static Block void_grass;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
@@ -171,6 +173,7 @@ public class PVJBlocks
 		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
 		cattail = registerBlock(new BlockCattail(), "cattail");
 		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
+		void_grass = registerBlock(new BlockVoidGrass(), "void_grass");
 		
 		wild_wheat = registerBlock(new BlockWildCrop(Items.WHEAT), "wild_wheat");
 		wild_potato = registerBlock(new BlockWildCrop(Items.POTATO), "wild_potato");

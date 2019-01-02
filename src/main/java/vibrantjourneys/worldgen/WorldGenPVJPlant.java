@@ -36,6 +36,8 @@ public class WorldGenPVJPlant implements IWorldGenerator
 		
 		if(dimension == NETHER)
 			this.frequency = (int)(frequency * (PVJConfig.global.netherPlantsDensity / 100.0));
+		if(dimension == END)
+			this.frequency = (int)(frequency * (PVJConfig.global.endPlantsDensity / 100.0));
 		else
 			this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
 	}
