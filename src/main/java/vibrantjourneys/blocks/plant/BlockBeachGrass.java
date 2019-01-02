@@ -1,13 +1,11 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import com.google.common.collect.ImmutableList;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
+import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -22,50 +20,42 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import vibrantjourneys.init.PVJBlocks;
-import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockWeed extends BlockPVJPlant implements IShearable, IPropertyHelper
-{
+public class BlockBeachGrass extends BlockPVJPlant implements IShearable
+{	
 	@Override
-    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
+		return this.canSustainBush(world.getBlockState(pos.down()));
     }
 	
 	@Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        IBlockState soil = worldIn.getBlockState(pos.down());
+        
+        if(soil.getBlock() instanceof BlockSand)
+        	return true;
+        
+        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+    }
+    
+    @Override
     protected boolean canSustainBush(IBlockState state)
     {
-		return super.canSustainBush(state);
+        return state.getBlock() instanceof BlockSand;
     }
-	
-	@Override
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
-    	return MapColor.GRASS;
-    }
-	
-	@Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
-    {
-        return super.canBlockStay(worldIn, pos, state);
-    }
-
-	@Override
-    public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos)
-    {
-        return true;
+        return new AxisAlignedBB(0.09999999403953552D, 0.0D, 0.09999999403953552D, 0.8999999761581421D, 0.800000011920929D, 0.8999999761581421D);
     }
 
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return null;
-    }
-
-	@Override
-    public int quantityDroppedWithBonus(int fortune, Random random)
-    {
-        return 1 + random.nextInt(fortune * 2 + 1);
+        return Items.AIR;
     }
 	
 	@Override
@@ -74,18 +64,13 @@ public class BlockWeed extends BlockPVJPlant implements IShearable, IPropertyHel
         if (!worldIn.isRemote && stack.getItem() == Items.SHEARS)
         {
             player.addStat(StatList.getBlockStats(this));
-            spawnAsEntity(worldIn, pos, new ItemStack(PVJBlocks.chickweed, 1, 0));
+            if(worldIn.rand.nextBoolean())
+            	spawnAsEntity(worldIn, pos, new ItemStack(PVJBlocks.beach_grass, 1, 0));
         }
         else
         {
             super.harvestBlock(worldIn, player, pos, state, te, stack);
         }
-    }
-
-	@Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
-    {
-        return new ItemStack(this, 1, 0);
     }
 	
     @Override
@@ -99,16 +84,10 @@ public class BlockWeed extends BlockPVJPlant implements IShearable, IPropertyHel
     {
         return NonNullList.withSize(1, new ItemStack(this, 1, 0));
     }
-	
+    
 	@Override
     public Block.EnumOffsetType getOffsetType()
     {
         return Block.EnumOffsetType.XZ;
     }
-
-	@Override
-	public ImmutableList<IBlockState> getProperties()
-	{
-		return this.blockState.getValidStates();
-	}
 }

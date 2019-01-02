@@ -12,7 +12,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.blocks.BlockCattail;
+import vibrantjourneys.blocks.plant.BlockCattail;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.PVJConfig;
 

@@ -6,7 +6,7 @@ import net.minecraft.world.World;
  * Placeholder entity used for special spawn conditions
  *
  */
-public class EntityPlaceholder extends EntityPVJAnimal
+public class EntityPlaceholder extends EntityCritter
 {
 	public EntityPlaceholder(World world)
 	{

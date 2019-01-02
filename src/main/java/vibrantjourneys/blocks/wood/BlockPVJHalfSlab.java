@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.wood;
 
 import net.minecraft.block.state.IBlockState;
 

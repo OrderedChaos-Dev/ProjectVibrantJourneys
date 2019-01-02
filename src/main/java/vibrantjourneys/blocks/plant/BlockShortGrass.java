@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import java.util.Random;
 

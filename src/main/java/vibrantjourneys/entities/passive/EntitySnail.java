@@ -10,7 +10,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.util.PVJLootTableList;
 
-public class EntitySnail extends EntityPVJAnimal
+public class EntitySnail extends EntityCritter
 {
     public EntitySnail(World worldIn)
     {

@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;

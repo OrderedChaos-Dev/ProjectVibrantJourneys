@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import java.util.Random;
 
@@ -29,14 +29,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockCattail extends BlockBush implements IPropertyHelper
+public class BlockSeaOats extends BlockBush implements IPropertyHelper
 {
-    public static final PropertyEnum<BlockCattail.EnumBlockHalf> HALF = PropertyEnum.<BlockCattail.EnumBlockHalf>create("half", BlockCattail.EnumBlockHalf.class);
+    public static final PropertyEnum<BlockSeaOats.EnumBlockHalf> HALF = PropertyEnum.<BlockSeaOats.EnumBlockHalf>create("half", BlockSeaOats.EnumBlockHalf.class);
 
-    public BlockCattail()
+    public BlockSeaOats()
     {
         super(Material.VINE);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockCattail.EnumBlockHalf.LOWER));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(HALF, BlockSeaOats.EnumBlockHalf.LOWER));
         this.setHardness(0.0F);
         this.setSoundType(SoundType.PLANT);
     }
@@ -58,26 +58,12 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
         IBlockState state = worldIn.getBlockState(pos.down());
         Block block = state.getBlock();
 
-        if (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.SAND && block != Blocks.GRAVEL)
+        if (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.SAND)
         {
             return false;
         }
-        else
-        {
-            BlockPos blockpos = pos.down();
 
-            for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
-            {
-                IBlockState iblockstate = worldIn.getBlockState(blockpos.offset(enumfacing));
-
-                if (iblockstate.getMaterial() == Material.WATER || iblockstate.getBlock() == Blocks.FROSTED_ICE)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+        return true;
     }
 
     @Override
@@ -85,7 +71,7 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     {
         if (!this.canBlockStay(worldIn, pos, state))
         {
-            boolean flag = state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER;
+            boolean flag = state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER;
             BlockPos blockpos = flag ? pos : pos.up();
             BlockPos blockpos1 = flag ? pos.down() : pos;
             Block block = (Block)(flag ? this : worldIn.getBlockState(blockpos).getBlock());
@@ -109,7 +95,7 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
     {
         if (state.getBlock() != this) return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
-        if (state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER)
+        if (state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER)
         {
             return worldIn.getBlockState(pos.down()).getBlock() == this;
         }
@@ -117,38 +103,21 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
         {
         	boolean isSoil = false;
         	Block block = worldIn.getBlockState(pos.down()).getBlock();
-	        if (block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.GRAVEL)
+	        if (block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND)
 	        {
 	        	isSoil = true;
 	        }
 	        
-	        boolean flag = false;
-	        
-	        if(isSoil)
-	        {
-	            BlockPos blockpos = pos.down();
-	
-	            for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
-	            {
-	                IBlockState iblockstate = worldIn.getBlockState(blockpos.offset(enumfacing));
-	
-	                if (iblockstate.getMaterial() == Material.WATER || iblockstate.getBlock() == Blocks.FROSTED_ICE)
-	                {
-	                    flag = true;
-	                    break;
-	                }
-	            }
-	        }
 
             IBlockState iblockstate = worldIn.getBlockState(pos.up());
-            return iblockstate.getBlock() == this && flag;
+            return iblockstate.getBlock() == this && isSoil;
         }
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        if (state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER)
+        if (state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER)
         {
             return Items.AIR;
         }
@@ -160,14 +129,13 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
 
     public void placeAt(World worldIn, BlockPos lowerPos, int flags)
     {
-        worldIn.setBlockState(lowerPos, this.getDefaultState().withProperty(HALF, BlockCattail.EnumBlockHalf.LOWER), flags);
-        worldIn.setBlockState(lowerPos.up(), this.getDefaultState().withProperty(HALF, BlockCattail.EnumBlockHalf.UPPER), flags);
+        worldIn.setBlockState(lowerPos, this.getDefaultState().withProperty(HALF, BlockSeaOats.EnumBlockHalf.LOWER), flags);
+        worldIn.setBlockState(lowerPos.up(), this.getDefaultState().withProperty(HALF, BlockSeaOats.EnumBlockHalf.UPPER), flags);
     }
 
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
     {
-        //worldIn.setBlockState(pos.up(), this.getDefaultState().withProperty(HALF, BlockCattail.EnumBlockHalf.UPPER), 2);
     	this.placeAt(worldIn, pos, 2);
     }
 
@@ -180,7 +148,7 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     @Override
     public void onBlockHarvested(World world, BlockPos pos, IBlockState state, EntityPlayer player)
     {
-        if (state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER)
+        if (state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER)
         {
             if (world.getBlockState(pos.down()).getBlock() == this)
             {
@@ -213,13 +181,13 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return meta == 0 ? this.getDefaultState().withProperty(HALF, BlockCattail.EnumBlockHalf.UPPER) : this.getDefaultState().withProperty(HALF, BlockCattail.EnumBlockHalf.LOWER);
+        return meta == 0 ? this.getDefaultState().withProperty(HALF, BlockSeaOats.EnumBlockHalf.UPPER) : this.getDefaultState().withProperty(HALF, BlockSeaOats.EnumBlockHalf.LOWER);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER ? 0 : 1;
+        return state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER ? 0 : 1;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;

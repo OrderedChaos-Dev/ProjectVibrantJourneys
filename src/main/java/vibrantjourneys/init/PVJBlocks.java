@@ -9,11 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
-import vibrantjourneys.blocks.BlockBark;
-import vibrantjourneys.blocks.BlockBracketFungus;
 import vibrantjourneys.blocks.BlockCampfire;
 import vibrantjourneys.blocks.BlockCandle;
-import vibrantjourneys.blocks.BlockCattail;
 import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockChimney;
 import vibrantjourneys.blocks.BlockChimneyTop;
@@ -22,40 +19,46 @@ import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
-import vibrantjourneys.blocks.BlockFloatingPlant;
-import vibrantjourneys.blocks.BlockFlouropore;
-import vibrantjourneys.blocks.BlockGlowcap;
 import vibrantjourneys.blocks.BlockGlowstoneLamp;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
+import vibrantjourneys.blocks.plant.BlockBeachGrass;
+import vibrantjourneys.blocks.plant.BlockBracketFungus;
+import vibrantjourneys.blocks.plant.BlockCattail;
+import vibrantjourneys.blocks.plant.BlockFloatingPlant;
+import vibrantjourneys.blocks.plant.BlockFlouropore;
+import vibrantjourneys.blocks.plant.BlockGlowcap;
+import vibrantjourneys.blocks.plant.BlockNetherPlant;
+import vibrantjourneys.blocks.plant.BlockPVJCactus;
+import vibrantjourneys.blocks.plant.BlockPVJMushroom;
+import vibrantjourneys.blocks.plant.BlockPVJPlant;
+import vibrantjourneys.blocks.plant.BlockSeaOats;
+import vibrantjourneys.blocks.plant.BlockShortGrass;
+import vibrantjourneys.blocks.plant.BlockVoidGrass;
+import vibrantjourneys.blocks.plant.BlockWeed;
+import vibrantjourneys.blocks.plant.BlockWildCrop;
+import vibrantjourneys.blocks.plant.BlockWitherweed;
+import vibrantjourneys.blocks.wood.BlockBark;
+import vibrantjourneys.blocks.wood.BlockPVJButton;
+import vibrantjourneys.blocks.wood.BlockPVJDoor;
+import vibrantjourneys.blocks.wood.BlockPVJDoubleSlab;
+import vibrantjourneys.blocks.wood.BlockPVJFence;
+import vibrantjourneys.blocks.wood.BlockPVJFenceGate;
+import vibrantjourneys.blocks.wood.BlockPVJHalfSlab;
+import vibrantjourneys.blocks.wood.BlockPVJLeaves;
+import vibrantjourneys.blocks.wood.BlockPVJLog;
+import vibrantjourneys.blocks.wood.BlockPVJPlanks;
+import vibrantjourneys.blocks.wood.BlockPVJPressurePlate;
+import vibrantjourneys.blocks.wood.BlockPVJSapling;
+import vibrantjourneys.blocks.wood.BlockPVJStairs;
+import vibrantjourneys.blocks.wood.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
-import vibrantjourneys.blocks.BlockNetherPlant;
-import vibrantjourneys.blocks.BlockPVJButton;
-import vibrantjourneys.blocks.BlockPVJCactus;
-import vibrantjourneys.blocks.BlockPVJDoor;
-import vibrantjourneys.blocks.BlockPVJDoubleSlab;
-import vibrantjourneys.blocks.BlockPVJFence;
-import vibrantjourneys.blocks.BlockPVJFenceGate;
-import vibrantjourneys.blocks.BlockPVJHalfSlab;
-import vibrantjourneys.blocks.BlockPVJLeaves;
-import vibrantjourneys.blocks.BlockPVJLog;
-import vibrantjourneys.blocks.BlockPVJMushroom;
-import vibrantjourneys.blocks.BlockPVJPlanks;
-import vibrantjourneys.blocks.BlockPVJPlant;
-import vibrantjourneys.blocks.BlockPVJPressurePlate;
-import vibrantjourneys.blocks.BlockPVJSapling;
-import vibrantjourneys.blocks.BlockPVJStairs;
-import vibrantjourneys.blocks.BlockPVJTrapdoor;
 import vibrantjourneys.blocks.BlockRockFormation;
-import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.blocks.BlockStoneBlock;
-import vibrantjourneys.blocks.BlockVoidGrass;
-import vibrantjourneys.blocks.BlockWeed;
 import vibrantjourneys.blocks.BlockWetAdobe;
-import vibrantjourneys.blocks.BlockWildCrop;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.items.ItemBracketFungus;
@@ -122,10 +125,13 @@ public class PVJBlocks
 	public static Block flouropore;
 	public static Block waxcap, orange_mushroom, deathcap;
 	public static Block cattail;
+	public static Block beach_grass;
+	public static Block sea_oats;
 	public static Block void_grass;
 	
 	public static Block bloodnettle;
 	public static Block glowcap;
+	public static Block witherweed;
 	
 	public static Block rock_formation, ice_formation;
 	
@@ -172,6 +178,8 @@ public class PVJBlocks
 		orange_mushroom = registerBlock(new BlockPVJMushroom(), "orange_mushroom");
 		deathcap = registerBlock(new BlockPVJMushroom(), "deathcap");
 		cattail = registerBlock(new BlockCattail(), "cattail");
+		beach_grass = registerBlock(new BlockBeachGrass(), "beach_grass");
+		sea_oats = registerBlock(new BlockSeaOats(), "sea_oats");
 		small_cactus = registerBlock(new BlockPVJCactus(), "small_cactus");
 		void_grass = registerBlock(new BlockVoidGrass(), "void_grass");
 		
@@ -182,6 +190,7 @@ public class PVJBlocks
 
 		bloodnettle = registerBlock(new BlockNetherPlant(), "bloodnettle");
 		glowcap = registerBlock(new BlockGlowcap(), "glowcap");
+		witherweed = registerBlock(new BlockWitherweed(), "witherweed");
 		
 		//separate loops to keep the creative inventory neat
 		for(EnumWoodType woodType : EnumWoodType.values())

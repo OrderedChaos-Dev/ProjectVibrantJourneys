@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;

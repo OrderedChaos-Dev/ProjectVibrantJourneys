@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockMushroom;

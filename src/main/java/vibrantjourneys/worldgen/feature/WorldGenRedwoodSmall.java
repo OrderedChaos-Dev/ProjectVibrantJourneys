@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
-import vibrantjourneys.blocks.BlockPVJLeaves;
+import vibrantjourneys.blocks.wood.BlockPVJLeaves;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;

@@ -6,7 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenHugeTrees;
-import vibrantjourneys.blocks.BlockPVJLeaves;
+import vibrantjourneys.blocks.wood.BlockPVJLeaves;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;

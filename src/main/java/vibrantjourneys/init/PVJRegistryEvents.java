@@ -15,8 +15,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockMysticalGrill;
-import vibrantjourneys.blocks.BlockPVJDoor;
-import vibrantjourneys.blocks.BlockPVJFenceGate;
+import vibrantjourneys.blocks.wood.BlockPVJDoor;
+import vibrantjourneys.blocks.wood.BlockPVJFenceGate;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class PVJRegistryEvents

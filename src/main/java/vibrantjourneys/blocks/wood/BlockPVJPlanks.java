@@ -1,8 +1,6 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.wood;
 
-import com.google.common.collect.ImmutableList;
-
-import net.minecraft.block.BlockFence;
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -11,13 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import vibrantjourneys.util.IPropertyHelper;
 
-public class BlockPVJFence extends BlockFence implements IPropertyHelper
+public class BlockPVJPlanks extends Block
 {
-	public BlockPVJFence()
+	public BlockPVJPlanks()
 	{
-		super(Material.WOOD, MapColor.WOOD);
+		super(Material.WOOD);
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
 		this.setSoundType(SoundType.WOOD);
@@ -26,18 +23,18 @@ public class BlockPVJFence extends BlockFence implements IPropertyHelper
 	@Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-    	return Blocks.OAK_FENCE.getFlammability(world, pos, face);
+    	return Blocks.PLANKS.getFlammability(world, pos, face);
     }
 	
 	@Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return Blocks.OAK_FENCE.getFireSpreadSpeed(world, pos, face);
+        return Blocks.PLANKS.getFireSpreadSpeed(world, pos, face);
     }
 	
 	@Override
-	public ImmutableList<IBlockState> getProperties()
-	{
-		return this.blockState.getValidStates();
-	}
+    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+        return MapColor.WOOD;
+    }
 }

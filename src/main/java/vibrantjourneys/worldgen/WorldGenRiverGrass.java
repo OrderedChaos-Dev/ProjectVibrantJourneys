@@ -15,7 +15,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.blocks.BlockShortGrass;
+import vibrantjourneys.blocks.plant.BlockShortGrass;
 import vibrantjourneys.init.PVJBlocks;
 
 public class WorldGenRiverGrass implements IWorldGenerator

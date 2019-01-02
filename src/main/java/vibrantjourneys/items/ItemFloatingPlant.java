@@ -17,7 +17,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import vibrantjourneys.blocks.BlockFloatingPlant;
+import vibrantjourneys.blocks.plant.BlockFloatingPlant;
 
 public class ItemFloatingPlant extends ItemPVJBlock
 {

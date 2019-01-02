@@ -17,7 +17,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Loader;
-import vibrantjourneys.blocks.BlockBracketFungus;
+import vibrantjourneys.blocks.plant.BlockBracketFungus;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.PVJConfig;
 

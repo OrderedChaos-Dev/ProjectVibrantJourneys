@@ -1,4 +1,4 @@
-package vibrantjourneys.blocks;
+package vibrantjourneys.blocks.plant;
 
 import javax.annotation.Nullable;
 
@@ -24,6 +24,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.blocks.wood.BlockBark;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelper

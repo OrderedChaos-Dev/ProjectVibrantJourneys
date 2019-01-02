@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import vibrantjourneys.blocks.BlockPVJSapling;
+import vibrantjourneys.blocks.wood.BlockPVJSapling;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;

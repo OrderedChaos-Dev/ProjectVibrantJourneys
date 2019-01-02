@@ -10,7 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 
-public class EntitySmallSpider extends EntityPVJAnimal
+public class EntitySmallSpider extends EntityCritter
 {
     public EntitySmallSpider(World world)
     {

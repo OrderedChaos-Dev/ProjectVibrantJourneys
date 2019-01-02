@@ -9,9 +9,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityPVJAnimal extends EntityAnimal
+public class EntityCritter extends EntityAnimal
 {
-	public EntityPVJAnimal(World world)
+	public EntityCritter(World world)
 	{
 		super(world);
 	}
