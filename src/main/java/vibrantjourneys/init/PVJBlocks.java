@@ -23,6 +23,7 @@ import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockFloatingPlant;
+import vibrantjourneys.blocks.BlockFlouropore;
 import vibrantjourneys.blocks.BlockGlowcap;
 import vibrantjourneys.blocks.BlockGlowstoneLamp;
 import vibrantjourneys.blocks.BlockGroundCover;
@@ -117,6 +118,7 @@ public class PVJBlocks
 	public static Block chickweed, clovers, crabgrass;
 	public static Block small_cactus;
 	public static Block bracket_fungus;
+	public static Block flouropore;
 	public static Block waxcap, orange_mushroom, deathcap;
 	public static Block cattail;
 	
@@ -157,7 +159,9 @@ public class PVJBlocks
 		clovers = registerBlock(new BlockWeed(), "clovers");
 		crabgrass = registerBlock(new BlockWeed(), "crabgrass");
 		bracket_fungus = new BlockBracketFungus();
-		registerBlockWithItem(bracket_fungus, "bracket_fungus", new ItemBracketFungus(bracket_fungus));
+		registerBlockWithItem(bracket_fungus, "bracket_fungus", new ItemBracketFungus(bracket_fungus, false));
+		flouropore = new BlockFlouropore();
+		registerBlockWithItem(flouropore, "flouropore", new ItemBracketFungus(flouropore, true));
 		frogbit = new BlockFloatingPlant();
 		registerBlockWithItem(frogbit, "frogbit", new ItemFloatingPlant(frogbit));
 		duckweed = new BlockFloatingPlant();

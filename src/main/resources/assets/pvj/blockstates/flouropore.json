@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=south": { "model": "pvj:flouropore" },
+        "facing=west": { "model": "pvj:flouropore", "y": 90 },
+        "facing=north": { "model": "pvj:flouropore", "y": 180 },
+        "facing=east": { "model": "pvj:flouropore", "y": 270 }
+    }
+}

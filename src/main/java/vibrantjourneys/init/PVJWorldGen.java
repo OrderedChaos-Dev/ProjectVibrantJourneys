@@ -23,6 +23,7 @@ import vibrantjourneys.worldgen.WorldGenDesertCaves;
 import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenFloaters;
+import vibrantjourneys.worldgen.WorldGenFlouropore;
 import vibrantjourneys.worldgen.WorldGenFrozenCaves;
 import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenJuniperTreeMesa;
@@ -210,6 +211,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenFlouropore(PVJConfig.worldgen.flouroporeDensity, BiomeReference.getValidBiomes(BiomeReference.ALL_BIOMES)));
 			registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 			registerWorldGen(new WorldGenCattail(PVJConfig.worldgen.cattailDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}

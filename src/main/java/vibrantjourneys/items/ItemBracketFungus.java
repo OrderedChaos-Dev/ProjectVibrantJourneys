@@ -15,11 +15,14 @@ import vibrantjourneys.init.PVJBlocks;
 
 public class ItemBracketFungus extends ItemPVJBlock
 {
-	public ItemBracketFungus(Block block)
+	private boolean isFlouropore;
+	public ItemBracketFungus(Block block, boolean isFlouropore)
 	{
 		super(block);
+		this.isFlouropore = isFlouropore;
 	}
 	
+	@Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -33,7 +36,7 @@ public class ItemBracketFungus extends ItemPVJBlock
             IBlockState iblockstate = worldIn.getBlockState(pos);
             Block block = iblockstate.getBlock();
 
-            if (block instanceof BlockLog || block instanceof BlockBark)
+            if (block instanceof BlockLog || block instanceof BlockBark || isFlouropore)
             {
                 if (facing == EnumFacing.DOWN || facing == EnumFacing.UP)
                 {
@@ -44,7 +47,11 @@ public class ItemBracketFungus extends ItemPVJBlock
 
                 if (worldIn.isAirBlock(pos))
                 {
-                    IBlockState iblockstate1 = PVJBlocks.bracket_fungus.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
+                	IBlockState iblockstate1;
+                	if(!isFlouropore)
+                    	iblockstate1 = PVJBlocks.bracket_fungus.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
+                	else
+                		iblockstate1 = PVJBlocks.flouropore.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
                     worldIn.setBlockState(pos, iblockstate1, 10);
 
                     if (!player.capabilities.isCreativeMode)

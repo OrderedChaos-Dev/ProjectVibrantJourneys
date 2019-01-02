@@ -163,6 +163,7 @@ tile.chickweed.name=Chickweed
 tile.clovers.name=Clover Patch
 tile.crabgrass.name=Crabgrass
 tile.bracket_fungus.name=Shelf Fungus
+tile.flouropore.name=Flouropore
 tile.waxcap.name=Waxcap
 tile.orange_mushroom.name=Jack O' Lantern Mushroom
 tile.deathcap.name=Deathcap
@@ -267,6 +268,8 @@ tile.limestone.name=Limestone
 tile.marble.name=Marble
 tile.siltstone.name=Siltstone
 tile.adobe.name=Adobe
+
+tile.mud.name=Mud
 
 tile.basalt_brick.name=Basalt Bricks
 tile.marble_brick.name=Marble Bricks
