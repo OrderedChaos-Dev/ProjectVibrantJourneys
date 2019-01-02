@@ -338,7 +338,8 @@ public class PVJConfig
 		public int flySwampSpawnWeight = 160;
 		public int fireflySpawnWeight = 350;
 		public int spiderSpawnWeight = 45;
-		public int starfishWeight = 85;
+		public int starfishWeight = 30;
+		public int starfishBeachWeight = 40;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		public int coyoteSpawnWeight = 2;

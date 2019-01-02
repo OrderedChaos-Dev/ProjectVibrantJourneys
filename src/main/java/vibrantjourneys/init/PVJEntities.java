@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLiving.SpawnPlacementType;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.init.Biomes;
@@ -27,6 +29,7 @@ import vibrantjourneys.entities.neutral.EntityGrizzlyBear;
 import vibrantjourneys.entities.neutral.EntityWatcher;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
+import vibrantjourneys.entities.passive.EntityPlaceholder;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.passive.EntityStarfish;
@@ -57,6 +60,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
 		registerEntityWithEgg("pvj_watcher", EntityWatcher.class, 64, 0xb5b3b3, 0x404044);
 		
+		registerEntity("pvj_placeholder", EntityPlaceholder.class, 64);
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64);
 		registerEntity("pvj_coconut", EntityCoconut.class, 64);
 	}
@@ -96,7 +100,10 @@ public class PVJEntities
 			addSpawn(EntityFly.class, PVJConfig.entities.flySwampSpawnWeight, 4, 5, EnumCreatureType.AMBIENT, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0]));
 			addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntitySmallSpider.class, PVJConfig.entities.spiderSpawnWeight, 1, 6, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
-			addSpawn(EntityStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES));
+			addSpawn(EntityStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.MARINE_BIOMES));
+			addSpawn(EntityPlaceholder.class, PVJConfig.entities.starfishBeachWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES));
+			
+			EntitySpawnPlacementRegistry.setPlacementType(EntityStarfish.class, SpawnPlacementType.IN_WATER);
 		}
 
 		if(PVJConfig.master.enableNeutralMobs)
@@ -137,6 +144,10 @@ public class PVJEntities
 				multiplier = PVJConfig.global.mobsDensity / 100.0;
 			
 			EntityRegistry.addSpawn(entityClass, (int)(weightedProb * multiplier), min, max, typeOfCreature, biomes);
+			if(typeOfCreature == EnumCreatureType.WATER_CREATURE)
+			{
+				EntitySpawnPlacementRegistry.setPlacementType(entityClass, SpawnPlacementType.IN_WATER);
+			}
 		}
 	}
 }

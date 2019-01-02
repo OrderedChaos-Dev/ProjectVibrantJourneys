@@ -2,7 +2,6 @@ package vibrantjourneys.entities.passive;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,10 +12,12 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import vibrantjourneys.entities.ai.EntityAIWaterCreatureWander;
 
 public class EntityStarfish extends EntityPVJWaterCreature
@@ -71,12 +72,27 @@ public class EntityStarfish extends EntityPVJWaterCreature
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.05D);
     }
 	
+	/**
+	 * Used in PVJEvents when starfish are spawned from a placeholder entity
+	 */
+	public void setRandomColor()
+	{
+		this.dataManager.set(COLOR, this.rand.nextInt(6) + 1);
+	}
+	
     @Nullable
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
         this.dataManager.set(COLOR, this.rand.nextInt(6) + 1);
         System.out.println(this.posX + " " + this.posY + " " + this.posZ);
+        BlockPos pos = new BlockPos(this.posX, this.posY, this.posZ);
+        while(world.getBlockState(pos).getMaterial() == Material.WATER)
+        {
+        	pos = pos.down();
+        }
+        this.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
+        
         return livingdata;
     }
 	
@@ -85,6 +101,12 @@ public class EntityStarfish extends EntityPVJWaterCreature
     {
         return new PathNavigateClimber(this, worldIn);
     }
+    
+    @Override
+    public int getMaxSpawnedInChunk()
+    {
+        return 3;
+    }
 	
 	@Override
     public boolean getCanSpawnHere()
@@ -92,9 +114,15 @@ public class EntityStarfish extends EntityPVJWaterCreature
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
 		
-		BlockPos pos = new BlockPos(this.posX, this.posY, this.posZ);
-		if(this.world.getBlockState(pos).getMaterial() == Material.WATER) return true;
-		if(this.world.getBlockState(pos.down()).getBlock() instanceof BlockSand) return true;
+		int x = (int)this.posX;
+		int y = (int)this.posY;
+		int z = (int)this.posZ;
+		
+		Chunk chunk = this.world.getChunkFromBlockCoords(new BlockPos(x, 0, z));
+		
+		int count = world.getEntitiesWithinAABB(EntityStarfish.class, new AxisAlignedBB(x - 15, y - 10, z - 15, x + 15, y + 10, z + 15)).size();
+		if(count <= 1 && this.rand.nextInt(5) == 0 && chunk.getRandomWithSeed(987234911L).nextInt(5) == 0)
+			return true;
 		
 		return false;
     }

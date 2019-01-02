@@ -134,6 +134,7 @@ public class BiomeReference
 		BEACH_BIOMES.addAll(OVERWORLD_BIOMES.stream()
 				.filter(biome -> BiomeDictionary.hasType(biome, Type.BEACH))
 				.collect(Collectors.toList()));
+		MARINE_BIOMES.addAll(BEACH_BIOMES);
 		MARINE_BIOMES.addAll(OVERWORLD_BIOMES.stream()
 				.filter(biome -> BiomeDictionary.hasType(biome, Type.OCEAN))
 				.collect(Collectors.toList()));

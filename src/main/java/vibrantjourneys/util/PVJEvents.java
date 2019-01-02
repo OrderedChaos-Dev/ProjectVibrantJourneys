@@ -14,8 +14,11 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import vibrantjourneys.blocks.BlockShortGrass;
 import vibrantjourneys.entities.neutral.EntityWatcher;
+import vibrantjourneys.entities.passive.EntityPlaceholder;
+import vibrantjourneys.entities.passive.EntityStarfish;
 import vibrantjourneys.items.ItemMysticalFood;
 
 public class PVJEvents
@@ -64,7 +67,7 @@ public class PVJEvents
 	}
 	
 	@SubscribeEvent
-	public void onWatcherSpawn(LivingSpawnEvent event)
+	public void onWatcherSpawn(LivingSpawnEvent.CheckSpawn event)
 	{
 		if(event.getEntityLiving() instanceof EntityWatcher)
 		{
@@ -82,6 +85,27 @@ public class PVJEvents
 				pos = new BlockPos(event.getX() + x, event.getY() + y, event.getZ() + z);
 			}
 			event.getEntityLiving().setPosition(event.getX() + x, event.getY() + y, event.getZ() + z);
+		}
+	}
+	
+	/*
+	 * Since the starfish is a water mob, it can only spawn in water due to how Minecraft does things
+	 * So I have a placeholder entity that spawns on beaches that is immediately replaced with starfish
+	 * So now it can spawn on beaches and underwater in oceans
+	 */
+	@SubscribeEvent
+	public void spawnStarfishOnBeach(LivingSpawnEvent.CheckSpawn event)
+	{
+		if(event.getEntityLiving() instanceof EntityPlaceholder)
+		{
+			if(BiomeReference.BEACH_BIOMES.contains(event.getWorld().getBiomeForCoordsBody(new BlockPos(event.getX(), 0, event.getZ()))))
+			{
+				EntityStarfish starfish = new EntityStarfish(event.getWorld());
+				starfish.setPosition(event.getX(), event.getY(), event.getZ());
+				starfish.setRandomColor();
+				event.getWorld().spawnEntity(starfish);
+				event.setResult(Result.DENY);
+			}
 		}
 	}
 }

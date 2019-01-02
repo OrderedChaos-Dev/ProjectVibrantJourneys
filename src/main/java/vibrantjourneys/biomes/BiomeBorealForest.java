@@ -44,11 +44,11 @@ public class BiomeBorealForest extends Biome
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
     	int num = rand.nextInt(100);
-    	if(num > 45 && rand.nextInt(PVJConfig.worldgen.firDensity) < PVJConfig.worldgen.firDensity - 2)
+    	if(PVJConfig.worldgen.firDensity > 0 && num > 45 && rand.nextInt(PVJConfig.worldgen.firDensity) < PVJConfig.worldgen.firDensity - 2)
     	{
     		return FIR;
     	}
-    	else if(num > 10 && rand.nextInt(PVJConfig.worldgen.pineDensity) < PVJConfig.worldgen.pineDensity - 2)
+    	else if(PVJConfig.worldgen.pineDensity > 0 && (num > 10 && rand.nextInt(PVJConfig.worldgen.pineDensity) < PVJConfig.worldgen.pineDensity - 2))
     	{
     		return PINE;
     	}

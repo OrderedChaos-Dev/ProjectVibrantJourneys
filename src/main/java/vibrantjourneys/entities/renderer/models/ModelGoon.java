@@ -63,7 +63,6 @@ public class ModelGoon extends ModelBiped
     public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn)
     {
         super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
-        this.setRotateAngle(bipedBody, 0.31869712141416456F, 0.0F, 0.0F);
         boolean flag = entityIn instanceof EntityLivingBase && ((EntityLivingBase)entityIn).getTicksElytraFlying() > 4;
         this.bipedHead.rotateAngleY = netHeadYaw * 0.017453292F;
 
@@ -96,7 +95,7 @@ public class ModelGoon extends ModelBiped
         this.bipedRightLeg.rotateAngleZ = 0.0F;
         this.bipedLeftLeg.rotateAngleZ = 0.0F;
 
-        this.bipedBody.rotateAngleX = 0.0F;
+        this.setRotateAngle(bipedBody, 0.31869712141416456F, 0.0F, 0.0F);
         this.bipedRightLeg.rotationPointZ = 0.1F;
         this.bipedLeftLeg.rotationPointZ = 0.1F;
         this.bipedRightLeg.rotationPointY = 12.0F;

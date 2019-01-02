@@ -331,6 +331,9 @@ entity.pvj_skeletal_knight.name=Skeletal Knight
 entity.pvj_goon.name=Goon
 entity.pvj_small_spider.name=Small Spider
 entity.pvj_grizzly_bear.name=Grizzly Bear
+entity.pvj_watcher.name=Watcher
+entity.pvj_starfish.name=Starfish
+entity.pvj_coyote.name=Coyote
 
 subtitles.pvj_fly.ambient=Fly buzzes
 subtitles.pvj_ghost.ambient=Ghost sighs

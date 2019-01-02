@@ -117,7 +117,10 @@ public class WorldGenFallenTree implements IWorldGenerator
 				{
 					world.setBlockState(pos, log);
 					EnumFacing facing2 = getHorizontalPerpendicular(facing.getHorizontalIndex());
-					if(world.isAirBlock(pos.offset(facing2)));
+					if(random.nextBoolean())
+						facing2 = facing2.getOpposite();
+					
+					if(canReplace(world, pos.offset(facing2)))
 					{
 						if(random.nextBoolean())
 						{
@@ -148,7 +151,7 @@ public class WorldGenFallenTree implements IWorldGenerator
 								state = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(branchfacing.getAxis()));
 								world.setBlockState(pos, state);
 								facing2 = getHorizontalPerpendicular(branchfacing.getHorizontalIndex());
-								if(world.isAirBlock(pos.offset(facing2)));
+								if(canReplace(world, pos.offset(facing2)));
 								{
 									if(random.nextBoolean())
 									{
