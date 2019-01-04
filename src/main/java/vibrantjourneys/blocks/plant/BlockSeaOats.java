@@ -21,7 +21,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -67,51 +66,52 @@ public class BlockSeaOats extends BlockBush implements IPropertyHelper
     }
 
     @Override
-    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
+    protected void checkAndDropBlock(World world, BlockPos pos, IBlockState state)
     {
-        if (!this.canBlockStay(worldIn, pos, state))
+        if (!this.canBlockStay(world, pos, state))
         {
             boolean flag = state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER;
             BlockPos blockpos = flag ? pos : pos.up();
             BlockPos blockpos1 = flag ? pos.down() : pos;
-            Block block = (Block)(flag ? this : worldIn.getBlockState(blockpos).getBlock());
-            Block block1 = (Block)(flag ? worldIn.getBlockState(blockpos1).getBlock() : this);
+            Block block = (Block)(flag ? this : world.getBlockState(blockpos).getBlock());
+            Block block1 = (Block)(flag ? world.getBlockState(blockpos1).getBlock() : this);
 
-            if (!flag) this.dropBlockAsItem(worldIn, pos, state, 0); //Forge move above the setting to air.
+            if (!flag) this.dropBlockAsItem(world, pos, state, 0); //Forge move above the setting to air.
 
             if (block == this)
             {
-                worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
+                world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
             }
 
             if (block1 == this)
             {
-                worldIn.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 3);
+                world.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 3);
             }
         }
     }
 
     @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        if (state.getBlock() != this) return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+        if (state.getBlock() != this) return super.canBlockStay(world, pos, state);
         if (state.getValue(HALF) == BlockSeaOats.EnumBlockHalf.UPPER)
         {
-            return worldIn.getBlockState(pos.down()).getBlock() == this;
+            return world.getBlockState(pos.down()).getBlock() == this;
         }
         else
         {
-        	boolean isSoil = false;
-        	Block block = worldIn.getBlockState(pos.down()).getBlock();
-	        if (block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND)
-	        {
-	        	isSoil = true;
-	        }
-	        
-
-            IBlockState iblockstate = worldIn.getBlockState(pos.up());
+        	Block block = world.getBlockState(pos.down()).getBlock();
+        	boolean isSoil = (block == Blocks.SAND || block == Blocks.GRASS || block == Blocks.DIRT);
+        	
+            IBlockState iblockstate = world.getBlockState(pos.up());
             return iblockstate.getBlock() == this && isSoil;
         }
+    }
+    
+    @Override
+    public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos)
+    {
+    	return false;
     }
 
     @Override

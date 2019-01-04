@@ -1,0 +1,7 @@
+{
+	"variants":
+	{
+		"half=upper": { "model": "pvj:sea_oats_upper"},
+		"half=lower": { "model": "pvj:sea_oats_lower"}
+	}
+}

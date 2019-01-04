@@ -15,6 +15,7 @@ import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
+import vibrantjourneys.worldgen.WorldGenBeachGrass;
 import vibrantjourneys.worldgen.WorldGenBracketFungus;
 import vibrantjourneys.worldgen.WorldGenCattail;
 import vibrantjourneys.worldgen.WorldGenCobweb;
@@ -36,6 +37,7 @@ import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenPillowBasalt;
 import vibrantjourneys.worldgen.WorldGenRiverGrass;
 import vibrantjourneys.worldgen.WorldGenRocks;
+import vibrantjourneys.worldgen.WorldGenSeaOats;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
 import vibrantjourneys.worldgen.WorldGenStalactite;
@@ -208,6 +210,8 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.deathcap, PVJConfig.worldgen.deathcapDensity, BiomeDictionary.getBiomes(Type.FOREST).toArray(new Biome[0])));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.small_cactus, PVJConfig.worldgen.smallCactusDensity, BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
+			registerWorldGen(new WorldGenBeachGrass(PVJConfig.worldgen.beachGrassDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
+			registerWorldGen(new WorldGenSeaOats(PVJConfig.worldgen.seaOatsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
 			registerWorldGen(new WorldGenFloaters(true, PVJConfig.worldgen.lilypadRiverDensity, true)); //for rivers
 			registerWorldGen(new WorldGenFloaters(false, PVJConfig.worldgen.lilypadLakesDensity, false)); //for lakes
 			registerWorldGen(new WorldGenBracketFungus(PVJConfig.worldgen.bracketFungusDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));

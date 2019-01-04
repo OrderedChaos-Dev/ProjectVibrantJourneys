@@ -85,8 +85,8 @@ public class EntityStarfish extends EntityPVJWaterCreature
     {
         livingdata = super.onInitialSpawn(difficulty, livingdata);
         this.dataManager.set(COLOR, this.rand.nextInt(6) + 1);
-        BlockPos pos = new BlockPos(this.posX, this.posY, this.posZ);
-        while(world.getBlockState(pos).getMaterial() == Material.WATER)
+        BlockPos pos = new BlockPos(this.getPosition());
+        while(world.getBlockState(this.getPosition()).getMaterial() == Material.WATER)
         {
         	pos = pos.down();
         }

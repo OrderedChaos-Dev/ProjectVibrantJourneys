@@ -3,6 +3,7 @@ package vibrantjourneys.entities.passive;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -10,6 +11,7 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJSounds;
 
 public class EntityFly extends EntityAmbientCreature
@@ -49,6 +51,17 @@ public class EntityFly extends EntityAmbientCreature
 	        	if(this.getRNG().nextInt(500) == 0)
 	        	{
 	        		this.world.removeEntity(this);
+	        	}
+	        }
+	        if(world.getBlockState(this.getPosition()).getBlock() == PVJBlocks.sundew)
+	        {
+	        	this.motionX = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
+	        	this.motionY = 0;
+	        	this.motionZ = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
+	        	
+	        	if(this.getRNG().nextInt(1000) == 0)
+	        	{
+	        		this.attackEntityFrom(DamageSource.CACTUS, 5.0F);
 	        	}
 	        }
         }

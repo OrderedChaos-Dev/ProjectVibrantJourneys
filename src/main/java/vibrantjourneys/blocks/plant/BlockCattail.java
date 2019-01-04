@@ -81,42 +81,42 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
     }
 
     @Override
-    protected void checkAndDropBlock(World worldIn, BlockPos pos, IBlockState state)
+    protected void checkAndDropBlock(World world, BlockPos pos, IBlockState state)
     {
-        if (!this.canBlockStay(worldIn, pos, state))
+        if (!this.canBlockStay(world, pos, state))
         {
             boolean flag = state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER;
             BlockPos blockpos = flag ? pos : pos.up();
             BlockPos blockpos1 = flag ? pos.down() : pos;
-            Block block = (Block)(flag ? this : worldIn.getBlockState(blockpos).getBlock());
-            Block block1 = (Block)(flag ? worldIn.getBlockState(blockpos1).getBlock() : this);
+            Block block = (Block)(flag ? this : world.getBlockState(blockpos).getBlock());
+            Block block1 = (Block)(flag ? world.getBlockState(blockpos1).getBlock() : this);
 
-            if (!flag) this.dropBlockAsItem(worldIn, pos, state, 0); //Forge move above the setting to air.
+            if (!flag) this.dropBlockAsItem(world, pos, state, 0); //Forge move above the setting to air.
 
             if (block == this)
             {
-                worldIn.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
+                world.setBlockState(blockpos, Blocks.AIR.getDefaultState(), 2);
             }
 
             if (block1 == this)
             {
-                worldIn.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 3);
+                world.setBlockState(blockpos1, Blocks.AIR.getDefaultState(), 3);
             }
         }
     }
 
     @Override
-    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        if (state.getBlock() != this) return super.canBlockStay(worldIn, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+        if (state.getBlock() != this) return super.canBlockStay(world, pos, state); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
         if (state.getValue(HALF) == BlockCattail.EnumBlockHalf.UPPER)
         {
-            return worldIn.getBlockState(pos.down()).getBlock() == this;
+            return world.getBlockState(pos.down()).getBlock() == this;
         }
         else
         {
         	boolean isSoil = false;
-        	Block block = worldIn.getBlockState(pos.down()).getBlock();
+        	Block block = world.getBlockState(pos.down()).getBlock();
 	        if (block == Blocks.GRASS || block == Blocks.DIRT || block == Blocks.SAND || block == Blocks.GRAVEL)
 	        {
 	        	isSoil = true;
@@ -130,7 +130,7 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
 	
 	            for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
 	            {
-	                IBlockState iblockstate = worldIn.getBlockState(blockpos.offset(enumfacing));
+	                IBlockState iblockstate = world.getBlockState(blockpos.offset(enumfacing));
 	
 	                if (iblockstate.getMaterial() == Material.WATER || iblockstate.getBlock() == Blocks.FROSTED_ICE)
 	                {
@@ -140,9 +140,15 @@ public class BlockCattail extends BlockBush implements IPropertyHelper
 	            }
 	        }
 
-            IBlockState iblockstate = worldIn.getBlockState(pos.up());
+            IBlockState iblockstate = world.getBlockState(pos.up());
             return iblockstate.getBlock() == this && flag;
         }
+    }
+    
+    @Override
+    public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos)
+    {
+    	return false;
     }
 
     @Override

@@ -168,6 +168,8 @@ tile.waxcap.name=Waxcap
 tile.orange_mushroom.name=Jack O' Lantern Mushroom
 tile.deathcap.name=Deathcap
 tile.small_cactus.name=Small Cactus
+tile.beach_grass.name=Beach Grass
+tile.sea_oats.name=Sea Oats
 tile.void_grass.name=Void Grass
 
 tile.rock_formation.name=Rock Formation
