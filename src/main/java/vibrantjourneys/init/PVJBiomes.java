@@ -24,13 +24,12 @@ public class PVJBiomes
 	public static final ArrayList<Biome> BIOMES = new ArrayList<Biome>();
 	public static Biome prairie = new BiomePrairie(new BiomeProperties("Prairie").setBaseHeight(0.018F).setHeightVariation(0.005F).setTemperature(0.8F).setRainfall(0.25F));
 	public static Biome redwoods = new BiomeRedwoods(new BiomeProperties("Redwoods").setBaseHeight(0.19F).setHeightVariation(0.31F).setTemperature(0.45F).setRainfall(0.6F));
-	public static Biome redwood_peaks = new BiomeRedwoods(new BiomeProperties("Redwood Peaks").setBaseHeight(1.2F).setHeightVariation(0.9F).setTemperature(0.45F).setRainfall(0.55F));
+	public static Biome redwood_peaks = new BiomeRedwoods(new BiomeProperties("Redwood Peaks").setBaseHeight(0.8F).setHeightVariation(0.8F).setTemperature(0.45F).setRainfall(0.55F));
 	public static Biome willow_swamp = new BiomeWillowSwamp(new BiomeProperties("Willow Swamp").setBaseHeight(-0.2F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
 	public static Biome boreal_forest = new BiomeBorealForest(new BiomeProperties("Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(0.25F).setRainfall(0.8F));
 	public static Biome snowy_boreal_forest = new BiomeBorealForest(new BiomeProperties("Snowy Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(-0.5F).setRainfall(0.4F).setSnowEnabled());
 	public static Biome aspen_grove = new BiomeAspenGrove(new BiomeProperties("Aspen Grove").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
-	public static Biome alpine_heights = new BiomeBorealForest(new BiomeProperties("Alpine Heights").setBaseHeight(2.0F).setHeightVariation(0.04F).setTemperature(0.25F).setRainfall(0.5F));
 	
 	public static void initBiomes()
 	{
@@ -44,7 +43,6 @@ public class PVJBiomes
 			registerBiome(snowy_boreal_forest, "snowy_boreal_forest", PVJConfig.biomes.snowyBorealForestWeight, false, BiomeType.ICY, Type.CONIFEROUS, Type.COLD, Type.FOREST, Type.SNOWY);
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
-			registerBiome(alpine_heights, "alpine_heights", PVJConfig.biomes.alpineHeightsWeight, false, BiomeType.COOL, Type.FOREST, Type.CONIFEROUS, Type.MOUNTAIN, Type.COLD);
 		}
 		
 		if(PVJConfig.worldgen.allowBeachVillages)

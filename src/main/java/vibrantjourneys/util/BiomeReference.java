@@ -200,7 +200,6 @@ public class BiomeReference
 		SPRUCE_TREES_SPARSE.add(Biomes.EXTREME_HILLS_EDGE);
 		SPRUCE_TREES_SPARSE.add(PVJBiomes.boreal_forest);
 		SPRUCE_TREES_SPARSE.add(PVJBiomes.snowy_boreal_forest);
-		SPRUCE_TREES_SPARSE.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadJungleTrees()
@@ -261,14 +260,12 @@ public class BiomeReference
 	{
 		FIR_TREES.add(PVJBiomes.boreal_forest);
 		FIR_TREES.add(PVJBiomes.snowy_boreal_forest);
-		FIR_TREES.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadPineTrees()
 	{
 		PINE_TREES.add(PVJBiomes.boreal_forest);
 		PINE_TREES.add(PVJBiomes.snowy_boreal_forest);
-		PINE_TREES.add(PVJBiomes.alpine_heights);
 	}
 	
 	public static void loadAspenTrees()
@@ -334,6 +331,7 @@ public class BiomeReference
 		MOSSY_COBBLESTONE_BIOMES.add(Biomes.JUNGLE_HILLS);
 		MOSSY_COBBLESTONE_BIOMES.add(Biomes.MUTATED_JUNGLE);
 		MOSSY_COBBLESTONE_BIOMES.add(Biomes.MUTATED_JUNGLE_EDGE);
+		MOSSY_COBBLESTONE_BIOMES.add(PVJBiomes.overgrown_spires);
 	}
 	
 	public static void loadSandstoneBiomes()

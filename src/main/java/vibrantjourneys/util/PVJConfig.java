@@ -338,7 +338,6 @@ public class PVJConfig
 		public int snowyBorealForestWeight = 9;
 		public int aspenGroveWeight = 8;
 		public int overgrownSpiresWeight = 7;
-		public int alpineHeightsWeight = 6;
 	}
 	
 	public static class EntitiesSubCategory
