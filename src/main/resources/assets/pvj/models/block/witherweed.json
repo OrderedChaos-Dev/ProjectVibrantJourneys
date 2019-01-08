@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "pvj:blocks/void_grass"
+        "cross": "pvj:blocks/witherweed"
     }
 }

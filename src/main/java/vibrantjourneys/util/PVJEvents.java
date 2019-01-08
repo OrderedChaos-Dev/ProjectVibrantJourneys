@@ -1,24 +1,36 @@
 package vibrantjourneys.util;
 
+import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import vibrantjourneys.blocks.plant.BlockShortGrass;
 import vibrantjourneys.entities.neutral.EntityWatcher;
-import vibrantjourneys.entities.passive.EntityPlaceholder;
-import vibrantjourneys.entities.passive.EntityStarfish;
+import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.items.ItemMysticalFood;
 
 public class PVJEvents
@@ -88,24 +100,86 @@ public class PVJEvents
 		}
 	}
 	
-	/*
-	 * Since the starfish is a water mob, it can only spawn in water due to how Minecraft does things
-	 * So I have a placeholder entity that spawns on beaches that is immediately replaced with starfish
-	 * So now it can spawn on beaches and underwater in oceans
-	 */
 	@SubscribeEvent
-	public void spawnStarfishOnBeach(LivingSpawnEvent.CheckSpawn event)
+	public void placePuddles(TickEvent.ServerTickEvent event)
 	{
-		if(event.getEntityLiving() instanceof EntityPlaceholder)
+		if(event.phase == TickEvent.Phase.END && PVJConfig.master.enablePuddles)
 		{
-			if(BiomeReference.BEACH_BIOMES.contains(event.getWorld().getBiomeForCoordsBody(new BlockPos(event.getX(), 0, event.getZ()))))
+			WorldServer world = DimensionManager.getWorld(0);
+			try
 			{
-				EntityStarfish starfish = new EntityStarfish(event.getWorld());
-				starfish.setPosition(event.getX(), event.getY(), event.getZ());
-				starfish.setRandomColor();
-				event.getWorld().spawnEntity(starfish);
-				event.setResult(Result.DENY);
+				if(world.getTotalWorldTime() % 10 == 0)
+				{
+					Iterator<Chunk> iterator = world.getPlayerChunkMap().getChunkIterator();
+					
+					while(iterator.hasNext())
+					{
+						Random random = world.rand;
+						ChunkPos chunkPos = iterator.next().getPos();
+						
+						int x = random.nextInt(8) - random.nextInt(8);
+						int z = random.nextInt(8) - random.nextInt(8);
+						BlockPos pos = chunkPos.getBlock(8 + x, 0, 8 + z);
+						
+						int y = world.getHeight(pos).getY() + random.nextInt(4) - random.nextInt(4);
+						BlockPos puddlePos = pos.add(0, y, 0);
+						
+						if(this.canSpawnPuddle(world, puddlePos))
+						{
+							if(random.nextInt(9) == 0)
+							{
+								world.setBlockState(puddlePos.up(), PVJBlocks.puddle.getDefaultState(), 2);
+							}
+						}
+					}
+				}
 			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public boolean canSpawnPuddle(World world, BlockPos pos)
+	{
+		if(!world.isSideSolid(pos, EnumFacing.UP))
+			return false;
+		if(!world.isAirBlock(pos.up()))
+			return false;
+		if(!world.isRaining())
+			return false;
+		
+		Biome biome = world.getBiomeForCoordsBody(pos);
+		if(biome.canRain() && !biome.getEnableSnow())
+		{
+			for(int y = pos.getY() + 1; y < world.getHeight(); y++)
+			{
+				BlockPos up = new BlockPos(pos.getX(), y, pos.getZ());
+				if(!world.isAirBlock(up))
+					return false;
+			}
+			return true;
+		}
+		
+		return false;
+	}
+	
+	@SubscribeEvent
+	public void dropSquid(LivingDropsEvent event)
+	{
+		if(event.getEntityLiving() instanceof EntitySquid)
+		{
+			ItemStack squid = new ItemStack(PVJItems.raw_squid);
+			if(event.getSource() == DamageSource.ON_FIRE)
+				squid = new ItemStack(PVJItems.cooked_squid);
+			
+			EntityItem drop = new EntityItem(event.getEntityLiving().getEntityWorld());
+			BlockPos pos = event.getEntityLiving().getPosition();
+			drop.setItem(squid);
+			drop.setPosition(pos.getX(), pos.getY(), pos.getZ());
+			
+			event.getEntityLiving().getEntityWorld().spawnEntity(drop);
 		}
 	}
 }

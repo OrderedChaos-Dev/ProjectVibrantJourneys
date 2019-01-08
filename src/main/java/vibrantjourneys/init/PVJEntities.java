@@ -27,9 +27,9 @@ import vibrantjourneys.entities.neutral.EntityCoyote;
 import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.neutral.EntityGrizzlyBear;
 import vibrantjourneys.entities.neutral.EntityWatcher;
+import vibrantjourneys.entities.passive.EntityBeachStarfish;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
-import vibrantjourneys.entities.passive.EntityPlaceholder;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.passive.EntityStarfish;
@@ -60,7 +60,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
 		registerEntityWithEgg("pvj_watcher", EntityWatcher.class, 64, 0xb5b3b3, 0x404044);
 		
-		registerEntity("pvj_placeholder", EntityPlaceholder.class, 64);
+		registerEntity("pvj_beach_starfish", EntityBeachStarfish.class, 64);
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64);
 		registerEntity("pvj_coconut", EntityCoconut.class, 64);
 	}
@@ -101,7 +101,7 @@ public class PVJEntities
 			addSpawn(EntityFirefly.class, PVJConfig.entities.fireflySpawnWeight, 4, 9, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntitySmallSpider.class, PVJConfig.entities.spiderSpawnWeight, 1, 6, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntityStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.MARINE_BIOMES));
-			addSpawn(EntityPlaceholder.class, PVJConfig.entities.starfishBeachWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES));
+			addSpawn(EntityBeachStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES));
 			
 			EntitySpawnPlacementRegistry.setPlacementType(EntityStarfish.class, SpawnPlacementType.IN_WATER);
 		}

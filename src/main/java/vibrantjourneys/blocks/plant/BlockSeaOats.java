@@ -47,15 +47,14 @@ public class BlockSeaOats extends BlockBush implements IPropertyHelper
     }
 
     @Override
-    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    public boolean canPlaceBlockAt(World world, BlockPos pos)
     {
-    	if(!worldIn.isAirBlock(pos.up()))
+    	if(!world.isAirBlock(pos.up()))
     	{
     		return false;	
     	}
     	
-        IBlockState state = worldIn.getBlockState(pos.down());
-        Block block = state.getBlock();
+        Block block = world.getBlockState(pos.down()).getBlock();
 
         if (block != Blocks.GRASS && block != Blocks.DIRT && block != Blocks.SAND)
         {

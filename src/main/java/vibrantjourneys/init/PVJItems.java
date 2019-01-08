@@ -27,6 +27,10 @@ public class PVJItems
 	public static Item cracked_coconut;
 	public static Item coconut_milk;
 	public static Item juniper_berries;
+	public static Item raw_squid;
+	public static Item cooked_squid;
+	public static Item sugarcane_juice;
+	public static Item cactus_salad;
 	
 	public static Item spectral_wrappings;
 	
@@ -55,6 +59,10 @@ public class PVJItems
 		cracked_coconut = registerItem(new ItemFood(3, 0.35F, false), "cracked_coconut");
 		coconut_milk = registerItem(new ItemBeverage(1, 0.05F, "regeneration", 400), "coconut_milk");
 		juniper_berries = registerItem(new ItemFood(3, 0.2F, false).setPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 60), 1.0F), "juniper_berries");
+		raw_squid = registerItem(new ItemFood(2, 0.3F, false), "raw_squid");
+		cooked_squid = registerItem(new ItemFood(7, 0.7F, false), "cooked_squid");
+		sugarcane_juice = registerItem(new ItemBeverage(2, 0.2F, "speed", 100), "sugarcane_juice");
+		cactus_salad = registerItem(new ItemFood(4, 0.3F, false).setContainerItem(Items.BOWL), "cactus_salad");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");

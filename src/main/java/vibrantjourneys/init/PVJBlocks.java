@@ -26,6 +26,7 @@ import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
+import vibrantjourneys.blocks.BlockPuddle;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockStoneBlock;
 import vibrantjourneys.blocks.BlockWetAdobe;
@@ -113,6 +114,8 @@ public class PVJBlocks
 	public static Block cracked_sand, red_cracked_sand;
 	public static Block wet_adobe;
 	public static Block mud;
+	
+	public static Block puddle;
 
 	public static Block short_grass;
 	public static Block wild_wheat, wild_potato, wild_carrot, wild_beetroot;
@@ -279,6 +282,8 @@ public class PVJBlocks
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");
 		
 		mud = registerBlock(new BlockMud(), "mud");
+		
+		puddle = registerBlock(new BlockPuddle(), "puddle");
 		
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{

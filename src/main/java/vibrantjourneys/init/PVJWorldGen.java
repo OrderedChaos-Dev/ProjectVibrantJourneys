@@ -224,6 +224,7 @@ public class PVJWorldGen
 		{
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.bloodnettle, PVJConfig.worldgen.bloodnettleDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.witherweed, PVJConfig.worldgen.witherweedDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 		}
 		
 		if(PVJConfig.master.enableEndPlants)

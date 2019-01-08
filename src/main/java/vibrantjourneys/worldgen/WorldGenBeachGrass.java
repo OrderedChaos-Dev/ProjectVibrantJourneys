@@ -57,7 +57,7 @@ public class WorldGenBeachGrass implements IWorldGenerator
 
 		        for (int j = 0; j < 30; j++)
 		        {
-		            BlockPos blockpos = pos.add(rand.nextInt(6) - rand.nextInt(6), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(6) - rand.nextInt(6));
+		            BlockPos blockpos = pos.add(rand.nextInt(3) - rand.nextInt(3), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(3) - rand.nextInt(3));
 
 		            if (world.isAirBlock(blockpos) && blockpos.getY() < 255 && PVJBlocks.beach_grass.canPlaceBlockAt(world, blockpos))
 		            {

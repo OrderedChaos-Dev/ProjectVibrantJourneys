@@ -153,8 +153,6 @@ tile.wild_carrot.name=Wild Carrot
 tile.wild_beetroot.name=Wild Beetroot
 tile.frost_lotus.name=Frost Lotus
 tile.silverleaf.name=Silverleaf
-tile.bloodnettle.name=Bloodnettle
-tile.glowcap.name=Glowcap
 tile.short_grass.name=Short Grass
 tile.frogbit.name=Frogbit
 tile.duckweed.name=Duckweed
@@ -171,6 +169,10 @@ tile.small_cactus.name=Small Cactus
 tile.beach_grass.name=Beach Grass
 tile.sea_oats.name=Sea Oats
 tile.void_grass.name=Void Grass
+
+tile.bloodnettle.name=Bloodnettle
+tile.glowcap.name=Glowcap
+tile.witherweed.name=Witherweed
 
 tile.rock_formation.name=Rock Formation
 tile.redwood_bark.name=Redwood Bark

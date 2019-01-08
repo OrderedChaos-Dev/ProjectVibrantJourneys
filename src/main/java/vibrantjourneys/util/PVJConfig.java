@@ -122,6 +122,9 @@ public class PVJConfig
 		@Config.Name("Building: Enable Stone Blocks")
 		public boolean enableStoneTypeBlocks = true;
 		
+		@Config.Name("Misc: Enable Puddles")
+		public boolean enablePuddles = true;
+		
 		//@Config.Name("Ores: Enable Aquamarine")
 		//public boolean enableAquamarine = true;
 	}
@@ -296,6 +299,7 @@ public class PVJConfig
 		public int seaOatsDensity = 40;
 		public int flouroporeDensity = 300;
 		public int bloodnettleDensity = 2;
+		public int witherweedDensity = 2;
 		public int glowcapDensity = 4;
 		public int shortGrassDensity = 6;
 		public int waxcapDensity = 1;
