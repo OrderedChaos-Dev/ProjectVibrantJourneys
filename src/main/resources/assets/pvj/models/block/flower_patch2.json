@@ -1,13 +1,13 @@
 {
   "parent": "block/thin_block",
   "textures": {
-    "particle": "blocks/water_still",
-    "texture": "blocks/water_still"
+    "particle": "pvj:blocks/flower_patch2",
+    "texture": "pvj:blocks/flower_patch2"
   },
   "elements": [
     {
       "from": [0, 0, 0],
-      "to": [16, 0.1, 16],
+      "to": [16, 0.05, 16],
       "faces": {
         "down": { "uv": [0, 0, 16, 16], "texture": "#texture", "cullface": "down"},
         "up": { "uv": [0, 0, 16, 16], "texture": "#texture"},

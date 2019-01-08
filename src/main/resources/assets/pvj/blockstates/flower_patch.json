@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:flower_patch0"},
+		"model=1": { "model": "pvj:flower_patch1"},
+		"model=2": { "model": "pvj:flower_patch2"},
+		"model=3": { "model": "pvj:flower_patch3"},
+		"model=4": { "model": "pvj:flower_patch4"}
+	}
+}

@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -18,12 +19,15 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.IPropertyHelper;
 
 public class BlockGroundCover extends Block implements IPropertyHelper
@@ -35,6 +39,8 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 	{
 		super(material);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
+		if(material == Material.VINE)
+			this.setSoundType(SoundType.PLANT);
 		this.groundcoverType = type;
 		this.setHardness(0.1F);
 	}
@@ -47,6 +53,9 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 	@Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
     {
+		if(this.getGroundcoverType() == GroundcoverType.FLOWER_PATCH)
+			return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.01D, 1.0D);
+		
         return new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D);
     }
 	
@@ -111,6 +120,25 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     public boolean isTopSolid(IBlockState state)
     {
         return false;
+    }
+    
+    @Override
+    public boolean isTranslucent(IBlockState state)
+    {
+    	if(this.getGroundcoverType() == GroundcoverType.FLOWER_PATCH)
+    		return true;
+    	
+    	return super.isTranslucent(state);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public BlockRenderLayer getBlockLayer()
+    {
+    	if(this.getGroundcoverType() == GroundcoverType.FLOWER_PATCH)
+    		return BlockRenderLayer.TRANSLUCENT;
+    	
+    	return super.getBlockLayer();
     }
     
     @Override
@@ -223,6 +251,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 		ROCKS,
 		BONES,
 		SEASHELLS,
-		PINECONES;
+		PINECONES,
+		FLOWER_PATCH;
 	}
 }

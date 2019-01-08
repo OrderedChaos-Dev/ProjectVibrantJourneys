@@ -86,6 +86,9 @@ public class PVJConfig
 		@Config.Name("Groundcover: Enable Pinecones")
 		public boolean enablePinecones = true;
 		
+		@Config.Name("Groundcover: Enable Flower Patch")
+		public boolean enableFlowerPatches = true;
+		
 		@Config.Name("Structures: Enable Fallen Trees")
 		public boolean enableFallenTrees = true;
 		
@@ -282,8 +285,8 @@ public class PVJConfig
 		public int redCrackedSandDensity = 75;
 		
 		public int seashellsDensity = 120;
-		
 		public int pineconesDensity = 150;
+		public int flowerPatchDensity = 25;
 		
 		public int wildWheatDensity = 2;
 		public int wildPotatoDensity = 2;

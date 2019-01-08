@@ -25,6 +25,7 @@ import vibrantjourneys.worldgen.WorldGenFallenLeaves;
 import vibrantjourneys.worldgen.WorldGenFallenTree;
 import vibrantjourneys.worldgen.WorldGenFloaters;
 import vibrantjourneys.worldgen.WorldGenFlouropore;
+import vibrantjourneys.worldgen.WorldGenFlowerPatch;
 import vibrantjourneys.worldgen.WorldGenFrozenCaves;
 import vibrantjourneys.worldgen.WorldGenGroundCover;
 import vibrantjourneys.worldgen.WorldGenJuniperTreeMesa;
@@ -186,6 +187,10 @@ public class PVJWorldGen
 			if(PVJConfig.master.enablePinecones)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.pinecones, 60, 80, PVJConfig.worldgen.pineconesDensity, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0])));
+			}
+			if(PVJConfig.master.enableFlowerPatches)
+			{
+				registerWorldGen(new WorldGenFlowerPatch(PVJConfig.worldgen.flowerPatchDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			}
 		}
 

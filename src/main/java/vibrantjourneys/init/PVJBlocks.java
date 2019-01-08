@@ -110,6 +110,7 @@ public class PVJBlocks
 	public static Block bones;
 	public static Block seashells;
 	public static Block pinecones;
+	public static Block flower_patch;
 	
 	public static Block cracked_sand, red_cracked_sand;
 	public static Block wet_adobe;
@@ -277,6 +278,7 @@ public class PVJBlocks
 		bones = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.BONES), "bones");
 		seashells = registerBlock(new BlockGroundCover(Material.ROCK, GroundcoverType.SEASHELLS), "seashells");
 		pinecones = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.PINECONES), "pinecones");
+		flower_patch = registerBlock(new BlockGroundCover(Material.VINE, GroundcoverType.FLOWER_PATCH), "flower_patch");
 
 		cracked_sand = registerBlock(new BlockCrackedSand(), "cracked_sand");
 		red_cracked_sand = registerBlock(new BlockCrackedSand(), "red_cracked_sand");

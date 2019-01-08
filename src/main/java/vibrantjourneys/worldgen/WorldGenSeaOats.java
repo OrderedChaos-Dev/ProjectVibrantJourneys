@@ -15,7 +15,6 @@ import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenSeaOats implements IWorldGenerator
 {
-	
 	private int frequency;
 	private Biome[] biomes;
 	public WorldGenSeaOats(int frequency, Biome... biomes)
