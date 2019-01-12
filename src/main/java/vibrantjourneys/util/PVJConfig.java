@@ -374,6 +374,8 @@ public class PVJConfig
 		public int starfishWeight = 30;
 		public int starfishBeachWeight = 40;
 		
+		public boolean firefliesSpawnInSnowBiomes = false;
+		
 		public int grizzlyBearSpawnWeight = 5;
 		public int coyoteSpawnWeight = 2;
 		

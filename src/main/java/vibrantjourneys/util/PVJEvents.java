@@ -25,10 +25,12 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import vibrantjourneys.blocks.plant.BlockShortGrass;
 import vibrantjourneys.entities.neutral.EntityWatcher;
+import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJItems;
 import vibrantjourneys.items.ItemMysticalFood;
@@ -97,6 +99,17 @@ public class PVJEvents
 				pos = new BlockPos(event.getX() + x, event.getY() + y, event.getZ() + z);
 			}
 			event.getEntityLiving().setPosition(event.getX() + x, event.getY() + y, event.getZ() + z);
+		}
+		if(event.getEntityLiving() instanceof EntityFirefly)
+		{
+			if(!PVJConfig.entities.firefliesSpawnInSnowBiomes)
+			{
+				Biome biome = event.getWorld().getBiomeForCoordsBody(event.getEntityLiving().getPosition());
+				if(BiomeReference.SNOWY_BIOMES.contains(biome))
+				{
+					event.setResult(Result.DENY);
+				}
+			}
 		}
 	}
 	
