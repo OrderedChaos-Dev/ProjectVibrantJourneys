@@ -1,0 +1,9 @@
+{
+	"variants":
+	{
+		"axis=x": { "model": "pvj:log_jacaranda", "x": 90, "y": 90},
+		"axis=y": { "model": "pvj:log_jacaranda"},
+		"axis=z": { "model": "pvj:log_jacaranda", "x": 90},
+		"axis=none": { "model": "pvj:log_jacaranda_bark", "x": 90, "y": 90}
+	}
+}

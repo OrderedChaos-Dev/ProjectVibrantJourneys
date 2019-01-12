@@ -12,14 +12,15 @@ import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 
-public class WorldGenMapleTree extends WorldGenAbstractTree
+public class WorldGenGenericTree extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.MAPLE.getID()).getDefaultState();
+    private IBlockState LOG;
     private IBlockState LEAF;
 
-    public WorldGenMapleTree(boolean notify, EnumLeafType leafType)
+    public WorldGenGenericTree(boolean notify, EnumWoodType woodType, EnumLeafType leafType)
     {
         super(notify);
+        LOG = PVJBlocks.LOGS.get(woodType.getID()).getDefaultState();
         LEAF = PVJBlocks.LEAVES.get(leafType.getID()).getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
     }
 

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "pvj:half_slab_cherry_blossom" },
+        "half=top": { "model": "pvj:upper_slab_cherry_blossom" }
+    }
+}

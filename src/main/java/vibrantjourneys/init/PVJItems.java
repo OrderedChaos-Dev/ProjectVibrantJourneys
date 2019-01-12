@@ -32,6 +32,8 @@ public class PVJItems
 	public static Item sugarcane_juice;
 	public static Item cactus_salad;
 	
+	public static Item aquamarine;
+	
 	public static Item spectral_wrappings;
 	
 	public static Item goon_bile;

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:jacaranda_pressure_plate_up" },
+        "powered=true": { "model": "pvj:jacaranda_pressure_plate_down" }
+    }
+}

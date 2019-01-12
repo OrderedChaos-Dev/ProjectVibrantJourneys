@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "pvj:sapling_white_cherry_blossom" },
+        "stage=1": { "model": "pvj:sapling_white_cherry_blossom" }
+    }
+}

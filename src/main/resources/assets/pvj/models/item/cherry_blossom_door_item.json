@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "pvj:items/cherry_blossom_door"
+    }
+}

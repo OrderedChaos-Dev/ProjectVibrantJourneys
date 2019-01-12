@@ -12,6 +12,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
@@ -21,9 +23,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.BiomeReference;
+import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
 import vibrantjourneys.worldgen.feature.WorldGenPVJDungeon;
 import vibrantjourneys.worldgen.feature.WorldGenPineTree;
 
@@ -104,6 +108,35 @@ public class PVJTerrainGenEvents
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenPineTree(false)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
+			//flower forest
+			if(biome == Biomes.MUTATED_FOREST)
+			{
+				if(event.getRand().nextInt(3) == 0)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenGenericBigTree(false, EnumWoodType.CHERRY_BLOSSOM, EnumLeafType.WHITE_CHERRY_BLOSSOM)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+				if(event.getRand().nextInt(3) == 0)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenGenericBigTree(false, EnumWoodType.CHERRY_BLOSSOM, EnumLeafType.PINK_CHERRY_BLOSSOM)).generate(event.getWorld(), event.getRand(), pos);
+					event.setResult(Result.DENY);
+				}
+			}
+			if(BiomeReference.JACARANDA_TREES.contains(biome))
+			{
+				int chance = 3;
+				if(BiomeDictionary.hasType(biome, Type.JUNGLE))
+					chance = 7;
+				
+				if(event.getRand().nextInt(chance) == 0)
+				{
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					(new WorldGenGenericBigTree(false, EnumWoodType.JACARANDA, EnumLeafType.JACARANDA)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
 			}

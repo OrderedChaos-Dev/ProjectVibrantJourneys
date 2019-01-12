@@ -24,7 +24,7 @@ public class WorldGenJuniperTreeMesa implements IWorldGenerator
 		this.frequency = frequency;
 	}
 	
-	public WorldGenJuniperTree juniper_gen = new WorldGenJuniperTree();
+	public WorldGenJuniperTree juniper_gen = new WorldGenJuniperTree(false);
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
 	{

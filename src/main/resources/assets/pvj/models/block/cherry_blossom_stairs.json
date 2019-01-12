@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "pvj:blocks/planks_cherry_blossom",
+        "top": "pvj:blocks/planks_cherry_blossom",
+        "side": "pvj:blocks/planks_cherry_blossom"
+    }
+}

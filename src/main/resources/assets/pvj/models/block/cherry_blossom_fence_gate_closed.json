@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_gate_closed",
+    "textures": {
+        "texture": "pvj:blocks/planks_cherry_blossom"
+    }
+}

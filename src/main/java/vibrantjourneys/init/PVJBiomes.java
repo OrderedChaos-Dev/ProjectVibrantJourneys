@@ -11,7 +11,9 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.biomes.BiomeAspenGrove;
+import vibrantjourneys.biomes.BiomeBlossomingFields;
 import vibrantjourneys.biomes.BiomeBorealForest;
 import vibrantjourneys.biomes.BiomeOvergrownSpires;
 import vibrantjourneys.biomes.BiomePrairie;
@@ -30,6 +32,7 @@ public class PVJBiomes
 	public static Biome snowy_boreal_forest = new BiomeBorealForest(new BiomeProperties("Snowy Boreal Forest").setBaseHeight(0.2F).setHeightVariation(0.1F).setTemperature(-0.5F).setRainfall(0.4F).setSnowEnabled());
 	public static Biome aspen_grove = new BiomeAspenGrove(new BiomeProperties("Aspen Grove").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
+	public static Biome blossoming_fields = new BiomeBlossomingFields(new BiomeProperties("Blossoming Fields").setBaseHeight(0.009F).setHeightVariation(0.001F).setTemperature(0.5F).setRainfall(0.55F));
 	
 	public static void initBiomes()
 	{
@@ -43,7 +46,10 @@ public class PVJBiomes
 			registerBiome(snowy_boreal_forest, "snowy_boreal_forest", PVJConfig.biomes.snowyBorealForestWeight, false, BiomeType.ICY, Type.CONIFEROUS, Type.COLD, Type.FOREST, Type.SNOWY);
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
+			registerBiome(blossoming_fields, "blossoming_fields", PVJConfig.biomes.blossomingfields, false, BiomeType.COOL, Type.FOREST);
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Biomes disabled. That makes me sad :(");
 		
 		if(PVJConfig.worldgen.allowBeachVillages)
 			BiomeManager.addVillageBiome(Biomes.BEACH, true);

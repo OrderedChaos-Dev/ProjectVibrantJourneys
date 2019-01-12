@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "pvj:blocks/leaves_pink_cherry_blossom"
+    }
+}

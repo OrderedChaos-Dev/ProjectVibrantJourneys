@@ -1,0 +1,6 @@
+{
+    "parent": "pvj:block/cross_tinted",
+    "textures": {
+        "cross": "pvj:blocks/sundew"
+    }
+}

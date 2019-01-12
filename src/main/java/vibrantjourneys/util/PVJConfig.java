@@ -104,6 +104,9 @@ public class PVJConfig
 		@Config.Name("Plants: Enable End Plants")
 		public boolean enableEndPlants = true;
 		
+		@Config.Name("Ore: Enable Aquamarine")
+		public boolean enableAquamarine = true;
+		
 		@Config.Name("Mobs: Enable Passive Mobs")
 		public boolean enablePassiveMobs = true;
 		
@@ -187,6 +190,9 @@ public class PVJConfig
 		public int baobabDensity = 2;
 		public int cottonwoodDensity = 1;
 		public int juniperDensity = 1;
+		public int whiteCherryBlossomDensity = 5;
+		public int pinkCherryBlossomDensity = 5;
+		public int jacarandaDensity = 3;
 		
 		public int fallenLeavesOakDensity = 45;
 		public int fallenLeavesOakSparseDensity = 10;
@@ -212,6 +218,9 @@ public class PVJConfig
 		public int fallenLeavesBaobabDensity = 5;
 		public int fallenLeavesCottonwoodDensity = 2;
 		public int fallenLeavesJuniperDensity = 1;
+		public int fallenLeavesWhiteCherryBlossomDensity = 30;
+		public int fallenLeavesPinkCherryBlossomDensity = 30;
+		public int fallenLeavesJacarandaDensity = 10;
 		
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
@@ -222,6 +231,7 @@ public class PVJConfig
 		public int fallenTreeBirchSparseDensity = 2;
 		public int fallenTreeSpruceDensity = 25;
 		public int fallenTreeSpruceSparseDensity = 10;
+		public int fallenTreeJungleDensity = 5;
 		public int fallenTreeAcaciaDensity = 15;
 		public int fallenTreeWillowDensity = 30;
 		public int fallenTreeMangroveDensity = 5;
@@ -234,6 +244,8 @@ public class PVJConfig
 		public int fallenTreeBaobabDensity = 3;
 		public int fallenTreeCottonwoodDensity = 2;
 		public int fallenTreeJuniperDensity = 1;
+		public int fallenTreeCherryBlossomDensity = 10;
+		public int fallenTreeJacarandaDensity = 3;
 		
 		public int mangroveRootDensity = 2;
 		
@@ -276,6 +288,9 @@ public class PVJConfig
 		public int baobabTwigsDensity = 20;
 		public int cottonwoodTwigsDensity = 10;
 		public int juniperTwigsDensity = 10;
+		public int whiteCherryBlossomTwigsDensity = 10;
+		public int pinkCherryBlossomTwigsDensity = 10;
+		public int jacarandaTwigsDensity = 10;
 		
 		public int bonesDensity = 5;
 		public int bonesDesertDensity = 15;
@@ -327,6 +342,7 @@ public class PVJConfig
 		public int marbleDensity = 15;
 		public int limestoneDensity = 20;
 		public int siltstoneDensity = 20;
+		public int gneissDensity = 20;
 		
 		public int mudDensity = 45;
 		
@@ -344,7 +360,8 @@ public class PVJConfig
 		public int borealForestWeight = 9;
 		public int snowyBorealForestWeight = 9;
 		public int aspenGroveWeight = 8;
-		public int overgrownSpiresWeight = 7;
+		public int overgrownSpiresWeight = 6;
+		public int blossomingfields = 5;
 	}
 	
 	public static class EntitiesSubCategory

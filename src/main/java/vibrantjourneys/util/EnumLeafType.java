@@ -16,7 +16,10 @@ public enum EnumLeafType
     BAOBAB(9, "baobab", EnumWoodType.BAOBAB, PVJConfig.worldgen.fallenLeavesBaobabDensity, PVJConfig.worldgen.baobabTwigsDensity),
     COTTONWOOD(10, "cottonwood", EnumWoodType.COTTONWOOD, PVJConfig.worldgen.fallenLeavesCottonwoodDensity, PVJConfig.worldgen.cottonwoodTwigsDensity),
     JUNIPER(11, "juniper", EnumWoodType.JUNIPER, PVJConfig.worldgen.fallenLeavesJuniperDensity, PVJConfig.worldgen.juniperTwigsDensity),
-    JUNIPER_BERRIED(12, "juniper_berried", EnumWoodType.JUNIPER, -1, -1);
+    JUNIPER_BERRIED(12, "juniper_berried", EnumWoodType.JUNIPER, -1, -1),
+    WHITE_CHERRY_BLOSSOM(13, "white_cherry_blossom", EnumWoodType.CHERRY_BLOSSOM, PVJConfig.worldgen.fallenLeavesWhiteCherryBlossomDensity, PVJConfig.worldgen.whiteCherryBlossomTwigsDensity),
+    PINK_CHERRY_BLOSSOM(14, "pink_cherry_blossom", EnumWoodType.CHERRY_BLOSSOM, PVJConfig.worldgen.fallenLeavesPinkCherryBlossomDensity, PVJConfig.worldgen.pinkCherryBlossomTwigsDensity),
+    JACARANDA(15, "jacaranda", EnumWoodType.JACARANDA, PVJConfig.worldgen.fallenLeavesJacarandaDensity, PVJConfig.worldgen.jacarandaTwigsDensity);
     
     private String name;
     private int id;

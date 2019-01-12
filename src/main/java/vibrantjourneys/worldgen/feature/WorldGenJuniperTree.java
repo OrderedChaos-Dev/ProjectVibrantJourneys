@@ -24,9 +24,9 @@ public class WorldGenJuniperTree extends WorldGenAbstractTree
 	private static final IBlockState LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.JUNIPER.getID()).getDefaultState();
 	private static final IBlockState LEAVES_BERRIED = PVJBlocks.LEAVES.get(EnumLeafType.JUNIPER_BERRIED.getID()).getDefaultState();
 	
-	public WorldGenJuniperTree()
+	public WorldGenJuniperTree(boolean notify)
 	{
-		super(false);
+		super(notify);
 	}
 
 	@Override

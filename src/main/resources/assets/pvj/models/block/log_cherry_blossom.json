@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_column",
+	"textures":
+	{
+		"end": "pvj:blocks/log_cherry_blossom_top",
+		"side": "pvj:blocks/log_cherry_blossom"
+	}
+}

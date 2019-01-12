@@ -12,11 +12,13 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
+import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
 
 public class BiomePrairie extends Biome
 {
-	public static final WorldGenCottonwoodTree COTTONWOOD = new WorldGenCottonwoodTree(false);
+	public static final WorldGenGenericBigTree COTTONWOOD = new WorldGenGenericBigTree(true, EnumWoodType.COTTONWOOD, EnumLeafType.COTTONWOOD);
 	
 	public BiomePrairie(BiomeProperties properties)
 	{

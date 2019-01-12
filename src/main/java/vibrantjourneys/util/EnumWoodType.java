@@ -12,11 +12,13 @@ public enum EnumWoodType
     REDWOOD(3, "redwood", PVJConfig.worldgen.fallenTreeRedwoodDensity, PVJConfig.worldgen.redwoodDensity, BiomeReference.REDWOOD_TREES),
     FIR(4, "fir", PVJConfig.worldgen.fallenTreeFirDensity, PVJConfig.worldgen.firDensity, BiomeReference.FIR_TREES),
     PINE(5, "pine", PVJConfig.worldgen.fallenTreePineDensity, PVJConfig.worldgen.pineDensity, BiomeReference.PINE_TREES),
-    ASPEN(6, "aspen", PVJConfig.worldgen.fallenTreeAspenDensity, Reference.FILLER, BiomeReference.ASPEN_TREES),
+    ASPEN(6, "aspen", PVJConfig.worldgen.fallenTreeAspenDensity, PVJConfig.worldgen.aspenDensity, BiomeReference.ASPEN_TREES),
     MAPLE(7, "maple", PVJConfig.worldgen.fallenTreeMapleDensity, Reference.FILLER, BiomeReference.RED_MAPLE_TREES),
     BAOBAB(8, "baobab", PVJConfig.worldgen.fallenTreeBaobabDensity, PVJConfig.worldgen.baobabDensity, BiomeReference.BAOBAB_TREES),
     COTTONWOOD(9, "cottonwood", PVJConfig.worldgen.fallenTreeCottonwoodDensity, PVJConfig.worldgen.cottonwoodDensity, BiomeReference.COTTONWOOD_TREES),
-    JUNIPER(10, "juniper", PVJConfig.worldgen.fallenTreeJuniperDensity, PVJConfig.worldgen.juniperDensity, BiomeReference.JUNIPER_TREES);
+    JUNIPER(10, "juniper", PVJConfig.worldgen.fallenTreeJuniperDensity, PVJConfig.worldgen.juniperDensity, BiomeReference.JUNIPER_TREES),
+    CHERRY_BLOSSOM(11, "cherry_blossom", PVJConfig.worldgen.fallenTreeCherryBlossomDensity, PVJConfig.worldgen.pinkCherryBlossomDensity, BiomeReference.PINK_CHERRY_BLOSSOM_TREES),
+    JACARANDA(12, "jacaranda", PVJConfig.worldgen.fallenTreeJacarandaDensity, PVJConfig.worldgen.jacarandaDensity, BiomeReference.JACARANDA_TREES);
 
     private final String name;
     private final int id;

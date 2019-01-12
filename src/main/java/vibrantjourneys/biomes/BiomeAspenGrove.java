@@ -12,15 +12,16 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.EnumLeafType;
+import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.feature.WorldGenAspenTree;
-import vibrantjourneys.worldgen.feature.WorldGenMapleTree;
+import vibrantjourneys.worldgen.feature.WorldGenGenericTree;
 
 public class BiomeAspenGrove extends Biome
 {
     private static final WorldGenAspenTree ASPEN = new WorldGenAspenTree(false);
-    private static final WorldGenMapleTree RED_MAPLE = new WorldGenMapleTree(false, EnumLeafType.RED_MAPLE);
-    private static final WorldGenMapleTree ORANGE_MAPLE = new WorldGenMapleTree(false, EnumLeafType.ORANGE_MAPLE);
+    private static final WorldGenGenericTree RED_MAPLE = new WorldGenGenericTree(true, EnumWoodType.MAPLE, EnumLeafType.RED_MAPLE);
+    private static final WorldGenGenericTree ORANGE_MAPLE = new WorldGenGenericTree(true, EnumWoodType.MAPLE, EnumLeafType.ORANGE_MAPLE);
     
 	public BiomeAspenGrove(BiomeProperties properties)
 	{
@@ -38,15 +39,15 @@ public class BiomeAspenGrove extends Biome
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
     	int num = rand.nextInt(100);
-    	if(num > 60 && rand.nextInt(PVJConfig.worldgen.aspenDensity) < PVJConfig.worldgen.aspenDensity - 2)
+    	if(PVJConfig.worldgen.aspenDensity > 0 && num > 60 && rand.nextInt(PVJConfig.worldgen.aspenDensity) < PVJConfig.worldgen.aspenDensity - 2)
     	{
     		return ASPEN;
     	}
-    	else if(num > 40 && rand.nextInt(PVJConfig.worldgen.redMapleDensity) < PVJConfig.worldgen.redMapleDensity - 2)
+    	else if(PVJConfig.worldgen.redMapleDensity > 0 && num > 40 && rand.nextInt(PVJConfig.worldgen.redMapleDensity) < PVJConfig.worldgen.redMapleDensity - 2)
     	{
     		return RED_MAPLE;
     	}
-    	else if(num > 20 && rand.nextInt(PVJConfig.worldgen.orangeMapleDensity) < PVJConfig.worldgen.orangeMapleDensity - 2)
+    	else if(PVJConfig.worldgen.orangeMapleDensity > 0 && num > 20 && rand.nextInt(PVJConfig.worldgen.orangeMapleDensity) < PVJConfig.worldgen.orangeMapleDensity - 2)
     	{	
     		return ORANGE_MAPLE;
     	}

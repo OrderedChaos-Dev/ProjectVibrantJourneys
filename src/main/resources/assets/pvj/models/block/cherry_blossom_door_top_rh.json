@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "pvj:blocks/door_cherry_blossom_lower",
+        "top": "pvj:blocks/door_cherry_blossom_upper"
+    }
+}

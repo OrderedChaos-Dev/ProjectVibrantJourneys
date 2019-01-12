@@ -17,6 +17,7 @@ import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.item.EntityCoconut;
 import vibrantjourneys.entities.item.EntityPVJBoat;
 import vibrantjourneys.entities.monster.EntityGoon;
@@ -60,6 +61,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
 		registerEntityWithEgg("pvj_watcher", EntityWatcher.class, 64, 0xb5b3b3, 0x404044);
 		
+		//needed to spawn starfish on beaches
 		registerEntity("pvj_beach_starfish", EntityBeachStarfish.class, 64);
 		registerEntity("pvj_boat", EntityPVJBoat.class, 64);
 		registerEntity("pvj_coconut", EntityCoconut.class, 64);
@@ -105,6 +107,8 @@ public class PVJEntities
 			
 			EntitySpawnPlacementRegistry.setPlacementType(EntityStarfish.class, SpawnPlacementType.IN_WATER);
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Passive mobs disabled");
 
 		if(PVJConfig.master.enableNeutralMobs)
 		{
@@ -113,6 +117,8 @@ public class PVJEntities
 			addSpawn(EntityWatcher.class, PVJConfig.entities.watcherSpawnWeight, 2, 4, EnumCreatureType.MONSTER, BiomeDictionary.getBiomes(Type.END).toArray(new Biome[0]));
 			addSpawn(EntityCoyote.class, PVJConfig.entities.coyoteSpawnWeight, 1, 1, EnumCreatureType.CREATURE, BiomeReference.getValidBiomes(BiomeReference.COYOTE_BIOMES));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Neutral mobs disabled");
 		
 		if(PVJConfig.master.enableAggressiveMobs)
 		{
@@ -122,11 +128,15 @@ public class PVJEntities
 			addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
 			addSpawn(EntityGoon.class, PVJConfig.entities.goonSpawnWeight, 1, 1, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Aggressive mobs disabled");
 		
 		if(PVJConfig.entities.junglesSpawnCaveSpiders)
 		{
 			addSpawn(EntityCaveSpider.class, 50, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.JUNGLE_TREES));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Cave spiders in jungles disabled");
 		
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_shade"), 100);
 		DungeonHooks.addDungeonMob(new ResourceLocation(Reference.MOD_ID, "pvj_skeletal_knight"), 100);

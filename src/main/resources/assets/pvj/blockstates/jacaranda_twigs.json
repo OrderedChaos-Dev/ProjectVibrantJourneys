@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:jacaranda_twigs0"},
+		"model=1": { "model": "pvj:jacaranda_twigs1"},
+		"model=2": { "model": "pvj:jacaranda_twigs2"},
+		"model=3": { "model": "pvj:jacaranda_twigs3"},
+		"model=4": { "model": "pvj:jacaranda_twigs4"}
+	}
+}

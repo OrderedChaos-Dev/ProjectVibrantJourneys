@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "pvj:blocks/door_jacaranda_lower",
+        "top": "pvj:blocks/door_jacaranda_upper"
+    }
+}

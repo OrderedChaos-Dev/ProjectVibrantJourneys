@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_gate_closed",
+    "textures": {
+        "texture": "pvj:blocks/planks_jacaranda"
+    }
+}

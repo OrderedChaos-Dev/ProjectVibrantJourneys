@@ -7,6 +7,7 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.integration.biomesoplenty.PVJWorldGenBOP;
 import vibrantjourneys.integration.traverse.PVJWorldGenTraverse;
 import vibrantjourneys.util.BiomeReference;
@@ -75,6 +76,8 @@ public class PVJWorldGen
 			if(PVJConfig.worldgen.enableTerracottaCaves)
 				registerWorldGen(new WorldGenTerracottaCaves(BiomeReference.getValidBiomes(BiomeReference.MESA_BIOMES)));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Cave stuff disabled");
 		
 		if(PVJConfig.master.enableStoneTypeBlocks)
 		{
@@ -83,6 +86,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 14, 70, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 70, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 15, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
+			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.GNEISS.getID()), 9, 70, PVJConfig.worldgen.gneissDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		}
 		
 		registerWorldGen(new WorldGenMud(PVJConfig.worldgen.mudDensity, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0])));
@@ -106,6 +110,8 @@ public class PVJWorldGen
 				}
 			}
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Fallen trees disabled");
 		
 		registerWorldGen(new WorldGenMangroveRoot(PVJConfig.worldgen.mangroveRootDensity, BiomeReference.getValidBiomes(BiomeReference.MANGROVE_TREES)));
 		
@@ -136,6 +142,8 @@ public class PVJWorldGen
 							registerWorldGen(new WorldGenFallenLeaves(PVJBlocks.FALLEN_LEAVES.get(leafType.getID()), leafType.getFallenLeavesDensity(), leafType.getTreeBiomes()));
 				}
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Fallen leaves disabled");
 			if(PVJConfig.master.enableRocks)
 			{
 				//surface
@@ -155,6 +163,8 @@ public class PVJWorldGen
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.granite_rocks, 1, 60, PVJConfig.worldgen.graniteCaveDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.diorite_rocks, 1, 60, PVJConfig.worldgen.dioriteRocksCaveDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Rocks disabled");
 
 			if(PVJConfig.master.enableTwigs)
 			{
@@ -174,25 +184,37 @@ public class PVJWorldGen
 							registerWorldGen(new WorldGenGroundCover(PVJBlocks.TWIGS.get(leafType.getID()), 60, 150, leafType.getTwigsDensity(), leafType.getTreeBiomes()));
 				}
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Twigs disabled");
 			if(PVJConfig.master.enableBones)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 100, PVJConfig.worldgen.bonesDesertDensity, BiomeReference.getValidBiomes(BiomeReference.DESERT_BIOMES)));
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.bones, 1, 150, PVJConfig.worldgen.bonesNetherDensity, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Bones disabled");
 			if(PVJConfig.master.enableSeashells)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.seashells, 60, 80, PVJConfig.worldgen.seashellsDensity, BiomeReference.getValidBiomes(BiomeReference.BEACH_BIOMES)));
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Seashells disabled :(");
 			if(PVJConfig.master.enablePinecones)
 			{
 				registerWorldGen(new WorldGenGroundCover(PVJBlocks.pinecones, 60, 80, PVJConfig.worldgen.pineconesDensity, BiomeDictionary.getBiomes(Type.CONIFEROUS).toArray(new Biome[0])));
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Pinecones took a long time to model...and you disabled them!");
 			if(PVJConfig.master.enableFlowerPatches)
 			{
 				registerWorldGen(new WorldGenFlowerPatch(PVJConfig.worldgen.flowerPatchDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			}
+			else
+				ProjectVibrantJourneys.logger.info("Flower patches disabled");
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Groundcover disabled. You're a boring person!");
 
 		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_wheat, PVJConfig.worldgen.wildWheatDensity, PVJBiomes.prairie));
 		registerWorldGen(new WorldGenPVJPlant(PVJBlocks.wild_potato, PVJConfig.worldgen.wildPotatoDensity, Biomes.PLAINS));
@@ -224,6 +246,8 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenRiverGrass(PVJConfig.worldgen.riverGrassDensity));
 			registerWorldGen(new WorldGenCattail(PVJConfig.worldgen.cattailDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Overworld plants disabled");
 
 		if(PVJConfig.master.enableNetherPlants)
 		{
@@ -231,11 +255,15 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.glowcap, PVJConfig.worldgen.glowcapDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.witherweed, PVJConfig.worldgen.witherweedDensity, WorldGenPVJPlant.NETHER, BiomeReference.getValidBiomes(BiomeReference.NETHER_BIOMES)));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Nether plants disabled");
 		
 		if(PVJConfig.master.enableEndPlants)
 		{
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.void_grass, PVJConfig.worldgen.voidGrassDensity, WorldGenPVJPlant.END, BiomeReference.getValidBiomes(BiomeReference.END_BIOMES)));
 		}
+		else
+			ProjectVibrantJourneys.logger.info("End plants disabled");
 		
 		if(Reference.isBOPLoaded)
 			PVJWorldGenBOP.initWorldGenBOP();

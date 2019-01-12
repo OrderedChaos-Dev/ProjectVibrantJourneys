@@ -23,11 +23,12 @@ import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.worldgen.feature.WorldGenAspenTree;
 import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
-import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
+import vibrantjourneys.worldgen.feature.WorldGenCherryBlossomTree;
 import vibrantjourneys.worldgen.feature.WorldGenFirTree;
+import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
+import vibrantjourneys.worldgen.feature.WorldGenGenericTree;
 import vibrantjourneys.worldgen.feature.WorldGenJuniperTree;
 import vibrantjourneys.worldgen.feature.WorldGenMangroveTree;
-import vibrantjourneys.worldgen.feature.WorldGenMapleTree;
 import vibrantjourneys.worldgen.feature.WorldGenPalmTree;
 import vibrantjourneys.worldgen.feature.WorldGenPineTree;
 import vibrantjourneys.worldgen.feature.WorldGenRedwoodLarge;
@@ -152,16 +153,26 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	worldgenerator = new WorldGenAspenTree(true);
             	break;
             case RED_MAPLE:
-            	worldgenerator = new WorldGenMapleTree(true, EnumLeafType.RED_MAPLE);
+            	worldgenerator = new WorldGenGenericTree(true, EnumWoodType.MAPLE, EnumLeafType.RED_MAPLE);
             	break;
             case ORANGE_MAPLE:
-            	worldgenerator = new WorldGenMapleTree(true, EnumLeafType.ORANGE_MAPLE);
+            	worldgenerator = new WorldGenGenericTree(true, EnumWoodType.MAPLE, EnumLeafType.ORANGE_MAPLE);
             	break;
             case COTTONWOOD:
-            	worldgenerator = new WorldGenCottonwoodTree(true);
+            	worldgenerator = new WorldGenGenericBigTree(true, EnumWoodType.COTTONWOOD, EnumLeafType.COTTONWOOD);
             	break;
             case JUNIPER:
-            	worldgenerator = new WorldGenJuniperTree();
+            	worldgenerator = new WorldGenJuniperTree(true);
+            	break;
+            case WHITE_CHERRY_BLOSSOM:
+            	worldgenerator = new WorldGenCherryBlossomTree(false, false);
+            	break;
+            case PINK_CHERRY_BLOSSOM:
+            	worldgenerator = new WorldGenCherryBlossomTree(false, true);
+            	break;
+            case JACARANDA:
+            	worldgenerator = new WorldGenGenericBigTree(true, EnumWoodType.JACARANDA, EnumLeafType.JACARANDA);
+            	break;
             default:
             	break;
         }

@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_post",
+    "textures": {
+        "texture": "pvj:blocks/planks_cherry_blossom"
+    }
+}

@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "pvj:pink_cherry_blossom_twigs0"},
+		"model=1": { "model": "pvj:pink_cherry_blossom_twigs1"},
+		"model=2": { "model": "pvj:pink_cherry_blossom_twigs2"},
+		"model=3": { "model": "pvj:pink_cherry_blossom_twigs3"},
+		"model=4": { "model": "pvj:pink_cherry_blossom_twigs4"}
+	}
+}

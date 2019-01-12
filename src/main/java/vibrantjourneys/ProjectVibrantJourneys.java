@@ -1,5 +1,7 @@
 package vibrantjourneys;
 
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,19 +39,23 @@ public class ProjectVibrantJourneys
     @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER)
     public static ICommonProxy proxy;
 
+    public static Logger logger;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+    	logger = event.getModLog();
+    	
     	//BoP support :)
     	if(Loader.isModLoaded("biomesoplenty"))
     	{
-    		System.out.println("Project: Vibrant Journeys detected that you also have Biomes O' Plenty installed!");
+    		logger.info("Project: Vibrant Journeys detected that you also have Biomes O' Plenty installed! Enjoy your adventures!");
     		Reference.isBOPLoaded = true;
     	}
     	//Traverse support :)
     	if(Loader.isModLoaded("traverse"))
     	{
-    		System.out.println("Project: Vibrant Journeys detected that you also have Traverse installed!");
+    		logger.info("Project: Vibrant Journeys detected that you also have Traverse installed! Safe travels!");
     		Reference.isTraverseLoaded = true;
     	}
     	

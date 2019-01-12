@@ -62,6 +62,10 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     	{
     		return 15;
     	}
+    	else if(leafType == EnumLeafType.PINK_CHERRY_BLOSSOM || leafType == EnumLeafType.WHITE_CHERRY_BLOSSOM)
+    	{
+    		return 30;
+    	}
         return super.getSaplingDropChance(state);
     }
 

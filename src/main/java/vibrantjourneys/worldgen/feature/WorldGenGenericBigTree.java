@@ -18,12 +18,11 @@ import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 
-public class WorldGenCottonwoodTree extends WorldGenAbstractTree
+public class WorldGenGenericBigTree extends WorldGenAbstractTree
 {
-    private static final IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.COTTONWOOD.getID()).getDefaultState();
     
-    private static final IBlockState LEAF = PVJBlocks.LEAVES.get(EnumLeafType.COTTONWOOD.getID()).getDefaultState()
-    		.withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
+    private IBlockState LOG;
+    private IBlockState LEAF;
     
     private Random rand;
     private World world;
@@ -38,11 +37,13 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
     int heightLimitLimit = 12;
     /** Sets the distance limit for how far away the generator will populate leaves from the base leaf node. */
     int leafDistanceLimit = 4;
-    List<WorldGenCottonwoodTree.FoliageCoordinates> foliageCoords;
+    List<WorldGenGenericBigTree.FoliageCoordinates> foliageCoords;
 
-    public WorldGenCottonwoodTree(boolean notify)
+    public WorldGenGenericBigTree(boolean notify, EnumWoodType woodType, EnumLeafType leafType)
     {
         super(notify);
+        LOG = PVJBlocks.LOGS.get(woodType.getID()).getDefaultState();
+        LEAF = PVJBlocks.LEAVES.get(leafType.getID()).getDefaultState().withProperty(BlockPVJLeaves.CHECK_DECAY, Boolean.valueOf(false));
     }
 
     /**
@@ -66,8 +67,8 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
 
         int j = this.basePos.getY() + this.height;
         int k = this.heightLimit - this.leafDistanceLimit;
-        this.foliageCoords = Lists.<WorldGenCottonwoodTree.FoliageCoordinates>newArrayList();
-        this.foliageCoords.add(new WorldGenCottonwoodTree.FoliageCoordinates(this.basePos.up(k), j));
+        this.foliageCoords = Lists.<WorldGenGenericBigTree.FoliageCoordinates>newArrayList();
+        this.foliageCoords.add(new WorldGenGenericBigTree.FoliageCoordinates(this.basePos.up(k), j));
 
         for (; k >= 0; --k)
         {
@@ -94,7 +95,7 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
 
                         if (this.checkBlockLine(blockpos2, blockpos) == -1)
                         {
-                            this.foliageCoords.add(new WorldGenCottonwoodTree.FoliageCoordinates(blockpos, blockpos2.getY()));
+                            this.foliageCoords.add(new WorldGenGenericBigTree.FoliageCoordinates(blockpos, blockpos2.getY()));
                         }
                     }
                 }
@@ -237,7 +238,7 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
      */
     void generateLeaves()
     {
-        for (WorldGenCottonwoodTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.foliageCoords)
+        for (WorldGenGenericBigTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.foliageCoords)
         {
             this.generateLeafNode(worldgenbigtree$foliagecoordinates);
         }
@@ -275,7 +276,7 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
      */
     void generateLeafNodeBases()
     {
-        for (WorldGenCottonwoodTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.foliageCoords)
+        for (WorldGenGenericBigTree.FoliageCoordinates worldgenbigtree$foliagecoordinates : this.foliageCoords)
         {
             int i = worldgenbigtree$foliagecoordinates.getBranchBase();
             BlockPos blockpos = new BlockPos(this.basePos.getX(), i, this.basePos.getZ());

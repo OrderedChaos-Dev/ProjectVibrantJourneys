@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "pvj:blocks/gneiss",
+        "top": "pvj:blocks/gneiss",
+        "side": "pvj:blocks/gneiss"
+    }
+}

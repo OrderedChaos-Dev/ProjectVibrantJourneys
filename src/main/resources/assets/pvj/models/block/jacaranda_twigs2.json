@@ -1,0 +1,8 @@
+{
+	"parent": "pvj:block/twigs2",
+    "textures": {
+        "particle": "pvj:blocks/log_jacaranda",
+        "0": "pvj:blocks/log_jacaranda",
+        "1": "pvj:blocks/leaves_jacaranda"
+    }
+}

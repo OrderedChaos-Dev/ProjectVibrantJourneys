@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "pvj:half_slab_gneiss_brick" },
+        "half=top": { "model": "pvj:upper_slab_gneiss_brick" }
+    }
+}

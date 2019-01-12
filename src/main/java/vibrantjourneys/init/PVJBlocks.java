@@ -3,12 +3,14 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
+import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.blocks.BlockCampfire;
 import vibrantjourneys.blocks.BlockCandle;
 import vibrantjourneys.blocks.BlockCeilingLamp;
@@ -26,6 +28,7 @@ import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
+import vibrantjourneys.blocks.BlockPVJOre;
 import vibrantjourneys.blocks.BlockPuddle;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockStoneBlock;
@@ -139,6 +142,8 @@ public class PVJBlocks
 	public static Block witherweed;
 	
 	public static Block rock_formation, ice_formation;
+	
+	public static Block aquamarine_ore, aquamarine_block;
 	
 	public static Block mystical_grill;
 	
@@ -309,11 +314,22 @@ public class PVJBlocks
 			
 			cobblestone_brick_wall = registerBlock(new BlockCobblestoneBrickWall(), "cobblestone_brick_wall");
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Stone blocks disabled, skipping");
+		
+		if(PVJConfig.master.enableAquamarine)
+		{
+			aquamarine_ore = registerBlock(new BlockPVJOre(3.0F, 5.0F, PVJItems.aquamarine), "aquamarine_ore");
+			aquamarine_block = registerBlock(new BlockStoneBlock(3.0F, 7.0F, MapColor.LIGHT_BLUE), "aquamarine_block");
+		}
 		
 		if(PVJConfig.master.enableMysticalGrill)
 		{
 			mystical_grill = registerBlock(new BlockMysticalGrill(), "mystical_grill");
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Mystical grill disabled, skipping");
+		
 		
 		if(PVJConfig.master.enableChimneys)
 		{
@@ -333,6 +349,8 @@ public class PVJBlocks
 			sandstone_chimney_top = registerBlock(new BlockChimneyTop(), "sandstone_chimney_top");
 			netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Chimneys disabled, skipping");
 		
 		if(PVJConfig.master.enableLighting)
 		{
@@ -349,6 +367,8 @@ public class PVJBlocks
 			ceiling_lamp = registerBlock(new BlockCeilingLamp(), "ceiling_lamp");
 			circuit_breaker = registerBlock(new BlockCircuitBreaker(), "circuit_breaker");
 		}
+		else
+			ProjectVibrantJourneys.logger.info("Lighting blocks disabled, shame!");
 		
 		redwood_bark = registerBlock(new BlockBark(LOGS.get(EnumWoodType.REDWOOD.getID())), "redwood_bark");
 		

@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "pvj:cherry_blossom_pressure_plate_up" },
+        "powered=true": { "model": "pvj:cherry_blossom_pressure_plate_down" }
+    }
+}

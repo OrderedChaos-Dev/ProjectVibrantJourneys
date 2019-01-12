@@ -69,6 +69,9 @@ public class BiomeReference
 	public static final ArrayList<Biome> BAOBAB_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> COTTONWOOD_TREES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> JUNIPER_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> WHITE_CHERRY_BLOSSOM_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> PINK_CHERRY_BLOSSOM_TREES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> JACARANDA_TREES = new ArrayList<Biome>();
 	
 	//BOP TREES
 	public static final ArrayList<Biome> BOP_MANGROVE_TREES = new ArrayList<Biome>();
@@ -120,6 +123,8 @@ public class BiomeReference
 		loadBaobabTrees();
 		loadCottonwoodTrees();
 		loadJuniperTrees();
+		loadCherryBlossomTrees();
+		loadJacarandaTrees();
 		
 		ALL_BIOMES.addAll(ForgeRegistries.BIOMES.getValuesCollection());
 		OVERWORLD_BIOMES.addAll(ALL_BIOMES.stream()
@@ -300,6 +305,22 @@ public class BiomeReference
 		JUNIPER_TREES.add(Biomes.MUTATED_MESA);
 		JUNIPER_TREES.add(Biomes.MUTATED_MESA_CLEAR_ROCK);
 		JUNIPER_TREES.add(Biomes.MUTATED_MESA_ROCK);
+	}
+	
+	public static void loadCherryBlossomTrees()
+	{
+		WHITE_CHERRY_BLOSSOM_TREES.add(Biomes.MUTATED_FOREST);
+		PINK_CHERRY_BLOSSOM_TREES.add(Biomes.MUTATED_FOREST);
+	}
+	
+	public static void loadJacarandaTrees()
+	{
+		JACARANDA_TREES.add(Biomes.JUNGLE);
+		JACARANDA_TREES.add(Biomes.JUNGLE_EDGE);
+		JACARANDA_TREES.add(Biomes.JUNGLE_HILLS);
+		JACARANDA_TREES.add(Biomes.MUTATED_JUNGLE);
+		JACARANDA_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
+		JACARANDA_TREES.add(Biomes.MUTATED_FOREST);
 	}
 	
 	public static void loadMesaBiomes()

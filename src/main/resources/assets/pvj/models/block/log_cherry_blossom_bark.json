@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_all",
+    "textures":
+    {
+        "all": "pvj:blocks/log_cherry_blossom"
+    }
+}
