@@ -27,7 +27,9 @@ import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
+import vibrantjourneys.worldgen.feature.WorldGenCherryBlossomTree;
 import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
+import vibrantjourneys.worldgen.feature.WorldGenJacarandaTree;
 import vibrantjourneys.worldgen.feature.WorldGenPVJDungeon;
 import vibrantjourneys.worldgen.feature.WorldGenPineTree;
 
@@ -117,13 +119,13 @@ public class PVJTerrainGenEvents
 				if(event.getRand().nextInt(3) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
-					(new WorldGenGenericBigTree(false, EnumWoodType.CHERRY_BLOSSOM, EnumLeafType.WHITE_CHERRY_BLOSSOM)).generate(event.getWorld(), event.getRand(), pos);
+					(new WorldGenCherryBlossomTree(true, true)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
 				if(event.getRand().nextInt(3) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
-					(new WorldGenGenericBigTree(false, EnumWoodType.CHERRY_BLOSSOM, EnumLeafType.PINK_CHERRY_BLOSSOM)).generate(event.getWorld(), event.getRand(), pos);
+					(new WorldGenCherryBlossomTree(true, false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
 			}
@@ -136,7 +138,7 @@ public class PVJTerrainGenEvents
 				if(event.getRand().nextInt(chance) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
-					(new WorldGenGenericBigTree(false, EnumWoodType.JACARANDA, EnumLeafType.JACARANDA)).generate(event.getWorld(), event.getRand(), pos);
+					(new WorldGenJacarandaTree(false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
 			}

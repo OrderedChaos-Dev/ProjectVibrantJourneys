@@ -9,25 +9,23 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vibrantjourneys.util.EnumLeafType;
-import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.worldgen.feature.WorldGenCherryBlossomTree;
-import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
+import vibrantjourneys.worldgen.feature.WorldGenJacarandaTree;
 
 public class BiomeBlossomingFields extends Biome
 {
     private static final WorldGenCherryBlossomTree PINK_CHERRY = new WorldGenCherryBlossomTree(true, true);
     private static final WorldGenCherryBlossomTree WHITE_CHERRY = new WorldGenCherryBlossomTree(true, false);
-    private static final WorldGenGenericBigTree JACARANDA = new WorldGenGenericBigTree(false, EnumWoodType.JACARANDA, EnumLeafType.JACARANDA);
+    private static final WorldGenJacarandaTree JACARANDA = new WorldGenJacarandaTree(false);
     
 	public BiomeBlossomingFields(BiomeProperties properties)
 	{
 		super(properties);
 		
         this.decorator.treesPerChunk = 1;
-        this.decorator.grassPerChunk = 11;
-        this.decorator.flowersPerChunk = 15;
+        this.decorator.grassPerChunk = 13;
+        this.decorator.flowersPerChunk = 16;
         this.decorator.mushroomsPerChunk = -999;
 	}
 	
