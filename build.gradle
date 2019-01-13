@@ -4,6 +4,7 @@ buildscript {
         maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
+        classpath 'de.undercouch:gradle-download-task:3.3.0'
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
@@ -15,6 +16,7 @@ repositories {
 	}
 }
 
+apply plugin: 'de.undercouch.download'
 apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
@@ -44,6 +46,18 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     replace "{@pvjVersion}":pvjVersion
+}
+
+download { 
+    src 'https://media.forgecdn.net/files/2613/657/Traverse-1.12.2-1.6.0-69.jar'
+    dest file('libs/Traverse.jar')
+    overwrite true
+}
+
+download { 
+    src 'http://files.minecraftforge.net/maven/com/github/glitchfiend/biomesoplenty/BiomesOPlenty/1.12.2-7.0.1.2424/BiomesOPlenty-1.12.2-7.0.1.2424-universal.jar'
+    dest file('libs/BiomesOPlenty.jar')
+    overwrite true
 }
 
 dependencies {
