@@ -1,5 +1,7 @@
 package vibrantjourneys.blocks.plant;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
@@ -110,18 +112,18 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
     }
     
     @Override
+    public int quantityDropped(Random random)
+    {
+        return 0;
+    }
+    
+    @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
         if (!this.canBlockStay(worldIn, pos, state))
         {
-            this.dropBlock(worldIn, pos, state);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
         }
-    }
-
-    private void dropBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        this.dropBlockAsItem(worldIn, pos, state, 0);
     }
 
     @SideOnly(Side.CLIENT)
