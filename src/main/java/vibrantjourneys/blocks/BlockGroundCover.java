@@ -41,6 +41,8 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
 		if(material == Material.VINE)
 			this.setSoundType(SoundType.PLANT);
+		else if(type == GroundcoverType.TWIGS || type == GroundcoverType.PINECONES)
+			this.setSoundType(SoundType.WOOD);
 		this.groundcoverType = type;
 		this.setHardness(0.1F);
 	}

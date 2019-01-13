@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockFaceShape;
@@ -33,6 +34,7 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
 	{
 		super(Material.PLANTS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setSoundType(SoundType.WOOD);
 	}
 	
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
