@@ -24,9 +24,10 @@ import vibrantjourneys.util.IPropertyHelper;
 import vibrantjourneys.worldgen.feature.WorldGenAspenTree;
 import vibrantjourneys.worldgen.feature.WorldGenBaobabTree;
 import vibrantjourneys.worldgen.feature.WorldGenCherryBlossomTree;
+import vibrantjourneys.worldgen.feature.WorldGenCottonwoodTree;
 import vibrantjourneys.worldgen.feature.WorldGenFirTree;
-import vibrantjourneys.worldgen.feature.WorldGenGenericBigTree;
 import vibrantjourneys.worldgen.feature.WorldGenGenericTree;
+import vibrantjourneys.worldgen.feature.WorldGenJacarandaTree;
 import vibrantjourneys.worldgen.feature.WorldGenJuniperTree;
 import vibrantjourneys.worldgen.feature.WorldGenMangroveTree;
 import vibrantjourneys.worldgen.feature.WorldGenPalmTree;
@@ -159,19 +160,19 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
             	worldgenerator = new WorldGenGenericTree(true, EnumWoodType.MAPLE, EnumLeafType.ORANGE_MAPLE);
             	break;
             case COTTONWOOD:
-            	worldgenerator = new WorldGenGenericBigTree(true, EnumWoodType.COTTONWOOD, EnumLeafType.COTTONWOOD);
+            	worldgenerator = new WorldGenCottonwoodTree(true);
             	break;
             case JUNIPER:
             	worldgenerator = new WorldGenJuniperTree(true);
             	break;
             case WHITE_CHERRY_BLOSSOM:
-            	worldgenerator = new WorldGenCherryBlossomTree(false, false);
+            	worldgenerator = new WorldGenCherryBlossomTree(true, false);
             	break;
             case PINK_CHERRY_BLOSSOM:
-            	worldgenerator = new WorldGenCherryBlossomTree(false, true);
+            	worldgenerator = new WorldGenCherryBlossomTree(true, true);
             	break;
             case JACARANDA:
-            	worldgenerator = new WorldGenGenericBigTree(true, EnumWoodType.JACARANDA, EnumLeafType.JACARANDA);
+            	worldgenerator = new WorldGenJacarandaTree(true);
             	break;
             default:
             	break;

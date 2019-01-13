@@ -3,8 +3,8 @@
     {
         	"name": "goon",
             "rolls": {
-                "min": 0,
-                "max": 1
+                "min": 1,
+                "max": 2
             },
             "entries": [
                 {
@@ -15,7 +15,7 @@
                     "conditions": [
                         {
                             "condition": "random_chance",
-                            "chance": 0.3
+                            "chance": 0.8
                         }
                     ],
                     "functions": [

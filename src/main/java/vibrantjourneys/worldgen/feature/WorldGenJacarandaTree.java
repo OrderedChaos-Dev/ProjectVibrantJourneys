@@ -1,6 +1,5 @@
 package vibrantjourneys.worldgen.feature;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -18,16 +17,14 @@ import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 
-public class WorldGenCherryBlossomTree extends WorldGenAbstractTree
+public class WorldGenJacarandaTree extends WorldGenAbstractTree
 {
-	private IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.CHERRY_BLOSSOM.getID()).getDefaultState();
-	private IBlockState LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.WHITE_CHERRY_BLOSSOM.getID()).getDefaultState();
+	private IBlockState LOG = PVJBlocks.LOGS.get(EnumWoodType.JACARANDA.getID()).getDefaultState();
+	private IBlockState LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.JACARANDA.getID()).getDefaultState();
 	
-	public WorldGenCherryBlossomTree(boolean notify, boolean isPink)
+	public WorldGenJacarandaTree(boolean notify)
 	{
 		super(notify);
-		if(isPink)
-			LEAVES = PVJBlocks.LEAVES.get(EnumLeafType.PINK_CHERRY_BLOSSOM.getID()).getDefaultState();
 	}
 
 	@Override
@@ -101,77 +98,97 @@ public class WorldGenCherryBlossomTree extends WorldGenAbstractTree
             boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, (IPlantable)Blocks.SAPLING) || state.getBlock() instanceof BlockSand
             					|| state.getBlock() instanceof BlockHardenedClay;
             
-            ArrayList<EnumFacing> facings = new ArrayList<EnumFacing>();
-            
-            int baseHeight = 10 + rand.nextInt(6);
+            int height = 6 + rand.nextInt(5);
 
-            if (isSoil && pos.getY() < world.getHeight() - baseHeight - 1)
+            if (isSoil && pos.getY() < world.getHeight() - height - 1)
             {
-            	int branchStart = 5 + rand.nextInt(3);
-            	for(int height = 0; height < baseHeight; height++)
+            	int height1 = 2 + rand.nextInt(2);
+            	int height2 = height - (2 + rand.nextInt(2));
+            	
+            	EnumFacing facing1 = EnumFacing.Plane.HORIZONTAL.random(rand);
+            	EnumFacing facing2 = EnumFacing.Plane.HORIZONTAL.random(rand);
+            	
+            	BlockPos logPos = pos;
+            	
+            	//generate the first log block - needed because of the way the algorithm works
+        		if(canPlaceLog(world.getBlockState(logPos), world, logPos))
+        		{
+        			world.setBlockState(logPos, LOG);
+        		}
+            	
+            	//generate trunk
+            	for(int x = 0; x < height; x++)
             	{
-            		facings.clear();
-            		BlockPos logPos = pos.up(height);
-            		if(canPlaceLog(world.getBlockState(logPos), world, logPos))
-            			world.setBlockState(logPos, LOG);
-            		
-            		//branch time!
-            		if(height > branchStart)
+            		logPos = logPos.up();
+            		if(x == height1)
             		{
-            			if(height % 2 == 0)
+                		if(canPlaceLog(world.getBlockState(logPos), world, logPos))
+                		{
+                			world.setBlockState(logPos, LOG);
+                		}
+            			logPos = logPos.offset(facing1);
+            		}
+            		if(x == height2)
+            		{
+                		if(canPlaceLog(world.getBlockState(logPos), world, logPos))
+                		{
+                			world.setBlockState(logPos, LOG);
+                		}
+            			logPos = logPos.offset(facing2);
+            		}
+            		
+            		if(canPlaceLog(world.getBlockState(logPos), world, logPos))
+            		{
+            			world.setBlockState(logPos, LOG);
+            		}
+            	}
+            	//generate branches
+            	int branchCount = rand.nextBoolean() ? 3 : 4;
+            	boolean skipBranch = true;
+            	
+            	for(EnumFacing facing : EnumFacing.HORIZONTALS)
+            	{
+            		//if this tree has only 3 branches, skip a random one out of the four horizontal directions
+            		if(skipBranch && rand.nextBoolean() && branchCount == 3)
+            		{
+            			skipBranch = false;
+            			continue;
+            		}
+            		//if none have been skipped, then skip the last one to guarantee 3 branches
+            		if(skipBranch && branchCount == 3 && facing == EnumFacing.HORIZONTALS[3])
+            		{
+            			break;
+            		}
+            		int branchLength = 3 + rand.nextInt(3);
+            		BlockPos branchPos = logPos;
+            		
+            		for(int b = 0; b < branchLength; b++)
+            		{
+            			branchPos = branchPos.offset(facing);
+            			
+            			EnumFacing facingB = EnumFacing.Plane.HORIZONTAL.random(rand);
+            			//if facing == facingB, it would leave it gap
+            			if(facingB != facing && rand.nextBoolean())
             			{
-                			int branchCount = rand.nextInt(3) + 1;
-                			
-                			for(int b = 0; b < branchCount; b++)
+            				branchPos = branchPos.offset(facingB);
+            			}
+            			//branches grow upwards sometimes
+            			if(rand.nextInt(3) < 1)
+            			{
+            				//sometimes places a log before it goes up
+                			if(canPlaceLog(world.getBlockState(branchPos), world, branchPos) && rand.nextBoolean())
                 			{
-                				int length = 2 + rand.nextInt(6);
-                				if(height >= 10)
-                					length -= (int)(0.3 * height - 1);
-                				
-                				EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);
-                				while(facings.contains(facing))
-                				{
-                					facing = EnumFacing.Plane.HORIZONTAL.random(rand);
-                				}
-                				facings.add(facing);
-                				
-                				BlockPos branchPos = new BlockPos(logPos);
-                				for(int q = 1; q <= length; q++)
-                				{
-                    				branchPos = branchPos.offset(facing);
-                    				if(q > 1)
-                    				{
-                    					if(rand.nextBoolean())
-                    					{
-                    						branchPos = branchPos.offset(EnumFacing.Plane.HORIZONTAL.random(rand));
-                    					}
-                    					if(rand.nextBoolean())
-                    					{
-                    						branchPos = branchPos.up();
-                    					}
-                    				}
-                    				
-                					if(canPlaceLog(world.getBlockState(branchPos), world, branchPos))
-                					{
-                						world.setBlockState(branchPos, LOG);
-                						genLeaves(world, branchPos, rand);
-                						if(rand.nextInt(3) == 0)
-                						{
-                							EnumFacing temp = EnumFacing.Plane.HORIZONTAL.random(rand);
-                							BlockPos tempPos = branchPos.offset(temp);
-                        					if(canPlaceLog(world.getBlockState(tempPos), world, tempPos))
-                        					{
-                        						world.setBlockState(tempPos, LOG);
-                        						genLeaves(world, tempPos, rand);
-                        					}
-                						}
-                					}
-                				}
+                				world.setBlockState(branchPos, LOG);
                 			}
+                			branchPos = branchPos.up();
+            			}
+            			
+            			if(canPlaceLog(world.getBlockState(branchPos), world, branchPos))
+            			{
+            				world.setBlockState(branchPos, LOG);
+            				genLeaves(world, branchPos, rand);
             			}
             		}
-        			//if(height > 7)
-        				//WgenLeaves(world, logPos, rand);
             	}
             }
         	return true;

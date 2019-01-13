@@ -245,7 +245,7 @@ public class WorldGenWillowTree extends WorldGenAbstractTree
                             {
                             	if(Math.abs(up) != 1 && Math.abs(west) != 1 && Math.abs(north) != 1)
                             	{
-                                	if(rand.nextInt(13) < 5)
+                                	if(rand.nextInt(14) < 3)
                                 	{
                                 		this.setBlockAndNotifyAdequately(world, leafpos, LEAVES);
                                 		outerLeaves.add(leafpos);
