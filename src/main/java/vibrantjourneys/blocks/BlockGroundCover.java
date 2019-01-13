@@ -122,6 +122,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
         return false;
     }
     
+    @SuppressWarnings("deprecation")
     @Override
     public boolean isTranslucent(IBlockState state)
     {
