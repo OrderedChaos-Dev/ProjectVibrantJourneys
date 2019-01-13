@@ -27,4 +27,9 @@ public class BlockPVJDoubleSlab extends BlockPVJSlab
     {
         return Item.getItemFromBlock(half);
     }
+
+	@Override
+	public String getTranslationKey(int meta) {
+		return this.getTranslationKey();
+	}
 }

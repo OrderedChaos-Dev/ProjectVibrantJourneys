@@ -14,4 +14,9 @@ public class BlockPVJHalfSlab extends BlockPVJSlab
 	{
 		return false;
 	}
+
+	@Override
+	public String getTranslationKey(int meta) {
+		return this.getTranslationKey();
+	}
 }

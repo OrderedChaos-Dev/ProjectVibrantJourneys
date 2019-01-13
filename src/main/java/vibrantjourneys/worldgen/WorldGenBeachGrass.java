@@ -45,7 +45,7 @@ public class WorldGenBeachGrass implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				ChunkPos chunkPos = world.getChunkFromChunkCoords(chunkX, chunkZ).getPos();
+				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
 		        int xPos = rand.nextInt(16) + 8;
 		        int zPos = rand.nextInt(16) + 8;
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);

@@ -40,9 +40,9 @@ public abstract class BlockPVJSlab extends BlockSlab
     }
     
     @Override
-    public String getUnlocalizedName(int meta)
+    public String getTranslationKey(int meta)
     {
-    	return this.getUnlocalizedName();
+    	return this.getTranslationKey();
     }
     
     @Override

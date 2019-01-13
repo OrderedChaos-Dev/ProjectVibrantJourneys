@@ -34,7 +34,7 @@ import vibrantjourneys.init.PVJBlocks;
 public class BlockVoidGrass extends BlockPVJPlant implements IShearable
 {
 	@Override
-    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+    public void onEntityCollision(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         if (!world.isRemote)
         {

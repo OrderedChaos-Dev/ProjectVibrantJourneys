@@ -69,9 +69,9 @@ public class BlockFallenLeaves extends Block implements IShearable
 	
 	@Override
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
-        return Blocks.LEAVES.getBlockLayer();
+        return Blocks.LEAVES.getRenderLayer();
     }
 	
 	@Override

@@ -99,8 +99,8 @@ public class WorldGenAspenTree extends WorldGenAbstractTree
                         {
                         	for(EnumFacing facing : facings)
                         	{
-                        		int x = position.getX() + facing.getFrontOffsetX();
-                        		int z = position.getZ() + facing.getFrontOffsetZ();
+                        		int x = position.getX() + facing.getXOffset();
+                        		int z = position.getZ() + facing.getZOffset();
                         		BlockPos branchPos = new BlockPos(x, y, z);
         						state = world.getBlockState(branchPos);
                                 if (state.getBlock().isAir(state, world, branchPos) || state.getBlock().isLeaves(state, world, branchPos))
@@ -121,8 +121,8 @@ public class WorldGenAspenTree extends WorldGenAbstractTree
                         		
                         		for(int j = 0; j < 3; j++)
                         		{
-                        			x += facing.getFrontOffsetX();
-                        			z += facing.getFrontOffsetZ();
+                        			x += facing.getXOffset();
+                        			z += facing.getZOffset();
                         			
                         			if(j == 2)
                         			{

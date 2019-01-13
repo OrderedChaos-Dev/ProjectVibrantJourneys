@@ -133,12 +133,12 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
     	if(this.getGroundcoverType() == GroundcoverType.FLOWER_PATCH)
     		return BlockRenderLayer.TRANSLUCENT;
     	
-    	return super.getBlockLayer();
+    	return super.getRenderLayer();
     }
     
     @Override

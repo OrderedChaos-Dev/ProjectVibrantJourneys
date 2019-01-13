@@ -19,7 +19,7 @@ public class StateMapperIntegration extends StateMapperBase
 	protected ModelResourceLocation getModelResourceLocation(IBlockState state)
 	{
 		ResourceLocation rl = Block.REGISTRY.getNameForObject(state.getBlock());
-		ModelResourceLocation mrl = new ModelResourceLocation(Reference.MOD_ID + ":" + modid + "/" + rl.getResourcePath());
+		ModelResourceLocation mrl = new ModelResourceLocation(Reference.MOD_ID + ":" + modid + "/" + rl.getPath());
 		return mrl;
 	}
 

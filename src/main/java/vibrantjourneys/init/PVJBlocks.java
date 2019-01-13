@@ -384,7 +384,7 @@ public class PVJBlocks
 	
 	public static Block registerBlock(Block block, String name)
 	{
-		block.setUnlocalizedName(name);
+		block.setTranslationKey(name);
 		block.setCreativeTab(CreativeTabPVJ.instance);
 
 		block.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
@@ -400,7 +400,7 @@ public class PVJBlocks
 	
 	public static Block registerBlockWithItem(Block block, String name, ItemBlock itemblock)
 	{
-		block.setUnlocalizedName(name);
+		block.setTranslationKey(name);
 		block.setCreativeTab(CreativeTabPVJ.instance);
 		
 		block.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
