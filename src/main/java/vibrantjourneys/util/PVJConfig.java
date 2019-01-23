@@ -300,7 +300,7 @@ public class PVJConfig
 		public int redCrackedSandDensity = 75;
 		
 		public int seashellsDensity = 90;
-		public int pineconesDensity = 900;
+		public int pineconesDensity = 90;
 		public int flowerPatchDensity = 15;
 		
 		public int wildWheatDensity = 1;
@@ -354,13 +354,13 @@ public class PVJConfig
 	public static class BiomesSubCategory
 	{
 		public int prairieWeight = 6;
-		public int redwoodsWeight = 9;
+		public int redwoodsWeight = 8;
 		public int redwoodPeaksWeight = 8;
 		public int willowSwampWeight = 6;
-		public int borealForestWeight = 9;
-		public int snowyBorealForestWeight = 9;
-		public int aspenGroveWeight = 8;
-		public int overgrownSpiresWeight = 6;
+		public int borealForestWeight = 8;
+		public int snowyBorealForestWeight = 8;
+		public int aspenGroveWeight = 7;
+		public int overgrownSpiresWeight = 5;
 		public int blossomingfields = 5;
 	}
 	
@@ -378,7 +378,7 @@ public class PVJConfig
 		public int coyoteSpawnWeight = 1;
 		
 		public int ghostSpawnWeight = 65;
-		public int watcherSpawnWeight = 30;
+		public int watcherSpawnWeight = 20;
 		
 		public int shadeSpawnWeight = 55;
 		public int shadeRoofedForestSpawnWeight = 100;

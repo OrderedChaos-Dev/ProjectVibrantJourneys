@@ -6,7 +6,6 @@ import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
-import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 
 public class PVJOreDictionary

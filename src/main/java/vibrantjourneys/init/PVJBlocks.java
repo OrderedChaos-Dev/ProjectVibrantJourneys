@@ -3,7 +3,6 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -28,7 +27,6 @@ import vibrantjourneys.blocks.BlockLantern;
 import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
-import vibrantjourneys.blocks.BlockPVJOre;
 import vibrantjourneys.blocks.BlockPuddle;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockStoneBlock;
@@ -319,11 +317,11 @@ public class PVJBlocks
 		else
 			ProjectVibrantJourneys.logger.info("Stone blocks disabled, skipping");
 		
-		if(PVJConfig.master.enableAquamarine)
+		/*if(PVJConfig.master.enableAquamarine)
 		{
 			aquamarine_ore = registerBlock(new BlockPVJOre(3.0F, 5.0F, PVJItems.aquamarine), "aquamarine_ore");
 			aquamarine_block = registerBlock(new BlockStoneBlock(3.0F, 7.0F, MapColor.LIGHT_BLUE), "aquamarine_block");
-		}
+		}*/
 		
 		if(PVJConfig.master.enableMysticalGrill)
 		{
