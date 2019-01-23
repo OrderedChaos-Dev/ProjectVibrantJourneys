@@ -15,8 +15,8 @@ import vibrantjourneys.worldgen.feature.WorldGenJacarandaTree;
 
 public class BiomeBlossomingFields extends Biome
 {
-    private static final WorldGenCherryBlossomTree PINK_CHERRY = new WorldGenCherryBlossomTree(true, true);
-    private static final WorldGenCherryBlossomTree WHITE_CHERRY = new WorldGenCherryBlossomTree(true, false);
+    private static final WorldGenCherryBlossomTree PINK_CHERRY = new WorldGenCherryBlossomTree(false, true);
+    private static final WorldGenCherryBlossomTree WHITE_CHERRY = new WorldGenCherryBlossomTree(false, false);
     private static final WorldGenJacarandaTree JACARANDA = new WorldGenJacarandaTree(false);
     
 	public BiomeBlossomingFields(BiomeProperties properties)

@@ -3,7 +3,6 @@ package vibrantjourneys.worldgen.feature;
 import java.util.ArrayList;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockHardenedClay;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
@@ -67,18 +66,10 @@ public class WorldGenCherryBlossomTree extends WorldGenAbstractTree
                         if (j >= 0 && j < 256)
                         {
                             IBlockState iblockstate = world.getBlockState(blockpos$mutableblockpos.setPos(l, j, i1));
-                            Block block = iblockstate.getBlock();
 
                             if (!iblockstate.getBlock().isAir(iblockstate, world, blockpos$mutableblockpos.setPos(l, j, i1)) && !iblockstate.getBlock().isLeaves(iblockstate, world, blockpos$mutableblockpos.setPos(l, j, i1)))
                             {
-                                if (block != Blocks.WATER && block != Blocks.FLOWING_WATER)
-                                {
-                                    flag = false;
-                                }
-                                else if (j > pos.getY())
-                                {
-                                    flag = false;
-                                }
+                            	flag = false;
                             }
                         }
                         else

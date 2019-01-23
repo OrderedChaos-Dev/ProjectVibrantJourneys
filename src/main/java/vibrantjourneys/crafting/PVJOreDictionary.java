@@ -6,12 +6,13 @@ import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 
 public class PVJOreDictionary
 {
 	public static void setValues()
-	{	
+	{
 		for(EnumWoodType woodType : EnumWoodType.values())
 		{
 			OreDictionary.registerOre("logWood", PVJBlocks.LOGS.get(woodType.getID()));
@@ -21,7 +22,6 @@ public class PVJOreDictionary
 			OreDictionary.registerOre("fenceWood", PVJBlocks.FENCES.get(woodType.getID()));
 			OreDictionary.registerOre("fenceGateWood", PVJBlocks.FENCE_GATES.get(woodType.getID()));
 		}
-		
 		for(EnumLeafType leafType : EnumLeafType.values())
 		{
 			OreDictionary.registerOre("treeSapling", PVJBlocks.SAPLINGS.get(leafType.getID()));

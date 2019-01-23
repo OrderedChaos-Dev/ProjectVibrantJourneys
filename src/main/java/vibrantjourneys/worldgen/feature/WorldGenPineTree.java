@@ -24,6 +24,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
         super(notify);
     }
 
+    @Override
     public boolean generate(World world, Random rand, BlockPos position)
     {
         int height = 9 + rand.nextInt(4);

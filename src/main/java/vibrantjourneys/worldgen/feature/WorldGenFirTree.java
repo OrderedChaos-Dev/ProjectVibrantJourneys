@@ -23,6 +23,7 @@ public class WorldGenFirTree extends WorldGenAbstractTree
         super(notify);
     }
 
+    @Override
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
         int i = rand.nextInt(8) + 16;

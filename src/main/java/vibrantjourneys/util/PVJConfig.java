@@ -374,10 +374,8 @@ public class PVJConfig
 		public int starfishWeight = 30;
 		public int starfishBeachWeight = 40;
 		
-		public boolean firefliesSpawnInSnowBiomes = false;
-		
 		public int grizzlyBearSpawnWeight = 5;
-		public int coyoteSpawnWeight = 2;
+		public int coyoteSpawnWeight = 1;
 		
 		public int ghostSpawnWeight = 65;
 		public int watcherSpawnWeight = 30;
@@ -388,7 +386,9 @@ public class PVJConfig
 		public int skeletalKnightWeight = 45;
 		public int goonSpawnWeight = 20;
 		
+		public boolean firefliesSpawnInSnowBiomes = false;
 		public boolean junglesSpawnCaveSpiders = true;
+		public boolean squidsDropFood = true;
 	}
 	
 	public static class MiscCategory

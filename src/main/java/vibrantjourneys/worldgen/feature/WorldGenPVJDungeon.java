@@ -24,6 +24,7 @@ public class WorldGenPVJDungeon extends WorldGenerator
 {
     private static final Logger LOGGER = LogManager.getLogger();
 
+    @Override
     public boolean generate(World world, Random rand, BlockPos pos)
     {
         int j = rand.nextInt(2) + 2;

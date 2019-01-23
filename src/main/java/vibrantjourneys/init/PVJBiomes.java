@@ -21,7 +21,7 @@ import vibrantjourneys.biomes.BiomeRedwoods;
 import vibrantjourneys.biomes.BiomeWillowSwamp;
 import vibrantjourneys.util.PVJConfig;
 
-public class PVJBiomes 
+public class PVJBiomes
 {
 	public static final ArrayList<Biome> BIOMES = new ArrayList<Biome>();
 	public static Biome prairie = new BiomePrairie(new BiomeProperties("Prairie").setBaseHeight(0.018F).setHeightVariation(0.005F).setTemperature(0.8F).setRainfall(0.25F));

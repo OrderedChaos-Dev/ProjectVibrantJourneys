@@ -13,7 +13,7 @@ public class PVJRecipes
 		for(EnumWoodType woodType: EnumWoodType.values())
 		{
 			GameRegistry.addSmelting(PVJBlocks.LOGS.get(woodType.getID()), new ItemStack(Items.COAL, 1, 1), 0.15F);
-		}
+		}	
 		
 		GameRegistry.addSmelting(PVJBlocks.small_cactus, new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
 	}

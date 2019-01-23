@@ -53,11 +53,6 @@ public class PVJItems
 	{
 		slime_droplet = registerItem(new Item(), "slime_droplet");
 		
-		for(EnumWoodType woodType : EnumWoodType.values())
-		{
-			BOATS.add(registerItem(new ItemPVJBoat(woodType), woodType.getName() + "_boat"));
-		}
-		
 		cracked_coconut = registerItem(new ItemFood(3, 0.35F, false), "cracked_coconut");
 		coconut_milk = registerItem(new ItemBeverage(1, 0.05F, "regeneration", 400), "coconut_milk");
 		juniper_berries = registerItem(new ItemFood(3, 0.2F, false).setPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 60), 1.0F), "juniper_berries");
@@ -71,6 +66,11 @@ public class PVJItems
 		unstable_essence = registerItem(new Item(), "unstable_essence");
 		
 		wax = registerItem(new Item(), "wax");
+		
+		for(EnumWoodType woodType : EnumWoodType.values())
+		{
+			BOATS.add(registerItem(new ItemPVJBoat(woodType), woodType.getName() + "_boat"));
+		}	
 		
 		if(PVJConfig.master.enableMysticalGrill)
 		{

@@ -12,9 +12,9 @@ public enum EnumStoneType
 	MARBLE_BRICK(5, "marble_brick", 2.0F, 8.0F, MapColor.SNOW),
 	SILTSTONE(6, "siltstone", 1.5F, 4.0F, MapColor.BROWN_STAINED_HARDENED_CLAY),
 	ADOBE(7, "adobe", 2.0F, 5.0F, MapColor.ADOBE),
-	ADOBE_BRICK(8, "adobe_brick", 2.0F, 5.0F, MapColor.ADOBE),
-	GNEISS(9, "gneiss", 2.0F, 8.0F, MapColor.GRAY),
-	GNEISS_BRICK(10, "gneiss_brick", 2.0F, 8.0F, MapColor.GRAY);
+	ADOBE_BRICK(8, "adobe_brick", 2.0F, 5.0F, MapColor.ADOBE);
+	//GNEISS(9, "gneiss", 2.0F, 8.0F, MapColor.GRAY),
+	//GNEISS_BRICK(10, "gneiss_brick", 2.0F, 8.0F, MapColor.GRAY);
 	
 	private String name;
 	private int id;

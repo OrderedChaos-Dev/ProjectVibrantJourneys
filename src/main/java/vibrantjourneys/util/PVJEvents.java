@@ -181,18 +181,21 @@ public class PVJEvents
 	@SubscribeEvent
 	public void dropSquid(LivingDropsEvent event)
 	{
-		if(event.getEntityLiving() instanceof EntitySquid)
+		if(PVJConfig.entities.squidsDropFood)
 		{
-			ItemStack squid = new ItemStack(PVJItems.raw_squid);
-			if(event.getSource() == DamageSource.ON_FIRE)
-				squid = new ItemStack(PVJItems.cooked_squid);
-			
-			EntityItem drop = new EntityItem(event.getEntityLiving().getEntityWorld());
-			BlockPos pos = event.getEntityLiving().getPosition();
-			drop.setItem(squid);
-			drop.setPosition(pos.getX(), pos.getY(), pos.getZ());
-			
-			event.getEntityLiving().getEntityWorld().spawnEntity(drop);
+			if(event.getEntityLiving() instanceof EntitySquid)
+			{
+				ItemStack squid = new ItemStack(PVJItems.raw_squid);
+				if(event.getSource() == DamageSource.ON_FIRE)
+					squid = new ItemStack(PVJItems.cooked_squid);
+				
+				EntityItem drop = new EntityItem(event.getEntityLiving().getEntityWorld());
+				BlockPos pos = event.getEntityLiving().getPosition();
+				drop.setItem(squid);
+				drop.setPosition(pos.getX(), pos.getY(), pos.getZ());
+				
+				event.getEntityLiving().getEntityWorld().spawnEntity(drop);
+			}	
 		}
 	}
 }

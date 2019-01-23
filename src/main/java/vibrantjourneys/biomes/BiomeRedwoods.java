@@ -28,7 +28,11 @@ import vibrantjourneys.worldgen.feature.WorldGenRedwoodSmall;
 import vibrantjourneys.worldgen.feature.WorldGenSequoiaTree;
 
 public class BiomeRedwoods extends Biome
-{    
+{
+	private static final WorldGenRedwoodSmall REDWOOD_SMALL = new WorldGenRedwoodSmall();
+	private static final WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
+	private static final WorldGenSequoiaTree SEQUOIA = new WorldGenSequoiaTree(false, 30, 20);
+	
 	public BiomeRedwoods(BiomeProperties properties)
 	{
 		super(properties);
@@ -45,10 +49,6 @@ public class BiomeRedwoods extends Biome
 	@Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {
-	    WorldGenRedwoodSmall REDWOOD_SMALL = new WorldGenRedwoodSmall();
-	    WorldGenRedwoodLarge REDWOOD_LARGE = new WorldGenRedwoodLarge(false, 30, 20);
-	    WorldGenSequoiaTree SEQUOIA = new WorldGenSequoiaTree(false, 30, 20);
-
         return rand.nextInt(14) < 10 ? (rand.nextInt(10) < 9 ? REDWOOD_LARGE : SEQUOIA): REDWOOD_SMALL;
     }
 	

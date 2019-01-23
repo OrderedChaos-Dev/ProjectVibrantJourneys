@@ -24,6 +24,7 @@ public class WorldGenGenericTree extends WorldGenAbstractTree
         LEAF = PVJBlocks.LEAVES.get(leafType.getID()).getDefaultState().withProperty(BlockOldLeaf.CHECK_DECAY, Boolean.valueOf(false));
     }
 
+    @Override
     public boolean generate(World worldIn, Random rand, BlockPos position)
     {
         int i = rand.nextInt(3) + 5 + rand.nextInt(5);

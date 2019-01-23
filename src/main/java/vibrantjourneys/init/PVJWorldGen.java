@@ -86,7 +86,7 @@ public class PVJWorldGen
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.LIMESTONE.getID()), 14, 70, PVJConfig.worldgen.limestoneDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.MARBLE.getID()), 9, 70, PVJConfig.worldgen.marbleDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.SILTSTONE.getID()), 15, 65, PVJConfig.worldgen.siltstoneDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));
-			registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.GNEISS.getID()), 9, 70, PVJConfig.worldgen.gneissDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
+			//registerWorldGen(new WorldGenRocks(PVJBlocks.STONES.get(EnumStoneType.GNEISS.getID()), 9, 70, PVJConfig.worldgen.gneissDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		}
 		
 		registerWorldGen(new WorldGenMud(PVJConfig.worldgen.mudDensity, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0])));

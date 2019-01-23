@@ -247,6 +247,8 @@ public class PVJBlocks
 		for(EnumWoodType woodType : EnumWoodType.values())
 			PRESSURE_PLATES.add(registerBlock(new BlockPVJPressurePlate(), woodType.getName() + "_pressure_plate"));
 		
+		redwood_bark = registerBlock(new BlockBark(LOGS.get(EnumWoodType.REDWOOD.getID())), "redwood_bark");
+
 		fallenleaves_oak = registerBlock(new BlockFallenLeaves(), "fallenleaves_oak");
 		fallenleaves_birch = registerBlock(new BlockFallenLeaves(), "fallenleaves_birch");
 		fallenleaves_spruce = registerBlock(new BlockFallenLeaves(), "fallenleaves_spruce");
@@ -256,7 +258,7 @@ public class PVJBlocks
 		fallenleaves_dead = registerBlock(new BlockFallenLeaves(), "fallenleaves_dead");
 		
 		for(EnumLeafType leafType : EnumLeafType.values())
-			FALLEN_LEAVES.add(registerBlock(new BlockFallenLeaves(), "fallenleaves_" + leafType.getName()));
+			FALLEN_LEAVES.add(registerBlock(new BlockFallenLeaves(), "fallenleaves_" + leafType.getName()));	
 		
 		oak_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "oak_twigs");
 		birch_twigs = registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), "birch_twigs");
@@ -369,8 +371,6 @@ public class PVJBlocks
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Lighting blocks disabled, shame!");
-		
-		redwood_bark = registerBlock(new BlockBark(LOGS.get(EnumWoodType.REDWOOD.getID())), "redwood_bark");
 		
 		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
 		ice_formation = registerBlock(new BlockRockFormation(), "ice_formation");
