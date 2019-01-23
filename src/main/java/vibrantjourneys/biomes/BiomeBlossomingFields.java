@@ -25,7 +25,7 @@ public class BiomeBlossomingFields extends Biome
 		
         this.decorator.treesPerChunk = 1;
         this.decorator.grassPerChunk = 13;
-        this.decorator.flowersPerChunk = 16;
+        this.decorator.flowersPerChunk = 18;
         this.decorator.mushroomsPerChunk = -999;
 	}
 	

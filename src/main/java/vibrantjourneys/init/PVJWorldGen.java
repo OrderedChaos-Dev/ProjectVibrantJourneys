@@ -280,23 +280,28 @@ public class PVJWorldGen
 	
 	public static int[] getDimensionBlacklist()
 	{
-		String[] temp = PVJConfig.worldgen.dimensionBlacklist.split(",");
-		int[] ids = new int[temp.length];
-		for(int i = 0; i < temp.length; i++)
+		if(!PVJConfig.worldgen.dimensionBlacklist.equals(""))
 		{
-			String s = temp[i];
-			try
+			String[] temp = PVJConfig.worldgen.dimensionBlacklist.split(",");
+			int[] ids = new int[temp.length];
+			for(int i = 0; i < temp.length; i++)
 			{
-				int id = Integer.parseInt(s);
-				ids[i] = id;
+				String s = temp[i];
+				try
+				{
+					int id = Integer.parseInt(s);
+					ids[i] = id;
+				}
+				catch(NumberFormatException e)
+				{
+					ProjectVibrantJourneys.logger.error("Invalid id format in the dimension blacklist: " + s);
+					ids[i] = 921;
+				}
 			}
-			catch(NumberFormatException e)
-			{
-				ProjectVibrantJourneys.logger.error("Invalid id format in the dimension blacklist: " + s);
-				ids[i] = 921;
-			}
+			
+			return ids;
 		}
 		
-		return ids;
+		return new int[0];
 	}
 }
