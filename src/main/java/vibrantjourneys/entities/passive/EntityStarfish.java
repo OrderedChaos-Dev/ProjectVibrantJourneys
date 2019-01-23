@@ -118,7 +118,7 @@ public class EntityStarfish extends EntityPVJWaterCreature
 		int y = (int)this.posY;
 		int z = (int)this.posZ;
 		
-		Chunk chunk = this.world.getChunkFromBlockCoords(new BlockPos(x, 0, z));
+		Chunk chunk = this.world.getChunk(new BlockPos(x, 0, z));
 		
 		int count = world.getEntitiesWithinAABB(EntityStarfish.class, new AxisAlignedBB(x - 15, y - 10, z - 15, x + 15, y + 10, z + 15)).size();
 		if(count <= 1 && this.rand.nextInt(5) == 0 && chunk.getRandomWithSeed(987234911L).nextInt(5) == 0)

@@ -1,5 +1,7 @@
 package vibrantjourneys.blocks.plant;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
@@ -7,6 +9,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockFaceShape;
@@ -33,6 +36,7 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
 	{
 		super(Material.PLANTS);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setSoundType(SoundType.WOOD);
 	}
 	
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state)
@@ -108,23 +112,23 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
     }
     
     @Override
+    public int quantityDropped(Random random)
+    {
+        return 0;
+    }
+    
+    @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos)
     {
         if (!this.canBlockStay(worldIn, pos, state))
         {
-            this.dropBlock(worldIn, pos, state);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
         }
-    }
-
-    private void dropBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        this.dropBlockAsItem(worldIn, pos, state, 0);
     }
 
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
         return BlockRenderLayer.CUTOUT;
     }
@@ -132,7 +136,7 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
+        return this.getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta));
     }
 
     @Override

@@ -86,7 +86,7 @@ public class BlockPuddle extends Block
     
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
         return BlockRenderLayer.TRANSLUCENT;
     }

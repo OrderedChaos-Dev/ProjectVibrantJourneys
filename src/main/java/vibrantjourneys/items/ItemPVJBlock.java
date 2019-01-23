@@ -30,9 +30,9 @@ public class ItemPVJBlock extends ItemBlock
     }
 	
 	@Override
-	public String getUnlocalizedName(ItemStack stack)
+	public String getTranslationKey(ItemStack stack)
 	{
-        return super.getUnlocalizedName();
+        return super.getTranslationKey();
 	}
 	
 	@Override

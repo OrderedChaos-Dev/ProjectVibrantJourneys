@@ -41,6 +41,8 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 		this.setDefaultState(this.blockState.getBaseState().withProperty(MODEL, 0));
 		if(material == Material.VINE)
 			this.setSoundType(SoundType.PLANT);
+		else if(type == GroundcoverType.TWIGS || type == GroundcoverType.PINECONES)
+			this.setSoundType(SoundType.WOOD);
 		this.groundcoverType = type;
 		this.setHardness(0.1F);
 	}
@@ -122,6 +124,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
         return false;
     }
     
+    @SuppressWarnings("deprecation")
     @Override
     public boolean isTranslucent(IBlockState state)
     {
@@ -133,12 +136,12 @@ public class BlockGroundCover extends Block implements IPropertyHelper
     
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
     	if(this.getGroundcoverType() == GroundcoverType.FLOWER_PATCH)
     		return BlockRenderLayer.TRANSLUCENT;
     	
-    	return super.getBlockLayer();
+    	return super.getRenderLayer();
     }
     
     @Override

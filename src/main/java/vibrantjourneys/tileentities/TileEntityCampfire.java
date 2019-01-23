@@ -488,7 +488,7 @@ public class TileEntityCampfire extends TileEntityLockable implements ITickable,
 
     @SuppressWarnings("unchecked")
     @Override
-    @javax.annotation.Nullable
+    @Nullable
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
     {
         if (facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)

@@ -14,6 +14,6 @@ public class RenderCoconut implements IRenderFactory<EntityCoconut>
     @Override
     public Render<? super EntityCoconut> createRenderFor(RenderManager manager)
     {
-        return new RenderSnowball(manager, Item.getItemFromBlock(PVJBlocks.coconut), Minecraft.getMinecraft().getRenderItem());
+        return new RenderSnowball<EntityCoconut>(manager, Item.getItemFromBlock(PVJBlocks.coconut), Minecraft.getMinecraft().getRenderItem());
     }
 }

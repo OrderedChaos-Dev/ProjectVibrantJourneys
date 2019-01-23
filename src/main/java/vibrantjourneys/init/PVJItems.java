@@ -90,7 +90,7 @@ public class PVJItems
 	
 	public static Item registerItem(Item item, String name)
 	{
-		item.setUnlocalizedName(name);
+		item.setTranslationKey(name);
 		item.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		item.setCreativeTab(CreativeTabPVJ.instance);
 		ITEMS.add(item);

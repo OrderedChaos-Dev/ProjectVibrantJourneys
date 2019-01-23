@@ -101,8 +101,8 @@ public class WorldGenPalmTree extends WorldGenAbstractTree
 
                     	if(i > trunk)
                     	{
-                    		x += enumfacing.getFrontOffsetX();
-                    		z += enumfacing.getFrontOffsetZ();
+                    		x += enumfacing.getXOffset();
+                    		z += enumfacing.getZOffset();
                     	}
 
                     	BlockPos blockpos = new BlockPos(x, y1, z);

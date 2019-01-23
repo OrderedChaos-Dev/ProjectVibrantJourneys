@@ -45,7 +45,7 @@ public class RenderSmallSpider<T extends EntitySmallSpider> extends RenderLiving
         @Override
         public Render<? super EntitySmallSpider> createRenderFor(RenderManager manager)
         {
-            return new RenderSmallSpider(manager);
+            return new RenderSmallSpider<EntitySmallSpider>(manager);
         }
     }
 }

@@ -20,7 +20,7 @@ public class CreativeTabPVJ extends CreativeTabs
 	}
 	
 	@Override
-	public ItemStack getTabIconItem()
+	public ItemStack createIcon()
 	{
 		return new ItemStack(PVJBlocks.LEAVES.get(EnumLeafType.REDWOOD.getID()));
 	}
@@ -34,7 +34,7 @@ public class CreativeTabPVJ extends CreativeTabs
 		//Adds the mod's entity spawn eggs to this tab
 		for(EntityList.EntityEggInfo egg : EntityList.ENTITY_EGGS.values())
 		{
-			if(egg.spawnedID.getResourceDomain().equals(Reference.MOD_ID))
+			if(egg.spawnedID.getNamespace().equals(Reference.MOD_ID))
 			{
 				ItemStack itemstack = new ItemStack(Items.SPAWN_EGG, 1);
 				ItemMonsterPlacer.applyEntityIdToItemStack(itemstack, egg.spawnedID);

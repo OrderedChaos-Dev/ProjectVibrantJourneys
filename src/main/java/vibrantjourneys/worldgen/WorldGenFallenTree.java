@@ -107,8 +107,8 @@ public class WorldGenFallenTree implements IWorldGenerator
 			
 			for(int i = 0; i < length; i++)
 			{
-				xPos += facing.getFrontOffsetX();
-				zPos += facing.getFrontOffsetZ();
+				xPos += facing.getXOffset();
+				zPos += facing.getZOffset();
 				BlockPos pos = new BlockPos(xPos, y , zPos);
 				IBlockState state = world.getBlockState(pos);
 				
@@ -140,8 +140,8 @@ public class WorldGenFallenTree implements IWorldGenerator
 						{
 							EnumFacing branchfacing = getHorizontalPerpendicular(facing.getHorizontalIndex());
 							
-							int xbranch = xPos + branchfacing.getFrontOffsetX();
-							int zbranch = zPos + branchfacing.getFrontOffsetZ();
+							int xbranch = xPos + branchfacing.getXOffset();
+							int zbranch = zPos + branchfacing.getZOffset();
 							
 							pos = new BlockPos(xbranch, y, zbranch);
 							state = world.getBlockState(pos);

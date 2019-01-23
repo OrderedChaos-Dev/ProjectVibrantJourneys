@@ -193,7 +193,7 @@ public class BlockLantern extends Block implements IPropertyHelper
 	
     @SideOnly(Side.CLIENT)
     @Override
-    public BlockRenderLayer getBlockLayer()
+    public BlockRenderLayer getRenderLayer()
     {
         return BlockRenderLayer.CUTOUT;
     }

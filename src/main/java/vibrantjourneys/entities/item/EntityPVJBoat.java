@@ -47,6 +47,7 @@ public class EntityPVJBoat extends EntityBoat
     private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.<Integer>createKey(EntityPVJBoat.class, DataSerializers.VARINT);
     private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.<Float>createKey(EntityPVJBoat.class, DataSerializers.FLOAT);
     private static final DataParameter<Integer> BOAT_TYPE = EntityDataManager.<Integer>createKey(EntityPVJBoat.class, DataSerializers.VARINT);
+    @SuppressWarnings("unchecked")
     private static final DataParameter<Boolean>[] DATA_ID_PADDLE = new DataParameter[] {EntityDataManager.createKey(EntityPVJBoat.class, DataSerializers.BOOLEAN), EntityDataManager.createKey(EntityPVJBoat.class, DataSerializers.BOOLEAN)};
     private final float[] paddlePositions;
     private float momentum;
