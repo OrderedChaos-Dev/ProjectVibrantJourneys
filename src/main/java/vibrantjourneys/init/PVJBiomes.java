@@ -50,7 +50,7 @@ public class PVJBiomes
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Biomes disabled. That makes me sad :(");
-		
+
 		if(PVJConfig.worldgen.allowBeachVillages)
 			BiomeManager.addVillageBiome(Biomes.BEACH, true);
 	}

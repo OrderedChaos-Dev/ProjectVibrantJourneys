@@ -12,7 +12,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.init.PVJWorldGen;
 
 public class WorldGenOvergrownCaves implements IWorldGenerator
 {
@@ -29,6 +31,10 @@ public class WorldGenOvergrownCaves implements IWorldGenerator
 		Random random = new Random();
 		if(world.provider.getDimensionType() != DimensionType.OVERWORLD && world.provider.getDimensionType() != DimensionType.NETHER)
 			return;
+		
+		for(int id : PVJWorldGen.dimensionBlacklist)
+			if(world.provider == DimensionManager.getProvider(id))
+				return;
 		
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;

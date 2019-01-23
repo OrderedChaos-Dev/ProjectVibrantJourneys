@@ -9,9 +9,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.plant.BlockBracketFungus;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFlouropore implements IWorldGenerator
@@ -30,6 +32,10 @@ public class WorldGenFlouropore implements IWorldGenerator
 	{
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
+		
+		for(int id : PVJWorldGen.dimensionBlacklist)
+			if(world.provider == DimensionManager.getProvider(id))
+				return;
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		if(Arrays.asList(biomes).contains(biome))

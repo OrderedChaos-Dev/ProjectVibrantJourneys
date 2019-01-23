@@ -10,8 +10,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.worldgen.feature.WorldGenPalmTree;
 
 public class WorldGenPalmTreeBeach implements IWorldGenerator
@@ -29,6 +31,10 @@ public class WorldGenPalmTreeBeach implements IWorldGenerator
 	{
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
+		
+		for(int id : PVJWorldGen.dimensionBlacklist)
+			if(world.provider == DimensionManager.getProvider(id))
+				return;
 		
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
 		//beach but not cold beach

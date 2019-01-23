@@ -349,6 +349,11 @@ public class PVJConfig
 		public boolean decreasePlainsPonds = true;
 		public boolean decreaseDesertLakes = true;
 		public boolean allowBeachVillages = true;
+		
+		@Config.Comment({
+			"Use dimension ids, separate by commas. Do not use spaces"
+		})
+		public String dimensionBlacklist = "";
 	}
 	
 	public static class BiomesSubCategory

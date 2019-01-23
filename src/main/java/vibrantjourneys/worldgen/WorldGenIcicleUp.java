@@ -11,8 +11,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockRockFormation;
+import vibrantjourneys.init.PVJWorldGen;
 
 public class WorldGenIcicleUp implements IWorldGenerator
 {
@@ -50,6 +52,10 @@ public class WorldGenIcicleUp implements IWorldGenerator
 				break;
 			}
 		}
+		
+		for(int id : PVJWorldGen.dimensionBlacklist)
+			if(world.provider == DimensionManager.getProvider(id))
+				return;
 		
 		if(isValidBiome)
 		{

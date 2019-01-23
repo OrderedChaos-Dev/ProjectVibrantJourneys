@@ -48,9 +48,10 @@ import vibrantjourneys.worldgen.WorldGenTerracottaCaves;
 
 public class PVJWorldGen
 {	
-	
+	public static int[] dimensionBlacklist;
 	public static void initWorldGen()
 	{	
+		dimensionBlacklist = getDimensionBlacklist();
 		registerWorldGen(new WorldGenCobweb(PVJConfig.worldgen.cobwebDensity));
 		
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
@@ -275,5 +276,27 @@ public class PVJWorldGen
 	public static void registerWorldGen(IWorldGenerator worldgen)
 	{
 		GameRegistry.registerWorldGenerator(worldgen, 0);
+	}
+	
+	public static int[] getDimensionBlacklist()
+	{
+		String[] temp = PVJConfig.worldgen.dimensionBlacklist.split(",");
+		int[] ids = new int[temp.length];
+		for(int i = 0; i < temp.length; i++)
+		{
+			String s = temp[i];
+			try
+			{
+				int id = Integer.parseInt(s);
+				ids[i] = id;
+			}
+			catch(NumberFormatException e)
+			{
+				ProjectVibrantJourneys.logger.error("Invalid id format in the dimension blacklist: " + s);
+				ids[i] = 921;
+			}
+		}
+		
+		return ids;
 	}
 }

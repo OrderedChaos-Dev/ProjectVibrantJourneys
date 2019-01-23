@@ -11,9 +11,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenFlowerPatch implements IWorldGenerator
@@ -34,6 +36,10 @@ public class WorldGenFlowerPatch implements IWorldGenerator
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		
+		for(int id : PVJWorldGen.dimensionBlacklist)
+			if(world.provider == DimensionManager.getProvider(id))
+				return;
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)
