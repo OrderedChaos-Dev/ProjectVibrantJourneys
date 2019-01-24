@@ -29,6 +29,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.util.IPropertyHelper;
+import vibrantjourneys.util.PVJConfig;
 
 public class BlockGroundCover extends Block implements IPropertyHelper
 {
@@ -163,7 +164,7 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 		}
 		else
 		{
-			if(player.isSneaking())
+			if(player.isSneaking() && PVJConfig.misc.shiftRightClickGroundCover)
 			{
 				ItemStack stack = new ItemStack(this, 1, 0);
 				InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
