@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CSC",
+		"CSC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_jacaranda",
+			"data": 0
+		},
+		"S": {
+			"item": "minecraft:stick",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:jacaranda_fence",
+		"count": 4,
+		"data": 0
+	}
+}

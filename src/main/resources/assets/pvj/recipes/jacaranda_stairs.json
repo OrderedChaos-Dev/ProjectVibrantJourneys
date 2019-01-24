@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C  ",
+		"CC ",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_jacaranda",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:jacaranda_stairs",
+		"count": 4,
+		"data": 0
+	}
+}

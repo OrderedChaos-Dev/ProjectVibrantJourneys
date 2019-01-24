@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_cherry_blossom",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:cherry_blossom_pressure_plate",
+		"count": 1,
+		"data": 0
+	}
+}

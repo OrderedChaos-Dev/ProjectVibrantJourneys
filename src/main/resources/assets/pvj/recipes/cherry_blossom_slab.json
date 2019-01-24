@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_cherry_blossom",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:cherry_blossom_slab",
+		"count": 6,
+		"data": 0
+	}
+}

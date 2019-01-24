@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CSC",
+		"CSC"
+	],
+	"key": {
+		"S": {
+			"item": "pvj:planks_cherry_blossom",
+			"data": 0
+		},
+		"C": {
+			"item": "minecraft:stick",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:cherry_blossom_fence_gate",
+		"count": 1,
+		"data": 0
+	}
+}

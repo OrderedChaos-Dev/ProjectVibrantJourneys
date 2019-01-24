@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"C  ",
+		"CC ",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_cherry_blossom",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:cherry_blossom_stairs",
+		"count": 4,
+		"data": 0
+	}
+}

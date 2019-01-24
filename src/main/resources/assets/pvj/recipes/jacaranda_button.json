@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:planks_jacaranda",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:jacaranda_button",
+		"count": 1,
+		"data": 0
+	}
+}

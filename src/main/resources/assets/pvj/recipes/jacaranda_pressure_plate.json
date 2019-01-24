@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CC"
+	],
+	"key": {
+		"C": {
+			"item": "pvj:planks_jacaranda",
+			"data": 0
+		}
+	},
+	"result": {
+		"item": "pvj:jacaranda_pressure_plate",
+		"count": 1,
+		"data": 0
+	}
+}

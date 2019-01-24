@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:planks_cherry_blossom",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:cherry_blossom_button",
+		"count": 1,
+		"data": 0
+	}
+}
