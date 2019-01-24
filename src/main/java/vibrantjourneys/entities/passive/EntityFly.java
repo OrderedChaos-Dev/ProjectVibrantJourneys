@@ -53,17 +53,6 @@ public class EntityFly extends EntityAmbientCreature
 	        		this.world.removeEntity(this);
 	        	}
 	        }
-	        if(world.getBlockState(this.getPosition()).getBlock() == PVJBlocks.sundew)
-	        {
-	        	this.motionX = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
-	        	this.motionY = 0;
-	        	this.motionZ = (this.rand.nextDouble() - this.rand.nextDouble()) / 100.0;
-	        	
-	        	if(this.getRNG().nextInt(1000) == 0)
-	        	{
-	        		this.attackEntityFrom(DamageSource.CACTUS, 5.0F);
-	        	}
-	        }
         }
 
     }
@@ -100,6 +89,18 @@ public class EntityFly extends EntityAmbientCreature
 			float f1 = MathHelper.wrapDegrees(f - this.rotationYaw);
 			this.moveForward = 0.5F;
 			this.rotationYaw += f1;
+			
+	        if(world.getBlockState(this.getPosition()).getBlock() == PVJBlocks.sundew)
+	        {
+	        	this.motionX = 0;
+	        	this.motionY = 0;
+	        	this.motionZ = 0;
+	        	
+	        	if(this.getRNG().nextInt(1000) == 0)
+	        	{
+	        		this.attackEntityFrom(DamageSource.CACTUS, 5.0F);
+	        	}
+	        }
 		}
 		else
 		{

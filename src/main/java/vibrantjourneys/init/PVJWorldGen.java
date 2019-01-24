@@ -229,6 +229,7 @@ public class PVJWorldGen
 		{
 			registerWorldGen(new WorldGenShortGrass(PVJBlocks.short_grass, PVJConfig.worldgen.shortGrassDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.frost_lotus, PVJConfig.worldgen.frostLotusDensity, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES)));
+			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.sundew, PVJConfig.worldgen.sundewDensity, BiomeDictionary.getBiomes(Type.SWAMP).toArray(new Biome[0])));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.silverleaf, PVJConfig.worldgen.silverleafDensity, BiomeReference.getValidBiomes(BiomeReference.OAK_TREES)));
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.chickweed, PVJConfig.worldgen.chickweedDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));	
 			registerWorldGen(new WorldGenPVJPlant(PVJBlocks.clovers, PVJConfig.worldgen.cloversDensity, BiomeReference.getValidBiomes(BiomeReference.FRESHWATER_BIOMES)));

@@ -46,7 +46,7 @@ public class PVJBiomes
 			registerBiome(snowy_boreal_forest, "snowy_boreal_forest", PVJConfig.biomes.snowyBorealForestWeight, false, BiomeType.ICY, Type.CONIFEROUS, Type.COLD, Type.FOREST, Type.SNOWY);
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
-			registerBiome(blossoming_fields, "blossoming_fields", PVJConfig.biomes.blossomingfields, false, BiomeType.COOL, Type.FOREST);
+			registerBiome(blossoming_fields, "blossoming_fields", PVJConfig.biomes.blossomingfields, true, BiomeType.COOL, Type.FOREST);
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Biomes disabled. That makes me sad :(");

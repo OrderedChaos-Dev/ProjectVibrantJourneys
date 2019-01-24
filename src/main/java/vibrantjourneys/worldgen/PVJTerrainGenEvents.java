@@ -95,7 +95,7 @@ public class PVJTerrainGenEvents
 		{
 			if(BiomeReference.BAOBAB_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(170) <= PVJConfig.worldgen.baobabDensity)
+				if(event.getRand().nextInt(170) < PVJConfig.worldgen.baobabDensity)
 				{
 					BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
@@ -104,11 +104,10 @@ public class PVJTerrainGenEvents
 			}
 			if(BiomeReference.MOUNTAIN_BIOMES.contains(biome) || BiomeReference.SPRUCE_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(7) == 0)
+				if(event.getRand().nextInt(7) == 0 && PVJConfig.worldgen.pineDensity > 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenPineTree(false)).generate(event.getWorld(), event.getRand(), pos);
-					event.setResult(Result.DENY);
 				}
 			}
 			//flower forest
@@ -118,13 +117,11 @@ public class PVJTerrainGenEvents
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, true)).generate(event.getWorld(), event.getRand(), pos);
-					event.setResult(Result.DENY);
 				}
 				if(event.getRand().nextInt(3) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, false)).generate(event.getWorld(), event.getRand(), pos);
-					event.setResult(Result.DENY);
 				}
 			}
 			if(BiomeReference.JACARANDA_TREES.contains(biome))
@@ -135,7 +132,9 @@ public class PVJTerrainGenEvents
 				
 				if(event.getRand().nextInt(chance) == 0)
 				{
-					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
+					int xRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);
+					int zRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);
+					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8 + xRand, 0, 8 + zRand));
 					(new WorldGenJacarandaTree(false)).generate(event.getWorld(), event.getRand(), pos);
 					event.setResult(Result.DENY);
 				}
@@ -195,6 +194,32 @@ public class PVJTerrainGenEvents
 			{
 				EnumFacing facing = event.getOriginal().getValue(BlockStairs.FACING);
 				event.setReplacement(PVJBlocks.STAIRS.get(EnumWoodType.COTTONWOOD.getID()).getDefaultState().withProperty(BlockStairs.FACING, facing));
+				event.setResult(Result.DENY);
+			}
+		}
+		if(event.getBiome() == PVJBiomes.blossoming_fields)
+		{
+			Block block = event.getOriginal().getBlock();
+			if(block == Blocks.PLANKS)
+			{
+				event.setReplacement(PVJBlocks.PLANKS.get(EnumWoodType.CHERRY_BLOSSOM.getID()).getDefaultState());
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.LOG || block == Blocks.LOG2)
+			{
+				EnumAxis axis = event.getOriginal().getValue(BlockLog.LOG_AXIS);
+				event.setReplacement(PVJBlocks.LOGS.get(EnumWoodType.CHERRY_BLOSSOM.getID()).getDefaultState().withProperty(BlockLog.LOG_AXIS, axis));
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.OAK_FENCE)
+			{
+				event.setReplacement(PVJBlocks.FENCES.get(EnumWoodType.CHERRY_BLOSSOM.getID()).getDefaultState());
+				event.setResult(Result.DENY);
+			}
+			if(block == Blocks.OAK_STAIRS)
+			{
+				EnumFacing facing = event.getOriginal().getValue(BlockStairs.FACING);
+				event.setReplacement(PVJBlocks.STAIRS.get(EnumWoodType.CHERRY_BLOSSOM.getID()).getDefaultState().withProperty(BlockStairs.FACING, facing));
 				event.setResult(Result.DENY);
 			}
 		}

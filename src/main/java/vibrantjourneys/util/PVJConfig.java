@@ -301,13 +301,14 @@ public class PVJConfig
 		
 		public int seashellsDensity = 90;
 		public int pineconesDensity = 90;
-		public int flowerPatchDensity = 15;
+		public int flowerPatchDensity = 8;
 		
 		public int wildWheatDensity = 1;
 		public int wildPotatoDensity = 1;
 		public int wildCarrotDensity = 1;
 		public int wildBeetrootDensity = 1;
 		public int frostLotusDensity = 4;
+		public int sundewDensity = 5;
 		public int silverleafDensity = 2;
 		public int chickweedDensity = 8;
 		public int cloversDensity = 8;

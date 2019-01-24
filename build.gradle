@@ -38,7 +38,7 @@ download {
 }
 
 download {
-    src 'http://files.minecraftforge.net/maven/com/github/glitchfiend/biomesoplenty/BiomesOPlenty/1.12.2-7.0.1.2424/BiomesOPlenty-1.12.2-7.0.1.2424-universal.jar'
+    src 'http://files.minecraftforge.net/maven/com/github/glitchfiend/biomesoplenty/BiomesOPlenty/1.12.2-7.0.1.2425/BiomesOPlenty-1.12.2-7.0.1.2425-universal.jar'
     dest file('libs/BiomesOPlenty.jar')
     overwrite true
 }
