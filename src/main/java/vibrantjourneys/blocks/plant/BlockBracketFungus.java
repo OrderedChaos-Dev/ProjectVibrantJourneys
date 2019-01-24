@@ -16,9 +16,13 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -124,6 +128,23 @@ public class BlockBracketFungus extends BlockHorizontal implements IPropertyHelp
         {
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
         }
+    }
+    
+	@Override
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+		if(world.isRemote)
+		{
+			return true;
+		}
+		else
+		{
+			ItemStack stack = new ItemStack(this, 1, 0);
+			InventoryHelper.spawnItemStack(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+			world.setBlockToAir(pos);
+		}
+        
+        return true;
     }
 
     @SideOnly(Side.CLIENT)
