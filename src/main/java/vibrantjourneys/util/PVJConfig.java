@@ -404,6 +404,11 @@ public class PVJConfig
 		public boolean restrictSquidsToOceans = true;
 		
 		@Comment({
+			"If true, you can shift right click on groundcover to drop their item"
+		})
+		public boolean shiftRightClickGroundCover = true;
+		
+		@Comment({
 			"This is measured in ticks. 20 ticks = 1 second",
 			"6000 ticks = 5 minutes"
 		})
