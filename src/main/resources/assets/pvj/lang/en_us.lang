@@ -377,6 +377,7 @@ entity.pvj_fly.name=Fly
 entity.pvj_firefly.name=Firefly
 entity.pvj_ghost.name=Ghost
 entity.pvj_shade.name=Shade
+entity.pvj_banshee.name=Banshee
 entity.pvj_icecube.name=Ice Cube
 entity.pvj_skeletal_knight.name=Skeletal Knight
 entity.pvj_goon.name=Goon
