@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.item.EntityCoconut;
 import vibrantjourneys.entities.item.EntityPVJBoat;
+import vibrantjourneys.entities.monster.EntityBanshee;
 import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
@@ -56,6 +57,7 @@ public class PVJEntities
 		
 		registerEntityWithEgg("pvj_ghost", EntityGhost.class, 64, 0xb3b3b3, 0x404040);
 		registerEntityWithEgg("pvj_shade", EntityShade.class, 64, 0x333333, 0x595959);
+		registerEntityWithEgg("pvj_banshee", EntityBanshee.class, 64, 0x333333, 0x536D73);
 		registerEntityWithEgg("pvj_icecube", EntityIceCube.class, 64, 0x66e0ff, 0xccf5ff);
 		registerEntityWithEgg("pvj_skeletal_knight", EntitySkeletalKnight.class, 64, 0xa6a6a6, 0x808080);
 		registerEntityWithEgg("pvj_goon", EntityGoon.class, 64, 0xa6a6a6, 0x808080);
@@ -123,6 +125,7 @@ public class PVJEntities
 		if(PVJConfig.master.enableAggressiveMobs)
 		{
 			addSpawn(EntityShade.class, PVJConfig.entities.shadeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
+			addSpawn(EntityBanshee.class, PVJConfig.entities.bansheeSpawnWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));
 			addSpawn(EntityShade.class, PVJConfig.entities.shadeRoofedForestSpawnWeight, 1, 3, EnumCreatureType.MONSTER, Biomes.ROOFED_FOREST, Biomes.MUTATED_ROOFED_FOREST);
 			addSpawn(EntitySkeletalKnight.class, PVJConfig.entities.skeletalKnightWeight, 1, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES));
 			addSpawn(EntityIceCube.class, PVJConfig.entities.icecubeSpawnWeight, 2, 3, EnumCreatureType.MONSTER, BiomeReference.getValidBiomes(BiomeReference.SNOWY_BIOMES));

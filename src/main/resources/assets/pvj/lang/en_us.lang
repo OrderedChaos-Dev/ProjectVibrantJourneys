@@ -384,6 +384,7 @@ entity.pvj_small_spider.name=Small Spider
 entity.pvj_grizzly_bear.name=Grizzly Bear
 entity.pvj_watcher.name=Watcher
 entity.pvj_starfish.name=Starfish
+entity.pvj_beach_starfish.name=Starfish
 entity.pvj_coyote.name=Coyote
 
 subtitles.pvj_fly.ambient=Fly buzzes

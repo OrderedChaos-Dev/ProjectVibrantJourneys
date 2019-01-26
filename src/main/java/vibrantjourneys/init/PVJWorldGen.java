@@ -296,7 +296,7 @@ public class PVJWorldGen
 				catch(NumberFormatException e)
 				{
 					ProjectVibrantJourneys.logger.error("Invalid id format in the dimension blacklist: " + s);
-					ids[i] = 921;
+					ids[i] = 921; //just a random number to prevent crashes. i hope no one uses this id
 				}
 			}
 			

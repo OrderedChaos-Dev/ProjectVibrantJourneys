@@ -28,6 +28,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import vibrantjourneys.entities.item.EntityCoconut;
 import vibrantjourneys.entities.item.EntityPVJBoat;
+import vibrantjourneys.entities.monster.EntityBanshee;
 import vibrantjourneys.entities.monster.EntityGoon;
 import vibrantjourneys.entities.monster.EntityIceCube;
 import vibrantjourneys.entities.monster.EntityShade;
@@ -42,6 +43,7 @@ import vibrantjourneys.entities.passive.EntityFly;
 import vibrantjourneys.entities.passive.EntitySmallSpider;
 import vibrantjourneys.entities.passive.EntitySnail;
 import vibrantjourneys.entities.passive.EntityStarfish;
+import vibrantjourneys.entities.renderer.RenderBanshee;
 import vibrantjourneys.entities.renderer.RenderCoconut;
 import vibrantjourneys.entities.renderer.RenderCoyote;
 import vibrantjourneys.entities.renderer.RenderFirefly;
@@ -118,6 +120,7 @@ public class ClientProxy implements ICommonProxy
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityGhost.class, RenderGhost::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityShade.class, RenderShade::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBanshee.class, RenderBanshee::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityIceCube.class, RenderIceCube::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkeletalKnight.class, RenderSkeletalKnight::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGoon.class, RenderGoon::new);

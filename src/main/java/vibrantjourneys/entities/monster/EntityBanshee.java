@@ -1,5 +1,6 @@
 package vibrantjourneys.entities.monster;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -15,6 +16,8 @@ import net.minecraft.entity.item.EntityBoat;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -23,12 +26,11 @@ import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
 import vibrantjourneys.init.PVJSounds;
-import vibrantjourneys.util.BiomeReference;
 import vibrantjourneys.util.PVJLootTableList;
 
-public class EntityShade extends EntityMob
+public class EntityBanshee extends EntityMob
 {	
-	public EntityShade(World world)
+	public EntityBanshee(World world)
 	{
 		super(world);
 	}
@@ -82,6 +84,13 @@ public class EntityShade extends EntityMob
     }
 	
 	@Override
+    public boolean attackEntityAsMob(Entity entity)
+    {
+		((EntityMob)entity).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("slowness"), 100, 0));
+		return super.attackEntityAsMob(entity);
+    }
+	
+	@Override
 	protected ResourceLocation getLootTable()
 	{
 		return PVJLootTableList.GHOST;
@@ -113,10 +122,6 @@ public class EntityShade extends EntityMob
     {
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
-		
-		if(BiomeReference.SNOWY_BIOMES.contains(world.getBiomeForCoordsBody(this.getPosition())))
-			return false;
-		
         return super.getCanSpawnHere();
     }
 }

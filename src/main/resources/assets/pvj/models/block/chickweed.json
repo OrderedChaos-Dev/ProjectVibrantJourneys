@@ -1,9 +1,9 @@
 {
     "parent": "block/thin_block",
     "textures": {
-        "0": "blocks/wool_colored_green",
+        "0": "blocks/grass_top",
         "1": "blocks/wool_colored_white",
-        "particle": "blocks/wool_colored_green"
+        "particle": "blocks/grass_top"
     },
     "elements": [
         {

@@ -194,23 +194,23 @@ public class PVJConfig
 		public int pinkCherryBlossomDensity = 5;
 		public int jacarandaDensity = 3;
 		
-		public int fallenLeavesOakDensity = 35;
+		public int fallenLeavesOakDensity = 40;
 		public int fallenLeavesOakSparseDensity = 8;
-		public int fallenLeavesBirchDensity = 25;
+		public int fallenLeavesBirchDensity = 30;
 		public int fallenLeavesBirchSparseDensity = 8;
-		public int fallenLeavesSpruceDensity = 40;
+		public int fallenLeavesSpruceDensity = 45;
 		public int fallenLeavesSpruceSparseDensity = 8;
 		public int fallenLeavesJungleDensity = 50;
 		public int fallenLeavesJungleSparseDensity = 15;
 		public int fallenLeavesAcaciaDensity = 7;
 		public int fallenLeavesDarkOakDensity = 35;
 		public int fallenLeavesDarkOakSparseDensity = 15;
-		public int fallenLeavesWillowDensity = 30;
+		public int fallenLeavesWillowDensity = 35;
 		public int fallenLeavesMangroveDensity = 7;
-		public int fallenLeavesRedwoodDensity = 60;
+		public int fallenLeavesRedwoodDensity = 70;
 		public int fallenLeavesPalmDensity = 7;
 		public int fallenLeavesDeadDensity = 15;
-		public int fallenLeavesFirDensity = 30;
+		public int fallenLeavesFirDensity = 40;
 		public int fallenLeavesPineDensity = 15;
 		public int fallenLeavesAspenDensity = 30;
 		public int fallenLeavesRedMapleDensity = 25;
@@ -267,9 +267,9 @@ public class PVJConfig
 		public int graniteCaveDensity = 100;
 		public int dioriteRocksCaveDensity = 100;
 		
-		public int oakTwigsDensity = 200;
+		public int oakTwigsDensity = 230;
 		public int oakTwigsSparseDensity = 40;
-		public int birchTwigsDensity = 200;
+		public int birchTwigsDensity = 230;
 		public int birchTwigsSparseDensity = 40;
 		public int spruceTwigsDensity = 200;
 		public int spruceTwigsSparseDensity = 50;
@@ -279,7 +279,7 @@ public class PVJConfig
 		public int willowTwigsDensity = 300;
 		public int mangroveTwigsDensity = 60;
 		public int palmTwigsDensity = 20;
-		public int redwoodTwigsDensity = 400;
+		public int redwoodTwigsDensity = 430;
 		public int firTwigsDensity = 400;
 		public int pineTwigsDensity = 70;
 		public int aspenTwigsDensity = 200;
@@ -301,7 +301,7 @@ public class PVJConfig
 		
 		public int seashellsDensity = 90;
 		public int pineconesDensity = 90;
-		public int flowerPatchDensity = 8;
+		public int flowerPatchDensity = 5;
 		
 		public int wildWheatDensity = 1;
 		public int wildPotatoDensity = 1;
@@ -310,9 +310,9 @@ public class PVJConfig
 		public int frostLotusDensity = 4;
 		public int sundewDensity = 5;
 		public int silverleafDensity = 2;
-		public int chickweedDensity = 8;
-		public int cloversDensity = 8;
-		public int crabgrassDensity = 8;
+		public int chickweedDensity = 5;
+		public int cloversDensity = 5;
+		public int crabgrassDensity = 5;
 		public int bracketFungusDensity = 2000;
 		public int beachGrassDensity = 30;
 		public int seaOatsDensity = 20;
@@ -388,6 +388,7 @@ public class PVJConfig
 		
 		public int shadeSpawnWeight = 55;
 		public int shadeRoofedForestSpawnWeight = 100;
+		public int bansheeSpawnWeight = 55;
 		public int icecubeSpawnWeight = 35;
 		public int skeletalKnightWeight = 45;
 		public int goonSpawnWeight = 20;

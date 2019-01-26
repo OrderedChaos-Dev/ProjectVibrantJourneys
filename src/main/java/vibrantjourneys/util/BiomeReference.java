@@ -310,7 +310,9 @@ public class BiomeReference
 	public static void loadCherryBlossomTrees()
 	{
 		WHITE_CHERRY_BLOSSOM_TREES.add(Biomes.MUTATED_FOREST);
+		WHITE_CHERRY_BLOSSOM_TREES.add(PVJBiomes.blossoming_fields);
 		PINK_CHERRY_BLOSSOM_TREES.add(Biomes.MUTATED_FOREST);
+		PINK_CHERRY_BLOSSOM_TREES.add(PVJBiomes.blossoming_fields);
 	}
 	
 	public static void loadJacarandaTrees()
@@ -321,6 +323,7 @@ public class BiomeReference
 		JACARANDA_TREES.add(Biomes.MUTATED_JUNGLE);
 		JACARANDA_TREES.add(Biomes.MUTATED_JUNGLE_EDGE);
 		JACARANDA_TREES.add(Biomes.MUTATED_FOREST);
+		JACARANDA_TREES.add(PVJBiomes.blossoming_fields);
 	}
 	
 	public static void loadMesaBiomes()
