@@ -10,7 +10,6 @@ import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.init.PVJBlocks;
-import vibrantjourneys.init.PVJCrafting;
 
 public class PVJBlocksBOP
 {
@@ -28,14 +27,12 @@ public class PVJBlocksBOP
 			Block block = PVJBlocks.registerBlock(new BlockFallenLeaves(), "fallenleaves_bop_" + name);
 			FALLENLEAVES_BOP.add(block);
 			BLOCK_INFO_FALLENLEAVES.add(new BOPBlockInfo(block, PVJWorldGenBOP.getDensityFallenLeaves(name), BiomeReferenceBOP.getBiomeReference(name)));
-			PVJCrafting.fuelHandler.addFuel(block, 100);
 		}
 		for(BOPTrees trees : BOPTrees.values())
 		{
 			String name = trees.getName();
 			Block block = PVJBlocks.registerBlock(new BlockGroundCover(Material.PLANTS, GroundcoverType.TWIGS), name + "_bop_twigs");
 			TWIGS_BOP.add(block);
-			PVJCrafting.fuelHandler.addFuel(block, 100);
 		}
 	}
 	

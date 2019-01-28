@@ -10,8 +10,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import vibrantjourneys.crafting.FurnaceFuelHandler;
+import vibrantjourneys.integration.biomesoplenty.BOPCrafting;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
+import vibrantjourneys.integration.traverse.TraverseCrafting;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.Reference;
@@ -59,6 +61,12 @@ public class PVJCrafting
 		{
 			fuelHandler.addFuel(boat, 200);
 		}
+		
+		if(Reference.isBOPLoaded)
+			BOPCrafting.initCrafting();
+		
+		if(Reference.isTraverseLoaded)
+			TraverseCrafting.initCrafting();
 		
 		MinecraftForge.EVENT_BUS.register(fuelHandler);
 		

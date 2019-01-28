@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:reeds",
+			"data": 0
+		},
+		{
+			"item": "minecraft:reeds",
+			"data": 0
+		},
+		{
+			"item": "minecraft:glass_bottle",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:sugarcane_juice",
+		"count": 1,
+		"data": 0
+	}
+}
