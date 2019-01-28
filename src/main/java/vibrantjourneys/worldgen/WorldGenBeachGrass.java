@@ -2,6 +2,7 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -36,6 +37,9 @@ public class WorldGenBeachGrass implements IWorldGenerator
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;
+		
+		if(biome == Biomes.COLD_BEACH || biome == Biomes.STONE_BEACH)
+			return;
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)

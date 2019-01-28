@@ -12,8 +12,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.ChunkGeneratorSettings;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
@@ -113,12 +111,12 @@ public class PVJTerrainGenEvents
 			//flower forest
 			if(biome == Biomes.MUTATED_FOREST)
 			{
-				if(event.getRand().nextInt(3) == 0)
+				if(event.getRand().nextInt(7) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, true)).generate(event.getWorld(), event.getRand(), pos);
 				}
-				if(event.getRand().nextInt(3) == 0)
+				if(event.getRand().nextInt(7) == 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, false)).generate(event.getWorld(), event.getRand(), pos);
@@ -126,11 +124,7 @@ public class PVJTerrainGenEvents
 			}
 			if(BiomeReference.JACARANDA_TREES.contains(biome))
 			{
-				int chance = 3;
-				if(BiomeDictionary.hasType(biome, Type.JUNGLE))
-					chance = 7;
-				
-				if(event.getRand().nextInt(chance) == 0)
+				if(event.getRand().nextInt(7) == 0)
 				{
 					int xRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);
 					int zRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);

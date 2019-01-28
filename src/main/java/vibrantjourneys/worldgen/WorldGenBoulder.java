@@ -3,27 +3,24 @@ package vibrantjourneys.worldgen;
 import java.util.Arrays;
 import java.util.Random;
 
-import net.minecraft.block.BlockLog;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import vibrantjourneys.blocks.plant.BlockBracketFungus;
-import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.PVJConfig;
 
-public class WorldGenBracketFungus implements IWorldGenerator
+public class WorldGenBoulder implements IWorldGenerator
 {
 	private int frequency;
 	private Biome[] biomes;
 	
-	public WorldGenBracketFungus(int frequency, Biome... biomes)
+	public WorldGenBoulder(int frequency, Biome... biomes)
 	{
 		this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
 		this.biomes = biomes;
@@ -44,22 +41,14 @@ public class WorldGenBracketFungus implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + 8 + random.nextInt(8);
-				int zPos = z + 8 + random.nextInt(8);
-				int yPos = 63 + random.nextInt(100);
-				
-				BlockPos pos = new BlockPos(xPos, yPos, zPos);
-				IBlockState state = world.getBlockState(pos);
-				
-				if(state.getBlock() instanceof BlockLog)
+				if(random.nextInt(200) == 0)
 				{
-					Random rand = new Random();
-					EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(rand);
+					int xPos = x + random.nextInt(8) + 8;
+					int zPos = z + random.nextInt(8) + 8;
+					int yPos = 63 + random.nextInt(100);
 					
-					if(world.isAirBlock(pos.offset(facing)))
-					{
-						world.setBlockState(pos.offset(facing), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing));
-					}
+					BlockPos blockpos = world.getHeight(new BlockPos(xPos, yPos, zPos));
+					(new WorldGenBlockBlob(Blocks.STONE, 0)).generate(world, random, blockpos);
 				}
 			}
 		}

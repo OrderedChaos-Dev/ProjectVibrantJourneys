@@ -2,6 +2,7 @@ package vibrantjourneys.worldgen;
 
 import java.util.Random;
 
+import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -32,6 +33,9 @@ public class WorldGenSeaOats implements IWorldGenerator
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
 		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		
+		if(biome == Biomes.COLD_BEACH || biome == Biomes.STONE_BEACH)
+			return;
 		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))

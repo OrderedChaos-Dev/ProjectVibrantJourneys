@@ -332,6 +332,8 @@ public class PVJConfig
 		public int stalagmiteDensity = 450;
 		public int icicleDensity = 450;
 		
+		public int boulderDensity = 40;
+		
 		public boolean modifyDungeons = true;
 		public boolean enableFrozenCaves = true;
 		public boolean enableSandstoneCaves = true;

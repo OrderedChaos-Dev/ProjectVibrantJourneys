@@ -74,6 +74,10 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     	{
     		return 50;
     	}
+    	else if(leafType == EnumLeafType.FIR)
+    	{
+    		return 40;
+    	}
     	
         return super.getSaplingDropChance(state);
     }

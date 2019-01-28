@@ -17,6 +17,7 @@ import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
 import vibrantjourneys.worldgen.WorldGenBeachGrass;
+import vibrantjourneys.worldgen.WorldGenBoulder;
 import vibrantjourneys.worldgen.WorldGenBracketFungus;
 import vibrantjourneys.worldgen.WorldGenCattail;
 import vibrantjourneys.worldgen.WorldGenCobweb;
@@ -57,6 +58,8 @@ public class PVJWorldGen
 		registerWorldGen(new WorldGenPalmTreeBeach(PVJConfig.worldgen.palmDensity));
 		registerWorldGen(new WorldGenMangroveTreeSwamp(PVJConfig.worldgen.mangroveDensity));
 		registerWorldGen(new WorldGenJuniperTreeMesa(PVJConfig.worldgen.juniperDensity));
+		
+		registerWorldGen(new WorldGenBoulder(PVJConfig.worldgen.boulderDensity, BiomeReference.getValidBiomes(BiomeReference.OVERWORLD_BIOMES)));
 		
 		if(PVJConfig.master.enableCaves)
 		{

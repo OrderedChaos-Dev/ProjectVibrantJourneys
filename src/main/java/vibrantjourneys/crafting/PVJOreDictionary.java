@@ -1,5 +1,6 @@
 package vibrantjourneys.crafting;
 
+import net.minecraft.init.Blocks;
 import net.minecraftforge.oredict.OreDictionary;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
@@ -43,6 +44,9 @@ public class PVJOreDictionary
 		OreDictionary.registerOre("rocks", PVJBlocks.sandstone_rocks);
 		OreDictionary.registerOre("rocks", PVJBlocks.red_sandstone_rocks);
 		OreDictionary.registerOre("rocks", PVJBlocks.mossy_cobblestone_rocks);
+		
+		OreDictionary.registerOre("cactus", PVJBlocks.small_cactus);
+		OreDictionary.registerOre("cactus", Blocks.CACTUS);
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.setOreDictValues();

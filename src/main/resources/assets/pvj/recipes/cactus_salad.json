@@ -1,0 +1,24 @@
+{
+	"type": "forge:ore_shapeless",
+	"ingredients": [
+		{
+			"type": "forge:ore_dict",
+			"ore": "cactus",
+			"data": 0
+		},
+		{
+			"type": "forge:ore_dict",
+			"ore": "cactus",
+			"data": 0
+		},
+		{
+			"item": "minecraft:bowl",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:cactus_salad",
+		"count": 1,
+		"data": 0
+	}
+}

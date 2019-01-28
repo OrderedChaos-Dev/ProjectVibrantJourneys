@@ -8,6 +8,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -24,10 +25,14 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.terraingen.BiomeEvent.GetFoliageColor;
+import net.minecraftforge.event.terraingen.BiomeEvent.GetGrassColor;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.blocks.plant.BlockShortGrass;
 import vibrantjourneys.entities.neutral.EntityWatcher;
 import vibrantjourneys.entities.passive.EntityFirefly;
@@ -196,6 +201,26 @@ public class PVJEvents
 				
 				event.getEntityLiving().getEntityWorld().spawnEntity(drop);
 			}	
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void setSwampColor(GetGrassColor event)
+	{
+		if(event.getBiome() == Biomes.SWAMPLAND || event.getBiome() == Biomes.MUTATED_SWAMPLAND)
+		{
+			event.setNewColor(0x70D325);
+		}
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void setSwampColor(GetFoliageColor event)
+	{
+		if(event.getBiome() == Biomes.SWAMPLAND || event.getBiome() == Biomes.MUTATED_SWAMPLAND)
+		{
+			event.setNewColor(0x70D325);
 		}
 	}
 }
