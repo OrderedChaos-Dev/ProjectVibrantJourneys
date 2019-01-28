@@ -14,12 +14,11 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import vibrantjourneys.crafting.PVJOreDictionary;
 import vibrantjourneys.init.PVJBiomes;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJCrafting;
 import vibrantjourneys.init.PVJEntities;
 import vibrantjourneys.init.PVJItems;
-import vibrantjourneys.init.PVJRecipes;
 import vibrantjourneys.init.PVJRegistryEvents;
 import vibrantjourneys.init.PVJTileEntities;
 import vibrantjourneys.init.PVJWorldGen;
@@ -76,8 +75,7 @@ public class ProjectVibrantJourneys
     	proxy.registerTESRs();
     	NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     	
-    	PVJOreDictionary.setValues();
-    	PVJRecipes.initRecipes();
+    	PVJCrafting.initCrafting();
     	
     	BiomeReference.loadAllBiomeReferences();
     	PVJWorldGen.initWorldGen();

@@ -7,6 +7,7 @@ import vibrantjourneys.blocks.BlockFallenLeaves;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.init.PVJCrafting;
 
 public class PVJBlocksTraverse
 {
@@ -35,6 +36,17 @@ public class PVJBlocksTraverse
 		orange_autumn_fallen_leaves = PVJBlocks.registerBlock(new BlockFallenLeaves(), "fallenleaves_traverse_orange_autumn");
 		yellow_autumn_fallen_leaves = PVJBlocks.registerBlock(new BlockFallenLeaves(), "fallenleaves_traverse_yellow_autumn");
 		fir_fallen_leaves = PVJBlocks.registerBlock(new BlockFallenLeaves(), "fallenleaves_traverse_fir");
+		
+		PVJCrafting.fuelHandler.addFuel(red_autumn_twigs, 100);
+		PVJCrafting.fuelHandler.addFuel(brown_autumn_twigs, 100);
+		PVJCrafting.fuelHandler.addFuel(orange_autumn_twigs, 100);
+		PVJCrafting.fuelHandler.addFuel(yellow_autumn_twigs, 100);
+		PVJCrafting.fuelHandler.addFuel(fir_twigs, 100);
+		PVJCrafting.fuelHandler.addFuel(red_autumn_fallen_leaves, 100);
+		PVJCrafting.fuelHandler.addFuel(brown_autumn_fallen_leaves, 100);
+		PVJCrafting.fuelHandler.addFuel(orange_autumn_fallen_leaves, 100);
+		PVJCrafting.fuelHandler.addFuel(yellow_autumn_fallen_leaves, 100);
+		PVJCrafting.fuelHandler.addFuel(fir_fallen_leaves, 100);
 	}
 	
 	public static void setOreDictValues()

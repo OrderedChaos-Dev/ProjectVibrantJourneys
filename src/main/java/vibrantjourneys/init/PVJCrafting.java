@@ -1,18 +1,67 @@
-package vibrantjourneys.crafting;
+package vibrantjourneys.init;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import vibrantjourneys.init.PVJBlocks;
+import vibrantjourneys.crafting.FurnaceFuelHandler;
 import vibrantjourneys.integration.biomesoplenty.PVJBlocksBOP;
 import vibrantjourneys.integration.traverse.PVJBlocksTraverse;
 import vibrantjourneys.util.EnumLeafType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.Reference;
 
-public class PVJOreDictionary
+public class PVJCrafting
 {
-	public static void setValues()
+	public static FurnaceFuelHandler fuelHandler = new FurnaceFuelHandler();
+	
+	public static void initCrafting()
 	{
+		for(EnumWoodType woodType: EnumWoodType.values())
+		{
+			GameRegistry.addSmelting(PVJBlocks.LOGS.get(woodType.getID()), new ItemStack(Items.COAL, 1, 1), 0.15F);
+		}
+		
+		GameRegistry.addSmelting(PVJBlocks.small_cactus, new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
+		GameRegistry.addSmelting(PVJItems.raw_squid, new ItemStack(PVJItems.cooked_squid, 1), 0.1F);
+		
+		for(Block sapling : PVJBlocks.SAPLINGS)
+		{
+			fuelHandler.addFuel(sapling, 100);
+		}
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_oak, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_birch, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_spruce, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_jungle, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_darkoak, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_acacia, 100);
+		fuelHandler.addFuel(PVJBlocks.fallenleaves_dead, 100);
+		fuelHandler.addFuel(PVJBlocks.oak_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.birch_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.spruce_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.jungle_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.dark_oak_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.acacia_twigs, 100);
+		for(Block twigs : PVJBlocks.TWIGS)
+		{
+			fuelHandler.addFuel(twigs, 100);
+		}
+		for(Block fallenleaves : PVJBlocks.FALLEN_LEAVES)
+		{
+			fuelHandler.addFuel(fallenleaves, 100);
+		}
+		for(Item boat : PVJItems.BOATS)
+		{
+			fuelHandler.addFuel(boat, 200);
+		}
+		
+		MinecraftForge.EVENT_BUS.register(fuelHandler);
+		
 		for(EnumWoodType woodType : EnumWoodType.values())
 		{
 			OreDictionary.registerOre("logWood", PVJBlocks.LOGS.get(woodType.getID()));
