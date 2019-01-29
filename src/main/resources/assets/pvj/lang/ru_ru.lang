@@ -1,0 +1,478 @@
+itemGroup.tabProjectVibrantJourneys=Project: Vibrant Journeys
+
+item.slime_droplet.name=Капля слизи
+item.cracked_coconut.name=Треснувший кокос
+item.coconut_milk.name=Кокосовое молоко
+item.juniper_berries.name=Можжевельник
+item.wax.name=Воск
+item.raw_squid.name=Сырой кальмар
+item.cooked_squid.name=Приготовленный кальмар
+item.cactus_salad.name=Кактусовый салат
+item.sugarcane_juice.name=Сок сахарного тростника
+
+item.spectral_wrappings.name=Спектральная упаковка
+item.goon_bile.name=Желчь гуна (Goon Bile)
+item.unstable_essence.name=Нестабильная эссенция
+
+item.mystical_porkchop.name=Мистическая свинина
+item.mystical_beef.name=Мистическая говядина
+item.mystical_chicken.name=Мистическая курятина
+item.mystical_mutton.name=Мистическая баранина
+item.mystical_rabbit.name=Мистическая крольчатина
+item.mystical_cod.name=Мистическая треска
+item.mystical_salmon.name=Мистическая лососина
+item.mystical_potato.name=Мистический картофель
+
+item.willow_door_item.name=Ивовая дверь
+item.mangrove_door_item.name=Мангровая дверь
+item.palm_door_item.name=Пальмовая дверь
+item.redwood_door_item.name=Краснодеревянная дверь
+item.fir_door_item.name=Пихтовая дверь
+item.pine_door_item.name=Сосновая дверь
+item.aspen_door_item.name=Осиновая дверь
+item.maple_door_item.name=Кленовая дверь
+item.baobab_door_item.name=Баобабовая дверь
+item.cottonwood_door_item.name=Тополевая дверь
+item.juniper_door_item.name=Можжевеловая дверь
+item.jacaranda_door_item.name=Палисандродеревянная дверь
+item.cherry_blossom_door_item.name=Цветущевишневая дверь
+
+item.willow_boat.name=Ивовая лодка
+item.mangrove_boat.name=Мангровая лодка
+item.palm_boat.name=Пальмовая лодка
+item.redwood_boat.name=Краснодеревянная лодка
+item.fir_boat.name=Пихтовая лодка
+item.pine_boat.name=Сосновая лодка
+item.aspen_boat.name=Осиновая лодка
+item.maple_boat.name=Кленовая лодка
+item.baobab_boat.name=Баобабовая лодка
+item.cottonwood_boat.name=Тополевая лодка
+item.juniper_boat.name=Можжевеловая лодка
+item.jacaranda_boat.name=Палисандродеревянная лодка
+item.cherry_blossom_boat.name=Цветущевишневая лодка
+
+tile.cobblestone_brick.name=Кирпичи из булыжника
+tile.planks_willow.name=Ивовые доски
+tile.planks_mangrove.name=Мангровые доски
+tile.planks_palm.name=Пальмовые доски
+tile.planks_redwood.name=Доски из красного дерева
+tile.planks_fir.name=Пихтовые доски
+tile.planks_pine.name=Сосновые доски
+tile.planks_aspen.name=Осиновые доски
+tile.planks_maple.name=Кленовые доски
+tile.planks_baobab.name=Доски из баобаба
+tile.planks_cottonwood.name=Доски из тополя
+tile.planks_juniper.name=Доски из можжевельника
+tile.planks_jacaranda.name=Доски из палисандрового дерева
+tile.planks_cherry_blossom.name=Доски из цветущей вишни
+
+tile.log_willow.name=Ивовая древесина
+tile.log_mangrove.name=Мангровая древесина
+tile.log_palm.name=Пальмовая древесина
+tile.log_redwood.name=Краснодеревянная древесина
+tile.log_fir.name=Пихтовая древесина
+tile.log_pine.name=Сосновая древесина
+tile.log_aspen.name=Осиновая древесина
+tile.log_maple.name=Кленовая древесина
+tile.log_baobab.name=Баобабовая древесина
+tile.log_cottonwood.name=Тополевая древесина
+tile.log_juniper.name=Можжевеловая древесина
+tile.log_jacaranda.name=Палисандродеревянная древесина
+tile.log_cherry_blossom.name=Цветущевишневая древесина
+
+tile.leaves_willow.name=Ивовая листва
+tile.leaves_mangrove.name=Мангровая листва
+tile.leaves_palm.name=Пальмовая листва
+tile.leaves_redwood.name=Краснодеревянная листва
+tile.leaves_fir.name=Пихтовая листва
+tile.leaves_pine.name=Сосновая листва
+tile.leaves_aspen.name=Осиновая листва
+tile.leaves_red_maple.name=Red Кленовая листва
+tile.leaves_orange_maple.name=Ораньжевая Кленовая листва
+tile.leaves_baobab.name=Баобабовая листва
+tile.leaves_cottonwood.name=Тополевая листва
+tile.leaves_juniper.name=Можжевеловая листва
+tile.leaves_juniper_berried=Berried Можжевеловая листва
+tile.leaves_jacaranda.name=Палисандродеревянная листва
+tile.leaves_white_cherry_blossom.name=Белая  Цветущевишневая листва
+tile.leaves_pink_cherry_blossom.name=Розовая Цветущевишневая листва
+
+tile.sapling_willow.name=Саженец ивы
+tile.sapling_mangrove.name=Саженец Мангрового дерева
+tile.sapling_palm.name=Саженец Пальмы
+tile.sapling_redwood.name=Саженец Красного дерева
+tile.sapling_fir.name=Саженец Пихты
+tile.sapling_pine.name=Саженец Сосны
+tile.sapling_aspen.name=Саженец Осины
+tile.sapling_red_maple.name=Саженец Красного клена
+tile.sapling_orange_maple.name=Саженец Ораньжевого клена
+tile.sapling_baobab.name=Саженец баобаба
+tile.sapling_cottonwood.name=Саженец тополя
+tile.sapling_juniper.name=Саженец можжевельника
+tile.sapling_jacaranda.name=Саженец палисандрового дерева
+tile.sapling_white_cherry_blossom.name=Саженец белой цветущей вишни
+tile.sapling_pink_cherry_blossom.name=Саженец розовой цветущей вишни
+
+tile.coconut.name=Coconut
+
+tile.fallenleaves_oak.name=Дубовая опавшая листва
+tile.fallenleaves_birch.name=Березовая опавшая листва
+tile.fallenleaves_spruce.name=Еловая опавшая листва
+tile.fallenleaves_jungle.name=Джунглевая опавшая листва
+tile.fallenleaves_darkoak.name=Опавшая листва темного дуба
+tile.fallenleaves_acacia.name=Акациевая опавшая листва
+tile.fallenleaves_willow.name=Ивовая опавшая листва
+tile.fallenleaves_mangrove.name=Мангровая опавшая листва
+tile.fallenleaves_palm.name=Пальмовая опавшая листва
+tile.fallenleaves_redwood.name=Краснодеревянная опавшая листва
+tile.fallenleaves_dead.name=Мертвая опавшая листва
+tile.fallenleaves_fir.name=Пихтовая опавшая листва
+tile.fallenleaves_pine.name=Сосновая опавшая листва
+tile.fallenleaves_aspen.name=Осиновая опавшая листва
+tile.fallenleaves_red_maple.name=Red Кленовая опавшая листва
+tile.fallenleaves_orange_maple.name=Ораньжевая Кленовая опавшая листва
+tile.fallenleaves_baobab.name=Баобабовая опавшая листва
+tile.fallenleaves_cottonwood.name=Тополевая опавшая листва
+tile.fallenleaves_juniper.name=Можжевеловая опавшая листва
+tile.fallenleaves_jacaranda.name=Палисандродеревянная опавшая листва
+tile.fallenleaves_white_cherry_blossom.name=Белая  Цветущевишневая опавшая листва
+tile.fallenleaves_pink_cherry_blossom.name=Розовая Цветущевишневая опавшая листва
+
+tile.stone_rocks.name=Каменная скальная порода
+tile.cobblestone_rocks.name=Булыжниковая скальная порода
+tile.mossy_cobblestone_rocks.name=Мшистая Булыжниковая скальная порода
+tile.andesite_rocks.name=Андезитная скальная порода
+tile.granite_rocks.name=Гранитная скальная порода
+tile.diorite_rocks.name=Диоритная скальная порода
+tile.sandstone_rocks.name=Песчаниковая скальная порода
+tile.red_sandstone_rocks.name=Краснопесчаниковая скальная порода
+
+tile.oak_twigs.name=Дубовый хворост
+tile.birch_twigs.name=Березовый хворост
+tile.spruce_twigs.name=Еловый хворост
+tile.jungle_twigs.name=Джунглевый хворост
+tile.dark_oak_twigs.name=Хворост темного дуба
+tile.acacia_twigs.name=Акациевый хворост
+tile.willow_twigs.name=Ивовый хворост
+tile.mangrove_twigs.name=Мангровый хворост
+tile.palm_twigs.name=Пальмовый хворост
+tile.redwood_twigs.name=Краснодеревянный хворост
+tile.fir_twigs.name=Пихтовый хворост
+tile.pine_twigs.name=Сосновый хворост
+tile.aspen_twigs.name=Осиновый хворост
+tile.red_maple_twigs.name=Хворост из красного клена
+tile.orange_maple_twigs.name=Хворост из ораньжевого клена
+tile.baobab_twigs.name=Баобабовая хворостяная масса
+tile.cottonwood_twigs.name=Тополевая хворостяная масса
+tile.juniper_twigs.name=Можжевеловая хворостяная масса
+tile.jacaranda_twigs.name=Палисандродеревянная хворостяная масса
+tile.white_cherry_blossom_twigs.name=Белый Цветущевишневый хворостяная масса
+tile.pink_cherry_blossom_twigs.name=Розовый Цветущевишневый хворостяная масса
+
+tile.bones.name=Костная масса
+tile.seashells.name=Ракушки
+tile.pinecones.name=Сосновая шишка
+tile.flower_patch.name=Цветочное пятно
+
+tile.wild_wheat.name=Wild Wheat
+tile.wild_potato.name=Wild Potato
+tile.wild_carrot.name=Wild Carrot
+tile.wild_beetroot.name=Wild Beetroot
+tile.frost_lotus.name=Frost Lotus
+tile.silverleaf.name=Silverleaf
+tile.short_grass.name=Short Grass
+tile.frogbit.name=Frogbit
+tile.duckweed.name=Duckweed
+tile.cattail.name=Cattail
+tile.chickweed.name=Chickweed
+tile.clovers.name=Clover Patch
+tile.crabgrass.name=Crabgrass
+tile.bracket_fungus.name=Polypore
+tile.flouropore.name=Flouropore
+tile.waxcap.name=Waxcap
+tile.orange_mushroom.name=Jack O' Lantern Mushroom
+tile.deathcap.name=Deathcap
+tile.small_cactus.name=Small Cactus
+tile.beach_grass.name=Beach Grass
+tile.sea_oats.name=Sea Oats
+tile.void_grass.name=Void Grass
+tile.sundew.name=Sundew
+
+tile.bloodnettle.name=Bloodnettle
+tile.glowcap.name=Glowcap
+tile.witherweed.name=Witherweed
+
+tile.rock_formation.name=Rock Formation
+tile.redwood_bark.name=Краснодеревянная Bark
+
+tile.mystical_grill.name=Mystical Grill
+tile.cracked_sand.name=Cracked Sand
+tile.red_cracked_sand.name=Red Cracked Sand
+
+tile.willow_stairs.name=Ивовая ступени
+tile.mangrove_stairs.name=Мангровая ступени
+tile.palm_stairs.name=Пальмовая ступени
+tile.redwood_stairs.name=Краснодеревянная ступени
+tile.fir_stairs.name=Пихтовая ступени
+tile.pine_stairs.name=Сосновая ступени
+tile.aspen_stairs.name=Осиновая ступени
+tile.maple_stairs.name=Кленовая ступени
+tile.baobab_stairs.name=Баобабовая ступени
+tile.juniper_stairs.name=Можжевеловая ступени
+tile.cottonwood_stairs.name=Тополевая ступени
+tile.jacaranda_stairs.name=Палисандродеревянная ступени
+tile.cherry_blossom_stairs.name=Цветущевишневая ступени
+tile.cobblestone_brick_stairs.name=Булыжниковый кирпичные ступени
+
+tile.willow_slab.name=Ивовая плита
+tile.mangrove_slab.name=Мангровая плита
+tile.palm_slab.name=Пальмовая плита
+tile.redwood_slab.name=Краснодеревянная плита
+tile.fir_slab.name=Пихтовая плита
+tile.pine_slab.name=Сосновая плита
+tile.aspen_slab.name=Осиновая плита
+tile.maple_slab.name=Кленовая плита
+tile.baobab_slab.name=Баобабовая плита
+tile.cottonwood_slab.name=Тополевая плита
+tile.juniper_slab.name=Можжевеловая плита
+tile.jacaranda_slab.name=Палисандродеревянная плита
+tile.cherry_blossom_slab.name=Цветущевишневая плита
+tile.cobblestone_brick_slab.name=Булыжниковая кирпичная плита
+
+tile.willow_pressure_plate.name=Ивовая нажимная пластина
+tile.mangrove_pressure_plate.name=Мангровая нажимная пластина
+tile.palm_pressure_plate.name=Пальмовая нажимная пластина
+tile.redwood_pressure_plate.name=Краснодеревянная нажимная пластина
+tile.fir_pressure_plate.name=Пихтовая нажимная пластина
+tile.pine_pressure_plate.name=Сосновая нажимная пластина
+tile.aspen_pressure_plate.name=Осиновая нажимная пластина
+tile.maple_pressure_plate.name=Кленовая нажимная пластина
+tile.baobab_pressure_plate.name=Баобабовая нажимная пластина
+tile.cottonwood_pressure_plate.name=Тополевая нажимная пластина
+tile.juniper_pressure_plate=Можжевеловая нажимная пластина
+tile.jacaranda_pressure_plate=Палисандродеревянная нажимная пластина
+tile.cherry_blossom_pressure_plate=Цветущевишневая нажимная пластина
+
+tile.willow_button.name=Ивовая кнопка
+tile.mangrove_button.name=Мангровая кнопка
+tile.palm_button.name=Пальмовая кнопка
+tile.redwood_button.name=Краснодеревянная кнопка
+tile.fir_button.name=Пихтовая кнопка
+tile.pine_button.name=Сосновая кнопка
+tile.aspen_button.name=Осиновая кнопка
+tile.maple_button.name=Кленовая кнопка
+tile.baobab_button.name=Баобабовая кнопка
+tile.cottonwood_button.name=Тополевая кнопка
+tile.juniper_button.name=Можжевеловая кнопка
+tile.jacaranda_button.name=Палисандродеревянная кнопка
+tile.cherry_blossom_button.name=Цветущевишневая кнопка
+
+tile.willow_fence.name=Ивовая ограда
+tile.mangrove_fence.name=Мангровая ограда
+tile.palm_fence.name=Пальмовая ограда
+tile.redwood_fence.name=Краснодеревянная ограда
+tile.fir_fence.name=Пихтовая ограда
+tile.pine_fence.name=Сосновая ограда
+tile.aspen_fence.name=Осиновая ограда
+tile.maple_fence.name=Кленовая ограда
+tile.baobab_fence.name=Баобабовая ограда
+tile.cottonwood_fence.name=Тополевая ограда
+tile.juniper_fence.name=Можжевеловая ограда
+tile.jacaranda_fence.name=Палисандродеревянная ограда
+tile.cherry_blossom_fence.name=Цветущевишневая ограда
+
+tile.willow_fence_gate.name=Ивовая ворота
+tile.mangrove_fence_gate.name=Мангровая ворота
+tile.palm_fence_gate.name=Пальмовая ворота
+tile.redwood_fence_gate.name=Краснодеревянная ворота
+tile.fir_fence_gate.name=Пихтовая ворота
+tile.pine_fence_gate.name=Сосновая ворота
+tile.aspen_fence_gate.name=Осиновая ворота
+tile.maple_fence_gate.name=Кленовая ворота
+tile.baobab_fence_gate.name=Баобабовая ворота
+tile.cottonwood_fence_gate.name=Тополевая ворота
+tile.juniper_fence_gate.name=Можжевеловая ворота
+tile.jacaranda_fence_gate.name=Палисандродеревянная ворота
+tile.cherry_blossom_fence_gate.name=Цветущевишневая ворота
+
+tile.willow_trapdoor.name=Ивовая потолочная дверь
+tile.mangrove_trapdoor.name=Мангровая потолочная дверь
+tile.palm_trapdoor.name=Пальмовая потолочная дверь
+tile.redwood_trapdoor.name=Краснодеревянная потолочная дверь
+tile.fir_trapdoor.name=Пихтовая потолочная дверь
+tile.pine_trapdoor.name=Сосновая потолочная дверь
+tile.aspen_trapdoor.name=Осиновая потолочная дверь
+tile.maple_trapdoor.name=Кленовая потолочная дверь
+tile.baobab_trapdoor.name=Баобабовая потолочная дверь
+tile.cottonwood_trapdoor.name=Тополевая потолочная дверь
+tile.juniper_trapdoor.name=Можжевеловая потолочная дверь
+tile.jacaranda_trapdoor.name=Палисандродеревянная потолочная дверь
+tile.cherry_blossom_trapdoor.name=Цветущевишневая потолочная дверь
+
+tile.wet_adobe.name=Влажный саман
+
+tile.basalt.name=Базальт
+tile.limestone.name=Известняк
+tile.marble.name=Мрамор
+tile.siltstone.name=Алеврит
+tile.adobe.name=Саман
+
+tile.mud.name=Ил
+
+tile.basalt_brick.name=Базальтовые кирпичи
+tile.marble_brick.name=Мраморные кирпичи
+tile.adobe_brick.name=Самановые кирпичи
+
+tile.basalt_stairs.name=Базальтовые ступени
+tile.limestone_stairs.name=Известняковые ступени
+tile.marble_stairs.name=Мраморные ступени
+tile.siltstone_stairs.name=Алевритовые ступени
+tile.adobe_stairs.name=Самановые ступени
+tile.basalt_brick_stairs.name=Базальтовые кирпичные ступени
+tile.marble_brick_stairs.name=Мраморные кирпичные ступени
+tile.adobe_brick_stairs.name=Самановые кирпичные ступени
+
+tile.basalt_slab.name=Базальтовые плита
+tile.limestone_slab.name=Известняковые плита
+tile.marble_slab.name=Мраморные плита
+tile.siltstone_slab.name=Алевритовые плита
+tile.adobe_slab.name=Самановые плита
+tile.basalt_brick_slab.name=Базальтовые кирпичная плита
+tile.marble_brick_slab.name=Мраморные кирпичная плита
+tile.adobe_brick_slab.name=Самановые кирпичная плита
+
+tile.cobblestone_chimney.name=Булыжниковый Chimney
+tile.stone_chimney.name=Stone Chimney
+tile.brick_chimney.name=кирпичная Chimney
+tile.cobblestone_brick_chimney.name=Булыжниковый кирпичная Chimney
+tile.stonebrick_chimney.name=Stone Brick Chimney
+tile.sandstone_chimney.name=Sandstone Chimney
+tile.netherbrick_chimney.name=Netherbrick Chimney
+
+tile.cobblestone_chimney_top.name=Булыжниковый Chimney Top
+tile.stone_chimney_top.name=Stone Chimney Top
+tile.brick_chimney_top.name=Brick Chimney Top
+tile.cobblestone_brick_chimney_top.name=Булыжниковый Brick Chimney Top
+tile.stonebrick_chimney_top.name=Stone Brick Chimney Top
+tile.sandstone_chimney_top.name=Sandstone Chimney Top
+tile.netherbrick_chimney_top.name=Netherbrick Chimney Top
+
+tile.cobblestone_brick_wall.name=Булыжниковый Brick Wall
+
+tile.campfire.name=Костер
+tile.glowstone_lamp_wood.name=Древесная лампа из светящегося камня
+tile.glowstone_lamp_stone.name=Каменная лампа из светящегося камня
+tile.glowstone_lamp_iron.name=Железная лампа из светящегося камня
+tile.candle.name=Свеча
+tile.lantern.name=Фонарь
+tile.lava_lamp.name=Лавовая лампа
+tile.lantern_candle.name=Свечной фонарь
+tile.paper_lantern.name=Бумажный фонарь
+tile.lightbulb.name=Светящаяся лампочка
+tile.ceiling_lamp.name=Потолочный светильник
+tile.circuit_breaker.name=Рубильник
+
+entity.pvj_snail.name=Улитка
+entity.pvj_fly.name=Муха
+entity.pvj_firefly.name=Стрекоза
+entity.pvj_ghost.name=Призрак
+entity.pvj_shade.name=Тень
+entity.pvj_banshee.name=Баньши
+entity.pvj_icecube.name=Ледяной куб
+entity.pvj_skeletal_knight.name=Скелетный рыцарь
+entity.pvj_goon.name=Goon
+entity.pvj_small_spider.name=Малый паук
+entity.pvj_grizzly_bear.name=Медведь гризли
+entity.pvj_watcher.name=Присмотрщик
+entity.pvj_starfish.name=Морская звезда
+entity.pvj_beach_starfish.name=Морская звезда
+entity.pvj_coyote.name=Койот
+
+subtitles.pvj_fly.ambient=Fly buzzes
+subtitles.pvj_ghost.ambient=Ghost sighs
+subtitles.pvj_ghost.hurt=Ghost hurts
+subtitles.pvj_ghost.death=Ghost dies
+subtitles.pvj_goon.ambient=Goon burps
+subtitles.pvj_goon.hurt=Goon hurts
+subtitles.pvj_goon.death=Goon dies
+subtitles.pvj_goon.puke=Goon pukes
+
+#Config
+#----------------------------------------------------------------------------------------------------
+config.pvj.master=1. Основные настройки
+config.pvj.global=2. Глобальные настройки плотности
+config.pvj.worldgen=3. Настройки создания мира
+config.pvj.biomes=4. Настройки биомов
+config.pvj.mobs=5. Настройки мобов
+config.pvj.misc=6. Прочие настройки
+config.pvj.integration=7. Настройки интеграции
+
+#BOP Objects
+#----------------------------------------------------------------------------------------------------
+tile.fallenleaves_bop_yellow_autumn.name=Желтая Осенняя опавшая листва
+tile.fallenleaves_bop_orange_autumn.name=Ораньжевая Осенняя опавшая листва
+tile.fallenleaves_bop_bamboo.name=Бамбуковая опавшая листва
+tile.fallenleaves_bop_magic.name=Магическая опавшая листва
+tile.fallenleaves_bop_umbran.name=Umbran опавшая листва
+tile.fallenleaves_bop_dead.name=Мертвая опавшая листва
+tile.fallenleaves_bop_fir.name=Пихтовая опавшая листва
+tile.fallenleaves_bop_ethereal.name=Эфирная опавшая листва
+tile.fallenleaves_bop_origin.name=Изначальная опавшая листва
+tile.fallenleaves_bop_pink_cherry.name=Розовая Cherry опавшая листва
+tile.fallenleaves_bop_white_cherry.name=Белая  Cherry опавшая листва
+tile.fallenleaves_bop_maple.name=Кленовая опавшая листва
+tile.fallenleaves_bop_hellbark.name=Hellbark опавшая листва
+tile.fallenleaves_bop_flowering.name=Flowering Oak опавшая листва
+tile.fallenleaves_bop_jacaranda.name=Палисандродеревянная опавшая листва
+tile.fallenleaves_bop_sacred_oak.name=Sacred Oak опавшая листва
+tile.fallenleaves_bop_mangrove.name=Мангровая опавшая листва
+tile.fallenleaves_bop_palm.name=Пальмовая опавшая листва
+tile.fallenleaves_bop_redwood.name=Краснодеревянная опавшая листва
+tile.fallenleaves_bop_willow.name=Ивовая опавшая листва
+tile.fallenleaves_bop_pine.name=Сосновая опавшая листва
+tile.fallenleaves_bop_mahogany.name=Mahogany опавшая листва
+tile.fallenleaves_bop_ebony.name=Ebony опавшая листва
+tile.fallenleaves_bop_eucalyptus.name=Евкалиптовая опавшая листва
+tile.fallenleaves_bop_red_big_flower.name=Red опавшая Petals
+tile.fallenleaves_bop_yellow_big_flower.name=Желтая опавшая Petals
+
+tile.yellow_autumn_bop_twigs.name=Желтая Осенняя хворостяная масса
+tile.orange_autumn_bop_twigs.name=Ораньжевая Осенняя хворостяная масса
+tile.bamboo_bop_twigs.name=Бамбуковая хворостяная масса
+tile.magic_bop_twigs.name=Магическая хворостяная масса
+tile.umbran_bop_twigs.name=Umbran хворостяная масса
+tile.dead_bop_twigs.name=Мертвая хворостяная масса
+tile.fir_bop_twigs.name=Пихтовая хворостяная масса
+tile.ethereal_bop_twigs.name=Эфирная хворостяная масса
+tile.origin_bop_twigs.name=Изначальная хворостяная масса
+tile.pink_cherry_bop_twigs.name=Розовая Cherry хворостяная масса
+tile.white_cherry_bop_twigs.name=Белая  Cherry хворостяная масса
+tile.maple_bop_twigs.name=Кленовая хворостяная масса
+tile.hellbark_bop_twigs.name=Hellbark хворостяная масса
+tile.flowering_bop_twigs.name=Flowering Oak хворостяная масса
+tile.jacaranda_bop_twigs.name=Палисандродеревянная хворостяная масса
+tile.sacred_oak_bop_twigs.name=Sacred Oak хворостяная масса
+tile.mangrove_bop_twigs.name=Мангровая хворостяная масса
+tile.palm_bop_twigs.name=Пальмовая хворостяная масса
+tile.redwood_bop_twigs.name=Краснодеревянная хворостяная масса
+tile.willow_bop_twigs.name=Ивовая хворостяная масса
+tile.pine_bop_twigs.name=Сосновая хворостяная масса
+tile.mahogany_bop_twigs.name=Mahogany хворостяная масса
+tile.ebony_bop_twigs.name=Ebony хворостяная масса
+tile.eucalyptus_bop_twigs.name=Евкалиптовый хворостяная масса
+tile.red_big_flower_bop_twigs.name=не используется
+tile.yellow_big_flower_bop_twigs.name=не используется
+
+#Traverse Objects
+#----------------------------------------------------------------------------------------------------
+tile.fallenleaves_traverse_red_autumn.name=Red Осенняя опавшая листва
+tile.fallenleaves_traverse_brown_autumn.name=Brown Осенняя опавшая листва
+tile.fallenleaves_traverse_orange_autumn.name=Ораньжевая Осенняя опавшая листва
+tile.fallenleaves_traverse_yellow_autumn.name=Желтая Осенняя опавшая листва
+tile.fallenleaves_traverse_fir.name=Пихтовая опавшая листва
+
+tile.red_autumn_traverse_twigs.name=Red Осенняя хворостяная масса
+tile.brown_autumn_traverse_twigs.name=Brown Осенняя хворостяная масса
+tile.orange_autumn_traverse_twigs.name=Ораньжевая Осенняя хворостяная масса
+tile.yellow_autumn_traverse_twigs.name=Желтая Осенняя хворостяная масса
+tile.fir_traverse_twigs.name=Пихтовая хворостяная масса
