@@ -39,6 +39,7 @@ public class BiomeReference
 	public static final ArrayList<Biome> MOUNTAIN_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> COYOTE_BIOMES = new ArrayList<Biome>();
 	public static final ArrayList<Biome> MARINE_BIOMES = new ArrayList<Biome>();
+	public static final ArrayList<Biome> DUCK_BIOMES = new ArrayList<Biome>();
 	
 	//TREES LISTS
 	//VANILLA TREES
@@ -150,6 +151,7 @@ public class BiomeReference
 		loadLilyPadBiomes();
 		loadMountainBiomes();
 		loadCoyoteBiomes();
+		loadDuckBiomes();
 		
 		if(Reference.isBOPLoaded)
 			BiomeReferenceBOP.loadBOPBiomes();
@@ -391,7 +393,18 @@ public class BiomeReference
 	public static void loadCoyoteBiomes()
 	{
 		COYOTE_BIOMES.addAll(DESERT_BIOMES);
+		COYOTE_BIOMES.addAll(MESA_BIOMES);
 		COYOTE_BIOMES.add(PVJBiomes.prairie);
+	}
+	
+	public static void loadDuckBiomes()
+	{
+		DUCK_BIOMES.addAll(FRESHWATER_BIOMES);
+		DUCK_BIOMES.removeAll(DESERT_BIOMES);
+		DUCK_BIOMES.removeAll(MESA_BIOMES);
+		DUCK_BIOMES.removeAll(BiomeDictionary.getBiomes(Type.JUNGLE));
+		DUCK_BIOMES.removeAll(BiomeDictionary.getBiomes(Type.SAVANNA));
+		DUCK_BIOMES.removeAll(SNOWY_BIOMES);
 	}
     
     //REMOVE IN 1.13
@@ -407,7 +420,7 @@ public class BiomeReference
 	 * @param biomeList an ArrayList of biome values
 	 * @return array version of biomeList
 	 */
-	public static Biome[] getValidBiomes(ArrayList<Biome> biomeList)
+	public static Biome[] getBiomes(ArrayList<Biome> biomeList)
 	{
 		return biomeList.toArray(new Biome[0]);
 	}

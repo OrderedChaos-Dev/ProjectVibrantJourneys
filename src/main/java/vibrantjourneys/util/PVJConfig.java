@@ -381,9 +381,10 @@ public class PVJConfig
 		public int spiderSpawnWeight = 45;
 		public int starfishWeight = 30;
 		public int starfishBeachWeight = 40;
+		public int duckWeight = 10;
 		
 		public int grizzlyBearSpawnWeight = 5;
-		public int coyoteSpawnWeight = 1;
+		public int coyoteSpawnWeight = 2;
 		
 		public int ghostSpawnWeight = 65;
 		public int watcherSpawnWeight = 20;

@@ -31,6 +31,6 @@ public class BOPBlockInfo
 	
 	public Biome[] getBiomes()
 	{
-		return BiomeReference.getValidBiomes(referenceList);
+		return BiomeReference.getBiomes(referenceList);
 	}
 }

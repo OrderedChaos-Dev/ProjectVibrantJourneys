@@ -60,7 +60,7 @@ public enum EnumWoodType
     
     public Biome[] getTreeBiomes()
     {
-    	return BiomeReference.getValidBiomes(this.homeBiomes);
+    	return BiomeReference.getBiomes(this.homeBiomes);
     }
     
     public static EnumWoodType byId(int id)

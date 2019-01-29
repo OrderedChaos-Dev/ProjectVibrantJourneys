@@ -15,39 +15,39 @@ public class PVJWorldGenBOP
 		if(PVJConfig.master.enableFallenTrees)
 		{
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.FIR_LOG, PVJConfig.integration.bopworldgen.fallenTreeFirDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_FIR_TREES)));
+					BiomeReferenceBOP.FIR_LOG, PVJConfig.integration.bopworldgen.fallenTreeFirDensity, BiomeReference.getBiomes(BiomeReference.BOP_FIR_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.JACARANDA_LOG, PVJConfig.integration.bopworldgen.fallenTreeJacarandaDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_JACARANDA_TREES)));
+					BiomeReferenceBOP.JACARANDA_LOG, PVJConfig.integration.bopworldgen.fallenTreeJacarandaDensity, BiomeReference.getBiomes(BiomeReference.BOP_JACARANDA_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.WILLOW_LOG, PVJConfig.integration.bopworldgen.fallenTreeWillowDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_WILLOW_TREES)));
+					BiomeReferenceBOP.WILLOW_LOG, PVJConfig.integration.bopworldgen.fallenTreeWillowDensity, BiomeReference.getBiomes(BiomeReference.BOP_WILLOW_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.PINE_LOG, PVJConfig.integration.bopworldgen.fallenTreePineDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINE_TREES)));
+					BiomeReferenceBOP.PINE_LOG, PVJConfig.integration.bopworldgen.fallenTreePineDensity, BiomeReference.getBiomes(BiomeReference.BOP_PINE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.CHERRY_LOG, PVJConfig.integration.bopworldgen.fallenTreeCherryDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PINK_CHERRY_TREES)));
+					BiomeReferenceBOP.CHERRY_LOG, PVJConfig.integration.bopworldgen.fallenTreeCherryDensity, BiomeReference.getBiomes(BiomeReference.BOP_PINK_CHERRY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.DEAD_LOG, PVJConfig.integration.bopworldgen.fallenTreeDeadDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_DEAD_TREES)));
+					BiomeReferenceBOP.DEAD_LOG, PVJConfig.integration.bopworldgen.fallenTreeDeadDensity, BiomeReference.getBiomes(BiomeReference.BOP_DEAD_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.EBONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeEbonyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EBONY_TREES)));
+					BiomeReferenceBOP.EBONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeEbonyDensity, BiomeReference.getBiomes(BiomeReference.BOP_EBONY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.EUCALYPTUS_LOG, PVJConfig.integration.bopworldgen.fallenTreeEucalyptusDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_EUCALYPTUS_TREES)));
+					BiomeReferenceBOP.EUCALYPTUS_LOG, PVJConfig.integration.bopworldgen.fallenTreeEucalyptusDensity, BiomeReference.getBiomes(BiomeReference.BOP_EUCALYPTUS_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MAHOGONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeMahoganyDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAHOGANY_TREES)));
+					BiomeReferenceBOP.MAHOGONY_LOG, PVJConfig.integration.bopworldgen.fallenTreeMahoganyDensity, BiomeReference.getBiomes(BiomeReference.BOP_MAHOGANY_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MAGIC_LOG, PVJConfig.integration.bopworldgen.fallenTreeMagicDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAGIC_TREES)));
+					BiomeReferenceBOP.MAGIC_LOG, PVJConfig.integration.bopworldgen.fallenTreeMagicDensity, BiomeReference.getBiomes(BiomeReference.BOP_MAGIC_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.PALM_LOG, PVJConfig.integration.bopworldgen.fallenTreePalmDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_PALM_TREES)));
+					BiomeReferenceBOP.PALM_LOG, PVJConfig.integration.bopworldgen.fallenTreePalmDensity, BiomeReference.getBiomes(BiomeReference.BOP_PALM_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.MANGROVE_LOG, PVJConfig.integration.bopworldgen.fallenTreeMangroveDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MANGROVE_TREES)));
+					BiomeReferenceBOP.MANGROVE_LOG, PVJConfig.integration.bopworldgen.fallenTreeMangroveDensity, BiomeReference.getBiomes(BiomeReference.BOP_MANGROVE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.REDWOOD_LOG, PVJConfig.integration.bopworldgen.fallenTreeRedwoodDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_REDWOOD_TREES)));
+					BiomeReferenceBOP.REDWOOD_LOG, PVJConfig.integration.bopworldgen.fallenTreeRedwoodDensity, BiomeReference.getBiomes(BiomeReference.BOP_REDWOOD_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.SACRED_OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeSacredOakDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_SACRED_OAK_TREES)));
+					BiomeReferenceBOP.SACRED_OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeSacredOakDensity, BiomeReference.getBiomes(BiomeReference.BOP_SACRED_OAK_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReferenceBOP.UMBRAN_LOG, PVJConfig.integration.bopworldgen.fallenTreeUmbranDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_UMBRAN_TREES)));
+					BiomeReferenceBOP.UMBRAN_LOG, PVJConfig.integration.bopworldgen.fallenTreeUmbranDensity, BiomeReference.getBiomes(BiomeReference.BOP_UMBRAN_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeMapleDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_MAPLE_TREES)));
+					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeMapleDensity, BiomeReference.getBiomes(BiomeReference.BOP_MAPLE_TREES)));
 			PVJWorldGen.registerWorldGen(new WorldGenFallenTree(
-					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeAutumnDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_YELLOW_AUTUMN_TREES)));
+					BiomeReference.OAK_LOG, PVJConfig.integration.bopworldgen.fallenTreeAutumnDensity, BiomeReference.getBiomes(BiomeReference.BOP_YELLOW_AUTUMN_TREES)));
 		}
 
 		if(PVJConfig.master.enableGroundcover)
@@ -55,7 +55,7 @@ public class PVJWorldGenBOP
 			if(PVJConfig.master.enableFallenLeaves)
 			{
 				PVJWorldGen.registerWorldGen(new WorldGenFallenLeaves(
-						PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.getValidBiomes(BiomeReference.BOP_DEAD_TREES)));
+						PVJBlocks.fallenleaves_dead, PVJConfig.worldgen.fallenLeavesDeadDensity, BiomeReference.getBiomes(BiomeReference.BOP_DEAD_TREES)));
 				
 				for(BOPBlockInfo info : PVJBlocksBOP.BLOCK_INFO_FALLENLEAVES)
 				{
