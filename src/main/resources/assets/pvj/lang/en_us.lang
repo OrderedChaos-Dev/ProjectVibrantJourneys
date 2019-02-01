@@ -387,6 +387,7 @@ entity.pvj_watcher.name=Watcher
 entity.pvj_starfish.name=Starfish
 entity.pvj_beach_starfish.name=Starfish
 entity.pvj_coyote.name=Coyote
+entity.pvj_duck.name=Duck
 
 subtitles.pvj_fly.ambient=Fly buzzes
 subtitles.pvj_ghost.ambient=Ghost sighs

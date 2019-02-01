@@ -354,6 +354,7 @@ public class PVJConfig
 		public boolean allowBeachVillages = true;
 		
 		public int abandonedFarmWeight = 15;
+		public int ruinsWeight = 15;
 		
 		@Config.Comment({
 			"Use dimension ids, separate by commas. Do not use spaces"

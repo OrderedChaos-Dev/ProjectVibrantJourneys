@@ -41,6 +41,7 @@ import vibrantjourneys.worldgen.WorldGenPalmTreeBeach;
 import vibrantjourneys.worldgen.WorldGenPillowBasalt;
 import vibrantjourneys.worldgen.WorldGenRiverGrass;
 import vibrantjourneys.worldgen.WorldGenRocks;
+import vibrantjourneys.worldgen.WorldGenRuins;
 import vibrantjourneys.worldgen.WorldGenSeaOats;
 import vibrantjourneys.worldgen.WorldGenShortGrass;
 import vibrantjourneys.worldgen.WorldGenSmallBush;
@@ -272,6 +273,8 @@ public class PVJWorldGen
 			ProjectVibrantJourneys.logger.info("End plants disabled");
 		
 		registerWorldGen(new WorldGenAbandonedFarm(PVJConfig.worldgen.abandonedFarmWeight, BiomeDictionary.getBiomes(Type.PLAINS).toArray(new Biome[0])));
+		registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.OAK_TREES)));
+		registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.BIRCH_TREES)));
 		
 		if(Reference.isBOPLoaded)
 			PVJWorldGenBOP.initWorldGenBOP();

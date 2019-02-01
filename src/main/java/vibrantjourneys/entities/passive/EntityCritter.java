@@ -28,6 +28,15 @@ public class EntityCritter extends EntityAnimal
         return true;
     }
 	
+	@Override
+    public boolean getCanSpawnHere()
+    {
+		if(this.posY < 55)
+			return false;
+		
+		return super.getCanSpawnHere();
+    }
+	
     @Override
     protected void collideWithEntity(Entity entityIn){}
 

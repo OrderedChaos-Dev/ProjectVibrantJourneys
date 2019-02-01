@@ -14,4 +14,5 @@ public class PVJLootTableList
 	public static final ResourceLocation WATCHER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "watcher"));
 	
 	public static final ResourceLocation ABANDONED_FARM = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "abandoned_farm"));
+	public static final ResourceLocation RUINS = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "ruins"));
 }

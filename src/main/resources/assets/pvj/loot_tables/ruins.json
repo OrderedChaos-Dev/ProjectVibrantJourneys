@@ -1,7 +1,7 @@
 {
     "pools": [
         {
-        	"name":"abandoned_farm",
+        	"name":"ruins",
             "rolls": {
                 "min": 2,
                 "max": 4
@@ -9,35 +9,7 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:carrot",
-                    "functions": [
-                        {
-                            "function": "set_count",
-                            "count": {
-                                "min": 1,
-                                "max": 3
-                            }
-                        }
-                    ],
-                    "weight": 15
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:potato",
-                    "functions": [
-                        {
-                            "function": "set_count",
-                            "count": {
-                                "min": 1,
-                                "max": 3
-                            }
-                        }
-                    ],
-                    "weight": 15
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:wheat_seeds",
+                    "name": "minecraft:cobblestone",
                     "functions": [
                         {
                             "function": "set_count",
@@ -79,7 +51,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:wheat",
+                    "name": "minecraft:coal",
                     "functions": [
                         {
                             "function": "set_count",
@@ -93,37 +65,17 @@
                 },
                 {
                     "type": "item",
-                    "name": "minecraft:rotten_flesh",
+                    "name": "minecraft:iron_ingot",
                     "functions": [
                         {
                             "function": "set_count",
                             "count": {
-                                "min": 3,
-                                "max": 7
+                                "min": 1,
+                                "max": 4
                             }
                         }
                     ],
                     "weight": 25
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:saddle",
-                    "weight": 20
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:iron_horse_armor",
-                    "weight": 15
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:golden_horse_armor",
-                    "weight": 10
-                },
-                {
-                    "type": "item",
-                    "name": "minecraft:diamond_horse_armor",
-                    "weight": 5
                 },
                 {
                     "type": "item",
@@ -137,7 +89,7 @@
             ]
         },
         {
-            "name":"abandoned_farm1",
+            "name":"ruins1",
             "rolls": 4,
             "entries": [
                 {
