@@ -16,6 +16,7 @@ import vibrantjourneys.util.EnumStoneType;
 import vibrantjourneys.util.EnumWoodType;
 import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.Reference;
+import vibrantjourneys.worldgen.WorldGenAbandonedFarm;
 import vibrantjourneys.worldgen.WorldGenBeachGrass;
 import vibrantjourneys.worldgen.WorldGenBoulder;
 import vibrantjourneys.worldgen.WorldGenBracketFungus;
@@ -269,6 +270,8 @@ public class PVJWorldGen
 		}
 		else
 			ProjectVibrantJourneys.logger.info("End plants disabled");
+		
+		registerWorldGen(new WorldGenAbandonedFarm(PVJConfig.worldgen.abandonedFarmWeight, BiomeDictionary.getBiomes(Type.PLAINS).toArray(new Biome[0])));
 		
 		if(Reference.isBOPLoaded)
 			PVJWorldGenBOP.initWorldGenBOP();
