@@ -3,6 +3,7 @@ package vibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -31,6 +32,8 @@ public class PVJItems
 	public static Item cooked_squid;
 	public static Item sugarcane_juice;
 	public static Item cactus_salad;
+	public static Item raw_duck;
+	public static Item cooked_duck;
 	
 	public static Item aquamarine;
 	
@@ -60,6 +63,8 @@ public class PVJItems
 		cooked_squid = registerItem(new ItemFood(7, 0.7F, false), "cooked_squid");
 		sugarcane_juice = registerItem(new ItemBeverage(2, 0.2F, "speed", 100), "sugarcane_juice");
 		cactus_salad = registerItem(new ItemFood(4, 0.3F, false).setContainerItem(Items.BOWL), "cactus_salad");
+		raw_duck = registerItem(new ItemFood(2, 0.3F, true).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 600, 0), 0.3F), "raw_duck");
+		cooked_duck = registerItem(new ItemFood(6, 0.6F, true), "cooked_duck");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");

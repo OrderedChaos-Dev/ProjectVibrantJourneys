@@ -41,7 +41,7 @@ public class WorldGenBoulder implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				if(random.nextInt(200) == 0)
+				if(random.nextInt(250) == 0)
 				{
 					int xPos = x + random.nextInt(8) + 8;
 					int zPos = z + random.nextInt(8) + 8;

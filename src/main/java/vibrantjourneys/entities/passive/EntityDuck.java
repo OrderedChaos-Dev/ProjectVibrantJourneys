@@ -23,7 +23,6 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -42,14 +41,12 @@ public class EntityDuck extends EntityAnimal
     public float oFlapSpeed;
     public float oFlap;
     public float wingRotDelta = 1.0F;
-    public int timeUntilNextEgg;
 
     public EntityDuck(World worldIn)
     {
         super(worldIn);
         this.setSize(0.4F, 0.7F);
-        this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
-        this.setPathPriority(PathNodeType.WATER, 1.0F);
+        this.setPathPriority(PathNodeType.WATER, 2.0F);
     }
 
     @Override
@@ -101,13 +98,6 @@ public class EntityDuck extends EntityAnimal
         }
 
         this.wingRotation += this.wingRotDelta * 2.0F;
-
-        if (!this.world.isRemote && !this.isChild() && --this.timeUntilNextEgg <= 0)
-        {
-            this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
-            this.dropItem(Items.EGG, 1);
-            this.timeUntilNextEgg = this.rand.nextInt(6000) + 6000;
-        }
     }
 
     @Override
@@ -156,24 +146,6 @@ public class EntityDuck extends EntityAnimal
     public boolean isBreedingItem(ItemStack stack)
     {
         return TEMPTATION_ITEMS.contains(stack.getItem());
-    }
-
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound)
-    {
-        super.readEntityFromNBT(compound);
-
-        if (compound.hasKey("EggLayTime"))
-        {
-            this.timeUntilNextEgg = compound.getInteger("EggLayTime");
-        }
-    }
-
-    @Override
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
-        super.writeEntityToNBT(compound);
-        compound.setInteger("EggLayTime", this.timeUntilNextEgg);
     }
 
 	@Override
