@@ -272,9 +272,14 @@ public class PVJWorldGen
 		else
 			ProjectVibrantJourneys.logger.info("End plants disabled");
 		
-		registerWorldGen(new WorldGenAbandonedFarm(PVJConfig.worldgen.abandonedFarmWeight, BiomeDictionary.getBiomes(Type.PLAINS).toArray(new Biome[0])));
-		registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.OAK_TREES)));
-		registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.BIRCH_TREES)));
+		if(PVJConfig.master.enableStructures)
+		{
+			registerWorldGen(new WorldGenAbandonedFarm(PVJConfig.worldgen.abandonedFarmWeight, BiomeDictionary.getBiomes(Type.PLAINS).toArray(new Biome[0])));
+			registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.OAK_TREES)));
+			registerWorldGen(new WorldGenRuins(PVJConfig.worldgen.ruinsWeight, BiomeReference.getBiomes(BiomeReference.BIRCH_TREES)));
+		}
+		else
+			ProjectVibrantJourneys.logger.info("Structures disabled");
 		
 		if(Reference.isBOPLoaded)
 			PVJWorldGenBOP.initWorldGenBOP();

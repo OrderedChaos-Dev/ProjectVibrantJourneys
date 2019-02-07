@@ -89,8 +89,11 @@ public class PVJConfig
 		@Config.Name("Groundcover: Enable Flower Patch")
 		public boolean enableFlowerPatches = true;
 		
-		@Config.Name("Structures: Enable Fallen Trees")
+		@Config.Name("Environment: Enable Fallen Trees")
 		public boolean enableFallenTrees = true;
+		
+		@Config.Name("Structures: Enable Structures")
+		public boolean enableStructures = true;
 		
 		@Config.Name("Biomes: Enable Biomes")
 		public boolean enableBiomes = true;
@@ -384,6 +387,7 @@ public class PVJConfig
 		public int spiderSpawnWeight = 45;
 		public int starfishWeight = 30;
 		public int starfishBeachWeight = 40;
+		public int clamWeight = 50;
 		public int duckWeight = 10;
 		
 		public int grizzlyBearSpawnWeight = 5;

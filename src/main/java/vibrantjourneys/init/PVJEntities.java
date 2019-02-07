@@ -30,6 +30,7 @@ import vibrantjourneys.entities.neutral.EntityGhost;
 import vibrantjourneys.entities.neutral.EntityGrizzlyBear;
 import vibrantjourneys.entities.neutral.EntityWatcher;
 import vibrantjourneys.entities.passive.EntityBeachStarfish;
+import vibrantjourneys.entities.passive.EntityClam;
 import vibrantjourneys.entities.passive.EntityDuck;
 import vibrantjourneys.entities.passive.EntityFirefly;
 import vibrantjourneys.entities.passive.EntityFly;
@@ -52,6 +53,7 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D);
 		registerEntityWithEgg("pvj_small_spider", EntitySmallSpider.class, 64, 0x001a00, 0x4d0000);
 		registerEntityWithEgg("pvj_starfish", EntityStarfish.class, 64, 0x6D453D, 0x677B5C);
+		registerEntityWithEgg("pvj_clam", EntityClam.class, 64, 0x6D453D, 0x677B5C);
 		registerEntityWithEgg("pvj_duck", EntityDuck.class, 64, 0x41241c, 0x095326);
 		
 		registerEntityWithEgg("pvj_grizzly_bear", EntityGrizzlyBear.class, 64, 0x7A452B, 0x3C2113);
@@ -109,8 +111,10 @@ public class PVJEntities
 			addSpawn(EntityStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.MARINE_BIOMES));
 			addSpawn(EntityBeachStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.BEACH_BIOMES));
 			addSpawn(EntityDuck.class, PVJConfig.entities.duckWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getBiomes(BiomeReference.DUCK_BIOMES));
+			addSpawn(EntityClam.class, PVJConfig.entities.clamWeight, 1, 3, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.FRESHWATER_BIOMES));
 			
 			EntitySpawnPlacementRegistry.setPlacementType(EntityStarfish.class, SpawnPlacementType.IN_WATER);
+			EntitySpawnPlacementRegistry.setPlacementType(EntityClam.class, SpawnPlacementType.IN_WATER);
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Passive mobs disabled");

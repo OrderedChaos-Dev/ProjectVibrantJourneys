@@ -63,7 +63,7 @@ public class WorldGenAbandonedFarm implements IWorldGenerator
 			{
 				for(int i = 0; i < frequency; i++)
 				{
-					if(random.nextInt(3000) == 0)
+					if(random.nextInt(5000) == 0)
 					{
 						WorldServer server = DimensionManager.getWorld(0);
 						TemplateManager manager = server.getStructureTemplateManager();

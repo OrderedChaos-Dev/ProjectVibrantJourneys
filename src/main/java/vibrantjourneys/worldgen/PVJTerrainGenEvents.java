@@ -93,11 +93,10 @@ public class PVJTerrainGenEvents
 		{
 			if(BiomeReference.BAOBAB_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(170) < PVJConfig.worldgen.baobabDensity)
+				if(event.getRand().nextInt(200) < PVJConfig.worldgen.baobabDensity)
 				{
-					BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(8, 0, 8));
+					BlockPos pos = event.getWorld().getHeight(event.getChunkPos().getBlock(13, 0, 13));
 					(new WorldGenBaobabTree(false, 15, 6)).generate(event.getWorld(), event.getRand(), pos);
-					event.setResult(Result.DENY);
 				}
 			}
 			if(BiomeReference.MOUNTAIN_BIOMES.contains(biome) || BiomeReference.SPRUCE_TREES.contains(biome))
