@@ -49,6 +49,7 @@ public class PVJCrafting
 		fuelHandler.addFuel(PVJBlocks.jungle_twigs, 100);
 		fuelHandler.addFuel(PVJBlocks.dark_oak_twigs, 100);
 		fuelHandler.addFuel(PVJBlocks.acacia_twigs, 100);
+		fuelHandler.addFuel(PVJBlocks.pinecones, 100);
 		for(Block twigs : PVJBlocks.TWIGS)
 		{
 			fuelHandler.addFuel(twigs, 100);
