@@ -49,6 +49,7 @@ public class BlockPVJSapling extends BlockBush implements IGrowable, IPropertyHe
     	this.setSoundType(SoundType.PLANT);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
         this.leafType = leafType;
+        Blocks.FIRE.setFireInfo(this, 30, 60);
     }
 
     @Override

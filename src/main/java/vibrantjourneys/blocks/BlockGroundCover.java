@@ -15,6 +15,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
@@ -46,6 +47,9 @@ public class BlockGroundCover extends Block implements IPropertyHelper
 			this.setSoundType(SoundType.WOOD);
 		this.groundcoverType = type;
 		this.setHardness(0.1F);
+		
+		if(type == GroundcoverType.TWIGS || type == GroundcoverType.PINECONES)
+	        Blocks.FIRE.setFireInfo(this, 30, 60);
 	}
 	
 	public GroundcoverType getGroundcoverType()
