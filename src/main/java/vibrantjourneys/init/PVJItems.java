@@ -12,6 +12,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.ResourceLocation;
 import vibrantjourneys.items.ItemBeverage;
+import vibrantjourneys.items.ItemClamChowder;
 import vibrantjourneys.items.ItemMysticalFood;
 import vibrantjourneys.items.ItemPVJBoat;
 import vibrantjourneys.util.CreativeTabPVJ;
@@ -70,7 +71,7 @@ public class PVJItems
 		cooked_duck = registerItem(new ItemFood(6, 0.6F, true), "cooked_duck");
 		clam = registerItem(new ItemFood(1, 0.2F, false).setPotionEffect(new PotionEffect(MobEffects.POISON, 500, 0), 0.8F), "clam");
 		steamed_clam = registerItem(new ItemFood(6, 0.4F, false), "steamed_clam_meat");
-		clam_chowder = registerItem(new ItemFood(8, 0.9F, false), "clam_chowder");
+		clam_chowder = registerItem(new ItemClamChowder(10, 0.9F), "clam_chowder");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");

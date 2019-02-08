@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "pvj:steamed_clam_meat",
+			"data": 0
+		},
+		{
+			"item": "pvj:steamed_clam_meat",
+			"data": 0
+		},
+		{
+			"item": "minecraft:bowl",
+			"data": 0
+		},
+		{
+			"item": "minecraft:potato",
+			"data": 0
+		},
+		{
+			"item": "minecraft:carrot",
+			"data": 0
+		}
+	],
+	"result": {
+		"item": "pvj:clam_chowder",
+		"count": 1,
+		"data": 0
+	}
+}
