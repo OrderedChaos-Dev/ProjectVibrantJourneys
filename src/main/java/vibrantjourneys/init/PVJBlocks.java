@@ -10,21 +10,14 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
 import vibrantjourneys.ProjectVibrantJourneys;
-import vibrantjourneys.blocks.BlockCampfire;
-import vibrantjourneys.blocks.BlockCandle;
-import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockChimney;
 import vibrantjourneys.blocks.BlockChimneyTop;
-import vibrantjourneys.blocks.BlockCircuitBreaker;
 import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
 import vibrantjourneys.blocks.BlockFallenLeaves;
-import vibrantjourneys.blocks.BlockGlowstoneLamp;
 import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
-import vibrantjourneys.blocks.BlockLantern;
-import vibrantjourneys.blocks.BlockLightbulb;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.BlockRockFormation;
@@ -149,17 +142,6 @@ public class PVJBlocks
 						sandstone_chimney_top, netherbrick_chimney_top;
 	
 	public static Block cobblestone_brick_wall;
-	
-	public static Block campfire;
-	public static Block candle;
-	public static Block glowstone_lamp_wood, glowstone_lamp_stone, glowstone_lamp_iron;
-	public static Block lantern;
-	public static Block lantern_candle;
-	public static Block lava_lamp;
-	public static Block paper_lantern;
-	public static Block lightbulb;
-	public static Block ceiling_lamp;
-	public static Block circuit_breaker;
 	
 	public static Block redwood_bark;
 	
@@ -346,24 +328,6 @@ public class PVJBlocks
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Chimneys disabled, skipping");
-		
-		if(PVJConfig.master.enableLighting)
-		{
-			campfire = registerBlock(new BlockCampfire(), "campfire");
-			candle = registerBlock(new BlockCandle(), "candle");
-			glowstone_lamp_wood = registerBlock(new BlockGlowstoneLamp(Material.WOOD), "glowstone_lamp_wood");
-			glowstone_lamp_stone = registerBlock(new BlockGlowstoneLamp(Material.ROCK), "glowstone_lamp_stone");
-			glowstone_lamp_iron = registerBlock(new BlockGlowstoneLamp(Material.IRON), "glowstone_lamp_iron");
-			lantern = registerBlock(new BlockLantern(BlockLantern.Type.NORMAL), "lantern");
-			lantern_candle = registerBlock(new BlockLantern(BlockLantern.Type.CANDLE), "lantern_candle");
-			lava_lamp = registerBlock(new BlockLantern(BlockLantern.Type.LAVA), "lava_lamp");
-			paper_lantern = registerBlock(new BlockLantern(BlockLantern.Type.PAPER), "paper_lantern");
-			lightbulb = registerBlock(new BlockLightbulb(), "lightbulb");
-			ceiling_lamp = registerBlock(new BlockCeilingLamp(), "ceiling_lamp");
-			circuit_breaker = registerBlock(new BlockCircuitBreaker(), "circuit_breaker");
-		}
-		else
-			ProjectVibrantJourneys.logger.info("Lighting blocks disabled, shame!");
 		
 		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
 		ice_formation = registerBlock(new BlockRockFormation(), "ice_formation");

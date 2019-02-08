@@ -1,7 +1,0 @@
-{
-	"variants": {
-		"hanging=false": { "model": "pvj:paper_lantern" },
-		"hanging=true": { "model": "pvj:paper_lantern_hanging" }
-	}
-}
-

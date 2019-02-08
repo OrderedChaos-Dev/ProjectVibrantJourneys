@@ -364,19 +364,6 @@ tile.netherbrick_chimney_top.name=Netherbrick Chimney Top
 
 tile.cobblestone_brick_wall.name=Cobblestone Brick Wall
 
-tile.campfire.name=Campfire
-tile.glowstone_lamp_wood.name=Wooden Glowstone Lamp
-tile.glowstone_lamp_stone.name=Stone Glowstone Lamp
-tile.glowstone_lamp_iron.name=Iron Glowstone Lamp
-tile.candle.name=Candle
-tile.lantern.name=Lantern
-tile.lava_lamp.name=Lava Lamp
-tile.lantern_candle.name=Candle Lantern
-tile.paper_lantern.name=Paper Lantern
-tile.lightbulb.name=Light Bulb
-tile.ceiling_lamp.name=Ceiling Lamp
-tile.circuit_breaker.name=Circuit Breaker
-
 entity.pvj_snail.name=Snail
 entity.pvj_fly.name=Fly
 entity.pvj_firefly.name=Firefly

@@ -1,7 +1,0 @@
-{
-	"variants": {
-		"hanging=false": { "model": "pvj:lava_lamp" },
-		"hanging=true": { "model": "pvj:lava_lamp_hanging" }
-	}
-}
-

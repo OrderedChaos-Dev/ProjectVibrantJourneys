@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.registries.IForgeRegistry;
 import vibrantjourneys.ProjectVibrantJourneys;
-import vibrantjourneys.blocks.BlockCeilingLamp;
 import vibrantjourneys.blocks.BlockMysticalGrill;
 import vibrantjourneys.blocks.wood.BlockPVJDoor;
 import vibrantjourneys.blocks.wood.BlockPVJFenceGate;
@@ -71,7 +70,6 @@ public class PVJRegistryEvents
 		}
 		
 		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.mystical_grill), BlockMysticalGrill.IS_COOKING);
-		ProjectVibrantJourneys.proxy.setIgnoredPropertiesForModel(Item.getItemFromBlock(PVJBlocks.ceiling_lamp), BlockCeilingLamp.POWERED);
 	}
 	
 	/*

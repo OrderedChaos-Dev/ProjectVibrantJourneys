@@ -125,9 +125,6 @@ public class PVJConfig
 		@Config.Name("Building: Enable Chimneys")
 		public boolean enableChimneys = true;
 		
-		@Config.Name("Building: Enable Lighting Blocks")
-		public boolean enableLighting = true;
-		
 		@Config.Name("Building: Enable Stone Blocks")
 		public boolean enableStoneTypeBlocks = true;
 		

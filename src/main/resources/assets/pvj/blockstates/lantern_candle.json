@@ -1,7 +1,0 @@
-{
-	"variants": {
-		"hanging=false": { "model": "pvj:lantern_candle" },
-		"hanging=true": { "model": "pvj:lantern_candle_hanging" }
-	}
-}
-

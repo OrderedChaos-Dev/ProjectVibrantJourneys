@@ -2,7 +2,6 @@ package vibrantjourneys.init;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import vibrantjourneys.tileentities.TileEntityCampfire;
 import vibrantjourneys.tileentities.TileEntityChimneyTop;
 import vibrantjourneys.tileentities.TileEntityMysticalGrill;
 import vibrantjourneys.util.PVJConfig;
@@ -17,8 +16,5 @@ public class PVJTileEntities
 		
 		if(PVJConfig.master.enableChimneys)
 			GameRegistry.registerTileEntity(TileEntityChimneyTop.class, new ResourceLocation(Reference.MOD_ID, "chimney_top"));
-		
-		if(PVJConfig.master.enableLighting)
-			GameRegistry.registerTileEntity(TileEntityCampfire.class, new ResourceLocation(Reference.MOD_ID, "campfire"));
 	}
 }
