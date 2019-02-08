@@ -64,13 +64,13 @@ public class PVJItems
 		juniper_berries = registerItem(new ItemFood(3, 0.2F, false).setPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("regeneration"), 60), 1.0F), "juniper_berries");
 		raw_squid = registerItem(new ItemFood(2, 0.3F, false), "raw_squid");
 		cooked_squid = registerItem(new ItemFood(7, 0.7F, false), "cooked_squid");
-		sugarcane_juice = registerItem(new ItemBeverage(2, 0.2F, "speed", 100), "sugarcane_juice");
+		sugarcane_juice = registerItem(new ItemBeverage(2, 0.1F, "speed", 100), "sugarcane_juice");
 		cactus_salad = registerItem(new ItemFood(4, 0.3F, false).setContainerItem(Items.BOWL), "cactus_salad");
 		raw_duck = registerItem(new ItemFood(2, 0.3F, true).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 600, 0), 0.3F), "raw_duck");
 		cooked_duck = registerItem(new ItemFood(6, 0.6F, true), "cooked_duck");
 		clam = registerItem(new ItemFood(1, 0.2F, false).setPotionEffect(new PotionEffect(MobEffects.POISON, 500, 0), 0.8F), "clam");
 		steamed_clam = registerItem(new ItemFood(6, 0.4F, false), "steamed_clam_meat");
-		clam_chowder = registerItem(new ItemFood(8, 0.8F, false), "clam_chowder");
+		clam_chowder = registerItem(new ItemFood(8, 0.9F, false), "clam_chowder");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");
