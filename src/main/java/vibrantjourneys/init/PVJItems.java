@@ -54,8 +54,6 @@ public class PVJItems
 	public static Item mystical_potato;
 	public static Item mystical_rabbit;
 	
-	public static Item wax;
-	
 	public static void initItems()
 	{
 		slime_droplet = registerItem(new Item(), "slime_droplet");
@@ -76,8 +74,6 @@ public class PVJItems
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");
 		unstable_essence = registerItem(new Item(), "unstable_essence");
-		
-		wax = registerItem(new Item(), "wax");
 		
 		for(EnumWoodType woodType : EnumWoodType.values())
 		{
