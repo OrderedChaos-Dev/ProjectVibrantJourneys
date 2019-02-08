@@ -1,8 +1,0 @@
-{
- 	"parent": "pvj:block/chimney_top",
- 	"textures": {
- 	 	"particle": "blocks/nether_brick",
- 		"0": "blocks/nether_brick",
- 		"1": "blocks/stone_slab_top"
- 	}
- }

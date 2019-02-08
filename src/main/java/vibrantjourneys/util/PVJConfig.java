@@ -122,9 +122,6 @@ public class PVJConfig
 		@Config.Name("Building: Enable Mystical Grill")
 		public boolean enableMysticalGrill = true;
 		
-		@Config.Name("Building: Enable Chimneys")
-		public boolean enableChimneys = true;
-		
 		@Config.Name("Building: Enable Stone Blocks")
 		public boolean enableStoneTypeBlocks = true;
 		

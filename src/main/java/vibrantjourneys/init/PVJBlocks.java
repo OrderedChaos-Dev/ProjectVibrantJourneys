@@ -10,8 +10,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.util.ResourceLocation;
 import vibrantjourneys.ProjectVibrantJourneys;
-import vibrantjourneys.blocks.BlockChimney;
-import vibrantjourneys.blocks.BlockChimneyTop;
 import vibrantjourneys.blocks.BlockCobblestoneBrickWall;
 import vibrantjourneys.blocks.BlockCoconut;
 import vibrantjourneys.blocks.BlockCrackedSand;
@@ -134,12 +132,6 @@ public class PVJBlocks
 	public static Block aquamarine_ore, aquamarine_block;
 	
 	public static Block mystical_grill;
-	
-	public static Block cobblestone_chimney, stone_chimney, brick_chimney, stonebrick_chimney, cobblestone_brick_chimney,
-						sandstone_chimney, netherbrick_chimney;
-	
-	public static Block cobblestone_chimney_top, stone_chimney_top, brick_chimney_top, stonebrick_chimney_top, cobblestone_brick_chimney_top,
-						sandstone_chimney_top, netherbrick_chimney_top;
 	
 	public static Block cobblestone_brick_wall;
 	
@@ -306,28 +298,6 @@ public class PVJBlocks
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Mystical grill disabled, skipping");
-		
-		
-		if(PVJConfig.master.enableChimneys)
-		{
-			cobblestone_chimney = registerBlock(new BlockChimney(), "cobblestone_chimney");
-			stone_chimney = registerBlock(new BlockChimney(), "stone_chimney");
-			brick_chimney = registerBlock(new BlockChimney(), "brick_chimney");
-			stonebrick_chimney = registerBlock(new BlockChimney(), "stonebrick_chimney");
-			cobblestone_brick_chimney = registerBlock(new BlockChimney(), "cobblestone_brick_chimney");
-			sandstone_chimney = registerBlock(new BlockChimney(), "sandstone_chimney");
-			netherbrick_chimney = registerBlock(new BlockChimney(), "netherbrick_chimney");
-			
-			cobblestone_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_chimney_top");
-			stone_chimney_top = registerBlock(new BlockChimneyTop(), "stone_chimney_top");
-			brick_chimney_top = registerBlock(new BlockChimneyTop(), "brick_chimney_top");
-			stonebrick_chimney_top = registerBlock(new BlockChimneyTop(), "stonebrick_chimney_top");
-			cobblestone_brick_chimney_top = registerBlock(new BlockChimneyTop(), "cobblestone_brick_chimney_top");
-			sandstone_chimney_top = registerBlock(new BlockChimneyTop(), "sandstone_chimney_top");
-			netherbrick_chimney_top = registerBlock(new BlockChimneyTop(), "netherbrick_chimney_top");
-		}
-		else
-			ProjectVibrantJourneys.logger.info("Chimneys disabled, skipping");
 		
 		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
 		ice_formation = registerBlock(new BlockRockFormation(), "ice_formation");

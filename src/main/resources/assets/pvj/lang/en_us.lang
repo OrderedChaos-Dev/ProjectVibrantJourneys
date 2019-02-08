@@ -346,22 +346,6 @@ tile.basalt_brick_slab.name=Basalt Brick Slab
 tile.marble_brick_slab.name=Marble Brick Slab
 tile.adobe_brick_slab.name=Adobe Brick Slab
 
-tile.cobblestone_chimney.name=Cobblestone Chimney
-tile.stone_chimney.name=Stone Chimney
-tile.brick_chimney.name=Brick Chimney
-tile.cobblestone_brick_chimney.name=Cobblestone Brick Chimney
-tile.stonebrick_chimney.name=Stone Brick Chimney
-tile.sandstone_chimney.name=Sandstone Chimney
-tile.netherbrick_chimney.name=Netherbrick Chimney
-
-tile.cobblestone_chimney_top.name=Cobblestone Chimney Top
-tile.stone_chimney_top.name=Stone Chimney Top
-tile.brick_chimney_top.name=Brick Chimney Top
-tile.cobblestone_brick_chimney_top.name=Cobblestone Brick Chimney Top
-tile.stonebrick_chimney_top.name=Stone Brick Chimney Top
-tile.sandstone_chimney_top.name=Sandstone Chimney Top
-tile.netherbrick_chimney_top.name=Netherbrick Chimney Top
-
 tile.cobblestone_brick_wall.name=Cobblestone Brick Wall
 
 entity.pvj_snail.name=Snail

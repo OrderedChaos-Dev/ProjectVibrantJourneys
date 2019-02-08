@@ -1,8 +1,0 @@
-{
- 	"parent": "pvj:block/chimney_top",
- 	"textures": {
- 	 	"particle": "blocks/sandstone_top",
- 		"0": "blocks/sandstone_top",
- 		"1": "blocks/stone_slab_top"
- 	}
- }

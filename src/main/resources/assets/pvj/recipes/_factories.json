@@ -1,6 +1,5 @@
 {
 	"conditions": {
-		"chimneys_enabled": "vibrantjourneys.crafting.ChimneyConditionFactory",
 		"mystical_grill_enabled": "vibrantjourneys.crafting.MysticalGrillConditionFactory"
 	}
 }

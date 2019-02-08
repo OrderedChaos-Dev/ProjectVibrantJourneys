@@ -1,8 +1,0 @@
-{
- 	"parent": "pvj:block/chimney_top",
- 	"textures": {
- 	 	"particle": "pvj:blocks/cobblestone_brick",
- 		"0": "pvj:blocks/cobblestone_brick",
- 		"1": "blocks/stone_slab_top"
- 	}
- }
