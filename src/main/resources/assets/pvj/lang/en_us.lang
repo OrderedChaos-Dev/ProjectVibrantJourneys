@@ -9,6 +9,11 @@ item.raw_squid.name=Raw Squid
 item.cooked_squid.name=Cooked Squid
 item.cactus_salad.name=Cactus Salad
 item.sugarcane_juice.name=Sugarcane Juice
+item.raw_duck.name=Raw Duck
+item.cooked_duck.name=Cooked Duck
+item.clam.name=Clam
+item.steamed_clam_meat.name=Steamed Clam Meat
+item.clam_chowder.name=Clam Chowder
 
 item.spectral_wrappings.name=Spectral Wrappings
 item.goon_bile.name=Goon Bile
@@ -391,6 +396,7 @@ entity.pvj_duck.name=Duck
 entity.pvj_clam.name=Clam
 
 subtitles.pvj_fly.ambient=Fly buzzes
+subtitles.pvj_duck.quack=Duck Quacks
 subtitles.pvj_ghost.ambient=Ghost sighs
 subtitles.pvj_ghost.hurt=Ghost hurts
 subtitles.pvj_ghost.death=Ghost dies

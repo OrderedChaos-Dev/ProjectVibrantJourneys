@@ -12,6 +12,8 @@ public class PVJLootTableList
 	public static final ResourceLocation ICE_CUBE = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "ice_cube"));
 	public static final ResourceLocation GOON = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "goon"));
 	public static final ResourceLocation WATCHER = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "watcher"));
+	public static final ResourceLocation DUCK = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "duck"));
+	public static final ResourceLocation CLAM = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "clam"));
 	
 	public static final ResourceLocation ABANDONED_FARM = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "abandoned_farm"));
 	public static final ResourceLocation RUINS = LootTableList.register(new ResourceLocation(Reference.MOD_ID, "ruins"));

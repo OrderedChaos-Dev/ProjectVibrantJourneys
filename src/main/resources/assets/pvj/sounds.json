@@ -5,6 +5,12 @@
     ],
     "subtitle": "subtitles.pvj_fly.ambient"
   },
+    "entity.pvj_duck.quack": {
+    "sounds": [
+      "pvj:entity/duck/quack"
+    ],
+    "subtitle": "subtitles.pvj_duck.quack"
+  },
   "entity.pvj_ghost.ambient": {
     "sounds": [
       "pvj:entity/ghost/idle1"

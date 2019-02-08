@@ -110,12 +110,12 @@ public class PVJTerrainGenEvents
 			//flower forest
 			if(biome == Biomes.MUTATED_FOREST)
 			{
-				if(event.getRand().nextInt(7) == 0)
+				if(event.getRand().nextInt(7) == 0 && PVJConfig.worldgen.pinkCherryBlossomDensity > 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, true)).generate(event.getWorld(), event.getRand(), pos);
 				}
-				if(event.getRand().nextInt(7) == 0)
+				if(event.getRand().nextInt(7) == 0 && PVJConfig.worldgen.whiteCherryBlossomDensity > 0)
 				{
 					BlockPos pos = event.getWorld().getTopSolidOrLiquidBlock(event.getChunkPos().getBlock(8, 0, 8));
 					(new WorldGenCherryBlossomTree(true, false)).generate(event.getWorld(), event.getRand(), pos);
@@ -123,7 +123,7 @@ public class PVJTerrainGenEvents
 			}
 			if(BiomeReference.JACARANDA_TREES.contains(biome))
 			{
-				if(event.getRand().nextInt(7) == 0)
+				if(event.getRand().nextInt(7) == 0 && PVJConfig.worldgen.jacarandaDensity > 0)
 				{
 					int xRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);
 					int zRand = event.getRand().nextInt(8) - event.getRand().nextInt(8);

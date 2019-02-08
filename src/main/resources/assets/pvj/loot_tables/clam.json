@@ -1,0 +1,36 @@
+{
+    "pools": [
+        {
+        	"name": "clam",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "pvj:clam",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "furnace_smelt",
+                            "conditions": [
+                                {
+                                    "condition": "entity_properties",
+                                    "entity": "this",
+                                    "properties": {
+                                        "on_fire": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

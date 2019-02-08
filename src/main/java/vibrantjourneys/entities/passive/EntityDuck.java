@@ -2,8 +2,6 @@ package vibrantjourneys.entities.passive;
 
 import java.util.Set;
 
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
@@ -31,7 +29,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
+import vibrantjourneys.init.PVJSounds;
+import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityDuck extends EntityAnimal
 {
@@ -108,19 +107,19 @@ public class EntityDuck extends EntityAnimal
     @Override
     protected SoundEvent getAmbientSound()
     {
-        return SoundEvents.ENTITY_CHICKEN_AMBIENT;
+        return PVJSounds.DUCK_QUACK;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return SoundEvents.ENTITY_CHICKEN_HURT;
+        return PVJSounds.DUCK_QUACK;
     }
 
     @Override
     protected SoundEvent getDeathSound()
     {
-        return SoundEvents.ENTITY_CHICKEN_DEATH;
+        return PVJSounds.DUCK_QUACK;
     }
 
     @Override
@@ -129,12 +128,11 @@ public class EntityDuck extends EntityAnimal
         this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
     }
 
-    @Nullable
-    @Override
-    protected ResourceLocation getLootTable()
-    {
-        return LootTableList.ENTITIES_CHICKEN;
-    }
+	@Override
+	protected ResourceLocation getLootTable()
+	{
+		return PVJLootTableList.DUCK;
+	}
 
     @Override
     public EntityDuck createChild(EntityAgeable ageable)

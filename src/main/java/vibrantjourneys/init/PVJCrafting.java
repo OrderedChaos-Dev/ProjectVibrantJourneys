@@ -30,7 +30,9 @@ public class PVJCrafting
 		}
 		
 		GameRegistry.addSmelting(PVJBlocks.small_cactus, new ItemStack(Items.DYE, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
-		GameRegistry.addSmelting(PVJItems.raw_squid, new ItemStack(PVJItems.cooked_squid, 1), 0.1F);
+		GameRegistry.addSmelting(PVJItems.raw_squid, new ItemStack(PVJItems.cooked_squid, 1), 0.35F);
+		GameRegistry.addSmelting(PVJItems.raw_duck, new ItemStack(PVJItems.cooked_duck, 1), 0.35F);
+		GameRegistry.addSmelting(PVJItems.clam, new ItemStack(PVJItems.steamed_clam, 1), 0.35F);
 		
 		for(Block sapling : PVJBlocks.SAPLINGS)
 		{

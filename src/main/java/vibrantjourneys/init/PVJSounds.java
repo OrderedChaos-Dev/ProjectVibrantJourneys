@@ -21,6 +21,7 @@ public class PVJSounds
 	public static final SoundEvent GOON_DEATH = registerSoundEvent("entity.pvj_goon.death");
 	public static final SoundEvent GOON_PUKE = registerSoundEvent("entity.pvj_goon.puke");
 	
+	public static final SoundEvent DUCK_QUACK = registerSoundEvent("entity.pvj_duck.quack");
 	
 	public static SoundEvent registerSoundEvent(String name)
 	{

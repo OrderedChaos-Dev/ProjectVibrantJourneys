@@ -34,6 +34,9 @@ public class PVJItems
 	public static Item cactus_salad;
 	public static Item raw_duck;
 	public static Item cooked_duck;
+	public static Item clam;
+	public static Item steamed_clam;
+	public static Item clam_chowder;
 	
 	public static Item aquamarine;
 	
@@ -65,6 +68,9 @@ public class PVJItems
 		cactus_salad = registerItem(new ItemFood(4, 0.3F, false).setContainerItem(Items.BOWL), "cactus_salad");
 		raw_duck = registerItem(new ItemFood(2, 0.3F, true).setPotionEffect(new PotionEffect(MobEffects.HUNGER, 600, 0), 0.3F), "raw_duck");
 		cooked_duck = registerItem(new ItemFood(6, 0.6F, true), "cooked_duck");
+		clam = registerItem(new ItemFood(1, 0.2F, false).setPotionEffect(new PotionEffect(MobEffects.POISON, 500, 0), 0.8F), "clam");
+		steamed_clam = registerItem(new ItemFood(6, 0.4F, false), "steamed_clam_meat");
+		clam_chowder = registerItem(new ItemFood(8, 0.8F, false), "clam_chowder");
 		
 		spectral_wrappings = registerItem(new Item(), "spectral_wrappings");
 		goon_bile = registerItem(new Item(), "goon_bile");
