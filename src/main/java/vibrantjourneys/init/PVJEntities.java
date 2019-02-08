@@ -53,11 +53,11 @@ public class PVJEntities
 		registerEntityWithEgg("pvj_firefly", EntityFirefly.class, 64, 0x3F453D, 0xE8E03D);
 		registerEntityWithEgg("pvj_small_spider", EntitySmallSpider.class, 64, 0x001a00, 0x4d0000);
 		registerEntityWithEgg("pvj_starfish", EntityStarfish.class, 64, 0x6D453D, 0x677B5C);
-		registerEntityWithEgg("pvj_clam", EntityClam.class, 64, 0x6D453D, 0x677B5C);
+		registerEntityWithEgg("pvj_clam", EntityClam.class, 64, 0x67644c, 0x4a4836);
 		registerEntityWithEgg("pvj_duck", EntityDuck.class, 64, 0x41241c, 0x095326);
 		
 		registerEntityWithEgg("pvj_grizzly_bear", EntityGrizzlyBear.class, 64, 0x7A452B, 0x3C2113);
-		registerEntityWithEgg("pvj_coyote", EntityCoyote.class, 64, 0x7A452B, 0x3C2113);
+		registerEntityWithEgg("pvj_coyote", EntityCoyote.class, 64, 0xc2aa8d, 0x957550);
 		
 		registerEntityWithEgg("pvj_ghost", EntityGhost.class, 64, 0xb3b3b3, 0x404040);
 		registerEntityWithEgg("pvj_shade", EntityShade.class, 64, 0x333333, 0x595959);
