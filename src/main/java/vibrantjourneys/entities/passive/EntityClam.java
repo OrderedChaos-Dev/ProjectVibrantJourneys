@@ -36,7 +36,7 @@ public class EntityClam extends EntityPVJWaterCreature
 	@Override
     protected boolean canDespawn()
     {
-        return false;
+        return true;
     }
 	
 	@Override
