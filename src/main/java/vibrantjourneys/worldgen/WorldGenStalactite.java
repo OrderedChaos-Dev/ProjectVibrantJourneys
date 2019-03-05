@@ -70,7 +70,9 @@ public class WorldGenStalactite implements IWorldGenerator
 				if(world.canSeeSky(pos.up())) //caves only!
 					return;
 				
-				if((world.getBlockState(pos.up()).getMaterial() == Material.ROCK ||
+				Block up = world.getBlockState(pos.up()).getBlock();
+				
+				if((BlockRockFormation.VALID_SPAWN_BLOCKS.contains(up) ||
 						block == PVJBlocks.ice_formation && world.getBlockState(pos.up()).getMaterial() == Material.PACKED_ICE)
 						&& world.isSideSolid(pos.up(), EnumFacing.DOWN))
 				{

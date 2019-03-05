@@ -1,5 +1,6 @@
 package vibrantjourneys.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -13,6 +14,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
@@ -28,6 +30,15 @@ import vibrantjourneys.util.IPropertyHelper;
 public class BlockRockFormation extends Block implements IPropertyHelper
 {
 	public static final PropertyInteger SIZE = PropertyInteger.create("size", 0, 2);
+	public static final ArrayList<Block> VALID_SPAWN_BLOCKS = new ArrayList<Block>();
+	
+	static
+	{
+		VALID_SPAWN_BLOCKS.add(Blocks.STONE);
+		VALID_SPAWN_BLOCKS.add(Blocks.ICE);
+		VALID_SPAWN_BLOCKS.add(Blocks.PACKED_ICE);
+		VALID_SPAWN_BLOCKS.add(Blocks.BEDROCK);
+	}
 	
 	public BlockRockFormation()
 	{
