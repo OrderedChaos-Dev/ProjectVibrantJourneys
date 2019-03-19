@@ -86,8 +86,12 @@ public class EntityBanshee extends EntityMob
 	@Override
     public boolean attackEntityAsMob(Entity entity)
     {
-		((EntityMob)entity).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("slowness"), 100, 0));
-		return super.attackEntityAsMob(entity);
+        try {
+            ((EntityMob)entity).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("slowness"), 100, 0));
+            return super.attackEntityAsMob(entity);
+        } catch (Exception e) {
+            return super.attackEntityAsMob(entity);
+        }
     }
 	
 	@Override
