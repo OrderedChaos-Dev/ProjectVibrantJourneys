@@ -1,6 +1,7 @@
 package vibrantjourneys.entities.monster;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -24,6 +25,7 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
+import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.entities.ai.EntityAIAvoidLight;
 import vibrantjourneys.init.PVJSounds;
 import vibrantjourneys.util.PVJLootTableList;
@@ -86,12 +88,14 @@ public class EntityBanshee extends EntityMob
 	@Override
     public boolean attackEntityAsMob(Entity entity)
     {
-        try {
-            ((EntityMob)entity).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("slowness"), 100, 0));
-            return super.attackEntityAsMob(entity);
-        } catch (Exception e) {
-            return super.attackEntityAsMob(entity);
+        try
+        {
+            ((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("slowness"), 100, 0));
+        }catch (Exception e) {
+            ProjectVibrantJourneys.logger.debug(">:(");
         }
+        
+        return super.attackEntityAsMob(entity);
     }
 	
 	@Override
