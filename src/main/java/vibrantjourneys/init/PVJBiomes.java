@@ -13,6 +13,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vibrantjourneys.ProjectVibrantJourneys;
 import vibrantjourneys.biomes.BiomeAspenGrove;
+import vibrantjourneys.biomes.BiomeBaobabFields;
 import vibrantjourneys.biomes.BiomeBlossomingFields;
 import vibrantjourneys.biomes.BiomeBorealForest;
 import vibrantjourneys.biomes.BiomeOvergrownSpires;
@@ -33,6 +34,7 @@ public class PVJBiomes
 	public static Biome aspen_grove = new BiomeAspenGrove(new BiomeProperties("Aspen Grove").setTemperature(0.7F).setRainfall(0.8F));
 	public static Biome overgrown_spires = new BiomeOvergrownSpires(new BiomeProperties("Overgrown Spires").setBaseHeight(0.2F).setHeightVariation(0.3F).setTemperature(0.95F).setRainfall(0.9F));
 	public static Biome blossoming_fields = new BiomeBlossomingFields(new BiomeProperties("Blossoming Fields").setBaseHeight(0.009F).setHeightVariation(0.001F).setTemperature(0.5F).setRainfall(0.55F));
+	public static Biome baobab_fields = new BiomeBaobabFields(new BiomeProperties("Baobab Fields").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(1.2F).setRainfall(0.0F).setRainDisabled());
 	
 	public static void initBiomes()
 	{
@@ -47,6 +49,9 @@ public class PVJBiomes
 			registerBiome(aspen_grove, "aspen_grove", PVJConfig.biomes.aspenGroveWeight, false, BiomeType.COOL, Type.FOREST);
 			registerBiome(overgrown_spires, "overgrown_spires", PVJConfig.biomes.overgrownSpiresWeight, false, BiomeType.WARM, Type.FOREST, Type.JUNGLE);
 			registerBiome(blossoming_fields, "blossoming_fields", PVJConfig.biomes.blossomingfields, true, BiomeType.COOL, Type.FOREST);
+			
+			if(PVJConfig.worldgen.enableBaobabFields)
+				registerBiome(baobab_fields, "baobab_fields", PVJConfig.biomes.baobabFieldsWeight, true, BiomeType.WARM, Type.SAVANNA, Type.HOT, Type.SPARSE);
 		}
 		else
 			ProjectVibrantJourneys.logger.info("Biomes disabled. That makes me sad :(");

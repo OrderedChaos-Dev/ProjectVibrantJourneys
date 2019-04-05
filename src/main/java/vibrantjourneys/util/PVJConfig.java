@@ -357,6 +357,8 @@ public class PVJConfig
 			"Use dimension ids, separate by commas. Do not use spaces"
 		})
 		public String dimensionBlacklist = "";
+		
+		public boolean enableBaobabFields = false;
 	}
 	
 	public static class BiomesSubCategory
@@ -370,6 +372,7 @@ public class PVJConfig
 		public int aspenGroveWeight = 7;
 		public int overgrownSpiresWeight = 5;
 		public int blossomingfields = 5;
+		public int baobabFieldsWeight = 5;
 	}
 	
 	public static class EntitiesSubCategory
@@ -379,7 +382,7 @@ public class PVJConfig
 		public int flySwampSpawnWeight = 80;
 		public int fireflySpawnWeight = 150;
 		public int spiderSpawnWeight = 10;
-		public int starfishWeight = 15;
+		public int starfishWeight = 10;
 		public int starfishBeachWeight = 25;
 		public int clamWeight = 5;
 		public int duckWeight = 10;
