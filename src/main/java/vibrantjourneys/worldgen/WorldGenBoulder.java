@@ -13,7 +13,6 @@ import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.init.PVJWorldGen;
-import vibrantjourneys.util.PVJConfig;
 
 public class WorldGenBoulder implements IWorldGenerator
 {
