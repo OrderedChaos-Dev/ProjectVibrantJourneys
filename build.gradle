@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'de.undercouch.download'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-def pvjVersion = "1.6.0"
+def pvjVersion = "1.6.1"
 def mcVersion = "1.12.2"
 version = mcVersion + "-" + pvjVersion
 group = "projectvibrantjourneys"

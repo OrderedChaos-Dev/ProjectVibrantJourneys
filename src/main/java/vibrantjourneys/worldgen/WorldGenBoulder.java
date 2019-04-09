@@ -22,7 +22,7 @@ public class WorldGenBoulder implements IWorldGenerator
 	
 	public WorldGenBoulder(int frequency, Biome... biomes)
 	{
-		this.frequency = (int)(frequency * (PVJConfig.global.overworldPlantsDensity / 100.0));
+		this.frequency = frequency;
 		this.biomes = biomes;
 	}
 	
