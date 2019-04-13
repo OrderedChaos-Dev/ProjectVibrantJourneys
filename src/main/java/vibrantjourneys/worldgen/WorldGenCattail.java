@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -43,54 +44,50 @@ public class WorldGenCattail implements IWorldGenerator
 		
 		if(Arrays.asList(biomes).contains(biome))
 		{	
-			int yPos = 60;
 			for(int i = 0; i < frequency; i++)
 			{
 				int xPos = x + random.nextInt(8);
 				int zPos = z + random.nextInt(8);
 				
-				yPos = 60;
-				for(int j = 0; j < 20; j++)
+				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+		        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
+
+				if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
 				{
-					yPos += 1;
-					BlockPos pos = new BlockPos(xPos, yPos, zPos);
-					if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
+					for(EnumFacing facing : EnumFacing.HORIZONTALS) //check for water
 					{
-						for(EnumFacing facing : EnumFacing.HORIZONTALS)
+						if(world.getBlockState(pos.offset(facing)).getMaterial() == Material.WATER)
 						{
-							if(world.getBlockState(pos.offset(facing)).getMaterial() == Material.WATER)
+							if(world.isAirBlock(pos.up()) && world.isAirBlock(pos.up(2)))
 							{
-								if(world.isAirBlock(pos.up()) && world.isAirBlock(pos.up(2)))
+								((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
+								
+								for(BlockPos position : BlockPos.getAllInBoxMutable(pos.add(-5, y, -5), (pos.add(5, y, 5))))
 								{
-									((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
-									
-									for(BlockPos position : BlockPos.getAllInBoxMutable(pos.add(-5, yPos, -5), (pos.add(5, yPos, 5))))
+									if(world.getBlockState(position).getBlock() == Blocks.GRASS)
 									{
-										if(world.getBlockState(position).getBlock() == Blocks.GRASS)
+										for(EnumFacing facing2 : EnumFacing.HORIZONTALS)
 										{
-											for(EnumFacing facing2 : EnumFacing.HORIZONTALS)
+											if(world.getBlockState(position.offset(facing2)).getMaterial() == Material.WATER)
 											{
-												if(world.getBlockState(position.offset(facing2)).getMaterial() == Material.WATER)
+												if(world.isAirBlock(position.up()) && world.isAirBlock(position.up(2)))
 												{
-													if(world.isAirBlock(position.up()) && world.isAirBlock(position.up(2)))
+													if(random.nextInt(5) < 3)
 													{
-														if(random.nextInt(5) < 3)
-														{
-															((BlockCattail) PVJBlocks.cattail).placeAt(world, position.up(), 2);
-															break;
-														}
+														((BlockCattail) PVJBlocks.cattail).placeAt(world, position.up(), 2);
+														break;
 													}
 												}
 											}
 										}
 									}
 								}
-								break;
 							}
+							break;
 						}
 					}
-				}
-				
+				}				
 			}
 		}
 	}

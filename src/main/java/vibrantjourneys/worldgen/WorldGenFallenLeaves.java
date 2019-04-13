@@ -73,10 +73,7 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 						{
 							if(y > 60 || (y < 60 && world.canSeeSky(pos)))
 							{
-								if(world.setBlockState(pos, block.getDefaultState()))
-								{
-									break;
-								}
+								world.setBlockState(pos, block.getDefaultState());
 							}
 						}
 					}
