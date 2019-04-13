@@ -31,7 +31,7 @@ public class WorldGenCattail implements IWorldGenerator
 	}
 	
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
@@ -46,11 +46,11 @@ public class WorldGenCattail implements IWorldGenerator
 		{	
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(8);
-				int zPos = z + random.nextInt(8);
+		        int xPos = rand.nextInt(16) + 8;
+		        int zPos = rand.nextInt(16) + 8;
 				
 				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
-		        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 
 				if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
@@ -73,7 +73,7 @@ public class WorldGenCattail implements IWorldGenerator
 											{
 												if(world.isAirBlock(position.up()) && world.isAirBlock(position.up(2)))
 												{
-													if(random.nextInt(5) < 3)
+													if(rand.nextInt(5) < 3)
 													{
 														((BlockCattail) PVJBlocks.cattail).placeAt(world, position.up(), 2);
 														break;

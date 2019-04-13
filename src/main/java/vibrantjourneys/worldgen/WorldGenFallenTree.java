@@ -11,6 +11,7 @@ import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -47,7 +48,6 @@ public class WorldGenFallenTree implements IWorldGenerator
 		Random random = new Random();
 		int x = chunkX * 16 + 8;
 		int z = chunkZ * 16 + 8;
-		int y = 0;
 		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
@@ -70,17 +70,18 @@ public class WorldGenFallenTree implements IWorldGenerator
 			int length = 3 + random.nextInt(4);
 			boolean hasBranch = random.nextBoolean();
 			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
+			ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+			int y = 0;
 			
-			int xPos = x;
-			int zPos = z;
+	        int xPos = rand.nextInt(16) + 8;
+	        int zPos = rand.nextInt(16) + 8;
 			
 			for(int i = 0; i < frequency; i++)
 			{
-				xPos = x + random.nextInt(3);
-				zPos = z + random.nextInt(3);
-				
-				y = 60 + random.nextInt(30);
-				BlockPos testpos = new BlockPos(xPos, y, zPos);
+		        xPos = rand.nextInt(16) + 8;
+		        zPos = rand.nextInt(16) + 8;
+		        y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        BlockPos testpos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 				
 				if(world.isAirBlock(testpos) && world.isSideSolid(testpos.down(), EnumFacing.UP))
 					if(!(world.getBlockState(testpos.down()).getBlock() instanceof BlockLog))
@@ -109,7 +110,7 @@ public class WorldGenFallenTree implements IWorldGenerator
 			{
 				xPos += facing.getXOffset();
 				zPos += facing.getZOffset();
-				BlockPos pos = new BlockPos(xPos, y , zPos);
+				BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 				IBlockState state = world.getBlockState(pos);
 				
 				//so it doesn't float in the air

@@ -58,8 +58,8 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + rand.nextInt(16);
-				int zPos = z + rand.nextInt(16);
+		        int xPos = rand.nextInt(16) + 8;
+		        int zPos = rand.nextInt(16) + 8;
 				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
