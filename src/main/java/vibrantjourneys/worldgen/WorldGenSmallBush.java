@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -28,15 +29,13 @@ public class WorldGenSmallBush implements IWorldGenerator
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-	{
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
-		
+	{		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;
 		
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+		Biome biome = world.getBiomeForCoordsBody(chunkPos.getBlock(0, 0, 0));
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)
@@ -50,42 +49,31 @@ public class WorldGenSmallBush implements IWorldGenerator
 		
 		if(isValidBiome)
 		{
-			for(int i = 0; i < 10; i++)
+			for(int i = 0; i < frequency; i++)
 			{
-				int xPos = x + random.nextInt(4) - random.nextInt(4);
-				int zPos = z + random.nextInt(4) - random.nextInt(4);
-				int yPos = 63 + random.nextInt(13);
-				
-				BlockPos pos = new BlockPos(xPos, yPos, zPos);
-				if(random.nextInt(20) < frequency)
+		        int xPos = random.nextInt(16) + 8;
+		        int zPos = random.nextInt(16) + 8;
+		        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 16);
+		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
+		        
+				if(world.getBlockState(pos).getBlock().isReplaceable(world, pos))
 				{
-					if(world.getBlockState(pos).getBlock().isReplaceable(world, pos))
+					IBlockState soil = world.getBlockState(pos.down());
+					
+					if(soil.getBlock().canSustainPlant(soil, world, pos.down(), EnumFacing.UP,(BlockSapling)Blocks.SAPLING))
 					{
-						IBlockState soil = world.getBlockState(pos.down());
-						
-						if(soil.getBlock().canSustainPlant(soil, world, pos.down(), EnumFacing.UP,(BlockSapling)Blocks.SAPLING))
+						world.setBlockState(pos, Blocks.LOG.getDefaultState());
+						for(EnumFacing facing : EnumFacing.HORIZONTALS)
 						{
-							world.setBlockState(pos, Blocks.LOG.getDefaultState());
-							if(world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()))
+							BlockPos temp = pos.offset(facing);
+							if(world.getBlockState(temp).getBlock().isReplaceable(world, temp))
 							{
-								world.setBlockState(pos.up(), Blocks.LEAVES.getDefaultState());
+								world.setBlockState(temp, Blocks.LEAVES.getDefaultState());
 							}
-							if(world.getBlockState(pos.north()).getBlock().isReplaceable(world, pos.north()))
-							{
-								world.setBlockState(pos.north(), Blocks.LEAVES.getDefaultState());
-							}
-							if(world.getBlockState(pos.west()).getBlock().isReplaceable(world, pos.west()))
-							{
-								world.setBlockState(pos.west(), Blocks.LEAVES.getDefaultState());
-							}
-							if(world.getBlockState(pos.south()).getBlock().isReplaceable(world, pos.south()))
-							{
-								world.setBlockState(pos.south(), Blocks.LEAVES.getDefaultState());
-							}
-							if(world.getBlockState(pos.east()).getBlock().isReplaceable(world, pos.east()))
-							{
-								world.setBlockState(pos.east(), Blocks.LEAVES.getDefaultState());
-							}
+						}
+						if(world.getBlockState(pos.up()).getBlock().isReplaceable(world, pos.up()))
+						{
+							world.setBlockState(pos.up(), Blocks.LEAVES.getDefaultState());
 						}
 					}
 				}

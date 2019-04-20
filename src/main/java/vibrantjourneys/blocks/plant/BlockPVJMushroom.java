@@ -12,6 +12,7 @@ public class BlockPVJMushroom extends BlockMushroom
 {
 	public BlockPVJMushroom()
 	{
+		this.setTickRandomly(true);
 		this.setSoundType(SoundType.PLANT);
 	}
 	
