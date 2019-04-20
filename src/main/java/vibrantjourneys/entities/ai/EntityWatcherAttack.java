@@ -14,7 +14,6 @@ public class EntityWatcherAttack extends EntityAIBase
     public EntityWatcherAttack(EntityWatcher watcher)
     {
         this.watcher = watcher;
-        this.setMutexBits(3);
     }
 
     @Override
@@ -58,7 +57,6 @@ public class EntityWatcherAttack extends EntityAIBase
             if (this.tickCounter == 0)
             {
                 this.watcher.setTargetedEntity(this.watcher.getAttackTarget().getEntityId());
-                this.watcher.world.setEntityState(this.watcher, (byte)21);
             }
             else if (this.tickCounter >= this.watcher.getAttackDuration())
             {

@@ -22,7 +22,6 @@ public class EntityAIStareAt extends EntityAIBase
         this.entity = entityIn;
         this.watchedClass = watchTargetClass;
         this.maxDistanceForPlayer = maxDistance;
-        this.setMutexBits(2);
     }
 
     @Override

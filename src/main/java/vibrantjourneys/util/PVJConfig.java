@@ -222,27 +222,27 @@ public class PVJConfig
 		public int lilypadRiverDensity = 20;
 		public int lilypadLakesDensity = 150;
 		
-		public int fallenTreeOakDensity = 20;
-		public int fallenTreeOakSparseDensity = 2;
-		public int fallenTreeBirchDensity = 17;
+		public int fallenTreeOakDensity = 15;
+		public int fallenTreeOakSparseDensity = 1;
+		public int fallenTreeBirchDensity = 10;
 		public int fallenTreeBirchSparseDensity = 2;
-		public int fallenTreeSpruceDensity = 20;
-		public int fallenTreeSpruceSparseDensity = 10;
-		public int fallenTreeJungleDensity = 5;
-		public int fallenTreeAcaciaDensity = 15;
-		public int fallenTreeWillowDensity = 25;
-		public int fallenTreeMangroveDensity = 5;
-		public int fallenTreePalmDensity = 5;
-		public int fallenTreeRedwoodDensity = 45;
-		public int fallenTreeFirDensity = 20;
-		public int fallenTreePineDensity = 10;
-		public int fallenTreeAspenDensity = 25;
-		public int fallenTreeMapleDensity = 10;
-		public int fallenTreeBaobabDensity = 3;
-		public int fallenTreeCottonwoodDensity = 2;
+		public int fallenTreeSpruceDensity = 15;
+		public int fallenTreeSpruceSparseDensity = 7;
+		public int fallenTreeJungleDensity = 4;
+		public int fallenTreeAcaciaDensity = 10;
+		public int fallenTreeWillowDensity = 19;
+		public int fallenTreeMangroveDensity = 4;
+		public int fallenTreePalmDensity = 3;
+		public int fallenTreeRedwoodDensity = 37;
+		public int fallenTreeFirDensity = 15;
+		public int fallenTreePineDensity = 7;
+		public int fallenTreeAspenDensity = 18;
+		public int fallenTreeMapleDensity = 7;
+		public int fallenTreeBaobabDensity = 2;
+		public int fallenTreeCottonwoodDensity = 1;
 		public int fallenTreeJuniperDensity = 1;
-		public int fallenTreeCherryBlossomDensity = 10;
-		public int fallenTreeJacarandaDensity = 3;
+		public int fallenTreeCherryBlossomDensity = 8;
+		public int fallenTreeJacarandaDensity = 2;
 		
 		public int mangroveRootDensity = 2;
 		
@@ -380,12 +380,12 @@ public class PVJConfig
 		public int snailSpawnWeight = 8;
 		public int flySpawnWeight = 10;
 		public int flySwampSpawnWeight = 20;
-		public int fireflySpawnWeight = 100;
+		public int fireflySpawnWeight = 150;
 		public int spiderSpawnWeight = 5;
 		public int starfishWeight = 10;
 		public int starfishBeachWeight = 25;
 		public int clamWeight = 5;
-		public int duckWeight = 10;
+		public int duckWeight = 7;
 		
 		public int grizzlyBearSpawnWeight = 5;
 		public int coyoteSpawnWeight = 2;

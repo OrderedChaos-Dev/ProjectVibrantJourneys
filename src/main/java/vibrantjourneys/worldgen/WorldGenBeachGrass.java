@@ -30,9 +30,8 @@ public class WorldGenBeachGrass implements IWorldGenerator
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		Random rand = new Random();
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+		Biome biome = world.getBiomeForCoordsBody(chunkPos.getBlock(0, 0, 0));
 		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
@@ -55,7 +54,6 @@ public class WorldGenBeachGrass implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
 		        int xPos = rand.nextInt(16) + 8;
 		        int zPos = rand.nextInt(16) + 8;
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
