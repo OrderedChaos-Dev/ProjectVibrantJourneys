@@ -40,6 +40,12 @@ public abstract class BlockPVJSlab extends BlockSlab
     }
     
     @Override
+    public boolean getUseNeighborBrightness(IBlockState state)
+    {
+    	return true;
+    }
+    
+    @Override
     public String getTranslationKey(int meta)
     {
     	return this.getTranslationKey();
