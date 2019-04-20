@@ -74,7 +74,10 @@ public class WorldGenFallenTree implements IWorldGenerator
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 		        
-		        if(!canReplace(world, pos))
+		        if(!canReplace(world, pos) || !world.isSideSolid(pos.down(), EnumFacing.UP))
+		        	return;
+		        
+		        if(world.getBlockState(pos.down()).getBlock() instanceof BlockLog)
 		        	return;
 				
 				int length = 4 + random.nextInt(3);
