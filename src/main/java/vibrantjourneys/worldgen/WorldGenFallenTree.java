@@ -8,6 +8,7 @@ import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockLog.EnumAxis;
 import net.minecraft.block.BlockMushroom;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +20,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import vibrantjourneys.blocks.plant.BlockBracketFungus;
+import vibrantjourneys.blocks.plant.BlockShortGrass;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJWorldGen;
 import vibrantjourneys.util.PVJConfig;
@@ -67,11 +69,9 @@ public class WorldGenFallenTree implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				if(random.nextInt(7) <= 2)
-					break;
 		        int xPos = rand.nextInt(16) + 8;
 		        int zPos = rand.nextInt(16) + 8;
-		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        int y = world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + rand.nextInt(4) - rand.nextInt(4);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 		        
 		        if(!canReplace(world, pos) || !world.isSideSolid(pos.down(), EnumFacing.UP))
@@ -130,6 +130,8 @@ public class WorldGenFallenTree implements IWorldGenerator
 		return world.isAirBlock(pos)
 				|| state.getBlock().isReplaceable(world, pos)
 				|| state.getBlock().isLeaves(state, world, pos)
+				|| state.getBlock() instanceof BlockTallGrass
+				|| state.getBlock() instanceof BlockShortGrass
 				|| state.getBlock() instanceof BlockLilyPad
 				|| state.getBlock() instanceof BlockMushroom
 				|| state.getBlock() instanceof BlockFlower

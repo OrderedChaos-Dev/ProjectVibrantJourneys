@@ -111,7 +111,7 @@ public class PVJEntities
 			addSpawn(EntityStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.MARINE_BIOMES));
 			addSpawn(EntityBeachStarfish.class, PVJConfig.entities.starfishWeight, 1, 4, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.BEACH_BIOMES));
 			addSpawn(EntityDuck.class, PVJConfig.entities.duckWeight, 2, 4, EnumCreatureType.CREATURE, BiomeReference.getBiomes(BiomeReference.DUCK_BIOMES));
-			addSpawn(EntityClam.class, PVJConfig.entities.clamWeight, 1, 3, EnumCreatureType.AMBIENT, BiomeReference.getBiomes(BiomeReference.FRESHWATER_BIOMES));
+			addSpawn(EntityClam.class, PVJConfig.entities.clamWeight, 1, 3, EnumCreatureType.WATER_CREATURE, BiomeReference.getBiomes(BiomeReference.FRESHWATER_BIOMES));
 			
 			EntitySpawnPlacementRegistry.setPlacementType(EntityStarfish.class, SpawnPlacementType.IN_WATER);
 			EntitySpawnPlacementRegistry.setPlacementType(EntityClam.class, SpawnPlacementType.IN_WATER);

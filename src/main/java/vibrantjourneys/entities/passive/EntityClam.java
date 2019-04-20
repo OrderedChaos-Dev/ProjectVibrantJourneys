@@ -92,6 +92,8 @@ public class EntityClam extends EntityPVJWaterCreature
         }
         this.setPosition(pos.getX(), pos.getY() + 1, pos.getZ());
         
+        this.rotationPitch = this.rand.nextFloat();
+        
         return livingdata;
     }
 	
