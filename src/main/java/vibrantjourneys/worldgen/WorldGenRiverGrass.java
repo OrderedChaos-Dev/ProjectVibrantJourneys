@@ -9,6 +9,7 @@ import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -35,41 +36,32 @@ public class WorldGenRiverGrass implements IWorldGenerator
 		if(world.provider.getDimensionType() != DimensionType.OVERWORLD && world.provider.getDimensionType() != DimensionType.NETHER)
 			return;
 		
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
-		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;
 		
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+		Biome biome = world.getBiomeForCoordsBody(chunkPos.getBlock(0, 0, 0));
+		
 		if(biome == Biomes.RIVER)
 		{
-			BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z));
-			int xPos = pos.getX();
-			int yPos = pos.getY();
-			int zPos = pos.getZ();
-			
-			for(BlockPos position : BlockPos.getAllInBoxMutable(new BlockPos(xPos - 7, yPos - 10, zPos - 7), new BlockPos(xPos + 7, yPos + 10, zPos + 7)))
-			{	
-				IBlockState state = world.getBlockState(position.down());
-				if(state.getBlock().canSustainPlant(state, world, position.down(), EnumFacing.UP, Blocks.TALLGRASS))
+			for(int i = 0; i < frequency; i++)
+			{
+		        int xPos = random.nextInt(16) + 8;
+		        int zPos = random.nextInt(16) + 8;
+		        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 8);
+		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
+		        IBlockState state = world.getBlockState(pos.down());
+				if(state.getBlock().canSustainPlant(state, world, pos.down(), EnumFacing.UP, Blocks.TALLGRASS))
 				{
-					if(random.nextInt(100) < frequency)
+					int model = random.nextInt(7);
+					Block block = random.nextBoolean() ? Blocks.TALLGRASS : PVJBlocks.short_grass;
+					if(world.isAirBlock(pos))
 					{
-						int model = random.nextInt(7);
-						Block block = random.nextBoolean() ? Blocks.TALLGRASS : PVJBlocks.short_grass;
-						if(random.nextInt(2) == 0)
-						{
-							if(world.isAirBlock(position))
-							{
-								if(block == PVJBlocks.short_grass)
-									world.setBlockState(position, block.getDefaultState().withProperty(BlockShortGrass.MODEL, model));
-								else
-									world.setBlockState(position, block.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS));
-							}
-
-						}
+						if(block == PVJBlocks.short_grass)
+							world.setBlockState(pos, block.getDefaultState().withProperty(BlockShortGrass.MODEL, model));
+						else
+							world.setBlockState(pos, block.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS));
 					}
 				}
 			}

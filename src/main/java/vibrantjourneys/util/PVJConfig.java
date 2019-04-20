@@ -247,7 +247,6 @@ public class PVJConfig
 		public int mangroveRootDensity = 2;
 		
 		public int bushDensity = 3;
-		public int bushDensityCanyon = 1;
 		
 		public int stoneRocksDensity = 300;
 		public int cobblestoneRocksDensity = 200;
@@ -350,8 +349,8 @@ public class PVJConfig
 		public boolean decreaseDesertLakes = true;
 		public boolean allowBeachVillages = true;
 		
-		public int abandonedFarmWeight = 15;
-		public int ruinsWeight = 15;
+		public int abandonedFarmWeight = 5;
+		public int ruinsWeight = 5;
 		
 		@Config.Comment({
 			"Use dimension ids, separate by commas. Do not use spaces"
