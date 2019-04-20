@@ -1,25 +1,18 @@
 package vibrantjourneys.entities.passive;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntityCritter extends EntityAnimal
+public class EntityCritter extends EntityAmbientCreature
 {
 	public EntityCritter(World world)
 	{
 		super(world);
-	}
-
-	@Override
-	public EntityAgeable createChild(EntityAgeable ageable)
-	{
-		return null;
 	}
 	
 	@Override

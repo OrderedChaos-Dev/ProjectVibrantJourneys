@@ -53,42 +53,41 @@ public class WorldGenCattail implements IWorldGenerator
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 
-				if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
-				{
-					for(EnumFacing facing : EnumFacing.HORIZONTALS) //check for water
-					{
-						if(world.getBlockState(pos.offset(facing)).getMaterial() == Material.WATER)
-						{
-							if(world.isAirBlock(pos.up()) && world.isAirBlock(pos.up(2)))
-							{
-								((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
-								
-								for(BlockPos position : BlockPos.getAllInBoxMutable(pos.add(-5, y, -5), (pos.add(5, y, 5))))
-								{
-									if(world.getBlockState(position).getBlock() == Blocks.GRASS)
-									{
-										for(EnumFacing facing2 : EnumFacing.HORIZONTALS)
-										{
-											if(world.getBlockState(position.offset(facing2)).getMaterial() == Material.WATER)
-											{
-												if(world.isAirBlock(position.up()) && world.isAirBlock(position.up(2)))
-												{
-													if(rand.nextInt(5) < 3)
-													{
-														((BlockCattail) PVJBlocks.cattail).placeAt(world, position.up(), 2);
-														break;
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-							break;
-						}
-					}
-				}				
+		        if(canGenCattail(world, pos))
+		        {
+		        	((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
+		        }
+		        int neighbors = rand.nextInt(5);
+		        for(int j = 0; j < neighbors; j++)
+		        {
+		        	int xOffset = rand.nextInt(5);
+		        	int zOffset = rand.nextInt(5);
+		        	
+		        	BlockPos temp = pos.add(xOffset, 0, zOffset);
+		        	if(canGenCattail(world, temp))
+		        	{
+		        		((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
+		        	}
+		        }		
 			}
 		}
+	}
+	
+	private boolean canGenCattail(World world, BlockPos pos)
+	{
+		if(world.getBlockState(pos).getBlock() == Blocks.GRASS)
+		{
+			for(EnumFacing facing : EnumFacing.HORIZONTALS) //check for water
+			{
+				if(world.getBlockState(pos.offset(facing)).getMaterial() == Material.WATER)
+				{
+					if(world.isAirBlock(pos.up()) && world.isAirBlock(pos.up(2)))
+					{
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }

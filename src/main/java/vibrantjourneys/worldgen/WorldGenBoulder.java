@@ -29,7 +29,6 @@ public class WorldGenBoulder implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator generator, IChunkProvider provider)
 	{
-		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;

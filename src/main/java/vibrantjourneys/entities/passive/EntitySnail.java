@@ -1,7 +1,6 @@
 package vibrantjourneys.entities.passive;
 
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.pathfinding.PathNodeType;
@@ -17,12 +16,6 @@ public class EntitySnail extends EntityCritter
         super(worldIn);
         this.setSize(0.25F, 0.2F);
         this.setPathPriority(PathNodeType.WATER, -1.0F);
-    }
-    
-	@Override
-    protected void initEntityAI()
-    {
-        this.tasks.addTask(0, new EntityAIWanderAvoidWater(this, 1.0D));
     }
     
 	@Override

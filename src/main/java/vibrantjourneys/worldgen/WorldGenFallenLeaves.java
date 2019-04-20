@@ -34,15 +34,13 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
 		Random rand = new Random();
-		//generating fallen leaves in a forest without adding +8 caused the worst cascading world gen lag i have ever seen
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
+		ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
 		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;
 		
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		Biome biome = world.getBiomeForCoordsBody(chunkPos.getBlock(0, 0, 0));
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)
@@ -60,7 +58,7 @@ public class WorldGenFallenLeaves implements IWorldGenerator
 			{
 		        int xPos = rand.nextInt(16) + 8;
 		        int zPos = rand.nextInt(16) + 8;
-				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+
 		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 				

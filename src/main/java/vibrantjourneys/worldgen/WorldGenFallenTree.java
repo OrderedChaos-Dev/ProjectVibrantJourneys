@@ -4,9 +4,9 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockLog.EnumAxis;
 import net.minecraft.block.BlockMushroom;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
@@ -18,7 +18,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.fml.common.Loader;
 import vibrantjourneys.blocks.plant.BlockBracketFungus;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJWorldGen;
@@ -45,15 +44,14 @@ public class WorldGenFallenTree implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		Random random = new Random();
-		int x = chunkX * 16 + 8;
-		int z = chunkZ * 16 + 8;
-		
 		for(int id : PVJWorldGen.dimensionBlacklist)
 			if(world.provider == DimensionManager.getProvider(id))
 				return;
 		
-		Biome biome = world.getBiomeForCoordsBody(new BlockPos(x, 0, z));
+		Random random = new Random();
+		
+		ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
+		Biome biome = world.getBiomeForCoordsBody(chunkPos.getBlock(0, 0, 0));
 		
 		boolean isValidBiome = false;
 		for(int i = 0; i < biomes.length; i++)
@@ -67,113 +65,56 @@ public class WorldGenFallenTree implements IWorldGenerator
 		
 		if(isValidBiome)
 		{
-			int length = 3 + random.nextInt(4);
-			boolean hasBranch = random.nextBoolean();
-			EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
-			ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
-			int y = 0;
-			
-	        int xPos = rand.nextInt(16) + 8;
-	        int zPos = rand.nextInt(16) + 8;
-			
 			for(int i = 0; i < frequency; i++)
 			{
-		        xPos = rand.nextInt(16) + 8;
-		        zPos = rand.nextInt(16) + 8;
-		        y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
-		        BlockPos testpos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
-				
-				if(world.isAirBlock(testpos) && world.isSideSolid(testpos.down(), EnumFacing.UP))
-					if(!(world.getBlockState(testpos.down()).getBlock() instanceof BlockLog))
-						break;
-			}
-			
-			//checks if lostcities is installed and disables fallen trees in city buildings by adding world.canSeeSky() check
-			if(Loader.isModLoaded("lostcities"))
-			{
-				if(!world.canBlockSeeSky(new BlockPos(xPos, y, zPos)))
-				{
-					for(int i = 0; i < 255 - y; i++)
-					{
-						BlockPos pos = new BlockPos(xPos, y + i, zPos);
-						if(!(world.getBlockState(pos).getBlock() instanceof BlockLeaves))
-							return;
-					}
-				}
-			}
-			
-			if(!world.isSideSolid(new BlockPos(xPos, y - 1, zPos), EnumFacing.UP)) return;
-			
-			IBlockState log = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(facing.getAxis()));
-			
-			for(int i = 0; i < length; i++)
-			{
-				xPos += facing.getXOffset();
-				zPos += facing.getZOffset();
-				BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
-				IBlockState state = world.getBlockState(pos);
-				
-				//so it doesn't float in the air
-				while(canReplace(world, pos.down()))
-				{
-					pos = pos.down();
-					state = world.getBlockState(pos);
-				}
-				
-				if(canReplace(world, pos))
-				{
-					world.setBlockState(pos, log);
-					EnumFacing facing2 = getHorizontalPerpendicular(facing.getHorizontalIndex());
-					if(random.nextBoolean())
-						facing2 = facing2.getOpposite();
-					
-					if(canReplace(world, pos.offset(facing2)))
-					{
-						if(random.nextBoolean())
-						{
-							if(PVJConfig.worldgen.bracketFungusDensity > 0)
-								world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
-						}
-					}
-					if(hasBranch)
-					{
-						if(random.nextInt(length) < i)
-						{
-							EnumFacing branchfacing = getHorizontalPerpendicular(facing.getHorizontalIndex());
-							
-							int xbranch = xPos + branchfacing.getXOffset();
-							int zbranch = zPos + branchfacing.getZOffset();
-							
-							pos = new BlockPos(xbranch, y, zbranch);
-							state = world.getBlockState(pos);
-							
-							if(canReplace(world, pos))
-							{
-								while(canReplace(world, pos.down()))
-								{
-									pos = pos.down();
-									state = world.getBlockState(pos);
-								}
-								
-								state = logBase.withProperty(BlockLog.LOG_AXIS, BlockLog.EnumAxis.fromFacingAxis(branchfacing.getAxis()));
-								world.setBlockState(pos, state);
-								facing2 = getHorizontalPerpendicular(branchfacing.getHorizontalIndex());
-								if(canReplace(world, pos.offset(facing2)));
-								{
-									if(random.nextBoolean())
-									{
-										if(PVJConfig.worldgen.bracketFungusDensity > 0)
-											world.setBlockState(pos.offset(facing2), PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, facing2));
-									}
-								}
-								hasBranch = false;
-							}
-						}
-					}
-				}
-				else
-				{
+				if(random.nextInt(7) <= 2)
 					break;
+		        int xPos = rand.nextInt(16) + 8;
+		        int zPos = rand.nextInt(16) + 8;
+		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
+		        
+		        if(!canReplace(world, pos))
+		        	return;
+				
+				int length = 4 + random.nextInt(3);
+				EnumFacing facing = EnumFacing.Plane.HORIZONTAL.random(random);
+				
+				BlockPos prev = null;
+				for(int j = 0; j < length; j++)
+				{
+					prev = pos;
+					pos = pos.add(facing.getXOffset(), 0, facing.getZOffset());
+					while(canReplace(world, pos.down()))
+						pos = pos.down();
+					
+					if(canReplace(world, pos))
+						world.setBlockState(pos, logBase.withProperty(BlockLog.LOG_AXIS, EnumAxis.fromFacingAxis(facing.getAxis())));
+					else
+						continue;
+					
+					if(random.nextBoolean())
+					{
+						EnumFacing temp = random.nextBoolean() ? facing.getOpposite() : facing;
+						temp = this.getHorizontalPerpendicular(temp.getHorizontalIndex());
+						
+						BlockPos tempPos = pos.add(temp.getXOffset(), 0, temp.getZOffset());
+						if(canReplace(world, tempPos))
+						{
+							world.setBlockState(tempPos, PVJBlocks.bracket_fungus.getDefaultState().withProperty(BlockBracketFungus.FACING, temp));
+						}
+					}
+					
+				}
+				
+				if(random.nextBoolean())
+				{
+					EnumFacing branch = this.getHorizontalPerpendicular(facing.getHorizontalIndex());
+					BlockPos branchPos = prev.add(branch.getXOffset(), 0, branch.getZOffset());
+					if(canReplace(world, branchPos))
+					{
+						world.setBlockState(branchPos, logBase.withProperty(BlockLog.LOG_AXIS, EnumAxis.fromFacingAxis(branch.getAxis())));
+					}
 				}
 			}
 		}
