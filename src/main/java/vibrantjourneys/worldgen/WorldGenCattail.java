@@ -66,7 +66,7 @@ public class WorldGenCattail implements IWorldGenerator
 		        	BlockPos temp = pos.add(xOffset, 0, zOffset);
 		        	if(canGenCattail(world, temp))
 		        	{
-		        		((BlockCattail) PVJBlocks.cattail).placeAt(world, pos.up(), 2);
+		        		((BlockCattail) PVJBlocks.cattail).placeAt(world, temp.up(), 2);
 		        	}
 		        }		
 			}
