@@ -434,69 +434,69 @@ public class PVJConfig
 	public static class BOPSubCategory
 	{
 		public int fallenTreeEbonyDensity = 5;
-		public int fallenTreeEucalyptusDensity = 15;
-		public int fallenTreeJacarandaDensity = 20;
-		public int fallenTreeRedwoodDensity = 35;
-		public int fallenTreeSacredOakDensity = 25;
-		public int fallenTreeMahoganyDensity = 30;
-		public int fallenTreePineDensity = 30;
-		public int fallenTreeWillowDensity = 25;
-		public int fallenTreeHellbarkDensity = 5;
-		public int fallenTreeFirDensity = 35;
-		public int fallenTreeUmbranDensity = 35;
-		public int fallenTreeMagicDensity = 35;
-		public int fallenTreePalmDensity = 25;
-		public int fallenTreeMangroveDensity = 25;
-		public int fallenTreeCherryDensity = 35;
-		public int fallenTreeMapleDensity = 35;
-		public int fallenTreeAutumnDensity = 35;
-		public int fallenTreeDeadDensity = 20;
+		public int fallenTreeEucalyptusDensity = 10;
+		public int fallenTreeJacarandaDensity = 15;
+		public int fallenTreeRedwoodDensity = 20;
+		public int fallenTreeSacredOakDensity = 15;
+		public int fallenTreeMahoganyDensity = 20;
+		public int fallenTreePineDensity = 15;
+		public int fallenTreeWillowDensity = 15;
+		public int fallenTreeHellbarkDensity = 2;
+		public int fallenTreeFirDensity = 25;
+		public int fallenTreeUmbranDensity = 25;
+		public int fallenTreeMagicDensity = 25;
+		public int fallenTreePalmDensity = 15;
+		public int fallenTreeMangroveDensity = 15;
+		public int fallenTreeCherryDensity = 20;
+		public int fallenTreeMapleDensity = 20;
+		public int fallenTreeAutumnDensity = 20;
+		public int fallenTreeDeadDensity = 10;
 		
-		public int fallenLeavesEbonyDensity = 45;
-		public int fallenLeavesEucalyptusDensity = 60;
-		public int fallenLeavesJacarandaDensity = 85;
-		public int fallenLeavesRedwoodDensity = 95;
-		public int fallenLeavesSacredOakDensity = 60;
-		public int fallenLeavesBambooDensity = 100;
-		public int fallenLeavesMahoganyDensity = 60;
-		public int fallenLeavesPineDensity = 60;
-		public int fallenLeavesWillowDensity = 90;
-		public int fallenLeavesHellbarkDensity = 50;
-		public int fallenLeavesFirDensity = 95;
-		public int fallenLeavesUmbranDensity = 55;
-		public int fallenLeavesFloweringOakDensity = 85;
-		public int fallenLeavesYellowAutumnDensity = 80;
-		public int fallenLeavesOrangeAutumnDensity = 80;
-		public int fallenLeavesMagicDensity = 75;
-		public int fallenLeavesPalmDensity = 45;
-		public int fallenLeavesMangroveDensity = 75;
-		public int fallenLeavesWhiteCherryDensity = 75;
-		public int fallenLeavesPinkCherryDensity = 75;
-		public int fallenLeavesMapleDensity = 80;
+		public int fallenLeavesEbonyDensity = 25;
+		public int fallenLeavesEucalyptusDensity = 50;
+		public int fallenLeavesJacarandaDensity = 60;
+		public int fallenLeavesRedwoodDensity = 70;
+		public int fallenLeavesSacredOakDensity = 50;
+		public int fallenLeavesBambooDensity = 700;
+		public int fallenLeavesMahoganyDensity = 50;
+		public int fallenLeavesPineDensity = 50;
+		public int fallenLeavesWillowDensity = 70;
+		public int fallenLeavesHellbarkDensity = 40;
+		public int fallenLeavesFirDensity = 70;
+		public int fallenLeavesUmbranDensity = 40;
+		public int fallenLeavesFloweringOakDensity = 60;
+		public int fallenLeavesYellowAutumnDensity = 70;
+		public int fallenLeavesOrangeAutumnDensity = 70;
+		public int fallenLeavesMagicDensity = 65;
+		public int fallenLeavesPalmDensity = 35;
+		public int fallenLeavesMangroveDensity = 60;
+		public int fallenLeavesWhiteCherryDensity = 60;
+		public int fallenLeavesPinkCherryDensity = 60;
+		public int fallenLeavesMapleDensity = 65;
 		
-		public int twigsEbonyDensity = 70;
-		public int twigsEucalyptusDensity = 150;
-		public int twigsJacarandaDensity = 150;
-		public int twigsRedwoodDensity = 400;
-		public int twigsSacredOakDensity = 200;
-		public int twigsMahoganyDensity = 200;
-		public int twigsPineDensity = 100;
-		public int twigsWillowDensity = 200;
-		public int twigsHellbarkDensity = 50;
-		public int twigsFirDensity = 200;
-		public int twigsUmbranDensity = 200;
-		public int twigsMagicDensity = 100;
-		public int twigsPalmDensity = 100;
-		public int twigsMangroveDensity = 150;
-		public int twigsCherryDensity = 200;
-		public int twigsAutumnDensity = 200;
-		public int twigsMapleDensity = 200;
+		public int twigsEbonyDensity = 50;
+		public int twigsEucalyptusDensity = 120;
+		public int twigsJacarandaDensity = 120;
+		public int twigsRedwoodDensity = 350;
+		public int twigsSacredOakDensity = 150;
+		public int twigsMahoganyDensity = 150;
+		public int twigsPineDensity = 70;
+		public int twigsWillowDensity = 150;
+		public int twigsHellbarkDensity = 40;
+		public int twigsFirDensity = 160;
+		public int twigsUmbranDensity = 160;
+		public int twigsMagicDensity = 70;
+		public int twigsPalmDensity = 70;
+		public int twigsMangroveDensity = 120;
+		public int twigsCherryDensity = 160;
+		public int twigsAutumnDensity = 160;
+		public int twigsMapleDensity = 160;
 	}
 	
 	public static class TraverseSubCategory
 	{
 		public int fallenTreeAutumnDensity = 5;
-		public int fallenTreeFirDensity = 20;
+		public int fallenTreeFirDensity = 15;
 		
 		public int fallenLeavesRedAutumnDensity = 15;
 		public int fallenLeavesBrownAutumnDensity = 15;
@@ -504,11 +504,11 @@ public class PVJConfig
 		public int fallenLeavesOrangeAutumnDensity = 15;
 		public int fallenLeavesFirDensity = 30;
 		
-		public int twigsRedAutumnDensity = 60;
-		public int twigsBrownAutumnDensity = 60;
-		public int twigsYellowAutumnDensity = 60;
-		public int twigsOrangeAutumnDensity = 60;
-		public int twigsFirDensity = 200;
+		public int twigsRedAutumnDensity = 50;
+		public int twigsBrownAutumnDensity = 50;
+		public int twigsYellowAutumnDensity = 50;
+		public int twigsOrangeAutumnDensity = 50;
+		public int twigsFirDensity = 170;
 	}
 	
 	@Mod.EventBusSubscriber
