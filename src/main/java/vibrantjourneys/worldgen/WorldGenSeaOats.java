@@ -59,7 +59,7 @@ public class WorldGenSeaOats implements IWorldGenerator
 				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
 		        int xPos = rand.nextInt(16) + 8;
 		        int zPos = rand.nextInt(16) + 8;
-		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        int y = world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + random.nextInt(10) - random.nextInt(10);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 
 		        for (int j = 0; j < 15; j++)

@@ -40,11 +40,11 @@ public class WorldGenBoulder implements IWorldGenerator
 		{
 			for(int i = 0; i < frequency; i++)
 			{
-				if(random.nextInt(500) == 0)
+				if(random.nextInt(50) == 0)
 				{
 			        int xPos = random.nextInt(16) + 8;
 			        int zPos = random.nextInt(16) + 8;
-			        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+			        int y = world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + random.nextInt(8) - random.nextInt(8);
 			        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 					(new WorldGenBlockBlob(Blocks.STONE, 0)).generate(world, random, pos);
 				}

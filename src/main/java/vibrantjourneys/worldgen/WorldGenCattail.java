@@ -50,7 +50,7 @@ public class WorldGenCattail implements IWorldGenerator
 		        int zPos = rand.nextInt(16) + 8;
 				
 				ChunkPos chunkPos = world.getChunk(chunkX, chunkZ).getPos();
-		        int y = rand.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 32);
+		        int y = world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + rand.nextInt(4) - rand.nextInt(4);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 
 		        if(canGenCattail(world, pos))

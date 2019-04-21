@@ -46,7 +46,7 @@ public class WorldGenBracketFungus implements IWorldGenerator
 			{
 		        int xPos = random.nextInt(16) + 8;
 		        int zPos = random.nextInt(16) + 8;
-		        int y = random.nextInt(world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + 16);
+		        int y = world.getHeight(chunkPos.getBlock(0, 0, 0).add(xPos, 0, zPos)).getY() + random.nextInt(16) - random.nextInt(16);
 		        BlockPos pos = chunkPos.getBlock(0, 0, 0).add(xPos, y, zPos);
 				
 				IBlockState state = world.getBlockState(pos);

@@ -309,26 +309,26 @@ public class PVJConfig
 		public int chickweedDensity = 5;
 		public int cloversDensity = 5;
 		public int crabgrassDensity = 5;
-		public int bracketFungusDensity = 2000;
-		public int beachGrassDensity = 30;
-		public int seaOatsDensity = 20;
+		public int bracketFungusDensity = 1000;
+		public int beachGrassDensity = 5;
+		public int seaOatsDensity = 5;
 		public int flouroporeDensity = 200;
 		public int bloodnettleDensity = 1;
 		public int witherweedDensity = 1;
 		public int glowcapDensity = 2;
-		public int shortGrassDensity = 6;
+		public int shortGrassDensity = 10;
 		public int waxcapDensity = 1;
 		public int deathcapDensity = 1;
 		public int orangeMushroomDensity = 1;
 		public int smallCactusDensity = 1;
-		public int cattailDensity = 1000;
+		public int cattailDensity = 150;
 		public int voidGrassDensity = 1;
 		
 		public int stalactiteDensity = 450;
 		public int stalagmiteDensity = 450;
 		public int icicleDensity = 450;
 		
-		public int boulderDensity = 40;
+		public int boulderDensity = 5;
 		
 		public boolean modifyDungeons = true;
 		public boolean enableFrozenCaves = true;
