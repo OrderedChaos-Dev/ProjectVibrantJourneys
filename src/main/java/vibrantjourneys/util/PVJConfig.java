@@ -337,7 +337,7 @@ public class PVJConfig
 		public boolean enableOvergrownCaves = true;
 		
 		public int basaltDensity = 20;
-		public int pillowBasaltDensity = 3;
+		public int pillowBasaltDensity = 1;
 		public int marbleDensity = 15;
 		public int limestoneDensity = 20;
 		public int siltstoneDensity = 20;
