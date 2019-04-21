@@ -4,6 +4,9 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class EntitySmallSpider extends EntityCritter
 {
@@ -50,6 +53,11 @@ public class EntitySmallSpider extends EntityCritter
     {
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
+		
+        Biome biome = world.getBiomeForCoordsBody(this.getPosition());
+        if(BiomeDictionary.hasType(biome, Type.SNOWY))
+        	return false;
+        
 		return super.getCanSpawnHere();
     }
 }

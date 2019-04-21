@@ -7,6 +7,9 @@ import net.minecraft.pathfinding.PathNodeType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import vibrantjourneys.util.PVJLootTableList;
 
 public class EntitySnail extends EntityCritter
@@ -43,6 +46,11 @@ public class EntitySnail extends EntityCritter
     {
 		if(this.world.provider.getDimensionType() != DimensionType.OVERWORLD)
 			return false;
+		
+        Biome biome = world.getBiomeForCoordsBody(this.getPosition());
+        if(BiomeDictionary.hasType(biome, Type.SNOWY))
+        	return false;
+        
 		return super.getCanSpawnHere();
     }
 }
