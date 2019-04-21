@@ -402,6 +402,9 @@ public class PVJConfig
 		public boolean firefliesSpawnInSnowBiomes = false;
 		public boolean junglesSpawnCaveSpiders = true;
 		public boolean squidsDropFood = true;
+		
+		@Config.Comment("For weaklings")
+		public boolean replaceGoonSounds = false;
 	}
 	
 	public static class MiscCategory

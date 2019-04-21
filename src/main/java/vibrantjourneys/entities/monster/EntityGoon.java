@@ -19,6 +19,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -29,6 +30,7 @@ import net.minecraft.world.World;
 import vibrantjourneys.entities.ai.EntityAIGoonPukeSilverfish;
 import vibrantjourneys.entities.ai.EntityAISilverfishDeathTimer;
 import vibrantjourneys.init.PVJSounds;
+import vibrantjourneys.util.PVJConfig;
 import vibrantjourneys.util.PVJLootTableList;
 
 public class EntityGoon extends EntityMob
@@ -111,19 +113,19 @@ public class EntityGoon extends EntityMob
 	@Override
     protected SoundEvent getAmbientSound()
     {
-        return PVJSounds.GOON_AMBIENT;
+        return PVJConfig.entities.replaceGoonSounds ? SoundEvents.ENTITY_ZOMBIE_AMBIENT : PVJSounds.GOON_AMBIENT;
     }
 
 	@Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn)
     {
-        return PVJSounds.GOON_HURT;
+        return PVJConfig.entities.replaceGoonSounds ? SoundEvents.ENTITY_ZOMBIE_HURT : PVJSounds.GOON_HURT;
     }
 
 	@Override
     protected SoundEvent getDeathSound()
     {
-        return PVJSounds.GOON_DEATH;
+        return PVJConfig.entities.replaceGoonSounds ? SoundEvents.ENTITY_ZOMBIE_DEATH : PVJSounds.GOON_DEATH;
     }
     
     //yeah no one wants to deal with many goons at once
@@ -154,7 +156,7 @@ public class EntityGoon extends EntityMob
         	silverfish.tasks.addTask(10, new EntityAISilverfishDeathTimer(silverfish));
         	silverfish.setPosition(this.posX, this.posY, this.posZ);
         	this.world.spawnEntity(silverfish);
-        	this.playSound(PVJSounds.GOON_PUKE, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+        	this.playSound(PVJConfig.entities.replaceGoonSounds ? SoundEvents.ENTITY_ZOMBIE_HURT : PVJSounds.GOON_PUKE, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         	silverfish.setAttackTarget(target);
         	
         	incrementSilverfish();
