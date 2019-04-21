@@ -9,6 +9,7 @@ public class Reference
     
     public static boolean isBOPLoaded = false;
     public static boolean isTraverseLoaded = false;
+    public static boolean isSereneSeasonsLoaded = false;
     
     //this is used in case I need a value for some constructor that won't actually be used for that specific object
     public static final int FILLER = Integer.MAX_VALUE;

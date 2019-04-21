@@ -7,6 +7,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import vibrantjourneys.integration.sereneseasons.PVJSereneSeasons;
+import vibrantjourneys.util.Reference;
 
 public class EntitySmallSpider extends EntityCritter
 {
@@ -57,6 +59,10 @@ public class EntitySmallSpider extends EntityCritter
         Biome biome = world.getBiomeForCoordsBody(this.getPosition());
         if(BiomeDictionary.hasType(biome, Type.SNOWY))
         	return false;
+        
+        if(Reference.isSereneSeasonsLoaded)
+        	if(PVJSereneSeasons.canSnowHere(getEntityWorld(), getPosition()))
+        		return false;
         
 		return super.getCanSpawnHere();
     }

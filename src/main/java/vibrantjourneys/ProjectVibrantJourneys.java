@@ -55,6 +55,12 @@ public class ProjectVibrantJourneys
     		logger.info("Project: Vibrant Journeys detected that you also have Traverse installed! Safe travels!");
     		Reference.isTraverseLoaded = true;
     	}
+    	//Serene Seasons support :)
+    	if(Loader.isModLoaded("sereneseasons"))
+    	{
+    		logger.info("Project: Vibrant Journeys detected that you also have Serene Seasons installed! Good choice!");
+    		Reference.isSereneSeasonsLoaded = true;
+    	}
     	
     	PVJEntities.initEntities();
     	PVJBlocks.initBlocks();

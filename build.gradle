@@ -43,6 +43,12 @@ download {
     overwrite true
 }
 
+download {
+    src 'https://minecraft.curseforge.com/projects/serene-seasons/files/2650475/download'
+    dest file('libs/SereneSeasons.jar')
+    overwrite true
+}
+
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version

@@ -16,6 +16,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJSounds;
+import vibrantjourneys.integration.sereneseasons.PVJSereneSeasons;
+import vibrantjourneys.util.Reference;
 
 public class EntityFly extends EntityAmbientCreature
 {
@@ -166,6 +168,10 @@ public class EntityFly extends EntityAmbientCreature
         Biome biome = world.getBiomeForCoordsBody(this.getPosition());
         if(BiomeDictionary.hasType(biome, Type.SNOWY))
         	return false;
+        
+        if(Reference.isSereneSeasonsLoaded)
+        	if(PVJSereneSeasons.canSnowHere(getEntityWorld(), getPosition()))
+        		return false;
         
 		return super.getCanSpawnHere();
     }
