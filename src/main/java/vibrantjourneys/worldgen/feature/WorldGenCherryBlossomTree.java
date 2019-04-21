@@ -182,7 +182,7 @@ public class WorldGenCherryBlossomTree extends WorldGenAbstractTree
 					{
 						if(Math.abs(x) == 2 || Math.abs(y) == 2 || Math.abs(z) == 2)
 						{
-							if(rand.nextInt(16) < 2)
+							if(rand.nextInt(16) <= 5)
 							{
 								boolean shouldGenLeaves = false;
 								for(EnumFacing facing : EnumFacing.VALUES)
@@ -215,13 +215,10 @@ public class WorldGenCherryBlossomTree extends WorldGenAbstractTree
 						}
 						if(rand.nextInt(8) < 2)
 						{
-							for(int i = 1; i < 2 + rand.nextInt(1); i++)
+							BlockPos tempPos = leafPos.down();
+							if(world.isAirBlock(tempPos))
 							{
-								BlockPos tempPos = leafPos.down(i);
-								if(world.isAirBlock(tempPos))
-								{
-									world.setBlockState(tempPos, LEAVES);
-								}
+								world.setBlockState(tempPos, LEAVES);
 							}
 						}
 					}

@@ -64,15 +64,15 @@ public class BlockPVJLeaves extends BlockLeaves implements IPropertyHelper
     	}
     	else if(leafType == EnumLeafType.PINK_CHERRY_BLOSSOM || leafType == EnumLeafType.WHITE_CHERRY_BLOSSOM)
     	{
-    		return 40;
+    		return 80;
     	}
     	else if(leafType == EnumLeafType.JACARANDA)
     	{
-    		return 40;
+    		return 70;
     	}
     	else if(leafType == EnumLeafType.COTTONWOOD)
     	{
-    		return 50;
+    		return 70;
     	}
     	else if(leafType == EnumLeafType.FIR)
     	{

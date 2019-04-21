@@ -188,7 +188,7 @@ public class WorldGenCottonwoodTree extends WorldGenAbstractTree
 					{
 						if(Math.abs(x) == 2 || Math.abs(y) == 2 || Math.abs(z) == 2)
 						{
-							if(rand.nextInt(16) < 2)
+							if(rand.nextInt(16) <= 5)
 							{
 								boolean shouldGenLeaves = false;
 								for(EnumFacing facing : EnumFacing.VALUES)
