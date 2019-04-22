@@ -223,24 +223,24 @@ public class PVJConfig
 		public int lilypadLakesDensity = 150;
 		
 		public int fallenTreeOakDensity = 50;
-		public int fallenTreeOakSparseDensity = 10;
+		public int fallenTreeOakSparseDensity = 5;
 		public int fallenTreeBirchDensity = 50;
-		public int fallenTreeBirchSparseDensity = 20;
+		public int fallenTreeBirchSparseDensity = 15;
 		public int fallenTreeSpruceDensity = 50;
 		public int fallenTreeSpruceSparseDensity = 20;
 		public int fallenTreeJungleDensity = 20;
-		public int fallenTreeAcaciaDensity = 20;
+		public int fallenTreeAcaciaDensity = 5;
 		public int fallenTreeWillowDensity = 50;
 		public int fallenTreeMangroveDensity = 30;
-		public int fallenTreePalmDensity = 30;
+		public int fallenTreePalmDensity = 20;
 		public int fallenTreeRedwoodDensity = 80;
 		public int fallenTreeFirDensity = 50;
 		public int fallenTreePineDensity = 40;
 		public int fallenTreeAspenDensity = 40;
 		public int fallenTreeMapleDensity = 30;
-		public int fallenTreeBaobabDensity = 10;
+		public int fallenTreeBaobabDensity = 1;
 		public int fallenTreeCottonwoodDensity = 20;
-		public int fallenTreeJuniperDensity = 5;
+		public int fallenTreeJuniperDensity = 1;
 		public int fallenTreeCherryBlossomDensity = 30;
 		public int fallenTreeJacarandaDensity = 20;
 		
