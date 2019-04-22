@@ -1,6 +1,8 @@
 package vibrantjourneys.entities.passive;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.init.Blocks;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.pathfinding.PathNodeType;
@@ -56,6 +58,10 @@ public class EntitySnail extends EntityCritter
         if(Reference.isSereneSeasonsLoaded)
         	if(PVJSereneSeasons.canSnowHere(getEntityWorld(), getPosition()))
         		return false;
+        
+		Block block = this.getEntityWorld().getBlockState(this.getPosition().down()).getBlock();
+		if(block != Blocks.GRASS)
+			return false;
         
 		return super.getCanSpawnHere();
     }

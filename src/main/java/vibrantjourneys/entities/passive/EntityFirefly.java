@@ -1,5 +1,7 @@
 package vibrantjourneys.entities.passive;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
@@ -35,6 +37,10 @@ public class EntityFirefly extends EntityFly
 			return false;
         BlockPos blockpos = new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ);
 
+		Block block = this.getEntityWorld().getBlockState(this.getPosition().down()).getBlock();
+		if(block != Blocks.GRASS)
+			return false;
+        
         if (blockpos.getY() <= this.world.getSeaLevel())
         {
             return false;

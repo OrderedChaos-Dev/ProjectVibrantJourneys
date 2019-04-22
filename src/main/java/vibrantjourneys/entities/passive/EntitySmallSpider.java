@@ -1,7 +1,9 @@
 package vibrantjourneys.entities.passive;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -63,6 +65,10 @@ public class EntitySmallSpider extends EntityCritter
         if(Reference.isSereneSeasonsLoaded)
         	if(PVJSereneSeasons.canSnowHere(getEntityWorld(), getPosition()))
         		return false;
+        
+		Block block = this.getEntityWorld().getBlockState(this.getPosition().down()).getBlock();
+		if(block != Blocks.GRASS)
+			return false;
         
 		return super.getCanSpawnHere();
     }

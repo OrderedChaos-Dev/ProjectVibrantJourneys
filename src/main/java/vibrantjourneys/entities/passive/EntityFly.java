@@ -3,6 +3,7 @@ package vibrantjourneys.entities.passive;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityAmbientCreature;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -172,6 +173,10 @@ public class EntityFly extends EntityAmbientCreature
         if(Reference.isSereneSeasonsLoaded)
         	if(PVJSereneSeasons.canSnowHere(getEntityWorld(), getPosition()))
         		return false;
+        
+		Block block = this.getEntityWorld().getBlockState(this.getPosition().down()).getBlock();
+		if(block != Blocks.GRASS)
+			return false;
         
 		return super.getCanSpawnHere();
     }
