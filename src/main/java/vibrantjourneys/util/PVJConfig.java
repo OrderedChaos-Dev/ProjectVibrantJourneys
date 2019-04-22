@@ -171,7 +171,7 @@ public class PVJConfig
 	
 	public static class WorldGenSubCategory
 	{
-		public int cobwebDensity = 50;
+		public int cobwebDensity = 30;
 		
 		public int riverGrassDensity = 70;
 		

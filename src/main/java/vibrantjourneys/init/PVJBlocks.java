@@ -18,6 +18,7 @@ import vibrantjourneys.blocks.BlockGroundCover;
 import vibrantjourneys.blocks.BlockGroundCover.GroundcoverType;
 import vibrantjourneys.blocks.BlockMud;
 import vibrantjourneys.blocks.BlockMysticalGrill;
+import vibrantjourneys.blocks.BlockPVJCobweb;
 import vibrantjourneys.blocks.BlockRockFormation;
 import vibrantjourneys.blocks.BlockStoneBlock;
 import vibrantjourneys.blocks.BlockWetAdobe;
@@ -89,6 +90,8 @@ public class PVJBlocks
 	//1.13: mangrove saplings can be waterlogged
 	
 	public static Block coconut;
+	
+	public static Block pvj_cobweb;
 	
 	public static Block fallenleaves_oak, fallenleaves_birch, fallenleaves_spruce, fallenleaves_jungle, fallenleaves_darkoak,
 						fallenleaves_acacia, fallenleaves_dead;
@@ -301,6 +304,8 @@ public class PVJBlocks
 		
 		rock_formation = registerBlock(new BlockRockFormation(), "rock_formation");
 		ice_formation = registerBlock(new BlockRockFormation(), "ice_formation");
+		
+		pvj_cobweb = registerBlock(new BlockPVJCobweb(), "pvj_cobweb");
 		
 		if(Reference.isBOPLoaded)
 			PVJBlocksBOP.initBOPBlocks();

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
@@ -12,9 +11,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import vibrantjourneys.init.PVJBlocks;
 import vibrantjourneys.init.PVJWorldGen;
 
 public class WorldGenCobweb implements IWorldGenerator
@@ -51,7 +51,7 @@ public class WorldGenCobweb implements IWorldGenerator
 				{
 					if(world.isAirBlock(pos))
 					{
-						world.setBlockState(pos,Blocks.WEB.getDefaultState());
+						world.setBlockState(pos, PVJBlocks.pvj_cobweb.getDefaultState());
 					}
 				}
 			}
