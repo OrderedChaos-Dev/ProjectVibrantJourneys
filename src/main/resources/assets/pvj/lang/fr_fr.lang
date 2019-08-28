@@ -1,0 +1,457 @@
+itemGroup.tabProjectVibrantJourneys=Project: Vibrant Journeys
+
+item.slime_droplet.name=Goutte de Slime
+item.cracked_coconut.name=Noix de coco fendue
+item.coconut_milk.name=Lait de coco
+item.juniper_berries.name=Baie de genévrier
+item.wax.name=Hygrocybe
+item.raw_squid.name=Poulpe cru
+item.cooked_squid.name=Poulpe cuit
+item.cactus_salad.name=Salade de cactus
+item.sugarcane_juice.name=Jus de canne à sucre
+item.raw_duck.name=Canard cru
+item.cooked_duck.name=Canard cuit
+item.clam.name=Palourde
+item.steamed_clam_meat.name=Palourde cuite à la vapeur
+item.clam_chowder.name=Ragoût de palourdes
+
+item.spectral_wrappings.name=Emballages spectraux
+item.goon_bile.name=Vomi de sbire
+item.unstable_essence.name=Essence instable
+
+item.mystical_porkchop.name=Côtelette de porc mystique
+item.mystical_beef.name=Boeuf mystique
+item.mystical_chicken.name=Poulet mystique
+item.mystical_mutton.name=Mouton mystique
+item.mystical_rabbit.name=Lapin mystique
+item.mystical_cod.name=Morue mystique
+item.mystical_salmon.name=Saumon mystique
+item.mystical_potato.name=Pomme de terre mystique
+
+item.willow_door_item.name=Porte en bois de saule
+item.mangrove_door_item.name=Porte en bois de mangrove
+item.palm_door_item.name=Porte en bois de palmier
+item.redwood_door_item.name=Porte en bois de séquoia
+item.fir_door_item.name=Porte en bois de sapin
+item.pine_door_item.name=Porte en bois de pin
+item.aspen_door_item.name=Porte en bois de tremble
+item.maple_door_item.name=Porte en bois d'érable
+item.baobab_door_item.name=Porte en bois de baobab
+item.cottonwood_door_item.name=Porte en bois de peuplier d'Amérique
+item.juniper_door_item.name=Porte en bois de genévrier
+item.jacaranda_door_item.name=Porte en bois de jaracanda
+item.cherry_blossom_door_item.name=Porte en bois de cerisier
+
+item.willow_boat.name=Bateau en bois de saule
+item.mangrove_boat.name=Bateau en bois de mangrove
+item.palm_boat.name=Bateau en bois de palmier
+item.redwood_boat.name=Bateau en bois de séquoia
+item.fir_boat.name=Bateau en bois de sapin
+item.pine_boat.name=Bateau en bois de pin
+item.aspen_boat.name=Bateau en bois de tremble
+item.maple_boat.name=Bateau en bois d'érable
+item.baobab_boat.name=Bateau en bois de baobab
+item.cottonwood_boat.name=Bateau en bois de peuplier d'Amérique
+item.juniper_boat.name=Bateau en bois de genévrier
+item.jacaranda_boat.name=Bateau en bois de jaracanda
+item.cherry_blossom_boat.name=Bateau en bois de cerisier
+
+tile.cobblestone_brick.name=Briques de pierre
+tile.planks_willow.name=Planches de saule
+tile.planks_mangrove.name=Planches de mangrove
+tile.planks_palm.name=Planches de palmier
+tile.planks_redwood.name=Planches de séquoia
+tile.planks_fir.name=Planches de sapin
+tile.planks_pine.name=Planches de pin
+tile.planks_aspen.name=Planches de tremble
+tile.planks_maple.name=Planches d'érable
+tile.planks_baobab.name=Planches de baobab
+tile.planks_cottonwood.name=Planches de peuplier d'Amérique
+tile.planks_juniper.name=Planches de genévrier
+tile.planks_jacaranda.name=Planches de jaracanda
+tile.planks_cherry_blossom.name=Planches de cerisier
+
+tile.log_willow.name=Bois de saule
+tile.log_mangrove.name=Bois de mangrove
+tile.log_palm.name=Bois de palmier
+tile.log_redwood.name=Bois de séquoia
+tile.log_fir.name=Bois de sapin
+tile.log_pine.name=Bois de pin
+tile.log_aspen.name=Bois de trembe
+tile.log_maple.name=Bois d'érable
+tile.log_baobab.name=Bois de baobab
+tile.log_cottonwood.name=Bois de peuplier d'Amérique
+tile.log_juniper.name=Bois de genévrier
+tile.log_jacaranda.name=Bois de jacaranda
+tile.log_cherry_blossom.name=Bois de cerisier
+
+tile.leaves_willow.name=Feuilles de saule
+tile.leaves_mangrove.name=Feuilles de mangrove
+tile.leaves_palm.name=Feuilles de palmier
+tile.leaves_redwood.name=Feuilles de séquoia
+tile.leaves_fir.name=Feuilles de sapin
+tile.leaves_pine.name=Feuilles de pin
+tile.leaves_aspen.name=Feuilles de trembe
+tile.leaves_red_maple.name=Feuilles d'érable rouge
+tile.leaves_orange_maple.name=Feuilles d'érable orange
+tile.leaves_baobab.name=Feuilles de baobab
+tile.leaves_cottonwood.name=Feuilles de peuplier d'Amérique
+tile.leaves_juniper.name=Feuilles de genévrier
+tile.leaves_juniper_berried=Feuilles à baies de genévrier
+tile.leaves_jacaranda.name=Feuilles de jaracanda
+tile.leaves_white_cherry_blossom.name=Feuilles de cerisier blanc
+tile.leaves_pink_cherry_blossom.name=Feuilles de cerisier rose
+
+tile.sapling_willow.name=Pousse de saule
+tile.sapling_mangrove.name=Pousse de mangrove
+tile.sapling_palm.name=Pousse de palmier
+tile.sapling_redwood.name=Pousse de séquoia
+tile.sapling_fir.name=Pousse de sapin
+tile.sapling_pine.name=Pousse de pin
+tile.sapling_aspen.name=Pousse de tremble
+tile.sapling_red_maple.name=Pousse d'érable rouge
+tile.sapling_orange_maple.name=Pousse d'érable orange
+tile.sapling_baobab.name=Pousse de baobab
+tile.sapling_cottonwood.name=Pousse de peuplier d'Amérique
+tile.sapling_juniper.name=Pousse de genévrier
+tile.sapling_jacaranda.name=Pousse de jaracanda
+tile.sapling_white_cherry_blossom.name=Pousse de cerisier blanc
+tile.sapling_pink_cherry_blossom.name=Pousse de cerisier rose
+
+tile.coconut.name=Noix de coco
+
+tile.fallenleaves_oak.name=Feuilles mortes de chêne
+tile.fallenleaves_birch.name=Feuilles mortes de bouleau
+tile.fallenleaves_spruce.name=Feuilles mortes de sapin
+tile.fallenleaves_jungle.name=Feuilles mortes de d'acajou
+tile.fallenleaves_darkoak.name=Feuilles mortes de chêne noir
+tile.fallenleaves_acacia.name=Feuilles mortes d'acacia
+tile.fallenleaves_willow.name=Feuilles mortes de saule
+tile.fallenleaves_mangrove.name=Feuilles mortes de mangrove
+tile.fallenleaves_palm.name=Feuilles mortes de palmier
+tile.fallenleaves_redwood.name=Feuilles mortes de séquoia
+tile.fallenleaves_dead.name=Feuilles mortes
+tile.fallenleaves_fir.name=Feuilles mortes de sapin
+tile.fallenleaves_pine.name=Feuilles mortes de pin
+tile.fallenleaves_aspen.name=Feuilles mortes de tremble
+tile.fallenleaves_red_maple.name=Feuilles mortes d'érable rouge
+tile.fallenleaves_orange_maple.name=Feuilles mortes d'érable orange
+tile.fallenleaves_baobab.name=Feuilles mortes de baobab
+tile.fallenleaves_cottonwood.name=Feuilles mortes de peuplier d'Amérique
+tile.fallenleaves_juniper.name=Feuilles mortes de genévrier
+tile.fallenleaves_jacaranda.name=Feuilles mortes de jacaranda
+tile.fallenleaves_white_cherry_blossom.name=Feuilles mortes de cerisier blanc
+tile.fallenleaves_pink_cherry_blossom.name=Feuilles mortes de cerisier rose
+
+tile.stone_rocks.name=Cailloux en roche
+tile.cobblestone_rocks.name=Cailloux en pierre
+tile.mossy_cobblestone_rocks.name=Cailloux en pierre moussue
+tile.andesite_rocks.name=Cailloux en andésite
+tile.granite_rocks.name=Cailloux en granite
+tile.diorite_rocks.name=Cailloux en diorite
+tile.sandstone_rocks.name=Cailloux en grès
+tile.red_sandstone_rocks.name=Cailloux en grès rouge
+
+tile.oak_twigs.name=Brindilles de chêne
+tile.birch_twigs.name=Brindilles de bouleau
+tile.spruce_twigs.name=Brindilles de sapin
+tile.jungle_twigs.name=Brindilles d'acajou
+tile.dark_oak_twigs.name=Brindilles de chêne noir
+tile.acacia_twigs.name=Brindilles d'acacia
+tile.willow_twigs.name=Brindilles de saule
+tile.mangrove_twigs.name=Brindilles de mangrove
+tile.palm_twigs.name=Brindilles de palmier
+tile.redwood_twigs.name=Brindilles de séquoia
+tile.fir_twigs.name=Brindilles de sapin
+tile.pine_twigs.name=Brindilles de pin
+tile.aspen_twigs.name=Brindilles de tremble
+tile.red_maple_twigs.name=Brindilles d'érable rouge
+tile.orange_maple_twigs.name=Brindilles d'érable orange
+tile.baobab_twigs.name=Brindilles de baobab
+tile.cottonwood_twigs.name=Brindilles de peuplier d'Amérique
+tile.juniper_twigs.name=Brindilles de genévrier
+tile.jacaranda_twigs.name=Brindilles de jacaranda
+tile.white_cherry_blossom_twigs.name=Brindilles de cerisier blanc
+tile.pink_cherry_blossom_twigs.name=Brindilles de cerisier rose
+
+tile.bones.name=Os
+tile.seashells.name=Coquillages
+tile.pinecones.name=Pommes de pin
+tile.flower_patch.name=Plaque de fleurs
+
+tile.wild_wheat.name=Blé sauvage
+tile.wild_potato.name=Pomme de terre sauvage
+tile.wild_carrot.name=Carotte sauvage
+tile.wild_beetroot.name=Betterave sauvage
+tile.frost_lotus.name=Lotus givré
+tile.silverleaf.name=Feuille d'argent
+tile.short_grass.name=Herbe courte
+tile.frogbit.name=Grenouillette
+tile.duckweed.name=Lentille d'eau
+tile.cattail.name=Quenouilles
+tile.chickweed.name=Stellaire intermédiaire
+tile.clovers.name=Plaque de trèfles
+tile.crabgrass.name=Digitaires
+tile.bracket_fungus.name=Polypore
+tile.flouropore.name=Fluoropore
+tile.waxcap.name=Hygrocybe
+tile.orange_mushroom.name=Champignon citrouille-lanterne
+tile.deathcap.name=Oronge verte
+tile.small_cactus.name=Petit cactus
+tile.beach_grass.name=Herbe de plage
+tile.sea_oats.name=Avoine de mer
+tile.void_grass.name=Herbe du vide
+tile.sundew.name=Droséra
+
+tile.bloodnettle.name=Ortie de sang
+tile.glowcap.name=Chapeauluisant
+tile.witherweed.name=Herbe du Wither
+
+tile.rock_formation.name=Formation rocheuse
+tile.redwood_bark.name=Écorce de séquoia
+
+tile.mystical_grill.name=Grille mystique
+tile.cracked_sand.name=Sable craquelé
+tile.red_cracked_sand.name=Sable rouge craquelé
+
+tile.willow_stairs.name=Escaliers en saule
+tile.mangrove_stairs.name=Escaliers en mangrove
+tile.palm_stairs.name=Escaliers en palmier
+tile.redwood_stairs.name=Escaliers en séquoia
+tile.fir_stairs.name=Escaliers en sapin
+tile.pine_stairs.name=Escaliers en pin
+tile.aspen_stairs.name=Escaliers en tremble
+tile.maple_stairs.name=Escaliers en érable
+tile.baobab_stairs.name=Escaliers en baobab
+tile.juniper_stairs.name=Escaliers en genévrier
+tile.cottonwood_stairs.name=Escaliers en peuplier d'Amérique
+tile.jacaranda_stairs.name=Escaliers en jarancanda
+tile.cherry_blossom_stairs.name=Escaliers en cerisier
+tile.cobblestone_brick_stairs.name=Escaliers en brique de pierre
+
+tile.willow_slab.name=Dalle en saule
+tile.mangrove_slab.name=Dalle en mangrove
+tile.palm_slab.name=Dalle en palmier
+tile.redwood_slab.name=Dalle en séquoia
+tile.fir_slab.name=Dalle en sapin
+tile.pine_slab.name=Dalle en pin
+tile.aspen_slab.name=Dalle en tremble
+tile.maple_slab.name=Dalle en érable
+tile.baobab_slab.name=Dalle en baobab
+tile.cottonwood_slab.name=Dalle en peuplier d'Amérique
+tile.juniper_slab.name=Dalle en genévrier
+tile.jacaranda_slab.name=Dalle en jaracanda
+tile.cherry_blossom_slab.name=Dalle en cerisier
+tile.cobblestone_brick_slab.name=Dalle en brique de pierre
+
+tile.willow_pressure_plate.name=Plaque de pression en saule
+tile.mangrove_pressure_plate.name=Plaque de pression en mangrove
+tile.palm_pressure_plate.name=Plaque de pression en palmier
+tile.redwood_pressure_plate.name=Plaque de pression en séquoia
+tile.fir_pressure_plate.name=Plaque de pression en sapin
+tile.pine_pressure_plate.name=Plaque de pression en pin
+tile.aspen_pressure_plate.name=Plaque de pression en tremble
+tile.maple_pressure_plate.name=Plaque de pression en érable
+tile.baobab_pressure_plate.name=Plaque de pression en baobab
+tile.cottonwood_pressure_plate.name=Plaque de pression en peuplier d'Amérique
+tile.juniper_pressure_plate=Plaque de pression en genévrier
+tile.jacaranda_pressure_plate=Plaque de pression en jaracanda
+tile.cherry_blossom_pressure_plate=Plaque de pression en cerisier
+
+tile.willow_button.name=Bouton en saule
+tile.mangrove_button.name=Bouton en mangrove
+tile.palm_button.name=Bouton en palmier
+tile.redwood_button.name=Bouton en séquoia
+tile.fir_button.name=Bouton en sapin
+tile.pine_button.name=Bouton en pin
+tile.aspen_button.name=Bouton en tremble
+tile.maple_button.name=Bouton en érable
+tile.baobab_button.name=Bouton en baobab
+tile.cottonwood_button.name=Bouton en peuplier d'Amérique
+tile.juniper_button.name=Bouton en genévrier
+tile.jacaranda_button.name=Bouton en jaracanda
+tile.cherry_blossom_button.name=Bouton en cerisier
+
+tile.willow_fence.name=Barrière en saule
+tile.mangrove_fence.name=Barrière en mangrove
+tile.palm_fence.name=Barrière en palmier
+tile.redwood_fence.name=Barrière en séquoia
+tile.fir_fence.name=Barrière en sapin
+tile.pine_fence.name=Barrière en pin
+tile.aspen_fence.name=Barrière en tremble
+tile.maple_fence.name=Barrière en érable
+tile.baobab_fence.name=Barrière en baobab
+tile.cottonwood_fence.name=Barrière en peuplier d'Amérique
+tile.juniper_fence.name=Barrière en genévrier
+tile.jacaranda_fence.name=Barrière en jacaranda
+tile.cherry_blossom_fence.name=Barrière en cerisier
+
+tile.willow_fence_gate.name=Portillon en saule
+tile.mangrove_fence_gate.name=Portillon en mangrove
+tile.palm_fence_gate.name=Portillon en palmier
+tile.redwood_fence_gate.name=Portillon en séquoia
+tile.fir_fence_gate.name=Portillon en sapin
+tile.pine_fence_gate.name=Portillon en pin
+tile.aspen_fence_gate.name=Portillon en tremble
+tile.maple_fence_gate.name=Portillon en érable
+tile.baobab_fence_gate.name=Portillon en baobab
+tile.cottonwood_fence_gate.name=Portillon en peuplier d'Amérique
+tile.juniper_fence_gate.name=Portillon en genévrier
+tile.jacaranda_fence_gate.name=Portillon en jacaranda
+tile.cherry_blossom_fence_gate.name=Portillon en cerisier
+
+tile.willow_trapdoor.name=Trappe en saule
+tile.mangrove_trapdoor.name=Trappe en mangrove
+tile.palm_trapdoor.name=Trappe en palmier
+tile.redwood_trapdoor.name=Trappe en séquoia
+tile.fir_trapdoor.name=Trappe en sapin
+tile.pine_trapdoor.name=Trappe en pin
+tile.aspen_trapdoor.name=Trappe en tremble
+tile.maple_trapdoor.name=Trappe en érable
+tile.baobab_trapdoor.name=Trappe en baobab
+tile.cottonwood_trapdoor.name=Trappe en peuplier d'Amérique
+tile.juniper_trapdoor.name=Trappe en genévrier
+tile.jacaranda_trapdoor.name=Trappe en jaracanda
+tile.cherry_blossom_trapdoor.name=Trappe en cerisier
+
+tile.wet_adobe.name=Adobe humide
+
+tile.basalt.name=Basalte
+tile.limestone.name=Calcaire
+tile.marble.name=Marbre
+tile.siltstone.name=Siltstone
+tile.adobe.name=Adobe
+
+tile.mud.name=Boue
+
+tile.basalt_brick.name=Briques de basalte
+tile.marble_brick.name=Briques de marbre
+tile.adobe_brick.name=Briques d'adobe
+
+tile.basalt_stairs.name=Escaliers en basalte
+tile.limestone_stairs.name=Escaliers en calcaire
+tile.marble_stairs.name=Escaliers en marbre
+tile.siltstone_stairs.name=Escaliers en siltstone
+tile.adobe_stairs.name=Escaliers en adobe
+tile.basalt_brick_stairs.name=Escaliers en briques de basalte
+tile.marble_brick_stairs.name=Escaliers en briques de marbre
+tile.adobe_brick_stairs.name=Escaliers en briques d'adobe
+
+tile.basalt_slab.name=Dalle en basalte
+tile.limestone_slab.name=Dalle en calcaire
+tile.marble_slab.name=Dalle en marbre
+tile.siltstone_slab.name=Dalle en siltstone
+tile.adobe_slab.name=Dalle en adobe
+tile.basalt_brick_slab.name=Dalle en briques de basalte
+tile.marble_brick_slab.name=Dalle en briques de marbre
+tile.adobe_brick_slab.name=Dalle en briques d'adobe
+
+tile.cobblestone_brick_wall.name=Muret en briques de pierre
+
+entity.pvj_snail.name=Escargot
+entity.pvj_fly.name=Mouche
+entity.pvj_firefly.name=Luciole
+entity.pvj_ghost.name=Fantôme
+entity.pvj_shade.name=Ombre
+entity.pvj_banshee.name=Banshee
+entity.pvj_icecube.name=Cube de glace
+entity.pvj_skeletal_knight.name=Chevalier squelettique
+entity.pvj_goon.name=Sbire
+entity.pvj_small_spider.name=Petite araignée
+entity.pvj_grizzly_bear.name=Grizzly
+entity.pvj_watcher.name=Guetteur
+entity.pvj_starfish.name=Étoile de mer
+entity.pvj_beach_starfish.name=Étoile de mer
+entity.pvj_coyote.name=Coyote
+entity.pvj_duck.name=Canard
+entity.pvj_clam.name=Palourde
+
+subtitles.pvj_fly.ambient=Bourdonnement de mouche
+subtitles.pvj_duck.quack=Cancanement de canard
+subtitles.pvj_ghost.ambient=Son ambiant du fantôme
+subtitles.pvj_ghost.hurt=Fantôme blessé
+subtitles.pvj_ghost.death=Mort de fantôme
+subtitles.pvj_goon.ambient=Rot de sbire
+subtitles.pvj_goon.hurt=Sbire blessé
+subtitles.pvj_goon.death=Mort de sbire
+subtitles.pvj_goon.puke=Vomi de sbire
+
+#Config
+#----------------------------------------------------------------------------------------------------
+config.pvj.master=1. Paramètres généraux
+config.pvj.global=2. Paramètres de fréquences
+config.pvj.worldgen=3. Paramètres de génération de monde
+config.pvj.biomes=4. Paramètres de biome
+config.pvj.mobs=5. Paramètres de mobs
+config.pvj.misc=6. Paramètres divers
+config.pvj.integration=7. Paramètres d'intégrations
+
+#BOP Objects
+#----------------------------------------------------------------------------------------------------
+tile.fallenleaves_bop_yellow_autumn.name=Feuilles d'automne jaune mortes
+tile.fallenleaves_bop_orange_autumn.name=Feuilles d'automne orange mortes
+tile.fallenleaves_bop_bamboo.name=Feuilles mortes de bambou
+tile.fallenleaves_bop_magic.name=Feuilles mortes magiques
+tile.fallenleaves_bop_umbran.name=Feuilles mortes de la désolation
+tile.fallenleaves_bop_dead.name=Feuilles mortes
+tile.fallenleaves_bop_fir.name=Feuilles mortes de sapin
+tile.fallenleaves_bop_ethereal.name=Feuilles mortes d'éthérée
+tile.fallenleaves_bop_origin.name=Feuilles mortes des origines
+tile.fallenleaves_bop_pink_cherry.name=Feuilles mortes de cerisier rose
+tile.fallenleaves_bop_white_cherry.name=Feuilles mortes de cerisier blanc
+tile.fallenleaves_bop_maple.name=Feuilles mortes d'érables
+tile.fallenleaves_bop_hellbark.name=Feuilles mortes infernales
+tile.fallenleaves_bop_flowering.name=Feuilles mortes de chêne fleuri
+tile.fallenleaves_bop_jacaranda.name=Feuilles mortes de jaracanda
+tile.fallenleaves_bop_sacred_oak.name=Feuilles mortes de chêne sacré
+tile.fallenleaves_bop_mangrove.name=Feuilles mortes de mangrove
+tile.fallenleaves_bop_palm.name=Feuilles mortes de palmier
+tile.fallenleaves_bop_redwood.name=Feuilles mortes de séquoia
+tile.fallenleaves_bop_willow.name=Feuilles mortes de saule
+tile.fallenleaves_bop_pine.name=Feuilles mortes de pin
+tile.fallenleaves_bop_mahogany.name=Feuilles mortes d'arbre de la jungle
+tile.fallenleaves_bop_ebony.name=Feuilles mortes d'ébène
+tile.fallenleaves_bop_eucalyptus.name=Feuilles mortes d'eucalyptus
+tile.fallenleaves_bop_red_big_flower.name=Pétales rouges mortes
+tile.fallenleaves_bop_yellow_big_flower.name=Pétales jaunes mortes
+
+tile.yellow_autumn_bop_twigs.name=Brindilles d'arbre d'automne jaune
+tile.orange_autumn_bop_twigs.name=Brindilles d'arbre d'automne orange
+tile.bamboo_bop_twigs.name=Brindilles de bambou
+tile.magic_bop_twigs.name=Brindilles magiques
+tile.umbran_bop_twigs.name=Brindilles de la désolation
+tile.dead_bop_twigs.name=Brindilles mortes
+tile.fir_bop_twigs.name=Brindilles de sapin
+tile.ethereal_bop_twigs.name=Brindilles d'éthérée
+tile.origin_bop_twigs.name=Brindilles des origines
+tile.pink_cherry_bop_twigs.name=Brindilles de cerisier rose
+tile.white_cherry_bop_twigs.name=Brindilles de cerisier blanc
+tile.maple_bop_twigs.name=Brindilles d'érable
+tile.hellbark_bop_twigs.name=Brindilles infernales
+tile.flowering_bop_twigs.name=Brindilles de chêne fleuri
+tile.jacaranda_bop_twigs.name=Brindilles de jaracanda
+tile.sacred_oak_bop_twigs.name=Brindilles de chêne sacré
+tile.mangrove_bop_twigs.name=Brindilles de mangrove
+tile.palm_bop_twigs.name=Brindilles de palmier
+tile.redwood_bop_twigs.name=Brindilles séquoia
+tile.willow_bop_twigs.name=Brindilles de saule
+tile.pine_bop_twigs.name=Brindilles de pin
+tile.mahogany_bop_twigs.name=Brindilles d'arbre de la jungle
+tile.ebony_bop_twigs.name=Brindilles d'ébène
+tile.eucalyptus_bop_twigs.name=Brindilles d'eucalyptus
+tile.red_big_flower_bop_twigs.name=unused
+tile.yellow_big_flower_bop_twigs.name=unused
+
+#Traverse Objects
+#----------------------------------------------------------------------------------------------------
+tile.fallenleaves_traverse_red_autumn.name=Feuilles d'automne rouge mortes
+tile.fallenleaves_traverse_brown_autumn.name=Feuilles d'automne marron mortes
+tile.fallenleaves_traverse_orange_autumn.name=Feuilles d'automne orange mortes
+tile.fallenleaves_traverse_yellow_autumn.name=Feuilles d'automne jaune mortes
+tile.fallenleaves_traverse_fir.name=Feuilles mortes de sapin
+
+tile.red_autumn_traverse_twigs.name=Brindilles d'arbre d'automne rouge
+tile.brown_autumn_traverse_twigs.name=Brindilles d'arbre d'automne marron
+tile.orange_autumn_traverse_twigs.name=Brindilles d'arbre d'automne orange
+tile.yellow_autumn_traverse_twigs.name=Brindilles d'arbre d'automne jaune
+tile.fir_traverse_twigs.name=Brindilles de sapin
