@@ -25,7 +25,7 @@ public class GroundcoverPlacer extends BlockPlacer {
 	}
 
 	public void func_225567_a_(IWorld world, BlockPos pos, BlockState state, Random rand) {
-		if (world.getBlockState(pos.down()).isOpaqueCube(world, pos)) {
+		if (world.getBlockState(pos.down()).isOpaqueCube(world, pos) && world.getBlockState(pos.down()).isSolid()) {
 			if (state.getBlock() instanceof FallenLeavesBlock) {
 				world.setBlockState(pos, state, 2);
 			} else {
