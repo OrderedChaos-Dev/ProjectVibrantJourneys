@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/ice_chunks0"},
+		"model=1": { "model": "projectvibrantjourneys:block/ice_chunks1"},
+		"model=2": { "model": "projectvibrantjourneys:block/ice_chunks2"},
+		"model=3": { "model": "projectvibrantjourneys:block/ice_chunks3"},
+		"model=4": { "model": "projectvibrantjourneys:block/ice_chunks4"}
+	}
+}

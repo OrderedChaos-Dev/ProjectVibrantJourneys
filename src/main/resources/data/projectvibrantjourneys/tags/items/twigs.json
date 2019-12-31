@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"projectvibrantjourneys:oak_twigs",
+		"projectvibrantjourneys:birch_twigs",
+		"projectvibrantjourneys:spruce_twigs",
+		"projectvibrantjourneys:jungle_twigs",
+		"projectvibrantjourneys:dark_oak_twigs",
+		"projectvibrantjourneys:acacia_twigs"
+	]
+}

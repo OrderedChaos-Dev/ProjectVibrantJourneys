@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[30,)"
+issueTrackerURL="https://github.com/mc-jt9/ProjectVibrantJourneys/issues"
+
+[[mods]]
+	modId="projectvibrantjourneys"
+	version="${version}"
+	displayName="Project: Vibrant Journeys"
+	displayURL="https://www.orderedchaos.dev/"
+	logoFile="pvj.png"
+	authors="solis_nova"
+	description='''
+	Spices up your world with vanilla-style additions!
+	'''
+[[dependencies.projectvibrantjourneys]]
+    modId="forge"
+    mandatory=true
+    versionRange="[30,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.projectvibrantjourneys]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.1]"
+    ordering="NONE"
+    side="BOTH"

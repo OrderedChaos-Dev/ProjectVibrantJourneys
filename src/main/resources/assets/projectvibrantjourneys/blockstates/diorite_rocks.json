@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/diorite_rocks0"},
+		"model=1": { "model": "projectvibrantjourneys:block/diorite_rocks1"},
+		"model=2": { "model": "projectvibrantjourneys:block/diorite_rocks2"},
+		"model=3": { "model": "projectvibrantjourneys:block/diorite_rocks3"},
+		"model=4": { "model": "projectvibrantjourneys:block/diorite_rocks4"}
+	}
+}

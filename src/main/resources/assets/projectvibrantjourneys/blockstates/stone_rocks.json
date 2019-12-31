@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/stone_rocks0"},
+		"model=1": { "model": "projectvibrantjourneys:block/stone_rocks1"},
+		"model=2": { "model": "projectvibrantjourneys:block/stone_rocks2"},
+		"model=3": { "model": "projectvibrantjourneys:block/stone_rocks3"},
+		"model=4": { "model": "projectvibrantjourneys:block/stone_rocks4"}
+	}
+}

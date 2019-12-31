@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/pinecones0"},
+		"model=1": { "model": "projectvibrantjourneys:block/pinecones1"},
+		"model=2": { "model": "projectvibrantjourneys:block/pinecones2"},
+		"model=3": { "model": "projectvibrantjourneys:block/pinecones3"},
+		"model=4": { "model": "projectvibrantjourneys:block/pinecones4"}
+	}
+}

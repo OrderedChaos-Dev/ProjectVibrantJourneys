@@ -1,0 +1,7 @@
+{
+	"parent": "projectvibrantjourneys:block/rocks3",
+    "textures": {
+    	"particle": "block/andesite",
+        "0": "block/andesite"
+    }
+}

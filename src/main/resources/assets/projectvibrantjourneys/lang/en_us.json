@@ -1,0 +1,32 @@
+{
+	"itemGroup.projectvibrantjourneys": "Project: Vibrant Journeys",
+	
+	"block.projectvibrantjourneys.oak_twigs": "Oak Twigs",
+	"block.projectvibrantjourneys.birch_twigs": "Birch Twigs",
+	"block.projectvibrantjourneys.spruce_twigs": "Spruce Twigs",
+	"block.projectvibrantjourneys.jungle_twigs": "Jungle Twigs",
+	"block.projectvibrantjourneys.dark_oak_twigs": "Dark Oak Twigs",
+	"block.projectvibrantjourneys.acacia_twigs": "Acacia Twigs",
+	
+	"block.projectvibrantjourneys.oak_fallen_leaves": "Oak Fallen Leaves",
+	"block.projectvibrantjourneys.birch_fallen_leaves": "Birch Fallen Leaves",
+	"block.projectvibrantjourneys.spruce_fallen_leaves": "Spruce Fallen Leaves",
+	"block.projectvibrantjourneys.jungle_fallen_leaves": "Jungle Fallen Leaves",
+	"block.projectvibrantjourneys.dark_oak_fallen_leaves": "Dark Oak Fallen Leaves",
+	"block.projectvibrantjourneys.acacia_fallen_leaves": "Acacia Fallen Leaves",
+	
+	"block.projectvibrantjourneys.stone_rocks": "Rocks",
+	"block.projectvibrantjourneys.andesite_rocks": "Andesite Rocks",
+	"block.projectvibrantjourneys.diorite_rocks": "Diorite Rocks",
+	"block.projectvibrantjourneys.granite_rocks": "Granite Rocks",
+	"block.projectvibrantjourneys.sandstone_rocks": "Sandstone Rocks",
+	"block.projectvibrantjourneys.red_sandstone_rocks": "Red Sandstone Rocks",
+	"block.projectvibrantjourneys.netherrack_rocks": "Netherrack Rocks",
+	"block.projectvibrantjourneys.ice_chunks": "Ice Chunks",
+	
+	"block.projectvibrantjourneys.bones": "Bones",
+	"block.projectvibrantjourneys.charred_bones": "Charred Bones",
+	
+	"block.projectvibrantjourneys.pinecones": "Pinecones",
+	"block.projectvibrantjourneys.seashells": "Seashells"
+}

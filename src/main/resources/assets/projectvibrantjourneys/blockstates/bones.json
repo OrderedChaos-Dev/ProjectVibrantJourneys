@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/bones0"},
+		"model=1": { "model": "projectvibrantjourneys:block/bones1"},
+		"model=2": { "model": "projectvibrantjourneys:block/bones2"},
+		"model=3": { "model": "projectvibrantjourneys:block/bones3"},
+		"model=4": { "model": "projectvibrantjourneys:block/bones4"}
+	}
+}
