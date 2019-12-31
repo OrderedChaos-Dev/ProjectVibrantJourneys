@@ -7,6 +7,7 @@ import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -39,9 +40,9 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 		if (rand.nextFloat() < config.probability) {
 			for(Direction dir : Direction.Plane.HORIZONTAL) {
 				BlockPos offsetPos = pos.add(dir.getDirectionVec());
-				world.setBlockState(offsetPos, Blocks.OAK_LEAVES.getDefaultState(), 2);
+				world.setBlockState(offsetPos, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1), 2);
 			}
-			world.setBlockState(pos.up(), Blocks.OAK_LEAVES.getDefaultState(), 2);
+			world.setBlockState(pos.up(), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1), 2);
 			world.setBlockState(pos, Blocks.OAK_LOG.getDefaultState(), 2);
 		}
 
