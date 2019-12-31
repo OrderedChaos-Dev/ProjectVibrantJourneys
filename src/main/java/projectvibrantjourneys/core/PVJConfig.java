@@ -13,6 +13,13 @@ import net.minecraftforge.fml.common.Mod;
 public class PVJConfig {
 	
 	public static final String CAT_WORLDGEN = "worldgen";
+	public static final String CAT_GROUNDCOVER = "groundcover";
+	public static final String CAT_GROUNDCOVER_TWIGS = "twigs";
+	public static final String CAT_GROUNDCOVER_FALLEN_LEAVES = "fallen leaves";
+	public static final String CAT_GROUNDCOVER_ROCKS = "rocks";
+	public static final String CAT_GROUNDCOVER_BONES = "bones";
+	public static final String CAT_GROUNDCOVER_OTHER = "other";
+	public static final String CAT_WORLDGEN_MISC = "misc";
 	
 	private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 	private static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
@@ -45,6 +52,8 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> pineconesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> seashellsBiomes;
+	
+	public static ForgeConfigSpec.ConfigValue<List<String>> bushBiomes;
 	
 	static {
 		ConfigDefaults.load();
@@ -96,6 +105,8 @@ public class PVJConfig {
 	private static void pineconesSeashellsBiomes() {
 		pineconesBiomes = COMMON_BUILDER.comment("Pinecones Biomes").define("pineconesBiomes", ConfigDefaults.PINECONES_DEFAULT);
 		seashellsBiomes = COMMON_BUILDER.comment("Seashells Biomes").define("seashellsBiomes", ConfigDefaults.SEASHELLS_DEFAULT);
+		
+		bushBiomes = COMMON_BUILDER.comment("Bush Biomes").define("bushBiomes", ConfigDefaults.BUSH_DEFAULT);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

@@ -12,14 +12,14 @@ This version is in ALPHA for Minecraft 1.15.1 and was built with MinecraftForge 
 
 **These links are the official threads for this mod:**
 
-[CurseForge](https://minecraft.curseforge.com/projects/project-vibrant-journeys)
+[CurseForge](https://minecraft.curseforge.com/projects/project-vibrant-journeys)  
 [PlanetMinecraft](https://www.planetminecraft.com/mod/1-12-2-project-vibrant-journeys-enhance-your-world-with-new-biomes-trees-mobs-and-much-more/)
 
 If you have any issues or feature requests, feel free to submit them here under the "issues" tab or comment on one of the forum links above.
 For feature requests, please check the wiki to see if it is already planned.
 If you have any questions, ask on one of the forums.
 
-You may add this mod to your modpack as long as it is NOT monetized, and it links to either the CurseForge page, the PlanetMinecraft thread, the MinecraftForum thread, or this Github repo, as well as give credits to me (jt9), then sure, go ahead. Read the license below for further info.
+You may add this mod to your modpack as long as it is NOT monetized, and it links to either the CurseForge page, the PlanetMinecraft thread, or this Github repo, as well as give credits, then sure, go ahead. Read the license below for further info.
 
 
 -------------------------------------------------

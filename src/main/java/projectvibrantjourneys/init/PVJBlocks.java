@@ -30,12 +30,14 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJBlocks {
 	
+	/* GROUNDCOVERS */
 	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs;
 	public static Block oak_fallen_leaves,  birch_fallen_leaves,  spruce_fallen_leaves,  jungle_fallen_leaves,  dark_oak_fallen_leaves,  acacia_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks, red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget;
 	public static Block bones, charred_bones;
 	public static Block pinecones, seashells;
+	public static Block dung;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {

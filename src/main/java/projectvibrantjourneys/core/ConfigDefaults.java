@@ -35,6 +35,8 @@ public class ConfigDefaults {
 	public static final List<String> PINECONES_DEFAULT = new ArrayList<String>();
 	public static final List<String> SEASHELLS_DEFAULT = new ArrayList<String>();
 	
+	public static final List<String> BUSH_DEFAULT = new ArrayList<String>();
+	
 	public static void load() {
 		OAK_TWIGS_DEFAULT.add("minecraft:forest");
 		OAK_TWIGS_DEFAULT.add("minecraft:flower_forest");
@@ -225,5 +227,8 @@ public class ConfigDefaults {
 		SEASHELLS_DEFAULT.add("minecraft:deep_lukewarm_ocean");
 		SEASHELLS_DEFAULT.add("minecraft:deep_cold_ocean");
 		SEASHELLS_DEFAULT.add("minecraft:deep_frozen_ocean");
+		
+		BUSH_DEFAULT.add("minecraft:plains");
+		BUSH_DEFAULT.add("minecraft:sunflower:plains");
 	}
 }

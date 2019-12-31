@@ -4,17 +4,20 @@ import java.util.List;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.placement.ChanceRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.HeightWithChanceConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.blockstateproviders.RocksBlockStateProvider;
+import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.placers.GroundcoverPlacer;
 import projectvibrantjourneys.core.PVJConfig;
 
@@ -47,6 +50,8 @@ public class PVJFeatures {
 		BlockClusterFeatureConfig pineconesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.pinecones.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig seashellsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.getDefaultState()), new GroundcoverPlacer());
 		
+		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
+		
 		List<String> oakBiomes = PVJConfig.oakTwigsBiomes.get();
 		List<String> oakBiomesSparse = PVJConfig.oakTwigsSparseBiomes.get();
 		List<String> birchBiomes = PVJConfig.birchTwigsBiomes.get();
@@ -71,6 +76,8 @@ public class PVJFeatures {
 		
 		List<String> pineconesBiomes = PVJConfig.pineconesBiomes.get();
 		List<String> seashellsBiomes = PVJConfig.seashellsBiomes.get();
+		
+		List<String> bushBiomes = PVJConfig.bushBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -129,6 +136,9 @@ public class PVJFeatures {
 				addGroundcoverChanceFeature(biome, pineconesCluster, 3, 0.5F, false);
 			if(seashellsBiomes.contains(biome.getRegistryName().toString()))
 				addGroundcoverChanceFeature(biome, seashellsCluster, 2, 0.3F, false);
+			
+			if(bushBiomes.contains(biome.getRegistryName().toString()))
+				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
 		}
 	}
 	
