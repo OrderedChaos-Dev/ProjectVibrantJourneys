@@ -65,11 +65,16 @@ public class PVJBlocks {
 		netherrack_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "netherrack_rocks");
 		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, GroundcoverBlock.Type.ROCKS, SoundType.GLASS), "ice_chunks");
 		
+		iron_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.NUGGET), "iron_nugget");
+		gold_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.NUGGET), "gold_nugget");
+		
 		bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "bones");
 		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "charred_bones");
 		
 		pinecones = registerBlock(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.PINECONES), "pinecones");
 		seashells = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.SEASHELLS), "seashells");
+		
+		dung = registerBlock(new GroundcoverBlock(Material.EARTH, GroundcoverBlock.Type.DUNG), "dung");
 		
 		if(FMLEnvironment.dist == Dist.CLIENT) {
 			registerRenderers();

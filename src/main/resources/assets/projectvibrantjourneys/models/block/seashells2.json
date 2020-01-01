@@ -3,7 +3,7 @@
     "textures": {
     	"particle": "block/diorite",
         "0": "block/diorite",
-        "1": "block/prismarine_rough",
+        "1": "block/prismarine",
         "2": "block/granite"
     },
     "elements": [
@@ -46,7 +46,7 @@
                 "south": { "texture": "#0", "uv": [ 0.0, 0.0, 3.0, 1.0 ] },
                 "west": { "texture": "#0", "uv": [ 0.0, 0.0, 3.0, 1.0 ] },
                 "up": { "texture": "#0", "uv": [ 0.0, 0.0, 3.0, 3.0 ] },
-                "down": { "texture": "#-1", "uv": [ 0.0, 0.0, 3.0, 3.0 ] }
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 3.0, 3.0 ] }
             }
         },
         {

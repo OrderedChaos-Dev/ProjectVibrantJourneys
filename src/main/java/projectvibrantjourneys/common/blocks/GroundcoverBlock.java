@@ -147,6 +147,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 		TWIGS,
 		ROCKS,
 		BONES,
+		NUGGET,
 		PINECONES,
 		SEASHELLS,
 		DUNG

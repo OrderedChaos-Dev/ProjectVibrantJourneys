@@ -11,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import projectvibrantjourneys.init.PVJBiomes;
 import projectvibrantjourneys.init.PVJBlocks;
 import projectvibrantjourneys.init.PVJFeatures;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
@@ -34,7 +35,7 @@ public class ProjectVibrantJourneys {
 	}
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
-
+		PVJBiomes.initBiomeTypes();
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {

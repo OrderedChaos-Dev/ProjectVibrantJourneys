@@ -36,6 +36,7 @@ public class ConfigDefaults {
 	public static final List<String> SEASHELLS_DEFAULT = new ArrayList<String>();
 	
 	public static final List<String> BUSH_DEFAULT = new ArrayList<String>();
+	public static final List<String> LILYPAD_DEFAULT = new ArrayList<String>();
 	
 	public static void load() {
 		OAK_TWIGS_DEFAULT.add("minecraft:forest");
@@ -50,6 +51,7 @@ public class ConfigDefaults {
 		OAK_TWIGS_SPARSE_DEFAULT.add("minecraft:dark_forest");
 		OAK_TWIGS_SPARSE_DEFAULT.add("minecraft:dark_forest_hills");
 		OAK_TWIGS_SPARSE_DEFAULT.add("minecraft:wooded_mountains");
+		OAK_TWIGS_SPARSE_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 		
 		BIRCH_TWIGS_DEFAULT.add("minecraft:birch_forest");
 		BIRCH_TWIGS_DEFAULT.add("minecraft:birch_forest_hills");
@@ -78,10 +80,12 @@ public class ConfigDefaults {
 		JUNGLE_TWIGS_DEFAULT.add("minecraft:modified_jungle");
 		JUNGLE_TWIGS_DEFAULT.add("minecraft:bamboo_jungle");
 		JUNGLE_TWIGS_DEFAULT.add("minecraft:bamboo_jungle_hills");
+		JUNGLE_TWIGS_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 		JUNGLE_TWIGS_SPARSE_DEFAULT.add("minecraft:jungle_edge");
 		JUNGLE_TWIGS_SPARSE_DEFAULT.add("minecraft:modified_jungle_edge");
 		
 		DARK_OAK_TWIGS_DEFAULT.add("minecraft:dark_forest");
+		DARK_OAK_TWIGS_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 		
 		ACACIA_TWIGS_DEFAULT.add("minecraft:savanna");
 		ACACIA_TWIGS_DEFAULT.add("minecraft:savanna_plateau");
@@ -129,6 +133,7 @@ public class ConfigDefaults {
 		ROCKS_DEFAULT.add("minecraft:shattered_savanna_plateau");
 		ROCKS_DEFAULT.add("minecraft:bamboo_jungle");
 		ROCKS_DEFAULT.add("minecraft:bamboo_jungle_hills");
+		ROCKS_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 		
 		SANDSTONE_ROCKS_DEFAULT.add("minecraft:desert");
 		SANDSTONE_ROCKS_DEFAULT.add("minecraft:beach");
@@ -197,6 +202,7 @@ public class ConfigDefaults {
 		BONES_DEFAULT.add("minecraft:shattered_savanna_plateau");
 		BONES_DEFAULT.add("minecraft:bamboo_jungle");
 		BONES_DEFAULT.add("minecraft:bamboo_jungle_hills");
+		BONES_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 		BONES_COMMON_DEFAULT.add("minecraft:desert");
 		BONES_COMMON_DEFAULT.add("minecraft:badlands");
 		BONES_COMMON_DEFAULT.add("minecraft:desert_lakes");
@@ -230,5 +236,34 @@ public class ConfigDefaults {
 		
 		BUSH_DEFAULT.add("minecraft:plains");
 		BUSH_DEFAULT.add("minecraft:sunflower:plains");
+		BUSH_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
+		
+		LILYPAD_DEFAULT.add("minecraft:plains");
+		LILYPAD_DEFAULT.add("minecraft:forest");
+		LILYPAD_DEFAULT.add("minecraft:taiga");
+		LILYPAD_DEFAULT.add("minecraft:river");
+		LILYPAD_DEFAULT.add("minecraft:wooded_hills");
+		LILYPAD_DEFAULT.add("minecraft:taiga_hills");
+		LILYPAD_DEFAULT.add("minecraft:jungle");
+		LILYPAD_DEFAULT.add("minecraft:jungle_edge");
+		LILYPAD_DEFAULT.add("minecraft:birch_forest");
+		LILYPAD_DEFAULT.add("minecraft:birch_forest_hills");
+		LILYPAD_DEFAULT.add("minecraft:dark_forest");
+		LILYPAD_DEFAULT.add("minecraft:giant_tree_taiga");
+		LILYPAD_DEFAULT.add("minecraft:giant_tree_taiga_hills");
+		LILYPAD_DEFAULT.add("minecraft:wooded_mountains");
+		LILYPAD_DEFAULT.add("minecraft:sunflower_plains");
+		LILYPAD_DEFAULT.add("minecraft:flower_forest");
+		LILYPAD_DEFAULT.add("minecraft:taiga_mountains");
+		LILYPAD_DEFAULT.add("minecraft:modified_jungle");
+		LILYPAD_DEFAULT.add("minecraft:modified_jungle_edge");
+		LILYPAD_DEFAULT.add("minecraft:tall_birch_forest");
+		LILYPAD_DEFAULT.add("minecraft:tall_birch_hills");
+		LILYPAD_DEFAULT.add("minecraft:dark_forest_hills");
+		LILYPAD_DEFAULT.add("minecraft:giant_spruce_taiga");
+		LILYPAD_DEFAULT.add("minecraft:giant_spruce_taiga_hills");
+		LILYPAD_DEFAULT.add("minecraft:bamboo_jungle");
+		LILYPAD_DEFAULT.add("minecraft:bamboo_jungle_hills");
+		LILYPAD_DEFAULT.add("projectvibrantjourneys:overgrown_spires");
 	}
 }

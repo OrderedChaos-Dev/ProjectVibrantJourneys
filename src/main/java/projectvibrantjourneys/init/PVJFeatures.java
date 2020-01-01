@@ -3,6 +3,7 @@ package projectvibrantjourneys.init;
 import java.util.List;
 
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
@@ -78,6 +79,7 @@ public class PVJFeatures {
 		List<String> seashellsBiomes = PVJConfig.seashellsBiomes.get();
 		
 		List<String> bushBiomes = PVJConfig.bushBiomes.get();
+		List<String> lilypadBiomes = PVJConfig.lilypadBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -139,6 +141,9 @@ public class PVJFeatures {
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
+			
+			if(lilypadBiomes.contains(biome.getRegistryName().toString()))
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226720_H_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(4))));
 		}
 	}
 	

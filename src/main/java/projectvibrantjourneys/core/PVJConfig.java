@@ -54,6 +54,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> seashellsBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> bushBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> lilypadBiomes;
 	
 	static {
 		ConfigDefaults.load();
@@ -62,6 +63,7 @@ public class PVJConfig {
 		rocksBiomes();
 		bonesBiomes();
 		pineconesSeashellsBiomes();
+		other();
 		COMMON_BUILDER.pop();
 		
 		COMMON_CONFIG = COMMON_BUILDER.build();
@@ -105,8 +107,11 @@ public class PVJConfig {
 	private static void pineconesSeashellsBiomes() {
 		pineconesBiomes = COMMON_BUILDER.comment("Pinecones Biomes").define("pineconesBiomes", ConfigDefaults.PINECONES_DEFAULT);
 		seashellsBiomes = COMMON_BUILDER.comment("Seashells Biomes").define("seashellsBiomes", ConfigDefaults.SEASHELLS_DEFAULT);
-		
+	}
+	
+	private static void other() {
 		bushBiomes = COMMON_BUILDER.comment("Bush Biomes").define("bushBiomes", ConfigDefaults.BUSH_DEFAULT);
+		lilypadBiomes = COMMON_BUILDER.comment("Lily Pad Biomes").define("lilypadBiomes", ConfigDefaults.LILYPAD_DEFAULT);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {
