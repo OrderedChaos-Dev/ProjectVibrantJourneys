@@ -22,7 +22,7 @@ public class PVJBiomes {
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
-		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), "overgrown_spires", 10);
+		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), "overgrown_spires", 5);
 	}
 	
 	public static Biome registerBiome(Biome biome, String name, int weight) {
