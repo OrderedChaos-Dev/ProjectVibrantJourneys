@@ -55,6 +55,8 @@ public class PVJFeatures {
 		BlockClusterFeatureConfig goldNuggetCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.gold_nugget.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig flintCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.flint.getDefaultState()), new GroundcoverPlacer());
 		
+		BlockClusterFeatureConfig dungCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.dung.getDefaultState()), new GroundcoverPlacer());
+		
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
 		
 		List<String> oakBiomes = PVJConfig.oakTwigsBiomes.get();
@@ -89,6 +91,8 @@ public class PVJFeatures {
 		List<String> goldNuggetBiomes = PVJConfig.goldNuggetBiomes.get();
 		List<String> goldNuggetCommonBiomes = PVJConfig.goldNuggetCommonBiomes.get();
 		List<String> flintBiomes = PVJConfig.flintBiomes.get();
+		
+		List<String> dungBiomes = PVJConfig.dungBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -157,6 +161,9 @@ public class PVJFeatures {
 				addGroundcoverChanceFeature(biome, goldNuggetCluster, 2, 0.2F, false);
 			if(flintBiomes.contains(biome.getRegistryName().toString()))
 				addGroundcoverChanceFeature(biome, flintCluster, 1, 0.15F, false);
+			
+			if(dungBiomes.contains(biome.getRegistryName().toString()))
+				addGroundcoverChanceFeature(biome, dungCluster, 2, 0.2F, false);
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));

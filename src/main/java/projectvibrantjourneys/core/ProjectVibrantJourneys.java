@@ -14,6 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import projectvibrantjourneys.init.PVJBiomes;
 import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.init.PVJEntities;
 import projectvibrantjourneys.init.PVJEvents;
 import projectvibrantjourneys.init.PVJFeatures;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
@@ -34,6 +35,8 @@ public class ProjectVibrantJourneys {
 		
 		PVJConfig.loadConfig(PVJConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-common.toml"));
 		PVJConfig.loadConfig(PVJConfig.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-client.toml"));
+		
+		PVJEntities.preInitEntityTypes();
 	}
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
@@ -50,5 +53,6 @@ public class ProjectVibrantJourneys {
 		PVJBlocks.registerColors();
 		PVJFeatures.init();
 		PVJVanillaIntegration.init();
+		PVJEntities.addSpawns();
 	}
 }

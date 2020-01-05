@@ -30,6 +30,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.dark_oak_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.acacia_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.pinecones, 0.1F);
+		setCompostInfo(PVJBlocks.dung, 1.0F);
 	}
 
 	public static void setFlameInfo(Block block, int encouragement, int flammability) {

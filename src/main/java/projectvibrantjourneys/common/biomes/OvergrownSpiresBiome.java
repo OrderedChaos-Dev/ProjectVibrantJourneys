@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.biome;
+package projectvibrantjourneys.common.biomes;
 
 import com.google.common.collect.ImmutableList;
 

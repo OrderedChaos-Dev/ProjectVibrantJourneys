@@ -61,6 +61,10 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> goldNuggetCommonBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> flintBiomes;
 	
+	public static ForgeConfigSpec.ConfigValue<List<String>> dungBiomes;
+	
+	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
+	
 	static {
 		ConfigDefaults.load();
 		COMMON_BUILDER.comment("World Gen Settings").push(CAT_WORLDGEN);
@@ -109,6 +113,10 @@ public class PVJConfig {
 		goldNuggetBiomes = COMMON_BUILDER.comment("Gold Nugget Biomes").define("goldNuggetBiomes", ConfigDefaults.GOLD_NUGGET);
 		goldNuggetCommonBiomes = COMMON_BUILDER.comment("Gold Nugget Biomes (Common)").define("goldNuggetCommonBiomes", ConfigDefaults.GOLD_NUGGET_COMMON);
 		flintBiomes = COMMON_BUILDER.comment("Flint Biomes").define("flintBiomes", ConfigDefaults.FLINT);
+		
+		dungBiomes = COMMON_BUILDER.comment("Dung Biomes").define("dungBiomes", ConfigDefaults.DUNG);
+		
+		skeletalKnightBiomes = COMMON_BUILDER.comment("Skeletal Knight Biomes").define("skeletalKnightBiomes", ConfigDefaults.SKELETAL_KNIGHT);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

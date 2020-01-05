@@ -31,9 +31,13 @@
 	"block.projectvibrantjourneys.pinecones": "Pinecones",
 	"block.projectvibrantjourneys.seashells": "Seashells",
 	
-	"block.projectvibrantjourneys.iron_nugget": "Iron Nugget",
-	"block.projectvibrantjourneys.gold_nugget": "Gold Nugget",
-	"block.projectvibrantjourneys.flint": "Flint",
+	"block.projectvibrantjourneys.iron_nugget": "Iron Nugget (Groundcover)",
+	"block.projectvibrantjourneys.gold_nugget": "Gold Nugget (Groundcover)",
+	"block.projectvibrantjourneys.flint": "Flint (Groundcover)",
 	
-	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires"
+	"block.projectvibrantjourneys.dung": "Dung",
+	
+	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
+	
+	"entity.projectvibrantjourneys.skeletal_knight": "Skeletal Knight"
 }

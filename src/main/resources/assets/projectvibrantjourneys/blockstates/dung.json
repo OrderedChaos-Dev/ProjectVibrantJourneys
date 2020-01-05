@@ -1,0 +1,10 @@
+{
+	"variants":
+	{
+		"model=0": { "model": "projectvibrantjourneys:block/dung0"},
+		"model=1": { "model": "projectvibrantjourneys:block/dung1"},
+		"model=2": { "model": "projectvibrantjourneys:block/dung2"},
+		"model=3": { "model": "projectvibrantjourneys:block/dung3"},
+		"model=4": { "model": "projectvibrantjourneys:block/dung4"}
+	}
+}
