@@ -65,6 +65,8 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
 	
+	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
+	
 	static {
 		ConfigDefaults.load();
 		COMMON_BUILDER.comment("World Gen Settings").push(CAT_WORLDGEN);
@@ -117,6 +119,8 @@ public class PVJConfig {
 		dungBiomes = COMMON_BUILDER.comment("Dung Biomes").define("dungBiomes", ConfigDefaults.DUNG);
 		
 		skeletalKnightBiomes = COMMON_BUILDER.comment("Skeletal Knight Biomes").define("skeletalKnightBiomes", ConfigDefaults.SKELETAL_KNIGHT);
+		
+		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

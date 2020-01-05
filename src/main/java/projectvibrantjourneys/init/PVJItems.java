@@ -19,6 +19,7 @@ public class PVJItems {
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
 		registerSpawnEgg("skeletal_knight", PVJEntities.skeletal_knight, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("ghost", PVJEntities.ghost, 0xa6a6a6, 0x808080);
 	}
 	
 	public static Item registerItem(Item item, String name) {

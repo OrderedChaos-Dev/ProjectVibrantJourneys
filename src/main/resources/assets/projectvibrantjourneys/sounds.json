@@ -1,0 +1,21 @@
+{
+  "entity.ghost.ambient": {
+    "sounds": [
+      "projectvibrantjourneys:entity/ghost/idle1"
+    ],
+    "subtitle": "subtitles.projectvibrantjourneys_ghost.ambient"
+  },
+  "entity.ghost.hurt": {
+    "sounds": [
+      "projectvibrantjourneys:entity/ghost/hurt1"
+    ],
+    "subtitle": "subtitles.projectvibrantjourneys_ghost.hurt"
+  },
+  "entity.ghost.death": {
+    "sounds": [
+      "projectvibrantjourneys:entity/ghost/death1",
+      "projectvibrantjourneys:entity/ghost/death2"
+    ],
+    "subtitle": "subtitles.projectvibrantjourneys_ghost.death"
+  }
+}

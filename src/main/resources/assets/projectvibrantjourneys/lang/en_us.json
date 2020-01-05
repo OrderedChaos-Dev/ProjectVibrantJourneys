@@ -37,7 +37,15 @@
 	
 	"block.projectvibrantjourneys.dung": "Dung",
 	
+	"item.projectvibrantjourneys.skeletal_knight_spawn_egg": "Skeletal Knight Spawn Egg",
+	"item.projectvibrantjourneys.ghost_spawn_egg": "Ghost Spawn Egg",
+	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	
-	"entity.projectvibrantjourneys.skeletal_knight": "Skeletal Knight"
+	"entity.projectvibrantjourneys.skeletal_knight": "Skeletal Knight",
+	"entity.projectvibrantjourneys.ghost": "Ghost",
+	
+	"subtitles.projectvibrantjourneys_ghost.ambient": "Ghost murmurs",
+	"subtitles.projectvibrantjourneys_ghost.hurt": "Ghost hurts",
+	"subtitles.projectvibrantjourneys_ghost.death": "Ghost dies"
 }
