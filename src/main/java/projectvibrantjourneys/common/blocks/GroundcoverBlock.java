@@ -169,6 +169,20 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	}
 	
 	@Override
+   public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
+		switch(type) {
+			case IRON_NUGGET:
+				return new ItemStack(Items.IRON_NUGGET);
+			case GOLD_NUGGET:
+				return new ItemStack(Items.GOLD_NUGGET);
+			case FLINT:
+				return new ItemStack(Items.FLINT);
+			default: 
+					return new ItemStack(this);
+		}
+   }
+	
+	@Override
 	@SuppressWarnings("deprecation")
 	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
