@@ -31,5 +31,9 @@
 	"block.projectvibrantjourneys.pinecones": "Pinecones",
 	"block.projectvibrantjourneys.seashells": "Seashells",
 	
+	"block.projectvibrantjourneys.iron_nugget": "Iron Nugget",
+	"block.projectvibrantjourneys.gold_nugget": "Gold Nugget",
+	"block.projectvibrantjourneys.flint": "Flint",
+	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires"
 }

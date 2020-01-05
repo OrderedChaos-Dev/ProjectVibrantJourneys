@@ -3,6 +3,7 @@ package projectvibrantjourneys.core;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import projectvibrantjourneys.init.PVJBiomes;
 import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.init.PVJEvents;
 import projectvibrantjourneys.init.PVJFeatures;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
 
@@ -36,6 +38,7 @@ public class ProjectVibrantJourneys {
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
 		PVJBiomes.initBiomeTypes();
+		MinecraftForge.EVENT_BUS.register(new PVJEvents());
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {

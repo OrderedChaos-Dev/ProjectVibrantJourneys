@@ -1,0 +1,9 @@
+{
+    "variants": {
+		"model=0": { "model": "projectvibrantjourneys:block/flint"},
+		"model=1": { "model": "projectvibrantjourneys:block/flint", "y": 90},
+		"model=2": { "model": "projectvibrantjourneys:block/flint", "y": 180},
+		"model=3": { "model": "projectvibrantjourneys:block/flint", "y": 270},
+		"model=4": { "model": "projectvibrantjourneys:block/flint", "y": 90}
+    }
+}

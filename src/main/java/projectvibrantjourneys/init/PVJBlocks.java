@@ -34,7 +34,7 @@ public class PVJBlocks {
 	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs;
 	public static Block oak_fallen_leaves,  birch_fallen_leaves,  spruce_fallen_leaves,  jungle_fallen_leaves,  dark_oak_fallen_leaves,  acacia_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks, red_sandstone_rocks, netherrack_rocks, ice_chunks;
-	public static Block iron_nugget, gold_nugget;
+	public static Block iron_nugget, gold_nugget, flint;
 	public static Block bones, charred_bones;
 	public static Block pinecones, seashells;
 	public static Block dung;
@@ -65,8 +65,9 @@ public class PVJBlocks {
 		netherrack_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "netherrack_rocks");
 		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, GroundcoverBlock.Type.ROCKS, SoundType.GLASS), "ice_chunks");
 		
-		iron_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.NUGGET), "iron_nugget");
-		gold_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.NUGGET), "gold_nugget");
+		iron_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.IRON_NUGGET), "iron_nugget");
+		gold_nugget = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.GOLD_NUGGET), "gold_nugget");
+		flint = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.FLINT), "flint");
 		
 		bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "bones");
 		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "charred_bones");
@@ -129,6 +130,10 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(acacia_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(dark_oak_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, RenderType.func_228641_d_());
+		
+		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(flint, RenderType.func_228641_d_());
 	}
 	
 	@OnlyIn(Dist.CLIENT)

@@ -1,0 +1,16 @@
+{
+  "parent": "block/thin_block",
+  "textures": {
+    "particle": "item/iron_nugget",
+    "texture": "item/iron_nugget"
+  },
+  "elements": [
+    {
+      "from": [4, 0, 4],
+      "to": [12, 1, 12],
+      "faces": {
+        "up": { "uv": [0, 0, 16, 16], "texture": "#texture"}
+      }
+    }
+  ]
+}

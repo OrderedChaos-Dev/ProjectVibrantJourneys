@@ -40,14 +40,20 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
+	private GroundcoverBlock.Type type;
+	
 	public GroundcoverBlock(Material material, GroundcoverBlock.Type type) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F));
+		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F).func_226896_b_()); //.func_226896_b_() isSolid
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
+		
+		this.type = type;
 	}
 	
 	public GroundcoverBlock(Material material, GroundcoverBlock.Type type, SoundType soundType) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType));
+		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType).func_226896_b_());
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
+		
+		this.type = type;
 	}
 
 	@Override
@@ -82,7 +88,24 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 		if(!isValidPosition(state, world, pos)) {
 			world.destroyBlock(pos, false);
-			spawnAsEntity(world, pos, new ItemStack(Items.STICK));
+			
+			switch(this.type) {
+				case TWIGS:
+					spawnAsEntity(world, pos, new ItemStack(Items.STICK));
+					break;
+				case IRON_NUGGET:
+					spawnAsEntity(world, pos, new ItemStack(Items.IRON_NUGGET));
+					break;
+				case GOLD_NUGGET:
+					spawnAsEntity(world, pos, new ItemStack(Items.GOLD_NUGGET));
+					break;
+				case FLINT:
+					spawnAsEntity(world, pos, new ItemStack(Items.FLINT));
+					break;
+				default:
+					break;
+			}
+			
 		}
 	}
 	
@@ -111,7 +134,20 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 				return ActionResultType.SUCCESS;
 			} else {
 				world.removeBlock(pos, false);
-				spawnAsEntity(world, pos, new ItemStack(this));
+				switch(this.type) {
+				case IRON_NUGGET:
+					spawnAsEntity(world, pos, new ItemStack(Items.IRON_NUGGET));
+					break;
+				case GOLD_NUGGET:
+					spawnAsEntity(world, pos, new ItemStack(Items.GOLD_NUGGET));
+					break;
+				case FLINT:
+					spawnAsEntity(world, pos, new ItemStack(Items.FLINT));
+					break;
+				default:
+					spawnAsEntity(world, pos, new ItemStack(this));
+					break;
+			}
 				return ActionResultType.SUCCESS;
 			}
 		}
@@ -147,7 +183,9 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 		TWIGS,
 		ROCKS,
 		BONES,
-		NUGGET,
+		IRON_NUGGET,
+		GOLD_NUGGET,
+		FLINT,
 		PINECONES,
 		SEASHELLS,
 		DUNG
