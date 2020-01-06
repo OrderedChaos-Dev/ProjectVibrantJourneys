@@ -20,6 +20,7 @@ public class PVJConfig {
 	public static final String CAT_GROUNDCOVER_BONES = "bones";
 	public static final String CAT_GROUNDCOVER_OTHER = "other";
 	public static final String CAT_WORLDGEN_MISC = "misc";
+	public static final String CAT_MOBS = "mobs";
 	
 	private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
 	private static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
@@ -64,20 +65,24 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> dungBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> shadeBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
 	
 	static {
 		ConfigDefaults.load();
 		COMMON_BUILDER.comment("World Gen Settings").push(CAT_WORLDGEN);
-		init();
+		initWorldGen();
+		COMMON_BUILDER.pop();
+		COMMON_BUILDER.comment("Mob Settings").push(CAT_MOBS);
+		initMobs();
 		COMMON_BUILDER.pop();
 		
 		COMMON_CONFIG = COMMON_BUILDER.build();
 		CLIENT_CONFIG = CLIENT_BUILDER.build();
 	}
 	
-	private static void init() {
+	private static void initWorldGen() {
 		oakTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("oakTwigsBiomes", ConfigDefaults.OAK_TWIGS);
 		oakTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("oakTwigsSparseBiomes", ConfigDefaults.OAK_TWIGS_SPARSE);
 		COMMON_BUILDER.comment("Birch Twigs Biomes");
@@ -117,9 +122,11 @@ public class PVJConfig {
 		flintBiomes = COMMON_BUILDER.comment("Flint Biomes").define("flintBiomes", ConfigDefaults.FLINT);
 		
 		dungBiomes = COMMON_BUILDER.comment("Dung Biomes").define("dungBiomes", ConfigDefaults.DUNG);
-		
+	}
+	
+	private static void initMobs() {
 		skeletalKnightBiomes = COMMON_BUILDER.comment("Skeletal Knight Biomes").define("skeletalKnightBiomes", ConfigDefaults.SKELETAL_KNIGHT);
-		
+		shadeBiomes = COMMON_BUILDER.comment("Shade Biomes").define("shadeBiomes", ConfigDefaults.SHADE);
 		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
 	}
 	

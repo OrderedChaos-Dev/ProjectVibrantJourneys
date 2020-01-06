@@ -20,8 +20,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.client.renderers.GhostRenderer;
+import projectvibrantjourneys.client.renderers.ShadeRenderer;
 import projectvibrantjourneys.client.renderers.SkeletalKnightRenderer;
 import projectvibrantjourneys.common.entities.GhostEntity;
+import projectvibrantjourneys.common.entities.ShadeEntity;
 import projectvibrantjourneys.common.entities.SkeletalKnightEntity;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -30,11 +32,13 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJEntities {
 	public static EntityType<SkeletalKnightEntity> skeletal_knight;
 	public static EntityType<GhostEntity> ghost;
+	public static EntityType<ShadeEntity> shade;
 
 	@SubscribeEvent
 	public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {		
 		registerEntity(skeletal_knight);
 		registerEntity(ghost);
+		registerEntity(shade);
 		
 		addSpawnPlacements();
 		registerEntityRenderers();
@@ -43,6 +47,7 @@ public class PVJEntities {
 	public static void preInitEntityTypes() {
 		skeletal_knight = setupEntity("skeletal_knight", skeletal_knight, SkeletalKnightEntity::new, 64, 0.6F, 1.99F);
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, 64, 0.6F, 1.95F);
+		shade = setupEntity("shade", shade, ShadeEntity::new, 64, 0.6F, 1.95F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -76,12 +81,15 @@ public class PVJEntities {
 	
 	private static void addSpawnPlacements() {
 		EntitySpawnPlacementRegistry.register(skeletal_knight, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
+		EntitySpawnPlacementRegistry.register(shade, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
+		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 	}
 	
 	public static void addSpawns() {
 		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
 			addSpawn(biome, skeletal_knight, EntityClassification.MONSTER, 50, 1, 2, PVJConfig.skeletalKnightBiomes.get());
-			addSpawn(biome, ghost, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.ghostBiomes.get());
+			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
+			addSpawn(biome, shade, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.shadeBiomes.get());
 		}
 	}
 	
@@ -94,6 +102,7 @@ public class PVJEntities {
 	@OnlyIn(Dist.CLIENT)
 	public static void registerEntityRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(skeletal_knight, SkeletalKnightRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(shade, ShadeRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
 	}
 }
