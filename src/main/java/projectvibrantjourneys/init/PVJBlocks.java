@@ -25,6 +25,7 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -38,6 +39,8 @@ public class PVJBlocks {
 	public static Block bones, charred_bones;
 	public static Block pinecones, seashells;
 	public static Block dung;
+	
+	public static Block sea_oats;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -76,6 +79,8 @@ public class PVJBlocks {
 		seashells = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.SEASHELLS), "seashells");
 		
 		dung = registerBlock(new GroundcoverBlock(Material.EARTH, GroundcoverBlock.Type.DUNG), "dung");
+		
+		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		
 		if(FMLEnvironment.dist == Dist.CLIENT) {
 			registerRenderers();
@@ -130,6 +135,8 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(acacia_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(dark_oak_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, RenderType.func_228641_d_());
+		
+		RenderTypeLookup.setRenderLayer(sea_oats, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());

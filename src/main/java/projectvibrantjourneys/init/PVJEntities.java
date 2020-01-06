@@ -60,7 +60,7 @@ public class PVJEntities {
 	public static EntityType<PhantasmEntity> phantasm;
 	public static EntityType<NightmareEntity> nightmare;
 	
-	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 15, true, false);
+	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 25, true, false);
 	
 	@SubscribeEvent
 	public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {

@@ -7,6 +7,7 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
+import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
@@ -25,37 +26,39 @@ import projectvibrantjourneys.core.PVJConfig;
 public class PVJFeatures {
 	
 	public static void init() {
-		BlockClusterFeatureConfig oakTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.oak_twigs.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig birchTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.birch_twigs.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig spruceTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.spruce_twigs.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig jungleTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.jungle_twigs.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig darkOakTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.dark_oak_twigs.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig acaciaTwigsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig oakTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig birchTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.birch_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig spruceTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.spruce_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig jungleTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.jungle_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig darkOakTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.dark_oak_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig acaciaTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_twigs.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig oakFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig birchFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.birch_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig spruceFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.spruce_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig jungleFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.jungle_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig darkOakFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.dark_oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig acaciaFallenLeavesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig oakFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig birchFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.birch_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig spruceFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.spruce_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig jungleFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.jungle_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig darkOakFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.dark_oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig acaciaFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig rocksCluster = createGroundcoverConfig(new RocksBlockStateProvider(), new GroundcoverPlacer());
-		BlockClusterFeatureConfig sandstoneRocksCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig redSandstoneRocksCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.red_sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig iceChunks = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.ice_chunks.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(new RocksBlockStateProvider(), new GroundcoverPlacer());
+		BlockClusterFeatureConfig sandstoneRocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig redSandstoneRocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.red_sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig iceChunks = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.ice_chunks.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig bonesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.bones.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig bonesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.bones.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig bonesNetherCluster = createNetherGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.bones.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig charredBonesNetherCluster = createNetherGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.charred_bones.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig pineconesCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.pinecones.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig seashellsCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig pineconesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.pinecones.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig ironNuggetCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.iron_nugget.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig goldNuggetCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.gold_nugget.getDefaultState()), new GroundcoverPlacer());
-		BlockClusterFeatureConfig flintCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.flint.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig ironNuggetCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.iron_nugget.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig goldNuggetCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.gold_nugget.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig flintCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.flint.getDefaultState()), new GroundcoverPlacer());
 		
-		BlockClusterFeatureConfig dungCluster = createGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.dung.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig dungCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.dung.getDefaultState()), new GroundcoverPlacer());
+		
+		BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), new DoublePlantBlockPlacer());
 		
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
 		
@@ -93,6 +96,8 @@ public class PVJFeatures {
 		List<String> flintBiomes = PVJConfig.flintBiomes.get();
 		
 		List<String> dungBiomes = PVJConfig.dungBiomes.get();
+		
+		List<String> seaOatsBiomes = PVJConfig.seaOatsBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -134,13 +139,13 @@ public class PVJFeatures {
 			if(redSandstoneBiomes.contains(biome.getRegistryName().toString()))
 				addRocksFeature(biome, redSandstoneRocksCluster, 2, false);
 			if(iceChunksBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, iceChunks, 1, 0.2F, false);
+				addChanceFeature(biome, iceChunks, 1, 0.2F, false);
 			
 			/*Bones*/
 			if(bonesBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, bonesCluster, 1, 0.05F, false);
+				addChanceFeature(biome, bonesCluster, 1, 0.05F, false);
 			if(bonesCommonBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, bonesCluster, 1, 0.2F, false);
+				addChanceFeature(biome, bonesCluster, 1, 0.2F, false);
 			if(bonesNetherBiomes.contains(biome.getRegistryName().toString())) {
 				addNetherFeature(biome, bonesNetherCluster, 0.4F);
 				addNetherFeature(biome, charredBonesNetherCluster, 0.3F);
@@ -148,22 +153,25 @@ public class PVJFeatures {
 			
 			/*Pinecones | Seashells*/
 			if(pineconesBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, pineconesCluster, 3, 0.5F, false);
+				addChanceFeature(biome, pineconesCluster, 3, 0.5F, false);
 			if(seashellsBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, seashellsCluster, 2, 0.3F, false);
+				addChanceFeature(biome, seashellsCluster, 2, 0.3F, false);
 			
 			/*Nuggets*/
 			if(ironNuggetBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, ironNuggetCluster, 1, 0.1F, false);
+				addChanceFeature(biome, ironNuggetCluster, 1, 0.1F, false);
 			if(goldNuggetBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, goldNuggetCluster, 1, 0.05F, false);
+				addChanceFeature(biome, goldNuggetCluster, 1, 0.05F, false);
 			if(goldNuggetCommonBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, goldNuggetCluster, 2, 0.2F, false);
+				addChanceFeature(biome, goldNuggetCluster, 2, 0.2F, false);
 			if(flintBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, flintCluster, 1, 0.15F, false);
+				addChanceFeature(biome, flintCluster, 1, 0.15F, false);
 			
 			if(dungBiomes.contains(biome.getRegistryName().toString()))
-				addGroundcoverChanceFeature(biome, dungCluster, 2, 0.2F, false);
+				addChanceFeature(biome, dungCluster, 2, 0.2F, false);
+			
+			if(seaOatsBiomes.contains(biome.getRegistryName().toString()))
+				addChanceFeature(biome, seaOatsCluster, 3, 0.8F, false);
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
@@ -173,7 +181,7 @@ public class PVJFeatures {
 		}
 	}
 	
-	private static BlockClusterFeatureConfig createGroundcoverConfig(BlockStateProvider provider, BlockPlacer placer) {
+	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer) {
 		return new BlockClusterFeatureConfig
 				.Builder(provider, placer)
 				.func_227315_a_(4)
@@ -210,7 +218,7 @@ public class PVJFeatures {
 						.func_227446_a_(new FrequencyConfig(frequency))));
 	}
 	
-	private static void addGroundcoverChanceFeature(Biome biome, BlockClusterFeatureConfig configRocks, int frequency, float chance, boolean underground) {
+	private static void addChanceFeature(Biome biome, BlockClusterFeatureConfig configRocks, int frequency, float chance, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		biome.addFeature(decoration,
 				Feature.field_227248_z_.func_225566_b_(configRocks)

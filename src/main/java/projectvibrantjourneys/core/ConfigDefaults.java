@@ -40,6 +40,8 @@ public class ConfigDefaults {
 	
 	public static final List<String> DUNG = new ArrayList<String>();
 	
+	public static final List<String> SEA_OATS = new ArrayList<String>();
+	
 	public static final List<String> FLY = new ArrayList<String>();
 	public static final List<String> FIREFLY = new ArrayList<String>();
 	
@@ -151,7 +153,7 @@ public class ConfigDefaults {
 		addTo("minecraft:mushroom_field_shore");
 		
 		//beach
-		addTo("minecraft:beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
+		addTo("minecraft:beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, SEA_OATS);
 		addTo("minecraft:stone_shore", ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
 		addTo("minecraft:snowy_beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST);
 		
