@@ -64,10 +64,19 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> dungBiomes;
 	
-	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> shadeBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
+	
+	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> shadeBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> bansheeBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> wraithBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> hauntBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> specterBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> phantasmBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> nightmareBiomes;
 	
 	static {
 		ConfigDefaults.load();
@@ -125,9 +134,19 @@ public class PVJConfig {
 	}
 	
 	private static void initMobs() {
+		flyBiomes = COMMON_BUILDER.comment("Fly Biomes").define("flyBiomes", ConfigDefaults.FLY);
+		fireflyBiomes = COMMON_BUILDER.comment("Firefly Biomes").define("fireflyBiomes", ConfigDefaults.FIREFLY);
+		
+		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
+		
 		skeletalKnightBiomes = COMMON_BUILDER.comment("Skeletal Knight Biomes").define("skeletalKnightBiomes", ConfigDefaults.SKELETAL_KNIGHT);
 		shadeBiomes = COMMON_BUILDER.comment("Shade Biomes").define("shadeBiomes", ConfigDefaults.SHADE);
-		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
+		bansheeBiomes = COMMON_BUILDER.comment("Banshee Biomes").define("bansheeBiomes", ConfigDefaults.BANSHEE);
+		wraithBiomes = COMMON_BUILDER.comment("Wraith Biomes").define("wraithBiomes", ConfigDefaults.WRAITH);
+		hauntBiomes = COMMON_BUILDER.comment("Haunt Biomes").define("hauntBiomes", ConfigDefaults.HAUNT);
+		specterBiomes = COMMON_BUILDER.comment("Specter Biomes").define("specterBiomes", ConfigDefaults.SPECTER);
+		phantasmBiomes = COMMON_BUILDER.comment("Phantasm Biomes").define("phantasmBiomes", ConfigDefaults.PHANTASM);
+		nightmareBiomes = COMMON_BUILDER.comment("Nightmare Biomes").define("nightmareBiomes", ConfigDefaults.NIGHTMARE);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

@@ -37,15 +37,32 @@
 	
 	"block.projectvibrantjourneys.dung": "Dung",
 	
-	"item.projectvibrantjourneys.skeletal_knight_spawn_egg": "Skeletal Knight Spawn Egg",
+	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
+	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
 	"item.projectvibrantjourneys.ghost_spawn_egg": "Ghost Spawn Egg",
+	"item.projectvibrantjourneys.skeletal_knight_spawn_egg": "Skeletal Knight Spawn Egg",
 	"item.projectvibrantjourneys.shade_spawn_egg": "Shade Spawn Egg",
+	"item.projectvibrantjourneys.banshee_spawn_egg": "Banshee Spawn Egg",
+	"item.projectvibrantjourneys.wraith_spawn_egg": "Wraith Spawn Egg",
+	"item.projectvibrantjourneys.specter_spawn_egg": "Specter Spawn Egg",
+	"item.projectvibrantjourneys.haunt_spawn_egg": "Haunt Spawn Egg",
+	"item.projectvibrantjourneys.phantasm_spawn_egg": "Phantasm Spawn Egg",
+	"item.projectvibrantjourneys.nightmare_spawn_egg": "Nightmare Spawn Egg",
 	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	
+	"entity.projectvibrantjourneys.fly": "Fly",
+	"entity.projectvibrantjourneys.firefly": "Firefly",
 	"entity.projectvibrantjourneys.skeletal_knight": "Skeletal Knight",
-	"entity.projectvibrantjourneys.ghost": "Ghost",
+	"entity.projectvibrantjourneys.shade": "Shade",
+	"entity.projectvibrantjourneys.banshee": "Banshee",
+	"entity.projectvibrantjourneys.wraith": "Wraith",
+	"entity.projectvibrantjourneys.specter": "Specter",
+	"entity.projectvibrantjourneys.haunt": "Haunt",
+	"entity.projectvibrantjourneys.phantasm": "Phantasm",
+	"entity.projectvibrantjourneys.nightmare": "Nightmare",
 	
+	"subtitles.projectvibrantjourneys_fly.ambient": "Fly buzzes",
 	"subtitles.projectvibrantjourneys_ghost.ambient": "Ghost murmurs",
 	"subtitles.projectvibrantjourneys_ghost.hurt": "Ghost hurts",
 	"subtitles.projectvibrantjourneys_ghost.death": "Ghost dies"

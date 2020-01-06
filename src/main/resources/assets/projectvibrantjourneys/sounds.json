@@ -1,4 +1,10 @@
 {
+  "entity.fly.ambient": {
+    "sounds": [
+      "projectvibrantjourneys:entity/fly/idle1"
+    ],
+    "subtitle": "subtitles.projectvibrantjourneys_fly.ambient"
+  },
   "entity.ghost.ambient": {
     "sounds": [
       "projectvibrantjourneys:entity/ghost/idle1"

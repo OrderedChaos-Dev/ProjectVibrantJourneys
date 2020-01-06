@@ -6,26 +6,26 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.AngryGhostModel;
-import projectvibrantjourneys.common.entities.ShadeEntity;
+import projectvibrantjourneys.common.entities.SpecterEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)
-public class ShadeRenderer extends BipedRenderer<ShadeEntity, AngryGhostModel<ShadeEntity>> {
+public class SpecterRenderer extends BipedRenderer<SpecterEntity, AngryGhostModel<SpecterEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/shade.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/specter.png");
 	
-	public ShadeRenderer(EntityRendererManager manager) {
+	public SpecterRenderer(EntityRendererManager manager) {
 		super(manager, new AngryGhostModel<>(), 0.0F);
 	}
 	
 	@Override
-	public ResourceLocation getEntityTexture(ShadeEntity entity) {
+	public ResourceLocation getEntityTexture(SpecterEntity entity) {
 		return TEXTURE;
 	}
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(ShadeEntity entity, boolean flag) {
+	protected boolean func_225622_a_(SpecterEntity entity, boolean flag) {
 		return false;
 	}
 }

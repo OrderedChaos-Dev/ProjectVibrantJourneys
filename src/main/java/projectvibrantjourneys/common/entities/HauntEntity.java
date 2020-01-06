@@ -7,9 +7,9 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
-public class ShadeEntity extends AngryGhostEntity {
+public class HauntEntity extends AngryGhostEntity {
 
-	public ShadeEntity(EntityType<? extends ShadeEntity> entityType, World world) {
+	public HauntEntity(EntityType<? extends HauntEntity> entityType, World world) {
 		super(entityType, world);
 	}
 	
@@ -18,7 +18,7 @@ public class ShadeEntity extends AngryGhostEntity {
 		boolean flag = super.attackEntityAsMob(entity);
 		if (flag) {
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, 200));
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.UNLUCK, 200));
 			}
 		}
 

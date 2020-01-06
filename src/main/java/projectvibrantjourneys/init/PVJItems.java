@@ -18,9 +18,19 @@ public class PVJItems {
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
+		registerSpawnEgg("fly", PVJEntities.fly, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("firefly", PVJEntities.firefly, 0xa6a6a6, 0x808080);
+		
+		registerSpawnEgg("ghost", PVJEntities.ghost, 0xa6a6a6, 0x808080);
+		
 		registerSpawnEgg("skeletal_knight", PVJEntities.skeletal_knight, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("shade", PVJEntities.shade, 0x333333, 0x595959);
-		registerSpawnEgg("ghost", PVJEntities.ghost, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("banshee", PVJEntities.banshee, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("wraith", PVJEntities.wraith, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("haunt", PVJEntities.haunt, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("specter", PVJEntities.specter, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0xa6a6a6, 0x808080);
 	}
 	
 	public static Item registerItem(Item item, String name) {
