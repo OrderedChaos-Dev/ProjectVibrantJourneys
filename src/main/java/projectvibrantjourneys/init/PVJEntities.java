@@ -81,7 +81,7 @@ public class PVJEntities {
 	public static void addSpawns() {
 		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
 			addSpawn(biome, skeletal_knight, EntityClassification.MONSTER, 50, 1, 2, PVJConfig.skeletalKnightBiomes.get());
-			addSpawn(biome, skeletal_knight, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.ghostBiomes.get());
+			addSpawn(biome, ghost, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.ghostBiomes.get());
 		}
 	}
 	
