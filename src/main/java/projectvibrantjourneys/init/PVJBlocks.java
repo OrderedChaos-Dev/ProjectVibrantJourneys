@@ -23,6 +23,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
@@ -47,6 +48,7 @@ public class PVJBlocks {
 	public static Block cattail;
 	public static Block small_cactus;
 	public static Block beach_grass;
+	public static Block bark_mushroom;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -90,6 +92,7 @@ public class PVJBlocks {
 		cattail = registerBlock(new CattailBlock(), "cattail");
 		small_cactus = registerBlock(new SmallCactusBlock(), "small_cactus");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
+		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
 		
 		if(FMLEnvironment.dist == Dist.CLIENT) {
 			registerRenderers();
@@ -151,6 +154,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(pinecones, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(seashells, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(dung, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(bark_mushroom, RenderType.func_228643_e_());
 		
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, RenderType.func_228641_d_()); // "cutout mipped"
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, RenderType.func_228641_d_());

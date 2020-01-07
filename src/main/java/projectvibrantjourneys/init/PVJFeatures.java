@@ -13,6 +13,8 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
 import net.minecraft.world.gen.placement.ChanceRangeConfig;
@@ -22,7 +24,9 @@ import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.blockstateproviders.RocksBlockStateProvider;
+import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
+import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.placers.GroundcoverPlacer;
@@ -71,6 +75,8 @@ public class PVJFeatures {
 		Feature<SeaGrassConfig> oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(SeaGrassConfig::deserialize);
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
 		Feature<SeaGrassConfig> waterCattailFeature = new WaterCattailFeature(SeaGrassConfig::deserialize);
+		Feature<NoFeatureConfig> barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig::deserialize);
+		Feature<NoFeatureConfig> cobwebFeature = new CobwebFeature(NoFeatureConfig::deserialize);
 		
 		List<String> oakBiomes = PVJConfig.oakTwigsBiomes.get();
 		List<String> oakBiomesSparse = PVJConfig.oakTwigsSparseBiomes.get();
@@ -99,6 +105,7 @@ public class PVJFeatures {
 		
 		List<String> bushBiomes = PVJConfig.bushBiomes.get();
 		List<String> lilypadBiomes = PVJConfig.lilypadBiomes.get();
+		List<String> cobwebBiomes = PVJConfig.cobwebBiomes.get();
 		
 		List<String> ironNuggetBiomes = PVJConfig.ironNuggetBiomes.get();
 		List<String> goldNuggetBiomes = PVJConfig.goldNuggetBiomes.get();
@@ -111,6 +118,7 @@ public class PVJFeatures {
 		List<String> beachGrassBiomes = PVJConfig.beachGrassBiomes.get();
 		List<String> cattailBiomes = PVJConfig.cattailBiomes.get();
 		List<String> smallCactusBiomes = PVJConfig.smallCactusBiomes.get();
+		List<String> barkMushroomBiomes = PVJConfig.barkMushroomBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -206,9 +214,13 @@ public class PVJFeatures {
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
+			if(barkMushroomBiomes.contains(biome.getRegistryName().toString()))
+				biome.addFeature(Decoration.VEGETAL_DECORATION, barkMushroomFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(50))));
 			
 			if(lilypadBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226720_H_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(3))));
+			if(cobwebBiomes.contains(biome.getRegistryName().toString()))
+				biome.addFeature(Decoration.VEGETAL_DECORATION, cobwebFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(5))));
 		}
 	}
 	

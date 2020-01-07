@@ -56,6 +56,7 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> bushBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> lilypadBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> cobwebBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ironNuggetBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> goldNuggetBiomes;
@@ -68,6 +69,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> beachGrassBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> cattailBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> smallCactusBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> barkMushroomBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -129,6 +131,7 @@ public class PVJConfig {
 		
 		bushBiomes = COMMON_BUILDER.comment("Bush Biomes").define("bushBiomes", ConfigDefaults.BUSH);
 		lilypadBiomes = COMMON_BUILDER.comment("Lily Pad Biomes").define("lilypadBiomes", ConfigDefaults.LILYPAD);
+		cobwebBiomes = COMMON_BUILDER.comment("Cobweb Biomes").define("cobwebBiomes", ConfigDefaults.COBWEB);
 		
 		ironNuggetBiomes = COMMON_BUILDER.comment("Iron Nugget Biomes").define("ironNuggetBiomes", ConfigDefaults.IRON_NUGGET);
 		goldNuggetBiomes = COMMON_BUILDER.comment("Gold Nugget Biomes").define("goldNuggetBiomes", ConfigDefaults.GOLD_NUGGET);
@@ -141,6 +144,7 @@ public class PVJConfig {
 		beachGrassBiomes = COMMON_BUILDER.comment("Beach Grass Biomes").define("beachGrassBiomes", ConfigDefaults.BEACH_GRASS);
 		cattailBiomes = COMMON_BUILDER.comment("Cattail Biomes").define("cattailBiomes", ConfigDefaults.CATTAIL);
 		smallCactusBiomes = COMMON_BUILDER.comment("Small Cactus Biomes").define("smallCactusBiomes", ConfigDefaults.SMALL_CACTUS);
+		barkMushroomBiomes = COMMON_BUILDER.comment("Bark Mushroom Biomes").define("barkMushroomBiomes", ConfigDefaults.BARK_MUSHROOM);
 	}
 	
 	private static void initMobs() {
