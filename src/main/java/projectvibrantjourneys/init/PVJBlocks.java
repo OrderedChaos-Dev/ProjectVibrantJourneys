@@ -27,6 +27,7 @@ import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
+import projectvibrantjourneys.common.blocks.SmallCactusBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -43,6 +44,7 @@ public class PVJBlocks {
 	
 	public static Block sea_oats;
 	public static Block cattail;
+	public static Block small_cactus;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -84,6 +86,7 @@ public class PVJBlocks {
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
+		small_cactus = registerBlock(new SmallCactusBlock(), "small_cactus");
 		
 		if(FMLEnvironment.dist == Dist.CLIENT) {
 			registerRenderers();
@@ -155,6 +158,7 @@ public class PVJBlocks {
 		
 		RenderTypeLookup.setRenderLayer(sea_oats, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(cattail, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(small_cactus, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());

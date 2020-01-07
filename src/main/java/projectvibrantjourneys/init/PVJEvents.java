@@ -59,8 +59,8 @@ public class PVJEvents {
 			if(!player.isCrouching()) {
 				if(BoneMealItem.applyBonemeal(stack, world, pos, player)) {
 					BoneMealItem.spawnBonemealParticles(world, pos, 0);
+					event.setCanceled(true);
 				}
-				event.setCanceled(true);
 			}
 		}
 	}

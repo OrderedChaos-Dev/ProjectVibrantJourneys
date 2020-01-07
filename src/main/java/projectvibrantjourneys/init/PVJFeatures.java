@@ -8,6 +8,7 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
@@ -64,6 +65,7 @@ public class PVJFeatures {
 		
 		BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), new DoublePlantBlockPlacer());
 		BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), new DoublePlantBlockPlacer());
+		BlockClusterFeatureConfig smallCactusCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.small_cactus.getDefaultState()), new SimpleBlockPlacer());
 		
 		Feature<SeaGrassConfig> oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(SeaGrassConfig::deserialize);
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
@@ -106,6 +108,7 @@ public class PVJFeatures {
 		
 		List<String> seaOatsBiomes = PVJConfig.seaOatsBiomes.get();
 		List<String> cattailBiomes = PVJConfig.cattailBiomes.get();
+		List<String> smallCactusBiomes = PVJConfig.smallCactusBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -194,6 +197,8 @@ public class PVJFeatures {
 									.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 				addFrequencyFeature(biome, cattailCluster, 40, false);
 			}
+			if(smallCactusBiomes.contains(biome.getRegistryName().toString()))
+				addChanceFeature(biome, smallCactusCluster, 2, 0.35F, false);
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));

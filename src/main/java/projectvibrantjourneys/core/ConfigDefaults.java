@@ -42,6 +42,7 @@ public class ConfigDefaults {
 	
 	public static final List<String> SEA_OATS = new ArrayList<String>();
 	public static final List<String> CATTAIL = new ArrayList<String>();
+	public static final List<String> SMALL_CACTUS = new ArrayList<String>();
 	
 	public static final List<String> FLY = new ArrayList<String>();
 	public static final List<String> FIREFLY = new ArrayList<String>();
@@ -114,9 +115,9 @@ public class ConfigDefaults {
 		addTo("minecraft:modified_gravelly_mountains", ROCKS, BONES, LILYPAD, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, PHANTASM, FLY, FIREFLY);
 		
 		//desert
-		addTo("minecraft:desert", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
-		addTo("minecraft:desert_hills", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
-		addTo("minecraft:desert_lakes", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
+		addTo("minecraft:desert", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH, SMALL_CACTUS);
+		addTo("minecraft:desert_hills", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH, SMALL_CACTUS);
+		addTo("minecraft:desert_lakes", SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH, SMALL_CACTUS);
 		
 		//savanna
 		addTo("minecraft:savanna", ACACIA_TWIGS, ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY);
@@ -169,7 +170,7 @@ public class ConfigDefaults {
 		
 		//modded
 		addTo("projectvibrantjourneys:overgrown_spires", OAK_TWIGS_SPARSE, JUNGLE_TWIGS, DARK_OAK_TWIGS, ROCKS, BONES, LILYPAD, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SHADE, FLY, FIREFLY, CATTAIL);
-		addTo("projectvibrantjourneys:verdant_sands", OAK_TWIGS_SPARSE, JUNGLE_TWIGS_SPARSE, ACACIA_TWIGS_SPARSE, ROCKS, SANDSTONE_ROCKS, RED_SANDSTONE_ROCKS, BONES, LILYPAD, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL);
+		addTo("projectvibrantjourneys:verdant_sands", OAK_TWIGS_SPARSE, JUNGLE_TWIGS_SPARSE, ACACIA_TWIGS_SPARSE, ROCKS, SANDSTONE_ROCKS, RED_SANDSTONE_ROCKS, BONES, LILYPAD, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL, SMALL_CACTUS);
 	}
 	
 	@SafeVarargs
