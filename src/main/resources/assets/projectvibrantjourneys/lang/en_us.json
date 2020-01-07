@@ -36,6 +36,7 @@
 	"block.projectvibrantjourneys.flint": "Flint (Groundcover)",
 	
 	"block.projectvibrantjourneys.sea_oats": "Sea Oats",
+	"block.projectvibrantjourneys.cattail": "Cattail",
 	
 	"block.projectvibrantjourneys.dung": "Dung",
 	
@@ -52,6 +53,7 @@
 	"item.projectvibrantjourneys.nightmare_spawn_egg": "Nightmare Spawn Egg",
 	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
+	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

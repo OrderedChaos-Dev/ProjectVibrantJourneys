@@ -23,6 +23,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
@@ -41,6 +42,7 @@ public class PVJBlocks {
 	public static Block dung;
 	
 	public static Block sea_oats;
+	public static Block cattail;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -81,6 +83,7 @@ public class PVJBlocks {
 		dung = registerBlock(new GroundcoverBlock(Material.EARTH, GroundcoverBlock.Type.DUNG), "dung");
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
+		cattail = registerBlock(new CattailBlock(), "cattail");
 		
 		if(FMLEnvironment.dist == Dist.CLIENT) {
 			registerRenderers();
@@ -128,6 +131,20 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(acacia_twigs, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(dark_oak_twigs, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(jungle_twigs, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(mossy_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(andesite_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(diorite_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(granite_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(sandstone_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(red_sandstone_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(netherrack_rocks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(ice_chunks, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(bones, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(charred_bones, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(pinecones, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(seashells, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(dung, RenderType.func_228643_e_());
 		
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, RenderType.func_228641_d_()); // "cutout mipped"
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, RenderType.func_228641_d_());
@@ -137,6 +154,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(sea_oats, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(cattail, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
