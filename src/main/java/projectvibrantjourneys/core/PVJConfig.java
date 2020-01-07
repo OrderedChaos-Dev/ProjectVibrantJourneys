@@ -65,6 +65,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> dungBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> seaOatsBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> beachGrassBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> cattailBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> smallCactusBiomes;
 	
@@ -137,6 +138,7 @@ public class PVJConfig {
 		dungBiomes = COMMON_BUILDER.comment("Dung Biomes").define("dungBiomes", ConfigDefaults.DUNG);
 		
 		seaOatsBiomes = COMMON_BUILDER.comment("Sea Oats Biomes").define("seaOatsBiomes", ConfigDefaults.SEA_OATS);
+		beachGrassBiomes = COMMON_BUILDER.comment("Beach Grass Biomes").define("beachGrassBiomes", ConfigDefaults.BEACH_GRASS);
 		cattailBiomes = COMMON_BUILDER.comment("Cattail Biomes").define("cattailBiomes", ConfigDefaults.CATTAIL);
 		smallCactusBiomes = COMMON_BUILDER.comment("Small Cactus Biomes").define("smallCactusBiomes", ConfigDefaults.SMALL_CACTUS);
 	}

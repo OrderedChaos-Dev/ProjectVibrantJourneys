@@ -22,6 +22,9 @@ public class PVJVanillaIntegration {
 		setFlameInfo(PVJBlocks.dark_oak_fallen_leaves, 30, 60);
 		setFlameInfo(PVJBlocks.acacia_fallen_leaves, 30, 60);
 		setFlameInfo(PVJBlocks.pinecones, 5, 20);
+		setFlameInfo(PVJBlocks.sea_oats, 60, 100);
+		setFlameInfo(PVJBlocks.cattail, 60, 100);
+		setFlameInfo(PVJBlocks.beach_grass, 60, 100);
 		
 		setCompostInfo(PVJBlocks.oak_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.birch_fallen_leaves, 0.1F);
@@ -34,6 +37,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.sea_oats, 0.65F);
 		setCompostInfo(PVJBlocks.cattail, 0.65F);
 		setCompostInfo(PVJBlocks.small_cactus, 0.3F);
+		setCompostInfo(PVJBlocks.beach_grass, 0.5F);
 	}
 
 	public static void setFlameInfo(Block block, int encouragement, int flammability) {

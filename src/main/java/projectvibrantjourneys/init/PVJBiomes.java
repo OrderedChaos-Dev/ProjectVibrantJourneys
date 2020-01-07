@@ -24,14 +24,14 @@ public class PVJBiomes {
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
-		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), "overgrown_spires", 5);
-		verdant_sands = registerBiome(new VerdantSandsBiome(), "verdant_sands", 5);
+		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), BiomeType.WARM, "overgrown_spires", 5);
+		verdant_sands = registerBiome(new VerdantSandsBiome(), BiomeType.DESERT, "verdant_sands", 5);
 	}
 	
-	public static Biome registerBiome(Biome biome, String name, int weight) {
+	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
 		biome.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 		ForgeRegistries.BIOMES.register(biome);
-		BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(biome, weight));
+		BiomeManager.addBiome(type, new BiomeEntry(biome, weight));
 		BiomeManager.addSpawnBiome(biome);
 		
 		return biome;

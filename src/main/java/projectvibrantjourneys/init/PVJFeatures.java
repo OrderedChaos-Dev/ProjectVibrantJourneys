@@ -66,6 +66,7 @@ public class PVJFeatures {
 		BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), new DoublePlantBlockPlacer());
 		BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), new DoublePlantBlockPlacer());
 		BlockClusterFeatureConfig smallCactusCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.small_cactus.getDefaultState()), new SimpleBlockPlacer());
+		BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.getDefaultState()), new SimpleBlockPlacer());
 		
 		Feature<SeaGrassConfig> oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(SeaGrassConfig::deserialize);
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
@@ -107,6 +108,7 @@ public class PVJFeatures {
 		List<String> dungBiomes = PVJConfig.dungBiomes.get();
 		
 		List<String> seaOatsBiomes = PVJConfig.seaOatsBiomes.get();
+		List<String> beachGrassBiomes = PVJConfig.beachGrassBiomes.get();
 		List<String> cattailBiomes = PVJConfig.cattailBiomes.get();
 		List<String> smallCactusBiomes = PVJConfig.smallCactusBiomes.get();
 		
@@ -189,6 +191,8 @@ public class PVJFeatures {
 			
 			if(seaOatsBiomes.contains(biome.getRegistryName().toString()))
 				addChanceFeature(biome, seaOatsCluster, 3, 0.8F, false);
+			if(beachGrassBiomes.contains(biome.getRegistryName().toString()))
+				addChanceFeature(biome, beachGrassCluster, 3, 0.8F, false);
 			if(cattailBiomes.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 						waterCattailFeature
