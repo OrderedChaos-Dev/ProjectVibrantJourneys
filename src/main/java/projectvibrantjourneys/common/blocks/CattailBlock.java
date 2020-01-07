@@ -106,6 +106,11 @@ public class CattailBlock extends DoublePlantBlock implements IWaterLoggable {
 		}
 		world.playEvent(player, 2001, pos, Block.getStateId(state));
 	}
+	
+	public void placeInWater(IWorld worldIn, BlockPos pos, int flags) {
+		worldIn.setBlockState(pos, this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, true), flags);
+		worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER), flags);
+	}
 
 	@Override
 	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
@@ -135,6 +140,7 @@ public class CattailBlock extends DoublePlantBlock implements IWaterLoggable {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public IFluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);

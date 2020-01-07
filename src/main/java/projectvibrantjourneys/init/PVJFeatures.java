@@ -13,13 +13,17 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.SeaGrassConfig;
 import net.minecraft.world.gen.placement.ChanceRangeConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
 import net.minecraft.world.gen.placement.HeightWithChanceConfig;
+import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.blockstateproviders.RocksBlockStateProvider;
 import projectvibrantjourneys.common.world.features.BushFeature;
+import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
+import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.placers.GroundcoverPlacer;
 import projectvibrantjourneys.core.PVJConfig;
 
@@ -59,8 +63,11 @@ public class PVJFeatures {
 		BlockClusterFeatureConfig dungCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.dung.getDefaultState()), new GroundcoverPlacer());
 		
 		BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), new DoublePlantBlockPlacer());
+		BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), new DoublePlantBlockPlacer());
 		
+		Feature<SeaGrassConfig> oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(SeaGrassConfig::deserialize);
 		Feature<ProbabilityConfig> bushFeature = new BushFeature(ProbabilityConfig::deserialize);
+		Feature<SeaGrassConfig> waterCattailFeature = new WaterCattailFeature(SeaGrassConfig::deserialize);
 		
 		List<String> oakBiomes = PVJConfig.oakTwigsBiomes.get();
 		List<String> oakBiomesSparse = PVJConfig.oakTwigsSparseBiomes.get();
@@ -98,6 +105,7 @@ public class PVJFeatures {
 		List<String> dungBiomes = PVJConfig.dungBiomes.get();
 		
 		List<String> seaOatsBiomes = PVJConfig.seaOatsBiomes.get();
+		List<String> cattailBiomes = PVJConfig.cattailBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -133,11 +141,11 @@ public class PVJFeatures {
 			
 			/*ROCKS*/
 			if(rocksBiomes.contains(biome.getRegistryName().toString()))
-				addRocksFeature(biome, rocksCluster, 2, false);
+				addFrequencyFeature(biome, rocksCluster, 2, false);
 			if(sandstoneBiomes.contains(biome.getRegistryName().toString()))
-				addRocksFeature(biome, sandstoneRocksCluster, 2, false);
+				addFrequencyFeature(biome, sandstoneRocksCluster, 2, false);
 			if(redSandstoneBiomes.contains(biome.getRegistryName().toString()))
-				addRocksFeature(biome, redSandstoneRocksCluster, 2, false);
+				addFrequencyFeature(biome, redSandstoneRocksCluster, 2, false);
 			if(iceChunksBiomes.contains(biome.getRegistryName().toString()))
 				addChanceFeature(biome, iceChunks, 1, 0.2F, false);
 			
@@ -154,8 +162,14 @@ public class PVJFeatures {
 			/*Pinecones | Seashells*/
 			if(pineconesBiomes.contains(biome.getRegistryName().toString()))
 				addChanceFeature(biome, pineconesCluster, 3, 0.5F, false);
-			if(seashellsBiomes.contains(biome.getRegistryName().toString()))
+			if(seashellsBiomes.contains(biome.getRegistryName().toString())) {
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						oceanFloorSeashellsFeature
+							.func_225566_b_(new SeaGrassConfig(5, 0.0D))
+							.func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP
+									.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 				addChanceFeature(biome, seashellsCluster, 2, 0.3F, false);
+			}
 			
 			/*Nuggets*/
 			if(ironNuggetBiomes.contains(biome.getRegistryName().toString()))
@@ -172,12 +186,20 @@ public class PVJFeatures {
 			
 			if(seaOatsBiomes.contains(biome.getRegistryName().toString()))
 				addChanceFeature(biome, seaOatsCluster, 3, 0.8F, false);
+			if(cattailBiomes.contains(biome.getRegistryName().toString())) {
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
+						waterCattailFeature
+							.func_225566_b_(new SeaGrassConfig(8, 0.0D))
+							.func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP
+									.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+				addFrequencyFeature(biome, cattailCluster, 40, false);
+			}
 			
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
 			
 			if(lilypadBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226720_H_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(4))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226720_H_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(3))));
 		}
 	}
 	
@@ -210,7 +232,7 @@ public class PVJFeatures {
 						.func_227446_a_(new FrequencyConfig(frequency))));
 	}
 	
-	private static void addRocksFeature(Biome biome, BlockClusterFeatureConfig configRocks, int frequency, boolean underground) {
+	private static void addFrequencyFeature(Biome biome, BlockClusterFeatureConfig configRocks, int frequency, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		biome.addFeature(decoration,
 				Feature.field_227248_z_.func_225566_b_(configRocks)

@@ -1,7 +1,5 @@
 package projectvibrantjourneys.common.blocks;
 
-import java.util.Random;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
@@ -20,7 +18,6 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -59,16 +56,17 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	@Override
 	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
 		if(!world.isRemote) {
-			int model = new Random().nextInt(5);
-			world.setBlockState(pos, this.getDefaultState().with(MODEL, model));
+			int model = world.getRandom().nextInt(5);
+			IFluidState ifluidstate = world.getFluidState(pos);
+			world.setBlockState(pos, this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER)));
 		}
 	}
 	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		int model = new Random().nextInt(5);
+		int model = context.getWorld().getRandom().nextInt(5);
 		IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-		return this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8));
+		return this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
 	}
 	
 	@Override

@@ -65,6 +65,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> dungBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> seaOatsBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> cattailBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -135,6 +136,7 @@ public class PVJConfig {
 		dungBiomes = COMMON_BUILDER.comment("Dung Biomes").define("dungBiomes", ConfigDefaults.DUNG);
 		
 		seaOatsBiomes = COMMON_BUILDER.comment("Sea Oats Biomes").define("seaOatsBiomes", ConfigDefaults.SEA_OATS);
+		cattailBiomes = COMMON_BUILDER.comment("Cattail Biomes").define("cattailBiomes", ConfigDefaults.CATTAIL);
 	}
 	
 	private static void initMobs() {
