@@ -1,5 +1,8 @@
 package projectvibrantjourneys.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -10,11 +13,14 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.items.FloatingPlantItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJItems {
 	public static final Item.Properties SPAWN_EGG_PROPERTY = new Item.Properties().group(ItemGroup.MISC);
+	
+	public static final List<Item> ITEMS_TO_REGISTER = new ArrayList<Item>();
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -31,6 +37,9 @@ public class PVJItems {
 		registerSpawnEgg("specter", PVJEntities.specter, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0xa6a6a6, 0x808080);
+		
+		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
+		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
 	}
 	
 	public static Item registerItem(Item item, String name) {

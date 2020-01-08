@@ -39,6 +39,9 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.beach_grass, 0.5F);
 		setCompostInfo(PVJBlocks.small_cactus, 0.3F);
 		setCompostInfo(PVJBlocks.bark_mushroom, 0.4F);
+		setCompostInfo(PVJBlocks.frogbit, 0.4F);
+		setCompostInfo(PVJBlocks.duckweed, 0.15F);
+		setCompostInfo(PVJBlocks.glowcap, 0.65F);
 	}
 
 	public static void setFlameInfo(Block block, int encouragement, int flammability) {

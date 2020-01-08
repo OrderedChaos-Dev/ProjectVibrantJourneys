@@ -70,6 +70,9 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> cattailBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> smallCactusBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> barkMushroomBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> frogbitBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> duckweedBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> glowcapBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -145,6 +148,9 @@ public class PVJConfig {
 		cattailBiomes = COMMON_BUILDER.comment("Cattail Biomes").define("cattailBiomes", ConfigDefaults.CATTAIL);
 		smallCactusBiomes = COMMON_BUILDER.comment("Small Cactus Biomes").define("smallCactusBiomes", ConfigDefaults.SMALL_CACTUS);
 		barkMushroomBiomes = COMMON_BUILDER.comment("Bark Mushroom Biomes").define("barkMushroomBiomes", ConfigDefaults.BARK_MUSHROOM);
+		frogbitBiomes = COMMON_BUILDER.comment("Frogbit Biomes").define("frogbitBiomes", ConfigDefaults.FROGBIT);
+		duckweedBiomes = COMMON_BUILDER.comment("Duckweed Biomes").define("duckweedBiomes", ConfigDefaults.DUCKWEED);
+		glowcapBiomes = COMMON_BUILDER.comment("Glowcap Biomes").define("glowcapBiomes", ConfigDefaults.GLOWCAP);
 	}
 	
 	private static void initMobs() {

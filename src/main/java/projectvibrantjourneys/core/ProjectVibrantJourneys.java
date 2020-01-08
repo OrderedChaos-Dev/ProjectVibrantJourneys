@@ -48,6 +48,7 @@ public class ProjectVibrantJourneys {
 		//BiFunction<Minecraft, Screen, Screen> config_gui = (minecraft, screen) -> { return new ConfigScreen();};
 		//ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, () -> config_gui);
 		PVJEntities.registerEntityRenderers();
+		PVJBlocks.registerRenderers();
 	}
 	
 	private void loadComplete(FMLLoadCompleteEvent event) {

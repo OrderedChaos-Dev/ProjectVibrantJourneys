@@ -21,12 +21,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.ObjectHolder;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
+import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
+import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
@@ -49,6 +51,14 @@ public class PVJBlocks {
 	public static Block small_cactus;
 	public static Block beach_grass;
 	public static Block bark_mushroom;
+	public static Block glowcap;
+	
+	//why object holders for these? cause I'm lazy
+	@ObjectHolder("projectvibrantjourneys:frogbit")
+	public static final Block frogbit = null;
+	
+	@ObjectHolder("projectvibrantjourneys:duckweed")
+	public static final Block duckweed = null;
 	
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -93,10 +103,9 @@ public class PVJBlocks {
 		small_cactus = registerBlock(new SmallCactusBlock(), "small_cactus");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
 		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
-		
-		if(FMLEnvironment.dist == Dist.CLIENT) {
-			registerRenderers();
-		}
+		registerBlockWithoutItem(new FloatingPlantBlock(), "frogbit");
+		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
+		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 	}
 	
 	public static Block registerBlock(Block block, String name) {
@@ -108,6 +117,13 @@ public class PVJBlocks {
 		
 		ForgeRegistries.BLOCKS.register(block);
 		ForgeRegistries.ITEMS.register(item);
+		
+		return block;
+	}
+	
+	public static Block registerBlockWithoutItem(Block block, String name) {
+		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
+		ForgeRegistries.BLOCKS.register(block);
 		
 		return block;
 	}
@@ -155,6 +171,8 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(seashells, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(dung, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(bark_mushroom, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(frogbit, RenderType.func_228643_e_());
+		RenderTypeLookup.setRenderLayer(duckweed, RenderType.func_228643_e_());
 		
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, RenderType.func_228641_d_()); // "cutout mipped"
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, RenderType.func_228641_d_());
@@ -167,6 +185,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(cattail, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(small_cactus, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(beach_grass, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(glowcap, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
