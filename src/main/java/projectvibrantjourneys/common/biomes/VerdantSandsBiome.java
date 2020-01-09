@@ -16,15 +16,11 @@ import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
-import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
+import projectvibrantjourneys.init.PVJBiomes;
 
 public final class VerdantSandsBiome extends Biome {
-	public static final SurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS = new VerdantSandsSurfaceBuilder(
-			SurfaceBuilderConfig::deserialize);
-
 	public VerdantSandsBiome() {
-		super((new Biome.Builder()).surfaceBuilder(VERDANT_SANDS, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
+		super((new Biome.Builder()).surfaceBuilder(PVJBiomes.verdant_sands_surface_builder, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
 				.precipitation(Biome.RainType.RAIN).category(Biome.Category.DESERT).depth(0.125F).scale(0.05F)
 				.temperature(1.5F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String) null));
 		this.func_226711_a_(Feature.VILLAGE.func_225566_b_(new VillageConfig("village/desert/town_centers", 6)));

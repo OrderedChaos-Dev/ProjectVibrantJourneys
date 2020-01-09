@@ -12,8 +12,6 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 
 public class VerdantSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
-	public static final SurfaceBuilderConfig RED_SAND_SAND_GRAVEL_CONFIG = new SurfaceBuilderConfig(RED_SAND, SAND, GRAVEL);
-
 	public VerdantSandsSurfaceBuilder(Function<Dynamic<?>, ? extends SurfaceBuilderConfig> config) {
 		super(config);
 	}
@@ -25,7 +23,7 @@ public class VerdantSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
 					defaultFluid, seaLevel, seed, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG);
 		} else if (random.nextFloat() < 0.33F) {
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
-					defaultFluid, seaLevel, seed, RED_SAND_SAND_GRAVEL_CONFIG);
+					defaultFluid, seaLevel, seed, SAND_SAND_GRAVEL_CONFIG);
 		} else {
 			SurfaceBuilder.DEFAULT.buildSurface(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG);

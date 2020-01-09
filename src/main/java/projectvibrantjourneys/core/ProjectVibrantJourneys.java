@@ -12,11 +12,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import projectvibrantjourneys.common.world.FeatureManager;
 import projectvibrantjourneys.init.PVJBiomes;
 import projectvibrantjourneys.init.PVJBlocks;
 import projectvibrantjourneys.init.PVJEntities;
 import projectvibrantjourneys.init.PVJEvents;
-import projectvibrantjourneys.init.PVJFeatures;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
 
 @Mod(ProjectVibrantJourneys.MOD_ID)
@@ -53,7 +53,7 @@ public class ProjectVibrantJourneys {
 	
 	private void loadComplete(FMLLoadCompleteEvent event) {
 		PVJBlocks.registerColors();
-		PVJFeatures.init();
+		FeatureManager.init();
 		PVJVanillaIntegration.init();
 		PVJEntities.addSpawns();
 	}
