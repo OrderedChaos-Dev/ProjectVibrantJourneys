@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.client.renderers.BansheeRenderer;
+import projectvibrantjourneys.client.renderers.ClamRenderer;
 import projectvibrantjourneys.client.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.renderers.FlyRenderer;
 import projectvibrantjourneys.client.renderers.GhostRenderer;
@@ -42,6 +43,7 @@ import projectvibrantjourneys.common.entities.monster.ShadeEntity;
 import projectvibrantjourneys.common.entities.monster.SkeletalKnightEntity;
 import projectvibrantjourneys.common.entities.monster.SpecterEntity;
 import projectvibrantjourneys.common.entities.monster.WraithEntity;
+import projectvibrantjourneys.common.entities.passive.ClamEntity;
 import projectvibrantjourneys.common.entities.passive.FireflyEntity;
 import projectvibrantjourneys.common.entities.passive.FlyEntity;
 import projectvibrantjourneys.common.entities.passive.StarfishEntity;
@@ -66,6 +68,7 @@ public class PVJEntities {
 	public static EntityType<IceCubeEntity> ice_cube;
 	public static EntityType<StarfishEntity> starfish;
 	public static EntityType<StarfishEntity> starfish_ocean;
+	public static EntityType<ClamEntity> clam;
 	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 25, true, false);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false);
@@ -74,6 +77,9 @@ public class PVJEntities {
 	public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {
 		registerEntity(fly);
 		registerEntity(firefly);
+		registerEntity(starfish);
+		registerEntity(starfish_ocean);
+		registerEntity(clam);
 		
 		registerEntity(ghost);
 		
@@ -86,8 +92,6 @@ public class PVJEntities {
 		registerEntity(phantasm);
 		registerEntity(nightmare);
 		registerEntity(ice_cube);
-		registerEntity(starfish);
-		registerEntity(starfish_ocean);
 		
 		addSpawnPlacements();
 	}
@@ -109,6 +113,7 @@ public class PVJEntities {
 		ice_cube = setupEntity("ice_cube", ice_cube, IceCubeEntity::new, EntityClassification.MONSTER, 64, 2.0F, 2.0F);
 		starfish = setupEntity("starfish", starfish, StarfishEntity::new, PVJ_AMBIENT, 64, 0.4F, 0.1F);
 		starfish_ocean = setupEntity("starfish_ocean", starfish_ocean, StarfishEntity::new, PVJ_WATER_AMBIENT, 64, 0.4F, 0.1F);
+		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -156,6 +161,7 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(ice_cube, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, IceCubeEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(starfish, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StarfishEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(starfish_ocean, PlacementType.IN_WATER, Heightmap.Type.OCEAN_FLOOR, StarfishEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(clam, PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ClamEntity::canSpawn);
 	}
 	
 	public static void addSpawns() {
@@ -164,6 +170,7 @@ public class PVJEntities {
 			addSpawn(biome, firefly, PVJ_AMBIENT, 10, 1, 4, PVJConfig.fireflyBiomes.get());
 			addSpawn(biome, starfish, PVJ_AMBIENT, 15, 1, 3, PVJConfig.starfishBiomes.get());
 			addSpawn(biome, starfish_ocean, PVJ_WATER_AMBIENT, 5, 1, 3, PVJConfig.starfishBiomes.get());
+			addSpawn(biome, clam, PVJ_WATER_AMBIENT, 3, 1, 3, PVJConfig.clamBiomes.get());
 			
 			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
 			
@@ -191,6 +198,7 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(firefly, FireflyRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(starfish, StarfishRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(starfish_ocean, StarfishRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(clam, ClamRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
 	

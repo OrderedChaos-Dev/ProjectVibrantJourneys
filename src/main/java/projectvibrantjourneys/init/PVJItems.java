@@ -27,6 +27,7 @@ public class PVJItems {
 		registerSpawnEgg("fly", PVJEntities.fly, 0x7e7e7e, 0xb3b3b3);
 		registerSpawnEgg("firefly", PVJEntities.firefly, 0xd4d360, 0xf5f371);
 		registerSpawnEgg("starfish", PVJEntities.starfish, 0xFE5F55, 0xFFCAD4);
+		registerSpawnEgg("clam", PVJEntities.clam, 0x9eb8e8, 0xbad0f9);
 		
 		registerSpawnEgg("ghost", PVJEntities.ghost, 0x959595, 0xffffff);
 		
