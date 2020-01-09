@@ -37,6 +37,7 @@ public class PVJItems {
 		registerSpawnEgg("specter", PVJEntities.specter, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("ice_cube", PVJEntities.ice_cube, 0xa6a6a6, 0x808080);
 		
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");

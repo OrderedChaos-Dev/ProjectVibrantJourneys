@@ -57,6 +57,7 @@
 	"item.projectvibrantjourneys.haunt_spawn_egg": "Haunt Spawn Egg",
 	"item.projectvibrantjourneys.phantasm_spawn_egg": "Phantasm Spawn Egg",
 	"item.projectvibrantjourneys.nightmare_spawn_egg": "Nightmare Spawn Egg",
+	"item.projectvibrantjourneys.ice_cube_spawn_egg": "Ice Cube Spawn Egg",
 	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
@@ -71,6 +72,7 @@
 	"entity.projectvibrantjourneys.haunt": "Haunt",
 	"entity.projectvibrantjourneys.phantasm": "Phantasm",
 	"entity.projectvibrantjourneys.nightmare": "Nightmare",
+	"entity.projectvibrantjourneys.ice_cube": "Ice Cube",
 	
 	"subtitles.projectvibrantjourneys_fly.ambient": "Fly buzzes",
 	"subtitles.projectvibrantjourneys_ghost.ambient": "Ghost murmurs",

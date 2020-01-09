@@ -24,6 +24,7 @@ import projectvibrantjourneys.client.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.renderers.FlyRenderer;
 import projectvibrantjourneys.client.renderers.GhostRenderer;
 import projectvibrantjourneys.client.renderers.HauntRenderer;
+import projectvibrantjourneys.client.renderers.IceCubeRenderer;
 import projectvibrantjourneys.client.renderers.NightmareRenderer;
 import projectvibrantjourneys.client.renderers.PhantasmRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
@@ -35,6 +36,7 @@ import projectvibrantjourneys.common.entities.FireflyEntity;
 import projectvibrantjourneys.common.entities.FlyEntity;
 import projectvibrantjourneys.common.entities.GhostEntity;
 import projectvibrantjourneys.common.entities.HauntEntity;
+import projectvibrantjourneys.common.entities.IceCubeEntity;
 import projectvibrantjourneys.common.entities.NightmareEntity;
 import projectvibrantjourneys.common.entities.PhantasmEntity;
 import projectvibrantjourneys.common.entities.ShadeEntity;
@@ -59,6 +61,7 @@ public class PVJEntities {
 	public static EntityType<HauntEntity> haunt;
 	public static EntityType<PhantasmEntity> phantasm;
 	public static EntityType<NightmareEntity> nightmare;
+	public static EntityType<IceCubeEntity> ice_cube;
 	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 25, true, false);
 	
@@ -77,6 +80,7 @@ public class PVJEntities {
 		registerEntity(haunt);
 		registerEntity(phantasm);
 		registerEntity(nightmare);
+		registerEntity(ice_cube);
 		
 		addSpawnPlacements();
 	}
@@ -95,6 +99,7 @@ public class PVJEntities {
 		haunt = setupEntity("haunt", haunt, HauntEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		phantasm = setupEntity("phantasm", phantasm, PhantasmEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		nightmare = setupEntity("nightmare", nightmare, NightmareEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
+		ice_cube = setupEntity("ice_cube", ice_cube, IceCubeEntity::new, EntityClassification.MONSTER, 64, 2.0F, 2.0F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -110,7 +115,6 @@ public class PVJEntities {
 	
 	public static <T extends Entity> void registerEntity(EntityType<T> entityType) {
 		ForgeRegistries.ENTITIES.register(entityType);
-
 	}
 	
 	public static <T extends Entity> EntityType<T> registerEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -140,6 +144,7 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(haunt, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		EntitySpawnPlacementRegistry.register(phantasm, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		EntitySpawnPlacementRegistry.register(nightmare, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
+		EntitySpawnPlacementRegistry.register(ice_cube, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, IceCubeEntity::canSpawn);
 	}
 	
 	public static void addSpawns() {
@@ -157,6 +162,7 @@ public class PVJEntities {
 			addSpawn(biome, specter, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.specterBiomes.get());
 			addSpawn(biome, phantasm, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.phantasmBiomes.get());
 			addSpawn(biome, nightmare, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.nightmareBiomes.get());
+			addSpawn(biome, ice_cube, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.iceCubeBiomes.get());
 		}
 	}
 	
@@ -181,5 +187,6 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(haunt, HauntRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(phantasm, PhantasmRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(nightmare, NightmareRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(ice_cube, IceCubeRenderer::new);
 	}
 }

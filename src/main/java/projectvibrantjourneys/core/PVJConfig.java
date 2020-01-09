@@ -87,6 +87,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> specterBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> phantasmBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> nightmareBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> iceCubeBiomes;
 	
 	static {
 		ConfigDefaults.load();
@@ -167,6 +168,7 @@ public class PVJConfig {
 		specterBiomes = COMMON_BUILDER.comment("Specter Biomes").define("specterBiomes", ConfigDefaults.SPECTER);
 		phantasmBiomes = COMMON_BUILDER.comment("Phantasm Biomes").define("phantasmBiomes", ConfigDefaults.PHANTASM);
 		nightmareBiomes = COMMON_BUILDER.comment("Nightmare Biomes").define("nightmareBiomes", ConfigDefaults.NIGHTMARE);
+		iceCubeBiomes = COMMON_BUILDER.comment("Ice Cube Biomes").define("icecubeBiomes", ConfigDefaults.ICE_CUBE);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {
