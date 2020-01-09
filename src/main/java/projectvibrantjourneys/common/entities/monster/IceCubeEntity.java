@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.entities;
+package projectvibrantjourneys.common.entities.monster;
 
 import java.util.Random;
 

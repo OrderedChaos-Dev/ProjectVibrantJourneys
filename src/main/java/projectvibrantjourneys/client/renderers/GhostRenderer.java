@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.GhostModel;
-import projectvibrantjourneys.common.entities.GhostEntity;
+import projectvibrantjourneys.common.entities.monster.GhostEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)

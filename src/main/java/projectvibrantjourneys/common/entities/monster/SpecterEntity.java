@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.entities;
+package projectvibrantjourneys.common.entities.monster;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -7,9 +7,9 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
-public class WraithEntity extends AngryGhostEntity {
+public class SpecterEntity extends AngryGhostEntity {
 
-	public WraithEntity(EntityType<? extends WraithEntity> entityType, World world) {
+	public SpecterEntity(EntityType<? extends SpecterEntity> entityType, World world) {
 		super(entityType, world);
 	}
 	
@@ -18,7 +18,7 @@ public class WraithEntity extends AngryGhostEntity {
 		boolean flag = super.attackEntityAsMob(entity);
 		if (flag) {
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.HUNGER, 200));
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.WEAKNESS, 200));
 			}
 		}
 

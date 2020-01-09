@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import projectvibrantjourneys.common.entities.IceCubeEntity;
+import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)

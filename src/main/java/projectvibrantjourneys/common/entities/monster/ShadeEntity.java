@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.entities;
+package projectvibrantjourneys.common.entities.monster;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -7,9 +7,9 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
-public class HauntEntity extends AngryGhostEntity {
+public class ShadeEntity extends AngryGhostEntity {
 
-	public HauntEntity(EntityType<? extends HauntEntity> entityType, World world) {
+	public ShadeEntity(EntityType<? extends ShadeEntity> entityType, World world) {
 		super(entityType, world);
 	}
 	
@@ -18,7 +18,7 @@ public class HauntEntity extends AngryGhostEntity {
 		boolean flag = super.attackEntityAsMob(entity);
 		if (flag) {
 			if (entity instanceof LivingEntity) {
-				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.UNLUCK, 200));
+				((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.BLINDNESS, 200));
 			}
 		}
 

@@ -20,7 +20,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
-import projectvibrantjourneys.common.entities.IceCubeEntity;
+import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
 
 public class PVJEvents {
 	

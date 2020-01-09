@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.AngryGhostModel;
-import projectvibrantjourneys.common.entities.PhantasmEntity;
+import projectvibrantjourneys.common.entities.monster.PhantasmEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)

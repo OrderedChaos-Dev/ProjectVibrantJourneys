@@ -52,6 +52,7 @@ public class ConfigDefaults {
 	
 	public static final List<String> FLY = new ArrayList<String>();
 	public static final List<String> FIREFLY = new ArrayList<String>();
+	public static final List<String> STARFISH = new ArrayList<String>();
 	
 	public static final List<String> GHOST = new ArrayList<String>();
 	
@@ -67,16 +68,16 @@ public class ConfigDefaults {
 	
 	public static void load() {
 		//ocean
-		addTo("minecraft:ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:warm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:lukewarm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:cold_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:frozen_ocean", ICE_CHUNKS, BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, ICE_CUBE);
-		addTo("minecraft:deep_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:deep_warm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:deep_lukewarm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:deep_cold_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:deep_frozen_ocean", ICE_CHUNKS, BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, ICE_CUBE);
+		addTo("minecraft:ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:warm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:lukewarm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:cold_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:frozen_ocean", ICE_CHUNKS, BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, ICE_CUBE, STARFISH);
+		addTo("minecraft:deep_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:deep_warm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:deep_lukewarm_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:deep_cold_ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:deep_frozen_ocean", ICE_CHUNKS, BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, ICE_CUBE, STARFISH);
 		
 		//plains
 		addTo("minecraft:plains", OAK_TWIGS_SPARSE, ROCKS, BONES, BUSH, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, HAUNT, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB);
@@ -162,9 +163,9 @@ public class ConfigDefaults {
 		addTo("minecraft:mushroom_field_shore");
 		
 		//beach
-		addTo("minecraft:beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, SEA_OATS, BEACH_GRASS);
-		addTo("minecraft:stone_shore", ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY);
-		addTo("minecraft:snowy_beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, ICE_CUBE);
+		addTo("minecraft:beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, SEA_OATS, BEACH_GRASS, STARFISH);
+		addTo("minecraft:stone_shore", ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH);
+		addTo("minecraft:snowy_beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, ICE_CUBE, STARFISH);
 		
 		//dimensional
 		addTo("minecraft:nether", BONES_NETHER, GOLD_NUGGET, NIGHTMARE, GLOWCAP);

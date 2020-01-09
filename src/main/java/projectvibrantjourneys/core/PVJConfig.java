@@ -76,6 +76,7 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> starfishBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
 	
@@ -157,6 +158,7 @@ public class PVJConfig {
 	private static void initMobs() {
 		flyBiomes = COMMON_BUILDER.comment("Fly Biomes").define("flyBiomes", ConfigDefaults.FLY);
 		fireflyBiomes = COMMON_BUILDER.comment("Firefly Biomes").define("fireflyBiomes", ConfigDefaults.FIREFLY);
+		starfishBiomes = COMMON_BUILDER.comment("Starfish Biomes").define("starfishBiomes", ConfigDefaults.STARFISH);
 		
 		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
 		

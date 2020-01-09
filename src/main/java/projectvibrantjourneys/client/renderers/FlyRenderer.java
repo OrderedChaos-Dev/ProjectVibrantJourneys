@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.FlyModel;
-import projectvibrantjourneys.common.entities.FlyEntity;
+import projectvibrantjourneys.common.entities.passive.FlyEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)

@@ -7,7 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.AngryGhostModel;
 import projectvibrantjourneys.client.models.GhostModel;
-import projectvibrantjourneys.common.entities.BansheeEntity;
+import projectvibrantjourneys.common.entities.monster.BansheeEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @OnlyIn(Dist.CLIENT)

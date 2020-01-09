@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.entities;
+package projectvibrantjourneys.common.entities.monster;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureAttribute;
