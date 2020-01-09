@@ -24,20 +24,20 @@ public class PVJItems {
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
-		registerSpawnEgg("fly", PVJEntities.fly, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("firefly", PVJEntities.firefly, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("fly", PVJEntities.fly, 0x7e7e7e, 0xb3b3b3);
+		registerSpawnEgg("firefly", PVJEntities.firefly, 0xd4d360, 0xf5f371);
 		
-		registerSpawnEgg("ghost", PVJEntities.ghost, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("ghost", PVJEntities.ghost, 0x959595, 0xffffff);
 		
 		registerSpawnEgg("skeletal_knight", PVJEntities.skeletal_knight, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("shade", PVJEntities.shade, 0x333333, 0x595959);
-		registerSpawnEgg("banshee", PVJEntities.banshee, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("wraith", PVJEntities.wraith, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("haunt", PVJEntities.haunt, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("specter", PVJEntities.specter, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0xa6a6a6, 0x808080);
-		registerSpawnEgg("ice_cube", PVJEntities.ice_cube, 0xa6a6a6, 0x808080);
+		registerSpawnEgg("shade", PVJEntities.shade, 0x1f1f1f, 0x060606);
+		registerSpawnEgg("banshee", PVJEntities.banshee, 0x5a6969, 0x157d7d);
+		registerSpawnEgg("wraith", PVJEntities.wraith, 0xa29f85, 0x232323);
+		registerSpawnEgg("haunt", PVJEntities.haunt, 0x748477, 0x121212);
+		registerSpawnEgg("specter", PVJEntities.specter, 0x7c808e, 0x232323);
+		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0x7e7e7e, 0x1d1d1d);
+		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0x6b6b6b, 0x9f4343);
+		registerSpawnEgg("ice_cube", PVJEntities.ice_cube, 0x9eb8e8, 0xbad0f9);
 		
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
