@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -77,6 +78,11 @@ public class StarfishEntity extends WaterMobEntity {
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
 		this.setColor(getRandomColor(world.getRandom()));
+		BlockPos pos = this.getPosition();
+		while(world.getBlockState(pos.down()).getBlock() == Blocks.WATER) {
+			this.setPosition(pos.getX(), pos.getY() - 1, pos.getZ());
+			pos = this.getPosition();
+		}
 		return super.onInitialSpawn(world, difficulty, reason, spawnData, dataTag);
 	}
 	

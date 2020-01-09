@@ -2,13 +2,19 @@ package projectvibrantjourneys.common.entities.passive;
 
 import java.util.Random;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.passive.WaterMobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,6 +34,18 @@ public class ClamEntity extends WaterMobEntity {
 	
 	public static boolean canSpawn(EntityType<ClamEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
 		return pos.getY() > 60;
+	}
+	
+	@Nullable
+	@Override
+	public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
+		this.setRotation(world.getRandom().nextFloat() * 360.0F, world.getRandom().nextFloat() * 360.0F);
+		BlockPos pos = this.getPosition();
+		while(world.getBlockState(pos.down()).getBlock() == Blocks.WATER) {
+			this.setPosition(pos.getX(), pos.getY() - 1, pos.getZ());
+			pos = this.getPosition();
+		}
+		return super.onInitialSpawn(world, difficulty, reason, spawnData, dataTag);
 	}
 	
 	@Override
