@@ -28,6 +28,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.blockstateproviders.FloatingPlantBlockStateProvider;
 import projectvibrantjourneys.common.world.blockstateproviders.RocksBlockStateProvider;
+import projectvibrantjourneys.common.world.blockstateproviders.ShortGrassBlockStateProvider;
 import projectvibrantjourneys.common.world.placers.GroundcoverPlacer;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.PVJBlocks;
@@ -75,6 +76,7 @@ public class FeatureManager {
 		BlockClusterFeatureConfig frogbitCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.frogbit.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(10).func_227322_d_();
 		BlockClusterFeatureConfig duckweedCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.duckweed.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(10).func_227322_d_();
 		BlockClusterFeatureConfig glowcapCluster = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
+		BlockClusterFeatureConfig shortGrassCluster = makeFeatureConfig(new ShortGrassBlockStateProvider(), new SimpleBlockPlacer());
 		
 		List<String> oakBiomes = PVJConfig.oakTwigsBiomes.get();
 		List<String> oakBiomesSparse = PVJConfig.oakTwigsSparseBiomes.get();
@@ -120,6 +122,7 @@ public class FeatureManager {
 		List<String> frogbitBiomes = PVJConfig.frogbitBiomes.get();
 		List<String> duckweedBiomes = PVJConfig.duckweedBiomes.get();
 		List<String> glowcapBiomes = PVJConfig.glowcapBiomes.get();
+		List<String> shortGrassBiomes = PVJConfig.shortGrassBiomes.get();
 		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
@@ -247,6 +250,8 @@ public class FeatureManager {
 				addFrequencyChanceFeature(biome, smallCactusCluster, 2, 0.35F, false);
 			if(glowcapBiomes.contains(biome.getRegistryName().toString()))
 				addChanceFeature(biome, glowcapCluster, 2, false);
+			if(shortGrassBiomes.contains(biome.getRegistryName().toString()))
+				addFrequencyChanceFeature(biome, shortGrassCluster, 10, 0.8F, false);
 			
 			if(barkMushroomBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.barkMushroomFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(50))));

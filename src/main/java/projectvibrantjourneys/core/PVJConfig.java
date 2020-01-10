@@ -73,6 +73,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> frogbitBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> duckweedBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> glowcapBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> shortGrassBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -154,6 +155,7 @@ public class PVJConfig {
 		frogbitBiomes = COMMON_BUILDER.comment("Frogbit Biomes").define("frogbitBiomes", ConfigDefaults.FROGBIT);
 		duckweedBiomes = COMMON_BUILDER.comment("Duckweed Biomes").define("duckweedBiomes", ConfigDefaults.DUCKWEED);
 		glowcapBiomes = COMMON_BUILDER.comment("Glowcap Biomes").define("glowcapBiomes", ConfigDefaults.GLOWCAP);
+		shortGrassBiomes = COMMON_BUILDER.comment("Short Grass Biomes").define("shortGrassBiomes", ConfigDefaults.SHORT_GRASS);
 	}
 	
 	private static void initMobs() {

@@ -14,6 +14,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.PlantType;
 
 public class FloatingPlantBlock extends LilyPadBlock {
 	private static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 1.5D, 15.0D);
@@ -23,6 +24,11 @@ public class FloatingPlantBlock extends LilyPadBlock {
 	public FloatingPlantBlock() {
 		super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0, 0).sound(SoundType.PLANT).func_226896_b_().doesNotBlockMovement());
 	}
+	
+	@Override
+	public PlantType getPlantType(IBlockReader world, BlockPos pos) {
+		return PlantType.Water;
+    }
 	
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {}

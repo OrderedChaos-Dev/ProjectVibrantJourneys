@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.FoliageColors;
+import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -31,6 +32,7 @@ import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
+import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -52,6 +54,7 @@ public class PVJBlocks {
 	public static Block beach_grass;
 	public static Block bark_mushroom;
 	public static Block glowcap;
+	public static Block short_grass;
 	
 	//why object holders for these? cause I'm lazy
 	@ObjectHolder("projectvibrantjourneys:frogbit")
@@ -106,6 +109,7 @@ public class PVJBlocks {
 		registerBlockWithoutItem(new FloatingPlantBlock(), "frogbit");
 		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
+		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
 	}
 	
 	public static Block registerBlock(Block block, String name) {
@@ -186,6 +190,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(small_cactus, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(beach_grass, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(glowcap, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(short_grass, RenderType.func_228641_d_());
 		
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
@@ -209,6 +214,7 @@ public class PVJBlocks {
 		registerFoliageColorBlock(blockColors, jungle_fallen_leaves);
 		registerFoliageColorBlock(blockColors, dark_oak_fallen_leaves);
 		registerFoliageColorBlock(blockColors, acacia_fallen_leaves);
+		registerGrassColorBlock(blockColors, short_grass);
 		
 		registerFoliageColorItem(itemColors, blockColors, oak_fallen_leaves);
 		registerFoliageColorItem(itemColors, blockColors, birch_fallen_leaves, FoliageColors.getBirch());
@@ -216,7 +222,9 @@ public class PVJBlocks {
 		registerFoliageColorItem(itemColors, blockColors, jungle_fallen_leaves);
 		registerFoliageColorItem(itemColors, blockColors, dark_oak_fallen_leaves);
 		registerFoliageColorItem(itemColors, blockColors, acacia_fallen_leaves);
+		registerFoliageColorItem(itemColors, blockColors, short_grass);
 	}
+	
 	
 	private static void registerFoliageColorBlock(BlockColors bc, Block block) {
 		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
@@ -237,5 +245,10 @@ public class PVJBlocks {
 	
 	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block, int color) {
 		ic.register((itemstack, tintIndex) -> color, block);
+	}
+	
+	private static void registerGrassColorBlock(BlockColors bc, Block block) {
+		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
+				? BiomeColors.func_228358_a_(world, pos) : GrassColors.get(0.5D, 1.0D), block);
 	}
 }
