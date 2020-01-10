@@ -93,6 +93,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> nightmareBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> iceCubeBiomes;
 	
+	public static ForgeConfigSpec.BooleanValue skeletalKnightDungeons;
+	
 	static {
 		ConfigDefaults.load();
 		COMMON_BUILDER.comment("World Gen Settings").push(CAT_WORLDGEN);
@@ -177,6 +179,8 @@ public class PVJConfig {
 		phantasmBiomes = COMMON_BUILDER.comment("Phantasm Biomes").define("phantasmBiomes", ConfigDefaults.PHANTASM);
 		nightmareBiomes = COMMON_BUILDER.comment("Nightmare Biomes").define("nightmareBiomes", ConfigDefaults.NIGHTMARE);
 		iceCubeBiomes = COMMON_BUILDER.comment("Ice Cube Biomes").define("icecubeBiomes", ConfigDefaults.ICE_CUBE);
+		
+		skeletalKnightDungeons = COMMON_BUILDER.comment("Add skeletal knights to dungoens").define("skeletalKnightDungeons", true);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

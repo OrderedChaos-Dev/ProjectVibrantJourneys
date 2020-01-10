@@ -13,6 +13,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -184,11 +185,17 @@ public class PVJEntities {
 			addSpawn(biome, nightmare, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.nightmareBiomes.get());
 			addSpawn(biome, ice_cube, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.iceCubeBiomes.get());
 		}
+		
+		if(PVJConfig.skeletalKnightDungeons.get()) {
+			DungeonHooks.addDungeonMob(skeletal_knight, 100);
+		}
 	}
 	
 	private static <T extends Entity> void addSpawn(Biome biome, EntityType<T> entity, EntityClassification creatureType, int weight, int min, int max, List<String> spawnBiomes) {
-		if(spawnBiomes.contains(biome.getRegistryName().toString())) {
-			biome.getSpawns(creatureType).add(new Biome.SpawnListEntry(entity, weight, min, max));
+		if(weight > 0 && min > 0 && max > 0 && !spawnBiomes.isEmpty()) {
+			if(spawnBiomes.contains(biome.getRegistryName().toString())) {
+				biome.getSpawns(creatureType).add(new Biome.SpawnListEntry(entity, weight, min, max));
+			}
 		}
 	}
 	
