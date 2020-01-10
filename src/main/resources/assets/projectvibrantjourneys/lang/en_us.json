@@ -47,6 +47,12 @@
 	
 	"block.projectvibrantjourneys.dung": "Dung",
 	
+	"item.projectvibrantjourneys.starfish_bucket": "Bucket of Starfish",
+	"item.projectvibrantjourneys.clam_bucket": "Bucket of Clams",
+	"item.projectvibrantjourneys.raw_clam": "Raw Clam",
+	"item.projectvibrantjourneys.cooked_clam": "Cooked Clam",
+	"item.projectvibrantjourneys.clam_chowder": "Clam Chowder",
+	"item.projectvibrantjourneys.pearl": "Pearl",
 	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
 	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
 	"item.projectvibrantjourneys.starfish_spawn_egg": "Starfish Spawn Egg",

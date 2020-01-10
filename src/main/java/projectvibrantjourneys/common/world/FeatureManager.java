@@ -106,6 +106,7 @@ public class FeatureManager {
 		List<String> bushBiomes = PVJConfig.bushBiomes.get();
 		List<String> lilypadBiomes = PVJConfig.lilypadBiomes.get();
 		List<String> cobwebBiomes = PVJConfig.cobwebBiomes.get();
+		List<String> seagrassBiomes = PVJConfig.seagrassBiomes.get();
 		
 		List<String> ironNuggetBiomes = PVJConfig.ironNuggetBiomes.get();
 		List<String> goldNuggetBiomes = PVJConfig.goldNuggetBiomes.get();
@@ -266,6 +267,9 @@ public class FeatureManager {
 				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.cobwebFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(5))));
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
 				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
+			if(seagrassBiomes.contains(biome.getRegistryName().toString())) {
+			     biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.func_225566_b_(new SeaGrassConfig(48, 0.4D)).func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+			}
 		}
 	}
 	

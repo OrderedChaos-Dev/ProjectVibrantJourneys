@@ -26,6 +26,7 @@ public class PVJItems {
 	
 	public static Item starfish_bucket;
 	public static Item clam_bucket;
+	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -50,6 +51,10 @@ public class PVJItems {
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
 		starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.starfish, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
 		clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.clam, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
+		raw_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.RAW_CLAM)), "raw_clam");
+		cooked_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
+		clam_chowder = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
+		pearl = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
 	}
 	
 	public static Item registerItem(Item item, String name) {

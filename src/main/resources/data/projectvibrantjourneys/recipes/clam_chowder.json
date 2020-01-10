@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:cooked_clam"
+    },
+    {
+      "item": "projectvibrantjourneys:cooked_clam"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    }
+  ],
+  "result": {
+    "item": "projectvibrantjourneys:clam_chowder"
+  }
+}

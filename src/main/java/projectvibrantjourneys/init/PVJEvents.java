@@ -1,22 +1,27 @@
 package projectvibrantjourneys.init;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.merchant.villager.VillagerProfession;
+import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.entity.monster.MagmaCubeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.MerchantOffer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
@@ -95,6 +100,19 @@ public class PVJEvents {
 					magmaCube.attackEntityAsMob(entity);
 				}
 			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void trade(VillagerTradesEvent event) {
+		if(event.getType() == VillagerProfession.FISHERMAN) {
+			event.getTrades().get(1).add(new VillagerTrades.ITrade() {
+				
+				@Override
+				public MerchantOffer getOffer(Entity entity, Random rand) {
+					return new MerchantOffer(new ItemStack(PVJItems.pearl, 1), new ItemStack(Items.EMERALD, 1), 10, 4, 1);
+				}
+			});
 		}
 	}
 }
