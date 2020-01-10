@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
@@ -14,6 +15,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.items.FloatingPlantItem;
+import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -21,6 +23,9 @@ public class PVJItems {
 	public static final Item.Properties SPAWN_EGG_PROPERTY = new Item.Properties().group(ItemGroup.MISC);
 	
 	public static final List<Item> ITEMS_TO_REGISTER = new ArrayList<Item>();
+	
+	public static Item starfish_bucket;
+	public static Item clam_bucket;
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -43,6 +48,8 @@ public class PVJItems {
 		
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
+		starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.starfish, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
+		clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.clam, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
 	}
 	
 	public static Item registerItem(Item item, String name) {
