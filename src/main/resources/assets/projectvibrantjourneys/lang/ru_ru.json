@@ -1,12 +1,20 @@
 {
 	"itemGroup.projectvibrantjourneys": "Проект: Яркие путешествия",
 	
+	"block.projectvibrantjourneys.fir_log": "Пихтовое бревно",
+	"block.projectvibrantjourneys.fir_leaves": "Листва пихты",
+	"block.projectvibrantjourneys.fir_sapling": "Саженец пихты",
+	"block.projectvibrantjourneys.pine_log": "Сосновое бревно",
+	"block.projectvibrantjourneys.pine_leaves": "Листва сосны",
+	"block.projectvibrantjourneys.pine_sapling": "Саженец сосны",
+	
 	"block.projectvibrantjourneys.oak_twigs": "Ветки дуба",
 	"block.projectvibrantjourneys.birch_twigs": "Ветки берёзы",
 	"block.projectvibrantjourneys.spruce_twigs": "Ветки ели",
 	"block.projectvibrantjourneys.jungle_twigs": "Ветки тропического дерева",
 	"block.projectvibrantjourneys.dark_oak_twigs": "Ветки тёмного дуба",
 	"block.projectvibrantjourneys.acacia_twigs": "Ветки акации",
+	"block.projectvibrantjourneys.fir_twigs": "Ветки пихты",
 	
 	"block.projectvibrantjourneys.oak_fallen_leaves": "Опавшие листья дуба",
 	"block.projectvibrantjourneys.birch_fallen_leaves": "Опавшие листья берёзы",
@@ -14,6 +22,7 @@
 	"block.projectvibrantjourneys.jungle_fallen_leaves": "Опавшие листия тропического дерева",
 	"block.projectvibrantjourneys.dark_oak_fallen_leaves": "Опавшие листья тёмного дуба",
 	"block.projectvibrantjourneys.acacia_fallen_leaves": "Опавшие листья акации",
+	"block.projectvibrantjourneys.fir_fallen_leaves": "Опавшие листья пихты",
 	
 	"block.projectvibrantjourneys.stone_rocks": "Скалы",
 	"block.projectvibrantjourneys.mossy_rocks": "Скалы покрытые мхом",
