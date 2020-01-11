@@ -3,8 +3,11 @@ package projectvibrantjourneys.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.LeavesBlock;
+import net.minecraft.block.LogBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -31,23 +34,29 @@ import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.PVJSaplingBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
+import projectvibrantjourneys.common.blocks.trees.FirTree;
+import projectvibrantjourneys.common.blocks.trees.PineTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@ObjectHolder("projectvibrantjourneys")
 public class PVJBlocks {
-	
+
 	/* GROUNDCOVERS */
-	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs;
-	public static Block oak_fallen_leaves,  birch_fallen_leaves,  spruce_fallen_leaves,  jungle_fallen_leaves,  dark_oak_fallen_leaves,  acacia_fallen_leaves;
-	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks, red_sandstone_rocks, netherrack_rocks, ice_chunks;
+	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs;
+	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves,
+			dark_oak_fallen_leaves, acacia_fallen_leaves, fir_fallen_leaves;
+	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
+			red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget, flint;
 	public static Block bones, charred_bones;
 	public static Block pinecones, seashells;
 	public static Block dung;
-	
+
 	public static Block sea_oats;
 	public static Block cattail;
 	public static Block small_cactus;
@@ -55,14 +64,17 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block glowcap;
 	public static Block short_grass;
-	
-	//why object holders for these? cause I'm lazy
-	@ObjectHolder("projectvibrantjourneys:frogbit")
+
+	public static Block fir_sapling, fir_log, fir_leaves, fir_planks, stripped_fir_log, fir_wood, stripped_fir_wood,
+			fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
+			fir_door;
+	public static Block pine_sapling, pine_log, pine_leaves, pine_planks, stripped_pine_log, pine_wood, stripped_pine_wood,
+			pine_sign, pine_wall_sign, pine_pressure_plate, pine_trapdoor, pine_button, pine_slab, pine_fence_gate, pine_fence,
+			pine_door;
+
 	public static final Block frogbit = null;
-	
-	@ObjectHolder("projectvibrantjourneys:duckweed")
 	public static final Block duckweed = null;
-	
+
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
 		oak_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "oak_twigs", 100);
@@ -71,6 +83,7 @@ public class PVJBlocks {
 		acacia_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "acacia_twigs", 100);
 		dark_oak_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "dark_oak_twigs", 100);
 		jungle_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "jungle_twigs", 100);
+		fir_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "fir_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -78,6 +91,7 @@ public class PVJBlocks {
 		jungle_fallen_leaves = registerBlock(new FallenLeavesBlock(), "jungle_fallen_leaves");
 		dark_oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "dark_oak_fallen_leaves");
 		acacia_fallen_leaves = registerBlock(new FallenLeavesBlock(), "acacia_fallen_leaves");
+		fir_fallen_leaves = registerBlock(new FallenLeavesBlock(), "fir_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
@@ -110,51 +124,59 @@ public class PVJBlocks {
 		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
+		
+		fir_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
+		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "fir_leaves");
+		fir_sapling = registerBlock(new PVJSaplingBlock(new FirTree()), "fir_sapling");
+		
+		
+		pine_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "pine_log");
+		pine_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "pine_leaves");
+		pine_sapling = registerBlock(new PVJSaplingBlock(new PineTree()), "pine_sapling");
 	}
-	
+
 	public static Block registerBlock(Block block, String name) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		
+
 		Item.Properties prop = new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP);
 		BlockItem item = new BlockItem(block, prop);
 		item.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		
+
 		ForgeRegistries.BLOCKS.register(block);
 		ForgeRegistries.ITEMS.register(item);
-		
+
 		return block;
 	}
-	
+
 	public static Block registerBlockWithoutItem(Block block, String name) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 		ForgeRegistries.BLOCKS.register(block);
-		
+
 		return block;
 	}
-	
-	//lol whatever
+
+	// lol whatever
 	public static Block registerBlockWithFuel(Block block, String name, int burnTime) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		
+
 		Item.Properties prop = new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP);
 		BlockItem item = new BlockItem(block, prop) {
 			@Override
-			public int getBurnTime(ItemStack stack)
-		    {
+			public int getBurnTime(ItemStack stack) {
 				return burnTime;
-		    }
+			}
 		};
 		item.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		
+
 		ForgeRegistries.BLOCKS.register(block);
 		ForgeRegistries.ITEMS.register(item);
-		
+
 		return block;
 	}
-	
+
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderers() {
-		RenderTypeLookup.setRenderLayer(oak_twigs, RenderType.func_228643_e_()); //"cutout"
+		RenderTypeLookup.setRenderLayer(oak_twigs, RenderType.func_228643_e_()); // "cutout"
 		RenderTypeLookup.setRenderLayer(birch_twigs, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(spruce_twigs, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(acacia_twigs, RenderType.func_228643_e_());
@@ -177,31 +199,36 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(bark_mushroom, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(frogbit, RenderType.func_228643_e_());
 		RenderTypeLookup.setRenderLayer(duckweed, RenderType.func_228643_e_());
-		
+
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, RenderType.func_228641_d_()); // "cutout mipped"
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(spruce_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(acacia_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(dark_oak_fallen_leaves, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, RenderType.func_228641_d_());
-		
+		RenderTypeLookup.setRenderLayer(fir_fallen_leaves, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(pine_leaves, RenderType.func_228641_d_());
+
 		RenderTypeLookup.setRenderLayer(sea_oats, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(cattail, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(small_cactus, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(beach_grass, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(glowcap, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(short_grass, RenderType.func_228641_d_());
-		
+
+		RenderTypeLookup.setRenderLayer(fir_sapling, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(pine_sapling, RenderType.func_228641_d_());
+
 		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
 		RenderTypeLookup.setRenderLayer(flint, RenderType.func_228641_d_());
 	}
-	
+
 	@OnlyIn(Dist.CLIENT)
 	public static void registerColors() {
 		BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 		ItemColors itemColors = Minecraft.getInstance().getItemColors();
-		
+
 		registerFoliageColorBlock(blockColors, oak_twigs);
 		registerFoliageColorBlock(blockColors, birch_twigs, FoliageColors.getBirch());
 		registerFoliageColorBlock(blockColors, spruce_twigs, FoliageColors.getSpruce());
@@ -215,7 +242,7 @@ public class PVJBlocks {
 		registerFoliageColorBlock(blockColors, dark_oak_fallen_leaves);
 		registerFoliageColorBlock(blockColors, acacia_fallen_leaves);
 		registerGrassColorBlock(blockColors, short_grass);
-		
+
 		registerFoliageColorItem(itemColors, blockColors, oak_fallen_leaves);
 		registerFoliageColorItem(itemColors, blockColors, birch_fallen_leaves, FoliageColors.getBirch());
 		registerFoliageColorItem(itemColors, blockColors, spruce_fallen_leaves, FoliageColors.getSpruce());
@@ -224,31 +251,32 @@ public class PVJBlocks {
 		registerFoliageColorItem(itemColors, blockColors, acacia_fallen_leaves);
 		registerFoliageColorItem(itemColors, blockColors, short_grass);
 	}
-	
-	
+
 	private static void registerFoliageColorBlock(BlockColors bc, Block block) {
 		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.func_228361_b_(world, pos) : FoliageColors.getDefault(), block);
+				? BiomeColors.func_228361_b_(world, pos)
+				: FoliageColors.getDefault(), block);
 	}
-	
+
 	private static void registerFoliageColorBlock(BlockColors bc, Block block, int color) {
 		bc.register((state, world, pos, tintIndex) -> color, block);
 	}
-	
+
 	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block) {
 		ic.register((itemstack, tintIndex) -> {
 			BlockState state = Blocks.OAK_LEAVES.getDefaultState();
-			int color = bc.func_228054_a_(state, null, null, tintIndex); //get color
+			int color = bc.func_228054_a_(state, null, null, tintIndex); // get color
 			return color;
 		}, block);
 	}
-	
+
 	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block, int color) {
 		ic.register((itemstack, tintIndex) -> color, block);
 	}
-	
+
 	private static void registerGrassColorBlock(BlockColors bc, Block block) {
 		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.func_228358_a_(world, pos) : GrassColors.get(0.5D, 1.0D), block);
+				? BiomeColors.func_228358_a_(world, pos)
+				: GrassColors.get(0.5D, 1.0D), block);
 	}
 }

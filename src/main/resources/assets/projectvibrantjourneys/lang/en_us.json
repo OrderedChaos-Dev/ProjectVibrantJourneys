@@ -1,12 +1,20 @@
 {
 	"itemGroup.projectvibrantjourneys": "Project: Vibrant Journeys",
 	
+	"block.projectvibrantjourneys.fir_log": "Fir Log",
+	"block.projectvibrantjourneys.fir_leaves": "Fir Leaves",
+	"block.projectvibrantjourneys.fir_sapling": "Fir Sapling",
+	"block.projectvibrantjourneys.pine_log": "Pine Log",
+	"block.projectvibrantjourneys.pine_leaves": "Pine Leaves",
+	"block.projectvibrantjourneys.pine_sapling": "Pine Sapling",
+	
 	"block.projectvibrantjourneys.oak_twigs": "Oak Twigs",
 	"block.projectvibrantjourneys.birch_twigs": "Birch Twigs",
 	"block.projectvibrantjourneys.spruce_twigs": "Spruce Twigs",
 	"block.projectvibrantjourneys.jungle_twigs": "Jungle Twigs",
 	"block.projectvibrantjourneys.dark_oak_twigs": "Dark Oak Twigs",
 	"block.projectvibrantjourneys.acacia_twigs": "Acacia Twigs",
+	"block.projectvibrantjourneys.fir_twigs": "Fir Twigs",
 	
 	"block.projectvibrantjourneys.oak_fallen_leaves": "Oak Fallen Leaves",
 	"block.projectvibrantjourneys.birch_fallen_leaves": "Birch Fallen Leaves",
@@ -14,6 +22,7 @@
 	"block.projectvibrantjourneys.jungle_fallen_leaves": "Jungle Fallen Leaves",
 	"block.projectvibrantjourneys.dark_oak_fallen_leaves": "Dark Oak Fallen Leaves",
 	"block.projectvibrantjourneys.acacia_fallen_leaves": "Acacia Fallen Leaves",
+	"block.projectvibrantjourneys.fir_fallen_leaves": "Fir Fallen Leaves",
 	
 	"block.projectvibrantjourneys.stone_rocks": "Rocks",
 	"block.projectvibrantjourneys.mossy_rocks": "Mossy Rocks",

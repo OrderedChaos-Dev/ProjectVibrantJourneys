@@ -98,7 +98,7 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 			this.setColor(getRandomColor(world.getRandom()));
 		
 		BlockPos pos = this.getPosition();
-		while(world.getBlockState(pos.down()).getBlock() == Blocks.WATER) {
+		while(world.getBlockState(pos.down(2)).getBlock() == Blocks.WATER) {
 			this.setPosition(pos.getX(), pos.getY() - 1, pos.getZ());
 			pos = this.getPosition();
 		}

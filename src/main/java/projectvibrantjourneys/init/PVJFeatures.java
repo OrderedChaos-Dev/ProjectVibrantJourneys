@@ -6,6 +6,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -16,6 +17,7 @@ import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
+import projectvibrantjourneys.common.world.features.trees.PineTreeFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -27,6 +29,7 @@ public class PVJFeatures {
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<NoFeatureConfig> cobwebFeature;
 	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
+	public static Feature<TreeFeatureConfig> pineTree;
 	
 	
 	@SubscribeEvent
@@ -37,11 +40,13 @@ public class PVJFeatures {
 		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig::deserialize);
 		cobwebFeature = new CobwebFeature(NoFeatureConfig::deserialize);
 		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::func_227271_a_);
+		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
+		
+		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
 	}
 	
-	public Feature<?> registerFeature(Feature<?> feature, String name) {
+	public static void registerFeature(Feature<?> feature, String name) {
 		feature.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 		ForgeRegistries.FEATURES.register(feature);
-		return feature;
 	}
 }

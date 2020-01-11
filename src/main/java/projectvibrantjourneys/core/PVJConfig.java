@@ -29,18 +29,20 @@ public class PVJConfig {
 	public static ForgeConfigSpec CLIENT_CONFIG;
 	
 	/* WORLD GEN */
-	public static ForgeConfigSpec.ConfigValue<List<String>> oakTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> oakTwigsSparseBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> birchTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> birchTwigsSparseBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> spruceTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> spruceTwigsSparseBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> jungleTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> jungleTwigsSparseBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> darkOakTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> darkOakTwigsSparseBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> acaciaTwigsBiomes;
-	public static ForgeConfigSpec.ConfigValue<List<String>> acaciaTwigsSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> oakTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> oakTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> birchTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> birchTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> spruceTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> spruceTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> jungleTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> jungleTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> darkOakTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> darkOakTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> acaciaTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> acaciaTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> firTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> firTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> sandstoneBiomes;
@@ -109,23 +111,26 @@ public class PVJConfig {
 	}
 	
 	private static void initWorldGen() {
-		oakTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("oakTwigsBiomes", ConfigDefaults.OAK_TWIGS);
-		oakTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("oakTwigsSparseBiomes", ConfigDefaults.OAK_TWIGS_SPARSE);
-		COMMON_BUILDER.comment("Birch Twigs Biomes");
-		birchTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("birchTwigsBiomes", ConfigDefaults.BIRCH_TWIGS);
-		birchTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("birchTwigsSparseBiomes", ConfigDefaults.BIRCH_TWIGS_SPARSE);
-		COMMON_BUILDER.comment("Spruce Twigs Biomes");
-		spruceTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("spruceTwigsBiomes", ConfigDefaults.SPRUCE_TWIGS);
-		spruceTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("spruceTwigsSparseBiomes", ConfigDefaults.SPRUCE_TWIGS_SPARSE);
-		COMMON_BUILDER.comment("Jungle Twigs Biomes");
-		jungleTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("jungleTwigsBiomes", ConfigDefaults.JUNGLE_TWIGS);
-		jungleTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("jungleTwigsSparseBiomes", ConfigDefaults.JUNGLE_TWIGS_SPARSE);
-		COMMON_BUILDER.comment("Dark Oak Twigs Biomes");
-		darkOakTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("darkOakTwigsBiomes", ConfigDefaults.DARK_OAK_TWIGS);
-		darkOakTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("darkOakTwigsSparseBiomes", ConfigDefaults.DARK_OAK_TWIGS_SPARSE);
-		COMMON_BUILDER.comment("Acacia Twigs Biomes");
-		acaciaTwigsBiomes = COMMON_BUILDER.comment("Normal frequency").define("acaciaTwigsBiomes", ConfigDefaults.ACACIA_TWIGS);
-		acaciaTwigsSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("acaciaTwigsSparseBiomes", ConfigDefaults.ACACIA_TWIGS_SPARSE);
+		oakTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("oakTreesBiomes", ConfigDefaults.OAK_TREES);
+		oakTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("oakTreesSparseBiomes", ConfigDefaults.OAK_TREES_SPARSE);
+		COMMON_BUILDER.comment("Birch Trees Biomes");
+		birchTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("birchTreesBiomes", ConfigDefaults.BIRCH_TREES);
+		birchTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("birchTreesSparseBiomes", ConfigDefaults.BIRCH_TREES_SPARSE);
+		COMMON_BUILDER.comment("Spruce Trees Biomes");
+		spruceTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("spruceTreesBiomes", ConfigDefaults.SPRUCE_TREES);
+		spruceTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("spruceTreesSparseBiomes", ConfigDefaults.SPRUCE_TREES_SPARSE);
+		COMMON_BUILDER.comment("Jungle Trees Biomes");
+		jungleTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("jungleTreesBiomes", ConfigDefaults.JUNGLE_TREES);
+		jungleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("jungleTreesSparseBiomes", ConfigDefaults.JUNGLE_TREES_SPARSE);
+		COMMON_BUILDER.comment("Dark Oak Trees Biomes");
+		darkOakTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("darkOakTreesBiomes", ConfigDefaults.DARK_OAK_TREES);
+		darkOakTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("darkOakTreesSparseBiomes", ConfigDefaults.DARK_OAK_TREES_SPARSE);
+		COMMON_BUILDER.comment("Acacia Trees Biomes");
+		acaciaTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("acaciaTreesBiomes", ConfigDefaults.ACACIA_TREES);
+		acaciaTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("acaciaTreesSparseBiomes", ConfigDefaults.ACACIA_TREES_SPARSE);
+		COMMON_BUILDER.comment("Fir Trees Biomes");
+		firTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("firTreesBiomes", ConfigDefaults.FIR_TREES);
+		firTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("firTreesSparseBiomes", ConfigDefaults.FIR_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		sandstoneBiomes = COMMON_BUILDER.comment("Sandstone Rocks Biomes").define("sandstoneRocksBiomes", ConfigDefaults.SANDSTONE_ROCKS);

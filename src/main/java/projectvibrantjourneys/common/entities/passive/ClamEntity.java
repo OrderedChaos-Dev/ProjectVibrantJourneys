@@ -65,7 +65,7 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable  {
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
 		BlockPos pos = this.getPosition();
-		while(world.getBlockState(pos.down()).getBlock() == Blocks.WATER) {
+		while(world.getBlockState(pos.down(2)).getBlock() == Blocks.WATER) {
 			this.setPosition(pos.getX(), pos.getY() - 1, pos.getZ());
 			pos = this.getPosition();
 		}

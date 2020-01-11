@@ -20,9 +20,17 @@ import projectvibrantjourneys.init.PVJBiomes;
 
 public final class VerdantSandsBiome extends Biome {
 	public VerdantSandsBiome() {
-		super((new Biome.Builder()).surfaceBuilder(PVJBiomes.verdant_sands_surface_builder, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
-				.precipitation(Biome.RainType.RAIN).category(Biome.Category.DESERT).depth(0.125F).scale(0.05F)
-				.temperature(1.5F).downfall(0.5F).waterColor(4159204).waterFogColor(329011).parent((String) null));
+		super((new Biome.Builder())
+				.surfaceBuilder(PVJBiomes.verdant_sands_surface_builder, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
+				.precipitation(Biome.RainType.RAIN)
+				.category(Biome.Category.DESERT)
+				.depth(0.125F)
+				.scale(0.05F)
+				.temperature(1.5F)
+				.downfall(0.5F)
+				.waterColor(4159204)
+				.waterFogColor(329011)
+				.parent((String) null));
 		this.func_226711_a_(Feature.VILLAGE.func_225566_b_(new VillageConfig("village/desert/town_centers", 6)));
 		this.func_226711_a_(Feature.PILLAGER_OUTPOST.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
 		this.func_226711_a_(Feature.DESERT_PYRAMID.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
