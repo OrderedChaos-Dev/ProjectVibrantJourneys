@@ -19,6 +19,8 @@ public class ConfigDefaults {
 	public static final List<String> ACACIA_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> FIR_TREES = new ArrayList<String>();
 	public static final List<String> FIR_TREES_SPARSE = new ArrayList<String>();
+	public static final List<String> PINE_TREES = new ArrayList<String>();
+	public static final List<String> PINE_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
 	public static final List<String> SANDSTONE_ROCKS = new ArrayList<String>();
@@ -184,7 +186,8 @@ public class ConfigDefaults {
 		//modded
 		addTo("projectvibrantjourneys:overgrown_spires", OAK_TREES_SPARSE, JUNGLE_TREES, DARK_OAK_TREES, ROCKS, BONES, LILYPAD, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SHADE, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:verdant_sands", OAK_TREES_SPARSE, JUNGLE_TREES_SPARSE, ACACIA_TREES_SPARSE, ROCKS, SANDSTONE_ROCKS, RED_SANDSTONE_ROCKS, BONES, LILYPAD, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL, SMALL_CACTUS, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
-		addTo("projectvibrantjourneys:boreal_forest", FIR_TREES, ROCKS, BONES, LILYPAD, FROGBIT, DUCKWEED,  IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:boreal_forest", FIR_TREES, PINE_TREES, ROCKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:snowy_boreal_forest", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 	}
 	
 	@SafeVarargs

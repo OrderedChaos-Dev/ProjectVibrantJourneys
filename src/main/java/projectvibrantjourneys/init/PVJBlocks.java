@@ -3,9 +3,15 @@ package projectvibrantjourneys.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
+import net.minecraft.block.PressurePlateBlock;
+import net.minecraft.block.RotatedPillarBlock;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.Minecraft;
@@ -34,7 +40,11 @@ import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.PVJDoorBlock;
+import projectvibrantjourneys.common.blocks.PVJPressurePlateBlock;
 import projectvibrantjourneys.common.blocks.PVJSaplingBlock;
+import projectvibrantjourneys.common.blocks.PVJTrapDoorBlock;
+import projectvibrantjourneys.common.blocks.PVJWoodButtonBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
@@ -47,9 +57,9 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBlocks {
 
 	/* GROUNDCOVERS */
-	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs;
+	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs, pine_twigs;
 	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves,
-			dark_oak_fallen_leaves, acacia_fallen_leaves, fir_fallen_leaves;
+			dark_oak_fallen_leaves, acacia_fallen_leaves, fir_fallen_leaves, pine_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
 			red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget, flint;
@@ -67,10 +77,10 @@ public class PVJBlocks {
 
 	public static Block fir_sapling, fir_log, fir_leaves, fir_planks, stripped_fir_log, fir_wood, stripped_fir_wood,
 			fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
-			fir_door;
+			fir_door, fir_stairs;
 	public static Block pine_sapling, pine_log, pine_leaves, pine_planks, stripped_pine_log, pine_wood, stripped_pine_wood,
 			pine_sign, pine_wall_sign, pine_pressure_plate, pine_trapdoor, pine_button, pine_slab, pine_fence_gate, pine_fence,
-			pine_door;
+			pine_door, pine_stairs;
 
 	public static final Block frogbit = null;
 	public static final Block duckweed = null;
@@ -84,6 +94,7 @@ public class PVJBlocks {
 		dark_oak_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "dark_oak_twigs", 100);
 		jungle_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "jungle_twigs", 100);
 		fir_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "fir_twigs", 100);
+		pine_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "pine_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -92,6 +103,7 @@ public class PVJBlocks {
 		dark_oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "dark_oak_fallen_leaves");
 		acacia_fallen_leaves = registerBlock(new FallenLeavesBlock(), "acacia_fallen_leaves");
 		fir_fallen_leaves = registerBlock(new FallenLeavesBlock(), "fir_fallen_leaves");
+		pine_fallen_leaves = registerBlock(new FallenLeavesBlock(), "pine_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
@@ -125,14 +137,40 @@ public class PVJBlocks {
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
 		
-		fir_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
+		fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
 		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "fir_leaves");
 		fir_sapling = registerBlock(new PVJSaplingBlock(new FirTree()), "fir_sapling");
+		fir_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_planks");
+		stripped_fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_fir_log");
+		fir_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_wood");
+		stripped_fir_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_fir_wood");
+		fir_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
+		fir_stairs = registerBlockWithFuel(new StairsBlock(() -> fir_planks.getDefaultState(), Block.Properties.from(fir_planks)), "fir_stairs", 300);
+		fir_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "fir_trapdoor");
+		fir_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
+		fir_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_slab");
+		fir_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
+		fir_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
+		fir_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "fir_door");
 		
+//		fir_sign = registerBlockWithoutItem(new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodType.field_227038_a_), "fir_sign");
+//		fir_wall_sign = registerBlockWithoutItem(new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodType.field_227038_a_), "fir_wall_sign");
 		
-		pine_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "pine_log");
+		pine_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "pine_log");
 		pine_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "pine_leaves");
 		pine_sapling = registerBlock(new PVJSaplingBlock(new PineTree()), "pine_sapling");
+		pine_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_planks");
+		stripped_pine_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_pine_log");
+		pine_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "pine_wood");
+		stripped_pine_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_pine_wood");
+		pine_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "pine_pressure_plate");
+		pine_stairs = registerBlockWithFuel(new StairsBlock(() -> pine_planks.getDefaultState(), Block.Properties.from(pine_planks)), "pine_stairs", 300);
+		pine_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "pine_trapdoor");
+		pine_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "pine_button");
+		pine_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_slab");
+		pine_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence_gate");
+		pine_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence");
+		pine_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "pine_door");
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -176,52 +214,59 @@ public class PVJBlocks {
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderers() {
-		RenderTypeLookup.setRenderLayer(oak_twigs, RenderType.func_228643_e_()); // "cutout"
-		RenderTypeLookup.setRenderLayer(birch_twigs, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(spruce_twigs, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(acacia_twigs, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(dark_oak_twigs, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(jungle_twigs, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(mossy_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(andesite_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(diorite_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(granite_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(sandstone_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(red_sandstone_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(netherrack_rocks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(ice_chunks, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(bones, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(charred_bones, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(pinecones, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(seashells, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(dung, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(bark_mushroom, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(frogbit, RenderType.func_228643_e_());
-		RenderTypeLookup.setRenderLayer(duckweed, RenderType.func_228643_e_());
+		RenderType cutout = RenderType.func_228643_e_();
+		RenderType cutout_mipped = RenderType.func_228641_d_();
+		
+		RenderTypeLookup.setRenderLayer(oak_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(birch_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(spruce_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(acacia_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(dark_oak_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(jungle_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(rocks, cutout);
+		RenderTypeLookup.setRenderLayer(mossy_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(andesite_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(diorite_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(granite_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(sandstone_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(red_sandstone_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(netherrack_rocks, cutout);
+		RenderTypeLookup.setRenderLayer(ice_chunks, cutout);
+		RenderTypeLookup.setRenderLayer(bones, cutout);
+		RenderTypeLookup.setRenderLayer(charred_bones, cutout);
+		RenderTypeLookup.setRenderLayer(pinecones, cutout);
+		RenderTypeLookup.setRenderLayer(seashells, cutout);
+		RenderTypeLookup.setRenderLayer(dung, cutout);
+		RenderTypeLookup.setRenderLayer(bark_mushroom, cutout);
+		RenderTypeLookup.setRenderLayer(frogbit, cutout);
+		RenderTypeLookup.setRenderLayer(duckweed, cutout);
+		RenderTypeLookup.setRenderLayer(fir_door, cutout);
+		RenderTypeLookup.setRenderLayer(fir_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(pine_door, cutout);
+		RenderTypeLookup.setRenderLayer(pine_trapdoor, cutout);
 
-		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, RenderType.func_228641_d_()); // "cutout mipped"
-		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(spruce_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(acacia_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(dark_oak_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(fir_fallen_leaves, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(pine_leaves, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(spruce_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(acacia_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(dark_oak_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(fir_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(pine_fallen_leaves, cutout_mipped);
 
-		RenderTypeLookup.setRenderLayer(sea_oats, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(cattail, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(small_cactus, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(beach_grass, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(glowcap, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(short_grass, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(sea_oats, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(cattail, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(small_cactus, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(beach_grass, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(glowcap, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(short_grass, cutout_mipped);
 
-		RenderTypeLookup.setRenderLayer(fir_sapling, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(pine_sapling, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(fir_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(pine_sapling, cutout_mipped);
 
-		RenderTypeLookup.setRenderLayer(iron_nugget, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(gold_nugget, RenderType.func_228641_d_());
-		RenderTypeLookup.setRenderLayer(flint, RenderType.func_228641_d_());
+		RenderTypeLookup.setRenderLayer(iron_nugget, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(gold_nugget, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(flint, cutout_mipped);
 	}
 
 	@OnlyIn(Dist.CLIENT)

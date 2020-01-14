@@ -43,6 +43,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> acaciaTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> firTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> firTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> pineTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> pineTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> sandstoneBiomes;
@@ -131,6 +133,9 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Fir Trees Biomes");
 		firTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("firTreesBiomes", ConfigDefaults.FIR_TREES);
 		firTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("firTreesSparseBiomes", ConfigDefaults.FIR_TREES_SPARSE);
+		COMMON_BUILDER.comment("Pine Trees Biomes");
+		pineTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("pineTreesBiomes", ConfigDefaults.PINE_TREES);
+		pineTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("pineTreesSparseBiomes", ConfigDefaults.PINE_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		sandstoneBiomes = COMMON_BUILDER.comment("Sandstone Rocks Biomes").define("sandstoneRocksBiomes", ConfigDefaults.SANDSTONE_ROCKS);

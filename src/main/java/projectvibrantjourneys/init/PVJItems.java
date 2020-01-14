@@ -8,7 +8,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.TallBlockItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,6 +29,7 @@ public class PVJItems {
 	public static Item starfish_bucket;
 	public static Item clam_bucket;
 	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
+	public static Item fir_sign, fir_door, pine_door;
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -49,12 +52,27 @@ public class PVJItems {
 		
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
+//		fir_sign = registerItem(new SignItem((new Item.Properties()).maxStackSize(16).group(PVJItemGroup.PVJ_ITEMGROUP), PVJBlocks.fir_sign, PVJBlocks.fir_wall_sign), "fir_sign");
 		starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.starfish, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
 		clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.clam, Fluids.WATER, (new Item.Properties()).maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
 		raw_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.RAW_CLAM)), "raw_clam");
 		cooked_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
 		clam_chowder = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 		pearl = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
+		
+		//lazy door fuel handling - will clean up later
+		fir_door = registerItem(new TallBlockItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)) {
+			@Override
+			public int getBurnTime(ItemStack stack) {
+				return 200;
+			}
+		}, "fir_door");
+		pine_door = registerItem(new TallBlockItem(PVJBlocks.pine_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)) {
+			@Override
+			public int getBurnTime(ItemStack stack) {
+				return 200;
+			}
+		}, "pine_door");
 	}
 	
 	public static Item registerItem(Item item, String name) {

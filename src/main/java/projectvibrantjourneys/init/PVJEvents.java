@@ -1,21 +1,30 @@
 package projectvibrantjourneys.init;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.LogBlock;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
 import net.minecraft.entity.monster.MagmaCubeEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -29,9 +38,11 @@ import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
 
 public class PVJEvents {
 	
+	public static Map<Block, Block> stripping_map = new HashMap<Block, Block>();
+	
 	@SuppressWarnings("deprecation") //works in this case
 	@SubscribeEvent
-	public void placeNuggets(PlayerInteractEvent.RightClickBlock event) {
+	public void rightClickBlock(PlayerInteractEvent.RightClickBlock event) {
 		ItemStack stack = event.getItemStack();
 		Item item = stack.getItem();
 		World world = event.getWorld();
@@ -75,6 +86,21 @@ public class PVJEvents {
 					event.setCanceled(true);
 				}
 			}
+		} else if(item instanceof AxeItem) {
+			BlockState activatedBlock = world.getBlockState(pos);
+			if(stripping_map.get(activatedBlock.getBlock()) != null) {
+				Block block = activatedBlock.getBlock();
+				if(block instanceof RotatedPillarBlock) {
+					Axis axis = activatedBlock.get(RotatedPillarBlock.AXIS);
+					world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
+					world.setBlockState(pos, stripping_map.get(activatedBlock.getBlock()).getDefaultState().with(LogBlock.AXIS, axis), 2);
+					stack.damageItem(1, player, (entity) -> {
+						 entity.sendBreakAnimation(event.getHand());
+		            });
+					player.swingArm(event.getHand());
+					event.setResult(Result.ALLOW);
+				}
+			}
 		}
 	}
 	
@@ -115,4 +141,5 @@ public class PVJEvents {
 			});
 		}
 	}
+
 }
