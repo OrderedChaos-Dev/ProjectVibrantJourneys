@@ -3,6 +3,9 @@ package projectvibrantjourneys.init;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.fluid.Fluids;
@@ -12,6 +15,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.TallBlockItem;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -26,9 +34,9 @@ public class PVJItems {
 	
 	public static final List<Item> ITEMS_TO_REGISTER = new ArrayList<Item>();
 	
-	public static Item starfish_bucket;
-	public static Item clam_bucket;
+	public static Item starfish_bucket, clam_bucket;
 	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
+	public static Item spectral_wrappings, maw_tongue;
 	public static Item fir_sign, fir_door, pine_door;
 	
 	@SubscribeEvent
@@ -36,7 +44,7 @@ public class PVJItems {
 		registerSpawnEgg("fly", PVJEntities.fly, 0x7e7e7e, 0xb3b3b3);
 		registerSpawnEgg("firefly", PVJEntities.firefly, 0xd4d360, 0xf5f371);
 		registerSpawnEgg("starfish", PVJEntities.starfish, 0xFE5F55, 0xFFCAD4);
-		registerSpawnEgg("clam", PVJEntities.clam, 0x9eb8e8, 0xbad0f9);
+		registerSpawnEgg("clam", PVJEntities.clam, 0x5b5943, 0xfbf0fb);
 		
 		registerSpawnEgg("ghost", PVJEntities.ghost, 0x959595, 0xffffff);
 		
@@ -49,6 +57,7 @@ public class PVJItems {
 		registerSpawnEgg("phantasm", PVJEntities.phantasm, 0x7e7e7e, 0x1d1d1d);
 		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0x6b6b6b, 0x9f4343);
 		registerSpawnEgg("ice_cube", PVJEntities.ice_cube, 0x9eb8e8, 0xbad0f9);
+		registerSpawnEgg("maw", PVJEntities.maw, 0x909090, 0xFF0000);
 		
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
@@ -59,6 +68,13 @@ public class PVJItems {
 		cooked_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
 		clam_chowder = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 		pearl = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
+		spectral_wrappings = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "spectral_wrappings");
+		maw_tongue = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)) {
+			   @OnlyIn(Dist.CLIENT)
+			   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+				   tooltip.add(new TranslationTextComponent("item.projectvibrantjourneys.maw_tongue.description"));
+			   }
+		}, "maw_tongue");
 		
 		//lazy door fuel handling - will clean up later
 		fir_door = registerItem(new TallBlockItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)) {

@@ -15,11 +15,13 @@ import net.minecraft.entity.ai.goal.RestrictSunGoal;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import projectvibrantjourneys.common.entities.ai.LightAvoidingRandomWalkingGoal;
+import projectvibrantjourneys.init.PVJEntities;
 import projectvibrantjourneys.init.PVJSoundEvents;
 
 public class AngryGhostEntity extends MonsterEntity {
@@ -104,5 +106,10 @@ public class AngryGhostEntity extends MonsterEntity {
 	@Override
 	protected float getSoundPitch() {
 		return super.getSoundPitch() * 0.7F;
+	}
+	
+	@Override
+	protected ResourceLocation getLootTable() {
+		return PVJEntities.ghost.getLootTable();
 	}
 }

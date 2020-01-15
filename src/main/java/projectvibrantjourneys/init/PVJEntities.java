@@ -27,6 +27,7 @@ import projectvibrantjourneys.client.renderers.FlyRenderer;
 import projectvibrantjourneys.client.renderers.GhostRenderer;
 import projectvibrantjourneys.client.renderers.HauntRenderer;
 import projectvibrantjourneys.client.renderers.IceCubeRenderer;
+import projectvibrantjourneys.client.renderers.MawRenderer;
 import projectvibrantjourneys.client.renderers.NightmareRenderer;
 import projectvibrantjourneys.client.renderers.PhantasmRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
@@ -38,6 +39,7 @@ import projectvibrantjourneys.common.entities.monster.BansheeEntity;
 import projectvibrantjourneys.common.entities.monster.GhostEntity;
 import projectvibrantjourneys.common.entities.monster.HauntEntity;
 import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
+import projectvibrantjourneys.common.entities.monster.MawEntity;
 import projectvibrantjourneys.common.entities.monster.NightmareEntity;
 import projectvibrantjourneys.common.entities.monster.PhantasmEntity;
 import projectvibrantjourneys.common.entities.monster.ShadeEntity;
@@ -55,6 +57,9 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJEntities {
 	public static EntityType<FlyEntity> fly;
 	public static EntityType<FireflyEntity> firefly;
+	public static EntityType<StarfishEntity> starfish;
+	public static EntityType<StarfishEntity> starfish_ocean;
+	public static EntityType<ClamEntity> clam;
 	
 	public static EntityType<GhostEntity> ghost;
 	
@@ -67,12 +72,11 @@ public class PVJEntities {
 	public static EntityType<PhantasmEntity> phantasm;
 	public static EntityType<NightmareEntity> nightmare;
 	public static EntityType<IceCubeEntity> ice_cube;
-	public static EntityType<StarfishEntity> starfish;
-	public static EntityType<StarfishEntity> starfish_ocean;
-	public static EntityType<ClamEntity> clam;
+	public static EntityType<MawEntity> maw;
 	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 25, true, false);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false);
+	public static final EntityClassification PVJ_WATER_MONSTER = EntityClassification.create("pvj_water_monster", "pvj_water_monster", 10, false, false);
 	
 	@SubscribeEvent
 	public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {
@@ -93,6 +97,7 @@ public class PVJEntities {
 		registerEntity(phantasm);
 		registerEntity(nightmare);
 		registerEntity(ice_cube);
+		registerEntity(maw);
 		
 		addSpawnPlacements();
 	}
@@ -100,6 +105,9 @@ public class PVJEntities {
 	public static void preInitEntityTypes() {
 		fly = setupEntity("fly", fly, FlyEntity::new, PVJ_AMBIENT, 64, 0.1F, 0.1F);
 		firefly = setupEntity("firefly", firefly, FireflyEntity::new, PVJ_AMBIENT, 64, 0.1F, 0.1F);
+		starfish = setupEntity("starfish", starfish, StarfishEntity::new, PVJ_AMBIENT, 64, 0.4F, 0.1F);
+		starfish_ocean = setupEntity("starfish_ocean", starfish_ocean, StarfishEntity::new, PVJ_WATER_AMBIENT, 64, 0.4F, 0.1F);
+		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		
@@ -112,9 +120,7 @@ public class PVJEntities {
 		phantasm = setupEntity("phantasm", phantasm, PhantasmEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		nightmare = setupEntity("nightmare", nightmare, NightmareEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		ice_cube = setupEntity("ice_cube", ice_cube, IceCubeEntity::new, EntityClassification.MONSTER, 64, 2.0F, 2.0F);
-		starfish = setupEntity("starfish", starfish, StarfishEntity::new, PVJ_AMBIENT, 64, 0.4F, 0.1F);
-		starfish_ocean = setupEntity("starfish_ocean", starfish_ocean, StarfishEntity::new, PVJ_WATER_AMBIENT, 64, 0.4F, 0.1F);
-		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
+		maw =  setupEntity("maw", maw, MawEntity::new, EntityClassification.MONSTER, 64, 1.4F, 4.5F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -131,23 +137,14 @@ public class PVJEntities {
 	public static <T extends Entity> void registerEntity(EntityType<T> entityType) {
 		ForgeRegistries.ENTITIES.register(entityType);
 	}
-	
-	public static <T extends Entity> EntityType<T> registerEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
-			int range, float width, float height) {
-		entityType = EntityType.Builder.create(entityTypeFactory, EntityClassification.MONSTER)
-				.setTrackingRange(range)
-				.size(width, height)
-				.build(name);
-		entityType.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		
-		ForgeRegistries.ENTITIES.register(entityType);
-		
-		return entityType;
-	}
+
 	
 	private static void addSpawnPlacements() {
 		EntitySpawnPlacementRegistry.register(fly, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FlyEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(firefly, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FireflyEntity::canSpawnFirefly);
+		EntitySpawnPlacementRegistry.register(starfish, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StarfishEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(starfish_ocean, PlacementType.IN_WATER, Heightmap.Type.OCEAN_FLOOR, StarfishEntity::canSpawnOcean);
+		EntitySpawnPlacementRegistry.register(clam, PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ClamEntity::canSpawn);
 		
 		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		
@@ -160,9 +157,7 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(phantasm, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		EntitySpawnPlacementRegistry.register(nightmare, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		EntitySpawnPlacementRegistry.register(ice_cube, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, IceCubeEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(starfish, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StarfishEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(starfish_ocean, PlacementType.IN_WATER, Heightmap.Type.OCEAN_FLOOR, StarfishEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(clam, PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ClamEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(maw, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MawEntity::canSpawn);
 	}
 	
 	public static void addSpawns() {
@@ -184,6 +179,7 @@ public class PVJEntities {
 			addSpawn(biome, phantasm, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.phantasmBiomes.get());
 			addSpawn(biome, nightmare, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.nightmareBiomes.get());
 			addSpawn(biome, ice_cube, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.iceCubeBiomes.get());
+			addSpawn(biome, maw, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.mawBiomes.get());
 		}
 		
 		if(PVJConfig.skeletalKnightDungeons.get()) {
@@ -218,5 +214,6 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(phantasm, PhantasmRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(nightmare, NightmareRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ice_cube, IceCubeRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(maw, MawRenderer::new);
 	}
 }

@@ -102,6 +102,10 @@
 	"item.projectvibrantjourneys.cooked_clam": "Cooked Clam",
 	"item.projectvibrantjourneys.clam_chowder": "Clam Chowder",
 	"item.projectvibrantjourneys.pearl": "Pearl",
+	"item.projectvibrantjourneys.spectral_wrappings": "Spectral Wrappings",
+	"item.projectvibrantjourneys.maw_tongue": "Maw Tongue",
+	
+	"item.projectvibrantjourneys.maw_tongue.description": "It squirms as you hold it.",
 	
 	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
 	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
@@ -117,6 +121,7 @@
 	"item.projectvibrantjourneys.phantasm_spawn_egg": "Phantasm Spawn Egg",
 	"item.projectvibrantjourneys.nightmare_spawn_egg": "Nightmare Spawn Egg",
 	"item.projectvibrantjourneys.ice_cube_spawn_egg": "Ice Cube Spawn Egg",
+	"item.projectvibrantjourneys.maw_spawn_egg": "Maw Spawn Egg",
 	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
@@ -137,6 +142,7 @@
 	"entity.projectvibrantjourneys.phantasm": "Phantasm",
 	"entity.projectvibrantjourneys.nightmare": "Nightmare",
 	"entity.projectvibrantjourneys.ice_cube": "Ice Cube",
+	"entity.projectvibrantjourneys.maw": "Maw",
 	
 	"subtitles.projectvibrantjourneys_fly.ambient": "Fly buzzes",
 	"subtitles.projectvibrantjourneys_starfish.patrick": "No, this is Patrick",

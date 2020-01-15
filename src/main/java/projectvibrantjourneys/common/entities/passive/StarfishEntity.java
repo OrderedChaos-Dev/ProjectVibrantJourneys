@@ -112,6 +112,10 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 		return pos.getY() > 60;
 	}
 	
+	public static boolean canSpawnOcean(EntityType<StarfishEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+		return pos.getY() < world.getSeaLevel();
+	}
+	
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean isInRangeToRenderDist(double distance) {

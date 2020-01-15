@@ -72,6 +72,7 @@ public class ConfigDefaults {
 	public static final List<String> PHANTASM = new ArrayList<String>();
 	public static final List<String> NIGHTMARE = new ArrayList<String>();
 	public static final List<String> ICE_CUBE = new ArrayList<String>();
+	public static final List<String> MAW = new ArrayList<String>();
 	
 	public static void load() {
 		//ocean
@@ -175,7 +176,7 @@ public class ConfigDefaults {
 		addTo("minecraft:snowy_beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, ICE_CUBE, STARFISH, CLAM);
 		
 		//dimensional
-		addTo("minecraft:nether", BONES_NETHER, GOLD_NUGGET, NIGHTMARE, GLOWCAP);
+		addTo("minecraft:nether", BONES_NETHER, GOLD_NUGGET, MAW, NIGHTMARE, GLOWCAP);
 		addTo("minecraft:the_end");
 		addTo("minecraft:small_end_islands");
 		addTo("minecraft:end_midlands");
