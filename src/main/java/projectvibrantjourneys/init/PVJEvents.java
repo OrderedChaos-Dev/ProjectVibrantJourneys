@@ -120,6 +120,9 @@ public class PVJEvents {
 						maw.getDataManager().set(MawEntity.FRIENDLY, true);
 						maw.getDataManager().set(MawEntity.ATTACHED_FACE, direction.getOpposite());
 						maw.targetSelector.removeGoal(new NearestAttackableTargetGoal<>(maw, PlayerEntity.class, true));
+						if(stack.hasDisplayName()) {
+							maw.setCustomName(stack.getDisplayName());
+						}
 						world.removeBlock(pos, false);
 					}
 				}

@@ -11,18 +11,20 @@ import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.ZombiePigmanEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -32,6 +34,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -39,6 +42,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import projectvibrantjourneys.init.PVJItems;
 
 public class MawEntity extends MonsterEntity {
 
@@ -56,7 +60,7 @@ public class MawEntity extends MonsterEntity {
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(6, new LookAtGoal(this, LivingEntity.class, 5.0F));
 		
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MobEntity.class, 4, true, true, (entity) -> {
+		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MonsterEntity.class, 4, true, true, (entity) -> {
 			return !(entity instanceof ZombiePigmanEntity) && !(entity instanceof CreeperEntity);
 		}));
 	}
@@ -209,6 +213,28 @@ public class MawEntity extends MonsterEntity {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public boolean processInteract(PlayerEntity player, Hand hand) {
+		Item item = player.getHeldItem(hand).getItem();
+		if(this.dataManager.get(FRIENDLY)) {
+			if(item == Items.GOLD_NUGGET) {
+				if(!this.world.isRemote) {
+					ItemStack stack = new ItemStack(PVJItems.maw_tongue);
+					if(this.hasCustomName()) {
+						stack.setDisplayName(this.getCustomName());
+					}
+		            ItemEntity itementity = new ItemEntity(world, this.func_226277_ct_(), this.func_226278_cu_(), this.func_226281_cx_(), stack);
+		            itementity.setDefaultPickupDelay();
+		            world.addEntity(itementity);
+		            this.remove();
+				}
+			}
+		}
+
+		
+		return super.processInteract(player, hand);
 	}
 
 	public static boolean canSpawn(EntityType<MawEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
