@@ -180,6 +180,8 @@ public class PVJEntities {
 			addSpawn(biome, nightmare, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.nightmareBiomes.get());
 			addSpawn(biome, ice_cube, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.iceCubeBiomes.get());
 			addSpawn(biome, maw, EntityClassification.MONSTER, 30, 1, 1, PVJConfig.mawBiomes.get());
+			
+			addSpawn(biome, EntityType.TROPICAL_FISH, EntityClassification.WATER_CREATURE, 20, 8, 8, PVJConfig.tropicalFishBiomes.get());
 		}
 		
 		if(PVJConfig.skeletalKnightDungeons.get()) {

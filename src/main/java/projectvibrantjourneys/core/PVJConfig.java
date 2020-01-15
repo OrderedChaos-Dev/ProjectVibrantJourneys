@@ -62,6 +62,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> lilypadBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> cobwebBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> seagrassBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> tropicalFishBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ironNuggetBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> goldNuggetBiomes;
@@ -193,6 +194,7 @@ public class PVJConfig {
 		mawBiomes = COMMON_BUILDER.comment("Maw Biomes").define("mawBiomes", ConfigDefaults.MAW);
 		
 		skeletalKnightDungeons = COMMON_BUILDER.comment("Add skeletal knights to dungeons").define("skeletalKnightDungeons", true);
+		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {
