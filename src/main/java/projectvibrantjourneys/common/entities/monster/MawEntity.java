@@ -27,6 +27,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
@@ -54,9 +55,6 @@ public class MawEntity extends MonsterEntity {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(6, new LookAtGoal(this, LivingEntity.class, 5.0F));
-		
-		if(!dataManager.get(FRIENDLY))
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, MobEntity.class, 4, true, true, (entity) -> {
 			return !(entity instanceof ZombiePigmanEntity) && !(entity instanceof CreeperEntity);
@@ -111,11 +109,14 @@ public class MawEntity extends MonsterEntity {
 
 			if (getAttachmentFace() == Direction.UP) {
 				BlockPos pos = this.getPosition();
-				while (world.isAirBlock(pos.up(5))) {
+				while (pos.up(5).getY() < 255 && world.isAirBlock(pos.up(5))) {
 					pos = pos.up();
 				}
 				this.setPosition(pos.getX(), pos.getY(), pos.getZ());
 			}
+		}
+		if(reason != SpawnReason.BREEDING) {
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		}
 		return super.onInitialSpawn(world, difficulty, reason, spawnData, dataTag);
 	}
@@ -126,6 +127,22 @@ public class MawEntity extends MonsterEntity {
 
 	public void setAttachmentFace(Direction d) {
 		this.dataManager.set(ATTACHED_FACE, d);
+	}
+	
+	@Override
+	public boolean canDespawn(double distanceToClosestPlayer) {
+		return !this.dataManager.get(FRIENDLY);
+	}
+
+	@Override
+	public boolean preventDespawn() {
+		return this.dataManager.get(FRIENDLY);
+	}
+	
+	//should despawn if peaceful difficulty
+	@Override
+	protected boolean func_225511_J_() {
+		return !this.dataManager.get(FRIENDLY);
 	}
 
 	@Override
@@ -183,6 +200,14 @@ public class MawEntity extends MonsterEntity {
 				this.setMotion(0, -0.1F, 0);
 			else
 				this.setMotion(0, 0.1F, 0);
+		}
+		
+		if(this.getDataManager().get(FRIENDLY)) {
+			if(this.rand.nextFloat() < 0.2F) {
+				if(this.rand.nextFloat() < 0.1F) {
+					this.world.addParticle(ParticleTypes.HEART, this.func_226282_d_(0.5D), this.func_226279_cv_(), this.func_226287_g_(0.5D), 0.0D, 0.0D, 0.0D);
+				}
+			}
 		}
 	}
 

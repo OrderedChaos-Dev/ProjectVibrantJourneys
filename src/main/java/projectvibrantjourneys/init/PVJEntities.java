@@ -120,7 +120,7 @@ public class PVJEntities {
 		phantasm = setupEntity("phantasm", phantasm, PhantasmEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		nightmare = setupEntity("nightmare", nightmare, NightmareEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		ice_cube = setupEntity("ice_cube", ice_cube, IceCubeEntity::new, EntityClassification.MONSTER, 64, 2.0F, 2.0F);
-		maw =  setupEntity("maw", maw, MawEntity::new, EntityClassification.MONSTER, 64, 1.4F, 4.5F);
+		maw =  setupEntity("maw", maw, MawEntity::new, EntityClassification.MONSTER, 64, 1F, 4.5F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,

@@ -3,13 +3,17 @@ package projectvibrantjourneys.init;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.merchant.villager.VillagerProfession;
 import net.minecraft.entity.merchant.villager.VillagerTrades;
@@ -22,9 +26,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.MerchantOffer;
 import net.minecraft.util.Direction;
+import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -35,6 +39,7 @@ import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
+import projectvibrantjourneys.common.entities.monster.MawEntity;
 
 public class PVJEvents {
 	
@@ -99,6 +104,24 @@ public class PVJEvents {
 		            });
 					player.swingArm(event.getHand());
 					event.setResult(Result.ALLOW);
+				}
+			}
+		}
+		
+		Block block = world.getBlockState(pos).getBlock();
+		if(block == Blocks.BONE_BLOCK) {
+			if(item == PVJItems.maw_tongue) {
+				EntityType<MawEntity> mawType = PVJEntities.maw;
+				
+				if(direction == Direction.UP) {
+					MawEntity maw = (MawEntity) mawType.spawn(world, stack, player, pos, SpawnReason.BREEDING, true, !Objects.equals(pos, posWithOffset) && direction == Direction.UP);
+					if (maw != null) {
+						stack.shrink(1);
+						maw.getDataManager().set(MawEntity.FRIENDLY, true);
+						maw.getDataManager().set(MawEntity.ATTACHED_FACE, direction.getOpposite());
+						maw.targetSelector.removeGoal(new NearestAttackableTargetGoal<>(maw, PlayerEntity.class, true));
+						world.removeBlock(pos, false);
+					}
 				}
 			}
 		}
