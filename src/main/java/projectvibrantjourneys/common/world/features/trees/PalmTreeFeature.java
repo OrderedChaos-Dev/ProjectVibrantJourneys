@@ -43,8 +43,8 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	protected void func_227213_a_(IWorldGenerationReader world, Random rand, int a, BlockPos pos, int c, Set<BlockPos> logs, MutableBoundingBox box, TreeFeatureConfig config) {
 		Direction dir = Direction.Plane.HORIZONTAL.random(rand);
 		BlockPos logPos = pos;
+		this.func_227216_a_(world, rand, logPos, logs, box, config);
 		for (int i = 0; i < a - c; ++i) {
-			this.func_227216_a_(world, rand, logPos, logs, box, config);
 			logPos = logPos.up();
 			if (rand.nextBoolean()) {
 				logPos = logPos.offset(dir);
@@ -52,9 +52,8 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 					this.func_227216_a_(world, rand, logPos.down(), logs, box, config);
 				}
 			}
+			this.func_227216_a_(world, rand, logPos, logs, box, config);
 		}
-		this.func_227216_a_(world, rand, logPos, logs, box, config);
-		logPos = logPos.down();
 		
 		BlockState leaf = config.field_227369_n_.func_225574_a_(rand, logPos);
 		world.setBlockState(logPos.up(), leaf, 2);
