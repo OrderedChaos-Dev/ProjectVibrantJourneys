@@ -36,6 +36,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
+import projectvibrantjourneys.common.blocks.CoconutBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
@@ -49,6 +50,7 @@ import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
 import projectvibrantjourneys.common.blocks.trees.FirTree;
+import projectvibrantjourneys.common.blocks.trees.PalmTree;
 import projectvibrantjourneys.common.blocks.trees.PineTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -57,9 +59,9 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBlocks {
 
 	/* GROUNDCOVERS */
-	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs, pine_twigs;
+	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs, pine_twigs, palm_twigs;
 	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves,
-			dark_oak_fallen_leaves, acacia_fallen_leaves, fir_fallen_leaves, pine_fallen_leaves;
+			dark_oak_fallen_leaves, acacia_fallen_leaves, fir_fallen_leaves, pine_fallen_leaves, palm_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
 			red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget, flint;
@@ -81,6 +83,11 @@ public class PVJBlocks {
 	public static Block pine_sapling, pine_log, pine_leaves, pine_planks, stripped_pine_log, pine_wood, stripped_pine_wood,
 			pine_sign, pine_wall_sign, pine_pressure_plate, pine_trapdoor, pine_button, pine_slab, pine_fence_gate, pine_fence,
 			pine_door, pine_stairs;
+	
+	public static Block palm_sapling, palm_log, palm_leaves, palm_planks, stripped_palm_log, palm_wood, stripped_palm_wood,
+	palm_sign, palm_wall_sign, palm_pressure_plate, palm_trapdoor, palm_button, palm_slab, palm_fence_gate, palm_fence,
+	palm_door, palm_stairs;
+	public static Block coconut;
 
 	public static final Block frogbit = null;
 	public static final Block duckweed = null;
@@ -95,6 +102,7 @@ public class PVJBlocks {
 		jungle_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "jungle_twigs", 100);
 		fir_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "fir_twigs", 100);
 		pine_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "pine_twigs", 100);
+		palm_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "palm_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -104,6 +112,7 @@ public class PVJBlocks {
 		acacia_fallen_leaves = registerBlock(new FallenLeavesBlock(), "acacia_fallen_leaves");
 		fir_fallen_leaves = registerBlock(new FallenLeavesBlock(), "fir_fallen_leaves");
 		pine_fallen_leaves = registerBlock(new FallenLeavesBlock(), "pine_fallen_leaves");
+		palm_fallen_leaves = registerBlock(new FallenLeavesBlock(), "palm_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
@@ -171,6 +180,23 @@ public class PVJBlocks {
 		pine_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence_gate");
 		pine_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence");
 		pine_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "pine_door");
+
+		palm_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_log");
+		palm_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "palm_leaves");
+		palm_sapling = registerBlock(new PVJSaplingBlock(new PalmTree()), "palm_sapling");
+		palm_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_planks");
+		stripped_palm_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_palm_log");
+		palm_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_wood");
+		stripped_palm_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_palm_wood");
+		palm_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
+		palm_stairs = registerBlockWithFuel(new StairsBlock(() -> palm_planks.getDefaultState(), Block.Properties.from(palm_planks)), "palm_stairs", 300);
+		palm_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "palm_trapdoor");
+		palm_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_button");
+		palm_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_slab");
+		palm_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
+		palm_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
+		palm_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "palm_door");
+		coconut = registerBlock(new CoconutBlock(), "coconut");
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -244,6 +270,8 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(fir_trapdoor, cutout);
 		RenderTypeLookup.setRenderLayer(pine_door, cutout);
 		RenderTypeLookup.setRenderLayer(pine_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(palm_door, cutout);
+		RenderTypeLookup.setRenderLayer(palm_trapdoor, cutout);
 
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, cutout_mipped);
@@ -253,6 +281,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(jungle_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(fir_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(pine_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(palm_fallen_leaves, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(sea_oats, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(cattail, cutout_mipped);
@@ -263,6 +292,7 @@ public class PVJBlocks {
 
 		RenderTypeLookup.setRenderLayer(fir_sapling, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(pine_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(palm_sapling, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(iron_nugget, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(gold_nugget, cutout_mipped);

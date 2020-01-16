@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:cracked_coconut"
+    },
+    {
+      "item": "projectvibrantjourneys:cracked_coconut"
+    },
+        {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "projectvibrantjourneys:coconut_milk"
+  }
+}

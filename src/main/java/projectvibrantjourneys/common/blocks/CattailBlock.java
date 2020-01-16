@@ -6,7 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.DoublePlantBlock;
+import net.minecraft.block.GrassBlock;
 import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.SandBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -45,13 +47,11 @@ public class CattailBlock extends DoublePlantBlock implements IWaterLoggable {
 			Block ground = world.getBlockState(groundPos).getBlock();
 
 			if (world.getFluidState(pos).getFluid() == Fluids.WATER)
-				return (ground == Blocks.DIRT || ground == Blocks.GRASS_BLOCK || ground == Blocks.SAND
-						|| ground == Blocks.GRAVEL || ground == Blocks.CLAY);
+				return canGrow(ground);
 
 			for (Direction direction : Direction.Plane.HORIZONTAL) {
 				if (world.getFluidState(groundPos.offset(direction)).getFluid() == Fluids.WATER) {
-					return (ground == Blocks.DIRT || ground == Blocks.GRASS_BLOCK || ground == Blocks.SAND
-							|| ground == Blocks.GRAVEL || ground == Blocks.CLAY);
+					return canGrow(ground);
 				}
 			}
 
@@ -62,6 +62,11 @@ public class CattailBlock extends DoublePlantBlock implements IWaterLoggable {
 				return false;
 			return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
 		}
+	}
+	
+	public boolean canGrow(Block ground) {
+		return ground == Blocks.DIRT || ground instanceof GrassBlock || ground instanceof SandBlock
+				|| ground == Blocks.GRAVEL || ground == Blocks.CLAY;
 	}
 
 	@Override

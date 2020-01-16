@@ -53,8 +53,7 @@ public final class PrairieBiome extends Biome {
    @OnlyIn(Dist.CLIENT)
    @Override
    public int func_225528_a_(double p_225528_1_, double p_225528_3_) { //get grass color
-	   //return 0xbfd164;
-	   return 0xe8ff9e;
+	   return 0xbfd164;
    }
    
    @OnlyIn(Dist.CLIENT)

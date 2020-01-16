@@ -13,7 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.TallBlockItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -24,7 +23,9 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.items.BeverageItem;
 import projectvibrantjourneys.common.items.FloatingPlantItem;
+import projectvibrantjourneys.common.items.PVJDoorItem;
 import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -37,7 +38,8 @@ public class PVJItems {
 	public static Item starfish_bucket, clam_bucket;
 	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
 	public static Item spectral_wrappings, maw_tongue;
-	public static Item fir_sign, fir_door, pine_door;
+	public static Item fir_sign, fir_door, pine_door, palm_door;
+	public static Item cracked_coconut, coconut_milk;
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -68,7 +70,9 @@ public class PVJItems {
 		cooked_clam = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
 		clam_chowder = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 		pearl = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
-		spectral_wrappings = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "spectral_wrappings");
+		cracked_coconut = registerItem(new Item(new Item.Properties().food(PVJFoods.CRACKED_COCONUT).group(PVJItemGroup.PVJ_ITEMGROUP)), "cracked_coconut");
+		coconut_milk = registerItem(new BeverageItem(new Item.Properties().food(PVJFoods.COCONUT_MILK).group(PVJItemGroup.PVJ_ITEMGROUP)), "coconut_milk");
+		spectral_wrappings = registerItem(new Item(new Item.Properties().maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "spectral_wrappings");
 		maw_tongue = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)) {
 			   @OnlyIn(Dist.CLIENT)
 			   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
@@ -77,18 +81,9 @@ public class PVJItems {
 		}, "maw_tongue");
 		
 		//lazy door fuel handling - will clean up later
-		fir_door = registerItem(new TallBlockItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)) {
-			@Override
-			public int getBurnTime(ItemStack stack) {
-				return 200;
-			}
-		}, "fir_door");
-		pine_door = registerItem(new TallBlockItem(PVJBlocks.pine_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)) {
-			@Override
-			public int getBurnTime(ItemStack stack) {
-				return 200;
-			}
-		}, "pine_door");
+		fir_door = registerItem(new PVJDoorItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "fir_door");
+		pine_door = registerItem(new PVJDoorItem(PVJBlocks.pine_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "pine_door");
+		palm_door = registerItem(new PVJDoorItem(PVJBlocks.palm_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "palm_door");
 	}
 	
 	public static Item registerItem(Item item, String name) {

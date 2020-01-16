@@ -45,8 +45,11 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> firTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> pineTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> pineTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> palmTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> palmTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> sandstoneBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> redSandstoneBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> iceChunksBiomes;
@@ -139,8 +142,12 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Pine Trees Biomes");
 		pineTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("pineTreesBiomes", ConfigDefaults.PINE_TREES);
 		pineTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("pineTreesSparseBiomes", ConfigDefaults.PINE_TREES_SPARSE);
+		COMMON_BUILDER.comment("Palm Trees Biomes");
+		palmTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("palmTreesBiomes", ConfigDefaults.PALM_TREES);
+		palmTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("palmTreesSparseBiomes", ConfigDefaults.PALM_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
+		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);
 		sandstoneBiomes = COMMON_BUILDER.comment("Sandstone Rocks Biomes").define("sandstoneRocksBiomes", ConfigDefaults.SANDSTONE_ROCKS);
 		redSandstoneBiomes = COMMON_BUILDER.comment("Red Sandstone Rocks Biomes").define("redSandstoneRocksBiomes", ConfigDefaults.RED_SANDSTONE_ROCKS);
 		iceChunksBiomes = COMMON_BUILDER.comment("Ice Chunks Biomes").define("iceChunksBiomes", ConfigDefaults.ICE_CHUNKS);

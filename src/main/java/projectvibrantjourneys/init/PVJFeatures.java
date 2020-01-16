@@ -17,6 +17,7 @@ import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
+import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PineTreeFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -30,6 +31,7 @@ public class PVJFeatures {
 	public static Feature<NoFeatureConfig> cobwebFeature;
 	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
 	public static Feature<TreeFeatureConfig> pineTree;
+	public static Feature<TreeFeatureConfig> palmTree;
 	
 	
 	@SubscribeEvent
@@ -41,6 +43,7 @@ public class PVJFeatures {
 		cobwebFeature = new CobwebFeature(NoFeatureConfig::deserialize);
 		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::func_227271_a_);
 		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
+		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
 	}

@@ -51,6 +51,10 @@ public class FeatureManager {
 			new SimpleBlockStateProvider(PVJBlocks.pine_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.pine_leaves.getDefaultState()),
 			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.pine_sapling).func_225568_b_();
+	public static final TreeFeatureConfig PALM_TREE = (new TreeFeatureConfig.Builder(
+			new SimpleBlockStateProvider(PVJBlocks.palm_log.getDefaultState()),
+			new SimpleBlockStateProvider(PVJBlocks.palm_leaves.getDefaultState()),
+			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.palm_sapling).func_225568_b_();
 	
 	public static void init() {
 		BlockClusterFeatureConfig oakTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_twigs.getDefaultState()), new GroundcoverPlacer());
@@ -61,6 +65,7 @@ public class FeatureManager {
 		BlockClusterFeatureConfig acaciaTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_twigs.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig firTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fir_twigs.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig pineTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.pine_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig palmTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.palm_twigs.getDefaultState()), new GroundcoverPlacer());
 		
 		BlockClusterFeatureConfig oakFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig birchFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.birch_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
@@ -70,8 +75,10 @@ public class FeatureManager {
 		BlockClusterFeatureConfig acaciaFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.acacia_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig firFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fir_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig pineFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.pine_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig palmFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.palm_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		
 		BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(new RocksBlockStateProvider(), new GroundcoverPlacer());
+		BlockClusterFeatureConfig netherrackRocksCluster = createNetherGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.netherrack_rocks.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig sandstoneRocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig redSandstoneRocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.red_sandstone_rocks.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig iceChunks = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.ice_chunks.getDefaultState()), new GroundcoverPlacer());
@@ -114,8 +121,11 @@ public class FeatureManager {
 		List<String> firBiomesSparse = PVJConfig.firTreesSparseBiomes.get();
 		List<String> pineBiomes = PVJConfig.pineTreesBiomes.get();
 		List<String> pineBiomesSparse = PVJConfig.pineTreesSparseBiomes.get();
+		List<String> palmBiomes = PVJConfig.palmTreesBiomes.get();
+		List<String> palmBiomesSparse = PVJConfig.palmTreesSparseBiomes.get();
 		
 		List<String> rocksBiomes = PVJConfig.rocksBiomes.get();
+		List<String> netherrackRocksBiomes = PVJConfig.netherrackRocksBiomes.get();
 		List<String> sandstoneBiomes = PVJConfig.sandstoneBiomes.get();
 		List<String> redSandstoneBiomes = PVJConfig.redSandstoneBiomes.get();
 		List<String> iceChunksBiomes = PVJConfig.iceChunksBiomes.get();
@@ -234,6 +244,17 @@ public class FeatureManager {
 				addTwigsLeavesFeature(biome, pineTwigsCluster, pineFallenLeavesCluster, 1, false);
 				addFallenTreeFeature(biome, PVJBlocks.pine_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 2);
 			}
+			
+			/*PALM TWIGS*/
+			if(palmBiomes.contains(biome.getRegistryName().toString())) {
+				addTwigsLeavesFeature(biome, palmTwigsCluster, palmFallenLeavesCluster, 3, false);
+				addFallenTreeFeature(biome, PVJBlocks.palm_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 3);
+			}
+				
+			if(palmBiomesSparse.contains(biome.getRegistryName().toString())) {
+				addTwigsLeavesFeature(biome, palmTwigsCluster, palmFallenLeavesCluster, 2, false);
+				addFallenTreeFeature(biome, PVJBlocks.palm_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 2);
+			}
 				
 			
 			/*ROCKS*/
@@ -243,6 +264,8 @@ public class FeatureManager {
 				addFrequencyFeature(biome, sandstoneRocksCluster, 2, false);
 			if(redSandstoneBiomes.contains(biome.getRegistryName().toString()))
 				addFrequencyFeature(biome, redSandstoneRocksCluster, 2, false);
+			if(netherrackRocksBiomes.contains(biome.getRegistryName().toString()))
+				addNetherFeature(biome, netherrackRocksCluster, 0.8F);
 			if(iceChunksBiomes.contains(biome.getRegistryName().toString()))
 				addFrequencyChanceFeature(biome, iceChunks, 1, 0.2F, false);
 			
@@ -316,6 +339,11 @@ public class FeatureManager {
 			if(seagrassBiomes.contains(biome.getRegistryName().toString())) {
 			     biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.func_225566_b_(new SeaGrassConfig(48, 0.4D)).func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 			}
+			
+			if(palmBiomes.contains(biome.getRegistryName().toString()))
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.func_225566_b_(PALM_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(1, 0.5F, 1))));
+			if(palmBiomesSparse.contains(biome.getRegistryName().toString()))
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.func_225566_b_(PALM_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
 		}
 		
 		PVJBiomes.boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.func_225566_b_(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.NORMAL_TREE.func_225566_b_(FeatureManager.FIR_TREE).func_227227_a_(0.8F)), PVJFeatures.pineTree.func_225566_b_(FeatureManager.PINE_TREE))).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));

@@ -21,8 +21,11 @@ public class ConfigDefaults {
 	public static final List<String> FIR_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> PINE_TREES = new ArrayList<String>();
 	public static final List<String> PINE_TREES_SPARSE = new ArrayList<String>();
+	public static final List<String> PALM_TREES = new ArrayList<String>();
+	public static final List<String> PALM_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
+	public static final List<String> NETHERRACK_ROCKS = new ArrayList<String>();
 	public static final List<String> SANDSTONE_ROCKS = new ArrayList<String>();
 	public static final List<String> RED_SANDSTONE_ROCKS = new ArrayList<String>();
 	public static final List<String> ICE_CHUNKS = new ArrayList<String>();
@@ -174,12 +177,12 @@ public class ConfigDefaults {
 		addTo("minecraft:mushroom_field_shore");
 		
 		//beach
-		addTo("minecraft:beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, SEA_OATS, BEACH_GRASS, STARFISH, CLAM);
+		addTo("minecraft:beach", PALM_TREES_SPARSE, SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, SEA_OATS, BEACH_GRASS, STARFISH, CLAM);
 		addTo("minecraft:stone_shore", ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH, CLAM);
 		addTo("minecraft:snowy_beach", SANDSTONE_ROCKS, BONES, SEASHELLS, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, ICE_CUBE, STARFISH, CLAM);
 		
 		//dimensional
-		addTo("minecraft:nether", BONES_NETHER, GOLD_NUGGET, MAW, NIGHTMARE, GLOWCAP);
+		addTo("minecraft:nether", NETHERRACK_ROCKS, BONES_NETHER, GOLD_NUGGET, MAW, NIGHTMARE, GLOWCAP);
 		addTo("minecraft:the_end");
 		addTo("minecraft:small_end_islands");
 		addTo("minecraft:end_midlands");
