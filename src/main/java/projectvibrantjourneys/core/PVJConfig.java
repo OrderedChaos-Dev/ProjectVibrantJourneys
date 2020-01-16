@@ -98,6 +98,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> nightmareBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> iceCubeBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> mawBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> mawFoods;
 	
 	public static ForgeConfigSpec.BooleanValue skeletalKnightDungeons;
 	
@@ -195,6 +196,7 @@ public class PVJConfig {
 		
 		skeletalKnightDungeons = COMMON_BUILDER.comment("Add skeletal knights to dungeons").define("skeletalKnightDungeons", true);
 		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
+		mawFoods = COMMON_BUILDER.comment("Friendly Maw Foods").define("mawFoods", ConfigDefaults.MAW_FOODS);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

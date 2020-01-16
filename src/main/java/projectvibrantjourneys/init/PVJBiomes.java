@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
+import projectvibrantjourneys.common.biomes.PrairieBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
@@ -28,6 +29,7 @@ public class PVJBiomes {
 	public static Biome verdant_sands;
 	public static Biome boreal_forest;
 	public static Biome snowy_boreal_forest;
+	public static Biome prairie;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> verdant_sands_surface_builder = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
@@ -36,7 +38,8 @@ public class PVJBiomes {
 		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), BiomeType.WARM, "overgrown_spires", 5);
 		verdant_sands = registerBiome(new VerdantSandsBiome(), BiomeType.DESERT, "verdant_sands", 5);
 		boreal_forest = registerBiome(new BorealForestBiome(), BiomeType.COOL, "boreal_forest", 7);
-		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 7);
+		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 6);
+		prairie = registerBiome(new PrairieBiome(), BiomeType.WARM, "prairie", 7);
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {

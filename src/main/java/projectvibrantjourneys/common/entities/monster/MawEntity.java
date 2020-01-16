@@ -1,5 +1,6 @@
 package projectvibrantjourneys.common.entities.monster;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
@@ -42,6 +43,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.PVJItems;
 
 public class MawEntity extends MonsterEntity {
@@ -54,6 +56,8 @@ public class MawEntity extends MonsterEntity {
 	public MawEntity(EntityType<? extends MawEntity> entityType, World world) {
 		super(entityType, world);
 	}
+	
+	List<String> acceptedFoods = PVJConfig.mawFoods.get();
 
 	@Override
 	protected void registerGoals() {
@@ -231,9 +235,17 @@ public class MawEntity extends MonsterEntity {
 		            this.remove();
 				}
 			}
+			if(acceptedFoods.contains(item.getRegistryName().toString())) {
+				this.heal(5);
+				player.getHeldItem(hand).shrink(1);
+				
+				for(int i = 0; i < 5; i++) {
+					double offset = rand.nextFloat() * 0.5;
+					this.world.addParticle(ParticleTypes.HEART, this.func_226282_d_(offset), this.func_226279_cv_(), this.func_226287_g_(offset), 0.0D, 0.0D, 0.0D);
+				}	
+			}
 		}
 
-		
 		return super.processInteract(player, hand);
 	}
 

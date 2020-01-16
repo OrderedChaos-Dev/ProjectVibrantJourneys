@@ -21,6 +21,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.pathfinding.ClimberPathNavigator;
+import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -37,6 +39,7 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(StarfishEntity.class, DataSerializers.VARINT);
 	private static final DataParameter<Boolean> FROM_BUCKET = EntityDataManager.createKey(StarfishEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(StarfishEntity.class, DataSerializers.BYTE);
 	private static final int NUM_COLORS = 5;
 	
 	public StarfishEntity(EntityType<? extends StarfishEntity> type, World world) {
@@ -47,12 +50,13 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	protected void registerAttributes() {
 		super.registerAttributes();
 		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(2.0D);
+		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.05D);
 	}
 	
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(0, new RandomWalkingGoal(this, 0.1F));
+		this.goalSelector.addGoal(0, new RandomWalkingGoal(this, 0.05F));
 		this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
 	}
 	
@@ -61,6 +65,7 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 		super.registerData();
 		this.dataManager.register(COLOR, 0);
 		this.dataManager.register(FROM_BUCKET, false);
+		this.dataManager.register(CLIMBING, (byte)0);
 	}
 	
 	@Override
@@ -89,6 +94,35 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 		return rand.nextInt(NUM_COLORS);
 	}
 	
+	@Override
+	public void tick() {
+		super.tick();
+		if (!this.world.isRemote) {
+			this.setBesideClimbableBlock(this.collidedHorizontally);
+		}
+	}
+
+	@Override
+	public boolean isOnLadder() {
+		return this.isBesideClimbableBlock();
+	}
+	
+	//i stole all this from SpiderEntity
+	public boolean isBesideClimbableBlock() {
+		return (this.dataManager.get(CLIMBING) & 1) != 0;
+	}
+
+	public void setBesideClimbableBlock(boolean climbing) {
+		byte b0 = this.dataManager.get(CLIMBING);
+		if (climbing) {
+			b0 = (byte) (b0 | 1);
+		} else {
+			b0 = (byte) (b0 & -2);
+		}
+
+		this.dataManager.set(CLIMBING, b0);
+	}
+	
 	@Nullable
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
@@ -103,6 +137,11 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 			pos = this.getPosition();
 		}
 		return super.onInitialSpawn(world, difficulty, reason, spawnData, dataTag);
+	}
+	
+	@Override
+	protected PathNavigator createNavigator(World worldIn) {
+		return new ClimberPathNavigator(this, worldIn);
 	}
 	
 	@Override

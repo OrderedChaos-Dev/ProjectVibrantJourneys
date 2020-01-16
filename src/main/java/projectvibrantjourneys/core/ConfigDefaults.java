@@ -75,6 +75,8 @@ public class ConfigDefaults {
 	public static final List<String> ICE_CUBE = new ArrayList<String>();
 	public static final List<String> MAW = new ArrayList<String>();
 	
+	public static final List<String> MAW_FOODS = new ArrayList<String>();
+	
 	public static void load() {
 		//ocean
 		addTo("minecraft:ocean", BONES, SEASHELLS, SKELETAL_KNIGHT, GHOST, FLY, FIREFLY, STARFISH, CLAM, SHORT_GRASS);
@@ -190,6 +192,12 @@ public class ConfigDefaults {
 		addTo("projectvibrantjourneys:verdant_sands", OAK_TREES_SPARSE, JUNGLE_TREES_SPARSE, ACACIA_TREES_SPARSE, ROCKS, SANDSTONE_ROCKS, RED_SANDSTONE_ROCKS, BONES, LILYPAD, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL, SMALL_CACTUS, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:boreal_forest", FIR_TREES, PINE_TREES, ROCKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:snowy_boreal_forest", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:prairie", OAK_TREES_SPARSE, ROCKS, BONES, BUSH, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, HAUNT, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		
+		addStringsTo(MAW_FOODS, "minecraft:rotten_flesh", "minecraft:chicken", "minecraft:cooked_chicken", "minecraft:beef", "minecraft:cooked_beef", 
+						"minecraft:rabbit", "minecraft:cooked_rabbit", "minecraft:mutton", "minecraft:cooked_mutton", "minecraft:cod", "minecraft:salmon",
+						"minecraft:tropical_fish", "minecraft:pufferfish", "minecraft:cooked_cod", "minecraft:cooked_salmon", "minceraft:porkchop",
+						"minecraft:cooked_porkchop", "projectvibrantjourneys:clam", "projectvibrantjourneys:cooked_clam");
 	}
 	
 	@SafeVarargs
@@ -197,5 +205,10 @@ public class ConfigDefaults {
 		for(List<String> list : lists) {
 			list.add(biome);
 		}
+	}
+	
+	public static void addStringsTo(List<String> list, String... strings) {
+		for(String s : strings)
+			list.add(s);
 	}
 }
