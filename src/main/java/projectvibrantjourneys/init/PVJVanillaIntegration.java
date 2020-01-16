@@ -4,8 +4,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FireBlock;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.util.IItemProvider;
 
+/*
+ * Used to integrate vanilla mechanics into mod objects e.g. composting, fire spread, etc
+ */
 public class PVJVanillaIntegration {
 	
 	public static void init() {
@@ -98,6 +102,12 @@ public class PVJVanillaIntegration {
 		PVJEvents.stripping_map.put(PVJBlocks.pine_wood, PVJBlocks.stripped_pine_wood);
 		PVJEvents.stripping_map.put(PVJBlocks.palm_log, PVJBlocks.stripped_palm_log);
 		PVJEvents.stripping_map.put(PVJBlocks.palm_wood, PVJBlocks.stripped_palm_wood);
+		
+		addFlowerPot(PVJBlocks.fir_sapling, PVJBlocks.potted_fir_sapling);
+		addFlowerPot(PVJBlocks.pine_sapling, PVJBlocks.potted_pine_sapling);
+		addFlowerPot(PVJBlocks.palm_sapling, PVJBlocks.potted_palm_sapling);
+		addFlowerPot(PVJBlocks.glowcap, PVJBlocks.potted_glowcap);
+		addFlowerPot(PVJBlocks.small_cactus, PVJBlocks.potted_small_cactus);
 	}
 
 	public static void setFlameInfo(Block block, int encouragement, int flammability) {
@@ -106,5 +116,9 @@ public class PVJVanillaIntegration {
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {
 		ComposterBlock.CHANCES.put(item.asItem(), chance);
+	}
+	
+	public static void addFlowerPot(Block plant, Block plantPot) {
+		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(plant.getRegistryName(), () -> plantPot);
 	}
 }

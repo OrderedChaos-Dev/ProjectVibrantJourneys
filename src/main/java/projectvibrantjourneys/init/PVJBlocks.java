@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.HugeMushroomBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
@@ -91,6 +92,7 @@ public class PVJBlocks {
 	palm_sign, palm_wall_sign, palm_pressure_plate, palm_trapdoor, palm_button, palm_slab, palm_fence_gate, palm_fence,
 	palm_door, palm_stairs;
 	public static Block coconut;
+	public static Block potted_fir_sapling, potted_pine_sapling, potted_palm_sapling, potted_small_cactus, potted_glowcap;
 
 	public static final Block frogbit = null;
 	public static final Block duckweed = null;
@@ -151,6 +153,12 @@ public class PVJBlocks {
 		
 		glowcap_block = registerBlock(new HugeMushroomBlock(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.2F).lightValue(12).sound(SoundType.WOOD)), "glowcap_block");
 		
+		potted_fir_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> fir_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_fir_sapling");
+		potted_pine_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> pine_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_pine_sapling");
+		potted_palm_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> palm_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_palm_sapling");
+		potted_glowcap = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> glowcap, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).lightValue(10).func_226896_b_()), "potted_glowcap");
+		potted_small_cactus = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> small_cactus, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_small_cactus");
+		
 		fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
 		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "fir_leaves");
 		fir_sapling = registerBlock(new PVJSaplingBlock(new FirTree()), "fir_sapling");
@@ -201,7 +209,7 @@ public class PVJBlocks {
 		palm_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
 		palm_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
 		palm_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "palm_door");
-		coconut = registerBlock(new CoconutBlock(), "coconut");
+		coconut = registerBlock(new CoconutBlock(), "coconut"); 	
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -277,6 +285,11 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(pine_trapdoor, cutout);
 		RenderTypeLookup.setRenderLayer(palm_door, cutout);
 		RenderTypeLookup.setRenderLayer(palm_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(potted_fir_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_pine_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_palm_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_glowcap, cutout);
+		RenderTypeLookup.setRenderLayer(potted_small_cactus, cutout);
 
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, cutout_mipped);
