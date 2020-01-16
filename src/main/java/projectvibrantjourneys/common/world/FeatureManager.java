@@ -15,6 +15,7 @@ import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
@@ -55,6 +56,9 @@ public class FeatureManager {
 			new SimpleBlockStateProvider(PVJBlocks.palm_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.palm_leaves.getDefaultState()),
 			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.palm_sapling).func_225568_b_();
+	
+	public static final BigMushroomFeatureConfig glowcapFeatureConfig = new BigMushroomFeatureConfig(
+			new SimpleBlockStateProvider(PVJBlocks.glowcap_block.getDefaultState()), new SimpleBlockStateProvider(Blocks.MUSHROOM_STEM.getDefaultState()), 2);
 	
 	public static void init() {
 		BlockClusterFeatureConfig oakTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_twigs.getDefaultState()), new GroundcoverPlacer());

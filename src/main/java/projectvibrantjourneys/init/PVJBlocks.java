@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
+import net.minecraft.block.HugeMushroomBlock;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.LogBlock;
 import net.minecraft.block.PressurePlateBlock;
@@ -76,6 +77,8 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block glowcap;
 	public static Block short_grass;
+	
+	public static Block glowcap_block;
 
 	public static Block fir_sapling, fir_log, fir_leaves, fir_planks, stripped_fir_log, fir_wood, stripped_fir_wood,
 			fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
@@ -145,6 +148,8 @@ public class PVJBlocks {
 		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
+		
+		glowcap_block = registerBlock(new HugeMushroomBlock(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.2F).lightValue(12).sound(SoundType.WOOD)), "glowcap_block");
 		
 		fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
 		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "fir_leaves");
