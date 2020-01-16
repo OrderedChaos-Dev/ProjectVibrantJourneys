@@ -32,6 +32,8 @@ import projectvibrantjourneys.client.renderers.NightmareRenderer;
 import projectvibrantjourneys.client.renderers.PhantasmRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
 import projectvibrantjourneys.client.renderers.SkeletalKnightRenderer;
+import projectvibrantjourneys.client.renderers.SlugRenderer;
+import projectvibrantjourneys.client.renderers.SnailRenderer;
 import projectvibrantjourneys.client.renderers.SpecterRenderer;
 import projectvibrantjourneys.client.renderers.StarfishRenderer;
 import projectvibrantjourneys.client.renderers.WraithRenderer;
@@ -49,6 +51,8 @@ import projectvibrantjourneys.common.entities.monster.WraithEntity;
 import projectvibrantjourneys.common.entities.passive.ClamEntity;
 import projectvibrantjourneys.common.entities.passive.FireflyEntity;
 import projectvibrantjourneys.common.entities.passive.FlyEntity;
+import projectvibrantjourneys.common.entities.passive.SlugEntity;
+import projectvibrantjourneys.common.entities.passive.SnailEntity;
 import projectvibrantjourneys.common.entities.passive.StarfishEntity;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -60,6 +64,8 @@ public class PVJEntities {
 	public static EntityType<StarfishEntity> starfish;
 	public static EntityType<StarfishEntity> starfish_ocean;
 	public static EntityType<ClamEntity> clam;
+	public static EntityType<SnailEntity> snail;
+	public static EntityType<SlugEntity> slug;
 	
 	public static EntityType<GhostEntity> ghost;
 	
@@ -74,9 +80,8 @@ public class PVJEntities {
 	public static EntityType<IceCubeEntity> ice_cube;
 	public static EntityType<MawEntity> maw;
 	
-	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 25, true, false);
+	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 40, true, false);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false);
-	public static final EntityClassification PVJ_WATER_MONSTER = EntityClassification.create("pvj_water_monster", "pvj_water_monster", 10, false, false);
 	
 	@SubscribeEvent
 	public static void initEntities(RegistryEvent.Register<EntityType<?>> event) {
@@ -85,6 +90,8 @@ public class PVJEntities {
 		registerEntity(starfish);
 		registerEntity(starfish_ocean);
 		registerEntity(clam);
+		registerEntity(snail);
+		registerEntity(slug);
 		
 		registerEntity(ghost);
 		
@@ -108,6 +115,8 @@ public class PVJEntities {
 		starfish = setupEntity("starfish", starfish, StarfishEntity::new, PVJ_AMBIENT, 64, 0.4F, 0.1F);
 		starfish_ocean = setupEntity("starfish_ocean", starfish_ocean, StarfishEntity::new, PVJ_WATER_AMBIENT, 64, 0.4F, 0.1F);
 		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
+		snail = setupEntity("snail", snail, SnailEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.15F);
+		slug = setupEntity("slug", slug, SlugEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.10F);
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		
@@ -145,6 +154,8 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(starfish, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, StarfishEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(starfish_ocean, PlacementType.IN_WATER, Heightmap.Type.OCEAN_FLOOR, StarfishEntity::canSpawnOcean);
 		EntitySpawnPlacementRegistry.register(clam, PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ClamEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(snail, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SnailEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(slug, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
 		
 		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::func_223325_c);
 		
@@ -162,11 +173,13 @@ public class PVJEntities {
 	
 	public static void addSpawns() {
 		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
-			addSpawn(biome, fly, PVJ_AMBIENT, 10, 1, 3, PVJConfig.flyBiomes.get());
-			addSpawn(biome, firefly, PVJ_AMBIENT, 10, 1, 4, PVJConfig.fireflyBiomes.get());
+			addSpawn(biome, fly, PVJ_AMBIENT, 15, 1, 3, PVJConfig.flyBiomes.get());
+			addSpawn(biome, firefly, PVJ_AMBIENT, 15, 1, 4, PVJConfig.fireflyBiomes.get());
 			addSpawn(biome, starfish, PVJ_AMBIENT, 15, 1, 3, PVJConfig.starfishBiomes.get());
 			addSpawn(biome, starfish_ocean, PVJ_WATER_AMBIENT, 5, 1, 3, PVJConfig.starfishBiomes.get());
 			addSpawn(biome, clam, PVJ_WATER_AMBIENT, 3, 1, 3, PVJConfig.clamBiomes.get());
+			addSpawn(biome, snail, PVJ_AMBIENT, 10, 1, 2, PVJConfig.snailBiomes.get());
+			addSpawn(biome, slug, PVJ_AMBIENT, 10, 1, 2, PVJConfig.slugBiomes.get());
 			
 			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
 			
@@ -204,6 +217,8 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(starfish, StarfishRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(starfish_ocean, StarfishRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(clam, ClamRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(snail, SnailRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(slug, SlugRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
 	
