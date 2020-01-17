@@ -19,6 +19,8 @@ public class PVJSoundEvents {
 	public static SoundEvent entity_ghost_ambient;
 	public static SoundEvent entity_ghost_hurt;
 	public static SoundEvent entity_ghost_death;
+	
+	public static SoundEvent entity_scarecrow_ambient;
 
 	@SubscribeEvent
 	public static void initSoundEvents(RegistryEvent.Register<SoundEvent> event) {
@@ -29,6 +31,8 @@ public class PVJSoundEvents {
 		entity_ghost_ambient = registerSoundEvent("entity.ghost.ambient");
 		entity_ghost_hurt = registerSoundEvent("entity.ghost.hurt");
 		entity_ghost_death = registerSoundEvent("entity.ghost.death");
+		
+		entity_scarecrow_ambient = registerSoundEvent("entity.scarecrow.ambient");
 		
 	}
 	

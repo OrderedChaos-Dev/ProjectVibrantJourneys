@@ -48,6 +48,7 @@ import projectvibrantjourneys.common.blocks.PVJPressurePlateBlock;
 import projectvibrantjourneys.common.blocks.PVJSaplingBlock;
 import projectvibrantjourneys.common.blocks.PVJTrapDoorBlock;
 import projectvibrantjourneys.common.blocks.PVJWoodButtonBlock;
+import projectvibrantjourneys.common.blocks.PossessedPumpkinBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
@@ -70,6 +71,8 @@ public class PVJBlocks {
 	public static Block bones, charred_bones;
 	public static Block pinecones, seashells;
 	public static Block dung;
+	
+	public static Block possessed_pumpkin;
 
 	public static Block sea_oats;
 	public static Block cattail;
@@ -150,6 +153,8 @@ public class PVJBlocks {
 		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
+		
+		possessed_pumpkin = registerBlock(new PossessedPumpkinBlock(), "possessed_pumpkin");
 		
 		glowcap_block = registerBlock(new HugeMushroomBlock(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.2F).lightValue(12).sound(SoundType.WOOD)), "glowcap_block");
 		

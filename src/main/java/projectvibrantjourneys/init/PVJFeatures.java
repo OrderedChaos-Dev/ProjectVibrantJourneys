@@ -1,6 +1,7 @@
 package projectvibrantjourneys.init;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -30,9 +31,9 @@ public class PVJFeatures {
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<NoFeatureConfig> cobwebFeature;
 	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
+	public static Feature<BlockClusterFeatureConfig> randomPatchNoFlatFeature;
 	public static Feature<TreeFeatureConfig> pineTree;
 	public static Feature<TreeFeatureConfig> palmTree;
-	
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -46,6 +47,14 @@ public class PVJFeatures {
 		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
+		registerFeature(bushFeature, "bush_feature");
+		registerFeature(waterCattailFeature, "water_cattail_feature");
+		registerFeature(barkMushroomFeature, "bark_mushroom_feature");
+		registerFeature(cobwebFeature, "cobweb_feature");
+		registerFeature(fallenTreeFeature, "fallen_tree_feature");
+		registerFeature(pineTree, "pine_tree");
+		registerFeature(palmTree, "palm_tree");
+		//registerFeature(randomPatchNoFlatFeature, "random_patch_no_flat_feature");
 	}
 	
 	public static void registerFeature(Feature<?> feature, String name) {

@@ -30,5 +30,12 @@
       "projectvibrantjourneys:entity/ghost/death2"
     ],
     "subtitle": "subtitles.projectvibrantjourneys_ghost.death"
+  },
+  "entity.scarecrow.ambient": {
+      "sounds": [
+	      "projectvibrantjourneys:entity/scarecrow/idle1",
+	      "projectvibrantjourneys:entity/scarecrow/idle2"
+    ],
+    "subtitle": "subtitles.projectvibrantjourneys_scarecrow.ambient"
   }
 }

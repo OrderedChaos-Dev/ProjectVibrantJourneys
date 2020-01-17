@@ -163,6 +163,7 @@ public class FeatureManager {
 		List<String> glowcapBiomes = PVJConfig.glowcapBiomes.get();
 		List<String> shortGrassBiomes = PVJConfig.shortGrassBiomes.get();
 		
+		
 		for(Biome biome : ForgeRegistries.BIOMES) {
 			/*OAK TWIGS*/
 			if(oakBiomes.contains(biome.getRegistryName().toString())) {

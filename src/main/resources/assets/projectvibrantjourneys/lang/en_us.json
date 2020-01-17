@@ -115,6 +115,7 @@
 	"block.projectvibrantjourneys.dung": "Dung",
 	
 	"block.projectvibrantjourneys.glowcap_block": "Glowcap Block",
+	"block.projectvibrantjourneys.possessed_pumpkin": "Possessed Pumpkin",
 	
 	"item.projectvibrantjourneys.starfish_bucket": "Bucket of Starfish",
 	"item.projectvibrantjourneys.clam_bucket": "Bucket of Clams",
@@ -135,6 +136,7 @@
 	"item.projectvibrantjourneys.clam_spawn_egg": "Clam Spawn Egg",
 	"item.projectvibrantjourneys.snail_spawn_egg": "Snail Spawn Egg",
 	"item.projectvibrantjourneys.slug_spawn_egg": "Slug Spawn Egg",
+	"item.projectvibrantjourneys.scarecrow_spawn_egg": "Scarecrow Spawn Egg",
 	"item.projectvibrantjourneys.ghost_spawn_egg": "Ghost Spawn Egg",
 	"item.projectvibrantjourneys.skeletal_knight_spawn_egg": "Skeletal Knight Spawn Egg",
 	"item.projectvibrantjourneys.shade_spawn_egg": "Shade Spawn Egg",
@@ -159,6 +161,7 @@
 	"entity.projectvibrantjourneys.clam": "Clam",
 	"entity.projectvibrantjourneys.snail": "Snail",
 	"entity.projectvibrantjourneys.slug": "Slug",
+	"entity.projectvibrantjourneys.scarerow": "Scarecrow",
 	"entity.projectvibrantjourneys.ghost": "Ghost",
 	"entity.projectvibrantjourneys.skeletal_knight": "Skeletal Knight",
 	"entity.projectvibrantjourneys.shade": "Shade",
@@ -175,5 +178,6 @@
 	"subtitles.projectvibrantjourneys_starfish.patrick": "No, this is Patrick",
 	"subtitles.projectvibrantjourneys_ghost.ambient": "Ghost murmurs",
 	"subtitles.projectvibrantjourneys_ghost.hurt": "Ghost hurts",
-	"subtitles.projectvibrantjourneys_ghost.death": "Ghost dies"
+	"subtitles.projectvibrantjourneys_ghost.death": "Ghost dies",
+	"subtitles.projectvibrantjourneys_scarecrow.ambient": "Scarecrow crinkles"
 }

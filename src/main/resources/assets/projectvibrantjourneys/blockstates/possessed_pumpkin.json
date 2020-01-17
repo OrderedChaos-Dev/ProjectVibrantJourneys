@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "projectvibrantjourneys:block/possessed_pumpkin" },
+        "facing=south": { "model": "projectvibrantjourneys:block/possessed_pumpkin", "y": 180 },
+        "facing=west":  { "model": "projectvibrantjourneys:block/possessed_pumpkin", "y": 270 },
+        "facing=east":  { "model": "projectvibrantjourneys:block/possessed_pumpkin", "y": 90 }
+    }
+}

@@ -49,6 +49,7 @@ public class PVJItems {
 		registerSpawnEgg("clam", PVJEntities.clam, 0x5b5943, 0xfbf0fb);
 		registerSpawnEgg("snail", PVJEntities.snail, 0x865d2c, 0x6f928d);
 		registerSpawnEgg("slug", PVJEntities.slug, 0x865d2c, 0x241606);
+		registerSpawnEgg("scarecrow", PVJEntities.scarecrow, 0xe38a1d, 0xcbb630);
 		
 		registerSpawnEgg("ghost", PVJEntities.ghost, 0x959595, 0xffffff);
 		
@@ -73,8 +74,8 @@ public class PVJItems {
 		clam_chowder = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 		pearl = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
 		cracked_coconut = registerItem(new Item(new Item.Properties().food(PVJFoods.CRACKED_COCONUT).group(PVJItemGroup.PVJ_ITEMGROUP)), "cracked_coconut");
-		coconut_milk = registerItem(new BeverageItem(new Item.Properties().food(PVJFoods.COCONUT_MILK).group(PVJItemGroup.PVJ_ITEMGROUP)), "coconut_milk");
-		spectral_wrappings = registerItem(new Item(new Item.Properties().maxStackSize(1).group(PVJItemGroup.PVJ_ITEMGROUP)), "spectral_wrappings");
+		coconut_milk = registerItem(new BeverageItem(new Item.Properties().maxStackSize(1).food(PVJFoods.COCONUT_MILK).group(PVJItemGroup.PVJ_ITEMGROUP)), "coconut_milk");
+		spectral_wrappings = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)), "spectral_wrappings");
 		maw_tongue = registerItem(new Item(new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP)) {
 			   @OnlyIn(Dist.CLIENT)
 			   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {

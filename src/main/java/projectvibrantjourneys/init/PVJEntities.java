@@ -2,12 +2,15 @@ package projectvibrantjourneys.init;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntitySpawnPlacementRegistry.PlacementType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.Heightmap;
@@ -30,6 +33,7 @@ import projectvibrantjourneys.client.renderers.IceCubeRenderer;
 import projectvibrantjourneys.client.renderers.MawRenderer;
 import projectvibrantjourneys.client.renderers.NightmareRenderer;
 import projectvibrantjourneys.client.renderers.PhantasmRenderer;
+import projectvibrantjourneys.client.renderers.ScarecrowRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
 import projectvibrantjourneys.client.renderers.SkeletalKnightRenderer;
 import projectvibrantjourneys.client.renderers.SlugRenderer;
@@ -37,6 +41,7 @@ import projectvibrantjourneys.client.renderers.SnailRenderer;
 import projectvibrantjourneys.client.renderers.SpecterRenderer;
 import projectvibrantjourneys.client.renderers.StarfishRenderer;
 import projectvibrantjourneys.client.renderers.WraithRenderer;
+import projectvibrantjourneys.common.entities.WeightedCropList.WeightedCropItem;
 import projectvibrantjourneys.common.entities.monster.BansheeEntity;
 import projectvibrantjourneys.common.entities.monster.GhostEntity;
 import projectvibrantjourneys.common.entities.monster.HauntEntity;
@@ -51,9 +56,11 @@ import projectvibrantjourneys.common.entities.monster.WraithEntity;
 import projectvibrantjourneys.common.entities.passive.ClamEntity;
 import projectvibrantjourneys.common.entities.passive.FireflyEntity;
 import projectvibrantjourneys.common.entities.passive.FlyEntity;
+import projectvibrantjourneys.common.entities.passive.ScarecrowEntity;
 import projectvibrantjourneys.common.entities.passive.SlugEntity;
 import projectvibrantjourneys.common.entities.passive.SnailEntity;
 import projectvibrantjourneys.common.entities.passive.StarfishEntity;
+import projectvibrantjourneys.common.entities.projectile.CropShotEntity;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -66,6 +73,7 @@ public class PVJEntities {
 	public static EntityType<ClamEntity> clam;
 	public static EntityType<SnailEntity> snail;
 	public static EntityType<SlugEntity> slug;
+	public static EntityType<ScarecrowEntity> scarecrow;
 	
 	public static EntityType<GhostEntity> ghost;
 	
@@ -80,6 +88,8 @@ public class PVJEntities {
 	public static EntityType<IceCubeEntity> ice_cube;
 	public static EntityType<MawEntity> maw;
 	
+	public static EntityType<CropShotEntity> crop_shot;
+	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 40, true, false);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false);
 	
@@ -92,6 +102,7 @@ public class PVJEntities {
 		registerEntity(clam);
 		registerEntity(snail);
 		registerEntity(slug);
+		registerEntity(scarecrow);
 		
 		registerEntity(ghost);
 		
@@ -106,7 +117,10 @@ public class PVJEntities {
 		registerEntity(ice_cube);
 		registerEntity(maw);
 		
+		registerEntity(crop_shot);
+		
 		addSpawnPlacements();
+		setupScarecrowCrops();
 	}
 	
 	public static void preInitEntityTypes() {
@@ -117,6 +131,7 @@ public class PVJEntities {
 		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
 		snail = setupEntity("snail", snail, SnailEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.15F);
 		slug = setupEntity("slug", slug, SlugEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.10F);
+		scarecrow = setupEntity("scarecrow", scarecrow, ScarecrowEntity::new, EntityClassification.MISC, 64, 1.0F, 2.5F);
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		
@@ -130,6 +145,8 @@ public class PVJEntities {
 		nightmare = setupEntity("nightmare", nightmare, NightmareEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		ice_cube = setupEntity("ice_cube", ice_cube, IceCubeEntity::new, EntityClassification.MONSTER, 64, 2.0F, 2.0F);
 		maw =  setupEntity("maw", maw, MawEntity::new, EntityClassification.MONSTER, 64, 1F, 4.5F);
+		
+		crop_shot = setupEntity("crop_shot", crop_shot, CropShotEntity::new, EntityClassification.MISC, 64, 0.25F, 0.25F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -219,6 +236,7 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(clam, ClamRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(snail, SnailRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(slug, SlugRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(scarecrow, ScarecrowRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
 	
@@ -232,5 +250,25 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(nightmare, NightmareRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(ice_cube, IceCubeRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(maw, MawRenderer::new);
+		
+		RenderingRegistry.registerEntityRenderingHandler(crop_shot, renderManager -> new SpriteRenderer<CropShotEntity>(renderManager, Minecraft.getInstance().getItemRenderer()));
+	}
+	
+	public static void setupScarecrowCrops() {
+		ScarecrowEntity.crops.addEntry(WeightedCropItem.create(Items.WHEAT, 10),
+				WeightedCropItem.create(Items.WHEAT_SEEDS, 10),
+				WeightedCropItem.create(Items.CARROT, 10),
+				WeightedCropItem.create(Items.POTATO, 10),
+				WeightedCropItem.create(Items.BEETROOT, 10),
+				WeightedCropItem.create(Items.BEETROOT_SEEDS, 10),
+				WeightedCropItem.create(Items.SWEET_BERRIES, 10),
+				WeightedCropItem.create(Items.PUMPKIN_SEEDS, 10),
+				WeightedCropItem.create(Items.APPLE, 10),
+				WeightedCropItem.create(Items.PUMPKIN, 5),
+				WeightedCropItem.create(Items.MELON, 5),
+				WeightedCropItem.create(Items.MELON_SLICE, 10),
+				WeightedCropItem.create(Items.SUGAR_CANE, 10),
+				WeightedCropItem.create(Items.CACTUS, 5),
+				WeightedCropItem.create(Items.POISONOUS_POTATO, 5));
 	}
 }
