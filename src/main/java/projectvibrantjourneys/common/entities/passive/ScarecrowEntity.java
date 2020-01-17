@@ -16,7 +16,10 @@ import net.minecraft.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -107,7 +110,7 @@ public class ScarecrowEntity extends CreatureEntity implements IRangedAttackMob 
 
 	@Override
 	public CreatureAttribute getCreatureAttribute() {
-		return CreatureAttribute.UNDEAD;
+		return CreatureAttribute.UNDEFINED;
 	}
 	
 	@Override
@@ -123,5 +126,19 @@ public class ScarecrowEntity extends CreatureEntity implements IRangedAttackMob 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
 		return PVJSoundEvents.entity_scarecrow_ambient;
+	}
+	
+	@Override
+	public boolean processInteract(PlayerEntity player, Hand hand) {
+		ItemStack itemstack = player.getHeldItem(hand);
+		if(itemstack.getItem() == Items.WHEAT) {
+			if(this.getHealth() < this.getMaxHealth()) {
+				this.heal(5.0F);
+				itemstack.shrink(1);
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
