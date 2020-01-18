@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:diorite_rocks"
+    }
+  },
+  "result": {
+    "item": "minecraft:diorite"
+  }
+}

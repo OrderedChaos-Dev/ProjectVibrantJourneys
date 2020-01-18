@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "projectvibrantjourneys:glowcap"
+  },
+  "result": "minecraft:glowstone_dust",
+  "experience": 0.35,
+  "cookingtime": 200
+}
