@@ -25,7 +25,7 @@ public class PVJSaplingBlock extends SaplingBlock {
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
 		boolean flag = super.isValidGround(state, worldIn, pos);
 		
-		if(this == PVJBlocks.palm_sapling) {
+		if(this == PVJBlocks.palm_sapling || this == PVJBlocks.mangrove_sapling) {
 			return state.getBlock() instanceof SandBlock;
 		}
 		return flag;

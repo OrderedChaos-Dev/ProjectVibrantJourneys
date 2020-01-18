@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:stripped_mangrove_log"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:stripped_mangrove_wood",
+    "count": 3
+  }
+}

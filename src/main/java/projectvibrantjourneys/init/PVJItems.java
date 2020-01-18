@@ -38,7 +38,7 @@ public class PVJItems {
 	public static Item starfish_bucket, clam_bucket;
 	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
 	public static Item spectral_wrappings, maw_tongue;
-	public static Item fir_sign, fir_door, pine_door, palm_door;
+	public static Item fir_sign, fir_door, pine_door, palm_door, willow_door, mangrove_door;
 	public static Item cracked_coconut, coconut_milk;
 	
 	@SubscribeEvent
@@ -87,6 +87,8 @@ public class PVJItems {
 		fir_door = registerItem(new PVJDoorItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "fir_door");
 		pine_door = registerItem(new PVJDoorItem(PVJBlocks.pine_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "pine_door");
 		palm_door = registerItem(new PVJDoorItem(PVJBlocks.palm_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "palm_door");
+		willow_door = registerItem(new PVJDoorItem(PVJBlocks.willow_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "willow_door");
+		mangrove_door = registerItem(new PVJDoorItem(PVJBlocks.mangrove_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "mangrove_door");
 	}
 	
 	public static Item registerItem(Item item, String name) {

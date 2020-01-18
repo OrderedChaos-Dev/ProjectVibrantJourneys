@@ -16,8 +16,10 @@ import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
+import projectvibrantjourneys.common.world.features.MangroveRootsFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
+import projectvibrantjourneys.common.world.features.trees.MangroveTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PineTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.WillowTreeFeature;
@@ -36,6 +38,8 @@ public class PVJFeatures {
 	public static Feature<TreeFeatureConfig> pineTree;
 	public static Feature<TreeFeatureConfig> palmTree;
 	public static Feature<TreeFeatureConfig> willowTree;
+	public static Feature<TreeFeatureConfig> mangroveTree;
+	public static Feature<NoFeatureConfig> mangroveRootFeature;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -48,6 +52,8 @@ public class PVJFeatures {
 		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
 		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
 		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);
+		mangroveTree = new MangroveTreeFeature(TreeFeatureConfig::func_227338_a_);
+		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
 		registerFeature(bushFeature, "bush_feature");
@@ -58,6 +64,8 @@ public class PVJFeatures {
 		registerFeature(pineTree, "pine_tree");
 		registerFeature(palmTree, "palm_tree");
 		registerFeature(willowTree, "willow_tree");
+		registerFeature(mangroveTree, "mangrove_tree");
+		registerFeature(mangroveRootFeature, "mangrove_root_feature");
 		//registerFeature(randomPatchNoFlatFeature, "random_patch_no_flat_feature");
 	}
 	

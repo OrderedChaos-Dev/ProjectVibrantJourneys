@@ -1,0 +1,6 @@
+{
+    "parent": "block/flower_pot_cross",
+    "textures": {
+        "plant": "projectvibrantjourneys:block/willow_sapling"
+    }
+}

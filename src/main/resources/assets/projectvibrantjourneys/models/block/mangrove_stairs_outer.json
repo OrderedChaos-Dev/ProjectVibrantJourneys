@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/mangrove_planks",
+        "top": "projectvibrantjourneys:block/mangrove_planks",
+        "side": "projectvibrantjourneys:block/mangrove_planks"
+    }
+}
