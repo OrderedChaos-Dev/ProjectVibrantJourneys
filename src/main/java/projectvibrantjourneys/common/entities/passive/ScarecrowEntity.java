@@ -52,7 +52,7 @@ public class ScarecrowEntity extends CreatureEntity implements IRangedAttackMob 
 		super.registerGoals();
 		
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 0.0D, true));
-		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 0.0D, 10, 20.0F));
+		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 0.0D, 25, 20.0F));
 		this.goalSelector.addGoal(4, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
 
