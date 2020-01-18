@@ -20,6 +20,7 @@ import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PineTreeFeature;
+import projectvibrantjourneys.common.world.features.trees.WillowTreeFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
@@ -34,6 +35,7 @@ public class PVJFeatures {
 	public static Feature<BlockClusterFeatureConfig> randomPatchNoFlatFeature;
 	public static Feature<TreeFeatureConfig> pineTree;
 	public static Feature<TreeFeatureConfig> palmTree;
+	public static Feature<TreeFeatureConfig> willowTree;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -45,6 +47,7 @@ public class PVJFeatures {
 		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::func_227271_a_);
 		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
 		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
+		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
 		registerFeature(bushFeature, "bush_feature");
@@ -54,6 +57,7 @@ public class PVJFeatures {
 		registerFeature(fallenTreeFeature, "fallen_tree_feature");
 		registerFeature(pineTree, "pine_tree");
 		registerFeature(palmTree, "palm_tree");
+		registerFeature(willowTree, "willow_tree");
 		//registerFeature(randomPatchNoFlatFeature, "random_patch_no_flat_feature");
 	}
 	

@@ -4,62 +4,77 @@
 	"block.projectvibrantjourneys.fir_log": "Fir Log",
 	"block.projectvibrantjourneys.pine_log": "Pine Log",
 	"block.projectvibrantjourneys.palm_log": "Palm Log",
+	"block.projectvibrantjourneys.willow_log": "Willow Log",
 	
 	"block.projectvibrantjourneys.fir_leaves": "Fir Leaves",
 	"block.projectvibrantjourneys.pine_leaves": "Pine Leaves",
 	"block.projectvibrantjourneys.palm_leaves": "Palm Leaves",
+	"block.projectvibrantjourneys.willow_leaves": "Willow Leaves",
 	
 	"block.projectvibrantjourneys.fir_sapling": "Fir Sapling",
 	"block.projectvibrantjourneys.pine_sapling": "Pine Sapling",
 	"block.projectvibrantjourneys.palm_sapling": "Palm Sapling",
+	"block.projectvibrantjourneys.willow_sapling": "Willow Sapling",
 	
 	"block.projectvibrantjourneys.fir_planks": "Fir Planks",
 	"block.projectvibrantjourneys.pine_planks": "Pine Planks",
 	"block.projectvibrantjourneys.palm_planks": "Palm Planks",
+	"block.projectvibrantjourneys.willow_planks": "Willow Planks",
 	
 	"block.projectvibrantjourneys.fir_wood": "Fir Wood",
 	"block.projectvibrantjourneys.pine_wood": "Pine Wood",
 	"block.projectvibrantjourneys.palm_wood": "Palm Wood",
+	"block.projectvibrantjourneys.willow_wood": "Willow Wood",
 	
 	"block.projectvibrantjourneys.stripped_fir_log": "Stripped Fir Log",
 	"block.projectvibrantjourneys.stripped_pine_log": "Stripped Pine Log",
 	"block.projectvibrantjourneys.stripped_palm_log": "Stripped Palm Log",
+	"block.projectvibrantjourneys.stripped_willow_log": "Stripped Willow Log",
 	
 	"block.projectvibrantjourneys.stripped_fir_wood": "Stripped Fir Wood",
 	"block.projectvibrantjourneys.stripped_pine_wood": "Stripped Pine Wood",
 	"block.projectvibrantjourneys.stripped_palm_wood": "Stripped Palm Wood",
+	"block.projectvibrantjourneys.stripped_willow_wood": "Stripped Willow Wood",
 	
 	"block.projectvibrantjourneys.fir_stairs": "Fir Stairs",
 	"block.projectvibrantjourneys.pine_stairs": "Pine Stairs",
 	"block.projectvibrantjourneys.palm_stairs": "Palm Stairs",
+	"block.projectvibrantjourneys.willow_stairs": "Willow Stairs",
 	
 	"block.projectvibrantjourneys.fir_slab": "Fir Slab",
 	"block.projectvibrantjourneys.pine_slab": "Pine Slab",
 	"block.projectvibrantjourneys.palm_slab": "Palm Slab",
+	"block.projectvibrantjourneys.willow_slab": "Willow Slab",
 	
 	"block.projectvibrantjourneys.fir_fence": "Fir Fence",
 	"block.projectvibrantjourneys.pine_fence": "Pine Fence",
 	"block.projectvibrantjourneys.palm_fence": "Palm Fence",
+	"block.projectvibrantjourneys.willow_fence": "Willow Fence",
 	
 	"block.projectvibrantjourneys.fir_fence_gate": "Fir Fence Gate",
 	"block.projectvibrantjourneys.pine_fence_gate": "Pine Fence Gate",
 	"block.projectvibrantjourneys.palm_fence_gate": "Palm Fence Gate",
+	"block.projectvibrantjourneys.willow_fence_gate": "Willow Fence Gate",
 	
 	"block.projectvibrantjourneys.fir_door": "Fir Door",
 	"block.projectvibrantjourneys.pine_door": "Pine Door",
 	"block.projectvibrantjourneys.palm_door": "Palm Door",
+	"block.projectvibrantjourneys.willow_door": "Willow Door",
 	
 	"block.projectvibrantjourneys.fir_trapdoor": "Fir Trapdoor",
 	"block.projectvibrantjourneys.pine_trapdoor": "Pine Trapdoor",
 	"block.projectvibrantjourneys.palm_trapdoor": "Palm Trapdoor",
+	"block.projectvibrantjourneys.willow_trapdoor": "Willow Trapdoor",
 	
 	"block.projectvibrantjourneys.fir_button": "Fir Button",
 	"block.projectvibrantjourneys.pine_button": "Pine Button",
 	"block.projectvibrantjourneys.palm_button": "Palm Button",
+	"block.projectvibrantjourneys.willow_button": "Willow Button",
 	
 	"block.projectvibrantjourneys.fir_pressure_plate": "Fir Pressure Plate",
 	"block.projectvibrantjourneys.pine_pressure_plate": "Pine Pressure Plate",
 	"block.projectvibrantjourneys.palm_pressure_plate": "Palm Pressure Plate",
+	"block.projectvibrantjourneys.willow_pressure_plate": "Willow Pressure Plate",
 	
 	"block.projectvibrantjourneys.oak_twigs": "Oak Twigs",
 	"block.projectvibrantjourneys.birch_twigs": "Birch Twigs",
@@ -70,6 +85,7 @@
 	"block.projectvibrantjourneys.fir_twigs": "Fir Twigs",
 	"block.projectvibrantjourneys.pine_twigs": "Pine Twigs",
 	"block.projectvibrantjourneys.palm_twigs": "Palm Twigs",
+	"block.projectvibrantjourneys.willow_twigs": "Willow Twigs",
 	
 	"block.projectvibrantjourneys.oak_fallen_leaves": "Oak Fallen Leaves",
 	"block.projectvibrantjourneys.birch_fallen_leaves": "Birch Fallen Leaves",
@@ -80,6 +96,7 @@
 	"block.projectvibrantjourneys.fir_fallen_leaves": "Fir Fallen Leaves",
 	"block.projectvibrantjourneys.pine_fallen_leaves": "Pine Fallen Leaves",
 	"block.projectvibrantjourneys.palm_fallen_leaves": "Palm Fallen Leaves",
+	"block.projectvibrantjourneys.willow_fallen_leaves": "Willow Fallen Leaves",
 	
 	"block.projectvibrantjourneys.stone_rocks": "Rocks",
 	"block.projectvibrantjourneys.mossy_rocks": "Mossy Rocks",
@@ -154,6 +171,7 @@
 	"biome.projectvibrantjourneys.boreal_forest": "Boreal Forest",
 	"biome.projectvibrantjourneys.snowy_boreal_forest": "Snowy Boreal Forest",
 	"biome.projectvibrantjourneys.prairie": "Prairie",
+	"biome.projectvibrantjourneys.willow_swamp": "Willow Swamp",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

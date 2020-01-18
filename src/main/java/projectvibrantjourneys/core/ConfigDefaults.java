@@ -23,6 +23,8 @@ public class ConfigDefaults {
 	public static final List<String> PINE_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> PALM_TREES = new ArrayList<String>();
 	public static final List<String> PALM_TREES_SPARSE = new ArrayList<String>();
+	public static final List<String> WILLOW_TREES = new ArrayList<String>();
+	public static final List<String> WILLOW_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
 	public static final List<String> NETHERRACK_ROCKS = new ArrayList<String>();
@@ -198,6 +200,7 @@ public class ConfigDefaults {
 		addTo("projectvibrantjourneys:boreal_forest", FIR_TREES, PINE_TREES, ROCKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:snowy_boreal_forest", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:prairie", OAK_TREES_SPARSE, ROCKS, BONES, BUSH, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, HAUNT, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:willow_swamp", WILLOW_TREES, ROCKS, BONES, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SHADE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS);
 		
 		addStringsTo(MAW_FOODS, "minecraft:rotten_flesh", "minecraft:chicken", "minecraft:cooked_chicken", "minecraft:beef", "minecraft:cooked_beef", 
 						"minecraft:rabbit", "minecraft:cooked_rabbit", "minecraft:mutton", "minecraft:cooked_mutton", "minecraft:cod", "minecraft:salmon",

@@ -19,6 +19,7 @@ import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.PrairieBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
+import projectvibrantjourneys.common.biomes.WillowSwampBiome;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -30,6 +31,7 @@ public class PVJBiomes {
 	public static Biome boreal_forest;
 	public static Biome snowy_boreal_forest;
 	public static Biome prairie;
+	public static Biome willow_swamp;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> verdant_sands_surface_builder = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
@@ -40,6 +42,7 @@ public class PVJBiomes {
 		boreal_forest = registerBiome(new BorealForestBiome(), BiomeType.COOL, "boreal_forest", 7);
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 6);
 		prairie = registerBiome(new PrairieBiome(), BiomeType.WARM, "prairie", 7);
+		willow_swamp = registerBiome(new WillowSwampBiome(), BiomeType.WARM, "willow_swamp", 7);
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -56,6 +59,7 @@ public class PVJBiomes {
 		addBiomeTypes(verdant_sands, Type.OVERWORLD, Type.SANDY, Type.HOT, Type.DRY);
 		addBiomeTypes(boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);
+		addBiomeTypes(willow_swamp, Type.OVERWORLD, Type.SWAMP, Type.WET);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {
