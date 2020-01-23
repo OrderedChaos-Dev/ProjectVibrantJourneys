@@ -16,7 +16,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
-import projectvibrantjourneys.common.biomes.PrairieBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiomes;
@@ -41,7 +40,6 @@ public class PVJBiomes {
 		verdant_sands = registerBiome(new VerdantSandsBiome(), BiomeType.DESERT, "verdant_sands", 5);
 		boreal_forest = registerBiome(new BorealForestBiome(), BiomeType.COOL, "boreal_forest", 7);
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 6);
-		prairie = registerBiome(new PrairieBiome(), BiomeType.WARM, "prairie", 7);
 		willow_wetlands = registerBiome(new WillowWetlandsBiomes(), BiomeType.WARM, "willow_wetlands", 7);
 	}
 
