@@ -24,5 +24,6 @@ You may add this mod to your modpack as long as it is NOT monetized, and it link
 
 -------------------------------------------------
 
+
 Project: Vibrant Journeys is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 <div><img src ="https://i.imgur.com/MbthHUt.png?1"></div>
