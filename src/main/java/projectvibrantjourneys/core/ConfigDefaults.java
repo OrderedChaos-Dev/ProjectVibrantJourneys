@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigDefaults {
+	
+	public static final int OVERGROWN_SPIRES_WEIGHT = 3;
+	public static final int VERDANT_SANDS_WEIGHT = 5;
+	public static final int BOREAL_FOREST_WEIGHT = 7;
+	public static final int SNOWY_BOREAL_FOREST_WEIGHT = 6;
+	public static final int WILLOW_WETLANDS_WEIGHT = 7;
+	public static final int BOREAL_CLIFFS_WEIGHT = 3;
 
 	public static final List<String> OAK_TREES = new ArrayList<String>();
 	public static final List<String> OAK_TREES_SPARSE = new ArrayList<String>();
@@ -33,26 +40,22 @@ public class ConfigDefaults {
 	public static final List<String> SANDSTONE_ROCKS = new ArrayList<String>();
 	public static final List<String> RED_SANDSTONE_ROCKS = new ArrayList<String>();
 	public static final List<String> ICE_CHUNKS = new ArrayList<String>();
-	
 	public static final List<String> BONES = new ArrayList<String>();
 	public static final List<String> BONES_COMMON = new ArrayList<String>();
 	public static final List<String> BONES_NETHER = new ArrayList<String>();
-	
 	public static final List<String> PINECONES = new ArrayList<String>();
 	public static final List<String> SEASHELLS = new ArrayList<String>();
+	public static final List<String> IRON_NUGGET = new ArrayList<String>();
+	public static final List<String> GOLD_NUGGET = new ArrayList<String>();
+	public static final List<String> GOLD_NUGGET_COMMON = new ArrayList<String>();
+	public static final List<String> FLINT = new ArrayList<String>();
+	public static final List<String> DUNG = new ArrayList<String>();
 	
 	public static final List<String> BUSH = new ArrayList<String>();
 	public static final List<String> LILYPAD = new ArrayList<String>();
 	public static final List<String> COBWEB = new ArrayList<String>();
 	public static final List<String> SEAGRASS = new ArrayList<String>();
 	public static final List<String> TROPICAL_FISH = new ArrayList<String>();
-	
-	public static final List<String> IRON_NUGGET = new ArrayList<String>();
-	public static final List<String> GOLD_NUGGET = new ArrayList<String>();
-	public static final List<String> GOLD_NUGGET_COMMON = new ArrayList<String>();
-	public static final List<String> FLINT = new ArrayList<String>();
-	
-	public static final List<String> DUNG = new ArrayList<String>();
 	
 	public static final List<String> SEA_OATS = new ArrayList<String>();
 	public static final List<String> BEACH_GRASS = new ArrayList<String>();
@@ -201,6 +204,7 @@ public class ConfigDefaults {
 		addTo("projectvibrantjourneys:verdant_sands", OAK_TREES_SPARSE, JUNGLE_TREES_SPARSE, ACACIA_TREES_SPARSE, ROCKS, SANDSTONE_ROCKS, RED_SANDSTONE_ROCKS, BONES, LILYPAD, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, SMALL_CACTUS, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:boreal_forest", FIR_TREES, PINE_TREES, ROCKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:snowy_boreal_forest", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:boreal_plateau", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:willow_wetlands", WILLOW_TREES, MANGROVE_TREES, ROCKS, BONES, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SHADE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS);
 		
 		addStringsTo(MAW_FOODS, "minecraft:rotten_flesh", "minecraft:chicken", "minecraft:cooked_chicken", "minecraft:beef", "minecraft:cooked_beef", 

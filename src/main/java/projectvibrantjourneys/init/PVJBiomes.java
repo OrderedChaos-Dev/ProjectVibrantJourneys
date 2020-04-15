@@ -14,11 +14,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiomes;
+import projectvibrantjourneys.common.world.surfacebuilders.BorealPlateauSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -29,10 +31,12 @@ public class PVJBiomes {
 	public static Biome verdant_sands;
 	public static Biome boreal_forest;
 	public static Biome snowy_boreal_forest;
-	public static Biome prairie;
+	public static Biome boreal_plateau;
+//	public static Biome prairie;
 	public static Biome willow_wetlands;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> verdant_sands_surface_builder = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> boreal_cliffs_surface_builder = new BorealPlateauSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
@@ -40,6 +44,7 @@ public class PVJBiomes {
 		verdant_sands = registerBiome(new VerdantSandsBiome(), BiomeType.DESERT, "verdant_sands", 5);
 		boreal_forest = registerBiome(new BorealForestBiome(), BiomeType.COOL, "boreal_forest", 7);
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 6);
+		boreal_plateau = registerBiome(new BorealPlateauBiome(), BiomeType.ICY, "boreal_plateau", 4);
 		willow_wetlands = registerBiome(new WillowWetlandsBiomes(), BiomeType.WARM, "willow_wetlands", 7);
 	}
 
@@ -57,6 +62,7 @@ public class PVJBiomes {
 		addBiomeTypes(verdant_sands, Type.OVERWORLD, Type.SANDY, Type.HOT, Type.DRY);
 		addBiomeTypes(boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);
+		addBiomeTypes(boreal_plateau, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY, Type.MOUNTAIN);
 		addBiomeTypes(willow_wetlands, Type.OVERWORLD, Type.SWAMP, Type.WET);
 	}
 	
