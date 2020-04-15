@@ -36,7 +36,7 @@ public class PVJBiomes {
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
-		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), BiomeType.WARM, "overgrown_spires", 5);
+		overgrown_spires = registerBiome(new OvergrownSpiresBiome(), BiomeType.WARM, "overgrown_spires", 3);
 		verdant_sands = registerBiome(new VerdantSandsBiome(), BiomeType.DESERT, "verdant_sands", 5);
 		boreal_forest = registerBiome(new BorealForestBiome(), BiomeType.COOL, "boreal_forest", 7);
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", 6);
@@ -53,7 +53,7 @@ public class PVJBiomes {
 	}
 	
 	public static void initBiomeTypes() {
-		addBiomeTypes(overgrown_spires, Type.OVERWORLD, Type.JUNGLE, Type.HOT, Type.DENSE, Type.WET, Type.MOUNTAIN);
+		addBiomeTypes(overgrown_spires, Type.OVERWORLD, Type.JUNGLE, Type.HOT, Type.DENSE, Type.WET, Type.MOUNTAIN, Type.RARE);
 		addBiomeTypes(verdant_sands, Type.OVERWORLD, Type.SANDY, Type.HOT, Type.DRY);
 		addBiomeTypes(boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);

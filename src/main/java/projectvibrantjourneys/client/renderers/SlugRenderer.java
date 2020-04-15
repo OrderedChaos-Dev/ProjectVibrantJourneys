@@ -26,7 +26,7 @@ public class SlugRenderer extends MobRenderer<SlugEntity, SlugModel<SlugEntity>>
 	}
 	
 	@Override
-	protected void func_225620_a_(SlugEntity entity, MatrixStack matrixstack, float p_225620_3_) {
-		matrixstack.func_227862_a_(0.3F, 0.3F, 0.3F);
+	protected void preRenderCallback(SlugEntity entity, MatrixStack matrixstack, float p_225620_3_) {
+		matrixstack.scale(0.3F, 0.3F, 0.3F);
 	}
 }

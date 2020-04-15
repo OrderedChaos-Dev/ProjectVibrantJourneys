@@ -11,8 +11,10 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import projectvibrantjourneys.common.world.FeatureManager;
 
 public class FirTree extends Tree {
-   @Nullable
-   protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random rand) {
-      return Feature.NORMAL_TREE.func_225566_b_(FeatureManager.FIR_TREE);
-   }
+	
+	@Nullable
+	@Override
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean flag) {
+		return Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE);
+	}
 }

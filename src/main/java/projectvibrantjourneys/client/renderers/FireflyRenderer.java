@@ -24,7 +24,7 @@ public class FireflyRenderer extends MobRenderer<FireflyEntity, FlyModel<Firefly
 	}
 	
 	@Override
-	protected int func_225624_a_(FireflyEntity entity, float f) {
+	protected int getBlockLight(FireflyEntity entity, float f) {
 		return 15;
 	}
 }

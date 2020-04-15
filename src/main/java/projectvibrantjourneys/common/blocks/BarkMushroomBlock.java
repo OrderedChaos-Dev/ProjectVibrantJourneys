@@ -60,7 +60,7 @@ public class BarkMushroomBlock extends Block {
 	}
 	
 	@Override
-	public ActionResultType func_225533_a_(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
+	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
 		if (!player.abilities.allowEdit) {
 			return ActionResultType.PASS;
 		} else {

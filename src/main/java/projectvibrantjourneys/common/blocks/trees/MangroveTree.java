@@ -11,8 +11,10 @@ import projectvibrantjourneys.common.world.FeatureManager;
 import projectvibrantjourneys.init.PVJFeatures;
 
 public class MangroveTree extends Tree {
-   @Nullable
-   protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random rand) {
-      return PVJFeatures.mangroveTree.func_225566_b_(FeatureManager.MANGROVE_TREE);
-   }
+	
+	@Nullable
+	@Override
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean flag) {
+		return PVJFeatures.mangroveTree.withConfiguration(FeatureManager.MANGROVE_TREE);
+	}
 }

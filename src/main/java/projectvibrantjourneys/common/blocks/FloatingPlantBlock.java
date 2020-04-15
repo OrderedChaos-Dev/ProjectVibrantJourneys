@@ -22,7 +22,7 @@ public class FloatingPlantBlock extends LilyPadBlock {
 	public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 3);
 	
 	public FloatingPlantBlock() {
-		super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0, 0).sound(SoundType.PLANT).func_226896_b_().doesNotBlockMovement());
+		super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0, 0).sound(SoundType.PLANT).notSolid().doesNotBlockMovement());
 	}
 	
 	@Override

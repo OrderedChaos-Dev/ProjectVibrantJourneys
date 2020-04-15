@@ -65,14 +65,14 @@ public class FlyEntity extends AmbientEntity {
 		if (this.spawnPosition == null || this.rand.nextInt(30) == 0
 				|| this.spawnPosition.withinDistance(this.getPositionVec(), 2.0D)) {
 			this.spawnPosition = new BlockPos(
-					this.func_226277_ct_() + (double) this.rand.nextInt(7) - (double) this.rand.nextInt(7),
-					this.func_226278_cu_() + (double) this.rand.nextInt(6) - 2.0D,
-					this.func_226281_cx_() + (double) this.rand.nextInt(7) - (double) this.rand.nextInt(7));
+					this.getPosX() + (double) this.rand.nextInt(7) - (double) this.rand.nextInt(7),
+					this.getPosY() + (double) this.rand.nextInt(6) - 2.0D,
+					this.getPosZ() + (double) this.rand.nextInt(7) - (double) this.rand.nextInt(7));
 		}
 
-		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.func_226277_ct_();
-		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.func_226278_cu_();
-		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.func_226281_cx_();
+		double d0 = (double) this.spawnPosition.getX() + 0.5D - this.getPosX();
+		double d1 = (double) this.spawnPosition.getY() + 0.1D - this.getPosY();
+		double d2 = (double) this.spawnPosition.getZ() + 0.5D - this.getPosZ();
 		Vec3d vec3d = this.getMotion();
 		Vec3d vec3d1 = vec3d.add((Math.signum(d0) * 0.5D - vec3d.x) * (double) 0.1F,
 				(Math.signum(d1) * (double) 0.7F - vec3d.y) * (double) 0.1F,
@@ -89,12 +89,12 @@ public class FlyEntity extends AmbientEntity {
 	}
 	
 	@Override
-	protected boolean func_225502_at_() {
+	protected boolean canTriggerWalking() {
 		return false;
 	}
 
 	@Override
-	public boolean func_225503_b_(float p_225503_1_, float p_225503_2_) {
+	public boolean onLivingFall(float distance, float damageMultiplier) {
 		return false;
 	}
 	
@@ -127,7 +127,7 @@ public class FlyEntity extends AmbientEntity {
 		if (pos.getY() < world.getSeaLevel()) {
 			return false;
 		} else {
-			return func_223315_a(fly, world, reason, pos, rand);
+			return canSpawnOn(fly, world, reason, pos, rand);
 		}
 	}
 }

@@ -31,12 +31,11 @@ public final class VerdantSandsBiome extends Biome {
 				.waterColor(4159204)
 				.waterFogColor(329011)
 				.parent((String) null));
-		this.func_226711_a_(Feature.VILLAGE.func_225566_b_(new VillageConfig("village/desert/town_centers", 6)));
-		this.func_226711_a_(Feature.PILLAGER_OUTPOST.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
-		this.func_226711_a_(Feature.DESERT_PYRAMID.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
-		this.func_226711_a_(
-				Feature.MINESHAFT.func_225566_b_(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-		this.func_226711_a_(Feature.STRONGHOLD.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+		this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/desert/town_centers", 6)));
+		this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		this.addStructure(Feature.DESERT_PYRAMID.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+		this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+		this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addStructures(this);
 		DefaultBiomeFeatures.addDesertLakes(this);
@@ -45,21 +44,20 @@ public final class VerdantSandsBiome extends Biome {
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.func_222299_R(this);
+		DefaultBiomeFeatures.addOakTreesFlowersGrass(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
-		DefaultBiomeFeatures.func_222290_D(this);
-		DefaultBiomeFeatures.func_222348_W(this);
+		DefaultBiomeFeatures.addOakAndJungleTrees(this);
+		DefaultBiomeFeatures.addSparseGrass(this);
 		DefaultBiomeFeatures.addSavannaTrees(this);
 		this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR
-				.func_225566_b_(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.FANCY_TREE.func_225566_b_(DefaultBiomeFeatures.field_226817_l_).func_227227_a_(0.3F),
-						Feature.FANCY_TREE.func_225566_b_(DefaultBiomeFeatures.field_226815_j_).func_227227_a_(0.6F),
-						Feature.JUNGLE_GROUND_BUSH.func_225566_b_(DefaultBiomeFeatures.field_226821_p_)
-								.func_227227_a_(0.7F),
-						Feature.NORMAL_TREE.func_225566_b_(DefaultBiomeFeatures.field_226792_b_).func_227227_a_(0.6F)),
-						Feature.NORMAL_TREE.func_225566_b_(DefaultBiomeFeatures.field_226739_a_)))
-				.func_227228_a_(
-						Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(5, 0.2F, 1))));
+				.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+						Feature.FANCY_TREE.withConfiguration(DefaultBiomeFeatures.field_230133_p_).func_227227_a_(0.3F),
+						Feature.FANCY_TREE.withConfiguration(DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG).func_227227_a_(0.6F),
+						Feature.JUNGLE_GROUND_BUSH.withConfiguration(DefaultBiomeFeatures.JUNGLE_GROUND_BUSH_CONFIG).func_227227_a_(0.7F),
+						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.JUNGLE_TREE_CONFIG).func_227227_a_(0.6F)),
+						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)))
+				.withPlacement(
+						Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(5, 0.2F, 1))));
 		DefaultBiomeFeatures.addDeadBushes(this);
 		DefaultBiomeFeatures.addMushrooms(this);
 		DefaultBiomeFeatures.addExtraReedsPumpkinsCactus(this);

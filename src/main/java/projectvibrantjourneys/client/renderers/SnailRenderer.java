@@ -19,8 +19,8 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 	}
 	
 	@Override
-	protected void func_225620_a_(SnailEntity entity, MatrixStack matrixstack, float p_225620_3_) {
-		matrixstack.func_227862_a_(0.3F, 0.3F, 0.3F);
+	protected void preRenderCallback(SnailEntity entity, MatrixStack matrixstack, float p_225620_3_) {
+		matrixstack.scale(0.3F, 0.3F, 0.3F);
 	}
 
 	@Override

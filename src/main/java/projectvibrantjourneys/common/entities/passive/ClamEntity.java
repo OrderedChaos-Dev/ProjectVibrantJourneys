@@ -77,7 +77,7 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable  {
 		super.tick();
 		if(this.world.isRemote) {
 			if(this.rand.nextFloat() < 0.1F) {
-				this.world.addParticle(ParticleTypes.BUBBLE, this.func_226277_ct_(), this.func_226279_cv_(), this.func_226281_cx_(), 0, 0, 0);
+				this.world.addParticle(ParticleTypes.BUBBLE, this.getPosX(), this.getPosY(), this.getPosZ(), 0, 0, 0);
 			}
 		}
 	}

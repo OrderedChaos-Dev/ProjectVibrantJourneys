@@ -16,15 +16,15 @@ public class ScarecrowModel<T extends Entity> extends SegmentedModel<T> {
 
 		scarecrow = new ModelRenderer(this);
 		scarecrow.setRotationPoint(0.0F, 24.0F, 0.0F);
-		scarecrow.func_217178_a("body", -5.0F, -29.0F, -3.0F, 10, 13, 6, 0.0F, 0, 36);
-		scarecrow.func_217178_a("stick", -1.0F, -29.0F, -1.0F, 2, 29, 2, 0.0F, 0, 0);
-		scarecrow.func_217178_a("arms", -12.0F, -28.0F, -1.0F, 24, 2, 2, 0.0F, 9, 0);
-		scarecrow.func_217178_a("head", -5.0F, -39.0F, -5.0F, 10, 10, 10, 0.0F, 13, 5);
-		scarecrow.func_217178_a("body_arms", -11.0F, -29.0F, -2.0F, 22, 4, 4, 0.0F, 12, 25);
+		scarecrow.addBox("body", -5.0F, -29.0F, -3.0F, 10, 13, 6, 0.0F, 0, 36);
+		scarecrow.addBox("stick", -1.0F, -29.0F, -1.0F, 2, 29, 2, 0.0F, 0, 0);
+		scarecrow.addBox("arms", -12.0F, -28.0F, -1.0F, 24, 2, 2, 0.0F, 9, 0);
+		scarecrow.addBox("head", -5.0F, -39.0F, -5.0F, 10, 10, 10, 0.0F, 13, 5);
+		scarecrow.addBox("body_arms", -11.0F, -29.0F, -2.0F, 22, 4, 4, 0.0F, 12, 25);
 	}
 	
 	@Override
-	public Iterable<ModelRenderer> func_225601_a_() {
+	public Iterable<ModelRenderer> getParts() {
 		return ImmutableList.of(this.scarecrow);
 	}
 
@@ -35,7 +35,7 @@ public class ScarecrowModel<T extends Entity> extends SegmentedModel<T> {
 	}
 
 	@Override
-	public void func_225597_a_(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 	}
 }

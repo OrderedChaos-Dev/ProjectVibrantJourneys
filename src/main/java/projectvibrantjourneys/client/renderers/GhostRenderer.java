@@ -25,7 +25,7 @@ public class GhostRenderer extends BipedRenderer<GhostEntity, GhostModel<GhostEn
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(GhostEntity entity, boolean flag) {
+	protected boolean isVisible(GhostEntity entity) {
 		return false;
 	}
 }

@@ -17,7 +17,7 @@ import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 
 public class GroundcoverPlacer extends BlockPlacer {
 	public GroundcoverPlacer() {
-		super(BlockPlacerType.field_227259_a_);
+		super(BlockPlacerType.SIMPLE_BLOCK);
 	}
 
 	public <T> GroundcoverPlacer(Dynamic<T> d) {
@@ -37,7 +37,6 @@ public class GroundcoverPlacer extends BlockPlacer {
 	public <T> T serialize(DynamicOps<T> dyn) {
 		return (new Dynamic<>(dyn,
 				dyn.createMap(ImmutableMap.of(dyn.createString("type"),
-						dyn.createString(Registry.field_229388_u_.getKey(this.field_227258_a_).toString())))))
-								.getValue();
+						dyn.createString(Registry.BLOCK_PLACER_TYPE.getKey(this.field_227258_a_).toString()))))).getValue();
 	}
 }

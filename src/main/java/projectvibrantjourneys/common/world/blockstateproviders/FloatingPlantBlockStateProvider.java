@@ -18,7 +18,7 @@ public class FloatingPlantBlockStateProvider extends BlockStateProvider {
 	private final BlockState blockstate;
 
 	public FloatingPlantBlockStateProvider(BlockState state) {
-		super(BlockStateProviderType.field_227397_d_);
+		super(BlockStateProviderType.SIMPLE_STATE_PROVIDER);
 		this.blockstate = state;
 	}
 
@@ -26,7 +26,7 @@ public class FloatingPlantBlockStateProvider extends BlockStateProvider {
 		this(BlockState.deserialize(p_i225861_1_.get("state").orElseEmptyMap()));
 	}
 
-	public BlockState func_225574_a_(Random rand, BlockPos pos) {
+	public BlockState getBlockState(Random rand, BlockPos pos) {
 		int model = rand.nextInt(4);
 		return blockstate.with(FloatingPlantBlock.MODEL, model);
 	}
@@ -34,7 +34,7 @@ public class FloatingPlantBlockStateProvider extends BlockStateProvider {
 	public <T> T serialize(DynamicOps<T> p_218175_1_) {
 		Builder<T, T> builder = ImmutableMap.builder();
 		builder.put(p_218175_1_.createString("type"),
-				p_218175_1_.createString(Registry.field_229387_t_.getKey(this.field_227393_a_).toString()));
+				p_218175_1_.createString(Registry.BLOCK_STATE_PROVIDER_TYPE.getKey(this.blockStateProvider).toString()));
 		return (new Dynamic<>(p_218175_1_, p_218175_1_.createMap(builder.build()))).getValue();
 	}
 }

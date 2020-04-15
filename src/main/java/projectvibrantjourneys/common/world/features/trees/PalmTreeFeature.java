@@ -55,7 +55,7 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 			this.func_227216_a_(world, rand, logPos, logs, box, config);
 		}
 		
-		BlockState leaf = config.field_227369_n_.func_225574_a_(rand, logPos);
+		BlockState leaf = config.leavesProvider.getBlockState(rand, logPos);
 		world.setBlockState(logPos.up(), leaf, 2);
 		
 		for (int xOffset = -2; xOffset <= 2; xOffset++) {

@@ -76,7 +76,7 @@ public class GhostEntity extends MonsterEntity {
 		
 		if(vanishTime > 400) {
 			for(int i = 0; i < 20; i++) {
-				this.world.addParticle(ParticleTypes.SMOKE, this.func_226282_d_(0.5D), this.func_226279_cv_(), this.func_226287_g_(0.5D), 0.0D, 0.0D, 0.0D);
+				this.world.addParticle(ParticleTypes.SMOKE, this.getPosXRandom(0.5D), this.getPosYRandom(), this.getPosZRandom(0.5D), 0.0D, 0.0D, 0.0D);
 			}
 			this.remove();
 		}
@@ -84,7 +84,7 @@ public class GhostEntity extends MonsterEntity {
 		if(this.world.isRemote) {
 			if(vanishTime > 0) {
 				if(this.rand.nextFloat() < vanishTime / 400.0F) {
-					this.world.addParticle(ParticleTypes.SMOKE, this.func_226282_d_(0.5D), this.func_226279_cv_(), this.func_226287_g_(0.5D), 0.0D, 0.0D, 0.0D);
+					this.world.addParticle(ParticleTypes.SMOKE, this.getPosXRandom(0.5D), this.getPosYRandom(), this.getPosZRandom(0.5D), 0.0D, 0.0D, 0.0D);
 				}
 			}
 		}

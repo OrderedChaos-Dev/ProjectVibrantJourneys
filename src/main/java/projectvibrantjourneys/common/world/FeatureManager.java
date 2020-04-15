@@ -47,23 +47,23 @@ public class FeatureManager {
 	public static final TreeFeatureConfig FIR_TREE = (new TreeFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.fir_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.fir_leaves.getDefaultState()),
-			new SpruceFoliagePlacer(4, 2))).func_225569_d_(11).func_227354_b_(5).func_227356_e_(4).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.fir_sapling).func_225568_b_();
+			new SpruceFoliagePlacer(4, 2))).baseHeight(11).heightRandA(5).trunkHeight(4).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.fir_sapling).build();
 	public static final TreeFeatureConfig PINE_TREE = (new TreeFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.pine_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.pine_leaves.getDefaultState()),
-			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.pine_sapling).func_225568_b_();
+			new SpruceFoliagePlacer(1, 0))).baseHeight(6).heightRandA(3).trunkHeight(3).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.pine_sapling).build();
 	public static final TreeFeatureConfig PALM_TREE = (new TreeFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.palm_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.palm_leaves.getDefaultState()),
-			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.palm_sapling).func_225568_b_();
+			new SpruceFoliagePlacer(1, 0))).baseHeight(6).heightRandA(3).trunkHeight(3).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.palm_sapling).build();
 	public static final TreeFeatureConfig WILLOW_TREE = (new TreeFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.willow_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.willow_leaves.getDefaultState()),
-			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.willow_sapling).func_225568_b_();
+			new SpruceFoliagePlacer(1, 0))).baseHeight(6).heightRandA(3).trunkHeight(3).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.willow_sapling).build();
 	public static final TreeFeatureConfig MANGROVE_TREE = (new TreeFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.mangrove_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.mangrove_leaves.getDefaultState()),
-			new SpruceFoliagePlacer(1, 0))).func_225569_d_(6).func_227354_b_(3).func_227356_e_(3).func_227357_f_(2).func_227359_h_(2).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.mangrove_sapling).func_225568_b_();
+			new SpruceFoliagePlacer(1, 0))).baseHeight(6).heightRandA(3).trunkHeight(3).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.mangrove_sapling).build();
 	
 	public static final BigMushroomFeatureConfig glowcapFeatureConfig = new BigMushroomFeatureConfig(
 			new SimpleBlockStateProvider(PVJBlocks.glowcap_block.getDefaultState()), new SimpleBlockStateProvider(Blocks.MUSHROOM_STEM.getDefaultState()), 2);
@@ -116,9 +116,9 @@ public class FeatureManager {
 		BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), new DoublePlantBlockPlacer());
 		BlockClusterFeatureConfig smallCactusCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.small_cactus.getDefaultState()), new SimpleBlockPlacer());
 		BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.getDefaultState()), new SimpleBlockPlacer());
-		BlockClusterFeatureConfig frogbitCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.frogbit.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(10).func_227322_d_();
-		BlockClusterFeatureConfig duckweedCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.duckweed.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(10).func_227322_d_();
-		BlockClusterFeatureConfig glowcapCluster = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.getDefaultState()), new SimpleBlockPlacer())).func_227315_a_(64).func_227317_b_().func_227322_d_();
+		BlockClusterFeatureConfig frogbitCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.frogbit.getDefaultState()), new SimpleBlockPlacer())).tries(10).build();
+		BlockClusterFeatureConfig duckweedCluster = (new BlockClusterFeatureConfig.Builder(new FloatingPlantBlockStateProvider(PVJBlocks.duckweed.getDefaultState()), new SimpleBlockPlacer())).tries(10).build();
+		BlockClusterFeatureConfig glowcapCluster = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.getDefaultState()), new SimpleBlockPlacer())).tries(64).func_227317_b_().build();
 		BlockClusterFeatureConfig shortGrassCluster = makeFeatureConfig(new ShortGrassBlockStateProvider(), new SimpleBlockPlacer());
 		
 		List<String> oakBiomes = PVJConfig.oakTreesBiomes.get();
@@ -328,9 +328,9 @@ public class FeatureManager {
 			if(seashellsBiomes.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 						PVJFeatures.oceanFloorSeashellsFeature
-							.func_225566_b_(new SeaGrassConfig(5, 0.0D))
-							.func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP
-									.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+							.withConfiguration(new SeaGrassConfig(5, 0.0D))
+							.withPlacement(Placement.TOP_SOLID_HEIGHTMAP
+									.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 				addFrequencyChanceFeature(biome, seashellsCluster, 2, 0.3F, false);
 			}
 			
@@ -354,9 +354,9 @@ public class FeatureManager {
 			if(cattailBiomes.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 						PVJFeatures.waterCattailFeature
-							.func_225566_b_(new SeaGrassConfig(8, 0.0D))
-							.func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP
-									.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+							.withConfiguration(new SeaGrassConfig(8, 0.0D))
+							.withPlacement(Placement.TOP_SOLID_HEIGHTMAP
+									.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 				addFrequencyFeature(biome, cattailCluster, 40, false);
 			}
 			if(smallCactusBiomes.contains(biome.getRegistryName().toString()))
@@ -367,101 +367,101 @@ public class FeatureManager {
 				addFrequencyChanceFeature(biome, shortGrassCluster, 10, 0.8F, false);
 			
 			if(barkMushroomBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.barkMushroomFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(50))));
+				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.barkMushroomFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(50))));
 			if(frogbitBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(frogbitCluster).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(2))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(frogbitCluster).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			if(duckweedBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(duckweedCluster).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(2))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(duckweedCluster).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			
 			if(lilypadBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226720_H_).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(2))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.LILY_PAD_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(2))));
 			if(cobwebBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.cobwebFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(5))));
+				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.cobwebFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(5))));
 			if(bushBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.bushFeature.func_225566_b_(new ProbabilityConfig(0.9F)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(32))));
+				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.bushFeature.withConfiguration(new ProbabilityConfig(0.9F)).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(32))));
 			if(seagrassBiomes.contains(biome.getRegistryName().toString())) {
-			     biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.func_225566_b_(new SeaGrassConfig(48, 0.4D)).func_227228_a_(Placement.TOP_SOLID_HEIGHTMAP.func_227446_a_(IPlacementConfig.NO_PLACEMENT_CONFIG)));
+			     biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.SEAGRASS.withConfiguration(new SeaGrassConfig(48, 0.4D)).withPlacement(Placement.TOP_SOLID_HEIGHTMAP.configure(IPlacementConfig.NO_PLACEMENT_CONFIG)));
 			}
 			
 			if(palmBiomes.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.func_225566_b_(PALM_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(1, 0.5F, 1))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.withConfiguration(PALM_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(1, 0.5F, 1))));
 			if(palmBiomesSparse.contains(biome.getRegistryName().toString()))
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.func_225566_b_(PALM_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.palmTree.withConfiguration(PALM_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
 			if(mangroveBiomes.contains(biome.getRegistryName().toString())) {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveTree.func_225566_b_(MANGROVE_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
-				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveRootFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(7))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveTree.withConfiguration(MANGROVE_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.4F, 1))));
+				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveRootFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(7))));
 			}
 			if(mangroveBiomesSparse.contains(biome.getRegistryName().toString())) {
-				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveTree.func_225566_b_(MANGROVE_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
-				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveRootFeature.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG).func_227228_a_(Placement.COUNT_HEIGHT_64.func_227446_a_(new FrequencyConfig(3))));
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveTree.withConfiguration(MANGROVE_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
+				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveRootFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(3))));
 			}
 		}
 		
-		PVJBiomes.boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.func_225566_b_(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.NORMAL_TREE.func_225566_b_(FeatureManager.FIR_TREE).func_227227_a_(0.8F)), PVJFeatures.pineTree.func_225566_b_(FeatureManager.PINE_TREE))).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
-		PVJBiomes.snowy_boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.func_225566_b_(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.NORMAL_TREE.func_225566_b_(FeatureManager.FIR_TREE).func_227227_a_(0.7F)), PVJFeatures.pineTree.func_225566_b_(FeatureManager.PINE_TREE))).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
-		PVJBiomes.willow_wetlands.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.willowTree.func_225566_b_(WILLOW_TREE).func_227228_a_(Placement.COUNT_EXTRA_HEIGHTMAP.func_227446_a_(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
+		PVJBiomes.boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.8F)), PVJFeatures.pineTree.withConfiguration(FeatureManager.PINE_TREE))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
+		PVJBiomes.snowy_boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.7F)), PVJFeatures.pineTree.withConfiguration(FeatureManager.PINE_TREE))).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
+		PVJBiomes.willow_wetlands.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.willowTree.withConfiguration(WILLOW_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
 	}
 	
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer) {
 		return new BlockClusterFeatureConfig
 				.Builder(provider, placer)
-				.func_227315_a_(4)
-				.func_227322_d_();
+				.tries(4)
+				.build();
 	}
 	
 	private static BlockClusterFeatureConfig createNetherGroundcoverConfig(BlockStateProvider provider, BlockPlacer placer) {
 		return new BlockClusterFeatureConfig
 				.Builder(provider, placer)
-				.func_227315_a_(64)
+				.tries(64)
 				.func_227317_b_()
-				.func_227322_d_();
+				.build();
 	}
 	
 	private static void addTwigsLeavesFeature(Biome biome, BlockClusterFeatureConfig configTwigs, BlockClusterFeatureConfig configLeaves, int frequency, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		
 		biome.addFeature(decoration,
-				Feature.field_227248_z_.func_225566_b_(configTwigs)
-				.func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE
-						.func_227446_a_(new FrequencyConfig(frequency))));
+				Feature.RANDOM_PATCH.withConfiguration(configTwigs)
+				.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE
+						.configure(new FrequencyConfig(frequency))));
 		
 		biome.addFeature(decoration,
-				Feature.field_227248_z_.func_225566_b_(configLeaves)
-				.func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE
-						.func_227446_a_(new FrequencyConfig(frequency))));
+				Feature.RANDOM_PATCH.withConfiguration(configLeaves)
+				.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE
+						.configure(new FrequencyConfig(frequency))));
 	}
 	
 	private static void addFallenTreeFeature(Biome biome, BlockState log, Feature<BlockStateFeatureConfig> feature, int frequency) {
-		biome.addFeature(Decoration.VEGETAL_DECORATION, feature.func_225566_b_(new BlockStateFeatureConfig(log)).func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE.func_227446_a_(new FrequencyConfig(frequency))));
+		biome.addFeature(Decoration.VEGETAL_DECORATION, feature.withConfiguration(new BlockStateFeatureConfig(log)).withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(frequency))));
 	}
 	
 	private static void addFrequencyFeature(Biome biome, BlockClusterFeatureConfig config, int frequency, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		biome.addFeature(decoration,
-				Feature.field_227248_z_.func_225566_b_(config)
-				.func_227228_a_(Placement.COUNT_HEIGHTMAP_DOUBLE
-						.func_227446_a_(new FrequencyConfig(frequency))));
+				Feature.RANDOM_PATCH.withConfiguration(config)
+				.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE
+						.configure(new FrequencyConfig(frequency))));
 	}
 	
 	private static void addFrequencyChanceFeature(Biome biome, BlockClusterFeatureConfig config, int frequency, float chance, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		biome.addFeature(decoration,
-				Feature.field_227248_z_.func_225566_b_(config)
-				.func_227228_a_(Placement.COUNT_CHANCE_HEIGHTMAP_DOUBLE
-						.func_227446_a_(new HeightWithChanceConfig(frequency, chance))));
+				Feature.RANDOM_PATCH.withConfiguration(config)
+				.withPlacement(Placement.COUNT_CHANCE_HEIGHTMAP_DOUBLE
+						.configure(new HeightWithChanceConfig(frequency, chance))));
 	}
 	
 	private static void addChanceFeature(Biome biome, BlockClusterFeatureConfig config, int chance, boolean underground) {
 		GenerationStage.Decoration decoration = underground ? GenerationStage.Decoration.UNDERGROUND_DECORATION : GenerationStage.Decoration.VEGETAL_DECORATION;
 		biome.addFeature(decoration,
-				Feature.field_227248_z_.func_225566_b_(config)
-				.func_227228_a_(Placement.CHANCE_HEIGHTMAP_DOUBLE.func_227446_a_(new ChanceConfig(chance))));
+				Feature.RANDOM_PATCH.withConfiguration(config)
+				.withPlacement(Placement.CHANCE_HEIGHTMAP_DOUBLE.configure(new ChanceConfig(chance))));
 	}
 	
 	private static void addNetherFeature(Biome biome, BlockClusterFeatureConfig configRocks, float chance) {
 		biome.addFeature(GenerationStage.Decoration.UNDERGROUND_DECORATION,
-				Feature.field_227248_z_.func_225566_b_(configRocks)
-				.func_227228_a_(Placement.CHANCE_RANGE
-						.func_227446_a_(new ChanceRangeConfig(chance, 0, 0, 128))));
+				Feature.RANDOM_PATCH.withConfiguration(configRocks)
+				.withPlacement(Placement.CHANCE_RANGE
+						.configure(new ChanceRangeConfig(chance, 0, 0, 128))));
 	}
 }

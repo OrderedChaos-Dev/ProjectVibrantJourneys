@@ -52,8 +52,8 @@ public class CropShotEntity extends ProjectileItemEntity {
 	public void handleStatusUpdate(byte id) {
 		if (id == 3) {
 			for (int i = 0; i < 8; ++i) {
-				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItem()), this.func_226277_ct_(),
-						this.func_226278_cu_(), this.func_226281_cx_(), ((double) this.rand.nextFloat() - 0.5D) * 0.08D,
+				this.world.addParticle(new ItemParticleData(ParticleTypes.ITEM, this.getItem()), this.getPosX(),
+						this.getPosY(), this.getPosZ(), ((double) this.rand.nextFloat() - 0.5D) * 0.08D,
 						((double) this.rand.nextFloat() - 0.5D) * 0.08D,
 						((double) this.rand.nextFloat() - 0.5D) * 0.08D);
 			}
@@ -95,7 +95,7 @@ public class CropShotEntity extends ProjectileItemEntity {
 	}
 
 	@Override
-	protected Item func_213885_i() {
+	protected Item getDefaultItem() {
 		return this.getDataManager().get(CROP).getItem();
 	}
 

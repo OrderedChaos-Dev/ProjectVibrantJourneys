@@ -135,7 +135,7 @@ public class PVJEvents {
 		if(event.getEntityLiving() instanceof MagmaCubeEntity) {
 			MagmaCubeEntity magmaCube = (MagmaCubeEntity)event.getEntityLiving();
 			magmaCube.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(magmaCube, IceCubeEntity.class, 10, true, false, (entity) -> {
-				return Math.abs(entity.func_226278_cu_() - magmaCube.func_226278_cu_()) <= 4.0D;
+				return Math.abs(entity.getPosY() - magmaCube.getPosY()) <= 4.0D;
 			}));
 			magmaCube.getCollisionBox(magmaCube);
 		}

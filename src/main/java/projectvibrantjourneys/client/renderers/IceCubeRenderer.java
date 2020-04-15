@@ -25,21 +25,20 @@ public class IceCubeRenderer extends MobRenderer<IceCubeEntity, SlimeModel<IceCu
 	}
 	
 	@Override
-	public void func_225623_a_(IceCubeEntity entity, float p_225623_2_, float p_225623_3_, MatrixStack matrixstack,
-			IRenderTypeBuffer p_225623_5_, int p_225623_6_) {
+	public void render(IceCubeEntity entity, float entityYaw, float partialTicks, MatrixStack matrixstack, IRenderTypeBuffer bufferIn, int packedLightIn) {
 		this.shadowSize = 0.25F * (float) entity.getSlimeSize();
-		super.func_225623_a_(entity, p_225623_2_, p_225623_3_, matrixstack, p_225623_5_, p_225623_6_);
+		super.render(entity, entityYaw, partialTicks, matrixstack, bufferIn, packedLightIn);
 	}
 
 	@Override
-	protected void func_225620_a_(IceCubeEntity entity, MatrixStack matrixstack, float p_225620_3_) {
-		matrixstack.func_227862_a_(0.999F, 0.999F, 0.999F);
-		matrixstack.func_227861_a_(0.0D, (double) 0.001F, 0.0D);
+	protected void preRenderCallback(IceCubeEntity entity, MatrixStack matrixstack, float p_225620_3_) {
+		matrixstack.scale(0.999F, 0.999F, 0.999F);
+		matrixstack.translate(0.0D, (double) 0.001F, 0.0D);
 		float f1 = (float) entity.getSlimeSize();
 		float f2 = MathHelper.lerp(p_225620_3_, entity.prevSquishFactor, entity.squishFactor)
 				/ (f1 * 0.5F + 1.0F);
 		float f3 = 1.0F / (f2 + 1.0F);
-		matrixstack.func_227862_a_(f3 * f1, 1.0F / f3 * f1, f3 * f1);
+		matrixstack.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
 	
 	@Override

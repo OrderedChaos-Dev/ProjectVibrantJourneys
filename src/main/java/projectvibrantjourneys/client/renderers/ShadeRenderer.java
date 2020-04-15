@@ -25,7 +25,7 @@ public class ShadeRenderer extends BipedRenderer<ShadeEntity, AngryGhostModel<Sh
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(ShadeEntity entity, boolean flag) {
+	protected boolean isVisible(ShadeEntity entity) {
 		return false;
 	}
 }

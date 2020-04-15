@@ -98,7 +98,7 @@ public class WillowTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfi
         Direction facing = Direction.Plane.HORIZONTAL.random(rand);
         int length;
         ArrayList<BlockPos> outerLeaves = new ArrayList<BlockPos>();
-		BlockState leaf = config.field_227369_n_.func_225574_a_(rand, pos);
+		BlockState leaf = config.leavesProvider.getBlockState(rand, pos);
         
 		for(int i = 0; i <= numBranches; i++)
 		{

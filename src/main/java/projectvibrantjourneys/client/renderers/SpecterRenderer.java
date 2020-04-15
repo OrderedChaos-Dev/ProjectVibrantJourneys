@@ -25,7 +25,7 @@ public class SpecterRenderer extends BipedRenderer<SpecterEntity, AngryGhostMode
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(SpecterEntity entity, boolean flag) {
+	protected boolean isVisible(SpecterEntity entity) {
 		return false;
 	}
 }

@@ -141,7 +141,7 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
     			this.func_227216_a_(world, rand, posA, logs, box, config);
                 topBlock = posA;
         	}
-        	BlockState leaf = config.field_227369_n_.func_225574_a_(rand, pos);
+        	BlockState leaf = config.leavesProvider.getBlockState(rand, pos);
         	topBlock = topBlock.add(0, 1, 0);
         	world.setBlockState(topBlock, leaf, 2);
             
@@ -180,11 +180,11 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 	public Optional<BlockPos> func_227212_a_(IWorldGenerationReader world, int p_227212_2_, int p_227212_3_,
 			int p_227212_4_, BlockPos pos, TreeFeatureConfig config) {
 		BlockPos blockpos;
-		if (!config.field_227372_q_) {
+		if (!config.forcePlacement) {
 			int i = world.getHeight(Heightmap.Type.OCEAN_FLOOR, pos).getY();
 			int j = world.getHeight(Heightmap.Type.WORLD_SURFACE, pos).getY();
 			blockpos = new BlockPos(pos.getX(), i, pos.getZ());
-			if (j - i > config.field_227336_k_) {
+			if (j - i > config.maxWaterDepth) {
 				return Optional.empty();
 			}
 		} else {
@@ -193,7 +193,7 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 
 		if (blockpos.getY() >= 1 && blockpos.getY() + p_227212_2_ + 1 <= world.getMaxHeight()) {
 			for (int i1 = 0; i1 <= p_227212_2_ + 1; ++i1) {
-				int j1 = config.field_227327_a_.func_225570_a_(p_227212_3_, p_227212_2_, p_227212_4_, i1);
+				int j1 = config.foliagePlacer.func_225570_a_(p_227212_3_, p_227212_2_, p_227212_4_, i1);
 				BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
 
 				for (int k = -j1; k <= j1; ++k) {
@@ -202,7 +202,7 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 					while (l <= j1) {
 						if (i1 + blockpos.getY() >= 0 && i1 + blockpos.getY() < world.getMaxHeight()) {
 							blockpos$mutable.setPos(k + blockpos.getX(), i1 + blockpos.getY(), l + blockpos.getZ());
-							if ((func_214587_a(world, blockpos$mutable) || isWater(world, blockpos$mutable) )&& (config.field_227337_l_
+							if ((func_214587_a(world, blockpos$mutable) || isWater(world, blockpos$mutable) )&& (config.ignoreVines
 									|| !func_227222_d_(world, blockpos$mutable))) {
 								++l;
 								continue;

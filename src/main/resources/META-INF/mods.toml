@@ -22,6 +22,6 @@ issueTrackerURL="https://github.com/mc-jt9/ProjectVibrantJourneys/issues"
 [[dependencies.projectvibrantjourneys]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15.1]"
+    versionRange="[1.15,]"
     ordering="NONE"
     side="BOTH"

@@ -53,6 +53,6 @@ public class BeverageItem extends Item {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		playerIn.setActiveHand(handIn);
-		return ActionResult.func_226248_a_(playerIn.getHeldItem(handIn));
+		return ActionResult.resultSuccess(playerIn.getHeldItem(handIn));
 	}
 }

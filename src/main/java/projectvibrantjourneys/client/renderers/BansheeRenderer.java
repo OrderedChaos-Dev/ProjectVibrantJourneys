@@ -6,7 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.client.models.AngryGhostModel;
-import projectvibrantjourneys.client.models.GhostModel;
 import projectvibrantjourneys.common.entities.monster.BansheeEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -26,7 +25,7 @@ public class BansheeRenderer extends BipedRenderer<BansheeEntity, AngryGhostMode
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(BansheeEntity entity, boolean flag) {
+	protected boolean isVisible(BansheeEntity entity) {
 		return false;
 	}
 }

@@ -64,10 +64,10 @@ public class ScarecrowEntity extends CreatureEntity implements IRangedAttackMob 
 	@Override
 	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
 	      CropShotEntity cropshotentity = new CropShotEntity(this.world, this, crops.getRandom(this.getRNG()));
-	      double d0 = target.func_226280_cw_() - (double)1.1F;
-	      double d1 = target.func_226277_ct_() - this.func_226277_ct_();
-	      double d2 = d0 - cropshotentity.func_226278_cu_();
-	      double d3 = target.func_226281_cx_() - this.func_226281_cx_();
+	      double d0 = target.getHeight() - (double)1.1F;
+	      double d1 = target.getPosX() - this.getPosX();
+	      double d2 = d0 - cropshotentity.getPosY();
+	      double d3 = target.getPosZ() - this.getPosZ();
 	      float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
 	      cropshotentity.shoot(d1, d2 + (double)f, d3, 1.6F, 10.0F);
 	      this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));

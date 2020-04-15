@@ -25,7 +25,7 @@ public class NightmareRenderer extends BipedRenderer<NightmareEntity, AngryGhost
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(NightmareEntity entity, boolean flag) {
+	protected boolean isVisible(NightmareEntity entity) {
 		return false;
 	}
 }

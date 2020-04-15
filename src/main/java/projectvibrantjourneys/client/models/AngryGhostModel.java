@@ -19,8 +19,8 @@ public class AngryGhostModel<T extends MobEntity> extends BipedModel<T> {
 	}
 
 	@Override
-	public void func_225597_a_(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		super.func_225597_a_(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+	public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		super.setRotationAngles(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 		float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
 		float f1 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
 		this.bipedRightArm.rotateAngleZ = 0.0F;
@@ -40,13 +40,13 @@ public class AngryGhostModel<T extends MobEntity> extends BipedModel<T> {
 	
 	//set transparency
 	@Override
-	public void func_225598_a_(MatrixStack p_225598_1_, IVertexBuilder p_225598_2_, int p_225598_3_, int p_225598_4_, float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
+	public void render(MatrixStack stack, IVertexBuilder vertexbuilder, int light, int overlay, float r, float g, float b, float a) {
 		float transparency = 0.8F;
-		this.func_225602_a_().forEach((p_228228_8_) -> {
-			p_228228_8_.func_228309_a_(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, transparency);
+		this.getBodyParts().forEach((renderer) -> {
+			renderer.render(stack, vertexbuilder, light, overlay, r, g, b, transparency);
 		});
-		this.func_225600_b_().forEach((p_228227_8_) -> {
-			p_228227_8_.func_228309_a_(p_225598_1_, p_225598_2_, p_225598_3_, p_225598_4_, p_225598_5_, p_225598_6_, p_225598_7_, transparency);
+		this.getBodyParts().forEach((renderer) -> {
+			renderer.render(stack, vertexbuilder, light, overlay, r, g, b, transparency);
 		});
 	}
 }

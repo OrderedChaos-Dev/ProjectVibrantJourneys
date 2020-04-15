@@ -11,8 +11,10 @@ import projectvibrantjourneys.common.world.FeatureManager;
 import projectvibrantjourneys.init.PVJFeatures;
 
 public class WillowTree extends Tree {
-   @Nullable
-   protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random rand) {
-      return PVJFeatures.willowTree.func_225566_b_(FeatureManager.WILLOW_TREE);
+	
+	@Nullable
+	@Override
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean flag) {
+      return PVJFeatures.willowTree.withConfiguration(FeatureManager.WILLOW_TREE);
    }
 }

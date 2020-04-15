@@ -23,21 +23,21 @@ public class RocksBlockStateProvider extends BlockStateProvider {
 		   	PVJBlocks.granite_rocks.getDefaultState()
 		   };
    public RocksBlockStateProvider() {
-      super(BlockStateProviderType.field_227397_d_);
+      super(BlockStateProviderType.SIMPLE_STATE_PROVIDER);
    }
 
    public <T> RocksBlockStateProvider(Dynamic<T> p_i225856_1_) {
       this();
    }
 
-   public BlockState func_225574_a_(Random rand, BlockPos pos) {
+   public BlockState getBlockState(Random rand, BlockPos pos) {
 	   int length = rocks.length;
 	   return rocks[rand.nextInt(length)];
    }
 
    public <T> T serialize(DynamicOps<T> p_218175_1_) {
       Builder<T, T> builder = ImmutableMap.builder();
-      builder.put(p_218175_1_.createString("type"), p_218175_1_.createString(Registry.field_229387_t_.getKey(this.field_227393_a_).toString()));
+      builder.put(p_218175_1_.createString("type"), p_218175_1_.createString(Registry.BLOCK_STATE_PROVIDER_TYPE.getKey(this.blockStateProvider).toString()));
       return (new Dynamic<>(p_218175_1_, p_218175_1_.createMap(builder.build()))).getValue();
    }
 }

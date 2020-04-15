@@ -64,7 +64,7 @@ public class ShortGrassBlock extends BushBlock implements IGrowable{
 	}
 
 	@Override
-	public void func_225535_a_(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+	public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
 		DoublePlantBlock doubleplantblock = (DoublePlantBlock) Blocks.TALL_GRASS;
 		if (doubleplantblock.getDefaultState().isValidPosition(world, pos)
 				&& world.isAirBlock(pos.up())) {

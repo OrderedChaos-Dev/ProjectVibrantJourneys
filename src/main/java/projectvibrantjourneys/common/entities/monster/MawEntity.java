@@ -147,9 +147,8 @@ public class MawEntity extends MonsterEntity {
 		return this.dataManager.get(FRIENDLY);
 	}
 	
-	//should despawn if peaceful difficulty
 	@Override
-	protected boolean func_225511_J_() {
+	protected boolean isDespawnPeaceful() {
 		return !this.dataManager.get(FRIENDLY);
 	}
 
@@ -160,7 +159,7 @@ public class MawEntity extends MonsterEntity {
 		boolean flag = entity.attackEntityFrom(DamageSource.causeMobDamage(this), f);
 		if (flag) {
 			if (entity instanceof LivingEntity) {
-		          Vec3d vec3d = new Vec3d(this.func_226277_ct_() - entity.func_226277_ct_(), 0.1, this.func_226281_cx_() - entity.func_226281_cx_());
+		          Vec3d vec3d = new Vec3d(this.getPosX() - entity.getPosX(), 0.1, this.getPosZ() - entity.getPosZ());
 		          entity.setMotion(vec3d.normalize().scale(0.5));
 		          ((LivingEntity) entity).addPotionEffect(new EffectInstance(Effects.SLOWNESS, 40, 5));
 		          if(this.getAttachmentFace() == Direction.UP) {
@@ -213,7 +212,7 @@ public class MawEntity extends MonsterEntity {
 		if(this.getDataManager().get(FRIENDLY)) {
 			if(this.rand.nextFloat() < 0.2F) {
 				if(this.rand.nextFloat() < 0.1F) {
-					this.world.addParticle(ParticleTypes.HEART, this.func_226282_d_(0.5D), this.func_226279_cv_(), this.func_226287_g_(0.5D), 0.0D, 0.0D, 0.0D);
+					this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(0.5D), this.getPosYRandom(), this.getPosZRandom(0.5D), 0.0D, 0.0D, 0.0D);
 				}
 			}
 		}
@@ -229,7 +228,7 @@ public class MawEntity extends MonsterEntity {
 					if(this.hasCustomName()) {
 						stack.setDisplayName(this.getCustomName());
 					}
-		            ItemEntity itementity = new ItemEntity(world, this.func_226277_ct_(), this.func_226278_cu_(), this.func_226281_cx_(), stack);
+		            ItemEntity itementity = new ItemEntity(world, this.getPosX(), this.getPosY(), this.getPosZ(), stack);
 		            itementity.setDefaultPickupDelay();
 		            world.addEntity(itementity);
 		            this.remove();
@@ -241,7 +240,7 @@ public class MawEntity extends MonsterEntity {
 				
 				for(int i = 0; i < 5; i++) {
 					double offset = rand.nextFloat() * 0.5;
-					this.world.addParticle(ParticleTypes.HEART, this.func_226282_d_(offset), this.func_226279_cv_(), this.func_226287_g_(offset), 0.0D, 0.0D, 0.0D);
+					this.world.addParticle(ParticleTypes.HEART, this.getPosXRandom(offset), this.getPosYRandom(), this.getPosZRandom(offset), 0.0D, 0.0D, 0.0D);
 				}	
 			}
 		}

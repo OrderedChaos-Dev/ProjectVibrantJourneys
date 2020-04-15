@@ -16,19 +16,19 @@ public class SnailModel<T extends Entity> extends SegmentedModel<T> {
 
 		body = new ModelRenderer(this);
 		body.setRotationPoint(0.0F, 24.0F, 0.0F);
-		body.func_217178_a("body", -2.0F, -4.0F, -8.0F, 4, 4, 16, 0.0F, 0, 0);
-		body.func_217178_a("shell", -2.0F, -12.0F, -4.0F, 4, 8, 8, 0.0F, 40, 4);
+		body.addBox("body", -2.0F, -4.0F, -8.0F, 4, 4, 16, 0.0F, 0, 0);
+		body.addBox("shell", -2.0F, -12.0F, -4.0F, 4, 8, 8, 0.0F, 40, 4);
 
 		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 24.0F, 0.0F);
 		setRotationAngle(head, -0.2618F, 0.0F, 0.0F);
-		head.func_217178_a("head", -2.0F, -2.0F, -11.5F, 4, 4, 4, 0.0F, 0, 0);
-		head.func_217178_a("antenna1", -2.0F, -4.0F, -11.0F, 1, 2, 1, 0.0F, 0, 0);
-		head.func_217178_a("antenna2", 1.0F, -4.0F, -11.0F, 1, 2, 1, 0.0F, 0, 0);
+		head.addBox("head", -2.0F, -2.0F, -11.5F, 4, 4, 4, 0.0F, 0, 0);
+		head.addBox("antenna1", -2.0F, -4.0F, -11.0F, 1, 2, 1, 0.0F, 0, 0);
+		head.addBox("antenna2", 1.0F, -4.0F, -11.0F, 1, 2, 1, 0.0F, 0, 0);
 	}
 	
 	@Override
-	public Iterable<ModelRenderer> func_225601_a_() {
+	public Iterable<ModelRenderer> getParts() {
 		return ImmutableList.of(this.body, this.head);
 	}
 
@@ -39,7 +39,7 @@ public class SnailModel<T extends Entity> extends SegmentedModel<T> {
 	}
 
 	@Override
-	public void func_225597_a_(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setRotationAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 	}
 }

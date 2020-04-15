@@ -40,14 +40,14 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	private GroundcoverBlock.Type type;
 	
 	public GroundcoverBlock(Material material, GroundcoverBlock.Type type) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F).func_226896_b_()); //.func_226896_b_() isSolid
+		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F).notSolid());
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
 		
 		this.type = type;
 	}
 	
 	public GroundcoverBlock(Material material, GroundcoverBlock.Type type, SoundType soundType) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType).func_226896_b_());
+		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType).notSolid());
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
 		
 		this.type = type;
@@ -118,7 +118,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	}
 	
 	@Override
-	public ActionResultType func_225533_a_(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
+	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
 		if (!player.abilities.allowEdit) {
 			return ActionResultType.PASS;
 		} else {

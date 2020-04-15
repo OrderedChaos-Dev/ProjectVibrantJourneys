@@ -25,7 +25,7 @@ public class PhantasmRenderer extends BipedRenderer<PhantasmEntity, AngryGhostMo
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(PhantasmEntity entity, boolean flag) {
+	protected boolean isVisible(PhantasmEntity entity) {
 		return false;
 	}
 }

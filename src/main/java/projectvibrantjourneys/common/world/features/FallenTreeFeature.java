@@ -60,7 +60,7 @@ public class FallenTreeFeature extends Feature<BlockStateFeatureConfig> {
 			
 			shouldPlace = false;
 			
-			BlockState log = config.field_227270_a_;
+			BlockState log = config.state;
 			
 			boolean isBranched = false;
 			BlockPos logPos = pos;

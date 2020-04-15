@@ -46,14 +46,14 @@ public class FloatingPlantItem extends BlockItem {
 		ItemStack itemstack = player.getHeldItem(hand);
 		RayTraceResult raytraceresult = rayTrace(world, player, RayTraceContext.FluidMode.SOURCE_ONLY);
 		if (raytraceresult.getType() == RayTraceResult.Type.MISS) {
-			return ActionResult.func_226250_c_(itemstack);
+			return ActionResult.resultFail(itemstack);
 		} else {
 			if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
 				BlockRayTraceResult blockraytraceresult = (BlockRayTraceResult) raytraceresult;
 				BlockPos blockpos = blockraytraceresult.getPos();
 				Direction direction = blockraytraceresult.getFace();
 				if (!world.isBlockModifiable(player, blockpos) || !player.canPlayerEdit(blockpos.offset(direction), direction, itemstack)) {
-					return ActionResult.func_226251_d_(itemstack);
+					return ActionResult.resultSuccess(itemstack);
 				}
 
 				BlockPos blockpos1 = blockpos.up();
@@ -70,7 +70,7 @@ public class FloatingPlantItem extends BlockItem {
 					if (net.minecraftforge.event.ForgeEventFactory.onBlockPlace(player, blocksnapshot,
 							net.minecraft.util.Direction.UP)) {
 						blocksnapshot.restore(true, false);
-						return ActionResult.func_226251_d_(itemstack);
+						return ActionResult.resultSuccess(itemstack);
 					}
 
 					if (player instanceof ServerPlayerEntity) {
@@ -84,11 +84,11 @@ public class FloatingPlantItem extends BlockItem {
 					player.addStat(Stats.ITEM_USED.get(this));
 					world.playSound(player, blockpos, SoundEvents.BLOCK_LILY_PAD_PLACE, SoundCategory.BLOCKS, 1.0F,
 							1.0F);
-					return ActionResult.func_226248_a_(itemstack);
+					return ActionResult.resultSuccess(itemstack);
 				}
 			}
 
-			return ActionResult.func_226251_d_(itemstack);
+			return ActionResult.resultSuccess(itemstack);
 		}
 	}
 }

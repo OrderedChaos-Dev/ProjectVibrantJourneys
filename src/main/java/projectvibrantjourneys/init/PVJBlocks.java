@@ -64,9 +64,10 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBlocks {
 
 	/* GROUNDCOVERS */
-	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs, fir_twigs, pine_twigs, palm_twigs, willow_twigs, mangrove_twigs;
-	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves, dark_oak_fallen_leaves,
-							acacia_fallen_leaves, fir_fallen_leaves, pine_fallen_leaves, palm_fallen_leaves, willow_fallen_leaves, mangrove_fallen_leaves;
+	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs,
+						fir_twigs, pine_twigs, palm_twigs, willow_twigs, mangrove_twigs, cottonwood_twigs;
+	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves, dark_oak_fallen_leaves, acacia_fallen_leaves,
+						fir_fallen_leaves, pine_fallen_leaves, palm_fallen_leaves, willow_fallen_leaves, mangrove_fallen_leaves, cottonwood_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
 			red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget, flint;
@@ -104,7 +105,11 @@ public class PVJBlocks {
 	public static Block mangrove_sapling, mangrove_log, mangrove_leaves, mangrove_planks, stripped_mangrove_log, mangrove_wood, stripped_mangrove_wood,
 	mangrove_sign, mangrove_wall_sign, mangrove_pressure_plate, mangrove_trapdoor, mangrove_button, mangrove_slab, mangrove_fence_gate, mangrove_fence,
 	mangrove_door, mangrove_stairs;
-		
+	
+	public static Block cottonwood_sapling, cottonwood_log, cottonwood_leaves, cottonwood_planks, stripped_cottonwood_log, cottonwood_wood, stripped_cottonwood_wood,
+	cottonwood_sign, cottonwood_wall_sign, cottonwood_pressure_plate, cottonwood_trapdoor, cottonwood_button, cottonwood_slab, cottonwood_fence_gate, cottonwood_fence,
+	cottonwood_door, cottonwood_stairs;
+	
 	public static Block coconut;
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_palm_sapling, potted_willow_sapling, potted_mangrove_sapling,
 						potted_small_cactus, potted_glowcap;
@@ -125,6 +130,7 @@ public class PVJBlocks {
 		palm_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "palm_twigs", 100);
 		willow_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "willow_twigs", 100);
 		mangrove_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "mangrove_twigs", 100);
+		cottonwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "cottonwood_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -137,6 +143,7 @@ public class PVJBlocks {
 		palm_fallen_leaves = registerBlock(new FallenLeavesBlock(), "palm_fallen_leaves");
 		willow_fallen_leaves = registerBlock(new FallenLeavesBlock(), "willow_fallen_leaves");
 		mangrove_fallen_leaves = registerBlock(new FallenLeavesBlock(), "mangrove_fallen_leaves");
+		cottonwood_fallen_leaves = registerBlock(new FallenLeavesBlock(), "cottonwood_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
@@ -174,16 +181,16 @@ public class PVJBlocks {
 		
 		glowcap_block = registerBlock(new HugeMushroomBlock(Block.Properties.create(Material.WOOD, MaterialColor.YELLOW).hardnessAndResistance(0.2F).lightValue(12).sound(SoundType.WOOD)), "glowcap_block");
 		
-		potted_fir_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> fir_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_fir_sapling");
-		potted_pine_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> pine_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_pine_sapling");
-		potted_palm_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> palm_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_palm_sapling");
-		potted_willow_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> willow_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_willow_sapling");
-		potted_mangrove_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> mangrove_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_mangrove_sapling");
-		potted_glowcap = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> glowcap, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).lightValue(10).func_226896_b_()), "potted_glowcap");
-		potted_small_cactus = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> small_cactus, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).func_226896_b_()), "potted_small_cactus");
+		potted_fir_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> fir_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_fir_sapling");
+		potted_pine_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> pine_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_pine_sapling");
+		potted_palm_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> palm_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_palm_sapling");
+		potted_willow_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> willow_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_willow_sapling");
+		potted_mangrove_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> mangrove_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_mangrove_sapling");
+		potted_glowcap = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> glowcap, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).lightValue(10).notSolid()), "potted_glowcap");
+		potted_small_cactus = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> small_cactus, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_small_cactus");
 		
 		fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "fir_log");
-		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "fir_leaves");
+		fir_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "fir_leaves");
 		fir_sapling = registerBlock(new PVJSaplingBlock(new FirTree()), "fir_sapling");
 		fir_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_planks");
 		stripped_fir_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_fir_log");
@@ -191,18 +198,18 @@ public class PVJBlocks {
 		stripped_fir_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_fir_wood");
 		fir_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_pressure_plate");
 		fir_stairs = registerBlockWithFuel(new StairsBlock(() -> fir_planks.getDefaultState(), Block.Properties.from(fir_planks)), "fir_stairs", 300);
-		fir_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "fir_trapdoor");
+		fir_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "fir_trapdoor");
 		fir_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "fir_button");
 		fir_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_slab");
 		fir_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence_gate");
 		fir_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "fir_fence");
-		fir_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "fir_door");
+		fir_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "fir_door");
 		
 //		fir_sign = registerBlockWithoutItem(new StandingSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodType.field_227038_a_), "fir_sign");
 //		fir_wall_sign = registerBlockWithoutItem(new WallSignBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD), WoodType.field_227038_a_), "fir_wall_sign");
 		
 		pine_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "pine_log");
-		pine_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "pine_leaves");
+		pine_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "pine_leaves");
 		pine_sapling = registerBlock(new PVJSaplingBlock(new PineTree()), "pine_sapling");
 		pine_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_planks");
 		stripped_pine_log = registerBlock(new LogBlock(MaterialColor.BROWN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_pine_log");
@@ -210,15 +217,15 @@ public class PVJBlocks {
 		stripped_pine_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_pine_wood");
 		pine_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "pine_pressure_plate");
 		pine_stairs = registerBlockWithFuel(new StairsBlock(() -> pine_planks.getDefaultState(), Block.Properties.from(pine_planks)), "pine_stairs", 300);
-		pine_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "pine_trapdoor");
+		pine_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "pine_trapdoor");
 		pine_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "pine_button");
 		pine_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_slab");
 		pine_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence_gate");
 		pine_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "pine_fence");
-		pine_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "pine_door");
+		pine_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "pine_door");
 
 		palm_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "palm_log");
-		palm_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "palm_leaves");
+		palm_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "palm_leaves");
 		palm_sapling = registerBlock(new PVJSaplingBlock(new PalmTree()), "palm_sapling");
 		palm_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_planks");
 		stripped_palm_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_palm_log");
@@ -226,16 +233,16 @@ public class PVJBlocks {
 		stripped_palm_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_palm_wood");
 		palm_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.WOOD).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_pressure_plate");
 		palm_stairs = registerBlockWithFuel(new StairsBlock(() -> palm_planks.getDefaultState(), Block.Properties.from(palm_planks)), "palm_stairs", 300);
-		palm_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "palm_trapdoor");
+		palm_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "palm_trapdoor");
 		palm_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "palm_button");
 		palm_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_slab");
 		palm_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence_gate");
 		palm_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "palm_fence");
-		palm_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "palm_door");
+		palm_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "palm_door");
 		coconut = registerBlock(new CoconutBlock(), "coconut"); 	
 		
 		willow_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "willow_log");
-		willow_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "willow_leaves");
+		willow_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "willow_leaves");
 		willow_sapling = registerBlock(new PVJSaplingBlock(new WillowTree()), "willow_sapling");
 		willow_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_planks");
 		stripped_willow_log = registerBlock(new LogBlock(MaterialColor.GRAY, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_willow_log");
@@ -243,15 +250,15 @@ public class PVJBlocks {
 		stripped_willow_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_willow_wood");
 		willow_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "willow_pressure_plate");
 		willow_stairs = registerBlockWithFuel(new StairsBlock(() -> willow_planks.getDefaultState(), Block.Properties.from(willow_planks)), "willow_stairs", 300);
-		willow_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "willow_trapdoor");
+		willow_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "willow_trapdoor");
 		willow_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "willow_button");
 		willow_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_slab");
 		willow_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence_gate");
 		willow_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "willow_fence");
-		willow_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "willow_door");
+		willow_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "willow_door");
 		
 		mangrove_log = registerBlock(new LogBlock(MaterialColor.WOOD, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "mangrove_log");
-		mangrove_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).func_226896_b_()), "mangrove_leaves");
+		mangrove_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "mangrove_leaves");
 		mangrove_sapling = registerBlock(new PVJSaplingBlock(new MangroveTree()), "mangrove_sapling");
 		mangrove_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "mangrove_planks");
 		stripped_mangrove_log = registerBlock(new LogBlock(MaterialColor.GRAY, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_mangrove_log");
@@ -259,12 +266,12 @@ public class PVJBlocks {
 		stripped_mangrove_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_mangrove_wood");
 		mangrove_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.GRAY).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "mangrove_pressure_plate");
 		mangrove_stairs = registerBlockWithFuel(new StairsBlock(() -> mangrove_planks.getDefaultState(), Block.Properties.from(mangrove_planks)), "mangrove_stairs", 300);
-		mangrove_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "mangrove_trapdoor");
+		mangrove_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "mangrove_trapdoor");
 		mangrove_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "mangrove_button");
 		mangrove_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "mangrove_slab");
 		mangrove_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "mangrove_fence_gate");
 		mangrove_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "mangrove_fence");
-		mangrove_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).func_226896_b_()), "mangrove_door");
+		mangrove_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "mangrove_door");
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -308,8 +315,8 @@ public class PVJBlocks {
 
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderers() {
-		RenderType cutout = RenderType.func_228643_e_();
-		RenderType cutout_mipped = RenderType.func_228641_d_();
+		RenderType cutout = RenderType.getCutout();
+		RenderType cutout_mipped = RenderType.getCutoutMipped();
 		
 		RenderTypeLookup.setRenderLayer(oak_twigs, cutout);
 		RenderTypeLookup.setRenderLayer(birch_twigs, cutout);
@@ -417,7 +424,7 @@ public class PVJBlocks {
 
 	private static void registerFoliageColorBlock(BlockColors bc, Block block) {
 		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.func_228361_b_(world, pos)
+				? BiomeColors.getFoliageColor(world, pos)
 				: FoliageColors.getDefault(), block);
 	}
 
@@ -428,7 +435,7 @@ public class PVJBlocks {
 	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block) {
 		ic.register((itemstack, tintIndex) -> {
 			BlockState state = Blocks.OAK_LEAVES.getDefaultState();
-			int color = bc.func_228054_a_(state, null, null, tintIndex); // get color
+			int color = bc.getColor(state, null, null, tintIndex); // get color
 			return color;
 		}, block);
 	}
@@ -439,7 +446,7 @@ public class PVJBlocks {
 
 	private static void registerGrassColorBlock(BlockColors bc, Block block) {
 		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.func_228358_a_(world, pos)
+				? BiomeColors.getGrassColor(world, pos)
 				: GrassColors.get(0.5D, 1.0D), block);
 	}
 }

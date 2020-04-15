@@ -23,9 +23,8 @@ public class HauntRenderer extends BipedRenderer<HauntEntity, AngryGhostModel<Ha
 		return TEXTURE;
 	}
 	
-	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(HauntEntity entity, boolean flag) {
+	protected boolean isVisible(HauntEntity entity) {
 		return false;
 	}
 }

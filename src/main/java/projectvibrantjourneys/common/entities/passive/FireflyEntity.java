@@ -20,7 +20,7 @@ public class FireflyEntity extends FlyEntity {
 		} else if(world.getLight(pos) > 9) {
 			return false;
 		} else {
-			return func_223315_a(firefly, world, reason, pos, rand);
+			return canSpawnOn(firefly, world, reason, pos, rand);
 		}
 	}
 	

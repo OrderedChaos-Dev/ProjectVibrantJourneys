@@ -25,7 +25,7 @@ public class WraithRenderer extends BipedRenderer<WraithEntity, AngryGhostModel<
 	
 	//this handles transparency - return false for always transparent
 	@Override
-	protected boolean func_225622_a_(WraithEntity entity, boolean flag) {
+	protected boolean isVisible(WraithEntity entity) {
 		return false;
 	}
 }

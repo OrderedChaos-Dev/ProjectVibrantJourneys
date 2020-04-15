@@ -48,7 +48,7 @@ public class PVJFeatures {
 		waterCattailFeature = new WaterCattailFeature(SeaGrassConfig::deserialize);
 		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig::deserialize);
 		cobwebFeature = new CobwebFeature(NoFeatureConfig::deserialize);
-		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::func_227271_a_);
+		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::deserialize);
 		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
 		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
 		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);

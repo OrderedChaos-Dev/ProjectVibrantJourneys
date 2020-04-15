@@ -30,18 +30,18 @@ public class PineTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	@Override
 	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox boundingBox,
 			TreeFeatureConfig config) {
-		int i = config.field_227371_p_ + rand.nextInt(config.field_227328_b_ + 1) + rand.nextInt(config.field_227329_c_ + 1);
-		int j = config.field_227330_d_ >= 0 ? config.field_227330_d_ + rand.nextInt(config.field_227331_f_ + 1)
-				: i - (config.field_227334_i_ + rand.nextInt(config.field_227335_j_ + 1));
-		int k = config.field_227327_a_.func_225573_a_(rand, j, i, config);
+		int i = config.baseHeight + rand.nextInt(config.heightRandA + 1) + rand.nextInt(config.heightRandB + 1);
+		int j = config.trunkHeight >= 0 ? config.trunkHeight + rand.nextInt(config.trunkHeightRandom + 1)
+				: i - (config.foliageHeight + rand.nextInt(config.foliageHeightRandom + 1));
+		int k = config.foliagePlacer.func_225573_a_(rand, j, i, config);
 		Optional<BlockPos> optional = this.func_227212_a_(world, i, j, k, pos, config);
 		if (!optional.isPresent()) {
 			return false;
 		} else {
 			BlockPos blockpos = optional.get();
 			this.setDirtAt(world, blockpos.down(), blockpos);
-			config.field_227327_a_.func_225571_a_(world, rand, config, i, j, k, blockpos, leaves);
-			this.func_227213_a_(world, rand, i, blockpos, config.field_227332_g_ + rand.nextInt(config.field_227333_h_ + 1), logs, boundingBox, config);
+			config.foliagePlacer.func_225571_a_(world, rand, config, i, j, k, blockpos, leaves);
+			this.func_227213_a_(world, rand, i, blockpos, config.trunkTopOffset + rand.nextInt(config.trunkTopOffsetRandom + 1), logs, boundingBox, config);
 			return true;
 		}
 	}

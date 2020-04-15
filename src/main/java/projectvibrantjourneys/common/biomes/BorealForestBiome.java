@@ -25,14 +25,14 @@ public final class BorealForestBiome extends Biome {
     		  .depth(0.18F)
     		  .scale(0.15F)
     		  .temperature(0.23F)
-    		  .downfall(0.8F)
+    		  .downfall(0.8F)	
     		  .waterColor(4159204)
     		  .waterFogColor(329011)
     		  .parent((String)null));
-      this.func_226711_a_(Feature.VILLAGE.func_225566_b_(new VillageConfig("village/taiga/town_centers", 6)));
-      this.func_226711_a_(Feature.PILLAGER_OUTPOST.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
-      this.func_226711_a_(Feature.MINESHAFT.func_225566_b_(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
-      this.func_226711_a_(Feature.STRONGHOLD.func_225566_b_(IFeatureConfig.NO_FEATURE_CONFIG));
+      this.addStructure(Feature.VILLAGE.withConfiguration(new VillageConfig("village/taiga/town_centers", 6)));
+      this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+      this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
+      this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
       DefaultBiomeFeatures.addCarvers(this);
       DefaultBiomeFeatures.addStructures(this);
       DefaultBiomeFeatures.addLakes(this);
@@ -42,8 +42,9 @@ public final class BorealForestBiome extends Biome {
       DefaultBiomeFeatures.addOres(this);
       DefaultBiomeFeatures.addSedimentDisks(this);
       DefaultBiomeFeatures.addDefaultFlowers(this);
-      DefaultBiomeFeatures.func_222319_X(this);
-      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.field_227248_z_.func_225566_b_(DefaultBiomeFeatures.field_226827_v_).func_227228_a_(Placement.NOISE_HEIGHTMAP_DOUBLE.func_227446_a_(new NoiseDependant(-0.8D, 5, 10))));
+      DefaultBiomeFeatures.addTaigaGrassAndMushrooms(this);
+      this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(DefaultBiomeFeatures.GRASS_CONFIG)
+    		  .withPlacement(Placement.NOISE_HEIGHTMAP_DOUBLE.configure(new NoiseDependant(-0.8D, 5, 10))));
       DefaultBiomeFeatures.addMushrooms(this);
       DefaultBiomeFeatures.addReedsAndPumpkins(this);
       DefaultBiomeFeatures.addSprings(this);
@@ -69,13 +70,13 @@ public final class BorealForestBiome extends Biome {
    
    @OnlyIn(Dist.CLIENT)
    @Override
-   public int func_225528_a_(double p_225528_1_, double p_225528_3_) { //get grass color
+   public int getGrassColor(double p_225528_1_, double p_225528_3_) { //get grass color
 	   return 0x00994d;
    }
 
    @OnlyIn(Dist.CLIENT)
    @Override
-   public int func_225527_a_() { //get foliage color
+   public int getFoliageColor() { //get foliage color
 	   return 0x00994d;
    }
 }

@@ -36,7 +36,7 @@ public class GlowcapBlock extends MushroomBlock {
 	public boolean func_226940_a_(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
 	      world.removeBlock(pos, false);
 		ConfiguredFeature<BigMushroomFeatureConfig, ?> configuredfeature;
-		configuredfeature = Feature.HUGE_RED_MUSHROOM.func_225566_b_(FeatureManager.glowcapFeatureConfig);
+		configuredfeature = Feature.HUGE_RED_MUSHROOM.withConfiguration(FeatureManager.glowcapFeatureConfig);
 
 		if (configuredfeature.place(world, world.getChunkProvider().getChunkGenerator(), rand, pos)) {
 			return true;
@@ -47,7 +47,7 @@ public class GlowcapBlock extends MushroomBlock {
 	}
 	
 	@Override
-	public void func_225535_a_(ServerWorld p_225535_1_, Random p_225535_2_, BlockPos p_225535_3_, BlockState p_225535_4_) {
-		this.func_226940_a_(p_225535_1_, p_225535_3_, p_225535_4_, p_225535_2_);
+	public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+		this.func_226940_a_(world, pos, state, rand);
 	}
 }

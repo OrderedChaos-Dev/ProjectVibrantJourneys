@@ -11,8 +11,10 @@ import projectvibrantjourneys.common.world.FeatureManager;
 import projectvibrantjourneys.init.PVJFeatures;
 
 public class PalmTree extends Tree {
-   @Nullable
-   protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random rand) {
-      return PVJFeatures.palmTree.func_225566_b_(FeatureManager.PALM_TREE);
-   }
+	
+	@Nullable
+	@Override
+	protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random randomIn, boolean flag) {
+		return PVJFeatures.palmTree.withConfiguration(FeatureManager.PALM_TREE);
+	}
 }

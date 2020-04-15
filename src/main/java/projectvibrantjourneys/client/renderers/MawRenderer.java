@@ -23,16 +23,16 @@ public class MawRenderer extends MobRenderer<MawEntity, MawModel<MawEntity>> {
 	}
 	
 	@Override
-	protected void func_225620_a_(MawEntity entity, MatrixStack matrixstack, float p_225620_3_) {
-		matrixstack.func_227862_a_(3.0F, 3.0F, 3.0F);
+	protected void preRenderCallback(MawEntity entity, MatrixStack matrixstack, float p_225620_3_) {
+		matrixstack.scale(3.0F, 3.0F, 3.0F);
 	}
 	
 	@Override
-	protected void func_225621_a_(MawEntity entity, MatrixStack matrixstack, float p_225621_3_, float p_225621_4_, float p_225621_5_) {
-		super.func_225621_a_(entity, matrixstack, p_225621_3_, p_225621_4_, p_225621_5_);
+	protected void applyRotations(MawEntity entity, MatrixStack matrixstack, float ageInTicks, float rotationYaw, float partialTicks) {
+		super.applyRotations(entity, matrixstack, ageInTicks, rotationYaw, partialTicks);
 		if(entity.getAttachmentFace() == Direction.UP) {
-			matrixstack.func_227861_a_(0.0D, (double)(entity.getHeight() + 0.1F), 0.0D);
-			matrixstack.func_227863_a_(Vector3f.field_229183_f_.func_229187_a_(180.0F));
+			matrixstack.translate(0.0D, (double)(entity.getHeight() + 0.1F), 0.0D);
+			matrixstack.rotate(Vector3f.ZP.rotationDegrees(180.0F));
 		}
 	}
 	

@@ -39,7 +39,7 @@ public class IceCubeEntity extends SlimeEntity {
 	}
 
 	public static boolean canSpawn(EntityType<IceCubeEntity> type, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
-		if (world.func_226658_a_(LightType.SKY, pos) > rand.nextInt(32)) {
+		if (world.getLightFor(LightType.SKY, pos) > rand.nextInt(32)) {
 			return false;
 		} else {
 			int i = world.getWorld().isThundering() ? world.getNeighborAwareLightSubtracted(pos, 10) : world.getLight(pos);
@@ -52,7 +52,7 @@ public class IceCubeEntity extends SlimeEntity {
 		super.registerGoals();
 		this.targetSelector.addGoal(1,
 				new NearestAttackableTargetGoal<>(this, MagmaCubeEntity.class, 10, true, false, (entity) -> {
-					return Math.abs(entity.func_226278_cu_() - this.func_226278_cu_()) <= 4.0D;
+					return Math.abs(entity.getPosY() - this.getPosY()) <= 4.0D;
 				}));
 	}
 	
@@ -101,23 +101,23 @@ public class IceCubeEntity extends SlimeEntity {
 	public void livingTick() {
 		super.livingTick();
 		if (!this.world.isRemote) {
-			int i = MathHelper.floor(this.func_226277_ct_());
-			int j = MathHelper.floor(this.func_226278_cu_());
-			int k = MathHelper.floor(this.func_226281_cx_());
+			int i = MathHelper.floor(this.getPosX());
+			int j = MathHelper.floor(this.getPosY());
+			int k = MathHelper.floor(this.getPosZ());
 
 			//temperature damage
-			if (this.world.func_226691_t_(new BlockPos(i, 0, k)).func_225486_c(new BlockPos(i, j, k)) > 1.0F) {
+			if (this.world.getBiome(new BlockPos(i, 0, k)).getTemperature(new BlockPos(i, j, k)) > 1.0F) {
 				if(world.getRandom().nextFloat() < 0.2F) {
 					if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, this)) {
 						BlockState blockstate = Blocks.WATER.getDefaultState().with(FlowingFluidBlock.LEVEL, 1);
 
 						for (int l = 0; l < 4; ++l) {
-							i = MathHelper.floor(this.func_226277_ct_() + (double) ((float) (l % 2 * 2 - 1) * 0.25F));
-							j = MathHelper.floor(this.func_226278_cu_());
-							k = MathHelper.floor(this.func_226281_cx_() + (double) ((float) (l / 2 % 2 * 2 - 1) * 0.25F));
+							i = MathHelper.floor(this.getPosX() + (double) ((float) (l % 2 * 2 - 1) * 0.25F));
+							j = MathHelper.floor(this.getPosY());
+							k = MathHelper.floor(this.getPosZ() + (double) ((float) (l / 2 % 2 * 2 - 1) * 0.25F));
 							BlockPos blockpos = new BlockPos(i, j, k);
 							if (this.world.isAirBlock(blockpos)
-									&& this.world.func_226691_t_(blockpos).func_225486_c(blockpos) < 0.8F
+									&& this.world.getBiome(blockpos).getTemperature(blockpos) < 0.8F
 									&& blockstate.isValidPosition(this.world, blockpos)) {
 								this.world.setBlockState(blockpos, blockstate);
 							}
