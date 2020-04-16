@@ -88,7 +88,6 @@ public class PVJConfig {
 	public static ForgeConfigSpec.IntValue snowyBorealForestWeight;
 	public static ForgeConfigSpec.IntValue borealPlateauWeight;
 	public static ForgeConfigSpec.IntValue willowWetlandsWeight;
-	public static ForgeConfigSpec.IntValue fungalJungleWeight;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -206,7 +205,6 @@ public class PVJConfig {
 		snowyBorealForestWeight = COMMON_BUILDER.comment("Snowy Boreal Forest Weight").defineInRange("snowyBorealForestWeight", ConfigDefaults.SNOWY_BOREAL_FOREST_WEIGHT, 0, 100);
 		borealPlateauWeight = COMMON_BUILDER.comment("Boreal Plateau Weight").defineInRange("borealPlateauWeight", ConfigDefaults.BOREAL_PLATEAU_WEIGHT, 0, 100);
 		willowWetlandsWeight = COMMON_BUILDER.comment("Willow Wetlands Weight").defineInRange("willowWetlandsWeight", ConfigDefaults.WILLOW_WETLANDS_WEIGHT, 0, 100);
-		fungalJungleWeight = COMMON_BUILDER.comment("Fungal Jungle Weight").defineInRange("fungalJungleWeight", ConfigDefaults.FUNGAL_JUNGLE_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {

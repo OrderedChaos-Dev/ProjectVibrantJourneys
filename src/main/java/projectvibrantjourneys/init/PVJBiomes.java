@@ -16,13 +16,11 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
-import projectvibrantjourneys.common.biomes.FungalJungleBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiomes;
 import projectvibrantjourneys.common.world.surfacebuilders.BorealPlateauSurfaceBuilder;
-import projectvibrantjourneys.common.world.surfacebuilders.FungalJungleSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -37,11 +35,9 @@ public class PVJBiomes {
 	public static Biome boreal_plateau;
 //	public static Biome prairie;
 	public static Biome willow_wetlands;
-	public static Biome fungal_jungle;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS_SB = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_PLATEAU_SB = new BorealPlateauSurfaceBuilder(SurfaceBuilderConfig::deserialize);
-	public static final SurfaceBuilder<SurfaceBuilderConfig> FUNGAL_JUNGLE_SB = new FungalJungleSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
@@ -51,7 +47,6 @@ public class PVJBiomes {
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", PVJConfig.snowyBorealForestWeight.get());
 		boreal_plateau = registerBiome(new BorealPlateauBiome(), BiomeType.ICY, "boreal_plateau", PVJConfig.borealPlateauWeight.get());
 		willow_wetlands = registerBiome(new WillowWetlandsBiomes(), BiomeType.WARM, "willow_wetlands", PVJConfig.willowWetlandsWeight.get());
-		fungal_jungle = registerBiome(new FungalJungleBiome(), BiomeType.WARM, "fungal_jungle", PVJConfig.fungalJungleWeight.get());
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -70,7 +65,6 @@ public class PVJBiomes {
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);
 		addBiomeTypes(boreal_plateau, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY, Type.MOUNTAIN);
 		addBiomeTypes(willow_wetlands, Type.OVERWORLD, Type.SWAMP, Type.WET);
-		addBiomeTypes(fungal_jungle, Type.OVERWORLD, Type.WET, Type.JUNGLE, Type.LUSH, Type.SWAMP, Type.HOT, Type.DENSE);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {
