@@ -18,6 +18,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractSmallTreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 
 public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig> {
 
@@ -64,22 +65,26 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
         			BlockPos pos1 = posRoot.west(2);
         			for(; isReplaceable(world, pos1); pos1 = pos1.down())
         			{
-        				this.func_227216_a_(world, rand, pos1, logs, box, config);
+        		         this.func_227217_a_(world, pos1, config.trunkProvider.getBlockState(rand, pos1), box);
+        		         logs.add(pos1.toImmutable());
         			}
         			BlockPos pos2 = posRoot.east(2);
         			for(; isReplaceable(world, pos2); pos2 = pos2.down())
         			{
-        				this.func_227216_a_(world, rand, pos2, logs, box, config);
+       		         this.func_227217_a_(world, pos2, config.trunkProvider.getBlockState(rand, pos2), box);
+       		         logs.add(pos2.toImmutable());
         			}
         			BlockPos pos3 = posRoot.north(2);
         			for(; isReplaceable(world, pos3); pos3 = pos3.down())
         			{
-        				this.func_227216_a_(world, rand, pos3, logs, box, config);
+       		         this.func_227217_a_(world, pos3, config.trunkProvider.getBlockState(rand, pos3), box);
+       		         logs.add(pos3.toImmutable());
         			}
         			BlockPos pos4 = posRoot.south(2);
         			for(; isReplaceable(world, pos4); pos4 = pos4.down())
         			{
-        				this.func_227216_a_(world, rand, pos4, logs, box, config);
+       		         this.func_227217_a_(world, pos4, config.trunkProvider.getBlockState(rand, pos4), box);
+       		         logs.add(pos4.toImmutable());
         			}
         		}
         		if(i == rootHeight + 1)
@@ -234,6 +239,7 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 	
 	public boolean isReplaceable(IWorldGenerationReader world, BlockPos pos) {
 		return world.hasBlockState(pos, (s) -> s.getBlock() == Blocks.WATER || s.getBlock() == Blocks.AIR || s.getMaterial().isReplaceable()
-					|| s.getMaterial() == Material.OCEAN_PLANT || s.getBlock() instanceof LilyPadBlock);
+					|| s.getMaterial() == Material.OCEAN_PLANT || s.getBlock() instanceof LilyPadBlock
+					|| s.getMaterial() == Material.PLANTS || s.getBlock() instanceof GroundcoverBlock);
 	}
 }
