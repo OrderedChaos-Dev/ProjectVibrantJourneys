@@ -13,13 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 public class PVJConfig {
 	
 	public static final String CAT_WORLDGEN = "worldgen";
-	public static final String CAT_GROUNDCOVER = "groundcover";
-	public static final String CAT_GROUNDCOVER_TWIGS = "twigs";
-	public static final String CAT_GROUNDCOVER_FALLEN_LEAVES = "fallen leaves";
-	public static final String CAT_GROUNDCOVER_ROCKS = "rocks";
-	public static final String CAT_GROUNDCOVER_BONES = "bones";
-	public static final String CAT_GROUNDCOVER_OTHER = "other";
-	public static final String CAT_WORLDGEN_MISC = "misc";
+	public static final String CAT_BIOMES = "biomes";
 	public static final String CAT_MOBS = "mobs";
 	
 	private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
@@ -88,6 +82,14 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> glowcapBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> shortGrassBiomes;
 	
+	public static ForgeConfigSpec.IntValue overgrownSpiresWeight;
+	public static ForgeConfigSpec.IntValue verdantSandsWeight;
+	public static ForgeConfigSpec.IntValue borealForestWeight;
+	public static ForgeConfigSpec.IntValue snowyBorealForestWeight;
+	public static ForgeConfigSpec.IntValue borealPlateauWeight;
+	public static ForgeConfigSpec.IntValue willowWetlandsWeight;
+	public static ForgeConfigSpec.IntValue fungalJungleWeight;
+	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> starfishBiomes;
@@ -115,6 +117,9 @@ public class PVJConfig {
 		ConfigDefaults.load();
 		COMMON_BUILDER.comment("World Gen Settings").push(CAT_WORLDGEN);
 		initWorldGen();
+		COMMON_BUILDER.pop();
+		COMMON_BUILDER.comment("Biome Settings").push(CAT_BIOMES);
+		initBiomes();
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.comment("Mob Settings").push(CAT_MOBS);
 		initMobs();
@@ -192,6 +197,16 @@ public class PVJConfig {
 		glowcapBiomes = COMMON_BUILDER.comment("Glowcap Biomes").define("glowcapBiomes", ConfigDefaults.GLOWCAP);
 		shortGrassBiomes = COMMON_BUILDER.comment("Short Grass Biomes").define("shortGrassBiomes", ConfigDefaults.SHORT_GRASS);
 		seagrassBiomes = COMMON_BUILDER.comment("Seagrass Biomes").define("seagrassBiomes", ConfigDefaults.SEAGRASS);
+	}
+	
+	private static void initBiomes() {
+		overgrownSpiresWeight = COMMON_BUILDER.comment("Overgrown Spires Weight").defineInRange("overgrownSpiresWeight", ConfigDefaults.OVERGROWN_SPIRES_WEIGHT, 0, 100);
+		verdantSandsWeight = COMMON_BUILDER.comment("Verdant Sands Weight").defineInRange("verdantSandsWeight", ConfigDefaults.VERDANT_SANDS_WEIGHT, 0, 100);
+		borealForestWeight = COMMON_BUILDER.comment("Boreal Forest Weight").defineInRange("borealForestWeight", ConfigDefaults.BOREAL_FOREST_WEIGHT, 0, 100);
+		snowyBorealForestWeight = COMMON_BUILDER.comment("Snowy Boreal Forest Weight").defineInRange("snowyBorealForestWeight", ConfigDefaults.SNOWY_BOREAL_FOREST_WEIGHT, 0, 100);
+		borealPlateauWeight = COMMON_BUILDER.comment("Boreal Plateau Weight").defineInRange("borealPlateauWeight", ConfigDefaults.BOREAL_PLATEAU_WEIGHT, 0, 100);
+		willowWetlandsWeight = COMMON_BUILDER.comment("Willow Wetlands Weight").defineInRange("willowWetlandsWeight", ConfigDefaults.WILLOW_WETLANDS_WEIGHT, 0, 100);
+		fungalJungleWeight = COMMON_BUILDER.comment("Fungal Jungle Weight").defineInRange("fungalJungleWeight", ConfigDefaults.FUNGAL_JUNGLE_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {

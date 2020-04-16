@@ -20,7 +20,7 @@ import projectvibrantjourneys.init.PVJBiomes;
 public final class BorealPlateauBiome extends Biome {
    public BorealPlateauBiome() {
       super((new Biome.Builder())
-    		  .surfaceBuilder(PVJBiomes.boreal_cliffs_surface_builder, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
+    		  .surfaceBuilder(PVJBiomes.BOREAL_PLATEAU_SB, SurfaceBuilder.GRASS_DIRT_GRAVEL_CONFIG)
     		  .precipitation(Biome.RainType.SNOW)
     		  .category(Biome.Category.TAIGA)
     		  .depth(2.5F)

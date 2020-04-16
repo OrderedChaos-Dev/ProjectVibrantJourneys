@@ -16,6 +16,7 @@ public class BorealPlateauSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCo
 		super(config);
 	}
 
+	@Override
 	public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise,
 			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
 		if (noise > 0.1D) {

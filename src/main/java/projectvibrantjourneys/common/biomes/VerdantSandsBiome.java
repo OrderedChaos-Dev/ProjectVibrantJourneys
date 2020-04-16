@@ -21,7 +21,7 @@ import projectvibrantjourneys.init.PVJBiomes;
 public final class VerdantSandsBiome extends Biome {
 	public VerdantSandsBiome() {
 		super((new Biome.Builder())
-				.surfaceBuilder(PVJBiomes.verdant_sands_surface_builder, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
+				.surfaceBuilder(PVJBiomes.VERDANT_SANDS_SB, SurfaceBuilder.SAND_SAND_GRAVEL_CONFIG)
 				.precipitation(Biome.RainType.RAIN)
 				.category(Biome.Category.DESERT)
 				.depth(0.125F)
@@ -44,15 +44,12 @@ public final class VerdantSandsBiome extends Biome {
 		DefaultBiomeFeatures.addStoneVariants(this);
 		DefaultBiomeFeatures.addOres(this);
 		DefaultBiomeFeatures.addSedimentDisks(this);
-		DefaultBiomeFeatures.addOakTreesFlowersGrass(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);
 		DefaultBiomeFeatures.addOakAndJungleTrees(this);
 		DefaultBiomeFeatures.addSparseGrass(this);
 		DefaultBiomeFeatures.addSavannaTrees(this);
 		this.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR
 				.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.FANCY_TREE.withConfiguration(DefaultBiomeFeatures.field_230133_p_).func_227227_a_(0.3F),
-						Feature.FANCY_TREE.withConfiguration(DefaultBiomeFeatures.FANCY_TREE_WITH_MORE_BEEHIVES_CONFIG).func_227227_a_(0.6F),
 						Feature.JUNGLE_GROUND_BUSH.withConfiguration(DefaultBiomeFeatures.JUNGLE_GROUND_BUSH_CONFIG).func_227227_a_(0.7F),
 						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.JUNGLE_TREE_CONFIG).func_227227_a_(0.6F)),
 						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)))
