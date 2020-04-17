@@ -45,7 +45,7 @@ public class GhostModel<T extends MobEntity> extends BipedModel<T> {
 		this.getBodyParts().forEach((renderer) -> {
 			renderer.render(stack, vertexbuilder, light, overlay, r, g, b, transparency);
 		});
-		this.getBodyParts().forEach((renderer) -> {
+		this.getHeadParts().forEach((renderer) -> {
 			renderer.render(stack, vertexbuilder, light, overlay, r, g, b, transparency);
 		});
 	}
