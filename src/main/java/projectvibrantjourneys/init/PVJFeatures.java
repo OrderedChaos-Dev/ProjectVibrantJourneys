@@ -4,6 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.HugeTreeFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
@@ -20,8 +21,10 @@ import projectvibrantjourneys.common.world.features.MangroveRootsFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.features.trees.MangroveTreeFeature;
+import projectvibrantjourneys.common.world.features.trees.MegaRedwoodTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PineTreeFeature;
+import projectvibrantjourneys.common.world.features.trees.RedwoodTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.WillowTreeFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -39,6 +42,8 @@ public class PVJFeatures {
 	public static Feature<TreeFeatureConfig> palmTree;
 	public static Feature<TreeFeatureConfig> willowTree;
 	public static Feature<TreeFeatureConfig> mangroveTree;
+	public static Feature<TreeFeatureConfig> redwoodTree;
+	public static Feature<HugeTreeFeatureConfig> megaRedwoodTree;
 	public static Feature<NoFeatureConfig> mangroveRootFeature;
 	
 	@SubscribeEvent
@@ -53,6 +58,8 @@ public class PVJFeatures {
 		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
 		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);
 		mangroveTree = new MangroveTreeFeature(TreeFeatureConfig::func_227338_a_);
+		redwoodTree = new RedwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
+		megaRedwoodTree = new MegaRedwoodTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
@@ -65,6 +72,8 @@ public class PVJFeatures {
 		registerFeature(palmTree, "palm_tree");
 		registerFeature(willowTree, "willow_tree");
 		registerFeature(mangroveTree, "mangrove_tree");
+		registerFeature(redwoodTree, "redwood_tree");
+		registerFeature(megaRedwoodTree, "mega_redwood_tree");
 		registerFeature(mangroveRootFeature, "mangrove_root_feature");
 		//registerFeature(randomPatchNoFlatFeature, "random_patch_no_flat_feature");
 	}

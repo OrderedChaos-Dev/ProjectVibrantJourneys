@@ -17,10 +17,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
+import projectvibrantjourneys.common.biomes.RedwoodPeaksBiome;
+import projectvibrantjourneys.common.biomes.RedwoodsBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiomes;
 import projectvibrantjourneys.common.world.surfacebuilders.BorealPlateauSurfaceBuilder;
+import projectvibrantjourneys.common.world.surfacebuilders.RedwoodsSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -35,9 +38,12 @@ public class PVJBiomes {
 	public static Biome boreal_plateau;
 //	public static Biome prairie;
 	public static Biome willow_wetlands;
+	public static Biome redwoods;
+	public static Biome redwood_peaks;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS_SB = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_PLATEAU_SB = new BorealPlateauSurfaceBuilder(SurfaceBuilderConfig::deserialize);
+	public static final SurfaceBuilder<SurfaceBuilderConfig> REDWOODS_SB = new RedwoodsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	
 	@SubscribeEvent
 	public static void initBiomes(RegistryEvent.Register<Biome> event) {
@@ -47,6 +53,8 @@ public class PVJBiomes {
 		snowy_boreal_forest = registerBiome(new SnowyBorealForestBiome(), BiomeType.ICY, "snowy_boreal_forest", PVJConfig.snowyBorealForestWeight.get());
 		boreal_plateau = registerBiome(new BorealPlateauBiome(), BiomeType.ICY, "boreal_plateau", PVJConfig.borealPlateauWeight.get());
 		willow_wetlands = registerBiome(new WillowWetlandsBiomes(), BiomeType.WARM, "willow_wetlands", PVJConfig.willowWetlandsWeight.get());
+		redwoods = registerBiome(new RedwoodsBiome(), BiomeType.COOL, "redwoods", PVJConfig.redwoodsWeight.get());
+		redwood_peaks = registerBiome(new RedwoodPeaksBiome(), BiomeType.COOL, "redwood_peaks", PVJConfig.redwoodPeaksWeight.get());
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -65,6 +73,8 @@ public class PVJBiomes {
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);
 		addBiomeTypes(boreal_plateau, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY, Type.MOUNTAIN);
 		addBiomeTypes(willow_wetlands, Type.OVERWORLD, Type.SWAMP, Type.WET);
+		addBiomeTypes(redwoods, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
+		addBiomeTypes(redwood_peaks, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.MOUNTAIN);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {

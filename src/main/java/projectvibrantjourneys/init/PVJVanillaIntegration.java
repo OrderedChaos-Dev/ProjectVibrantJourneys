@@ -67,6 +67,17 @@ public class PVJVanillaIntegration {
 		setFlameInfo(PVJBlocks.stripped_mangrove_log, 5, 20);
 		setFlameInfo(PVJBlocks.stripped_mangrove_wood, 5, 20);
 		
+		setFlameInfo(PVJBlocks.redwood_log, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_leaves, 30, 60);
+		setFlameInfo(PVJBlocks.redwood_planks, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_slab, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_fence_gate, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_fence, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_wood, 5, 20);
+		setFlameInfo(PVJBlocks.redwood_stairs, 5, 20);
+		setFlameInfo(PVJBlocks.stripped_redwood_log, 5, 20);
+		setFlameInfo(PVJBlocks.stripped_redwood_wood, 5, 20);
+		
 		setFlameInfo(PVJBlocks.oak_twigs, 5, 15);
 		setFlameInfo(PVJBlocks.birch_twigs, 5, 15);
 		setFlameInfo(PVJBlocks.spruce_twigs, 5, 15);
@@ -78,6 +89,7 @@ public class PVJVanillaIntegration {
 		setFlameInfo(PVJBlocks.palm_twigs, 5, 15);
 		setFlameInfo(PVJBlocks.willow_twigs, 5, 15);
 		setFlameInfo(PVJBlocks.mangrove_twigs, 5, 15);
+		setFlameInfo(PVJBlocks.redwood_twigs, 5, 15);
 		
 		setFlameInfo(PVJBlocks.oak_fallen_leaves, 30, 60);
 		setFlameInfo(PVJBlocks.birch_fallen_leaves, 30, 60);
@@ -90,6 +102,7 @@ public class PVJVanillaIntegration {
 		setFlameInfo(PVJBlocks.palm_fallen_leaves, 30, 60);
 		setFlameInfo(PVJBlocks.willow_fallen_leaves, 30, 60);
 		setFlameInfo(PVJBlocks.mangrove_fallen_leaves, 30, 60);
+		setFlameInfo(PVJBlocks.redwood_fallen_leaves, 30, 60);
 		
 		setFlameInfo(PVJBlocks.pinecones, 5, 20);
 		setFlameInfo(PVJBlocks.sea_oats, 60, 100);
@@ -101,12 +114,14 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.palm_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.willow_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.mangrove_leaves, 0.3F);
+		setCompostInfo(PVJBlocks.redwood_leaves, 0.3F);
 		
 		setCompostInfo(PVJBlocks.fir_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.pine_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.palm_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.willow_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.mangrove_sapling, 0.3F);
+		setCompostInfo(PVJBlocks.redwood_sapling, 0.3F);
 		
 		setCompostInfo(PVJBlocks.oak_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.birch_fallen_leaves, 0.1F);
@@ -119,6 +134,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.palm_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.willow_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.mangrove_fallen_leaves, 0.1F);
+		setCompostInfo(PVJBlocks.redwood_fallen_leaves, 0.1F);
 		
 		setCompostInfo(PVJBlocks.pinecones, 0.1F);
 		setCompostInfo(PVJBlocks.dung, 1.0F);
@@ -141,12 +157,15 @@ public class PVJVanillaIntegration {
 		PVJEvents.stripping_map.put(PVJBlocks.willow_wood, PVJBlocks.stripped_willow_wood);
 		PVJEvents.stripping_map.put(PVJBlocks.mangrove_log, PVJBlocks.stripped_mangrove_log);
 		PVJEvents.stripping_map.put(PVJBlocks.mangrove_wood, PVJBlocks.stripped_mangrove_wood);
+		PVJEvents.stripping_map.put(PVJBlocks.redwood_log, PVJBlocks.stripped_redwood_log);
+		PVJEvents.stripping_map.put(PVJBlocks.redwood_wood, PVJBlocks.stripped_redwood_wood);
 		
 		addFlowerPot(PVJBlocks.fir_sapling, PVJBlocks.potted_fir_sapling);
 		addFlowerPot(PVJBlocks.pine_sapling, PVJBlocks.potted_pine_sapling);
 		addFlowerPot(PVJBlocks.palm_sapling, PVJBlocks.potted_palm_sapling);
 		addFlowerPot(PVJBlocks.willow_sapling, PVJBlocks.potted_willow_sapling);
 		addFlowerPot(PVJBlocks.mangrove_sapling, PVJBlocks.potted_mangrove_sapling);
+		addFlowerPot(PVJBlocks.redwood_sapling, PVJBlocks.potted_redwood_sapling);
 		addFlowerPot(PVJBlocks.glowcap, PVJBlocks.potted_glowcap);
 		addFlowerPot(PVJBlocks.small_cactus, PVJBlocks.potted_small_cactus);
 	}

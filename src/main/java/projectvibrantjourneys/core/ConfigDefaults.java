@@ -12,6 +12,8 @@ public class ConfigDefaults {
 	public static final int BOREAL_PLATEAU_WEIGHT = 3;
 	public static final int WILLOW_WETLANDS_WEIGHT = 5;
 	public static final int FUNGAL_JUNGLE_WEIGHT = 3;
+	public static final int REDWOODS_WEIGHT = 5;
+	public static final int REDWOOD_PEAKS_WEIGHT = 3;
 
 	public static final List<String> OAK_TREES = new ArrayList<String>();
 	public static final List<String> OAK_TREES_SPARSE = new ArrayList<String>();
@@ -35,6 +37,8 @@ public class ConfigDefaults {
 	public static final List<String> WILLOW_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> MANGROVE_TREES = new ArrayList<String>();
 	public static final List<String> MANGROVE_TREES_SPARSE = new ArrayList<String>();
+	public static final List<String> REDWOOD_TREES = new ArrayList<String>();
+	public static final List<String> REDWOOD_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
 	public static final List<String> NETHERRACK_ROCKS = new ArrayList<String>();
@@ -207,6 +211,8 @@ public class ConfigDefaults {
 		addTo("projectvibrantjourneys:snowy_boreal_forest", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:boreal_plateau", FIR_TREES, PINE_TREES, ROCKS, ICE_CHUNKS, BONES, PINECONES, LILYPAD, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:willow_wetlands", WILLOW_TREES, MANGROVE_TREES, ROCKS, BONES, FROGBIT, DUCKWEED, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SHADE, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS);
+		addTo("projectvibrantjourneys:redwoods", REDWOOD_TREES, ROCKS, BONES, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:redwood_peaks", REDWOOD_TREES, ROCKS, BONES, FROGBIT, DUCKWEED, BUSH, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		
 		addStringsTo(MAW_FOODS, "minecraft:rotten_flesh", "minecraft:chicken", "minecraft:cooked_chicken", "minecraft:beef", "minecraft:cooked_beef", 
 						"minecraft:rabbit", "minecraft:cooked_rabbit", "minecraft:mutton", "minecraft:cooked_mutton", "minecraft:cod", "minecraft:salmon",

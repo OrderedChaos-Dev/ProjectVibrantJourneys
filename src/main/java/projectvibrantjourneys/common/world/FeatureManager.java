@@ -19,11 +19,13 @@ import net.minecraft.world.gen.feature.BigMushroomFeatureConfig;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.HugeTreeFeatureConfig;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.SeaGrassConfig;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.ChanceConfig;
@@ -64,7 +66,14 @@ public class FeatureManager {
 			new SimpleBlockStateProvider(PVJBlocks.mangrove_log.getDefaultState()),
 			new SimpleBlockStateProvider(PVJBlocks.mangrove_leaves.getDefaultState()),
 			new SpruceFoliagePlacer(1, 0))).baseHeight(6).heightRandA(3).trunkHeight(3).trunkHeightRandom(2).trunkTopOffsetRandom(2).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.mangrove_sapling).build();
-	
+	public static final HugeTreeFeatureConfig MEGA_REDWOOD_TREE = (new HugeTreeFeatureConfig.Builder(
+			new SimpleBlockStateProvider(PVJBlocks.redwood_log.getDefaultState()),
+			new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.getDefaultState())))
+			.baseHeight(40).heightInterval(30).crownHeight(17).setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.redwood_sapling).build();
+	public static final TreeFeatureConfig REDWOOD_TREE = (new TreeFeatureConfig.Builder(
+			new SimpleBlockStateProvider(PVJBlocks.redwood_log.getDefaultState()),
+			new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.getDefaultState()),
+			new BlobFoliagePlacer(2, 0))).baseHeight(9).heightRandA(5).heightRandB(2).foliageHeight(3).ignoreVines().setSapling((net.minecraftforge.common.IPlantable)PVJBlocks.redwood_sapling).build();
 	public static final BigMushroomFeatureConfig glowcapFeatureConfig = new BigMushroomFeatureConfig(
 			new SimpleBlockStateProvider(PVJBlocks.glowcap_block.getDefaultState()), new SimpleBlockStateProvider(Blocks.MUSHROOM_STEM.getDefaultState()), 2);
 	
@@ -80,6 +89,7 @@ public class FeatureManager {
 		BlockClusterFeatureConfig palmTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.palm_twigs.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig willowTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.willow_twigs.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig mangroveTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.mangrove_twigs.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig redwoodTwigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.redwood_twigs.getDefaultState()), new GroundcoverPlacer());
 		
 		BlockClusterFeatureConfig oakFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.oak_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig birchFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.birch_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
@@ -92,6 +102,7 @@ public class FeatureManager {
 		BlockClusterFeatureConfig palmFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.palm_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig willowFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.willow_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		BlockClusterFeatureConfig mangroveFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.mangrove_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
+		BlockClusterFeatureConfig redwoodFallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.redwood_fallen_leaves.getDefaultState()), new GroundcoverPlacer());
 		
 		BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(new RocksBlockStateProvider(), new GroundcoverPlacer());
 		BlockClusterFeatureConfig netherrackRocksCluster = createNetherGroundcoverConfig(new SimpleBlockStateProvider(PVJBlocks.netherrack_rocks.getDefaultState()), new GroundcoverPlacer());
@@ -143,6 +154,8 @@ public class FeatureManager {
 		List<String> willowBiomesSparse = PVJConfig.willowTreesSparseBiomes.get();
 		List<String> mangroveBiomes = PVJConfig.mangroveTreesBiomes.get();
 		List<String> mangroveBiomesSparse = PVJConfig.mangroveTreesSparseBiomes.get();
+		List<String> redwoodBiomes = PVJConfig.redwoodTreesBiomes.get();
+		List<String> redwoodBiomesSparse = PVJConfig.redwoodTreesSparseBiomes.get();
 		
 		List<String> rocksBiomes = PVJConfig.rocksBiomes.get();
 		List<String> netherrackRocksBiomes = PVJConfig.netherrackRocksBiomes.get();
@@ -298,6 +311,17 @@ public class FeatureManager {
 				addTwigsLeavesFeature(biome, mangroveTwigsCluster, mangroveFallenLeavesCluster, 1, false);
 				addFallenTreeFeature(biome, PVJBlocks.mangrove_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 2);
 			}
+			
+			/*REDWOOD TWIGS*/
+			if(redwoodBiomes.contains(biome.getRegistryName().toString())) {
+				addTwigsLeavesFeature(biome, redwoodTwigsCluster, redwoodFallenLeavesCluster, 3, false);
+				addFallenTreeFeature(biome, PVJBlocks.redwood_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 3);
+			}
+				
+			if(redwoodBiomesSparse.contains(biome.getRegistryName().toString())) {
+				addTwigsLeavesFeature(biome, redwoodTwigsCluster, redwoodFallenLeavesCluster, 1, false);
+				addFallenTreeFeature(biome, PVJBlocks.redwood_log.getDefaultState(), PVJFeatures.fallenTreeFeature, 2);
+			}
 				
 			
 			/*ROCKS*/
@@ -394,6 +418,15 @@ public class FeatureManager {
 			if(mangroveBiomesSparse.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveTree.withConfiguration(MANGROVE_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.2F, 1))));
 				biome.addFeature(Decoration.VEGETAL_DECORATION, PVJFeatures.mangroveRootFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placement.COUNT_HEIGHT_64.configure(new FrequencyConfig(3))));
+			}
+			
+			if(redwoodBiomes.contains(biome.getRegistryName().toString())) {
+				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
+								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE).func_227227_a_(0.75F),
+								PVJFeatures.redwoodTree.withConfiguration(FeatureManager.REDWOOD_TREE).func_227227_a_(0.25F)),
+								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE)))
+						.withPlacement(
+								Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(20, 0.3F, 1))));
 			}
 		}
 		

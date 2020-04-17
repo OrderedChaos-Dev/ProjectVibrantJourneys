@@ -45,6 +45,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> willowTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> mangroveTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> mangroveTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> redwoodTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> redwoodTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
@@ -88,6 +90,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.IntValue snowyBorealForestWeight;
 	public static ForgeConfigSpec.IntValue borealPlateauWeight;
 	public static ForgeConfigSpec.IntValue willowWetlandsWeight;
+	public static ForgeConfigSpec.IntValue redwoodsWeight;
+	public static ForgeConfigSpec.IntValue redwoodPeaksWeight;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -161,6 +165,9 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Mangrove Trees Biomes");
 		mangroveTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("mangroveTreesBiomes", ConfigDefaults.MANGROVE_TREES);
 		mangroveTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("mangroveTreesSparseBiomes", ConfigDefaults.MANGROVE_TREES_SPARSE);
+		COMMON_BUILDER.comment("Redwood Trees Biomes");
+		redwoodTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("redwoodTreesBiomes", ConfigDefaults.REDWOOD_TREES);
+		redwoodTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("redwoodTreesSparseBiomes", ConfigDefaults.REDWOOD_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);
@@ -205,6 +212,8 @@ public class PVJConfig {
 		snowyBorealForestWeight = COMMON_BUILDER.comment("Snowy Boreal Forest Weight").defineInRange("snowyBorealForestWeight", ConfigDefaults.SNOWY_BOREAL_FOREST_WEIGHT, 0, 100);
 		borealPlateauWeight = COMMON_BUILDER.comment("Boreal Plateau Weight").defineInRange("borealPlateauWeight", ConfigDefaults.BOREAL_PLATEAU_WEIGHT, 0, 100);
 		willowWetlandsWeight = COMMON_BUILDER.comment("Willow Wetlands Weight").defineInRange("willowWetlandsWeight", ConfigDefaults.WILLOW_WETLANDS_WEIGHT, 0, 100);
+		redwoodsWeight = COMMON_BUILDER.comment("Redwoods Weight").defineInRange("redwoodsWeight", ConfigDefaults.REDWOODS_WEIGHT, 0, 100);
+		redwoodPeaksWeight = COMMON_BUILDER.comment("Redwood Peaks Weight").defineInRange("redwoodPeaksWeight", ConfigDefaults.REDWOOD_PEAKS_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {
