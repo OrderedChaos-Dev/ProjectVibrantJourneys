@@ -47,6 +47,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> mangroveTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> redwoodTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> redwoodTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> baobabTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> baobabTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
@@ -92,6 +94,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.IntValue willowWetlandsWeight;
 	public static ForgeConfigSpec.IntValue redwoodsWeight;
 	public static ForgeConfigSpec.IntValue redwoodPeaksWeight;
+	public static ForgeConfigSpec.IntValue baobabFieldsWeight;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -168,6 +171,9 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Redwood Trees Biomes");
 		redwoodTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("redwoodTreesBiomes", ConfigDefaults.REDWOOD_TREES);
 		redwoodTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("redwoodTreesSparseBiomes", ConfigDefaults.REDWOOD_TREES_SPARSE);
+		COMMON_BUILDER.comment("Baobab Trees Biomes");
+		baobabTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("baobabTreesBiomes", ConfigDefaults.BAOBAB_TREES);
+		baobabTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("baobabTreesSparseBiomes", ConfigDefaults.BAOBAB_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);
@@ -214,6 +220,7 @@ public class PVJConfig {
 		willowWetlandsWeight = COMMON_BUILDER.comment("Willow Wetlands Weight").defineInRange("willowWetlandsWeight", ConfigDefaults.WILLOW_WETLANDS_WEIGHT, 0, 100);
 		redwoodsWeight = COMMON_BUILDER.comment("Redwoods Weight").defineInRange("redwoodsWeight", ConfigDefaults.REDWOODS_WEIGHT, 0, 100);
 		redwoodPeaksWeight = COMMON_BUILDER.comment("Redwood Peaks Weight").defineInRange("redwoodPeaksWeight", ConfigDefaults.REDWOOD_PEAKS_WEIGHT, 0, 100);
+		baobabFieldsWeight = COMMON_BUILDER.comment("Baobab Fields Weight").defineInRange("baobabFieldsWeight", ConfigDefaults.BAOBAB_FIELDS_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {

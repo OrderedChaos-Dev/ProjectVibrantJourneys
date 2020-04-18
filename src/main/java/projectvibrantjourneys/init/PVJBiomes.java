@@ -14,6 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.biomes.BaobabFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
@@ -40,6 +41,7 @@ public class PVJBiomes {
 	public static Biome willow_wetlands;
 	public static Biome redwoods;
 	public static Biome redwood_peaks;
+	public static Biome baobab_fields;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS_SB = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_PLATEAU_SB = new BorealPlateauSurfaceBuilder(SurfaceBuilderConfig::deserialize);
@@ -55,6 +57,7 @@ public class PVJBiomes {
 		willow_wetlands = registerBiome(new WillowWetlandsBiomes(), BiomeType.WARM, "willow_wetlands", PVJConfig.willowWetlandsWeight.get());
 		redwoods = registerBiome(new RedwoodsBiome(), BiomeType.COOL, "redwoods", PVJConfig.redwoodsWeight.get());
 		redwood_peaks = registerBiome(new RedwoodPeaksBiome(), BiomeType.COOL, "redwood_peaks", PVJConfig.redwoodPeaksWeight.get());
+		baobab_fields = registerBiome(new BaobabFieldsBiome(), BiomeType.WARM, "baobab_fields", PVJConfig.baobabFieldsWeight.get());
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -75,6 +78,7 @@ public class PVJBiomes {
 		addBiomeTypes(willow_wetlands, Type.OVERWORLD, Type.SWAMP, Type.WET);
 		addBiomeTypes(redwoods, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(redwood_peaks, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.MOUNTAIN);
+		addBiomeTypes(baobab_fields, Type.OVERWORLD, Type.HOT, Type.SAVANNA, Type.PLAINS, Type.SPARSE);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {

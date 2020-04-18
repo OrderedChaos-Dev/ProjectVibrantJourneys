@@ -16,7 +16,7 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.init.PVJBiomes;
-//65100 90 -1179
+
 public final class BorealPlateauBiome extends Biome {
    public BorealPlateauBiome() {
       super((new Biome.Builder())
