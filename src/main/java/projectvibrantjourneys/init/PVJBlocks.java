@@ -43,6 +43,7 @@ import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.FloatingPlantBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.PVJDoorBlock;
 import projectvibrantjourneys.common.blocks.PVJPressurePlateBlock;
 import projectvibrantjourneys.common.blocks.PVJSaplingBlock;
@@ -88,6 +89,8 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block glowcap;
 	public static Block short_grass;
+	
+	public static Block natural_cobweb;
 	
 	public static Block glowcap_block;
 
@@ -186,6 +189,8 @@ public class PVJBlocks {
 		registerBlockWithoutItem(new FloatingPlantBlock(), "duckweed");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		short_grass  = registerBlock(new ShortGrassBlock(), "short_grass");
+		
+		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
 		
 		possessed_pumpkin = registerBlock(new PossessedPumpkinBlock(), "possessed_pumpkin");
 		
@@ -415,6 +420,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(potted_baobab_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_glowcap, cutout);
 		RenderTypeLookup.setRenderLayer(potted_small_cactus, cutout);
+		RenderTypeLookup.setRenderLayer(natural_cobweb, cutout);
 
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(birch_fallen_leaves, cutout_mipped);

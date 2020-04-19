@@ -5,7 +5,6 @@ import java.util.function.Function;
 
 import com.mojang.datafixers.Dynamic;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
@@ -13,6 +12,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import projectvibrantjourneys.init.PVJBlocks;
 
 public class CobwebFeature extends Feature<NoFeatureConfig> {
 	public CobwebFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
@@ -30,7 +30,7 @@ public class CobwebFeature extends Feature<NoFeatureConfig> {
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
 				if(world.isAirBlock(blockpos.down())) {
 					if(rand.nextBoolean()) {
-						world.setBlockState(blockpos.down(), Blocks.COBWEB.getDefaultState(), 2);
+						world.setBlockState(blockpos.down(), PVJBlocks.natural_cobweb.getDefaultState(), 2);
 						break;
 					}
 				}
