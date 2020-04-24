@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:cottonwood_log",
+	"projectvibrantjourneys:cottonwood_wood",
+	"projectvibrantjourneys:stripped_cottonwood_log",
+	"projectvibrantjourneys:stripped_cottonwood_wood"
+  ]
+}

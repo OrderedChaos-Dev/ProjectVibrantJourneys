@@ -22,6 +22,7 @@ import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.features.trees.AspenTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.BaobabTreeFeature;
+import projectvibrantjourneys.common.world.features.trees.CottonwoodTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MangroveTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MegaRedwoodTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
@@ -48,6 +49,7 @@ public class PVJFeatures {
 	public static Feature<TreeFeatureConfig> aspenTree;
 	public static Feature<HugeTreeFeatureConfig> megaRedwoodTree;
 	public static Feature<HugeTreeFeatureConfig> baobabTree;
+	public static Feature<TreeFeatureConfig> cottonwoodTree;
 	public static Feature<NoFeatureConfig> mangroveRootFeature;
 	
 	@SubscribeEvent
@@ -66,6 +68,7 @@ public class PVJFeatures {
 		aspenTree = new AspenTreeFeature(TreeFeatureConfig::func_227338_a_);
 		megaRedwoodTree = new MegaRedwoodTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		baobabTree = new BaobabTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
+		cottonwoodTree = new CottonwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
 		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");

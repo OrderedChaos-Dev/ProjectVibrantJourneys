@@ -20,6 +20,7 @@ import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
+import projectvibrantjourneys.common.biomes.PrairieBiome;
 import projectvibrantjourneys.common.biomes.RedwoodPeaksBiome;
 import projectvibrantjourneys.common.biomes.RedwoodsBiome;
 import projectvibrantjourneys.common.biomes.SnowyBorealForestBiome;
@@ -39,7 +40,7 @@ public class PVJBiomes {
 	public static Biome boreal_forest;
 	public static Biome snowy_boreal_forest;
 	public static Biome boreal_plateau;
-//	public static Biome prairie;
+	public static Biome prairie;
 	public static Biome willow_wetlands;
 	public static Biome redwoods;
 	public static Biome redwood_peaks;
@@ -64,6 +65,7 @@ public class PVJBiomes {
 		baobab_fields = registerBiome(new BaobabFieldsBiome(), BiomeType.WARM, "baobab_fields", PVJConfig.baobabFieldsWeight.get());
 		aspen_grove = registerBiome(new AspenGroveBiome(), BiomeType.COOL, "aspen_grove", PVJConfig.aspenGroveWeight.get());
 		crimson_thicket = registerBiome(new CrimsonThicketBiome(), BiomeType.COOL, "crimson_thicket", PVJConfig.crimsonThicketWeight.get());
+		prairie = registerBiome(new PrairieBiome(), BiomeType.WARM, "prairie", PVJConfig.prairieWeight.get());
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -80,13 +82,14 @@ public class PVJBiomes {
 		addBiomeTypes(verdant_sands, Type.OVERWORLD, Type.SANDY, Type.HOT, Type.DRY);
 		addBiomeTypes(boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(snowy_boreal_forest, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY);
-		addBiomeTypes(boreal_plateau, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY, Type.MOUNTAIN);
+		addBiomeTypes(boreal_plateau, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.SNOWY, Type.MOUNTAIN, Type.PLATEAU);
 		addBiomeTypes(willow_wetlands, Type.OVERWORLD, Type.SWAMP, Type.WET);
 		addBiomeTypes(redwoods, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(redwood_peaks, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.MOUNTAIN);
 		addBiomeTypes(baobab_fields, Type.OVERWORLD, Type.HOT, Type.SAVANNA, Type.PLAINS, Type.SPARSE);
 		addBiomeTypes(aspen_grove, Type.OVERWORLD, Type.COLD, Type.FOREST);
 		addBiomeTypes(crimson_thicket, Type.OVERWORLD, Type.COLD, Type.FOREST, Type.CONIFEROUS);
+		addBiomeTypes(prairie, Type.OVERWORLD, Type.PLAINS);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {

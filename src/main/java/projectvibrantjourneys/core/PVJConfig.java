@@ -57,6 +57,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> orangeMapleTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> purpleMapleTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> purpleMapleTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> cottonwoodTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> cottonwoodTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
@@ -105,6 +107,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.IntValue baobabFieldsWeight;
 	public static ForgeConfigSpec.IntValue aspenGroveWeight;
 	public static ForgeConfigSpec.IntValue crimsonThicketWeight;
+	public static ForgeConfigSpec.IntValue prairieWeight;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -194,6 +197,9 @@ public class PVJConfig {
 		orangeMapleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("orangeMapleTreesSparseBiomes", ConfigDefaults.ORANGE_MAPLE_TREES_SPARSE);
 		purpleMapleTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("purpleMapleTreesBiomes", ConfigDefaults.PURPLE_MAPLE_TREES);
 		purpleMapleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("purpleMapleTreesSparseBiomes", ConfigDefaults.PURPLE_MAPLE_TREES_SPARSE);
+		COMMON_BUILDER.comment("Cottonwood Trees Biomes");
+		cottonwoodTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("cottonwoodTreesBiomes", ConfigDefaults.COTTONWOOD_TREES);
+		cottonwoodTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("cottonwoodTreesSparseBiomes", ConfigDefaults.COTTONWOOD_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);
@@ -243,6 +249,7 @@ public class PVJConfig {
 		baobabFieldsWeight = COMMON_BUILDER.comment("Baobab Fields Weight").defineInRange("baobabFieldsWeight", ConfigDefaults.BAOBAB_FIELDS_WEIGHT, 0, 100);
 		aspenGroveWeight = COMMON_BUILDER.comment("Aspen Grove Weight").defineInRange("aspenGroveWeight", ConfigDefaults.ASPEN_GROVE_WEIGHT, 0, 100);
 		crimsonThicketWeight = COMMON_BUILDER.comment("Crimson Thicket Weight").defineInRange("crimsonThicketWeight", ConfigDefaults.CRIMSON_THICKET_WEIGHT, 0, 100);
+		prairieWeight = COMMON_BUILDER.comment("Prairie Weight").defineInRange("prairieWeight", ConfigDefaults.PRAIRIE_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {

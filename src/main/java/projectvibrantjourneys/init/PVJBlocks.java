@@ -55,6 +55,7 @@ import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
 import projectvibrantjourneys.common.blocks.trees.AspenTree;
 import projectvibrantjourneys.common.blocks.trees.BaobabTree;
+import projectvibrantjourneys.common.blocks.trees.CottonwoodTree;
 import projectvibrantjourneys.common.blocks.trees.FirTree;
 import projectvibrantjourneys.common.blocks.trees.MangroveTree;
 import projectvibrantjourneys.common.blocks.trees.OrangeMapleTree;
@@ -136,7 +137,7 @@ public class PVJBlocks {
 	public static Block coconut;
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_palm_sapling, potted_willow_sapling, potted_mangrove_sapling,
 						potted_redwood_sapling, potted_baobab_sapling, potted_aspen_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
-						potted_purple_maple_sapling;
+						potted_purple_maple_sapling, potted_cottonwood_sapling;
 	public static Block	potted_small_cactus, potted_glowcap;
 
 	public static final Block frogbit = null;
@@ -157,11 +158,11 @@ public class PVJBlocks {
 		mangrove_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "mangrove_twigs", 100);
 		redwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "redwood_twigs", 100);
 		baobab_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "baobab_twigs", 100);
-//		cottonwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "cottonwood_twigs", 100);
 		aspen_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "aspen_twigs", 100);
 		red_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "red_maple_twigs", 100);
 		orange_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "orange_maple_twigs", 100);
 		purple_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "purple_maple_twigs", 100);
+		cottonwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "cottonwood_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -180,7 +181,7 @@ public class PVJBlocks {
 		red_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "red_maple_fallen_leaves");
 		orange_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "orange_maple_fallen_leaves");
 		purple_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "purple_maple_fallen_leaves");
-//		cottonwood_fallen_leaves = registerBlock(new FallenLeavesBlock(), "cottonwood_fallen_leaves");
+		cottonwood_fallen_leaves = registerBlock(new FallenLeavesBlock(), "cottonwood_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
@@ -231,6 +232,7 @@ public class PVJBlocks {
 		potted_red_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> red_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_red_maple_sapling");
 		potted_orange_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> orange_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_orange_maple_sapling");
 		potted_purple_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> purple_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_purple_maple_sapling");
+		potted_cottonwood_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> cottonwood_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_cottonwood_sapling");
 		potted_glowcap = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> glowcap, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).lightValue(10).notSolid()), "potted_glowcap");
 		potted_small_cactus = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> small_cactus, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_small_cactus");
 		
@@ -385,6 +387,22 @@ public class PVJBlocks {
 		maple_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_fence_gate");
 		maple_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_fence");
 		maple_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "maple_door");
+				
+		cottonwood_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cottonwood_log");
+		cottonwood_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "cottonwood_leaves");
+		cottonwood_sapling = registerBlock(new PVJSaplingBlock(new CottonwoodTree()), "cottonwood_sapling");
+		cottonwood_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "cottonwood_planks");
+		stripped_cottonwood_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_cottonwood_log");
+		cottonwood_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "cottonwood_wood");
+		stripped_cottonwood_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_cottonwood_wood");
+		cottonwood_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "cottonwood_pressure_plate");
+		cottonwood_stairs = registerBlockWithFuel(new StairsBlock(() -> cottonwood_planks.getDefaultState(), Block.Properties.from(cottonwood_planks)), "cottonwood_stairs", 300);
+		cottonwood_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "cottonwood_trapdoor");
+		cottonwood_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "cottonwood_button");
+		cottonwood_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "cottonwood_slab");
+		cottonwood_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "cottonwood_fence_gate");
+		cottonwood_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "cottonwood_fence");
+		cottonwood_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "cottonwood_door");
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -448,6 +466,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(red_maple_twigs, cutout);
 		RenderTypeLookup.setRenderLayer(orange_maple_twigs, cutout);
 		RenderTypeLookup.setRenderLayer(purple_maple_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(cottonwood_twigs, cutout);
 		
 		RenderTypeLookup.setRenderLayer(rocks, cutout);
 		RenderTypeLookup.setRenderLayer(mossy_rocks, cutout);
@@ -484,7 +503,12 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(baobab_trapdoor, cutout);
 		RenderTypeLookup.setRenderLayer(aspen_door, cutout);
 		RenderTypeLookup.setRenderLayer(aspen_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(maple_door, cutout);
 		RenderTypeLookup.setRenderLayer(maple_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(maple_door, cutout);
+		RenderTypeLookup.setRenderLayer(maple_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(cottonwood_door, cutout);
+		RenderTypeLookup.setRenderLayer(cottonwood_trapdoor, cutout);
 		
 		RenderTypeLookup.setRenderLayer(potted_fir_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_pine_sapling, cutout);
@@ -497,6 +521,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(potted_red_maple_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_orange_maple_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_purple_maple_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_cottonwood_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_glowcap, cutout);
 		RenderTypeLookup.setRenderLayer(potted_small_cactus, cutout);
 		
@@ -519,6 +544,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(red_maple_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(orange_maple_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(purple_maple_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(cottonwood_fallen_leaves, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(sea_oats, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(cattail, cutout_mipped);
@@ -538,6 +564,7 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(red_maple_sapling, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(orange_maple_sapling, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(purple_maple_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(cottonwood_sapling, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(iron_nugget, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(gold_nugget, cutout_mipped);

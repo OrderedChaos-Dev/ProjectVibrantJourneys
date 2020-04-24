@@ -17,6 +17,7 @@ public class ConfigDefaults {
 	public static final int BAOBAB_FIELDS_WEIGHT = 3;
 	public static final int ASPEN_GROVE_WEIGHT = 5;
 	public static final int CRIMSON_THICKET_WEIGHT = 5;
+	public static final int PRAIRIE_WEIGHT = 5;
 
 	public static final List<String> OAK_TREES = new ArrayList<String>();
 	public static final List<String> OAK_TREES_SPARSE = new ArrayList<String>();
@@ -52,7 +53,8 @@ public class ConfigDefaults {
 	public static final List<String> ORANGE_MAPLE_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> PURPLE_MAPLE_TREES = new ArrayList<String>();
 	public static final List<String> PURPLE_MAPLE_TREES_SPARSE = new ArrayList<String>();
-	
+	public static final List<String> COTTONWOOD_TREES = new ArrayList<String>();
+	public static final List<String> COTTONWOOD_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
 	public static final List<String> NETHERRACK_ROCKS = new ArrayList<String>();
@@ -230,6 +232,7 @@ public class ConfigDefaults {
 		addTo("projectvibrantjourneys:baobab_fields", BAOBAB_TREES, ACACIA_TREES, ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, SHORT_GRASS);
 		addTo("projectvibrantjourneys:aspen_grove", ASPEN_TREES, RED_MAPLE_TREES, ORANGE_MAPLE_TREES, PURPLE_MAPLE_TREES, OAK_TREES, ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, LILYPAD, FROGBIT, DUCKWEED, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		addTo("projectvibrantjourneys:crimson_thicket", RED_MAPLE_TREES, PURPLE_MAPLE_TREES, SPRUCE_TREES, FIR_TREES, ROCKS, BONES, PINECONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, LILYPAD, FROGBIT, DUCKWEED, SKELETAL_KNIGHT, GHOST, SPECTER, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
+		addTo("projectvibrantjourneys:prairie", COTTONWOOD_TREES_SPARSE, ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, LILYPAD, FROGBIT, DUCKWEED, SKELETAL_KNIGHT, GHOST, HAUNT, FLY, FIREFLY, SNAIL, SLUG, CATTAIL, BARK_MUSHROOM, COBWEB, CLAM, SHORT_GRASS, SEAGRASS);
 		
 		addStringsTo(MAW_FOODS, "minecraft:rotten_flesh", "minecraft:chicken", "minecraft:cooked_chicken", "minecraft:beef", "minecraft:cooked_beef", 
 						"minecraft:rabbit", "minecraft:cooked_rabbit", "minecraft:mutton", "minecraft:cooked_mutton", "minecraft:cod", "minecraft:salmon",
