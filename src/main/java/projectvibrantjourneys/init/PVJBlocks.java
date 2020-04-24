@@ -53,11 +53,15 @@ import projectvibrantjourneys.common.blocks.PossessedPumpkinBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.common.blocks.SmallCactusBlock;
+import projectvibrantjourneys.common.blocks.trees.AspenTree;
 import projectvibrantjourneys.common.blocks.trees.BaobabTree;
 import projectvibrantjourneys.common.blocks.trees.FirTree;
 import projectvibrantjourneys.common.blocks.trees.MangroveTree;
+import projectvibrantjourneys.common.blocks.trees.OrangeMapleTree;
 import projectvibrantjourneys.common.blocks.trees.PalmTree;
 import projectvibrantjourneys.common.blocks.trees.PineTree;
+import projectvibrantjourneys.common.blocks.trees.PurpleMapleTree;
+import projectvibrantjourneys.common.blocks.trees.RedMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedwoodTree;
 import projectvibrantjourneys.common.blocks.trees.WillowTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -69,10 +73,11 @@ public class PVJBlocks {
 	/* GROUNDCOVERS */
 	public static Block oak_twigs, birch_twigs, spruce_twigs, jungle_twigs, dark_oak_twigs, acacia_twigs,
 						fir_twigs, pine_twigs, palm_twigs, willow_twigs, mangrove_twigs, redwood_twigs,
-						baobab_twigs, cottonwood_twigs;
+						baobab_twigs, cottonwood_twigs, aspen_twigs, red_maple_twigs, orange_maple_twigs, purple_maple_twigs;
 	public static Block  oak_fallen_leaves, birch_fallen_leaves, spruce_fallen_leaves, jungle_fallen_leaves, dark_oak_fallen_leaves, acacia_fallen_leaves,
 						fir_fallen_leaves, pine_fallen_leaves, palm_fallen_leaves, willow_fallen_leaves, mangrove_fallen_leaves, redwood_fallen_leaves,
-						baobab_fallen_leaves, cottonwood_fallen_leaves;
+						baobab_fallen_leaves, cottonwood_fallen_leaves, aspen_fallen_leaves, red_maple_fallen_leaves, orange_maple_fallen_leaves,
+						purple_maple_fallen_leaves;
 	public static Block rocks, mossy_rocks, andesite_rocks, granite_rocks, diorite_rocks, sandstone_rocks,
 			red_sandstone_rocks, netherrack_rocks, ice_chunks;
 	public static Block iron_nugget, gold_nugget, flint;
@@ -116,12 +121,23 @@ public class PVJBlocks {
 			baobab_sign, baobab_wall_sign, baobab_pressure_plate, baobab_trapdoor, baobab_button, baobab_slab, baobab_fence_gate, baobab_fence,
 			baobab_door, baobab_stairs;
 	public static Block cottonwood_sapling, cottonwood_log, cottonwood_leaves, cottonwood_planks, stripped_cottonwood_log, cottonwood_wood, stripped_cottonwood_wood,
-	cottonwood_sign, cottonwood_wall_sign, cottonwood_pressure_plate, cottonwood_trapdoor, cottonwood_button, cottonwood_slab, cottonwood_fence_gate, cottonwood_fence,
-	cottonwood_door, cottonwood_stairs;
+			cottonwood_sign, cottonwood_wall_sign, cottonwood_pressure_plate, cottonwood_trapdoor, cottonwood_button, cottonwood_slab, cottonwood_fence_gate, cottonwood_fence,
+			cottonwood_door, cottonwood_stairs;
+	public static Block aspen_sapling, aspen_log, aspen_leaves, aspen_planks, stripped_aspen_log, aspen_wood, stripped_aspen_wood,
+			aspen_sign, aspen_wall_sign, aspen_pressure_plate, aspen_trapdoor, aspen_button, aspen_slab, aspen_fence_gate, aspen_fence,
+			aspen_door, aspen_stairs;
+	public static Block red_maple_sapling, orange_maple_sapling, purple_maple_sapling, maple_log, red_maple_leaves, orange_maple_leaves, purple_maple_leaves,
+			maple_planks, stripped_maple_log, maple_wood, stripped_maple_wood, maple_sign, maple_wall_sign, maple_pressure_plate, maple_trapdoor, maple_button,
+			maple_slab, maple_fence_gate, maple_fence, maple_door, maple_stairs;
+	public static Block juniper_sapling, juniper_log, juniper_leaves, juniper_planks, stripped_juniper_log, juniper_wood, stripped_juniper_wood,
+			juniper_sign, juniper_wall_sign, juniper_pressure_plate, juniper_trapdoor, juniper_button, juniper_slab, juniper_fence_gate, juniper_fence,
+			juniper_door, juniper_stairs;
 	
 	public static Block coconut;
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_palm_sapling, potted_willow_sapling, potted_mangrove_sapling,
-						potted_redwood_sapling, potted_baobab_sapling, potted_small_cactus, potted_glowcap;
+						potted_redwood_sapling, potted_baobab_sapling, potted_aspen_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
+						potted_purple_maple_sapling;
+	public static Block	potted_small_cactus, potted_glowcap;
 
 	public static final Block frogbit = null;
 	public static final Block duckweed = null;
@@ -142,6 +158,10 @@ public class PVJBlocks {
 		redwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "redwood_twigs", 100);
 		baobab_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "baobab_twigs", 100);
 //		cottonwood_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "cottonwood_twigs", 100);
+		aspen_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "aspen_twigs", 100);
+		red_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "red_maple_twigs", 100);
+		orange_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "orange_maple_twigs", 100);
+		purple_maple_twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "purple_maple_twigs", 100);
 		
 		oak_fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
 		birch_fallen_leaves = registerBlock(new FallenLeavesBlock(), "birch_fallen_leaves");
@@ -156,6 +176,10 @@ public class PVJBlocks {
 		mangrove_fallen_leaves = registerBlock(new FallenLeavesBlock(), "mangrove_fallen_leaves");
 		redwood_fallen_leaves = registerBlock(new FallenLeavesBlock(), "redwood_fallen_leaves");
 		baobab_fallen_leaves = registerBlock(new FallenLeavesBlock(), "baobab_fallen_leaves");
+		aspen_fallen_leaves = registerBlock(new FallenLeavesBlock(), "aspen_fallen_leaves");
+		red_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "red_maple_fallen_leaves");
+		orange_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "orange_maple_fallen_leaves");
+		purple_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "purple_maple_fallen_leaves");
 //		cottonwood_fallen_leaves = registerBlock(new FallenLeavesBlock(), "cottonwood_fallen_leaves");
 		
 		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
@@ -203,6 +227,10 @@ public class PVJBlocks {
 		potted_mangrove_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> mangrove_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_mangrove_sapling");
 		potted_redwood_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> redwood_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_redwood_sapling");
 		potted_baobab_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> baobab_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_baobab_sapling");
+		potted_aspen_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> aspen_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_aspen_sapling");
+		potted_red_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> red_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_red_maple_sapling");
+		potted_orange_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> orange_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_orange_maple_sapling");
+		potted_purple_maple_sapling = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> purple_maple_sapling, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_purple_maple_sapling");
 		potted_glowcap = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> glowcap, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).lightValue(10).notSolid()), "potted_glowcap");
 		potted_small_cactus = registerBlockWithoutItem(new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> small_cactus, Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0).notSolid()), "potted_small_cactus");
 		
@@ -321,6 +349,42 @@ public class PVJBlocks {
 		baobab_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "baobab_fence_gate");
 		baobab_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "baobab_fence");
 		baobab_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "baobab_door");
+		
+		aspen_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "aspen_log");
+		aspen_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "aspen_leaves");
+		aspen_sapling = registerBlock(new PVJSaplingBlock(new AspenTree()), "aspen_sapling");
+		aspen_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "aspen_planks");
+		stripped_aspen_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_aspen_log");
+		aspen_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "aspen_wood");
+		stripped_aspen_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_aspen_wood");
+		aspen_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "aspen_pressure_plate");
+		aspen_stairs = registerBlockWithFuel(new StairsBlock(() -> aspen_planks.getDefaultState(), Block.Properties.from(aspen_planks)), "aspen_stairs", 300);
+		aspen_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "aspen_trapdoor");
+		aspen_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "aspen_button");
+		aspen_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "aspen_slab");
+		aspen_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "aspen_fence_gate");
+		aspen_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "aspen_fence");
+		aspen_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "aspen_door");
+	
+		maple_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.BROWN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "maple_log");
+		red_maple_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "red_maple_leaves");
+		orange_maple_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "orange_maple_leaves");
+		purple_maple_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT).notSolid()), "purple_maple_leaves");
+		red_maple_sapling = registerBlock(new PVJSaplingBlock(new RedMapleTree()), "red_maple_sapling");
+		orange_maple_sapling = registerBlock(new PVJSaplingBlock(new OrangeMapleTree()), "orange_maple_sapling");
+		purple_maple_sapling = registerBlock(new PVJSaplingBlock(new PurpleMapleTree()), "purple_maple_sapling");
+		maple_planks = registerBlock(new Block(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_planks");
+		stripped_maple_log = registerBlock(new LogBlock(MaterialColor.OBSIDIAN, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_maple_log");
+		maple_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "maple_wood");
+		stripped_maple_wood = registerBlock(new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "stripped_maple_wood");
+		maple_pressure_plate = registerBlock(new PVJPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "maple_pressure_plate");
+		maple_stairs = registerBlockWithFuel(new StairsBlock(() -> maple_planks.getDefaultState(), Block.Properties.from(maple_planks)), "maple_stairs", 300);
+		maple_trapdoor = registerBlock(new PVJTrapDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "maple_trapdoor");
+		maple_button = registerBlock(new PVJWoodButtonBlock(Block.Properties.create(Material.MISCELLANEOUS).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), "maple_button");
+		maple_slab = registerBlock(new SlabBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_slab");
+		maple_fence_gate = registerBlock(new FenceGateBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_fence_gate");
+		maple_fence = registerBlock(new FenceBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)), "maple_fence");
+		maple_door = registerBlockWithoutItem(new PVJDoorBlock(Block.Properties.create(Material.WOOD, MaterialColor.OBSIDIAN).hardnessAndResistance(3.0F).sound(SoundType.WOOD).notSolid()), "maple_door");
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -380,6 +444,11 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(mangrove_twigs, cutout);
 		RenderTypeLookup.setRenderLayer(redwood_twigs, cutout);
 		RenderTypeLookup.setRenderLayer(baobab_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(aspen_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(red_maple_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(orange_maple_twigs, cutout);
+		RenderTypeLookup.setRenderLayer(purple_maple_twigs, cutout);
+		
 		RenderTypeLookup.setRenderLayer(rocks, cutout);
 		RenderTypeLookup.setRenderLayer(mossy_rocks, cutout);
 		RenderTypeLookup.setRenderLayer(andesite_rocks, cutout);
@@ -394,9 +463,11 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(pinecones, cutout);
 		RenderTypeLookup.setRenderLayer(seashells, cutout);
 		RenderTypeLookup.setRenderLayer(dung, cutout);
+		
 		RenderTypeLookup.setRenderLayer(bark_mushroom, cutout);
 		RenderTypeLookup.setRenderLayer(frogbit, cutout);
 		RenderTypeLookup.setRenderLayer(duckweed, cutout);
+		
 		RenderTypeLookup.setRenderLayer(fir_door, cutout);
 		RenderTypeLookup.setRenderLayer(fir_trapdoor, cutout);
 		RenderTypeLookup.setRenderLayer(pine_door, cutout);
@@ -411,6 +482,10 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(redwood_trapdoor, cutout);
 		RenderTypeLookup.setRenderLayer(baobab_door, cutout);
 		RenderTypeLookup.setRenderLayer(baobab_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(aspen_door, cutout);
+		RenderTypeLookup.setRenderLayer(aspen_trapdoor, cutout);
+		RenderTypeLookup.setRenderLayer(maple_trapdoor, cutout);
+		
 		RenderTypeLookup.setRenderLayer(potted_fir_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_pine_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_palm_sapling, cutout);
@@ -418,8 +493,13 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(potted_mangrove_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_redwood_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_baobab_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_aspen_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_red_maple_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_orange_maple_sapling, cutout);
+		RenderTypeLookup.setRenderLayer(potted_purple_maple_sapling, cutout);
 		RenderTypeLookup.setRenderLayer(potted_glowcap, cutout);
 		RenderTypeLookup.setRenderLayer(potted_small_cactus, cutout);
+		
 		RenderTypeLookup.setRenderLayer(natural_cobweb, cutout);
 
 		RenderTypeLookup.setRenderLayer(oak_fallen_leaves, cutout_mipped);
@@ -435,6 +515,10 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(mangrove_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(redwood_fallen_leaves, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(baobab_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(aspen_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(red_maple_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(orange_maple_fallen_leaves, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(purple_maple_fallen_leaves, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(sea_oats, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(cattail, cutout_mipped);
@@ -450,6 +534,10 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(mangrove_sapling, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(redwood_sapling, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(baobab_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(aspen_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(red_maple_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(orange_maple_sapling, cutout_mipped);
+		RenderTypeLookup.setRenderLayer(purple_maple_sapling, cutout_mipped);
 
 		RenderTypeLookup.setRenderLayer(iron_nugget, cutout_mipped);
 		RenderTypeLookup.setRenderLayer(gold_nugget, cutout_mipped);

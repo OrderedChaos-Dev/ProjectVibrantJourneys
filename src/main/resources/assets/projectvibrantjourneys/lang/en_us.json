@@ -8,6 +8,8 @@
 	"block.projectvibrantjourneys.mangrove_log": "Mangrove Log",
 	"block.projectvibrantjourneys.redwood_log": "Redwood Log",
 	"block.projectvibrantjourneys.baobab_log": "Baobab Log",
+	"block.projectvibrantjourneys.aspen_log": "Aspen Log",
+	"block.projectvibrantjourneys.maple_log": "Maple Log",
 	
 	"block.projectvibrantjourneys.fir_leaves": "Fir Leaves",
 	"block.projectvibrantjourneys.pine_leaves": "Pine Leaves",
@@ -16,6 +18,10 @@
 	"block.projectvibrantjourneys.mangrove_leaves": "Mangrove Leaves",
 	"block.projectvibrantjourneys.redwood_leaves": "Redwood Leaves",
 	"block.projectvibrantjourneys.baobab_leaves": "Baobab Leaves",
+	"block.projectvibrantjourneys.aspen_leaves": "Aspen Leaves",
+	"block.projectvibrantjourneys.red_maple_leaves": "Red Maple Leaves",
+	"block.projectvibrantjourneys.orange_maple_leaves": "Orange Maple Leaves",
+	"block.projectvibrantjourneys.purple_maple_leaves": "Purple Maple Leaves",
 	
 	"block.projectvibrantjourneys.fir_sapling": "Fir Sapling",
 	"block.projectvibrantjourneys.pine_sapling": "Pine Sapling",
@@ -24,6 +30,10 @@
 	"block.projectvibrantjourneys.mangrove_sapling": "Mangrove Sapling",
 	"block.projectvibrantjourneys.redwood_sapling": "Redwood Sapling",
 	"block.projectvibrantjourneys.baobab_sapling": "Baobab Sapling",
+	"block.projectvibrantjourneys.aspen_sapling": "Aspen Sapling",
+	"block.projectvibrantjourneys.red_maple_sapling": "Red Maple Sapling",
+	"block.projectvibrantjourneys.orange_maple_sapling": "Orange Maple Sapling",
+	"block.projectvibrantjourneys.purple_maple_sapling": "Purple Maple Sapling",
 	
 	"block.projectvibrantjourneys.fir_planks": "Fir Planks",
 	"block.projectvibrantjourneys.pine_planks": "Pine Planks",
@@ -32,6 +42,8 @@
 	"block.projectvibrantjourneys.mangrove_planks": "Mangrove Planks",
 	"block.projectvibrantjourneys.redwood_planks": "Redwood Planks",
 	"block.projectvibrantjourneys.baobab_planks": "Baobab Planks",
+	"block.projectvibrantjourneys.aspen_planks": "Baobab Planks",
+	"block.projectvibrantjourneys.maple_planks": "Maple Planks",
 	
 	"block.projectvibrantjourneys.fir_wood": "Fir Wood",
 	"block.projectvibrantjourneys.pine_wood": "Pine Wood",
@@ -40,6 +52,8 @@
 	"block.projectvibrantjourneys.mangrove_wood": "Mangrove Wood",
 	"block.projectvibrantjourneys.redwood_wood": "Redwood Wood",
 	"block.projectvibrantjourneys.baobab_wood": "Baobab Wood",
+	"block.projectvibrantjourneys.aspen_wood": "Aspen Wood",
+	"block.projectvibrantjourneys.maple_wood": "Maple Wood",
 	
 	"block.projectvibrantjourneys.stripped_fir_log": "Stripped Fir Log",
 	"block.projectvibrantjourneys.stripped_pine_log": "Stripped Pine Log",
@@ -48,6 +62,8 @@
 	"block.projectvibrantjourneys.stripped_mangrove_log": "Stripped Mangrove Log",
 	"block.projectvibrantjourneys.stripped_redwood_log": "Stripped Redwood Log",
 	"block.projectvibrantjourneys.stripped_baobab_log": "Stripped Baobab Log",
+	"block.projectvibrantjourneys.stripped_aspen_log": "Stripped Aspen Log",
+	"block.projectvibrantjourneys.stripped_maple_log": "Stripped Maple Log",
 	
 	"block.projectvibrantjourneys.stripped_fir_wood": "Stripped Fir Wood",
 	"block.projectvibrantjourneys.stripped_pine_wood": "Stripped Pine Wood",
@@ -56,6 +72,8 @@
 	"block.projectvibrantjourneys.stripped_mangrove_wood": "Stripped Mangrove Wood",
 	"block.projectvibrantjourneys.stripped_redwood_wood": "Stripped Redwood Wood",
 	"block.projectvibrantjourneys.stripped_baobab_wood": "Stripped Baobab Wood",
+	"block.projectvibrantjourneys.stripped_aspen_wood": "Stripped Aspen Wood",
+	"block.projectvibrantjourneys.stripped_maple_wood": "Stripped Maple Wood",
 	
 	"block.projectvibrantjourneys.fir_stairs": "Fir Stairs",
 	"block.projectvibrantjourneys.pine_stairs": "Pine Stairs",
@@ -64,6 +82,8 @@
 	"block.projectvibrantjourneys.mangrove_stairs": "Mangrove Stairs",
 	"block.projectvibrantjourneys.redwood_stairs": "Redwood Stairs",
 	"block.projectvibrantjourneys.baobab_stairs": "Baobab Stairs",
+	"block.projectvibrantjourneys.aspen_stairs": "Aspen Stairs",
+	"block.projectvibrantjourneys.maple_stairs": "Maple Stairs",
 	
 	"block.projectvibrantjourneys.fir_slab": "Fir Slab",
 	"block.projectvibrantjourneys.pine_slab": "Pine Slab",
@@ -72,6 +92,8 @@
 	"block.projectvibrantjourneys.mangrove_slab": "Mangrove Slab",
 	"block.projectvibrantjourneys.redwood_slab": "Redwood Slab",
 	"block.projectvibrantjourneys.baobab_slab": "Baobab Slab",
+	"block.projectvibrantjourneys.aspen_slab": "Aspen Slab",
+	"block.projectvibrantjourneys.maple_slab": "Maple Slab",
 	
 	"block.projectvibrantjourneys.fir_fence": "Fir Fence",
 	"block.projectvibrantjourneys.pine_fence": "Pine Fence",
@@ -80,6 +102,8 @@
 	"block.projectvibrantjourneys.mangrove_fence": "Mangrove Fence",
 	"block.projectvibrantjourneys.redwood_fence": "Redwood Fence",
 	"block.projectvibrantjourneys.baobab_fence": "Baobab Fence",
+	"block.projectvibrantjourneys.aspen_fence": "Aspen Fence",
+	"block.projectvibrantjourneys.maple_fence": "Maple Fence",
 	
 	"block.projectvibrantjourneys.fir_fence_gate": "Fir Fence Gate",
 	"block.projectvibrantjourneys.pine_fence_gate": "Pine Fence Gate",
@@ -88,6 +112,8 @@
 	"block.projectvibrantjourneys.mangrove_fence_gate": "Mangrove Fence Gate",
 	"block.projectvibrantjourneys.redwood_fence_gate": "Redwood Fence Gate",
 	"block.projectvibrantjourneys.baobab_fence_gate": "Baobab Fence Gate",
+	"block.projectvibrantjourneys.aspen_fence_gate": "Aspen Fence Gate",
+	"block.projectvibrantjourneys.maple_fence_gate": "Maple Fence Gate",
 	
 	"block.projectvibrantjourneys.fir_door": "Fir Door",
 	"block.projectvibrantjourneys.pine_door": "Pine Door",
@@ -96,6 +122,8 @@
 	"block.projectvibrantjourneys.mangrove_door": "Mangrove Door",
 	"block.projectvibrantjourneys.redwood_door": "Redwood Door",
 	"block.projectvibrantjourneys.baobab_door": "Baobab Door",
+	"block.projectvibrantjourneys.aspen_door": "Aspen Door",
+	"block.projectvibrantjourneys.maple_door": "Maple Door",
 	
 	"block.projectvibrantjourneys.fir_trapdoor": "Fir Trapdoor",
 	"block.projectvibrantjourneys.pine_trapdoor": "Pine Trapdoor",
@@ -104,6 +132,8 @@
 	"block.projectvibrantjourneys.mangrove_trapdoor": "Mangrove Trapdoor",
 	"block.projectvibrantjourneys.redwood_trapdoor": "Redwood Trapdoor",
 	"block.projectvibrantjourneys.baobab_trapdoor": "Baobab Trapdoor",
+	"block.projectvibrantjourneys.aspen_trapdoor": "Aspen Trapdoor",
+	"block.projectvibrantjourneys.maple_trapdoor": "Maple Trapdoor",
 	
 	"block.projectvibrantjourneys.fir_button": "Fir Button",
 	"block.projectvibrantjourneys.pine_button": "Pine Button",
@@ -112,6 +142,8 @@
 	"block.projectvibrantjourneys.mangrove_button": "Mangrove Button",
 	"block.projectvibrantjourneys.redwood_button": "Redwood Button",
 	"block.projectvibrantjourneys.baobab_button": "Baobab Button",
+	"block.projectvibrantjourneys.aspen_button": "Aspen Button",
+	"block.projectvibrantjourneys.maple_button": "Maple Button",
 	
 	"block.projectvibrantjourneys.fir_pressure_plate": "Fir Pressure Plate",
 	"block.projectvibrantjourneys.pine_pressure_plate": "Pine Pressure Plate",
@@ -120,6 +152,8 @@
 	"block.projectvibrantjourneys.mangrove_pressure_plate": "Mangrove Pressure Plate",
 	"block.projectvibrantjourneys.redwood_pressure_plate": "Redwood Pressure Plate",
 	"block.projectvibrantjourneys.baobab_pressure_plate": "Baobab Pressure Plate",
+	"block.projectvibrantjourneys.aspen_pressure_plate": "Aspen Pressure Plate",
+	"block.projectvibrantjourneys.maple_pressure_plate": "Maple Pressure Plate",
 	
 	"block.projectvibrantjourneys.oak_twigs": "Oak Twigs",
 	"block.projectvibrantjourneys.birch_twigs": "Birch Twigs",
@@ -134,6 +168,10 @@
 	"block.projectvibrantjourneys.mangrove_twigs": "Mangrove Twigs",
 	"block.projectvibrantjourneys.redwood_twigs": "Redwood Twigs",
 	"block.projectvibrantjourneys.baobab_twigs": "Baobab Twigs",
+	"block.projectvibrantjourneys.aspen_twigs": "Aspen Twigs",
+	"block.projectvibrantjourneys.red_maple_twigs": "Red Maple Twigs",
+	"block.projectvibrantjourneys.orange_maple_twigs": "Orange Maple Twigs",
+	"block.projectvibrantjourneys.purple_maple_twigs": "Purple Maple Twigs",
 	
 	"block.projectvibrantjourneys.oak_fallen_leaves": "Oak Fallen Leaves",
 	"block.projectvibrantjourneys.birch_fallen_leaves": "Birch Fallen Leaves",
@@ -148,6 +186,10 @@
 	"block.projectvibrantjourneys.mangrove_fallen_leaves": "Mangrove Fallen Leaves",
 	"block.projectvibrantjourneys.redwood_fallen_leaves": "Redwood Fallen Leaves",
 	"block.projectvibrantjourneys.baobab_fallen_leaves": "Baobab Fallen Leaves",
+	"block.projectvibrantjourneys.aspen_fallen_leaves": "Aspen Fallen Leaves",
+	"block.projectvibrantjourneys.red_maple_fallen_leaves": "Red Maple Fallen Leaves",
+	"block.projectvibrantjourneys.orange_maple_fallen_leaves": "Orange Maple Fallen Leaves",
+	"block.projectvibrantjourneys.purple_maple_fallen_leaves": "Purple Maple Fallen Leaves",
 	
 	"block.projectvibrantjourneys.stone_rocks": "Rocks",
 	"block.projectvibrantjourneys.mossy_rocks": "Mossy Rocks",
@@ -226,6 +268,7 @@
 	"biome.projectvibrantjourneys.redwoods": "Redwoods",
 	"biome.projectvibrantjourneys.redwood_peaks": "Redwood Peaks",
 	"biome.projectvibrantjourneys.baobab_fields": "Baobab Fields",
+	"biome.projectvibrantjourneys.aspen_grove": "Aspen Grove",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

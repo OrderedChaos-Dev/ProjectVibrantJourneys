@@ -20,6 +20,7 @@ import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.MangroveRootsFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
+import projectvibrantjourneys.common.world.features.trees.AspenTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.BaobabTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MangroveTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MegaRedwoodTreeFeature;
@@ -44,6 +45,7 @@ public class PVJFeatures {
 	public static Feature<TreeFeatureConfig> willowTree;
 	public static Feature<TreeFeatureConfig> mangroveTree;
 	public static Feature<TreeFeatureConfig> redwoodTree;
+	public static Feature<TreeFeatureConfig> aspenTree;
 	public static Feature<HugeTreeFeatureConfig> megaRedwoodTree;
 	public static Feature<HugeTreeFeatureConfig> baobabTree;
 	public static Feature<NoFeatureConfig> mangroveRootFeature;
@@ -61,6 +63,7 @@ public class PVJFeatures {
 		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);
 		mangroveTree = new MangroveTreeFeature(TreeFeatureConfig::func_227338_a_);
 		redwoodTree = new RedwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
+		aspenTree = new AspenTreeFeature(TreeFeatureConfig::func_227338_a_);
 		megaRedwoodTree = new MegaRedwoodTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		baobabTree = new BaobabTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
@@ -76,6 +79,7 @@ public class PVJFeatures {
 		registerFeature(willowTree, "willow_tree");
 		registerFeature(mangroveTree, "mangrove_tree");
 		registerFeature(redwoodTree, "redwood_tree");
+		registerFeature(aspenTree, "aspen_tree");
 		registerFeature(megaRedwoodTree, "mega_redwood_tree");
 		registerFeature(baobabTree, "baobab_tree");
 		registerFeature(mangroveRootFeature, "mangrove_root_feature");

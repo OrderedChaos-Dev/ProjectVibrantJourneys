@@ -14,9 +14,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.biomes.AspenGroveBiome;
 import projectvibrantjourneys.common.biomes.BaobabFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
+import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.RedwoodPeaksBiome;
 import projectvibrantjourneys.common.biomes.RedwoodsBiome;
@@ -42,6 +44,8 @@ public class PVJBiomes {
 	public static Biome redwoods;
 	public static Biome redwood_peaks;
 	public static Biome baobab_fields;
+	public static Biome aspen_grove;
+	public static Biome crimson_thicket;
 	
 	public static final SurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS_SB = new VerdantSandsSurfaceBuilder(SurfaceBuilderConfig::deserialize);
 	public static final SurfaceBuilder<SurfaceBuilderConfig> BOREAL_PLATEAU_SB = new BorealPlateauSurfaceBuilder(SurfaceBuilderConfig::deserialize);
@@ -58,6 +62,8 @@ public class PVJBiomes {
 		redwoods = registerBiome(new RedwoodsBiome(), BiomeType.COOL, "redwoods", PVJConfig.redwoodsWeight.get());
 		redwood_peaks = registerBiome(new RedwoodPeaksBiome(), BiomeType.COOL, "redwood_peaks", PVJConfig.redwoodPeaksWeight.get());
 		baobab_fields = registerBiome(new BaobabFieldsBiome(), BiomeType.WARM, "baobab_fields", PVJConfig.baobabFieldsWeight.get());
+		aspen_grove = registerBiome(new AspenGroveBiome(), BiomeType.COOL, "aspen_grove", PVJConfig.aspenGroveWeight.get());
+		crimson_thicket = registerBiome(new CrimsonThicketBiome(), BiomeType.COOL, "crimson_thicket", PVJConfig.crimsonThicketWeight.get());
 	}
 
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
@@ -79,6 +85,8 @@ public class PVJBiomes {
 		addBiomeTypes(redwoods, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD);
 		addBiomeTypes(redwood_peaks, Type.OVERWORLD, Type.CONIFEROUS, Type.FOREST, Type.COLD, Type.MOUNTAIN);
 		addBiomeTypes(baobab_fields, Type.OVERWORLD, Type.HOT, Type.SAVANNA, Type.PLAINS, Type.SPARSE);
+		addBiomeTypes(aspen_grove, Type.OVERWORLD, Type.COLD, Type.FOREST);
+		addBiomeTypes(crimson_thicket, Type.OVERWORLD, Type.COLD, Type.FOREST, Type.CONIFEROUS);
 	}
 	
 	public static void addBiomeTypes(Biome biome, BiomeDictionary.Type...types) {

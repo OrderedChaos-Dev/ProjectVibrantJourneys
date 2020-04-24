@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "projectvibrantjourneys:block/stripped_aspen_log_top",
+        "side": "projectvibrantjourneys:block/stripped_aspen_log"
+    }
+}

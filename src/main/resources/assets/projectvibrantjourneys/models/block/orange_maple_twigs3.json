@@ -1,0 +1,8 @@
+{
+	"parent": "projectvibrantjourneys:block/twigs3",
+    "textures": {
+        "particle": "projectvibrantjourneys:block/maple_log",
+        "0": "projectvibrantjourneys:block/maple_log",
+        "1": "projectvibrantjourneys:block/orange_maple_leaves"
+    }
+}

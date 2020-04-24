@@ -49,6 +49,14 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> redwoodTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> baobabTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> baobabTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> aspenTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> aspenTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> redMapleTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> redMapleTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> orangeMapleTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> orangeMapleTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> purpleMapleTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> purpleMapleTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
@@ -95,6 +103,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.IntValue redwoodsWeight;
 	public static ForgeConfigSpec.IntValue redwoodPeaksWeight;
 	public static ForgeConfigSpec.IntValue baobabFieldsWeight;
+	public static ForgeConfigSpec.IntValue aspenGroveWeight;
+	public static ForgeConfigSpec.IntValue crimsonThicketWeight;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> flyBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> fireflyBiomes;
@@ -174,6 +184,16 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Baobab Trees Biomes");
 		baobabTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("baobabTreesBiomes", ConfigDefaults.BAOBAB_TREES);
 		baobabTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("baobabTreesSparseBiomes", ConfigDefaults.BAOBAB_TREES_SPARSE);
+		COMMON_BUILDER.comment("Aspen Trees Biomes");
+		aspenTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("aspenTreesBiomes", ConfigDefaults.ASPEN_TREES);
+		aspenTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("aspenTreesSparseBiomes", ConfigDefaults.ASPEN_TREES_SPARSE);
+		COMMON_BUILDER.comment("Maple Trees Biomes");
+		redMapleTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("redMapleTreesBiomes", ConfigDefaults.RED_MAPLE_TREES);
+		redMapleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("redMapleTreesSparseBiomes", ConfigDefaults.RED_MAPLE_TREES_SPARSE);
+		orangeMapleTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("orangeMapleTreesBiomes", ConfigDefaults.ORANGE_MAPLE_TREES);
+		orangeMapleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("orangeMapleTreesSparseBiomes", ConfigDefaults.ORANGE_MAPLE_TREES_SPARSE);
+		purpleMapleTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("purpleMapleTreesBiomes", ConfigDefaults.PURPLE_MAPLE_TREES);
+		purpleMapleTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("purpleMapleTreesSparseBiomes", ConfigDefaults.PURPLE_MAPLE_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);
@@ -221,6 +241,8 @@ public class PVJConfig {
 		redwoodsWeight = COMMON_BUILDER.comment("Redwoods Weight").defineInRange("redwoodsWeight", ConfigDefaults.REDWOODS_WEIGHT, 0, 100);
 		redwoodPeaksWeight = COMMON_BUILDER.comment("Redwood Peaks Weight").defineInRange("redwoodPeaksWeight", ConfigDefaults.REDWOOD_PEAKS_WEIGHT, 0, 100);
 		baobabFieldsWeight = COMMON_BUILDER.comment("Baobab Fields Weight").defineInRange("baobabFieldsWeight", ConfigDefaults.BAOBAB_FIELDS_WEIGHT, 0, 100);
+		aspenGroveWeight = COMMON_BUILDER.comment("Aspen Grove Weight").defineInRange("aspenGroveWeight", ConfigDefaults.ASPEN_GROVE_WEIGHT, 0, 100);
+		crimsonThicketWeight = COMMON_BUILDER.comment("Crimson Thicket Weight").defineInRange("crimsonThicketWeight", ConfigDefaults.CRIMSON_THICKET_WEIGHT, 0, 100);
 	}
 	
 	private static void initMobs() {
