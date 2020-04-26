@@ -16,6 +16,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.PVJSoundEvents;
 
 public class FlyEntity extends AmbientEntity {
@@ -109,6 +110,8 @@ public class FlyEntity extends AmbientEntity {
 	
 	@Override
 	protected SoundEvent getAmbientSound() {
+		if(PVJConfig.muteFlies.get())
+			return null;
 		return PVJSoundEvents.entity_fly_ambient;
 	}
 	

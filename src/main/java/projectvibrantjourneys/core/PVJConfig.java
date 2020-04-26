@@ -132,6 +132,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> mawBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> mawFoods;
 	
+	public static ForgeConfigSpec.BooleanValue muteFlies;
 	public static ForgeConfigSpec.BooleanValue skeletalKnightDungeons;
 	
 	static {
@@ -264,6 +265,7 @@ public class PVJConfig {
 		clamBiomes = COMMON_BUILDER.comment("Clam Biomes").define("clamBiomes", ConfigDefaults.CLAM);
 		snailBiomes = COMMON_BUILDER.comment("Snail Biomes").define("snailBiomes", ConfigDefaults.SNAIL);
 		slugBiomes = COMMON_BUILDER.comment("Slug Biomes").define("slugBiomes", ConfigDefaults.SLUG);
+		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
 		
 		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
 		
@@ -278,9 +280,9 @@ public class PVJConfig {
 		iceCubeBiomes = COMMON_BUILDER.comment("Ice Cube Biomes").define("icecubeBiomes", ConfigDefaults.ICE_CUBE);
 		mawBiomes = COMMON_BUILDER.comment("Maw Biomes").define("mawBiomes", ConfigDefaults.MAW);
 		
-		skeletalKnightDungeons = COMMON_BUILDER.comment("Add skeletal knights to dungeons").define("skeletalKnightDungeons", true);
-		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
+		skeletalKnightDungeons = COMMON_BUILDER.comment("Add skeletal knights to dungeons").define("skeletalKnightDungeons", ConfigDefaults.SKELETAL_KNIGHT_DUNGEONS);
 		mawFoods = COMMON_BUILDER.comment("Friendly Maw Foods").define("mawFoods", ConfigDefaults.MAW_FOODS);
+		muteFlies = COMMON_BUILDER.comment("Mute Flies").define("muteFlies", ConfigDefaults.MUTE_FLIES);
 	}
 	
 	public static void loadConfig(ForgeConfigSpec spec, Path path) {

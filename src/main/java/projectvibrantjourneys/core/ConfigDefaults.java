@@ -111,6 +111,8 @@ public class ConfigDefaults {
 	public static final List<String> MAW = new ArrayList<String>();
 	
 	public static final List<String> MAW_FOODS = new ArrayList<String>();
+	public static final boolean SKELETAL_KNIGHT_DUNGEONS = true;
+	public static final boolean MUTE_FLIES = false;
 	
 	public static void load() {
 		//ocean
