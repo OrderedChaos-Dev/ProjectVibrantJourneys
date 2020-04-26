@@ -12,7 +12,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class SpecterRenderer extends BipedRenderer<SpecterEntity, AngryGhostModel<SpecterEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/specter.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost/specter.png");
 	
 	public SpecterRenderer(EntityRendererManager manager) {
 		super(manager, new AngryGhostModel<>(), 0.0F);

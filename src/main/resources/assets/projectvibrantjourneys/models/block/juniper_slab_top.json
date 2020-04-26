@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/juniper_planks",
+        "top": "projectvibrantjourneys:block/juniper_planks",
+        "side": "projectvibrantjourneys:block/juniper_planks"
+    }
+}

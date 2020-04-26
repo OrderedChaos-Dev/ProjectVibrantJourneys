@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "projectvibrantjourneys:block/juniper_slab" },
+        "type=top": { "model": "projectvibrantjourneys:block/juniper_slab_top" },
+        "type=double": { "model": "projectvibrantjourneys:block/juniper_planks" }
+    }
+}

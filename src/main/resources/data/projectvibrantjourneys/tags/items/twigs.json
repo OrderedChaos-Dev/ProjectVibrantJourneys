@@ -6,17 +6,18 @@
 		"projectvibrantjourneys:spruce_twigs",
 		"projectvibrantjourneys:jungle_twigs",
 		"projectvibrantjourneys:dark_oak_twigs",
-		"projectvibrantjourneys:acacia_twigs",
 		"projectvibrantjourneys:fir_twigs",
 		"projectvibrantjourneys:pine_twigs",
 		"projectvibrantjourneys:palm_twigs",
 		"projectvibrantjourneys:willow_twigs",
+		"projectvibrantjourneys:mangrove_twigs",
 		"projectvibrantjourneys:redwood_twigs",
 		"projectvibrantjourneys:baobab_twigs",
 		"projectvibrantjourneys:aspen_twigs",
-		"projectvibrantjourneys:red_mapletwigs",
+		"projectvibrantjourneys:red_maple_twigs",
 		"projectvibrantjourneys:orange_maple_twigs",
 		"projectvibrantjourneys:purple_maple_twigs",
-		"projectvibrantjourneys:cottonwood_twigs"
+		"projectvibrantjourneys:cottonwood_twigs",
+		"projectvibrantjourneys:juniper_twigs"
 	]
 }

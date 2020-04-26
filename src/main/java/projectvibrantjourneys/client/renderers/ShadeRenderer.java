@@ -12,7 +12,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class ShadeRenderer extends BipedRenderer<ShadeEntity, AngryGhostModel<ShadeEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/shade.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost/shade.png");
 	
 	public ShadeRenderer(EntityRendererManager manager) {
 		super(manager, new AngryGhostModel<>(), 0.0F);

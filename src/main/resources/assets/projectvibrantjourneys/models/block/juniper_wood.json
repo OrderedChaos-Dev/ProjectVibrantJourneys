@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "projectvibrantjourneys:block/juniper_log",
+        "side": "projectvibrantjourneys:block/juniper_log"
+    }
+}

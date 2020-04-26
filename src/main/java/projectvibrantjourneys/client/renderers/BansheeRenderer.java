@@ -12,7 +12,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class BansheeRenderer extends BipedRenderer<BansheeEntity, AngryGhostModel<BansheeEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/banshee.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost/banshee.png");
 	
 	public BansheeRenderer(EntityRendererManager manager) {
 		super(manager, new AngryGhostModel<>(), 0.0F);

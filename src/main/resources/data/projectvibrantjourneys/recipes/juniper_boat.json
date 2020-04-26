@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:juniper_planks"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:juniper_boat"
+  }
+}

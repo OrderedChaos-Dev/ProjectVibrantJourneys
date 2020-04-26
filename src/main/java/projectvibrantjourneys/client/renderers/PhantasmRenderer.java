@@ -12,7 +12,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class PhantasmRenderer extends BipedRenderer<PhantasmEntity, AngryGhostModel<PhantasmEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/phantasm.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost/phantasm.png");
 	
 	public PhantasmRenderer(EntityRendererManager manager) {
 		super(manager, new AngryGhostModel<>(), 0.0F);

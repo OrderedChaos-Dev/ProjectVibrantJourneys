@@ -59,6 +59,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> purpleMapleTreesSparseBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> cottonwoodTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> cottonwoodTreesSparseBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> juniperTreesBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> juniperTreesSparseBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> rocksBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> netherrackRocksBiomes;
@@ -200,6 +202,9 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Cottonwood Trees Biomes");
 		cottonwoodTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("cottonwoodTreesBiomes", ConfigDefaults.COTTONWOOD_TREES);
 		cottonwoodTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("cottonwoodTreesSparseBiomes", ConfigDefaults.COTTONWOOD_TREES_SPARSE);
+		COMMON_BUILDER.comment("Juniper Trees Biomes");
+		juniperTreesBiomes = COMMON_BUILDER.comment("Normal frequency").define("juniperTreesBiomes", ConfigDefaults.JUNIPER_TREES);
+		juniperTreesSparseBiomes = COMMON_BUILDER.comment("Sparse frequency").define("juniperTreesSparseBiomes", ConfigDefaults.JUNIPER_TREES_SPARSE);
 		
 		rocksBiomes = COMMON_BUILDER.comment("Rocks Biomes (Stone, Cobblestone, Andesite, Diorite, Granite)").define("rocksBiomes", ConfigDefaults.ROCKS);
 		netherrackRocksBiomes = COMMON_BUILDER.comment("Netherrack Rocks Biomes").define("netherrackRocksBiomes", ConfigDefaults.NETHERRACK_ROCKS);

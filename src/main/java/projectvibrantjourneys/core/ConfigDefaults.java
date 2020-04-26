@@ -55,6 +55,8 @@ public class ConfigDefaults {
 	public static final List<String> PURPLE_MAPLE_TREES_SPARSE = new ArrayList<String>();
 	public static final List<String> COTTONWOOD_TREES = new ArrayList<String>();
 	public static final List<String> COTTONWOOD_TREES_SPARSE = new ArrayList<String>();
+	public static final List<String> JUNIPER_TREES = new ArrayList<String>();
+	public static final List<String> JUNIPER_TREES_SPARSE = new ArrayList<String>();
 	
 	public static final List<String> ROCKS = new ArrayList<String>();
 	public static final List<String> NETHERRACK_ROCKS = new ArrayList<String>();
@@ -178,12 +180,12 @@ public class ConfigDefaults {
 		addTo("minecraft:shattered_savanna_plateau", ACACIA_TREES, BAOBAB_TREES_SPARSE, ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, DUNG, SKELETAL_KNIGHT, GHOST, WRAITH, FLY, FIREFLY, CATTAIL, BARK_MUSHROOM, COBWEB, SHORT_GRASS);
 		
 		//badlands
-		addTo("minecraft:badlands", RED_SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
+		addTo("minecraft:badlands", JUNIPER_TREES_SPARSE, RED_SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
 		addTo("minecraft:wooded_badlands_plateau", OAK_TREES, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
-		addTo("minecraft:badlands_plateau", RED_SANDSTONE_ROCKS, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
-		addTo("minecraft:eroded_badlands", RED_SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
+		addTo("minecraft:badlands_plateau", JUNIPER_TREES_SPARSE, RED_SANDSTONE_ROCKS, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
+		addTo("minecraft:eroded_badlands", JUNIPER_TREES_SPARSE, RED_SANDSTONE_ROCKS, BONES_COMMON, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
 		addTo("minecraft:modified_wooded_badlands_plateau", OAK_TREES, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
-		addTo("minecraft:modified_badlands_plateau", RED_SANDSTONE_ROCKS, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
+		addTo("minecraft:modified_badlands_plateau", JUNIPER_TREES_SPARSE, RED_SANDSTONE_ROCKS, IRON_NUGGET, GOLD_NUGGET_COMMON, FLINT, SKELETAL_KNIGHT, GHOST, WRAITH);
 		
 		//tundra
 		addTo("minecraft:snowy_tundra", ROCKS, BONES, IRON_NUGGET, GOLD_NUGGET, FLINT, SKELETAL_KNIGHT, GHOST, BANSHEE, COBWEB, ICE_CUBE, CLAM, SEAGRASS);

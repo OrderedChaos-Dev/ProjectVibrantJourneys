@@ -12,7 +12,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class GhostRenderer extends BipedRenderer<GhostEntity, GhostModel<GhostEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/ghost/ghost.png");
 	
 	public GhostRenderer(EntityRendererManager manager) {
 		super(manager, new GhostModel<>(), 0.0F);

@@ -9,5 +9,6 @@ public class PVJFoods {
 	public static final Food COOKED_CLAM = (new Food.Builder()).hunger(6).saturation(0.6F).build();
 	public static final Food CLAM_CHOWDER = (new Food.Builder()).hunger(9).saturation(0.7F).effect(new EffectInstance(Effects.WATER_BREATHING, 300, 0), 1.0F).build();
 	public static final Food CRACKED_COCONUT = (new Food.Builder()).hunger(3).saturation(0.35F).build();
-	public static final Food COCONUT_MILK = (new Food.Builder()).hunger(2).saturation(0.2F).setAlwaysEdible().build();
+	public static final Food COCONUT_MILK = (new Food.Builder()).hunger(2).saturation(0.2F).effect(new EffectInstance(Effects.REGENERATION, 300, 0), 1.0F).setAlwaysEdible().build();
+	public static final Food JUNIPER_BERRIES = (new Food.Builder()).hunger(1).saturation(0.1F).effect(new EffectInstance(Effects.REGENERATION, 100, 0), 1.0F).setAlwaysEdible().build();
 }

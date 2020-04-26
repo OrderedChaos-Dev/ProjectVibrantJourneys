@@ -8,8 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -24,7 +22,7 @@ public class BeverageItem extends Item {
 	@Override
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		if (!worldIn.isRemote) {
-			entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 300, 0));
+
 		}
 
 		if (entityLiving instanceof ServerPlayerEntity) {

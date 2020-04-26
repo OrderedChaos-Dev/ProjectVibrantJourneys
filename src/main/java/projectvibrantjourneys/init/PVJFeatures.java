@@ -23,6 +23,7 @@ import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.common.world.features.trees.AspenTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.BaobabTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.CottonwoodTreeFeature;
+import projectvibrantjourneys.common.world.features.trees.JuniperTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MangroveTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.MegaRedwoodTreeFeature;
 import projectvibrantjourneys.common.world.features.trees.PalmTreeFeature;
@@ -50,6 +51,7 @@ public class PVJFeatures {
 	public static Feature<HugeTreeFeatureConfig> megaRedwoodTree;
 	public static Feature<HugeTreeFeatureConfig> baobabTree;
 	public static Feature<TreeFeatureConfig> cottonwoodTree;
+	public static Feature<TreeFeatureConfig> juniperTree;
 	public static Feature<NoFeatureConfig> mangroveRootFeature;
 	
 	@SubscribeEvent
@@ -69,6 +71,7 @@ public class PVJFeatures {
 		megaRedwoodTree = new MegaRedwoodTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		baobabTree = new BaobabTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		cottonwoodTree = new CottonwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
+		juniperTree = new JuniperTreeFeature(TreeFeatureConfig::func_227338_a_);
 		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
@@ -85,8 +88,9 @@ public class PVJFeatures {
 		registerFeature(aspenTree, "aspen_tree");
 		registerFeature(megaRedwoodTree, "mega_redwood_tree");
 		registerFeature(baobabTree, "baobab_tree");
+		registerFeature(cottonwoodTree, "cottonwood_tree");
+		registerFeature(juniperTree, "juniper_tree");
 		registerFeature(mangroveRootFeature, "mangrove_root_feature");
-		//registerFeature(randomPatchNoFlatFeature, "random_patch_no_flat_feature");
 	}
 	
 	public static void registerFeature(Feature<?> feature, String name) {

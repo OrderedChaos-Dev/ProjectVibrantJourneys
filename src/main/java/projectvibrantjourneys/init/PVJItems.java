@@ -23,8 +23,10 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.entities.item.PVJBoatEntity;
 import projectvibrantjourneys.common.items.BeverageItem;
 import projectvibrantjourneys.common.items.FloatingPlantItem;
+import projectvibrantjourneys.common.items.PVJBoatItem;
 import projectvibrantjourneys.common.items.PVJDoorItem;
 import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -38,8 +40,12 @@ public class PVJItems {
 	public static Item starfish_bucket, clam_bucket;
 	public static Item raw_clam, cooked_clam, clam_chowder, pearl;
 	public static Item spectral_wrappings, maw_tongue;
-	public static Item fir_sign, fir_door, pine_door, palm_door, willow_door, mangrove_door, redwood_door, baobab_door, aspen_door, maple_door, cottonwood_door;
+	public static Item fir_sign, fir_door, pine_door, palm_door, willow_door, mangrove_door, redwood_door, 
+						baobab_door, aspen_door, maple_door, cottonwood_door, juniper_door;
+	public static Item fir_boat, pine_boat, palm_boat, willow_boat, mangrove_boat, redwood_boat, 
+						baobab_boat, aspen_boat, maple_boat, cottonwood_boat, juniper_boat;
 	public static Item cracked_coconut, coconut_milk;
+	public static Item juniper_berries;
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
@@ -63,7 +69,7 @@ public class PVJItems {
 		registerSpawnEgg("nightmare", PVJEntities.nightmare, 0x6b6b6b, 0x9f4343);
 		registerSpawnEgg("ice_cube", PVJEntities.ice_cube, 0x9eb8e8, 0xbad0f9);
 		registerSpawnEgg("maw", PVJEntities.maw, 0x909090, 0xFF0000);
-		
+	
 		registerItem(new FloatingPlantItem(PVJBlocks.frogbit), "frogbit");
 		registerItem(new FloatingPlantItem(PVJBlocks.duckweed), "duckweed");
 //		fir_sign = registerItem(new SignItem((new Item.Properties()).maxStackSize(16).group(PVJItemGroup.PVJ_ITEMGROUP), PVJBlocks.fir_sign, PVJBlocks.fir_wall_sign), "fir_sign");
@@ -82,6 +88,7 @@ public class PVJItems {
 				   tooltip.add(new TranslationTextComponent("item.projectvibrantjourneys.maw_tongue.description"));
 			   }
 		}, "maw_tongue");
+		juniper_berries = registerItem(new Item(new Item.Properties().food(PVJFoods.JUNIPER_BERRIES).group(PVJItemGroup.PVJ_ITEMGROUP)), "juniper_berries");
 		
 		//lazy door fuel handling - will clean up later
 		fir_door = registerItem(new PVJDoorItem(PVJBlocks.fir_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "fir_door");
@@ -94,6 +101,19 @@ public class PVJItems {
 		aspen_door = registerItem(new PVJDoorItem(PVJBlocks.aspen_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "aspen_door");
 		maple_door = registerItem(new PVJDoorItem(PVJBlocks.maple_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "maple_door");
 		cottonwood_door = registerItem(new PVJDoorItem(PVJBlocks.cottonwood_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "cottonwood_door");
+		juniper_door = registerItem(new PVJDoorItem(PVJBlocks.juniper_door, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "juniper_door");
+		
+		fir_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.FIR, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "fir_boat");
+		pine_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.PINE, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "pine_boat");
+		palm_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.PALM, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "palm_boat");
+		willow_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.WILLOW, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "willow_boat");
+		mangrove_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.MANGROVE, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "mangrove_boat");
+		redwood_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.REDWOOD, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "redwood_boat");
+		baobab_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.BAOBAB, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "baobab_boat");
+		aspen_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.ASPEN, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "aspen_boat");
+		maple_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.MAPLE, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "maple_boat");
+		cottonwood_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.COTTONWOOD, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "cottonwood_boat");
+		juniper_boat = registerItem(new PVJBoatItem(PVJBoatEntity.Type.JUNIPER, (new Item.Properties()).group(PVJItemGroup.PVJ_ITEMGROUP)), "juniper_boat");
 	}
 	
 	public static Item registerItem(Item item, String name) {

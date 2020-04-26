@@ -32,6 +32,7 @@ import projectvibrantjourneys.client.renderers.HauntRenderer;
 import projectvibrantjourneys.client.renderers.IceCubeRenderer;
 import projectvibrantjourneys.client.renderers.MawRenderer;
 import projectvibrantjourneys.client.renderers.NightmareRenderer;
+import projectvibrantjourneys.client.renderers.PVJBoatRenderer;
 import projectvibrantjourneys.client.renderers.PhantasmRenderer;
 import projectvibrantjourneys.client.renderers.ScarecrowRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
@@ -42,6 +43,7 @@ import projectvibrantjourneys.client.renderers.SpecterRenderer;
 import projectvibrantjourneys.client.renderers.StarfishRenderer;
 import projectvibrantjourneys.client.renderers.WraithRenderer;
 import projectvibrantjourneys.common.entities.WeightedCropList.WeightedCropItem;
+import projectvibrantjourneys.common.entities.item.PVJBoatEntity;
 import projectvibrantjourneys.common.entities.monster.BansheeEntity;
 import projectvibrantjourneys.common.entities.monster.GhostEntity;
 import projectvibrantjourneys.common.entities.monster.HauntEntity;
@@ -89,6 +91,7 @@ public class PVJEntities {
 	public static EntityType<MawEntity> maw;
 	
 	public static EntityType<CropShotEntity> crop_shot;
+	public static EntityType<PVJBoatEntity> pvj_boat;
 	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 40, true, false);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false);
@@ -118,6 +121,7 @@ public class PVJEntities {
 		registerEntity(maw);
 		
 		registerEntity(crop_shot);
+		registerEntity(pvj_boat);
 		
 		addSpawnPlacements();
 		setupScarecrowCrops();
@@ -147,6 +151,7 @@ public class PVJEntities {
 		maw =  setupEntity("maw", maw, MawEntity::new, EntityClassification.MONSTER, 64, 1F, 4.5F);
 		
 		crop_shot = setupEntity("crop_shot", crop_shot, CropShotEntity::new, EntityClassification.MISC, 64, 0.25F, 0.25F);
+		pvj_boat = setupEntity("pvj_boat", pvj_boat, PVJBoatEntity::new, EntityClassification.MISC, 64, 1.375F, 0.5625F);
 	}
 	
 	public static <T extends Entity> EntityType<T> setupEntity(String name, EntityType<T> entityType, EntityType.IFactory<T> entityTypeFactory,
@@ -252,10 +257,12 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(maw, MawRenderer::new);
 		
 		RenderingRegistry.registerEntityRenderingHandler(crop_shot, renderManager -> new SpriteRenderer<CropShotEntity>(renderManager, Minecraft.getInstance().getItemRenderer()));
+		RenderingRegistry.registerEntityRenderingHandler(pvj_boat, PVJBoatRenderer::new);
 	}
 	
 	public static void setupScarecrowCrops() {
-		ScarecrowEntity.crops.addEntry(WeightedCropItem.create(Items.WHEAT, 10),
+		ScarecrowEntity.crops.addEntry(
+				WeightedCropItem.create(Items.WHEAT, 10),
 				WeightedCropItem.create(Items.WHEAT_SEEDS, 10),
 				WeightedCropItem.create(Items.CARROT, 10),
 				WeightedCropItem.create(Items.POTATO, 10),

@@ -1,0 +1,8 @@
+{
+	"parent": "projectvibrantjourneys:block/twigs2",
+    "textures": {
+        "particle": "projectvibrantjourneys:block/juniper_log",
+        "0": "projectvibrantjourneys:block/juniper_log",
+        "1": "projectvibrantjourneys:block/juniper_leaves"
+    }
+}
