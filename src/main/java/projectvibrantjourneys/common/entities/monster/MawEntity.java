@@ -109,6 +109,7 @@ public class MawEntity extends MonsterEntity {
 	}
 
 	@Nullable
+	@Override
 	public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason,
 			@Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
 		

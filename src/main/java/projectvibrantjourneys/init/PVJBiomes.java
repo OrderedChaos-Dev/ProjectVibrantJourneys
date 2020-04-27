@@ -71,9 +71,12 @@ public class PVJBiomes {
 	public static Biome registerBiome(Biome biome, BiomeType type, String name, int weight) {
 		biome.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 		ForgeRegistries.BIOMES.register(biome);
-		BiomeManager.addBiome(type, new BiomeEntry(biome, weight));
-		BiomeManager.addSpawnBiome(biome);
 		
+		if(weight > 0) {
+			BiomeManager.addBiome(type, new BiomeEntry(biome, weight));
+			BiomeManager.addSpawnBiome(biome);
+		}
+
 		return biome;
 	}
 	

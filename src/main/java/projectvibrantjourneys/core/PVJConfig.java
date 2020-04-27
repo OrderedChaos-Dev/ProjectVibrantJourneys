@@ -119,6 +119,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> slugBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> watcherBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> skeletalKnightBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> shadeBiomes;
@@ -268,6 +269,7 @@ public class PVJConfig {
 		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
 		
 		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
+		watcherBiomes = COMMON_BUILDER.comment("Watcher Biomes").define("watcherBiomes", ConfigDefaults.WATCHER);
 		
 		skeletalKnightBiomes = COMMON_BUILDER.comment("Skeletal Knight Biomes").define("skeletalKnightBiomes", ConfigDefaults.SKELETAL_KNIGHT);
 		shadeBiomes = COMMON_BUILDER.comment("Shade Biomes").define("shadeBiomes", ConfigDefaults.SHADE);

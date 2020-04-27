@@ -98,6 +98,7 @@ public class ConfigDefaults {
 	public static final List<String> SLUG = new ArrayList<String>();
 	
 	public static final List<String> GHOST = new ArrayList<String>();
+	public static final List<String> WATCHER = new ArrayList<String>();
 	
 	public static final List<String> SKELETAL_KNIGHT = new ArrayList<String>();
 	public static final List<String> SHADE = new ArrayList<String>();
@@ -217,11 +218,11 @@ public class ConfigDefaults {
 		
 		//dimensional
 		addTo("minecraft:nether", NETHERRACK_ROCKS, BONES_NETHER, GOLD_NUGGET, MAW, NIGHTMARE, GLOWCAP);
-		addTo("minecraft:the_end");
-		addTo("minecraft:small_end_islands");
-		addTo("minecraft:end_midlands");
-		addTo("minecraft:end_highlands");
-		addTo("minecraft:end_barrens");
+		addTo("minecraft:the_end", WATCHER);
+		addTo("minecraft:small_end_islands", WATCHER);
+		addTo("minecraft:end_midlands", WATCHER);
+		addTo("minecraft:end_highlands", WATCHER);
+		addTo("minecraft:end_barrens", WATCHER);
 		addTo("minecraft:the_void");
 		
 		//modded

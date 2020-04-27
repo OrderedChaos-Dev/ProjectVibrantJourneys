@@ -58,6 +58,7 @@ public class PVJItems {
 		registerSpawnEgg("scarecrow", PVJEntities.scarecrow, 0xe38a1d, 0xcbb630);
 		
 		registerSpawnEgg("ghost", PVJEntities.ghost, 0x959595, 0xffffff);
+		registerSpawnEgg("watcher", PVJEntities.watcher, 0x9e9a99, 0x262625);
 		
 		registerSpawnEgg("skeletal_knight", PVJEntities.skeletal_knight, 0xa6a6a6, 0x808080);
 		registerSpawnEgg("shade", PVJEntities.shade, 0x1f1f1f, 0x060606);

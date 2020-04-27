@@ -41,6 +41,7 @@ import projectvibrantjourneys.client.renderers.SlugRenderer;
 import projectvibrantjourneys.client.renderers.SnailRenderer;
 import projectvibrantjourneys.client.renderers.SpecterRenderer;
 import projectvibrantjourneys.client.renderers.StarfishRenderer;
+import projectvibrantjourneys.client.renderers.WatcherRenderer;
 import projectvibrantjourneys.client.renderers.WraithRenderer;
 import projectvibrantjourneys.common.entities.WeightedCropList.WeightedCropItem;
 import projectvibrantjourneys.common.entities.item.PVJBoatEntity;
@@ -54,6 +55,7 @@ import projectvibrantjourneys.common.entities.monster.PhantasmEntity;
 import projectvibrantjourneys.common.entities.monster.ShadeEntity;
 import projectvibrantjourneys.common.entities.monster.SkeletalKnightEntity;
 import projectvibrantjourneys.common.entities.monster.SpecterEntity;
+import projectvibrantjourneys.common.entities.monster.WatcherEntity;
 import projectvibrantjourneys.common.entities.monster.WraithEntity;
 import projectvibrantjourneys.common.entities.passive.ClamEntity;
 import projectvibrantjourneys.common.entities.passive.FireflyEntity;
@@ -68,6 +70,8 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @Mod.EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJEntities {
+	
+	//passive
 	public static EntityType<FlyEntity> fly;
 	public static EntityType<FireflyEntity> firefly;
 	public static EntityType<StarfishEntity> starfish;
@@ -77,8 +81,12 @@ public class PVJEntities {
 	public static EntityType<SlugEntity> slug;
 	public static EntityType<ScarecrowEntity> scarecrow;
 	
-	public static EntityType<GhostEntity> ghost;
 	
+	//neutral
+	public static EntityType<GhostEntity> ghost;
+	public static EntityType<WatcherEntity> watcher;
+	
+	//baddies
 	public static EntityType<SkeletalKnightEntity> skeletal_knight;
 	public static EntityType<ShadeEntity> shade;
 	public static EntityType<BansheeEntity> banshee;
@@ -89,7 +97,8 @@ public class PVJEntities {
 	public static EntityType<NightmareEntity> nightmare;
 	public static EntityType<IceCubeEntity> ice_cube;
 	public static EntityType<MawEntity> maw;
-	
+
+	//item
 	public static EntityType<CropShotEntity> crop_shot;
 	public static EntityType<PVJBoatEntity> pvj_boat;
 	
@@ -108,6 +117,7 @@ public class PVJEntities {
 		registerEntity(scarecrow);
 		
 		registerEntity(ghost);
+		registerEntity(watcher);
 		
 		registerEntity(skeletal_knight);
 		registerEntity(shade);
@@ -138,6 +148,7 @@ public class PVJEntities {
 		scarecrow = setupEntity("scarecrow", scarecrow, ScarecrowEntity::new, EntityClassification.MISC, 64, 1.0F, 2.5F);
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
+		watcher = setupEntity("watcher", watcher, WatcherEntity::new, EntityClassification.MONSTER, 64, 1.0F, 1.0F);
 		
 		skeletal_knight = setupEntity("skeletal_knight", skeletal_knight, SkeletalKnightEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.99F);
 		shade = setupEntity("shade", shade, ShadeEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
@@ -180,6 +191,7 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(slug, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
 		
 		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(watcher, PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
 		
 		EntitySpawnPlacementRegistry.register(skeletal_knight, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
 		EntitySpawnPlacementRegistry.register(shade, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
@@ -204,6 +216,7 @@ public class PVJEntities {
 			addSpawn(biome, slug, PVJ_AMBIENT, 10, 1, 2, PVJConfig.slugBiomes.get());
 			
 			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
+			addSpawn(biome, watcher, EntityClassification.MONSTER, 2, 1, 4, PVJConfig.watcherBiomes.get());
 			
 			addSpawn(biome, skeletal_knight, EntityClassification.MONSTER, 50, 1, 2, PVJConfig.skeletalKnightBiomes.get());
 			addSpawn(biome, shade, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.shadeBiomes.get());
@@ -244,6 +257,7 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(scarecrow, ScarecrowRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(watcher, WatcherRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(skeletal_knight, SkeletalKnightRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(shade, ShadeRenderer::new);
