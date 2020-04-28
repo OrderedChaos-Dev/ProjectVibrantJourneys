@@ -86,9 +86,11 @@ public class PVJEvents {
 			}
 		} else if(item == PVJBlocks.dung.asItem()) {
 			if(!player.isCrouching()) {
-				if(BoneMealItem.applyBonemeal(stack, world, pos, player)) {
-					BoneMealItem.spawnBonemealParticles(world, pos, 0);
+				if(!event.getWorld().isRemote) {
+					BoneMealItem.applyBonemeal(stack, world, pos, player);
 					event.setCanceled(true);
+				} else {
+					BoneMealItem.spawnBonemealParticles(world, pos, 0);
 				}
 			}
 		} else if(item instanceof AxeItem) {
