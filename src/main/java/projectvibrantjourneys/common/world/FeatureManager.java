@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -640,6 +641,10 @@ public class FeatureManager {
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(20, 0.1F, 1))));
 		PVJBiomes.prairie.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				PVJFeatures.cottonwoodTree.withConfiguration(COTTONWOOD_TREE).withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(0, 0.05F, 1))));
+		
+		if(PVJConfig.moreGrassInRivers.get()) {
+			DefaultBiomeFeatures.addDenseGrass(Biomes.RIVER);
+		}
 	}
 	
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer) {

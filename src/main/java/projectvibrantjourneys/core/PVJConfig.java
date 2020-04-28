@@ -22,6 +22,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec COMMON_CONFIG;
 	public static ForgeConfigSpec CLIENT_CONFIG;
 	
+	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
+	
 	/* WORLD GEN */
 	public static ForgeConfigSpec.ConfigValue<List<String>> oakTreesBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> oakTreesSparseBiomes;
@@ -242,6 +244,8 @@ public class PVJConfig {
 		glowcapBiomes = COMMON_BUILDER.comment("Glowcap Biomes").define("glowcapBiomes", ConfigDefaults.GLOWCAP);
 		shortGrassBiomes = COMMON_BUILDER.comment("Short Grass Biomes").define("shortGrassBiomes", ConfigDefaults.SHORT_GRASS);
 		seagrassBiomes = COMMON_BUILDER.comment("Seagrass Biomes").define("seagrassBiomes", ConfigDefaults.SEAGRASS);
+		
+		moreGrassInRivers = COMMON_BUILDER.comment("Denser River Grass").define("moreGrassInRivers", ConfigDefaults.RIVER_GRASS);
 	}
 	
 	private static void initBiomes() {

@@ -90,6 +90,8 @@ public class ConfigDefaults {
 	public static final List<String> GLOWCAP = new ArrayList<String>();
 	public static final List<String> SHORT_GRASS = new ArrayList<String>();
 	
+	public static final boolean RIVER_GRASS = true;
+	
 	public static final List<String> FLY = new ArrayList<String>();
 	public static final List<String> FIREFLY = new ArrayList<String>();
 	public static final List<String> STARFISH = new ArrayList<String>();
