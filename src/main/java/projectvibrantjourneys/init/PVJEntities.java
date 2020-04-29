@@ -28,6 +28,7 @@ import projectvibrantjourneys.client.renderers.ClamRenderer;
 import projectvibrantjourneys.client.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.renderers.FlyRenderer;
 import projectvibrantjourneys.client.renderers.GhostRenderer;
+import projectvibrantjourneys.client.renderers.GrizzlyBearRenderer;
 import projectvibrantjourneys.client.renderers.HauntRenderer;
 import projectvibrantjourneys.client.renderers.IceCubeRenderer;
 import projectvibrantjourneys.client.renderers.MawRenderer;
@@ -61,6 +62,7 @@ import projectvibrantjourneys.common.entities.monster.WraithEntity;
 import projectvibrantjourneys.common.entities.passive.ClamEntity;
 import projectvibrantjourneys.common.entities.passive.FireflyEntity;
 import projectvibrantjourneys.common.entities.passive.FlyEntity;
+import projectvibrantjourneys.common.entities.passive.GrizzlyBearEntity;
 import projectvibrantjourneys.common.entities.passive.ScarecrowEntity;
 import projectvibrantjourneys.common.entities.passive.SlugEntity;
 import projectvibrantjourneys.common.entities.passive.SmallSpiderEntity;
@@ -87,6 +89,7 @@ public class PVJEntities {
 	//neutral
 	public static EntityType<GhostEntity> ghost;
 	public static EntityType<WatcherEntity> watcher;
+	public static EntityType<GrizzlyBearEntity> grizzly_bear;
 	
 	//baddies
 	public static EntityType<SkeletalKnightEntity> skeletal_knight;
@@ -121,6 +124,7 @@ public class PVJEntities {
 		
 		registerEntity(ghost);
 		registerEntity(watcher);
+		registerEntity(grizzly_bear);
 		
 		registerEntity(skeletal_knight);
 		registerEntity(shade);
@@ -153,6 +157,7 @@ public class PVJEntities {
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
 		watcher = setupEntity("watcher", watcher, WatcherEntity::new, EntityClassification.MONSTER, 64, 1.0F, 1.0F);
+		grizzly_bear = setupEntity("grizzly_bear", grizzly_bear, GrizzlyBearEntity::new, EntityClassification.CREATURE, 64, 1.4F, 1.4F);
 		
 		skeletal_knight = setupEntity("skeletal_knight", skeletal_knight, SkeletalKnightEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.99F);
 		shade = setupEntity("shade", shade, ShadeEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
@@ -197,6 +202,7 @@ public class PVJEntities {
 		
 		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
 		EntitySpawnPlacementRegistry.register(watcher, PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(grizzly_bear, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, GrizzlyBearEntity::canSpawn);
 		
 		EntitySpawnPlacementRegistry.register(skeletal_knight, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
 		EntitySpawnPlacementRegistry.register(shade, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
@@ -223,6 +229,7 @@ public class PVJEntities {
 			
 			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
 			addSpawn(biome, watcher, EntityClassification.MONSTER, 2, 1, 4, PVJConfig.watcherBiomes.get());
+			addSpawn(biome, grizzly_bear, EntityClassification.CREATURE, 1, 1, 2, PVJConfig.grizzlyBearBiomes.get());
 			
 			addSpawn(biome, skeletal_knight, EntityClassification.MONSTER, 50, 1, 2, PVJConfig.skeletalKnightBiomes.get());
 			addSpawn(biome, shade, EntityClassification.MONSTER, 70, 1, 1, PVJConfig.shadeBiomes.get());
@@ -265,6 +272,7 @@ public class PVJEntities {
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(watcher, WatcherRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(grizzly_bear, GrizzlyBearRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(skeletal_knight, SkeletalKnightRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(shade, ShadeRenderer::new);
