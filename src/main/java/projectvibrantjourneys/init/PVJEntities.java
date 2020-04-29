@@ -38,6 +38,7 @@ import projectvibrantjourneys.client.renderers.ScarecrowRenderer;
 import projectvibrantjourneys.client.renderers.ShadeRenderer;
 import projectvibrantjourneys.client.renderers.SkeletalKnightRenderer;
 import projectvibrantjourneys.client.renderers.SlugRenderer;
+import projectvibrantjourneys.client.renderers.SmallSpiderRenderer;
 import projectvibrantjourneys.client.renderers.SnailRenderer;
 import projectvibrantjourneys.client.renderers.SpecterRenderer;
 import projectvibrantjourneys.client.renderers.StarfishRenderer;
@@ -62,6 +63,7 @@ import projectvibrantjourneys.common.entities.passive.FireflyEntity;
 import projectvibrantjourneys.common.entities.passive.FlyEntity;
 import projectvibrantjourneys.common.entities.passive.ScarecrowEntity;
 import projectvibrantjourneys.common.entities.passive.SlugEntity;
+import projectvibrantjourneys.common.entities.passive.SmallSpiderEntity;
 import projectvibrantjourneys.common.entities.passive.SnailEntity;
 import projectvibrantjourneys.common.entities.passive.StarfishEntity;
 import projectvibrantjourneys.common.entities.projectile.CropShotEntity;
@@ -79,8 +81,8 @@ public class PVJEntities {
 	public static EntityType<ClamEntity> clam;
 	public static EntityType<SnailEntity> snail;
 	public static EntityType<SlugEntity> slug;
+	public static EntityType<SmallSpiderEntity> small_spider;
 	public static EntityType<ScarecrowEntity> scarecrow;
-	
 	
 	//neutral
 	public static EntityType<GhostEntity> ghost;
@@ -114,6 +116,7 @@ public class PVJEntities {
 		registerEntity(clam);
 		registerEntity(snail);
 		registerEntity(slug);
+		registerEntity(small_spider);
 		registerEntity(scarecrow);
 		
 		registerEntity(ghost);
@@ -145,6 +148,7 @@ public class PVJEntities {
 		clam = setupEntity("clam", clam, ClamEntity::new, PVJ_WATER_AMBIENT, 64, 0.45F, 0.2F);
 		snail = setupEntity("snail", snail, SnailEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.15F);
 		slug = setupEntity("slug", slug, SlugEntity::new, PVJ_AMBIENT, 64, 0.25F, 0.10F);
+		small_spider = setupEntity("small_spider", small_spider, SmallSpiderEntity::new, PVJ_AMBIENT, 64, 0.28F, 0.18F);
 		scarecrow = setupEntity("scarecrow", scarecrow, ScarecrowEntity::new, EntityClassification.MISC, 64, 1.0F, 2.5F);
 		
 		ghost = setupEntity("ghost", ghost, GhostEntity::new, EntityClassification.MONSTER, 64, 0.6F, 1.95F);
@@ -189,6 +193,7 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(clam, PlacementType.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, ClamEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(snail, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SnailEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(slug, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(small_spider, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, SmallSpiderEntity::canSpawn);
 		
 		EntitySpawnPlacementRegistry.register(ghost, PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
 		EntitySpawnPlacementRegistry.register(watcher, PlacementType.NO_RESTRICTIONS, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MonsterEntity::canMonsterSpawnInLight);
@@ -214,6 +219,7 @@ public class PVJEntities {
 			addSpawn(biome, clam, PVJ_WATER_AMBIENT, 3, 1, 3, PVJConfig.clamBiomes.get());
 			addSpawn(biome, snail, PVJ_AMBIENT, 10, 1, 2, PVJConfig.snailBiomes.get());
 			addSpawn(biome, slug, PVJ_AMBIENT, 10, 1, 2, PVJConfig.slugBiomes.get());
+			addSpawn(biome, small_spider, PVJ_AMBIENT, 3, 1, 1, PVJConfig.smallSpiderBiomes.get());
 			
 			addSpawn(biome, ghost, EntityClassification.MONSTER, 40, 1, 1, PVJConfig.ghostBiomes.get());
 			addSpawn(biome, watcher, EntityClassification.MONSTER, 2, 1, 4, PVJConfig.watcherBiomes.get());
@@ -254,6 +260,7 @@ public class PVJEntities {
 		RenderingRegistry.registerEntityRenderingHandler(clam, ClamRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(snail, SnailRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(slug, SlugRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(small_spider, SmallSpiderRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(scarecrow, ScarecrowRenderer::new);
 	
 		RenderingRegistry.registerEntityRenderingHandler(ghost, GhostRenderer::new);

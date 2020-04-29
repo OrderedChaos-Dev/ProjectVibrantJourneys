@@ -119,6 +119,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<List<String>> clamBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> snailBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> slugBiomes;
+	public static ForgeConfigSpec.ConfigValue<List<String>> smallSpiderBiomes;
 	
 	public static ForgeConfigSpec.ConfigValue<List<String>> ghostBiomes;
 	public static ForgeConfigSpec.ConfigValue<List<String>> watcherBiomes;
@@ -270,6 +271,7 @@ public class PVJConfig {
 		clamBiomes = COMMON_BUILDER.comment("Clam Biomes").define("clamBiomes", ConfigDefaults.CLAM);
 		snailBiomes = COMMON_BUILDER.comment("Snail Biomes").define("snailBiomes", ConfigDefaults.SNAIL);
 		slugBiomes = COMMON_BUILDER.comment("Slug Biomes").define("slugBiomes", ConfigDefaults.SLUG);
+		smallSpiderBiomes = COMMON_BUILDER.comment("Small Spider Biomes").define("smallSpiderBiomes", ConfigDefaults.SMALL_SPIDER);
 		tropicalFishBiomes = COMMON_BUILDER.comment("Tropical Fish Biomes").define("tropicalFishBiomes", ConfigDefaults.TROPICAL_FISH);
 		
 		ghostBiomes = COMMON_BUILDER.comment("Ghost Biomes").define("ghostBiomes", ConfigDefaults.GHOST);
