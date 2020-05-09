@@ -8,6 +8,7 @@ import java.util.function.Function;
 import com.mojang.datafixers.Dynamic;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.LogBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
@@ -65,14 +66,20 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 					if (Math.abs(xOffset) == 2 || Math.abs(zOffset) == 2) {
 						if (rand.nextInt(3) == 0 && (Math.abs(xOffset) != Math.abs(zOffset))) {
 							world.setBlockState(leafpos, leaf, 2);
-							if (rand.nextInt(7) == 0)
-								world.setBlockState(leafpos.down(), PVJBlocks.coconut.getDefaultState(), 2);
-
+							if (rand.nextInt(7) == 0) {
+								if(!world.hasBlockState(leafpos.down(), (state) -> (state.getBlock() instanceof LogBlock))) {
+									world.setBlockState(leafpos.down(), PVJBlocks.coconut.getDefaultState(), 2);
+								}
+							}
 						}
 					} else {
 						world.setBlockState(leafpos, leaf, 2);
-						if (rand.nextInt(7) == 0)
-							world.setBlockState(leafpos.down(), PVJBlocks.coconut.getDefaultState(), 2);
+						if (rand.nextInt(7) == 0) {
+							if(!world.hasBlockState(leafpos.down(), (state) -> (state.getBlock() instanceof LogBlock))) {
+								world.setBlockState(leafpos.down(), PVJBlocks.coconut.getDefaultState(), 2);
+							}
+						}
+
 					}
 				}
 			}
