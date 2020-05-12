@@ -25,12 +25,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.MerchantOffer;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -38,6 +40,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.entities.monster.IceCubeEntity;
 import projectvibrantjourneys.common.entities.monster.MawEntity;
 
@@ -87,10 +90,29 @@ public class PVJEvents {
 		} else if(item == PVJBlocks.dung.asItem()) {
 			if(!player.isCrouching()) {
 				if(!event.getWorld().isRemote) {
-					BoneMealItem.applyBonemeal(stack, world, pos, player);
 					event.setCanceled(true);
+					BoneMealItem.applyBonemeal(stack, world, pos, player);
+					if(world.getBlockState(pos).getBlock() == Blocks.SAND) {
+						this.grow((ServerWorld)world, world.rand, posWithOffset, world.getBlockState(pos));
+						stack.shrink(1);
+					}
 				} else {
+					event.setCanceled(true);
+					player.swingArm(event.getHand());
 					BoneMealItem.spawnBonemealParticles(world, pos, 0);
+				}
+			}
+		} else if(item == Items.BONE_MEAL) {
+			if(!player.isCrouching()) {
+				if(world.getBlockState(pos).getBlock() == Blocks.SAND && world.isAirBlock(pos.up())) {
+					if(!event.getWorld().isRemote) {
+						event.setCanceled(true);
+						this.grow((ServerWorld)world, world.rand, posWithOffset, world.getBlockState(pos));
+						stack.shrink(1);
+					} else {
+						player.swingArm(event.getHand());
+						BoneMealItem.spawnBonemealParticles(world, pos, 0);
+					}
 				}
 			}
 		} else if(item instanceof AxeItem) {
@@ -170,4 +192,51 @@ public class PVJEvents {
 		}
 	}
 
+	public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
+	      BlockPos blockpos = pos.up();
+	      BlockState blockstate = PVJBlocks.beach_grass.getDefaultState();
+
+	      for(int i = 0; i < 128; ++i) {
+	         BlockPos blockpos1 = blockpos;
+	         int j = 0;
+
+	         while(true) {
+	            if (j >= i / 16) {
+	               BlockState blockstate2 = world.getBlockState(blockpos1);
+
+	               if (!blockstate2.isAir()) {
+	                  break;
+	               }
+
+	               BlockState blockstate1;
+	               if (rand.nextInt(5) == 0) {
+	            	   blockstate1 = PVJBlocks.sea_oats.getDefaultState();
+	               } else {
+	                  blockstate1 = blockstate;
+	               }
+
+	               if (blockstate1.isValidPosition(world, blockpos1)) {
+	                  if(blockstate1.getBlock() == PVJBlocks.sea_oats) {
+	                	  if(world.isAirBlock(blockpos1.up())) {
+	                		  world.setBlockState(blockpos1, PVJBlocks.sea_oats.getDefaultState(), 3);
+	                		  world.setBlockState(blockpos1.up(), PVJBlocks.sea_oats.getDefaultState().with(SeaOatsBlock.HALF, DoubleBlockHalf.UPPER), 3);
+	                	  } else {
+	                		  world.setBlockState(blockpos1, PVJBlocks.beach_grass.getDefaultState(), 3);
+	                	  }
+	                  } else {
+		                  world.setBlockState(blockpos1, blockstate1, 3);
+	                  }
+	               }
+	               break;
+	            }
+
+	            blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+	            if (world.getBlockState(blockpos1.down()).getBlock() != Blocks.SAND || world.getBlockState(blockpos1).isCollisionShapeOpaque(world, blockpos1)) {
+	               break;
+	            }
+
+	            ++j;
+	         }
+	      }
+	}
 }
