@@ -25,6 +25,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.MerchantOffer;
+import net.minecraft.item.ShearsItem;
+import net.minecraft.item.SwordItem;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Direction.Axis;
@@ -35,6 +37,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
@@ -238,5 +241,25 @@ public class PVJEvents {
 	            ++j;
 	         }
 	      }
+	}
+	
+	@SubscribeEvent
+	public void harvestCobweb(PlayerEvent.BreakSpeed event) {
+		Item item = event.getPlayer().getHeldItemMainhand().getItem();
+		if(item instanceof SwordItem || item instanceof ShearsItem) {
+			if(event.getState().getBlock() == PVJBlocks.natural_cobweb) {
+				event.setNewSpeed(15.0F);
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void harvestCobweb(PlayerEvent.HarvestCheck event) {
+		if(event.getTargetBlock().getBlock() == PVJBlocks.natural_cobweb) {
+			Item item = event.getPlayer().getHeldItemMainhand().getItem();
+			if(item instanceof SwordItem || item instanceof ShearsItem) {
+				event.setCanHarvest(true);
+			}
+		}
 	}
 }
