@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.15.2-2.0.1'
+version = '1.15.2-2.0.2'
 group = 'com.projectvibrantjourneys'
 archivesBaseName = 'projectvibrantjourneys'
 
