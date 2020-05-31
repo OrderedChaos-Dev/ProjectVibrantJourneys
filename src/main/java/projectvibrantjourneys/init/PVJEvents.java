@@ -68,7 +68,7 @@ public class PVJEvents {
 		
 		if(item == Items.IRON_NUGGET) {
 			groundcover = PVJBlocks.iron_nugget;
-			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset)) {
+			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset) && world.isAirBlock(posWithOffset)) {
 				world.setBlockState(posWithOffset, groundcover.getDefaultState().with(GroundcoverBlock.MODEL, model));
 				if(!player.isCreative())
 					stack.shrink(1);
@@ -76,7 +76,7 @@ public class PVJEvents {
 			}
 		} else if(item == Items.GOLD_NUGGET) {
 			groundcover = PVJBlocks.gold_nugget;
-			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset)) {
+			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset) && world.isAirBlock(posWithOffset)) {
 				world.setBlockState(posWithOffset, groundcover.getDefaultState().with(GroundcoverBlock.MODEL, model));
 				if(!player.isCreative())
 					stack.shrink(1);
@@ -84,7 +84,7 @@ public class PVJEvents {
 			}
 		} else if(item == Items.FLINT) {
 			groundcover = PVJBlocks.flint;
-			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset)) {
+			if(groundcover.isValidPosition(groundcover.getDefaultState(), world, posWithOffset) && world.isAirBlock(posWithOffset)) {
 				world.setBlockState(posWithOffset, groundcover.getDefaultState().with(GroundcoverBlock.MODEL, model));
 				if(!player.isCreative())
 					stack.shrink(1);
@@ -245,9 +245,9 @@ public class PVJEvents {
 	
 	@SubscribeEvent
 	public void harvestCobweb(PlayerEvent.BreakSpeed event) {
-		Item item = event.getPlayer().getHeldItemMainhand().getItem();
-		if(item instanceof SwordItem || item instanceof ShearsItem) {
-			if(event.getState().getBlock() == PVJBlocks.natural_cobweb) {
+		if(event.getState().getBlock() == PVJBlocks.natural_cobweb) {
+			Item item = event.getPlayer().getHeldItemMainhand().getItem();
+			if(item instanceof SwordItem || item instanceof ShearsItem) {
 				event.setNewSpeed(15.0F);
 			}
 		}
