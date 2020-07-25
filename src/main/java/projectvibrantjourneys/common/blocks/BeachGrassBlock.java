@@ -12,6 +12,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.PlantType;
+import projectvibrantjourneys.init.PVJTags;
 
 public class BeachGrassBlock extends BushBlock {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
@@ -22,8 +23,7 @@ public class BeachGrassBlock extends BushBlock {
 	
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		Block block = state.getBlock();
-		return block == Blocks.SAND || block == Blocks.GRASS_BLOCK || block == Blocks.DIRT;
+		return state.isIn(PVJTags.BEACH_GRASS_PLACEABLE);
 	}
 
 	@Override
