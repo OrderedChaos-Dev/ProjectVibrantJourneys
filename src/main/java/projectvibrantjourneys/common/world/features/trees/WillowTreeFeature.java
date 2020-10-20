@@ -25,7 +25,7 @@ public class WillowTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfi
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
+	protected boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
 		int height = 5 + rand.nextInt(3) + rand.nextInt(4);
 		
 		Optional<BlockPos> optional = this.func_227212_a_(world, height, 3, 3, pos, config);
@@ -51,17 +51,17 @@ public class WillowTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfi
              	BlockPos pos3 = pos.north();
              	BlockPos pos4 = pos.south();
              	
-             	this.func_227216_a_(world, rand, pos, logs, box, config);
+             	this.setLog(world, rand, pos, logs, box, config);
              	if(rand.nextInt(5) < 4)
-             		this.func_227216_a_(world, rand, pos1, logs, box, config);
+             		this.setLog(world, rand, pos1, logs, box, config);
              	if(rand.nextInt(5) < 4)
-             		this.func_227216_a_(world, rand, pos2, logs, box, config);
+             		this.setLog(world, rand, pos2, logs, box, config);
              	if(rand.nextInt(5) < 4)
-             		this.func_227216_a_(world, rand, pos3, logs, box, config);
+             		this.setLog(world, rand, pos3, logs, box, config);
              	if(rand.nextInt(5) < 4)
-             		this.func_227216_a_(world, rand, pos4, logs, box, config);
+             		this.setLog(world, rand, pos4, logs, box, config);
              }
-         	this.func_227216_a_(world, rand, pos.up(), logs, box, config);
+         	this.setLog(world, rand, pos.up(), logs, box, config);
          	
              int x = pos.getX();
              int y = pos.getY();
@@ -81,10 +81,10 @@ public class WillowTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfi
              		y += 1;
              	
              	BlockPos logpos = new BlockPos(x, y, z);
-           	 this.func_227216_a_(world, rand, logpos, logs, box, config);
+           	 this.setLog(world, rand, logpos, logs, box, config);
             	if(rand.nextInt(2) == 0)
             	{
-            		 this.func_227216_a_(world, rand, logpos.down(), logs, box, config);
+            		 this.setLog(world, rand, logpos.down(), logs, box, config);
             	}
                  
                  shamalamadingdong = logpos;
@@ -121,10 +121,10 @@ public class WillowTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfi
             		y += 1;
             	
             	BlockPos logpos = new BlockPos(x, y, z);
-            	this.func_227216_a_(world, rand, logpos, logs, box, config);
+            	this.setLog(world, rand, logpos, logs, box, config);
             	if(rand.nextInt(2) == 0)
             	{
-            		this.func_227216_a_(world, rand, logpos.down(), logs, box, config);
+            		this.setLog(world, rand, logpos.down(), logs, box, config);
             	}
                 
                 for(int up = -rand.nextInt(3); up <= rand.nextInt(2) + 1; up++)

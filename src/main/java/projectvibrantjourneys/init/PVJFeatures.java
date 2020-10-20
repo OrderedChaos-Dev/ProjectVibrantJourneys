@@ -62,16 +62,16 @@ public class PVJFeatures {
 		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig::deserialize);
 		cobwebFeature = new CobwebFeature(NoFeatureConfig::deserialize);
 		fallenTreeFeature = new FallenTreeFeature(BlockStateFeatureConfig::deserialize);
-		pineTree = new PineTreeFeature(TreeFeatureConfig::func_227338_a_);
-		palmTree = new PalmTreeFeature(TreeFeatureConfig::func_227338_a_);
-		willowTree = new WillowTreeFeature(TreeFeatureConfig::func_227338_a_);
-		mangroveTree = new MangroveTreeFeature(TreeFeatureConfig::func_227338_a_);
-		redwoodTree = new RedwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
-		aspenTree = new AspenTreeFeature(TreeFeatureConfig::func_227338_a_);
+		pineTree = new PineTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		palmTree = new PalmTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		willowTree = new WillowTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		mangroveTree = new MangroveTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		redwoodTree = new RedwoodTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		aspenTree = new AspenTreeFeature(TreeFeatureConfig::deserializeFoliage);
 		megaRedwoodTree = new MegaRedwoodTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
 		baobabTree = new BaobabTreeFeature(HugeTreeFeatureConfig::func_227277_a_);
-		cottonwoodTree = new CottonwoodTreeFeature(TreeFeatureConfig::func_227338_a_);
-		juniperTree = new JuniperTreeFeature(TreeFeatureConfig::func_227338_a_);
+		cottonwoodTree = new CottonwoodTreeFeature(TreeFeatureConfig::deserializeFoliage);
+		juniperTree = new JuniperTreeFeature(TreeFeatureConfig::deserializeFoliage);
 		mangroveRootFeature = new MangroveRootsFeature(NoFeatureConfig::deserialize);
 		
 		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");

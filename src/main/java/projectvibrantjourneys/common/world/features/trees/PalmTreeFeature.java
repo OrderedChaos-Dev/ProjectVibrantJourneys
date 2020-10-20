@@ -24,7 +24,7 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
+	protected boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
 		int height = 5 + rand.nextInt(3) + rand.nextInt(4);
 		
 		Optional<BlockPos> optional = this.func_227212_a_(world, height, 3, 3, pos, config);
@@ -44,16 +44,16 @@ public class PalmTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	protected void func_227213_a_(IWorldGenerationReader world, Random rand, int a, BlockPos pos, int c, Set<BlockPos> logs, MutableBoundingBox box, TreeFeatureConfig config) {
 		Direction dir = Direction.Plane.HORIZONTAL.random(rand);
 		BlockPos logPos = pos;
-		this.func_227216_a_(world, rand, logPos, logs, box, config);
+		this.setLog(world, rand, logPos, logs, box, config);
 		for (int i = 0; i < a - c; ++i) {
 			logPos = logPos.up();
 			if (rand.nextBoolean()) {
 				logPos = logPos.offset(dir);
 				if (rand.nextInt(3) > 0) {
-					this.func_227216_a_(world, rand, logPos.down(), logs, box, config);
+					this.setLog(world, rand, logPos.down(), logs, box, config);
 				}
 			}
-			this.func_227216_a_(world, rand, logPos, logs, box, config);
+			this.setLog(world, rand, logPos, logs, box, config);
 		}
 		
 		BlockState leaf = config.leavesProvider.getBlockState(rand, logPos);

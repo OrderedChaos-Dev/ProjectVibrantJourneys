@@ -19,7 +19,8 @@ public class BaobabTreeFeature extends HugeTreesFeature<HugeTreeFeatureConfig> {
 		super(config);
 	}
 
-	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs,
+	@Override
+	public boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs,
 			Set<BlockPos> leaves, MutableBoundingBox box, HugeTreeFeatureConfig config) {
 		int height = this.func_227256_a_(rand, config);
 		if (!this.hasRoom(world, pos, height, config)) {
@@ -44,7 +45,7 @@ public class BaobabTreeFeature extends HugeTreesFeature<HugeTreeFeatureConfig> {
 					for (int i = 0; i < 10; i++) {
 						BlockPos p = tempPos.down(i);
 						if (canPlaceRoot(world, p))
-							this.func_227216_a_(world, rand, p, logs, box, config);
+							this.setLog(world, rand, p, logs, box, config);
 						else
 							break;
 					}
@@ -78,7 +79,7 @@ public class BaobabTreeFeature extends HugeTreesFeature<HugeTreeFeatureConfig> {
 		for (int i = 0; i < 10; i++) {
 			BlockPos p = tempPos.down(i);
 			if (canPlaceRoot(world, p))
-				this.func_227216_a_(world, rand, p, logs, box, config);
+				this.setLog(world, rand, p, logs, box, config);
 			else
 				break;
 		}
@@ -89,16 +90,16 @@ public class BaobabTreeFeature extends HugeTreesFeature<HugeTreeFeatureConfig> {
 		for(int length = 0; length <= 3 + rand.nextInt(4); length++) {
 			temp = temp.offset(d1);
 			if(rand.nextBoolean()) {
-				this.func_227216_a_(world, rand, temp, logs, box, config);
+				this.setLog(world, rand, temp, logs, box, config);
 				temp = temp.offset(d2);
 			}
 			
 			if(rand.nextFloat() > 0.33)
 				temp = temp.up();
 			
-			this.func_227216_a_(world, rand, temp, logs, box, config);
+			this.setLog(world, rand, temp, logs, box, config);
 			if(rand.nextBoolean())
-				this.func_227216_a_(world, rand, temp.down(), logs, box, config);
+				this.setLog(world, rand, temp.down(), logs, box, config);
 		}
 		this.genLeafCircle(world, rand, temp, 2 + rand.nextInt(4), leaves, box, config);
 	}
@@ -109,22 +110,22 @@ public class BaobabTreeFeature extends HugeTreesFeature<HugeTreeFeatureConfig> {
 
 		for (int i = 0; i < height - 1; ++i) {
 			blockpos$mutable.setPos(pos).move(0, i, 0);
-			if (func_214587_a(world, blockpos$mutable)) {
-				this.func_227216_a_(world, rand, blockpos$mutable, logs, box, config);
+			if (canBeReplacedByLogs(world, blockpos$mutable)) {
+				this.setLog(world, rand, blockpos$mutable, logs, box, config);
 			}
 			blockpos$mutable.setPos(pos).move(1, i, 0);
-			if (func_214587_a(world, blockpos$mutable)) {
-				this.func_227216_a_(world, rand, blockpos$mutable, logs, box, config);
+			if (canBeReplacedByLogs(world, blockpos$mutable)) {
+				this.setLog(world, rand, blockpos$mutable, logs, box, config);
 			}
 
 			blockpos$mutable.setPos(pos).move(1, i, 1);
-			if (func_214587_a(world, blockpos$mutable)) {
-				this.func_227216_a_(world, rand, blockpos$mutable, logs, box, config);
+			if (canBeReplacedByLogs(world, blockpos$mutable)) {
+				this.setLog(world, rand, blockpos$mutable, logs, box, config);
 			}
 
 			blockpos$mutable.setPos(pos).move(0, i, 1);
-			if (func_214587_a(world, blockpos$mutable)) {
-				this.func_227216_a_(world, rand, blockpos$mutable, logs, box, config);
+			if (canBeReplacedByLogs(world, blockpos$mutable)) {
+				this.setLog(world, rand, blockpos$mutable, logs, box, config);
 			}
 		}
 	}

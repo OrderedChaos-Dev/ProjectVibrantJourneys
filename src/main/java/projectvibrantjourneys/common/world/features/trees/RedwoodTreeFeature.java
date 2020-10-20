@@ -24,7 +24,7 @@ public class RedwoodTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConf
 	}
 
 	@Override
-	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
+	public boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
 		int height = config.baseHeight + rand.nextInt(config.heightRandA);
 		int j = config.trunkHeight >= 0 ? config.trunkHeight + rand.nextInt(config.trunkHeightRandom + 1): height - (config.foliageHeight + rand.nextInt(config.foliageHeightRandom + 1));
 		int k = config.foliagePlacer.func_225573_a_(rand, j, height, config);
@@ -52,13 +52,13 @@ public class RedwoodTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConf
 		int h = 1 + rand.nextInt(3);
 		BlockPos tempPos = pos.up(h);
 		if (isAirOrLeaves(world, tempPos.up()) || isTallPlants(world, pos.up()) || isWater(world, tempPos.up())) {
-			this.func_227217_a_(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
+			this.setBlockState(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
 			logs.add(pos.toImmutable());
 		}
 		for (int i = 0; i < 10; i++) {
 			BlockPos p = tempPos.down(i);
 			if (canPlaceRoot(world, p))
-				this.func_227216_a_(world, rand, p, logs, box, config);
+				this.setLog(world, rand, p, logs, box, config);
 			else
 				break;
 		}

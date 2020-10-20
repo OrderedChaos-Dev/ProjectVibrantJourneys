@@ -568,16 +568,16 @@ public class FeatureManager {
 			
 			if(redwoodBiomes.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE).func_227227_a_(0.75F),
-								PVJFeatures.redwoodTree.withConfiguration(FeatureManager.REDWOOD_TREE).func_227227_a_(0.25F)),
+								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE).withChance(0.75F),
+								PVJFeatures.redwoodTree.withConfiguration(FeatureManager.REDWOOD_TREE).withChance(0.25F)),
 								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE)))
 						.withPlacement(
 								Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(20, 0.3F, 1))));
 			}
 			if(redwoodBiomesSparse.contains(biome.getRegistryName().toString())) {
 				biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE).func_227227_a_(0.2F),
-								PVJFeatures.redwoodTree.withConfiguration(FeatureManager.REDWOOD_TREE).func_227227_a_(0.15F)),
+								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE).withChance(0.2F),
+								PVJFeatures.redwoodTree.withConfiguration(FeatureManager.REDWOOD_TREE).withChance(0.15F)),
 								PVJFeatures.megaRedwoodTree.withConfiguration(FeatureManager.MEGA_REDWOOD_TREE)))
 						.withPlacement(
 								Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(3, 0.15F, 1))));
@@ -600,17 +600,17 @@ public class FeatureManager {
 		
 		PVJBiomes.boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.8F)), 
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).withChance(0.8F)), 
 						PVJFeatures.pineTree.withConfiguration(FeatureManager.PINE_TREE)))
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 		PVJBiomes.snowy_boreal_forest.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.7F)), 
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).withChance(0.7F)), 
 						PVJFeatures.pineTree.withConfiguration(FeatureManager.PINE_TREE)))
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 		PVJBiomes.boreal_plateau.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.15F)),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).withChance(0.15F)),
 						PVJFeatures.pineTree.withConfiguration(FeatureManager.PINE_TREE)))
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
 		PVJBiomes.willow_wetlands.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
@@ -618,25 +618,25 @@ public class FeatureManager {
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(2, 0.1F, 1))));
 		PVJBiomes.aspen_grove.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						PVJFeatures.aspenTree.withConfiguration(FeatureManager.ASPEN_TREE).func_227227_a_(0.3F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).func_227227_a_(0.15F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.ORANGE_MAPLE_TREE).func_227227_a_(0.15F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).func_227227_a_(0.15F),
-						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_RED_MAPLE_TREE).func_227227_a_(0.05F),
-						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_ORANGE_MAPLE_TREE).func_227227_a_(0.05F),
-						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_PURPLE_MAPLE_TREE).func_227227_a_(0.05F),
-						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).func_227227_a_(0.1F)),
+						PVJFeatures.aspenTree.withConfiguration(FeatureManager.ASPEN_TREE).withChance(0.3F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).withChance(0.15F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.ORANGE_MAPLE_TREE).withChance(0.15F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).withChance(0.15F),
+						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_RED_MAPLE_TREE).withChance(0.05F),
+						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_ORANGE_MAPLE_TREE).withChance(0.05F),
+						Feature.FANCY_TREE.withConfiguration(FeatureManager.BIG_PURPLE_MAPLE_TREE).withChance(0.05F),
+						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG).withChance(0.1F)),
 						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.OAK_TREE_CONFIG)))
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(10, 0.1F, 1))));
 		PVJBiomes.crimson_thicket.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,
 				Feature.RANDOM_SELECTOR.withConfiguration(new MultipleRandomFeatureConfig(ImmutableList.of(
-						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.PINE_TREE_CONFIG).func_227227_a_(0.05F),
-						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SPRUCE_TREE_CONFIG).func_227227_a_(0.15F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).func_227227_a_(0.2F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).func_227227_a_(0.2F),
-						Feature.FANCY_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).func_227227_a_(0.07F),
-						Feature.FANCY_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).func_227227_a_(0.07F),
-						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).func_227227_a_(0.25F)),
+						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.PINE_TREE_CONFIG).withChance(0.05F),
+						Feature.NORMAL_TREE.withConfiguration(DefaultBiomeFeatures.SPRUCE_TREE_CONFIG).withChance(0.15F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).withChance(0.2F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).withChance(0.2F),
+						Feature.FANCY_TREE.withConfiguration(FeatureManager.RED_MAPLE_TREE).withChance(0.07F),
+						Feature.FANCY_TREE.withConfiguration(FeatureManager.PURPLE_MAPLE_TREE).withChance(0.07F),
+						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE).withChance(0.25F)),
 						Feature.NORMAL_TREE.withConfiguration(FeatureManager.FIR_TREE)))
 				.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(20, 0.1F, 1))));
 		PVJBiomes.prairie.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION,

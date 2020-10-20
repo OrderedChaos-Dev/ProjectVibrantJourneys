@@ -28,7 +28,7 @@ public class PineTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	 */
 
 	@Override
-	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox boundingBox,
+	public boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox boundingBox,
 			TreeFeatureConfig config) {
 		int i = config.baseHeight + rand.nextInt(config.heightRandA + 1) + rand.nextInt(config.heightRandB + 1);
 		int j = config.trunkHeight >= 0 ? config.trunkHeight + rand.nextInt(config.trunkHeightRandom + 1)
@@ -49,7 +49,7 @@ public class PineTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig>
 	@Override
 	protected void func_227213_a_(IWorldGenerationReader world, Random rand, int p_227213_3_, BlockPos pos, int p_227213_5_, Set<BlockPos> logs, MutableBoundingBox p_227213_7_, TreeFeatureConfig config) {
 		for (int i = 0; i < p_227213_3_ - p_227213_5_; ++i) {
-			this.func_227216_a_(world, rand, pos.up(i), logs, p_227213_7_, config);
+			this.setLog(world, rand, pos.up(i), logs, p_227213_7_, config);
 			if (i > 3) {
 				Direction dir = Direction.Plane.HORIZONTAL.random(rand);
 				setBranch(world, rand, pos.up(i), dir, logs);

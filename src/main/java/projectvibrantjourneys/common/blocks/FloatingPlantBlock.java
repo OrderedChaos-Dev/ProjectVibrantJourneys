@@ -45,7 +45,7 @@ public class FloatingPlantBlock extends LilyPadBlock {
 	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		int model = context.getWorld().getRandom().nextInt(5);
+		int model = context.getWorld().getRandom().nextInt(4);
 		return this.getDefaultState().with(MODEL, model);
 	}
 }

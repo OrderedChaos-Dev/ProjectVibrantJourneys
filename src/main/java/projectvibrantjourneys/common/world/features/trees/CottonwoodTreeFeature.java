@@ -31,7 +31,7 @@ public class CottonwoodTreeFeature extends AbstractTreeFeature<TreeFeatureConfig
       for(int j = -i; j <= i; ++j) {
          for(int k = -i; k <= i; ++k) {
             if (Math.pow((double)Math.abs(j) + 0.5D, 2.0D) + Math.pow((double)Math.abs(k) + 0.5D, 2.0D) <= (double)(f * f)) {
-               this.func_227219_b_(world, rand, pos.add(j, 0, k), leaves, box, config);
+               this.setLeaf(world, rand, pos.add(j, 0, k), leaves, box, config);
             }
          }
       }
@@ -83,9 +83,9 @@ public class CottonwoodTreeFeature extends AbstractTreeFeature<TreeFeatureConfig
          for(int j = 0; j <= i; ++j) {
             BlockPos blockpos1 = p_227235_3_.add((double)(0.5F + (float)j * f), (double)(0.5F + (float)j * f1), (double)(0.5F + (float)j * f2));
             if (p_227235_5_) {
-               this.func_227217_a_(p_227235_1_, blockpos1, p_227235_8_.trunkProvider.getBlockState(p_227235_2_, blockpos1).with(LogBlock.AXIS, this.func_227238_a_(p_227235_3_, blockpos1)), p_227235_7_);
+               this.setBlockState(p_227235_1_, blockpos1, p_227235_8_.trunkProvider.getBlockState(p_227235_2_, blockpos1).with(LogBlock.AXIS, this.func_227238_a_(p_227235_3_, blockpos1)), p_227235_7_);
                p_227235_6_.add(blockpos1);
-            } else if (!func_214587_a(p_227235_1_, blockpos1)) {
+            } else if (!canBeReplacedByLogs(p_227235_1_, blockpos1)) {
                return j;
             }
          }
@@ -150,7 +150,7 @@ public class CottonwoodTreeFeature extends AbstractTreeFeature<TreeFeatureConfig
    }
 
    @Override
-   public boolean func_225557_a_(IWorldGenerationReader p_225557_1_, Random p_225557_2_, BlockPos p_225557_3_, Set<BlockPos> p_225557_4_, Set<BlockPos> p_225557_5_, MutableBoundingBox p_225557_6_, TreeFeatureConfig p_225557_7_) {
+   public boolean place(IWorldGenerationReader p_225557_1_, Random p_225557_2_, BlockPos p_225557_3_, Set<BlockPos> p_225557_4_, Set<BlockPos> p_225557_5_, MutableBoundingBox p_225557_6_, TreeFeatureConfig p_225557_7_) {
       Random random = new Random(p_225557_2_.nextLong());
       int i = this.func_227241_b_(p_225557_1_, p_225557_2_, p_225557_3_, 8 + random.nextInt(15), p_225557_4_, p_225557_6_, p_225557_7_);
       if (i == -1) {

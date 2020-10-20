@@ -27,7 +27,7 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 	}
 
 	@Override
-	protected boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
+	protected boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
 		int height = 5 + rand.nextInt(3) + rand.nextInt(4);
 		
 		//Optional<BlockPos> optional = this.func_227212_a_(world, height, 3, 3, pos, config);
@@ -65,25 +65,25 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
         			BlockPos pos1 = posRoot.west(2);
         			for(; isReplaceable(world, pos1); pos1 = pos1.down())
         			{
-        		         this.func_227217_a_(world, pos1, config.trunkProvider.getBlockState(rand, pos1), box);
+        		         this.setBlockState(world, pos1, config.trunkProvider.getBlockState(rand, pos1), box);
         		         logs.add(pos1.toImmutable());
         			}
         			BlockPos pos2 = posRoot.east(2);
         			for(; isReplaceable(world, pos2); pos2 = pos2.down())
         			{
-       		         this.func_227217_a_(world, pos2, config.trunkProvider.getBlockState(rand, pos2), box);
+       		         this.setBlockState(world, pos2, config.trunkProvider.getBlockState(rand, pos2), box);
        		         logs.add(pos2.toImmutable());
         			}
         			BlockPos pos3 = posRoot.north(2);
         			for(; isReplaceable(world, pos3); pos3 = pos3.down())
         			{
-       		         this.func_227217_a_(world, pos3, config.trunkProvider.getBlockState(rand, pos3), box);
+       		         this.setBlockState(world, pos3, config.trunkProvider.getBlockState(rand, pos3), box);
        		         logs.add(pos3.toImmutable());
         			}
         			BlockPos pos4 = posRoot.south(2);
         			for(; isReplaceable(world, pos4); pos4 = pos4.down())
         			{
-       		         this.func_227217_a_(world, pos4, config.trunkProvider.getBlockState(rand, pos4), box);
+       		         this.setBlockState(world, pos4, config.trunkProvider.getBlockState(rand, pos4), box);
        		         logs.add(pos4.toImmutable());
         			}
         		}
@@ -92,58 +92,58 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
         			BlockPos pos1 = posRoot.up();
                     
                     pos1 = posRoot.up().west();
-                	this.func_227216_a_(world, rand, pos1, logs, box, config);
+                	this.setLog(world, rand, pos1, logs, box, config);
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().down();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().up();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                     pos1 = posRoot.up().east();
-                	this.func_227216_a_(world, rand, pos1, logs, box, config);
+                	this.setLog(world, rand, pos1, logs, box, config);
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().down();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().up();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                     pos1 = posRoot.up().north();
-                	this.func_227216_a_(world, rand, pos1, logs, box, config);
+                	this.setLog(world, rand, pos1, logs, box, config);
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().down();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().up();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                     pos1 = posRoot.up().south();
-                	this.func_227216_a_(world, rand, pos1, logs, box, config);
+                	this.setLog(world, rand, pos1, logs, box, config);
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().down();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                 	if(rand.nextInt(3) != 0)
                 	{
                         pos1 = posRoot.up().west().up();
-                        this.func_227216_a_(world, rand, pos1, logs, box, config);
+                        this.setLog(world, rand, pos1, logs, box, config);
                 	}
                     
         		}
         		
     			posA = pos.up(i);
-    			this.func_227216_a_(world, rand, posA, logs, box, config);
+    			this.setLog(world, rand, posA, logs, box, config);
                 topBlock = posA;
         	}
         	BlockState leaf = config.leavesProvider.getBlockState(rand, pos);
@@ -207,8 +207,8 @@ public class MangroveTreeFeature extends AbstractSmallTreeFeature<TreeFeatureCon
 					while (l <= j1) {
 						if (i1 + blockpos.getY() >= 0 && i1 + blockpos.getY() < world.getMaxHeight()) {
 							blockpos$mutable.setPos(k + blockpos.getX(), i1 + blockpos.getY(), l + blockpos.getZ());
-							if ((func_214587_a(world, blockpos$mutable) || isWater(world, blockpos$mutable) )&& (config.ignoreVines
-									|| !func_227222_d_(world, blockpos$mutable))) {
+							if ((canBeReplacedByLogs(world, blockpos$mutable) || isWater(world, blockpos$mutable) )&& (config.ignoreVines
+									|| !isVine(world, blockpos$mutable))) {
 								++l;
 								continue;
 							}

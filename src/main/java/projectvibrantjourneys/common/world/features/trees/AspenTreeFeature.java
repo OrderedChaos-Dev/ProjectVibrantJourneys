@@ -22,7 +22,7 @@ public class AspenTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig
 	}
 
 	@Override
-	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
+	public boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, Set<BlockPos> leaves, MutableBoundingBox box, TreeFeatureConfig config) {
 		int height = config.baseHeight + rand.nextInt(config.heightRandA);
 		Optional<BlockPos> optional = this.func_227212_a_(world, height, 3, 3, pos, config);
 		if (!optional.isPresent()) {
@@ -40,7 +40,7 @@ public class AspenTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig
 						int length = 1 + (height / i);
 						BlockPos branchPos = pos.up(i);
 						for(int j = 1; j <= length; j++) {
-							this.func_227217_a_(world, branchPos.offset(d, j), config.trunkProvider.getBlockState(rand, pos).with(LogBlock.AXIS, d.getAxis()), box);
+							this.setBlockState(world, branchPos.offset(d, j), config.trunkProvider.getBlockState(rand, pos).with(LogBlock.AXIS, d.getAxis()), box);
 							placeLeaves(world, rand, branchPos.offset(d, j), leaves, box, config);
 						}
 					}
@@ -59,6 +59,6 @@ public class AspenTreeFeature extends AbstractSmallTreeFeature<TreeFeatureConfig
 			for(int y = -1; y <= 1; y++)
 				for(int z = -1; z <= 1; z++)
 					if(Math.abs(x) != Math.abs(z) || rand.nextBoolean())
-						this.func_227219_b_(world, rand, pos.add(x, y, z), leaves, box, config);
+						this.setLeaf(world, rand, pos.add(x, y, z), leaves, box, config);
 	}
 }

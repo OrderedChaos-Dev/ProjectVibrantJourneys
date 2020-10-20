@@ -33,8 +33,8 @@ public class GlowcapBlock extends MushroomBlock {
 	}
 	
 	@Override
-	public boolean func_226940_a_(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
-	      world.removeBlock(pos, false);
+	public boolean grow(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
+		world.removeBlock(pos, false);
 		ConfiguredFeature<BigMushroomFeatureConfig, ?> configuredfeature;
 		configuredfeature = Feature.HUGE_RED_MUSHROOM.withConfiguration(FeatureManager.glowcapFeatureConfig);
 
@@ -48,6 +48,6 @@ public class GlowcapBlock extends MushroomBlock {
 	
 	@Override
 	public void grow(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-		this.func_226940_a_(world, pos, state, rand);
+		this.grow(world, pos, state, rand);
 	}
 }

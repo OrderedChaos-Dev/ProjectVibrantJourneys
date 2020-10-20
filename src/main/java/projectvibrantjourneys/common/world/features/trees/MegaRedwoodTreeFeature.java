@@ -20,7 +20,8 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 		super(config);
 	}
 
-	public boolean func_225557_a_(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs,
+	@Override
+	public boolean place(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs,
 			Set<BlockPos> leaves, MutableBoundingBox box, HugeTreeFeatureConfig config) {
 		int height = this.func_227256_a_(rand, config);
 		if (!this.hasRoom(world, pos, height, config)) {
@@ -39,7 +40,7 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 						k = pos.getX() + (int) (1.5F + MathHelper.cos(f) * (float) i1);
 						l = pos.getZ() + (int) (1.5F + MathHelper.sin(f) * (float) i1);
 						BlockPos blockpos = new BlockPos(k, j - 3 + i1 / 2, l);
-						this.func_227216_a_(world, rand, blockpos, logs, box, config);
+						this.setLog(world, rand, blockpos, logs, box, config);
 					}
 
 					int l1 = 1 + rand.nextInt(4);
@@ -59,13 +60,13 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 					int h = 4 + rand.nextInt(3);
 					BlockPos tempPos = innerLayerPos.north(x).east(z).up(h);
 					if (isAirOrLeaves(world, tempPos.up()) || isTallPlants(world, pos.up()) || isWater(world, tempPos.up())) {
-						this.func_227217_a_(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
+						this.setBlockState(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
 						logs.add(pos.toImmutable());
 					}
 					for (int i = 0; i < 10; i++) {
 						BlockPos p = tempPos.down(i);
 						if (canPlaceRoot(world, p))
-							this.func_227216_a_(world, rand, p, logs, box, config);
+							this.setLog(world, rand, p, logs, box, config);
 						else
 							break;
 					}
@@ -112,13 +113,13 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 		int h = 2 + rand.nextInt(3);
 		BlockPos tempPos = pos.up(h);
 		if (isAirOrLeaves(world, tempPos.up()) || isTallPlants(world, pos.up()) || isWater(world, tempPos.up())) {
-			this.func_227217_a_(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
+			this.setBlockState(world, tempPos.up(), PVJBlocks.redwood_wood.getDefaultState(), box);
 			logs.add(pos.toImmutable());
 		}
 		for (int i = 0; i < 10; i++) {
 			BlockPos p = tempPos.down(i);
 			if (canPlaceRoot(world, p))
-				this.func_227216_a_(world, rand, p, logs, box, config);
+				this.setLog(world, rand, p, logs, box, config);
 			else
 				break;
 		}
