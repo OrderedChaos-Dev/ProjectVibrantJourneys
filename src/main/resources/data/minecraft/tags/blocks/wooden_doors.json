@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_door",
+	"projectvibrantjourneys:pine_door",
+	"projectvibrantjourneys:palm_door",
+	"projectvibrantjourneys:willow_door",
+	"projectvibrantjourneys:mangrove_door",
+	"projectvibrantjourneys:redwood_door",
+	"projectvibrantjourneys:baobab_door",
+	"projectvibrantjourneys:aspen_door",
+	"projectvibrantjourneys:maple_door",
+	"projectvibrantjourneys:cottonwood_door",
+	"projectvibrantjourneys:juniper_door"
+  ]
+}
