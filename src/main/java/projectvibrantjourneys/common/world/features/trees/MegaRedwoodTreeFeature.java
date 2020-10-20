@@ -30,7 +30,6 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 			boolean isSequoia = rand.nextBoolean();
 			this.genCrown(world, rand, pos.getX(), pos.getZ(), pos.getY() + height, 0, leaves, box, config);
 			if(!isSequoia) {
-				this.genLeafCircle(world, rand, pos.up(height), 2, leaves, box, config);
 				for (int j = pos.getY() + height - 2 - rand.nextInt(4); j > pos.getY() + height / 2; j -= 2 + rand.nextInt(4)) {
 					float f = rand.nextFloat() * ((float) Math.PI * 2F);
 					int k = pos.getX() + (int) (0.5F + MathHelper.cos(f) * 4.0F);
@@ -81,13 +80,6 @@ public class MegaRedwoodTreeFeature extends HugeTreesFeature<HugeTreeFeatureConf
 			placeRoot(world, rand, pos.south(3), logs, box, config);
 			placeRoot(world, rand, pos.south(3).east(), logs, box, config);
 			return true;
-		}
-	}
-
-	private void genLeafCircle(IWorldGenerationReader world, Random rand, BlockPos pos, int radius, Set<BlockPos> leaves, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		int r = Math.min(radius, 3);
-		for (int j = -2; j <= 0; ++j) {
-			this.func_227255_a_(world, rand, pos.up(j), r + 1 - j, leaves, box, config);
 		}
 	}
 
