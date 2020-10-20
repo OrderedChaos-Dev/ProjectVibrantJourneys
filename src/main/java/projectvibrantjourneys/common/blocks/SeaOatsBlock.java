@@ -2,7 +2,6 @@ package projectvibrantjourneys.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.DoublePlantBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -15,14 +14,13 @@ public class SeaOatsBlock extends DoublePlantBlock {
 
 	public SeaOatsBlock() {
 		super(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0, 0).sound(SoundType.PLANT));
-		
 	}
 
 	@Override
 	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
 		if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-			Block ground = world.getBlockState(pos.down()).getBlock();
-			return (ground == Blocks.DIRT || ground == Blocks.GRASS_BLOCK || ground == Blocks.SAND);
+			BlockState ground = world.getBlockState(pos.down());
+			return ground.getMaterial() == Material.SAND || ground.getMaterial() == Material.EARTH;
 		} else {
 			BlockState blockstate = world.getBlockState(pos.down());
 			if (state.getBlock() != this)

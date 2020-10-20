@@ -2,7 +2,6 @@ package projectvibrantjourneys.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.BushBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,8 +21,7 @@ public class BeachGrassBlock extends BushBlock {
 	
 	@Override
 	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		Block block = state.getBlock();
-		return block == Blocks.SAND || block == Blocks.GRASS_BLOCK || block == Blocks.DIRT;
+		return state.getMaterial() == Material.SAND || state.getMaterial() == Material.EARTH;
 	}
 
 	@Override
