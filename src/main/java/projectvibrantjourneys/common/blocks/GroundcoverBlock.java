@@ -13,7 +13,6 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
@@ -86,15 +85,6 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 		if(!isValidPosition(state, world, pos)) {
 			world.destroyBlock(pos, false);
-			
-			switch(this.type) {
-				case TWIGS:
-					spawnAsEntity(world, pos, new ItemStack(Items.STICK));
-					break;
-				default:
-					break;
-			}
-			
 		}
 	}
 	
@@ -113,19 +103,13 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 		if (!player.abilities.allowEdit) {
 			return ActionResultType.PASS;
 		} else {
-			if(player.isCreative()) {
-				int model = state.get(MODEL).intValue();
-				if(model < 4)
-					model++;
-				else
-					model = 0;
-				world.setBlockState(pos, state.with(MODEL, model));
-				return ActionResultType.SUCCESS;
-			} else {
-				world.removeBlock(pos, false);
-				spawnAsEntity(world, pos, new ItemStack(this));
-				return ActionResultType.SUCCESS;
-			}
+			int model = state.get(MODEL).intValue();
+			if(model < 4)
+				model++;
+			else
+				model = 0;
+			world.setBlockState(pos, state.with(MODEL, model));
+			return ActionResultType.SUCCESS;
 		}
 	}
 	

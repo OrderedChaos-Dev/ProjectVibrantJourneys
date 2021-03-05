@@ -38,14 +38,12 @@ public class ProjectVibrantJourneys {
 	
 	public ProjectVibrantJourneys() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, PVJConfig.CLIENT_CONFIG);
 		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 		
 		PVJConfig.loadConfig(PVJConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-common.toml"));
-		PVJConfig.loadConfig(PVJConfig.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-client.toml"));
 	}
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
@@ -69,49 +67,64 @@ public class ProjectVibrantJourneys {
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		
 		if(event.getCategory() == Biome.Category.NETHER) {
-			event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> FeatureManager.charredBonesFeature);
+			if(PVJConfig.charredBones.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> FeatureManager.charredBonesFeature);
 		} else if(event.getCategory() != Biome.Category.THEEND) {
-			
 			//plants
-			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN)
+			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && PVJConfig.seaOats.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.seaOatsFeature);
-			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT) {
+			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.cattailFeature);
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.waterCattailsFeature);
 			}
 			
 			//groundcover
 			if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
-				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.twigsFeature);
-				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.fallenLeavesFeature);
+				if(PVJConfig.twigs.get())
+					event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.twigsFeature);
+				
+				if(PVJConfig.fallenLeaves.get())
+					event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.fallenLeavesFeature);
 			}
-			if(hasType(biomeTypes, Type.SNOWY)) {
+			if(hasType(biomeTypes, Type.SNOWY) && PVJConfig.iceChunks.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.iceChunksFeature);
 			}
-			if(hasType(biomeTypes, Type.CONIFEROUS)) {
+			if(hasType(biomeTypes, Type.CONIFEROUS) && PVJConfig.pinecones.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.pineconesFeature);
 			}
-			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH)) {
+			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && PVJConfig.seashells.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.seashellsFeature);
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.oceanSeashellsFeature);
 			}
-			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.rocksFeature);
-			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.bonesFeature);
 			
-			if(hasType(biomeTypes, Type.PLAINS)) {
+			if(PVJConfig.rocks.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.rocksFeature);
+			
+			if(PVJConfig.bones.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.bonesFeature);
+			
+			if(hasType(biomeTypes, Type.PLAINS) && PVJConfig.bushes.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.bushFeature);
 			}
-			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.barkMushroomFeature);
-			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.cobwebsFeature);
+			
+			if(PVJConfig.barkMushrooms.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.barkMushroomFeature);
+			
+			if(PVJConfig.cobwebs.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.cobwebsFeature);
 			
 			//other
-			if(event.getCategory() != Biome.Category.DESERT && event.getCategory() != Biome.Category.MESA && event.getCategory() != Biome.Category.RIVER && event.getCategory() != Biome.Category.OCEAN) {
+			if(event.getCategory() != Biome.Category.DESERT
+					&& event.getCategory() != Biome.Category.MESA
+					&& event.getCategory() != Biome.Category.RIVER
+					&& event.getCategory() != Biome.Category.OCEAN
+					&& PVJConfig.moreSeagrass.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> Features.SEAGRASS_RIVER);
 			}
-			if(event.getCategory() == Biome.Category.RIVER) {
+			if(event.getCategory() == Biome.Category.RIVER && PVJConfig.moreGrassInRivers.get()) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> Features.PATCH_GRASS_PLAIN);
 			}
-			if(event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) {
+			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
 				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
 			}
 		}
