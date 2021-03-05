@@ -17,6 +17,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldReader;
 
 public class FallenLeavesBlock extends Block implements IWaterLoggable {
 
@@ -39,6 +40,11 @@ public class FallenLeavesBlock extends Block implements IWaterLoggable {
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		return VoxelShapes.empty();
+	}
+	
+	@Override
+	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
+		return world.getBlockState(pos.down()).isSolid();
 	}
 	
 	@Override

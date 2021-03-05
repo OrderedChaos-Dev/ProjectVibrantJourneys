@@ -3,12 +3,8 @@ package projectvibrantjourneys.init;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.item.SwordItem;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import projectvibrantjourneys.common.world.FeatureManager;
 
 public class PVJEvents {
 	
@@ -30,14 +26,5 @@ public class PVJEvents {
 				event.setCanHarvest(true);
 			}
 		}
-	}
-	
-	@SubscribeEvent
-	public void onBiomeLoad(BiomeLoadingEvent biome) {
-		if(biome.getCategory() == Biome.Category.NETHER || biome.getCategory() == Biome.Category.THEEND)
-			return;
-		
-		if(biome.getCategory() == Biome.Category.BEACH)
-			biome.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.seaOatsFeature);
 	}
 }

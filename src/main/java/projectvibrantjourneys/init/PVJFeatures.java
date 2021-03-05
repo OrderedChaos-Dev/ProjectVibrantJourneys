@@ -1,8 +1,6 @@
 package projectvibrantjourneys.init;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
@@ -25,8 +23,6 @@ public class PVJFeatures {
 	public static Feature<ProbabilityConfig> waterCattailFeature;
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<NoFeatureConfig> cobwebFeature;
-	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
-	public static Feature<BlockClusterFeatureConfig> randomPatchNoFlatFeature;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {

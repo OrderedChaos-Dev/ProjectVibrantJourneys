@@ -22,7 +22,7 @@ public class BarkMushroomFeature extends Feature<NoFeatureConfig> {
 	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, NoFeatureConfig config) {
 		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
 
-		for (int i = pos.getY(); i < world.getHeight(); i++) {
+		for (int i = 64; i < world.getHeight(); i++) {
 			blockpos.setPos(pos);
 			blockpos.move(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 			blockpos.setY(i);

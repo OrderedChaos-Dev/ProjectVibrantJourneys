@@ -91,15 +91,6 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 				case TWIGS:
 					spawnAsEntity(world, pos, new ItemStack(Items.STICK));
 					break;
-				case IRON_NUGGET:
-					spawnAsEntity(world, pos, new ItemStack(Items.IRON_NUGGET));
-					break;
-				case GOLD_NUGGET:
-					spawnAsEntity(world, pos, new ItemStack(Items.GOLD_NUGGET));
-					break;
-				case FLINT:
-					spawnAsEntity(world, pos, new ItemStack(Items.FLINT));
-					break;
 				default:
 					break;
 			}
@@ -132,20 +123,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 				return ActionResultType.SUCCESS;
 			} else {
 				world.removeBlock(pos, false);
-				switch(this.type) {
-				case IRON_NUGGET:
-					spawnAsEntity(world, pos, new ItemStack(Items.IRON_NUGGET));
-					break;
-				case GOLD_NUGGET:
-					spawnAsEntity(world, pos, new ItemStack(Items.GOLD_NUGGET));
-					break;
-				case FLINT:
-					spawnAsEntity(world, pos, new ItemStack(Items.FLINT));
-					break;
-				default:
-					spawnAsEntity(world, pos, new ItemStack(this));
-					break;
-			}
+				spawnAsEntity(world, pos, new ItemStack(this));
 				return ActionResultType.SUCCESS;
 			}
 		}
@@ -162,20 +140,6 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	}
 	
 	@Override
-   public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
-		switch(type) {
-			case IRON_NUGGET:
-				return new ItemStack(Items.IRON_NUGGET);
-			case GOLD_NUGGET:
-				return new ItemStack(Items.GOLD_NUGGET);
-			case FLINT:
-				return new ItemStack(Items.FLINT);
-			default: 
-					return new ItemStack(this);
-		}
-   }
-	
-	@Override
 	@SuppressWarnings("deprecation")
 	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
@@ -190,11 +154,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 		TWIGS,
 		ROCKS,
 		BONES,
-		IRON_NUGGET,
-		GOLD_NUGGET,
-		FLINT,
 		PINECONES,
 		SEASHELLS,
-		DUNG
 	}
 }
