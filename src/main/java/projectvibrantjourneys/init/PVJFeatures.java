@@ -18,7 +18,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJFeatures {
 	
-	public static Feature<ProbabilityConfig> oceanFloorSeashellsFeature;
+	public static Feature<NoFeatureConfig> oceanFloorSeashellsFeature;
 	public static Feature<ProbabilityConfig> bushFeature;
 	public static Feature<ProbabilityConfig> waterCattailFeature;
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
@@ -26,7 +26,7 @@ public class PVJFeatures {
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
-		oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(ProbabilityConfig.CODEC);
+		oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(NoFeatureConfig.field_236558_a_);
 		bushFeature = new BushFeature(ProbabilityConfig.CODEC);
 		waterCattailFeature = new WaterCattailFeature(ProbabilityConfig.CODEC);
 		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig.field_236558_a_);

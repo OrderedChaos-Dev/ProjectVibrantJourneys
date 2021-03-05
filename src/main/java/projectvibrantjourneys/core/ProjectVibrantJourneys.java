@@ -89,6 +89,7 @@ public class ProjectVibrantJourneys {
 			}
 			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH)) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.seashellsFeature);
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.oceanSeashellsFeature);
 			}
 			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.rocksFeature);
 			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.bonesFeature);

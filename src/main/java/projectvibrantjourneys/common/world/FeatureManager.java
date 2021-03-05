@@ -72,7 +72,7 @@ public class FeatureManager {
 		seashellsFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "seashells",
 				Feature.RANDOM_PATCH.withConfiguration(seashellsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
 		oceanSeashellsFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "ocean_seashells",
-				PVJFeatures.oceanFloorSeashellsFeature.withConfiguration(new ProbabilityConfig(0.5F)).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
+				PVJFeatures.oceanFloorSeashellsFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placements.SEAGRASS_DISK_PLACEMENT).func_242731_b(10).chance(2));
 		
 		bushFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "bush",
 				PVJFeatures.bushFeature.withConfiguration(new ProbabilityConfig(0.3F)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
