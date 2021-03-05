@@ -9,8 +9,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -57,7 +57,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
 		if(!world.isRemote) {
 			int model = world.getRandom().nextInt(5);
-			IFluidState ifluidstate = world.getFluidState(pos);
+			FluidState ifluidstate = world.getFluidState(pos);
 			world.setBlockState(pos, this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER)));
 		}
 	}
@@ -65,7 +65,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		int model = context.getWorld().getRandom().nextInt(5);
-		IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+		FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 		return this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
 	}
 	
@@ -162,11 +162,6 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	}
 	
 	@Override
-	public boolean isNormalCube(BlockState state, IBlockReader world, BlockPos pos) {
-		return false;
-	}
-	
-	@Override
    public ItemStack getItem(IBlockReader worldIn, BlockPos pos, BlockState state) {
 		switch(type) {
 			case IRON_NUGGET:
@@ -182,7 +177,7 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	
 	@Override
 	@SuppressWarnings("deprecation")
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
 	

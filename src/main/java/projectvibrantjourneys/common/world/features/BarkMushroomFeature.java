@@ -1,30 +1,28 @@
 package projectvibrantjourneys.common.world.features;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.init.PVJBlocks;
 
 public class BarkMushroomFeature extends Feature<NoFeatureConfig> {
-	public BarkMushroomFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> config) {
+	public BarkMushroomFeature(Codec<NoFeatureConfig> config) {
 		super(config);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, NoFeatureConfig config) {
-		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos);
+	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, NoFeatureConfig config) {
+		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
 
-		for (int i = pos.getY(); i < world.getWorld().getDimension().getHeight(); i++) {
+		for (int i = pos.getY(); i < world.getHeight(); i++) {
 			blockpos.setPos(pos);
 			blockpos.move(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 			blockpos.setY(i);

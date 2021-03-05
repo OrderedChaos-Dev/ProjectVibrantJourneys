@@ -6,18 +6,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.LogBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -72,7 +72,7 @@ public class BarkMushroomBlock extends Block {
 	
 	public static boolean canAttachTo(IBlockReader world, BlockPos pos, Direction direction) {
 		BlockState blockstate = world.getBlockState(pos);
-		return blockstate.getBlock() instanceof LogBlock;
+		return blockstate.getBlock().getTags().contains(ItemTags.LOGS.getName());
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class BarkMushroomBlock extends Block {
 		BlockState blockstate1 = this.getDefaultState();
 		IWorldReader iworldreader = context.getWorld();
 		BlockPos blockpos = context.getPos();
-		IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+		FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
@@ -139,7 +139,7 @@ public class BarkMushroomBlock extends Block {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public IFluidState getFluidState(BlockState state) {
+	public FluidState getFluidState(BlockState state) {
 		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
 	}
 }

@@ -12,6 +12,6 @@ public class PVJItemGroup extends ItemGroup {
 
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(PVJBlocks.oak_twigs);
+		return new ItemStack(PVJBlocks.twigs);
 	}
 }

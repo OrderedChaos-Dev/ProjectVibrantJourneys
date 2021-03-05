@@ -1,29 +1,27 @@
 package projectvibrantjourneys.common.world.features;
 
 import java.util.Random;
-import java.util.function.Function;
 
-import com.mojang.datafixers.Dynamic;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.GenerationSettings;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 
 public class BushFeature extends Feature<ProbabilityConfig> {
 	
-	public BushFeature(Function<Dynamic<?>, ? extends ProbabilityConfig> config) {
+	public BushFeature(Codec<ProbabilityConfig> config) {
 		super(config);
 	}
 
 	@Override
-	public boolean place(IWorld world, ChunkGenerator<? extends GenerationSettings> generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
 		//check dirt/grass
 		Block dirt = world.getBlockState(pos.down()).getBlock();
 		if(dirt != Blocks.DIRT && dirt != Blocks.GRASS_BLOCK)

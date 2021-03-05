@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-	"projectvibrantjourneys:juniper_log",
-	"projectvibrantjourneys:juniper_wood",
-	"projectvibrantjourneys:stripped_juniper_log",
-	"projectvibrantjourneys:stripped_juniper_wood"
-  ]
-}

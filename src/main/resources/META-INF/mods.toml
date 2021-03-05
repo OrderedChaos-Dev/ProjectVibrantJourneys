@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="[30,)"
 issueTrackerURL="https://github.com/mc-jt9/ProjectVibrantJourneys/issues"
+license="lol"
 
 [[mods]]
 	modId="projectvibrantjourneys"
