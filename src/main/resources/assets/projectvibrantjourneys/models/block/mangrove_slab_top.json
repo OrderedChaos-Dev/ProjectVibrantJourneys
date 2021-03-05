@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab_top",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/mangrove_planks",
-        "top": "projectvibrantjourneys:block/mangrove_planks",
-        "side": "projectvibrantjourneys:block/mangrove_planks"
-    }
-}

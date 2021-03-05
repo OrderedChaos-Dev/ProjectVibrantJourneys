@@ -1,8 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/twigs2",
-    "textures": {
-        "particle": "projectvibrantjourneys:block/baobab_log",
-        "0": "projectvibrantjourneys:block/baobab_log",
-        "1": "projectvibrantjourneys:block/baobab_leaves"
-    }
-}

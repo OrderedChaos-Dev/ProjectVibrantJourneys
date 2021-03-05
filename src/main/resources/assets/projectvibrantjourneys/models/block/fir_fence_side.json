@@ -1,6 +1,0 @@
-{
-    "parent": "block/fence_side",
-    "textures": {
-        "texture": "projectvibrantjourneys:block/fir_planks"
-    }
-}

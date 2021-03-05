@@ -1,7 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/rocks2",
-    "textures": {
-    	"particle": "block/andesite",
-        "0": "block/andesite"
-    }
-}

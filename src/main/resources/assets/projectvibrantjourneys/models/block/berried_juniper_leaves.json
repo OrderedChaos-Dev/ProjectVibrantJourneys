@@ -1,6 +1,0 @@
-{
-    "parent": "block/leaves",
-    "textures": {
-        "all": "projectvibrantjourneys:block/berried_juniper_leaves"
-    }
-}

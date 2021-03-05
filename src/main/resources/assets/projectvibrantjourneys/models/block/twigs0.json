@@ -1,5 +1,10 @@
 {
 	"parent": "block/thin_block",
+    "textures": {
+        "particle": "block/oak_log",
+        "0": "block/oak_log",
+        "1": "block/oak_leaves"
+    },
     "elements": [
         {
             "name": "twig10",

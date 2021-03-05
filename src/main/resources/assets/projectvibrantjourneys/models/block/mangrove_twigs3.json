@@ -1,8 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/twigs3",
-    "textures": {
-        "particle": "projectvibrantjourneys:block/mangrove_log",
-        "0": "projectvibrantjourneys:block/mangrove_log",
-        "1": "projectvibrantjourneys:block/mangrove_leaves"
-    }
-}

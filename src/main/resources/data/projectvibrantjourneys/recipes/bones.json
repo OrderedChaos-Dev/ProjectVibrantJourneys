@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "sticks",
+  "group": "bones",
   "ingredients": [
     {
-      "item": "projectvibrantjourneys:twigs"
+      "item": "projectvibrantjourneys:bones"
     }
   ],
   "result": {
-    "item": "minecraft:stick",
+    "item": "minecraft:bone",
     "count": 1
   }
 }

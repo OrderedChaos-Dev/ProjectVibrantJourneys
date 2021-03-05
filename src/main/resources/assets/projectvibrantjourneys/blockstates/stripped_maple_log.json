@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y":  { "model": "projectvibrantjourneys:block/stripped_maple_log" },
-        "axis=z":   { "model": "projectvibrantjourneys:block/stripped_maple_log", "x": 90 },
-        "axis=x":   { "model": "projectvibrantjourneys:block/stripped_maple_log", "x": 90, "y": 90 }
-    }
-}

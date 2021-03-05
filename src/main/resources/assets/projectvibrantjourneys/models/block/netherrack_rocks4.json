@@ -1,7 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/rocks4",
-    "textures": {
-        "particle": "block/netherrack",
-        "0": "block/netherrack"
-    }
-}

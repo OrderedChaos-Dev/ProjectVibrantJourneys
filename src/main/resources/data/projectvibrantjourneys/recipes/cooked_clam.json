@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "projectvibrantjourneys:raw_clam"
-  },
-  "result": "projectvibrantjourneys:cooked_clam",
-  "experience": 0.35,
-  "cookingtime": 200
-}

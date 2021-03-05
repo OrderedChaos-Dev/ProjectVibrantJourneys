@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "projectvibrantjourneys:block/baobab_log",
-        "side": "projectvibrantjourneys:block/baobab_log"
-    }
-}

@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "projectvibrantjourneys:block/fir_slab" },
-        "type=top": { "model": "projectvibrantjourneys:block/fir_slab_top" },
-        "type=double": { "model": "projectvibrantjourneys:block/fir_planks" }
-    }
-}

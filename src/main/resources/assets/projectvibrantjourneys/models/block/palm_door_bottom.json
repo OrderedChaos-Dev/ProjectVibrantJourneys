@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_bottom",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/palm_door_bottom",
-        "top": "projectvibrantjourneys:block/palm_door_top"
-    }
-}

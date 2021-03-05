@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_bottom_rh",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/juniper_door_bottom",
-        "top": "projectvibrantjourneys:block/juniper_door_top"
-    }
-}

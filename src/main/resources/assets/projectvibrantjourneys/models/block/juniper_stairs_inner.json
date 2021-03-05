@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/juniper_planks",
-        "top": "projectvibrantjourneys:block/juniper_planks",
-        "side": "projectvibrantjourneys:block/juniper_planks"
-    }
-}

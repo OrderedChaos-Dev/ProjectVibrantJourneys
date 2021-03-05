@@ -1,9 +1,0 @@
-{
-	"variants": {
-		"model=0": { "model": "projectvibrantjourneys:block/duckweed0" },
-		"model=1": { "model": "projectvibrantjourneys:block/duckweed1" },
-		"model=2": { "model": "projectvibrantjourneys:block/duckweed2" },
-		"model=3": { "model": "projectvibrantjourneys:block/duckweed3" }
-	}
-}
-

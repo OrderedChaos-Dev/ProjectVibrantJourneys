@@ -1,8 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/twigs3",
-    "textures": {
-        "particle": "block/jungle_log",
-        "0": "block/jungle_log",
-        "1": "block/jungle_leaves"
-    }
-}

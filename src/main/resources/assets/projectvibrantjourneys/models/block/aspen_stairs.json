@@ -1,8 +1,0 @@
-{
-    "parent": "block/stairs",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/aspen_planks",
-        "top": "projectvibrantjourneys:block/aspen_planks",
-        "side": "projectvibrantjourneys:block/aspen_planks"
-    }
-}

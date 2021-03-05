@@ -6,16 +6,12 @@
       "entries": [
       	{
           "type": "minecraft:item",
-          "name": "minecraft:prismarine_shard"
+          "name": "projectvibrantjourneys:seashells"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"
-        },
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.1
         }
       ]
     }

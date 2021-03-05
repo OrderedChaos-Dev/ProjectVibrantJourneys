@@ -1,8 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/twigs4",
-    "textures": {
-        "particle": "block/oak_log",
-        "0": "block/oak_log",
-        "1": "block/oak_leaves"
-    }
-}

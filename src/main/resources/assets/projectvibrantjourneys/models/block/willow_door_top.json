@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_top",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/willow_door_bottom",
-        "top": "projectvibrantjourneys:block/willow_door_top"
-    }
-}

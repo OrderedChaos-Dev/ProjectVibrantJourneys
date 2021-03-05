@@ -1,9 +1,0 @@
-{
-	"variants": {
-		"model=0": { "model": "projectvibrantjourneys:block/frogbit0" },
-		"model=1": { "model": "projectvibrantjourneys:block/frogbit1" },
-		"model=2": { "model": "projectvibrantjourneys:block/frogbit2" },
-		"model=3": { "model": "projectvibrantjourneys:block/frogbit3" }
-	}
-}
-

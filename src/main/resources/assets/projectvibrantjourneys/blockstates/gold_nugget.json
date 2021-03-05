@@ -1,9 +1,0 @@
-{
-    "variants": {
-		"model=0": { "model": "projectvibrantjourneys:block/gold_nugget"},
-		"model=1": { "model": "projectvibrantjourneys:block/gold_nugget", "y": 90},
-		"model=2": { "model": "projectvibrantjourneys:block/gold_nugget", "y": 180},
-		"model=3": { "model": "projectvibrantjourneys:block/gold_nugget", "y": 270},
-		"model=4": { "model": "projectvibrantjourneys:block/gold_nugget", "y": 90}
-    }
-}

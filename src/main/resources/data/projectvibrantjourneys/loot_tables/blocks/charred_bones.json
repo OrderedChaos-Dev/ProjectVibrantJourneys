@@ -6,43 +6,12 @@
       "entries": [
       	{
           "type": "minecraft:item",
-          "name": "minecraft:coal"
+          "name": "projectvibrantjourneys:charred_bones"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"
-        },
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.2
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-       {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "min": 0.0,
-                "max": 0.1
-              }
-            }
-          ],
-          "name": "minecraft:stone_sword"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        },
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.005
         }
       ]
     }

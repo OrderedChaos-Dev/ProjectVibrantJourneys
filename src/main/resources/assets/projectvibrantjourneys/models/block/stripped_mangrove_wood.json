@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "projectvibrantjourneys:block/stripped_mangrove_log",
-        "side": "projectvibrantjourneys:block/stripped_mangrove_log"
-    }
-}

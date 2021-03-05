@@ -1,7 +1,0 @@
-{
-    "parent": "block/door_bottom",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/mangrove_door_bottom",
-        "top": "projectvibrantjourneys:block/mangrove_door_top"
-    }
-}

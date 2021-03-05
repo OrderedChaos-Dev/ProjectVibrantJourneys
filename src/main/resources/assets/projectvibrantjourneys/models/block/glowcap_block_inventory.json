@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "projectvibrantjourneys:block/glowcap_block"
-    }
-}

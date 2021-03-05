@@ -45,16 +45,16 @@ public class PVJBlocks {
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
-		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "oak_twigs", 100);
-		fallen_leaves = registerBlock(new FallenLeavesBlock(), "oak_fallen_leaves");
-		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "stone_rocks");
+		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "twigs", 100);
+		fallen_leaves = registerBlock(new FallenLeavesBlock(), "fallen_leaves");
+		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "rocks");
 		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
 		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "sandstone_rocks");
 		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "red_sandstone_rocks");
 		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, GroundcoverBlock.Type.ROCKS, SoundType.GLASS), "ice_chunks");
 		bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "bones");
 		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "charred_bones");
-		pinecones = registerBlock(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.PINECONES), "pinecones");
+		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.PINECONES), "pinecones", 100);
 		seashells = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.SEASHELLS), "seashells");
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
@@ -120,7 +120,6 @@ public class PVJBlocks {
 		RenderTypeLookup.setRenderLayer(seashells, cutout);
 		
 		RenderTypeLookup.setRenderLayer(bark_mushroom, cutout);
-	
 		
 		RenderTypeLookup.setRenderLayer(natural_cobweb, cutout);
 

@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/palm_planks",
-        "top": "projectvibrantjourneys:block/palm_planks",
-        "side": "projectvibrantjourneys:block/palm_planks"
-    }
-}
