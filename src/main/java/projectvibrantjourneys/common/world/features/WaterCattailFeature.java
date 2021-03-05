@@ -11,17 +11,17 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.init.PVJBlocks;
 
-public class WaterCattailFeature extends Feature<ProbabilityConfig> {
-	public WaterCattailFeature(Codec<ProbabilityConfig> config) {
+public class WaterCattailFeature extends Feature<NoFeatureConfig> {
+	public WaterCattailFeature(Codec<NoFeatureConfig> config) {
 		super(config);
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, ProbabilityConfig config) {
+	public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		int i = 0;
 
 		int k = rand.nextInt(8) - rand.nextInt(8);

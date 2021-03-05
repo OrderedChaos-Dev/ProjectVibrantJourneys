@@ -4,9 +4,13 @@ import java.util.Set;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.MinecraftForge;
@@ -71,12 +75,12 @@ public class ProjectVibrantJourneys {
 			//plants
 			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN)
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.seaOatsFeature);
-			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH)) {
+			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.cattailFeature);
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.waterCattailsFeature);
 			}
+			
 			//groundcover
-
 			if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.twigsFeature);
 				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.fallenLeavesFeature);
@@ -99,6 +103,17 @@ public class ProjectVibrantJourneys {
 			}
 			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.barkMushroomFeature);
 			event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> FeatureManager.cobwebsFeature);
+			
+			//other
+			if(event.getCategory() != Biome.Category.DESERT && event.getCategory() != Biome.Category.MESA && event.getCategory() != Biome.Category.RIVER && event.getCategory() != Biome.Category.OCEAN) {
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> Features.SEAGRASS_RIVER);
+			}
+			if(event.getCategory() == Biome.Category.RIVER) {
+				event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION).add(() -> Features.PATCH_GRASS_PLAIN);
+			}
+			if(event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) {
+				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+			}
 		}
 	}
 	

@@ -20,7 +20,7 @@ public class PVJFeatures {
 	
 	public static Feature<NoFeatureConfig> oceanFloorSeashellsFeature;
 	public static Feature<ProbabilityConfig> bushFeature;
-	public static Feature<ProbabilityConfig> waterCattailFeature;
+	public static Feature<NoFeatureConfig> waterCattailFeature;
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<NoFeatureConfig> cobwebFeature;
 	
@@ -28,7 +28,7 @@ public class PVJFeatures {
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
 		oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(NoFeatureConfig.field_236558_a_);
 		bushFeature = new BushFeature(ProbabilityConfig.CODEC);
-		waterCattailFeature = new WaterCattailFeature(ProbabilityConfig.CODEC);
+		waterCattailFeature = new WaterCattailFeature(NoFeatureConfig.field_236558_a_);
 		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig.field_236558_a_);
 		cobwebFeature = new CobwebFeature(NoFeatureConfig.field_236558_a_);
 		

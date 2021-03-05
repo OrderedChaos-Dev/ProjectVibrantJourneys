@@ -51,9 +51,9 @@ public class FeatureManager {
 		seaOatsFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "sea_oats",
 				Feature.RANDOM_PATCH.withConfiguration(seaOatsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(2));
 		cattailFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "cattail",
-				Feature.RANDOM_PATCH.withConfiguration(cattailCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(5));
+				Feature.RANDOM_PATCH.withConfiguration(cattailCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(5).chance(2));
 		waterCattailsFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "water_cattail",
-				PVJFeatures.waterCattailFeature.withConfiguration(new ProbabilityConfig(0.1F)).square().func_242731_b(30));
+				PVJFeatures.waterCattailFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30).chance(3));
 		
 		twigsFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, "twigs",
 				Feature.RANDOM_PATCH.withConfiguration(twigsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
