@@ -10,7 +10,6 @@ import net.minecraft.world.gen.blockplacer.BlockPlacer;
 import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
-import projectvibrantjourneys.init.PVJBlocks;
 
 public class GroundcoverPlacer extends BlockPlacer {
 

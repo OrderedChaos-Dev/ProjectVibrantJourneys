@@ -36,20 +36,14 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
-	private GroundcoverBlock.Type type;
-	
-	public GroundcoverBlock(Material material, GroundcoverBlock.Type type) {
+	public GroundcoverBlock(Material material) {
 		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F).notSolid());
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
-		
-		this.type = type;
 	}
 	
-	public GroundcoverBlock(Material material, GroundcoverBlock.Type type, SoundType soundType) {
+	public GroundcoverBlock(Material material, SoundType soundType) {
 		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType).notSolid());
 		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
-		
-		this.type = type;
 	}
 
 	@Override
@@ -132,13 +126,5 @@ public class GroundcoverBlock extends Block implements IWaterLoggable {
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(MODEL, WATERLOGGED);
-	}
-	
-	public enum Type {
-		TWIGS,
-		ROCKS,
-		BONES,
-		PINECONES,
-		SEASHELLS,
 	}
 }

@@ -14,7 +14,6 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.sea_oats, 0.65F);
 		setCompostInfo(PVJBlocks.cattail, 0.65F);
 		setCompostInfo(PVJBlocks.bark_mushroom, 0.4F);
-		
 	}
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {

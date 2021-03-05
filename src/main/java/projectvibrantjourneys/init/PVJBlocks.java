@@ -45,17 +45,17 @@ public class PVJBlocks {
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
-		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.TWIGS), "twigs", 100);
+		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD), "twigs", 100);
 		fallen_leaves = registerBlock(new FallenLeavesBlock(), "fallen_leaves");
-		rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "rocks");
-		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "mossy_rocks");
-		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.ROCKS), "red_sandstone_rocks");
-		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, GroundcoverBlock.Type.ROCKS, SoundType.GLASS), "ice_chunks");
-		bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "bones");
-		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.BONES), "charred_bones");
-		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD, GroundcoverBlock.Type.PINECONES), "pinecones", 100);
-		seashells = registerBlock(new GroundcoverBlock(Material.CLAY, GroundcoverBlock.Type.SEASHELLS), "seashells");
+		rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "rocks");
+		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "mossy_rocks");
+		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "red_sandstone_rocks");
+		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, SoundType.GLASS), "ice_chunks");
+		bones = registerBlock(new GroundcoverBlock(Material.CLAY), "bones");
+		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY), "charred_bones");
+		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD), "pinecones", 100);
+		seashells = registerBlock(new GroundcoverBlock(Material.CLAY), "seashells");
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
