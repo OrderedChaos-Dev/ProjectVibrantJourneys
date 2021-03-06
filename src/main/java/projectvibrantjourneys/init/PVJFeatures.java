@@ -1,13 +1,15 @@
 package projectvibrantjourneys.init;
 
+import java.util.ArrayList;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
@@ -17,6 +19,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJFeatures {
+	public static ArrayList<Feature<?>> FEATURES = new ArrayList<Feature<?>>();
 	
 	public static Feature<NoFeatureConfig> oceanFloorSeashellsFeature;
 	public static Feature<ProbabilityConfig> bushFeature;
@@ -26,21 +29,18 @@ public class PVJFeatures {
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
-		oceanFloorSeashellsFeature = new OceanFloorSeashellsFeature(NoFeatureConfig.field_236558_a_);
-		bushFeature = new BushFeature(ProbabilityConfig.CODEC);
-		waterCattailFeature = new WaterCattailFeature(NoFeatureConfig.field_236558_a_);
-		barkMushroomFeature = new BarkMushroomFeature(NoFeatureConfig.field_236558_a_);
-		cobwebFeature = new CobwebFeature(NoFeatureConfig.field_236558_a_);
+		oceanFloorSeashellsFeature = registerFeature(new OceanFloorSeashellsFeature(NoFeatureConfig.field_236558_a_), "ocean_floor_seashells_feature");
+		bushFeature = registerFeature(new BushFeature(ProbabilityConfig.CODEC), "bush_feature");
+		waterCattailFeature = registerFeature(new WaterCattailFeature(NoFeatureConfig.field_236558_a_), "water_cattail_feature");
+		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.field_236558_a_), "bark_mushroom_feature");
+		cobwebFeature = registerFeature(new CobwebFeature(NoFeatureConfig.field_236558_a_), "cobweb_feature");
 		
-		registerFeature(oceanFloorSeashellsFeature, "ocean_floor_seashells_feature");
-		registerFeature(bushFeature, "bush_feature");
-		registerFeature(waterCattailFeature, "water_cattail_feature");
-		registerFeature(barkMushroomFeature, "bark_mushroom_feature");
-		registerFeature(cobwebFeature, "cobweb_feature");
+		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
 	}
 	
-	public static void registerFeature(Feature<?> feature, String name) {
+	public static <FC extends IFeatureConfig> Feature<FC> registerFeature(Feature<FC> feature, String name) {
 		feature.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		ForgeRegistries.FEATURES.register(feature);
+		FEATURES.add(feature);
+		return feature;
 	}
 }

@@ -19,7 +19,6 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import projectvibrantjourneys.common.world.FeatureManager;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -34,50 +33,50 @@ public class PVJWorldGen {
 		
 		if(event.getCategory() == Biome.Category.NETHER) {
 			if(PVJConfig.charredBones.get())
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> FeatureManager.charredBonesFeature);
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
 		} else if(event.getCategory() != Biome.Category.THEEND) {
 			//plants
 			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && PVJConfig.seaOats.get())
-				vegetalFeatures.add(() -> FeatureManager.seaOatsFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
 			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
-				vegetalFeatures.add(() -> FeatureManager.cattailFeature);
-				vegetalFeatures.add(() -> FeatureManager.waterCattailsFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.water_cattails);
 			}
 			
 			//groundcover
 			if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
 				if(PVJConfig.twigs.get())
-					vegetalFeatures.add(() -> FeatureManager.twigsFeature);
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.twigs);
 				
 				if(PVJConfig.fallenLeaves.get())
-					vegetalFeatures.add(() -> FeatureManager.fallenLeavesFeature);
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.fallen_leaves);
 			}
 			if(hasType(biomeTypes, Type.SNOWY) && PVJConfig.iceChunks.get()) {
-				vegetalFeatures.add(() -> FeatureManager.iceChunksFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.ice_chunks);
 			}
 			if(hasType(biomeTypes, Type.CONIFEROUS) && PVJConfig.pinecones.get()) {
-				vegetalFeatures.add(() -> FeatureManager.pineconesFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.pinecones);
 			}
 			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && PVJConfig.seashells.get()) {
-				vegetalFeatures.add(() -> FeatureManager.seashellsFeature);
-				vegetalFeatures.add(() -> FeatureManager.oceanSeashellsFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.seashells);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.ocean_seashells);
 			}
 			
 			if(PVJConfig.rocks.get())
-				vegetalFeatures.add(() -> FeatureManager.rocksFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.rocks);
 			
 			if(PVJConfig.bones.get())
-				vegetalFeatures.add(() -> FeatureManager.bonesFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
 			
 			if(hasType(biomeTypes, Type.PLAINS) && PVJConfig.bushes.get()) {
-				vegetalFeatures.add(() -> FeatureManager.bushFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.bushes);
 			}
 			
 			if(PVJConfig.barkMushrooms.get())
-				vegetalFeatures.add(() -> FeatureManager.barkMushroomFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.bark_mushrooms);
 			
 			if(PVJConfig.cobwebs.get())
-				vegetalFeatures.add(() -> FeatureManager.cobwebsFeature);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.cobwebs);
 			
 			//other
 			if(event.getCategory() != Biome.Category.DESERT

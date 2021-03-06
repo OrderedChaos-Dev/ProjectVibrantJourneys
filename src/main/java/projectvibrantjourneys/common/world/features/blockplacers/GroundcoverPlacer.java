@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.world.placers;
+package projectvibrantjourneys.common.world.features.blockplacers;
 
 import java.util.Random;
 

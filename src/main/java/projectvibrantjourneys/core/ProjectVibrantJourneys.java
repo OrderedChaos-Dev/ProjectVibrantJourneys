@@ -13,8 +13,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
-import projectvibrantjourneys.common.world.FeatureManager;
-import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.client.block.BlockRendering;
+import projectvibrantjourneys.init.PVJConfiguredFeatures;
 import projectvibrantjourneys.init.PVJEvents;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
 import projectvibrantjourneys.init.PVJWorldGen;
@@ -38,15 +38,16 @@ public class ProjectVibrantJourneys {
 	private void commonSetup(FMLCommonSetupEvent event) {
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, PVJWorldGen::addBiomeFeatures);
 		MinecraftForge.EVENT_BUS.register(new PVJEvents());
-		FeatureManager.init();
+		PVJConfiguredFeatures.init();
+		PVJVanillaIntegration.init();
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {
-		PVJBlocks.registerRenderers();
-		PVJBlocks.registerColors();
+		BlockRendering.registerRenderers();
+		BlockRendering.registerColors();
 	}
 	
 	private void loadComplete(FMLLoadCompleteEvent event) {
-		PVJVanillaIntegration.init();
+
 	}
 }

@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.world;
+package projectvibrantjourneys.init;
 
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -13,12 +13,10 @@ import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
-import projectvibrantjourneys.common.world.placers.GroundcoverPlacer;
-import projectvibrantjourneys.init.PVJBlocks;
-import projectvibrantjourneys.init.PVJFeatures;
 
-public class FeatureManager {
+public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();
 	public static BlockClusterFeatureConfig twigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.twigs.getDefaultState()), GROUNDCOVER_PLACER, 5);
 	public static BlockClusterFeatureConfig fallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fallen_leaves.getDefaultState()), GROUNDCOVER_PLACER, 5);
@@ -32,54 +30,54 @@ public class FeatureManager {
 	public static BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), DoublePlantBlockPlacer.PLACER, 15);
 	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), DoublePlantBlockPlacer.PLACER, 15);
 	
-	public static ConfiguredFeature<?, ?> seaOatsFeature;
-	public static ConfiguredFeature<?, ?> cattailFeature;
-	public static ConfiguredFeature<?, ?> twigsFeature;
-	public static ConfiguredFeature<?, ?> fallenLeavesFeature;
-	public static ConfiguredFeature<?, ?> rocksFeature;
-	public static ConfiguredFeature<?, ?> iceChunksFeature;
-	public static ConfiguredFeature<?, ?> bonesFeature;
-	public static ConfiguredFeature<?, ?> charredBonesFeature;
-	public static ConfiguredFeature<?, ?> pineconesFeature;
-	public static ConfiguredFeature<?, ?> seashellsFeature;
-	public static ConfiguredFeature<?, ?> bushFeature;
-	public static ConfiguredFeature<?, ?> barkMushroomFeature;
-	public static ConfiguredFeature<?, ?> cobwebsFeature;
-	public static ConfiguredFeature<?, ?> oceanSeashellsFeature;
-	public static ConfiguredFeature<?, ?> waterCattailsFeature;
+	public static ConfiguredFeature<?, ?> sea_oats;
+	public static ConfiguredFeature<?, ?> cattails;
+	public static ConfiguredFeature<?, ?> water_cattails;
+	public static ConfiguredFeature<?, ?> twigs;
+	public static ConfiguredFeature<?, ?> fallen_leaves;
+	public static ConfiguredFeature<?, ?> rocks;
+	public static ConfiguredFeature<?, ?> ice_chunks;
+	public static ConfiguredFeature<?, ?> bones;
+	public static ConfiguredFeature<?, ?> charred_bones;
+	public static ConfiguredFeature<?, ?> pinecones;
+	public static ConfiguredFeature<?, ?> seashells;
+	public static ConfiguredFeature<?, ?> ocean_seashells;
+	public static ConfiguredFeature<?, ?> bushes;
+	public static ConfiguredFeature<?, ?> bark_mushrooms;
+	public static ConfiguredFeature<?, ?> cobwebs;
 	
 	public static void init() {
-		seaOatsFeature = register("sea_oats",
+		sea_oats = register("sea_oats",
 				Feature.RANDOM_PATCH.withConfiguration(seaOatsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(2));
-		cattailFeature = register("cattail",
+		cattails = register("cattail",
 				Feature.RANDOM_PATCH.withConfiguration(cattailCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(5).chance(2));
-		waterCattailsFeature = register("water_cattail",
+		water_cattails = register("water_cattail",
 				PVJFeatures.waterCattailFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30).chance(3));
 		
-		twigsFeature = register("twigs",
+		twigs = register("twigs",
 				Feature.RANDOM_PATCH.withConfiguration(twigsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
-		fallenLeavesFeature = register("fallen_leaves",
+		fallen_leaves = register("fallen_leaves",
 				Feature.RANDOM_PATCH.withConfiguration(fallenLeavesCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(4).chance(2));
-		rocksFeature = register("rocks",
+		rocks = register("rocks",
 				Feature.RANDOM_PATCH.withConfiguration(rocksCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
-		iceChunksFeature = register("ice_chunks",
+		ice_chunks = register("ice_chunks",
 				Feature.RANDOM_PATCH.withConfiguration(iceChunksCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(2).chance(2));
-		bonesFeature = register("bones",
+		bones = register("bones",
 				Feature.RANDOM_PATCH.withConfiguration(bonesCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(1).chance(2));
-		charredBonesFeature = register("charred_bones",
+		charred_bones = register("charred_bones",
 				Feature.RANDOM_PATCH.withConfiguration(charredBonesCluster).range(128).chance(2));
-		pineconesFeature = register("pinecones",
+		pinecones = register("pinecones",
 				Feature.RANDOM_PATCH.withConfiguration(pineconesCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(2).chance(2));
-		seashellsFeature = register("seashells",
+		seashells = register("seashells",
 				Feature.RANDOM_PATCH.withConfiguration(seashellsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(3).chance(2));
-		oceanSeashellsFeature = register("ocean_seashells",
+		ocean_seashells = register("ocean_seashells",
 				PVJFeatures.oceanFloorSeashellsFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placements.SEAGRASS_DISK_PLACEMENT).func_242731_b(10).chance(2));
 		
-		bushFeature = register("bush",
+		bushes = register("bush",
 				PVJFeatures.bushFeature.withConfiguration(new ProbabilityConfig(0.3F)).withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT));
-		barkMushroomFeature = register("bark_mushroom",
+		bark_mushrooms = register("bark_mushroom",
 				PVJFeatures.barkMushroomFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30));
-		cobwebsFeature = register("cobwebs",
+		cobwebs = register("cobwebs",
 				PVJFeatures.cobwebFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30).chance(10));
 		
 	}

@@ -1,5 +1,7 @@
 package projectvibrantjourneys.init;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,7 +24,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ObjectHolder;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
@@ -36,6 +37,8 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @ObjectHolder("projectvibrantjourneys")
 public class PVJBlocks {
 
+	public static ArrayList<Block> BLOCKS = new ArrayList<Block>();
+	
 	/* GROUNDCOVERS */
 	public static Block twigs, fallen_leaves, rocks, mossy_rocks, sandstone_rocks, red_sandstone_rocks, ice_chunks, bones, charred_bones, pinecones, seashells;
 	public static Block sea_oats;
@@ -62,6 +65,8 @@ public class PVJBlocks {
 		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
 		
 		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
+		
+		event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
 	}
 
 	public static Block registerBlock(Block block, String name) {
@@ -71,15 +76,15 @@ public class PVJBlocks {
 		BlockItem item = new BlockItem(block, prop);
 		item.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 
-		ForgeRegistries.BLOCKS.register(block);
-		ForgeRegistries.ITEMS.register(item);
+		BLOCKS.add(block);
+		PVJItems.ITEMS.add(item);
 
 		return block;
 	}
 
 	public static Block registerBlockWithoutItem(Block block, String name) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
-		ForgeRegistries.BLOCKS.register(block);
+		BLOCKS.add(block);
 
 		return block;
 	}
@@ -97,74 +102,9 @@ public class PVJBlocks {
 		};
 		item.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 
-		ForgeRegistries.BLOCKS.register(block);
-		ForgeRegistries.ITEMS.register(item);
+		BLOCKS.add(block);
+		PVJItems.ITEMS.add(item);
 
 		return block;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerRenderers() {
-		RenderType cutout = RenderType.getCutout();
-		RenderType cutout_mipped = RenderType.getCutoutMipped();
-	
-		RenderTypeLookup.setRenderLayer(twigs, cutout);
-		RenderTypeLookup.setRenderLayer(rocks, cutout);
-		RenderTypeLookup.setRenderLayer(mossy_rocks, cutout);
-		RenderTypeLookup.setRenderLayer(sandstone_rocks, cutout);
-		RenderTypeLookup.setRenderLayer(red_sandstone_rocks, cutout);
-		RenderTypeLookup.setRenderLayer(ice_chunks, cutout);
-		RenderTypeLookup.setRenderLayer(bones, cutout);
-		RenderTypeLookup.setRenderLayer(charred_bones, cutout);
-		RenderTypeLookup.setRenderLayer(pinecones, cutout);
-		RenderTypeLookup.setRenderLayer(seashells, cutout);
-		
-		RenderTypeLookup.setRenderLayer(bark_mushroom, cutout);
-		
-		RenderTypeLookup.setRenderLayer(natural_cobweb, cutout);
-
-		RenderTypeLookup.setRenderLayer(fallen_leaves, cutout_mipped);
-
-		RenderTypeLookup.setRenderLayer(sea_oats, cutout_mipped);
-		RenderTypeLookup.setRenderLayer(cattail, cutout_mipped);
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerColors() {
-		BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-		ItemColors itemColors = Minecraft.getInstance().getItemColors();
-
-		registerFoliageColorBlock(blockColors, twigs);
-		registerFoliageColorBlock(blockColors, fallen_leaves);
-
-		registerFoliageColorItem(itemColors, blockColors, fallen_leaves);
-	}
-
-	private static void registerFoliageColorBlock(BlockColors bc, Block block) {
-		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.getFoliageColor(world, pos)
-				: FoliageColors.getDefault(), block);
-	}
-
-	private static void registerFoliageColorBlock(BlockColors bc, Block block, int color) {
-		bc.register((state, world, pos, tintIndex) -> color, block);
-	}
-
-	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block) {
-		ic.register((itemstack, tintIndex) -> {
-			BlockState state = Blocks.OAK_LEAVES.getDefaultState();
-			int color = bc.getColor(state, null, null, tintIndex); // get color
-			return color;
-		}, block);
-	}
-
-	private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block, int color) {
-		ic.register((itemstack, tintIndex) -> color, block);
-	}
-
-	private static void registerGrassColorBlock(BlockColors bc, Block block) {
-		bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-				? BiomeColors.getGrassColor(world, pos)
-				: GrassColors.get(0.5D, 1.0D), block);
 	}
 }
