@@ -34,6 +34,8 @@ public class PVJWorldGen {
 		if(event.getCategory() == Biome.Category.NETHER) {
 			if(PVJConfig.charredBones.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
+			if(PVJConfig.glowcap.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
 		} else if(event.getCategory() != Biome.Category.THEEND) {
 			//plants
 			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && PVJConfig.seaOats.get())
@@ -86,6 +88,7 @@ public class PVJWorldGen {
 					&& PVJConfig.moreSeagrass.get()) {
 				vegetalFeatures.add(() -> Features.SEAGRASS_RIVER);
 			}
+			
 			if(event.getCategory() == Biome.Category.RIVER && PVJConfig.moreGrassInRivers.get()) {
 				vegetalFeatures.add(() -> Features.PATCH_GRASS_PLAIN);
 			}

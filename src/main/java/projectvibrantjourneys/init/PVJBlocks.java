@@ -3,24 +3,12 @@ package projectvibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.FoliageColors;
-import net.minecraft.world.GrassColors;
-import net.minecraft.world.biome.BiomeColors;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -28,6 +16,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
+import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
@@ -45,6 +34,7 @@ public class PVJBlocks {
 	public static Block cattail;
 	public static Block bark_mushroom;
 	public static Block natural_cobweb;
+	public static Block glowcap;
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -63,6 +53,7 @@ public class PVJBlocks {
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
 		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
+		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		
 		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
 		

@@ -27,6 +27,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> barkMushrooms;
 	public static ForgeConfigSpec.ConfigValue<Boolean> cobwebs;
 	public static ForgeConfigSpec.ConfigValue<Boolean> bushes;
+	public static ForgeConfigSpec.ConfigValue<Boolean> glowcap;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
@@ -45,6 +46,7 @@ public class PVJConfig {
 		barkMushrooms = COMMON_BUILDER.define("barkMushrooms", true);
 		cobwebs = COMMON_BUILDER.define("cobwebs", true);
 		bushes = COMMON_BUILDER.define("bushes", true);
+		glowcap = COMMON_BUILDER.define("glowcap", true);
 		moreSeagrass = COMMON_BUILDER.comment("Seagrass in lakes").define("moreSeagrass", true);
 		moreGrassInRivers = COMMON_BUILDER.comment("Denser river grass").define("moreGrassInRivers", true);
 		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);

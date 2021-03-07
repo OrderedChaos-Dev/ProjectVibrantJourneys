@@ -4,6 +4,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
@@ -29,6 +30,8 @@ public class PVJConfiguredFeatures {
 	public static BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.getDefaultState()), GROUNDCOVER_PLACER, 5);
 	public static BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.getDefaultState()), DoublePlantBlockPlacer.PLACER, 15);
 	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), DoublePlantBlockPlacer.PLACER, 15);
+	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(
+			new SimpleBlockStateProvider(PVJBlocks.glowcap.getDefaultState()), SimpleBlockPlacer.PLACER).tries(64).func_227317_b_().build();
 	
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -45,6 +48,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> bushes;
 	public static ConfiguredFeature<?, ?> bark_mushrooms;
 	public static ConfiguredFeature<?, ?> cobwebs;
+	public static ConfiguredFeature<?, ?> glowcap;
 	
 	public static void init() {
 		sea_oats = register("sea_oats",
@@ -79,6 +83,8 @@ public class PVJConfiguredFeatures {
 				PVJFeatures.barkMushroomFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30));
 		cobwebs = register("cobwebs",
 				PVJFeatures.cobwebFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30).chance(10));
+		glowcap = register("glowcap",
+				Feature.RANDOM_PATCH.withConfiguration(glowcapCluster).range(128).chance(2));
 		
 	}
 	

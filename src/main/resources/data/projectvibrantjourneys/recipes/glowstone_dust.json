@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "bones",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:glowcap"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glowstone_dust",
+    "count": 1
+  }
+}

@@ -40,6 +40,7 @@ public class BlockRendering {
 	
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sea_oats, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.cattail, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.glowcap, cutout);
 		}
 	
 		@OnlyIn(Dist.CLIENT)
