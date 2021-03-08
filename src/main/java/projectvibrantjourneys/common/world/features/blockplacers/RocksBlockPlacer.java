@@ -27,16 +27,20 @@ public class RocksBlockPlacer extends BlockPlacer {
 	}
 
 	public void place(IWorld world, BlockPos pos, BlockState state, Random random) {
-		Block block = world.getBlockState(pos.down()).getBlock();
-		if(block == Blocks.SAND) {
-			world.setBlockState(pos, PVJBlocks.sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL,  random.nextInt(5)), 2);
-		} else if(block == Blocks.RED_SAND) {
-			world.setBlockState(pos, PVJBlocks.red_sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
-		} else if(!BiomeDictionary.hasType(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && random.nextDouble() < 0.2){
-			world.setBlockState(pos, PVJBlocks.mossy_rocks.getDefaultState().with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
-		} else {
-			world.setBlockState(pos, state.with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
+		BlockState ground = world.getBlockState(pos.down());
+		Block block = ground.getBlock();
+		if (ground.isOpaqueCube(world, pos) && ground.isSolid() && block != Blocks.SNOW) {
+			if(block == Blocks.SAND) {
+				world.setBlockState(pos, PVJBlocks.sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL,  random.nextInt(5)), 2);
+			} else if(block == Blocks.RED_SAND) {
+				world.setBlockState(pos, PVJBlocks.red_sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
+			} else if(!BiomeDictionary.hasType(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && random.nextDouble() < 0.2){
+				world.setBlockState(pos, PVJBlocks.mossy_rocks.getDefaultState().with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
+			} else {
+				world.setBlockState(pos, state.with(GroundcoverBlock.MODEL, random.nextInt(5)), 2);
+			}
 		}
+
 	}
 
 	static {
