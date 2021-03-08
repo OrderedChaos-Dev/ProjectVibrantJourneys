@@ -38,7 +38,7 @@ public class PVJWorldGen {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
 		} else if(event.getCategory() != Biome.Category.THEEND) {
 			//plants
-			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && PVJConfig.seaOats.get())
+			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
 			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
