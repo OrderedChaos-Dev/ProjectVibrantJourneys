@@ -9,14 +9,10 @@ import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
@@ -34,15 +30,14 @@ import net.minecraft.world.World;
 
 public class BarkMushroomBlock extends Block {
 	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape EAST = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
 	protected static final VoxelShape WEST = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	protected static final VoxelShape SOUTH = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
 	protected static final VoxelShape NORTH = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
 	   
 	public BarkMushroomBlock() {
-		super(Block.Properties.create(Material.WOOD).doesNotBlockMovement().hardnessAndResistance(0, 0).sound(SoundType.WOOD));
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
+		super(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0, 0).sound(SoundType.WOOD));
+		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 	}
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -87,10 +82,6 @@ public class BarkMushroomBlock extends Block {
 		if (facing.getOpposite() == state.get(FACING) && !state.isValidPosition(world, currentPos)) {
 			return Blocks.AIR.getDefaultState();
 		} else {
-			if (state.get(WATERLOGGED)) {
-				world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-			}
-
 			return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
 		}
 	}
@@ -108,13 +99,12 @@ public class BarkMushroomBlock extends Block {
 		BlockState blockstate1 = this.getDefaultState();
 		IWorldReader iworldreader = context.getWorld();
 		BlockPos blockpos = context.getPos();
-		FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
 				blockstate1 = blockstate1.with(FACING, direction.getOpposite());
 				if (blockstate1.isValidPosition(iworldreader, blockpos)) {
-					return blockstate1.with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+					return blockstate1;
 				}
 			}
 		}
@@ -134,12 +124,6 @@ public class BarkMushroomBlock extends Block {
 
 	@Override
 	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(FACING, WATERLOGGED);
-	}
-
-	@SuppressWarnings("deprecation")
-	@Override
-	public FluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+		builder.add(FACING);
 	}
 }

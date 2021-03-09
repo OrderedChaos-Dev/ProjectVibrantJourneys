@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,7 +25,6 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 @ObjectHolder("projectvibrantjourneys")
 public class PVJBlocks {
-
 	public static ArrayList<Block> BLOCKS = new ArrayList<Block>();
 	
 	/* GROUNDCOVERS */
@@ -36,8 +34,6 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block natural_cobweb;
 	public static Block glowcap;
-	
-	public static Material GROUNDCOVER = new Material.Builder(MaterialColor.AIR).doesNotBlockMovement().replaceable().build();
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
