@@ -115,6 +115,9 @@ public class PVJWorldGen {
 	 */
 	@SubscribeEvent(priority = EventPriority.LOW)
 	public static void addFallenTreeFeatures(BiomeLoadingEvent event) {
+		if(!PVJConfig.fallenTrees.get())
+			return;
+		
 //		ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
 		List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
 		RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
