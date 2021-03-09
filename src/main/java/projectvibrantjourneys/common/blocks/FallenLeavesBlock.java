@@ -24,7 +24,7 @@ public class FallenLeavesBlock extends Block {
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.01D, 0.0D, 0.0D, 16.0D, 2.01D, 16.0D);
 	
 	public FallenLeavesBlock() {
-		super(Block.Properties.create(Material.LEAVES).hardnessAndResistance(0.1F, 0.0F).sound(SoundType.PLANT).notSolid());
+		super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0.1F, 0.0F).sound(SoundType.PLANT).notSolid());
 		this.setDefaultState(getDefaultState().with(WATERLOGGED, false));
 	}
 	
