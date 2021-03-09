@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
+import projectvibrantjourneys.common.blocks.NetherPlantBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -34,6 +36,7 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block natural_cobweb;
 	public static Block glowcap;
+	public static Block crimson_nettle, warped_nettle;
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -53,6 +56,8 @@ public class PVJBlocks {
 		cattail = registerBlock(new CattailBlock(), "cattail");
 		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
+		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
+		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CYAN), "warped_nettle");
 		
 		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
 		

@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
@@ -48,6 +49,14 @@ public class PVJWorldGen {
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
 			if(PVJConfig.glowcap.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
+			
+			if(PVJConfig.netherNettles.get()) {
+				if(biome == Biomes.CRIMSON_FOREST)
+					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.crimson_nettle);
+				if(biome == Biomes.WARPED_FOREST)
+					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
+			}
+
 		} else if(event.getCategory() != Biome.Category.THEEND) {
 			//plants
 			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())

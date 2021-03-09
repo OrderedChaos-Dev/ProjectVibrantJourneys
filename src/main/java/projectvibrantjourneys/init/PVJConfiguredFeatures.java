@@ -14,11 +14,14 @@ import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
+import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureSpreadConfig;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
@@ -39,6 +42,8 @@ public class PVJConfiguredFeatures {
 	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.getDefaultState()), DoublePlantBlockPlacer.PLACER, 15);
 	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(
 			new SimpleBlockStateProvider(PVJBlocks.glowcap.getDefaultState()), SimpleBlockPlacer.PLACER).tries(64).func_227317_b_().build();
+    public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.crimson_nettle.getDefaultState()));
+    public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.getDefaultState()));
 	
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -56,6 +61,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> bark_mushrooms;
 	public static ConfiguredFeature<?, ?> cobwebs;
 	public static ConfiguredFeature<?, ?> glowcap;
+	public static ConfiguredFeature<?, ?> crimson_nettle;
+	public static ConfiguredFeature<?, ?> warped_nettle;
 	
 	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
 	
@@ -94,6 +101,10 @@ public class PVJConfiguredFeatures {
 				PVJFeatures.cobwebFeature.withConfiguration(new ProbabilityConfig(0.2F)).square().func_242731_b(30).chance(25));
 		glowcap = register("glowcap",
 				Feature.RANDOM_PATCH.withConfiguration(glowcapCluster).range(128).chance(2));
+		crimson_nettle = register("crimson_nettle",
+				Feature.NETHER_FOREST_VEGETATION.withConfiguration(crimsonNettleConfig).chance(40).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
+		warped_nettle = register("warped_nettle",
+				Feature.NETHER_FOREST_VEGETATION.withConfiguration(warpedNettleConfig).chance(40).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
 	}
 	
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

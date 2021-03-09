@@ -41,6 +41,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sea_oats, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.cattail, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.glowcap, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.crimson_nettle, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.warped_nettle, cutout);
 		}
 	
 		@OnlyIn(Dist.CLIENT)
