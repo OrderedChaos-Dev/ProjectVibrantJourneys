@@ -1,7 +1,7 @@
 package projectvibrantjourneys.core;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -23,7 +23,7 @@ import projectvibrantjourneys.init.PVJWorldGen;
 public class ProjectVibrantJourneys {
 	
 	public static final String MOD_ID = "projectvibrantjourneys";
-	public static final Logger LOGGER = LogManager.getLogManager().getLogger(MOD_ID);
+	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 	
 	public ProjectVibrantJourneys() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);

@@ -9,16 +9,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.ProbabilityConfig;
 import projectvibrantjourneys.init.PVJBlocks;
 
-public class CobwebFeature extends Feature<NoFeatureConfig> {
-	public CobwebFeature(Codec<NoFeatureConfig> config) {
-		super(config);
+public class CobwebFeature extends Feature<ProbabilityConfig> {
+	public CobwebFeature(Codec<ProbabilityConfig> codec) {
+		super(codec);
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
 		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
 
 		for (int i = 64; i < world.getHeight(); i++) {
@@ -27,14 +27,13 @@ public class CobwebFeature extends Feature<NoFeatureConfig> {
 			blockpos.setY(i);
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
 				if(world.isAirBlock(blockpos.down())) {
-					if(rand.nextBoolean()) {
+					if(config.probability < rand.nextFloat()) {
 						world.setBlockState(blockpos.down(), PVJBlocks.natural_cobweb.getDefaultState(), 2);
 						break;
 					}
 				}
 			}
 		}
-
 		return true;
 	}
 }

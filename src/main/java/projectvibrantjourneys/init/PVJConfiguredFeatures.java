@@ -1,5 +1,10 @@
 package projectvibrantjourneys.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
@@ -8,7 +13,9 @@ import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
@@ -50,6 +57,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> cobwebs;
 	public static ConfiguredFeature<?, ?> glowcap;
 	
+	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
+	
 	public static void init() {
 		sea_oats = register("sea_oats",
 				Feature.RANDOM_PATCH.withConfiguration(seaOatsCluster).withPlacement(Placements.PATCH_PLACEMENT).func_242731_b(2));
@@ -82,10 +91,9 @@ public class PVJConfiguredFeatures {
 		bark_mushrooms = register("bark_mushroom",
 				PVJFeatures.barkMushroomFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30));
 		cobwebs = register("cobwebs",
-				PVJFeatures.cobwebFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30).chance(10));
+				PVJFeatures.cobwebFeature.withConfiguration(new ProbabilityConfig(0.2F)).square().func_242731_b(30).chance(25));
 		glowcap = register("glowcap",
 				Feature.RANDOM_PATCH.withConfiguration(glowcapCluster).range(128).chance(2));
-		
 	}
 	
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
@@ -97,5 +105,22 @@ public class PVJConfiguredFeatures {
 	
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
 		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, key, configuredFeature);
+	}
+	
+	public static ConfiguredFeature<?, ?> getOrCreateFallenTreeFeature(Block log) {
+		try {
+			for(ConfiguredFeature<?, ?> cf : FALLEN_TREES) {
+				if(((BlockStateFeatureConfig)((DecoratedFeatureConfig)cf.getConfig()).feature.get().getConfig()).state.getBlock() == log) {
+					return cf;
+				}
+			}
+		} catch(Exception e) {
+			return getOrCreateFallenTreeFeature(Blocks.OAK_LOG); //defaults to oak if anything goes wrong
+		}
+		
+		ConfiguredFeature<?, ?> fallenTree = register(log.getRegistryName().getPath() + "_fallen_tree",
+				PVJFeatures.fallenTreeFeature.withConfiguration(new BlockStateFeatureConfig(log.getDefaultState())).withPlacement(Placements.KELP_PLACEMENT));
+		FALLEN_TREES.add(fallenTree);
+		return fallenTree;
 	}
 }

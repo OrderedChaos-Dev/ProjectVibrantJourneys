@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +29,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class GroundcoverBlock extends Block implements IWaterLoggable {
+public class GroundcoverBlock extends Block {
 
 	public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 4);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

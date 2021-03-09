@@ -3,6 +3,7 @@ package projectvibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
+import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -25,7 +27,8 @@ public class PVJFeatures {
 	public static Feature<ProbabilityConfig> bushFeature;
 	public static Feature<NoFeatureConfig> waterCattailFeature;
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
-	public static Feature<NoFeatureConfig> cobwebFeature;
+	public static Feature<ProbabilityConfig> cobwebFeature;
+	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -33,7 +36,8 @@ public class PVJFeatures {
 		bushFeature = registerFeature(new BushFeature(ProbabilityConfig.CODEC), "bush_feature");
 		waterCattailFeature = registerFeature(new WaterCattailFeature(NoFeatureConfig.field_236558_a_), "water_cattail_feature");
 		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.field_236558_a_), "bark_mushroom_feature");
-		cobwebFeature = registerFeature(new CobwebFeature(NoFeatureConfig.field_236558_a_), "cobweb_feature");
+		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
+		fallenTreeFeature = registerFeature(new FallenTreeFeature(BlockStateFeatureConfig.field_236455_a_), "fallen_tree_feature");
 		
 		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
 	}

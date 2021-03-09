@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -35,20 +36,22 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block natural_cobweb;
 	public static Block glowcap;
+	
+	public static Material GROUNDCOVER = new Material.Builder(MaterialColor.AIR).doesNotBlockMovement().replaceable().build();
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
-		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD), "twigs", 100);
+		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.MISCELLANEOUS), "twigs", 100);
 		fallen_leaves = registerBlock(new FallenLeavesBlock(), "fallen_leaves");
-		rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "rocks");
-		mossy_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "mossy_rocks");
-		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.CLAY), "red_sandstone_rocks");
-		ice_chunks = registerBlock(new GroundcoverBlock(Material.ICE, SoundType.GLASS), "ice_chunks");
-		bones = registerBlock(new GroundcoverBlock(Material.CLAY), "bones");
-		charred_bones = registerBlock(new GroundcoverBlock(Material.CLAY), "charred_bones");
-		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.WOOD), "pinecones", 100);
-		seashells = registerBlock(new GroundcoverBlock(Material.CLAY), "seashells");
+		rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "rocks");
+		mossy_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "mossy_rocks");
+		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "red_sandstone_rocks");
+		ice_chunks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS, SoundType.GLASS), "ice_chunks");
+		bones = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "bones");
+		charred_bones = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "charred_bones");
+		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.MISCELLANEOUS), "pinecones", 100);
+		seashells = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "seashells");
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");

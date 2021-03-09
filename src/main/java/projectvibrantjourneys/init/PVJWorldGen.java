@@ -1,17 +1,29 @@
 package projectvibrantjourneys.init;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;
 
+import com.mojang.datafixers.util.Pair;
+
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.Features;
+import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
+import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -97,6 +109,60 @@ public class PVJWorldGen {
 			}
 		}
 	}
+	
+	/*
+	 * EventPriority is low to ensure that feature lists of modded biomes are complete
+	 */
+	@SubscribeEvent(priority = EventPriority.LOW)
+	public static void addFallenTreeFeatures(BiomeLoadingEvent event) {
+//		ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
+		List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
+		RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
+		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
+		List<Pair<ConfiguredFeature<?, ?>, Float>> trees = new ArrayList<Pair<ConfiguredFeature<?, ?>, Float>>();
+		List<Block> logs = new ArrayList<Block>();
+		for(Supplier<ConfiguredFeature<?, ?>> cf : features)
+			getFeatureNames(cf.get(), trees);
+		
+		for(Pair<ConfiguredFeature<?, ?>, Float> pair : trees) {
+			if(pair.getFirst().getConfig() instanceof BaseTreeFeatureConfig) {
+				try {
+					Block block = ((BaseTreeFeatureConfig)pair.getFirst().getConfig()).trunkProvider.getBlockState(null, null).getBlock();
+//					ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
+					if(!logs.contains(block)) {							
+						features.add(() -> {
+							float chance = pair.getSecond() > 0 ? pair.getSecond() / 2.0F : 0.05F;
+							if(event.getCategory() == Category.PLAINS || hasType(biomeTypes, Type.PLAINS, Type.SAVANNA, Type.MESA, Type.WASTELAND, Type.DRY))
+								chance =  chance / 2.0F;
+							return PVJConfiguredFeatures.getOrCreateFallenTreeFeature(block).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
+						});
+					}
+					logs.add(block);
+				} catch(Exception e) {}
+			}
+		}
+	}
+	
+	//used to help find tree features hidden in decorated configured features
+	//most biomes group their trees in random selectors, these features are added to a list
+	public static String getFeatureNames(ConfiguredFeature<?, ?> cf, List<Pair<ConfiguredFeature<?, ?>, Float>> list) {
+		if(Feature.RANDOM_SELECTOR.getRegistryName().equals(cf.getFeature().getRegistryName())) {
+			((MultipleRandomFeatureConfig)cf.getConfig()).features.forEach((s) -> list.add(createPair(s.feature.get(), s.chance)));
+		} else if(cf.getConfig() instanceof DecoratedFeatureConfig) {
+			ConfiguredFeature<?, ?> feature = ((DecoratedFeatureConfig)cf.getConfig()).feature.get();
+			
+			if(feature.getConfig() instanceof BaseTreeFeatureConfig) {
+				list.add(createPair(feature, 0.0F));
+			} else
+				return getFeatureNames(feature, list);
+		}
+		return cf.getFeature().getRegistryName().toString();
+	}
+	
+	public static Pair<ConfiguredFeature<?, ?>, Float> createPair(ConfiguredFeature<?, ?> c, float f) {
+		return new Pair<ConfiguredFeature<?, ?>, Float>(c, f);
+	}
+	
 	
 	private static boolean hasType(Set<BiomeDictionary.Type> list, BiomeDictionary.Type...types) {
 		for(BiomeDictionary.Type t : types) {

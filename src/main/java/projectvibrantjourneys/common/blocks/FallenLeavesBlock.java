@@ -2,7 +2,6 @@ package projectvibrantjourneys.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
@@ -19,7 +18,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
-public class FallenLeavesBlock extends Block implements IWaterLoggable {
+public class FallenLeavesBlock extends Block {
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.01D, 0.0D, 0.0D, 16.0D, 2.01D, 16.0D);
