@@ -2,7 +2,10 @@ package projectvibrantjourneys.init;
 
 import java.util.ArrayList;
 
+import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -37,6 +40,8 @@ public class PVJBlocks {
 	public static Block natural_cobweb;
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle;
+	
+	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
@@ -58,6 +63,10 @@ public class PVJBlocks {
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CYAN), "warped_nettle");
+		
+		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
+		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");
+		potted_warped_nettle = registerBlockWithoutItem(createFlowerPot(warped_nettle), "potted_warped_nettle");
 		
 		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
 		
@@ -100,6 +109,12 @@ public class PVJBlocks {
 		BLOCKS.add(block);
 		PVJItems.ITEMS.add(item);
 
+		return block;
+	}
+	
+	public static Block createFlowerPot(Block plant) {
+		Block block = new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> plant, Properties.from(Blocks.FLOWER_POT).setLightLevel((state) -> plant == glowcap ? 12 : 0));
+		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(plant.getRegistryName(), () -> block);
 		return block;
 	}
 }

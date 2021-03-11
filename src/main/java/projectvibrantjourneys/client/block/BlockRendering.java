@@ -43,6 +43,10 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.crimson_nettle, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.warped_nettle, cutout);
+			
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_glowcap, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_warped_nettle, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_crimson_nettle, cutout);
 		}
 	
 		@OnlyIn(Dist.CLIENT)
