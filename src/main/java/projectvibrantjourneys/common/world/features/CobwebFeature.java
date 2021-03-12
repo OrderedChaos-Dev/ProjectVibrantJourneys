@@ -27,7 +27,7 @@ public class CobwebFeature extends Feature<ProbabilityConfig> {
 			blockpos.setY(i);
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
 				if(world.isAirBlock(blockpos.down())) {
-					if(config.probability < rand.nextFloat()) {
+					if(rand.nextFloat() < config.probability) {
 						world.setBlockState(blockpos.down(), PVJBlocks.natural_cobweb.getDefaultState(), 2);
 						break;
 					}

@@ -98,7 +98,7 @@ public class PVJConfiguredFeatures {
 		bark_mushrooms = register("bark_mushroom",
 				PVJFeatures.barkMushroomFeature.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG).square().func_242731_b(30));
 		cobwebs = register("cobwebs",
-				PVJFeatures.cobwebFeature.withConfiguration(new ProbabilityConfig(0.2F)).square().func_242731_b(30).chance(25));
+				PVJFeatures.cobwebFeature.withConfiguration(new ProbabilityConfig(0.1F)).square().func_242731_b(30).chance(25));
 		glowcap = register("glowcap",
 				Feature.RANDOM_PATCH.withConfiguration(glowcapCluster).range(128).chance(2));
 		crimson_nettle = register("crimson_nettle",

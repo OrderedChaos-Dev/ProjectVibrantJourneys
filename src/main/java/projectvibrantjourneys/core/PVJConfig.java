@@ -34,6 +34,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	
+	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
+	
 	static {
 		rocks = COMMON_BUILDER.define("rocks", true);
 		twigs = COMMON_BUILDER.define("twigs", true);
@@ -54,6 +56,8 @@ public class PVJConfig {
 		moreSeagrass = COMMON_BUILDER.comment("Seagrass in lakes").define("moreSeagrass", true);
 		moreGrassInRivers = COMMON_BUILDER.comment("Denser river grass").define("moreGrassInRivers", true);
 		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);
+		
+		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
 		
 		COMMON_CONFIG = COMMON_BUILDER.build();
 	}

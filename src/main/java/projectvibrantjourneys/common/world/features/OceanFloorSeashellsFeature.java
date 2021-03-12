@@ -14,6 +14,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.PVJBlocks;
 
 public class OceanFloorSeashellsFeature extends Feature<NoFeatureConfig> {
@@ -29,7 +30,7 @@ public class OceanFloorSeashellsFeature extends Feature<NoFeatureConfig> {
       BlockPos blockpos = new BlockPos(pos.getX() + i, k, pos.getZ() + j);
       if (reader.getBlockState(blockpos).isIn(Blocks.WATER)) {
          BlockState state = PVJBlocks.seashells.getDefaultState();
-         if (state.isValidPosition(reader, blockpos)) {
+         if (state.isValidPosition(reader, blockpos) &&  rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
         	 reader.setBlockState(blockpos, state.with(GroundcoverBlock.MODEL, rand.nextInt(5)).with(BlockStateProperties.WATERLOGGED, true), 2);
 
             flag = true;
