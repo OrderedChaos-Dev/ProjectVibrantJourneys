@@ -2,8 +2,11 @@ package projectvibrantjourneys.init;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.function.Supplier;
+
+import org.codehaus.plexus.util.ExceptionUtils;
 
 import com.mojang.datafixers.util.Pair;
 
@@ -12,8 +15,8 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -127,32 +130,41 @@ public class PVJWorldGen {
 		if(!PVJConfig.fallenTrees.get())
 			return;
 		
-//		ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
-		List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
-		RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
-		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
-		List<Pair<ConfiguredFeature<?, ?>, Float>> trees = new ArrayList<Pair<ConfiguredFeature<?, ?>, Float>>();
-		List<Block> logs = new ArrayList<Block>();
-		for(Supplier<ConfiguredFeature<?, ?>> cf : features)
-			getFeatureNames(cf.get(), trees);
-		
-		for(Pair<ConfiguredFeature<?, ?>, Float> pair : trees) {
-			if(pair.getFirst().getConfig() instanceof BaseTreeFeatureConfig) {
-				try {
-					Block block = ((BaseTreeFeatureConfig)pair.getFirst().getConfig()).trunkProvider.getBlockState(null, null).getBlock();
-//					ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
-					if(!logs.contains(block)) {							
-						features.add(() -> {
-							float chance = pair.getSecond() > 0 ? pair.getSecond() / 2.0F : 0.05F;
-							if(event.getCategory() == Category.PLAINS || hasType(biomeTypes, Type.PLAINS, Type.SAVANNA, Type.MESA, Type.WASTELAND, Type.DRY))
-								chance =  chance / 2.0F;
-							return PVJConfiguredFeatures.getOrCreateFallenTreeFeature(block).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
-						});
-					}
-					logs.add(block);
-				} catch(Exception e) {}
+		//just gonna wrap this in a try catch to really make sure things don't go fubar
+		try {
+//			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
+			List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
+			RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
+			Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
+			List<Pair<ConfiguredFeature<?, ?>, Float>> trees = new ArrayList<Pair<ConfiguredFeature<?, ?>, Float>>();
+			List<Block> logs = new ArrayList<Block>();
+			for(Supplier<ConfiguredFeature<?, ?>> cf : features)
+				getFeatureNames(cf.get(), trees);
+			
+			Random rand = new Random();
+			
+			for(Pair<ConfiguredFeature<?, ?>, Float> pair : trees) {
+				if(pair.getFirst().getConfig() instanceof BaseTreeFeatureConfig) {
+					try {
+						Block block = ((BaseTreeFeatureConfig)pair.getFirst().getConfig()).trunkProvider.getBlockState(rand, null).getBlock();
+//						ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
+						if(!logs.contains(block)) {							
+							features.add(() -> {
+								float chance = pair.getSecond() > 0 ? pair.getSecond() / 2.0F : 0.05F;
+								if(event.getCategory() == Category.PLAINS || hasType(biomeTypes, Type.PLAINS, Type.SAVANNA, Type.MESA, Type.WASTELAND, Type.DRY))
+									chance =  chance / 2.0F;
+								return PVJConfiguredFeatures.getOrCreateFallenTreeFeature(block).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
+							});
+						}
+						logs.add(block);
+					} catch(Exception e) {}
+				}
 			}
+		} catch(Exception e) {
+			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees:" + ExceptionUtils.getStackTrace(e));
+			
 		}
+	
 	}
 	
 	//used to help find tree features hidden in decorated configured features
