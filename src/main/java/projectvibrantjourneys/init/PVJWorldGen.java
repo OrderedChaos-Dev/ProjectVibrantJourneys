@@ -6,8 +6,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.function.Supplier;
 
-import org.codehaus.plexus.util.ExceptionUtils;
-
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
@@ -35,6 +33,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -132,61 +131,55 @@ public class PVJWorldGen {
 		
 		//just gonna wrap this in a try catch to really make sure things don't go fubar
 		try {
-//			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
+			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
 			List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
 			RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
 			Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
-			List<Pair<ConfiguredFeature<?, ?>, Float>> trees = new ArrayList<Pair<ConfiguredFeature<?, ?>, Float>>();
-			List<Block> logs = new ArrayList<Block>();
+			List<ConfiguredFeature<?, ?>> trees = new ArrayList<ConfiguredFeature<?, ?>>();
 			for(Supplier<ConfiguredFeature<?, ?>> cf : features)
 				getFeatureNames(cf.get(), trees);
 			
 			Random rand = new Random();
 			
-			for(Pair<ConfiguredFeature<?, ?>, Float> pair : trees) {
-				if(pair.getFirst().getConfig() instanceof BaseTreeFeatureConfig) {
+			for(ConfiguredFeature<?, ?> pair : trees) {
+				if(pair.getConfig() instanceof BaseTreeFeatureConfig) {
 					try {
-						Block block = ((BaseTreeFeatureConfig)pair.getFirst().getConfig()).trunkProvider.getBlockState(rand, null).getBlock();
-//						ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
-						if(!logs.contains(block)) {							
-							features.add(() -> {
-								float chance = pair.getSecond() > 0 ? pair.getSecond() / 2.0F : 0.05F;
-								if(event.getCategory() == Category.PLAINS || hasType(biomeTypes, Type.PLAINS, Type.SAVANNA, Type.MESA, Type.WASTELAND, Type.DRY))
-									chance =  chance / 2.0F;
-								return PVJConfiguredFeatures.getOrCreateFallenTreeFeature(block).withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
-							});
-						}
-						logs.add(block);
+						Block block = ((BaseTreeFeatureConfig)pair.getConfig()).trunkProvider.getBlockState(rand, null).getBlock();
+						ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
+						FallenTreeFeature.LOGS.add(new Pair<String, Block>(event.getName().toString(), block));
 					} catch(Exception e) {}
 				}
 			}
+			if(trees.size() > 0) {
+				features.add(() ->{
+					float chance = 0.1F;
+					if(hasType(biomeTypes, Type.PLAINS, Type.DRY))
+						chance = 0.05F;
+					return PVJConfiguredFeatures.fallen_tree.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
+				});
+			}
 		} catch(Exception e) {
-			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees:" + ExceptionUtils.getStackTrace(e));
-			
+			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees");
+			e.printStackTrace();
 		}
 	
 	}
 	
 	//used to help find tree features hidden in decorated configured features
 	//most biomes group their trees in random selectors, these features are added to a list
-	public static String getFeatureNames(ConfiguredFeature<?, ?> cf, List<Pair<ConfiguredFeature<?, ?>, Float>> list) {
+	public static String getFeatureNames(ConfiguredFeature<?, ?> cf, List<ConfiguredFeature<?, ?>> list) {
 		if(Feature.RANDOM_SELECTOR.getRegistryName().equals(cf.getFeature().getRegistryName())) {
-			((MultipleRandomFeatureConfig)cf.getConfig()).features.forEach((s) -> list.add(createPair(s.feature.get(), s.chance)));
+			((MultipleRandomFeatureConfig)cf.getConfig()).features.forEach((s) -> list.add(s.feature.get()));
 		} else if(cf.getConfig() instanceof DecoratedFeatureConfig) {
 			ConfiguredFeature<?, ?> feature = ((DecoratedFeatureConfig)cf.getConfig()).feature.get();
 			
 			if(feature.getConfig() instanceof BaseTreeFeatureConfig) {
-				list.add(createPair(feature, 0.0F));
+				list.add(feature);
 			} else
 				return getFeatureNames(feature, list);
 		}
 		return cf.getFeature().getRegistryName().toString();
-	}
-	
-	public static Pair<ConfiguredFeature<?, ?>, Float> createPair(ConfiguredFeature<?, ?> c, float f) {
-		return new Pair<ConfiguredFeature<?, ?>, Float>(c, f);
-	}
-	
+	}	
 	
 	private static boolean hasType(Set<BiomeDictionary.Type> list, BiomeDictionary.Type...types) {
 		for(BiomeDictionary.Type t : types) {

@@ -3,7 +3,6 @@ package projectvibrantjourneys.init;
 import java.util.ArrayList;
 
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -28,7 +27,7 @@ public class PVJFeatures {
 	public static Feature<NoFeatureConfig> waterCattailFeature;
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<ProbabilityConfig> cobwebFeature;
-	public static Feature<BlockStateFeatureConfig> fallenTreeFeature;
+	public static Feature<NoFeatureConfig> fallenTreeFeature;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -37,7 +36,7 @@ public class PVJFeatures {
 		waterCattailFeature = registerFeature(new WaterCattailFeature(NoFeatureConfig.field_236558_a_), "water_cattail_feature");
 		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.field_236558_a_), "bark_mushroom_feature");
 		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
-		fallenTreeFeature = registerFeature(new FallenTreeFeature(BlockStateFeatureConfig.field_236455_a_), "fallen_tree_feature");
+		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.field_236558_a_), "fallen_tree_feature");
 		
 		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
 	}

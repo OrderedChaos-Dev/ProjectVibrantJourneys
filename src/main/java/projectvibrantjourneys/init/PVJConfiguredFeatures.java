@@ -5,6 +5,8 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
@@ -21,11 +23,14 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
-import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.placement.Placement;
+import net.minecraftforge.common.Tags;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
+import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();
@@ -63,6 +68,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> glowcap;
 	public static ConfiguredFeature<?, ?> crimson_nettle;
 	public static ConfiguredFeature<?, ?> warped_nettle;
+	public static ConfiguredFeature<?, ?> fallen_tree;
 	
 	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
 	
@@ -105,6 +111,9 @@ public class PVJConfiguredFeatures {
 				Feature.NETHER_FOREST_VEGETATION.withConfiguration(crimsonNettleConfig).chance(40).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
 		warped_nettle = register("warped_nettle",
 				Feature.NETHER_FOREST_VEGETATION.withConfiguration(warpedNettleConfig).chance(40).withPlacement(Placement.COUNT_MULTILAYER.configure(new FeatureSpreadConfig(4))));
+		
+		fallen_tree = register("fallen_tree",
+				PVJFeatures.fallenTreeFeature.withConfiguration(NoFeatureConfig.NO_FEATURE_CONFIG).withPlacement(Placements.KELP_PLACEMENT));
 	}
 	
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
@@ -115,23 +124,6 @@ public class PVJConfiguredFeatures {
 	}
 	
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
-		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, key, configuredFeature);
-	}
-	
-	public static ConfiguredFeature<?, ?> getOrCreateFallenTreeFeature(Block log) {
-		try {
-			for(ConfiguredFeature<?, ?> cf : FALLEN_TREES) {
-				if(((BlockStateFeatureConfig)((DecoratedFeatureConfig)cf.getConfig()).feature.get().getConfig()).state.getBlock() == log) {
-					return cf;
-				}
-			}
-		} catch(Exception e) {
-			return getOrCreateFallenTreeFeature(Blocks.OAK_LOG); //defaults to oak if anything goes wrong
-		}
-		
-		ConfiguredFeature<?, ?> fallenTree = register(log.getRegistryName().getPath() + "_fallen_tree",
-				PVJFeatures.fallenTreeFeature.withConfiguration(new BlockStateFeatureConfig(log.getDefaultState())).withPlacement(Placements.KELP_PLACEMENT));
-		FALLEN_TREES.add(fallenTree);
-		return fallenTree;
+		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
 	}
 }
