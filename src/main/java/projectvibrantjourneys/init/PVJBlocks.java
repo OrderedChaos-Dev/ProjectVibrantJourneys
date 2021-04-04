@@ -16,7 +16,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ObjectHolder;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
@@ -28,7 +27,6 @@ import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
-@ObjectHolder("projectvibrantjourneys")
 public class PVJBlocks {
 	public static ArrayList<Block> BLOCKS = new ArrayList<Block>();
 	

@@ -32,11 +32,18 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> fallenTrees;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
+	
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
+	
+	public static ForgeConfigSpec.ConfigValue<Boolean> overgrownSpires;
+	public static ForgeConfigSpec.ConfigValue<Boolean> verdantSands;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	
 	static {
+		
+		COMMON_BUILDER.comment("Project: Vibrant Journeys settings").push("Settings");
+		COMMON_BUILDER.comment("World Gen Settings").push("World Gen");
 		rocks = COMMON_BUILDER.define("rocks", true);
 		twigs = COMMON_BUILDER.define("twigs", true);
 		fallenLeaves = COMMON_BUILDER.define("fallenLeaves", true);
@@ -55,10 +62,19 @@ public class PVJConfig {
 		fallenTrees = COMMON_BUILDER.define("fallenTrees", true);
 		moreSeagrass = COMMON_BUILDER.comment("Seagrass in lakes").define("moreSeagrass", true);
 		moreGrassInRivers = COMMON_BUILDER.comment("Denser river grass").define("moreGrassInRivers", true);
-		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);
-		
 		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
+		COMMON_BUILDER.pop();
 		
+		COMMON_BUILDER.comment("Mob Spawn Settings").push("Mob Spawns");
+		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);
+		COMMON_BUILDER.pop();
+		
+		COMMON_BUILDER.comment("Biome Settings").push("Biomes");
+		overgrownSpires = COMMON_BUILDER.define("overgrownSpires", true);
+		verdantSands = COMMON_BUILDER.define("verdantSands", true);
+		COMMON_BUILDER.pop();
+		
+		COMMON_BUILDER.pop();
 		COMMON_CONFIG = COMMON_BUILDER.build();
 	}
 	

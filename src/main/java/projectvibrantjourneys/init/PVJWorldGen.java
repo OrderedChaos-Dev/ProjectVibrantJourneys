@@ -13,7 +13,6 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
@@ -117,6 +116,9 @@ public class PVJWorldGen {
 			}
 			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
 				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+			}
+			if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.overgrown_spires_vegetation);
 			}
 		}
 	}
