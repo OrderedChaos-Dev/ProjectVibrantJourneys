@@ -60,7 +60,7 @@ public class PVJWorldGen {
 
 		} else if(event.getCategory() != Biome.Category.THEEND) {
 			//plants
-			if(event.getCategory() == Biome.Category.BEACH || event.getCategory() == Biome.Category.OCEAN && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
+			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
 			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
