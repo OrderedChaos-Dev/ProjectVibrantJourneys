@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
@@ -147,8 +148,10 @@ public class PVJWorldGen {
 				if(pair.getConfig() instanceof BaseTreeFeatureConfig) {
 					try {
 						Block block = ((BaseTreeFeatureConfig)pair.getConfig()).trunkProvider.getBlockState(rand, null).getBlock();
-						ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
-						FallenTreeFeature.LOGS.add(new Pair<String, Block>(event.getName().toString(), block));
+						if(block instanceof RotatedPillarBlock) {
+							ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
+							FallenTreeFeature.LOGS.add(new Pair<String, Block>(event.getName().toString(), block));
+						}
 					} catch(Exception e) {}
 				}
 			}
