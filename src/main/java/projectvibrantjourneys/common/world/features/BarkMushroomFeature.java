@@ -30,7 +30,7 @@ public class BarkMushroomFeature extends Feature<NoFeatureConfig> {
 				boolean flag = false;
 				while(!flag) {
 					Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
-					if (world.isEmptyBlock(blockpos.offset(dir.getNormal())))
+					if (world.isEmptyBlock(blockpos.offset(dir.getNormal())) && world.getBlockState(blockpos).isCollisionShapeFullBlock(world, pos))
 						world.setBlock(blockpos.offset(dir.getNormal()), PVJBlocks.bark_mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dir), 2);						
 					
 					if(rand.nextFloat() < 0.8F) {

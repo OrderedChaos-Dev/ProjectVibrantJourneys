@@ -2,6 +2,7 @@ package projectvibrantjourneys.common.blocks;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -66,7 +67,7 @@ public class BarkMushroomBlock extends Block {
 	
 	public static boolean canAttachTo(IBlockReader world, BlockPos pos, Direction direction) {
 		BlockState blockstate = world.getBlockState(pos);
-		return blockstate.getBlock().getTags().contains(ItemTags.LOGS.getName());
+		return blockstate.getBlock().getTags().contains(ItemTags.LOGS.getName()) && world.getBlockState(pos).isCollisionShapeFullBlock(world, pos);
 	}
 
 	@Override
@@ -125,4 +126,5 @@ public class BarkMushroomBlock extends Block {
 	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
+	
 }
