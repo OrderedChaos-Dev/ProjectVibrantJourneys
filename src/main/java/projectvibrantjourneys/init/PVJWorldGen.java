@@ -39,36 +39,20 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @Mod.EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID)
 public class PVJWorldGen {
-	
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void addBiomeFeatures(BiomeLoadingEvent event) {
 		RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		List<Supplier<ConfiguredFeature<?, ?>>> vegetalFeatures = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
 		
-		if(event.getCategory() == Biome.Category.NETHER) {
-			if(PVJConfig.charredBones.get())
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
-			if(PVJConfig.glowcap.get())
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
+		//GROUNDCOVER
+		if(!PVJConfig.groundcoverBlacklist.get().contains(event.getName().toString())) {
 			
-			if(PVJConfig.netherNettles.get()) {
-				if(biome == Biomes.CRIMSON_FOREST)
-					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.crimson_nettle);
-				if(biome == Biomes.WARPED_FOREST)
-					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
-			}
-
-		} else if(event.getCategory() != Biome.Category.THEEND) {
-			//plants
-			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
-			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.water_cattails);
+			if(event.getCategory() == Biome.Category.NETHER) {
+				if(PVJConfig.charredBones.get())
+					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
 			}
 			
-			//groundcover
 			if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
 				if(PVJConfig.twigs.get())
 					vegetalFeatures.add(() -> PVJConfiguredFeatures.twigs);
@@ -92,6 +76,30 @@ public class PVJWorldGen {
 			
 			if(PVJConfig.bones.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
+		}
+		
+		
+		if(event.getCategory() == Biome.Category.NETHER) {
+			if(PVJConfig.charredBones.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
+			if(PVJConfig.glowcap.get())
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
+			
+			if(PVJConfig.netherNettles.get()) {
+				if(biome == Biomes.CRIMSON_FOREST)
+					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.crimson_nettle);
+				if(biome == Biomes.WARPED_FOREST)
+					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
+			}
+
+		} else if(event.getCategory() != Biome.Category.THEEND) {
+			//plants
+			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
+			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.water_cattails);
+			}
 			
 			if(hasType(biomeTypes, Type.PLAINS) && PVJConfig.bushes.get()) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.bushes);

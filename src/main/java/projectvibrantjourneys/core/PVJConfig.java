@@ -1,11 +1,14 @@
 package projectvibrantjourneys.core;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
@@ -39,11 +42,13 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> verdantSands;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
+	public static ConfigValue<List<String>> groundcoverBlacklist;
 	
 	static {
 		
 		COMMON_BUILDER.comment("Project: Vibrant Journeys settings").push("Settings");
 		COMMON_BUILDER.comment("World Gen Settings").push("World Gen");
+		COMMON_BUILDER.push("Groundcover");
 		rocks = COMMON_BUILDER.define("rocks", true);
 		twigs = COMMON_BUILDER.define("twigs", true);
 		fallenLeaves = COMMON_BUILDER.define("fallenLeaves", true);
@@ -52,6 +57,9 @@ public class PVJConfig {
 		iceChunks = COMMON_BUILDER.define("iceChunks", true);
 		pinecones = COMMON_BUILDER.define("pinecones", true);
 		seashells = COMMON_BUILDER.define("seashells", true);
+		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
+		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist").define("groundcoverBlacklist", new ArrayList<String>());
+		COMMON_BUILDER.pop();
 		seaOats = COMMON_BUILDER.define("seaOats", true);
 		cattails = COMMON_BUILDER.define("cattails", true);
 		barkMushrooms = COMMON_BUILDER.define("barkMushrooms", true);
@@ -62,7 +70,7 @@ public class PVJConfig {
 		fallenTrees = COMMON_BUILDER.define("fallenTrees", true);
 		moreSeagrass = COMMON_BUILDER.comment("Seagrass in lakes").define("moreSeagrass", true);
 		moreGrassInRivers = COMMON_BUILDER.comment("Denser river grass").define("moreGrassInRivers", true);
-		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
+
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.comment("Mob Spawn Settings").push("Mob Spawns");
