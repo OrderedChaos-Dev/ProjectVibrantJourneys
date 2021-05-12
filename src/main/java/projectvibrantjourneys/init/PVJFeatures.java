@@ -31,12 +31,12 @@ public class PVJFeatures {
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
-		oceanFloorSeashellsFeature = registerFeature(new OceanFloorSeashellsFeature(NoFeatureConfig.field_236558_a_), "ocean_floor_seashells_feature");
+		oceanFloorSeashellsFeature = registerFeature(new OceanFloorSeashellsFeature(NoFeatureConfig.CODEC), "ocean_floor_seashells_feature");
 		bushFeature = registerFeature(new BushFeature(ProbabilityConfig.CODEC), "bush_feature");
-		waterCattailFeature = registerFeature(new WaterCattailFeature(NoFeatureConfig.field_236558_a_), "water_cattail_feature");
-		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.field_236558_a_), "bark_mushroom_feature");
+		waterCattailFeature = registerFeature(new WaterCattailFeature(NoFeatureConfig.CODEC), "water_cattail_feature");
+		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.CODEC), "bark_mushroom_feature");
 		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
-		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.field_236558_a_), "fallen_tree_feature");
+		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.CODEC), "fallen_tree_feature");
 		
 		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
 	}

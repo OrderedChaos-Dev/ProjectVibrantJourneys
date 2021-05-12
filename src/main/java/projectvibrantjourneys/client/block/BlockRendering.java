@@ -18,8 +18,8 @@ import projectvibrantjourneys.init.PVJBlocks;
 public class BlockRendering {
 		@OnlyIn(Dist.CLIENT)
 		public static void registerRenderers() {
-			RenderType cutout = RenderType.getCutout();
-			RenderType cutout_mipped = RenderType.getCutoutMipped();
+			RenderType cutout = RenderType.cutout();
+			RenderType cutout_mipped = RenderType.cutoutMipped();
 		
 			RenderTypeLookup.setRenderLayer(PVJBlocks.twigs, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.rocks, cutout);
@@ -62,8 +62,8 @@ public class BlockRendering {
 	
 		private static void registerFoliageColorBlock(BlockColors bc, Block block) {
 			bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-					? BiomeColors.getFoliageColor(world, pos)
-					: FoliageColors.getDefault(), block);
+					? BiomeColors.getAverageFoliageColor(world, pos)
+					: FoliageColors.getDefaultColor(), block);
 		}
 	
 		private static void registerFoliageColorBlock(BlockColors bc, Block block, int color) {
@@ -72,7 +72,7 @@ public class BlockRendering {
 	
 		private static void registerFoliageColorItem(ItemColors ic, BlockColors bc, Block block) {
 			ic.register((itemstack, tintIndex) -> {
-				BlockState state = Blocks.OAK_LEAVES.getDefaultState();
+				BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
 				int color = bc.getColor(state, null, null, tintIndex); // get color
 				return color;
 			}, block);
@@ -84,7 +84,7 @@ public class BlockRendering {
 	
 		private static void registerGrassColorBlock(BlockColors bc, Block block) {
 			bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
-					? BiomeColors.getGrassColor(world, pos)
+					? BiomeColors.getAverageGrassColor(world, pos)
 					: GrassColors.get(0.5D, 1.0D), block);
 		}
 }

@@ -17,6 +17,6 @@ public class PVJVanillaIntegration {
 	}
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {
-		ComposterBlock.CHANCES.put(item.asItem(), chance);
+		ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
 	}
 }

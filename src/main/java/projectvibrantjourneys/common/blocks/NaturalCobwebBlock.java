@@ -13,13 +13,13 @@ import net.minecraft.world.World;
 public class NaturalCobwebBlock extends WebBlock {
 
 	public NaturalCobwebBlock() {
-		super(Block.Properties.from(Blocks.COBWEB));
+		super(Block.Properties.copy(Blocks.COBWEB));
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
+	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
 		for(Direction d : Direction.values()) {
-			if(world.getBlockState(pos.offset(d)).getBlock() instanceof LeavesBlock) {
+			if(world.getBlockState(pos.offset(d.getNormal())).getBlock() instanceof LeavesBlock) {
 				return true;
 			}
 		}
@@ -28,7 +28,7 @@ public class NaturalCobwebBlock extends WebBlock {
 	
 	@Override
 	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-		if(!isValidPosition(state, world, pos))
+		if(!canSurvive(state, world, pos))
 			world.removeBlock(pos, isMoving);
 	}
 }

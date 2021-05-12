@@ -29,19 +29,19 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class BarkMushroomBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-	protected static final VoxelShape EAST = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
-	protected static final VoxelShape WEST = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	protected static final VoxelShape SOUTH = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
-	protected static final VoxelShape NORTH = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
+	public static final DirectionProperty FACING = HorizontalBlock.FACING;
+	protected static final VoxelShape EAST = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
+	protected static final VoxelShape WEST = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	protected static final VoxelShape SOUTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 3.0D);
+	protected static final VoxelShape NORTH = Block.box(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
 	   
 	public BarkMushroomBlock() {
-		super(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().hardnessAndResistance(0, 0).sound(SoundType.WOOD));
-		this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+		super(Block.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.WOOD));
+		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}
 	
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		switch ((Direction) state.get(FACING)) {
+		switch ((Direction) state.getValue(FACING)) {
 			case NORTH:
 				return NORTH;
 			case SOUTH:
@@ -55,12 +55,11 @@ public class BarkMushroomBlock extends Block {
 	}
 	
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
-		if (!player.abilities.allowEdit) {
+	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
+		if (!player.abilities.mayBuild) {
 			return ActionResultType.PASS;
 		} else {
-			spawnAsEntity(world, pos, new ItemStack(this));
-			world.removeBlock(pos, false);
+			Block.dropResources(state, world, pos);
 			return ActionResultType.SUCCESS;
 		}
 	}
@@ -71,18 +70,18 @@ public class BarkMushroomBlock extends Block {
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		Direction direction = state.get(FACING);
-		return canAttachTo(worldIn, pos.offset(direction.getOpposite()), direction);
+	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+		Direction direction = state.getValue(FACING);
+		return canAttachTo(worldIn, pos.offset(direction.getOpposite().getNormal()), direction);
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
-		if (facing.getOpposite() == state.get(FACING) && !state.isValidPosition(world, currentPos)) {
-			return Blocks.AIR.getDefaultState();
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
+		if (facing.getOpposite() == state.getValue(FACING) && !state.canSurvive(world, currentPos)) {
+			return Blocks.AIR.defaultBlockState();
 		} else {
-			return super.updatePostPlacement(state, facing, facingState, world, currentPos, facingPos);
+			return super.updateShape(state, facing, facingState, world, currentPos, facingPos);
 		}
 	}
 	
@@ -90,20 +89,20 @@ public class BarkMushroomBlock extends Block {
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		if (!context.replacingClickedOnBlock()) {
-			BlockState blockstate = context.getWorld().getBlockState(context.getPos().offset(context.getFace().getOpposite()));
-			if (blockstate.getBlock() == this && blockstate.get(FACING) == context.getFace()) {
+			BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().offset(context.getClickedFace().getOpposite().getNormal()));
+			if (blockstate.getBlock() == this && blockstate.getValue(FACING) == context.getClickedFace()) {
 				return null;
 			}
 		}
 
-		BlockState blockstate1 = this.getDefaultState();
-		IWorldReader iworldreader = context.getWorld();
-		BlockPos blockpos = context.getPos();
+		BlockState blockstate1 = this.defaultBlockState();
+		IWorldReader iworldreader = context.getLevel();
+		BlockPos blockpos = context.getClickedPos();
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
-				blockstate1 = blockstate1.with(FACING, direction.getOpposite());
-				if (blockstate1.isValidPosition(iworldreader, blockpos)) {
+				blockstate1 = blockstate1.setValue(FACING, direction.getOpposite());
+				if (blockstate1.canSurvive(iworldreader, blockpos)) {
 					return blockstate1;
 				}
 			}
@@ -114,16 +113,16 @@ public class BarkMushroomBlock extends Block {
 	
 	@Override
 	public BlockState rotate(BlockState state, Rotation rot) {
-		return state.with(FACING, rot.rotate(state.get(FACING)));
+		return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
 	}
 
 	@Override
 	public BlockState mirror(BlockState state, Mirror mirrorIn) {
-		return state.rotate(mirrorIn.toRotation(state.get(FACING)));
+		return state.rotate(mirrorIn.getRotation(state.getValue(FACING)));
 	}
 
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
 }

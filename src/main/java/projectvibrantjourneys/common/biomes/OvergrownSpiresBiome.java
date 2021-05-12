@@ -15,39 +15,40 @@ public class OvergrownSpiresBiome {
 
 	public static Biome makeShatteredJungleBiome() {
 		BiomeGenerationSettings.Builder biomeGenSettings = (new BiomeGenerationSettings.Builder())
-				.withSurfaceBuilder(ConfiguredSurfaceBuilders.field_244186_r);
+				.surfaceBuilder(ConfiguredSurfaceBuilders.SHATTERED_SAVANNA);
 		
 	      MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
-	      DefaultBiomeFeatures.withSpawnsWithExtraChickens(mobSpawnInfo);
+	      DefaultBiomeFeatures.baseJungleSpawns(mobSpawnInfo);
 		mobSpawnInfo
-				.withSpawner(EntityClassification.CREATURE,
+				.addSpawn(EntityClassification.CREATURE,
 						new MobSpawnInfo.Spawners(EntityType.PARROT, 40, 1, 2))
-				.withSpawner(EntityClassification.MONSTER,
+				.addSpawn(EntityClassification.MONSTER,
 						new MobSpawnInfo.Spawners(EntityType.OCELOT, 2, 1, 3))
-				.withSpawner(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PANDA, 1, 1, 2));
-		mobSpawnInfo.isValidSpawnBiomeForPlayer();
+				.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PANDA, 1, 1, 2));
+		mobSpawnInfo.setPlayerCanSpawn();
 
-		biomeGenSettings.withStructure(StructureFeatures.JUNGLE_PYRAMID);
-		biomeGenSettings.withStructure(StructureFeatures.RUINED_PORTAL_JUNGLE);
+		biomeGenSettings.addStructureStart(StructureFeatures.JUNGLE_TEMPLE);
+		biomeGenSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_JUNGLE);
 
-		DefaultBiomeFeatures.withStrongholdAndMineshaft(biomeGenSettings);
-		DefaultBiomeFeatures.withCavesAndCanyons(biomeGenSettings);
-		DefaultBiomeFeatures.withLavaAndWaterLakes(biomeGenSettings);
-		DefaultBiomeFeatures.withMonsterRoom(biomeGenSettings);
-		DefaultBiomeFeatures.withCommonOverworldBlocks(biomeGenSettings);
-		DefaultBiomeFeatures.withOverworldOres(biomeGenSettings);
-		DefaultBiomeFeatures.withWarmFlowers(biomeGenSettings);
-		DefaultBiomeFeatures.withJungleGrass(biomeGenSettings);
-		DefaultBiomeFeatures.withSugarCaneAndPumpkins(biomeGenSettings);
-		DefaultBiomeFeatures.withLavaAndWaterSprings(biomeGenSettings);
-		DefaultBiomeFeatures.withMelonPatchesAndVines(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultCarvers(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultLakes(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultOres(biomeGenSettings);
+		DefaultBiomeFeatures.addWarmFlowers(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultSoftDisks(biomeGenSettings);
+		DefaultBiomeFeatures.addJungleGrass(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenSettings);
+		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
+		DefaultBiomeFeatures.addJungleExtraVegetation(biomeGenSettings);
 
-		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).category(Biome.Category.JUNGLE).depth(0.3625F)
+		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(0.3625F)
 				.scale(1.225F).temperature(0.95F).downfall(0.9F)
-				.setEffects((new BiomeAmbience.Builder()).setWaterColor(4445678).setWaterFogColor(270131)
-						.setFogColor(12638463).withSkyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.95F))
-						.setMoodSound(MoodSoundAmbience.DEFAULT_CAVE).build())
-				.withMobSpawnSettings(mobSpawnInfo.copy()).withGenerationSettings(biomeGenSettings.build()).build();
+				.specialEffects((new BiomeAmbience.Builder()).waterColor(4445678).waterFogColor(270131)
+						.fogColor(12638463).skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.95F))
+						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
+				.mobSpawnSettings(mobSpawnInfo.build()).generationSettings(biomeGenSettings.build()).build();
 	}
 
 }

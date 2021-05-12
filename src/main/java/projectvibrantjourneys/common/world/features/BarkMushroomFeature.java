@@ -19,19 +19,19 @@ public class BarkMushroomFeature extends Feature<NoFeatureConfig> {
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean place(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, NoFeatureConfig config) {
 		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
 
 		for (int i = 64; i < world.getHeight(); i++) {
-			blockpos.setPos(pos);
+			blockpos.set(pos);
 			blockpos.move(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 			blockpos.setY(i);
 			if (BarkMushroomBlock.canAttachTo(world, blockpos, Direction.DOWN)) {
 				boolean flag = false;
 				while(!flag) {
-					Direction dir = Direction.Plane.HORIZONTAL.random(rand);
-					if (world.isAirBlock(blockpos.offset(dir)))
-						world.setBlockState(blockpos.offset(dir), PVJBlocks.bark_mushroom.getDefaultState().with(BarkMushroomBlock.FACING, dir), 2);						
+					Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
+					if (world.isEmptyBlock(blockpos.offset(dir.getNormal())))
+						world.setBlock(blockpos.offset(dir.getNormal()), PVJBlocks.bark_mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dir), 2);						
 					
 					if(rand.nextFloat() < 0.8F) {
 						flag = true;

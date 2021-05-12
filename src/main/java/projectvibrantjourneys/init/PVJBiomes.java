@@ -30,8 +30,8 @@ public class PVJBiomes {
 	
 	
 	public static class Keys {
-		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
-		public static final RegistryKey<Biome> VERDANT_SANDS = RegistryKey.getOrCreateKey(Registry.BIOME_KEY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "verdant_sands"));
+		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
+		public static final RegistryKey<Biome> VERDANT_SANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "verdant_sands"));
 	}
 	
 	@SubscribeEvent

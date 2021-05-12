@@ -18,25 +18,25 @@ import net.minecraft.world.server.ServerWorld;
 public class GlowcapBlock extends MushroomBlock {
 
 	public GlowcapBlock() {
-		super(Block.Properties.create(Material.PLANTS, MaterialColor.YELLOW)
-				.doesNotBlockMovement()
-				.tickRandomly()
-				.zeroHardnessAndResistance()
-				.sound(SoundType.PLANT).setLightLevel((state) -> {
+		super(Block.Properties.of(Material.PLANT, MaterialColor.COLOR_YELLOW)
+				.noCollission()
+				.randomTicks()
+				.instabreak()
+				.sound(SoundType.GRASS).lightLevel((state) -> {
 		      return 12;
 		   }));
 	}
 
 	@Override
-	public boolean grow(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
+	public boolean growMushroom(ServerWorld world, BlockPos pos, BlockState state, Random rand) {
 		return false;
 	}
 	
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-		BlockPos blockpos = pos.down();
+	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+		BlockPos blockpos = pos.below();
 		BlockState blockstate = worldIn.getBlockState(blockpos);
-		if (blockstate.isIn(BlockTags.MUSHROOM_GROW_BLOCK)) {
+		if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
 			return true;
 		} else {
 			return blockstate.canSustainPlant(worldIn, blockpos, net.minecraft.util.Direction.UP, this);
@@ -44,12 +44,12 @@ public class GlowcapBlock extends MushroomBlock {
 	}
 	
 	@Override
-	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state) {
+	public boolean isBonemealSuccess(World worldIn, Random rand, BlockPos pos, BlockState state) {
 		return false;
 	}
 	
 	@Override
-	public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
+	public boolean isValidBonemealTarget(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}
 }

@@ -21,19 +21,18 @@ public class WaterCattailFeature extends Feature<NoFeatureConfig> {
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
 		int i = 0;
 
 		int k = rand.nextInt(8) - rand.nextInt(8);
 		int l = rand.nextInt(8) - rand.nextInt(8);
 		int i1 = world.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX() + k, pos.getZ() + l);
 		BlockPos blockpos = new BlockPos(pos.getX() + k, i1, pos.getZ() + l);
-		if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.up()).getBlock() == Blocks.AIR) {
-			BlockState state = PVJBlocks.cattail.getDefaultState();
-			if (state.isValidPosition(world, blockpos)) {
+		if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.above()).getBlock() == Blocks.AIR) {
+			BlockState state = PVJBlocks.cattail.defaultBlockState();
+			if (state.canSurvive(world, blockpos)) {
 				((CattailBlock) state.getBlock()).placeInWater(world, blockpos, 2);
-
-				++i;
+				i++;
 			}
 		}
 

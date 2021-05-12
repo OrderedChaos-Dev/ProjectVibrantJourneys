@@ -21,17 +21,17 @@ import net.minecraft.world.IWorldReader;
 public class FallenLeavesBlock extends Block {
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(0.01D, 0.0D, 0.0D, 16.0D, 2.01D, 16.0D);
+	protected static final VoxelShape SHAPE = Block.box(0.01D, 0.0D, 0.0D, 16.0D, 2.01D, 16.0D);
 	
 	public FallenLeavesBlock() {
-		super(Block.Properties.create(Material.PLANTS).hardnessAndResistance(0.1F, 0.0F).sound(SoundType.PLANT).notSolid());
-		this.setDefaultState(getDefaultState().with(WATERLOGGED, false));
+		super(Block.Properties.of(Material.PLANT).strength(0.1F, 0.0F).sound(SoundType.GRASS).noOcclusion());
+		this.registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
 	}
 	
 	@Override
-	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
-		if (state.get(WATERLOGGED)) {
-			world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
+		if (state.getValue(WATERLOGGED)) {
+			world.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
 		return state;
 	}
@@ -42,8 +42,8 @@ public class FallenLeavesBlock extends Block {
 	}
 	
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
-		return world.getBlockState(pos.down()).isSolid();
+	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+		return Block.isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP);
 	}
 	
 	@Override
@@ -54,11 +54,11 @@ public class FallenLeavesBlock extends Block {
 	@Override
 	@SuppressWarnings("deprecation")
 	public FluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
 	
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(WATERLOGGED);
 	}
 }

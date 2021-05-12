@@ -17,18 +17,18 @@ public class GroundcoverPlacer extends BlockPlacer {
 	@Override
 	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {
 		if(rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
-			if (world.getBlockState(pos.down()).isOpaqueCube(world, pos) && world.getBlockState(pos.down()).isSolid() && world.getBlockState(pos.down()).getBlock() != Blocks.SNOW) {
+			if (world.getBlockState(pos.below()).isCollisionShapeFullBlock(world, pos) && world.getBlockState(pos.below()).getBlock() != Blocks.SNOW) {
 				if (state.getBlock() instanceof FallenLeavesBlock) {
-					world.setBlockState(pos, state, 2);
+					world.setBlock(pos, state, 2);
 				} else {
-					world.setBlockState(pos, state.with(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
+					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
 				}
 			}
 		}
 	}
 
 	@Override
-	protected BlockPlacerType<?> getBlockPlacerType() {
-		return BlockPlacerType.SIMPLE_BLOCK;
+	protected BlockPlacerType<?> type() {
+		return BlockPlacerType.SIMPLE_BLOCK_PLACER;
 	}
 }

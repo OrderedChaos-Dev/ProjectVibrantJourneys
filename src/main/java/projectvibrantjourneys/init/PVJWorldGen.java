@@ -42,7 +42,7 @@ public class PVJWorldGen {
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void addBiomeFeatures(BiomeLoadingEvent event) {
-		RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
+		RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		List<Supplier<ConfiguredFeature<?, ?>>> vegetalFeatures = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
 		
@@ -136,7 +136,7 @@ public class PVJWorldGen {
 		try {
 			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
 			List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
-			RegistryKey<Biome> biome = RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, event.getName());
+			RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 			Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 			List<ConfiguredFeature<?, ?>> trees = new ArrayList<ConfiguredFeature<?, ?>>();
 			for(Supplier<ConfiguredFeature<?, ?>> cf : features)
@@ -145,9 +145,9 @@ public class PVJWorldGen {
 			Random rand = new Random();
 			
 			for(ConfiguredFeature<?, ?> pair : trees) {
-				if(pair.getConfig() instanceof BaseTreeFeatureConfig) {
+				if(pair.config() instanceof BaseTreeFeatureConfig) {
 					try {
-						Block block = ((BaseTreeFeatureConfig)pair.getConfig()).trunkProvider.getBlockState(rand, null).getBlock();
+						Block block = ((BaseTreeFeatureConfig)pair.config()).trunkProvider.getState(rand, null).getBlock();
 						if(block instanceof RotatedPillarBlock) {
 							ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
 							FallenTreeFeature.LOGS.add(new Pair<String, Block>(event.getName().toString(), block));
@@ -160,7 +160,7 @@ public class PVJWorldGen {
 					float chance = 0.1F;
 					if(hasType(biomeTypes, Type.PLAINS, Type.DRY))
 						chance = 0.05F;
-					return PVJConfiguredFeatures.fallen_tree.withPlacement(Placement.COUNT_EXTRA.configure(new AtSurfaceWithExtraConfig(0, chance, 1)));
+					return PVJConfiguredFeatures.fallen_tree.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, chance, 1)));
 				});
 			}
 		} catch(Exception e) {
@@ -173,17 +173,17 @@ public class PVJWorldGen {
 	//used to help find tree features hidden in decorated configured features
 	//most biomes group their trees in random selectors, these features are added to a list
 	public static String getFeatureNames(ConfiguredFeature<?, ?> cf, List<ConfiguredFeature<?, ?>> list) {
-		if(Feature.RANDOM_SELECTOR.getRegistryName().equals(cf.getFeature().getRegistryName())) {
-			((MultipleRandomFeatureConfig)cf.getConfig()).features.forEach((s) -> list.add(s.feature.get()));
-		} else if(cf.getConfig() instanceof DecoratedFeatureConfig) {
-			ConfiguredFeature<?, ?> feature = ((DecoratedFeatureConfig)cf.getConfig()).feature.get();
+		if(Feature.RANDOM_SELECTOR.getRegistryName().equals(cf.feature().getRegistryName())) {
+			((MultipleRandomFeatureConfig)cf.config()).features.forEach((s) -> list.add(s.feature.get()));
+		} else if(cf.config() instanceof DecoratedFeatureConfig) {
+			ConfiguredFeature<?, ?> feature = ((DecoratedFeatureConfig)cf.config()).feature.get();
 			
-			if(feature.getConfig() instanceof BaseTreeFeatureConfig) {
+			if(feature.config() instanceof BaseTreeFeatureConfig) {
 				list.add(feature);
 			} else
 				return getFeatureNames(feature, list);
 		}
-		return cf.getFeature().getRegistryName().toString();
+		return cf.feature().getRegistryName().toString();
 	}	
 	
 	private static boolean hasType(Set<BiomeDictionary.Type> list, BiomeDictionary.Type...types) {

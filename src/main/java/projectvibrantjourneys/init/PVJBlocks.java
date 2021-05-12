@@ -43,24 +43,24 @@ public class PVJBlocks {
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
-		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.MISCELLANEOUS), "twigs", 100);
+		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.DIRT), "twigs", 100);
 		fallen_leaves = registerBlock(new FallenLeavesBlock(), "fallen_leaves");
-		rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "rocks");
-		mossy_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "mossy_rocks");
-		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "red_sandstone_rocks");
-		ice_chunks = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS, SoundType.GLASS), "ice_chunks");
-		bones = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "bones");
-		charred_bones = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "charred_bones");
-		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.MISCELLANEOUS), "pinecones", 100);
-		seashells = registerBlock(new GroundcoverBlock(Material.MISCELLANEOUS), "seashells");
+		rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "rocks");
+		mossy_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "mossy_rocks");
+		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "red_sandstone_rocks");
+		ice_chunks = registerBlock(new GroundcoverBlock(Material.DIRT, SoundType.GLASS), "ice_chunks");
+		bones = registerBlock(new GroundcoverBlock(Material.DIRT), "bones");
+		charred_bones = registerBlock(new GroundcoverBlock(Material.DIRT), "charred_bones");
+		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.DIRT), "pinecones", 100);
+		seashells = registerBlock(new GroundcoverBlock(Material.DIRT), "seashells");
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
 		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
-		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CYAN), "warped_nettle");
+		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
 		
 		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
 		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");
@@ -74,7 +74,7 @@ public class PVJBlocks {
 	public static Block registerBlock(Block block, String name) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 
-		Item.Properties prop = new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP);
+		Item.Properties prop = new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP);
 		BlockItem item = new BlockItem(block, prop);
 		item.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 
@@ -95,7 +95,7 @@ public class PVJBlocks {
 	public static Block registerBlockWithFuel(Block block, String name, int burnTime) {
 		block.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
 
-		Item.Properties prop = new Item.Properties().group(PVJItemGroup.PVJ_ITEMGROUP);
+		Item.Properties prop = new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP);
 		BlockItem item = new BlockItem(block, prop) {
 			@Override
 			public int getBurnTime(ItemStack stack) {
@@ -111,7 +111,7 @@ public class PVJBlocks {
 	}
 	
 	public static Block createFlowerPot(Block plant) {
-		Block block = new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> plant, Properties.from(Blocks.FLOWER_POT).setLightLevel((state) -> plant == glowcap ? 12 : 0));
+		Block block = new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, () -> plant, Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> plant == glowcap ? 12 : 0));
 		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(plant.getRegistryName(), () -> block);
 		return block;
 	}

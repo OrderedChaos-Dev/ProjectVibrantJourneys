@@ -14,12 +14,12 @@ import net.minecraft.world.IBlockReader;
 public class NetherPlantBlock extends BushBlock {
 
 	public NetherPlantBlock(MaterialColor color) {
-		super(Properties.create(Material.NETHER_PLANTS, color).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.NETHER_SPROUT));
+		super(Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, color).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS));
 	}
 
 	@Override
-	protected boolean isValidGround(BlockState state, IBlockReader worldIn, BlockPos pos) {
-		return state.isIn(BlockTags.NYLIUM) || state.isIn(Blocks.SOUL_SOIL) || super.isValidGround(state, worldIn, pos);
+	protected boolean mayPlaceOn(BlockState state, IBlockReader worldIn, BlockPos pos) {
+		return state.is(BlockTags.NYLIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
 	}
 	
 	@Override

@@ -33,57 +33,52 @@ public class GroundcoverBlock extends Block {
 
 	public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 4);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	protected static final VoxelShape SHAPE = Block.makeCuboidShape(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
+	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
 	public GroundcoverBlock(Material material) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.05F, 0.0F).notSolid());
-		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
+		super(Block.Properties.of(material).strength(0.05F, 0.0F).noOcclusion());
+		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(WATERLOGGED, false));
 	}
 	
 	public GroundcoverBlock(Material material, SoundType soundType) {
-		super(Block.Properties.create(material).hardnessAndResistance(0.1F, 0.0F).sound(soundType).notSolid());
-		this.setDefaultState(getDefaultState().with(MODEL, 0).with(WATERLOGGED, false));
+		super(Block.Properties.of(material).strength(0.1F, 0.0F).sound(soundType).noOcclusion());
+		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(WATERLOGGED, false));
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-		if(!world.isRemote) {
+	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+		if(!world.isClientSide) {
 			int model = world.getRandom().nextInt(5);
 			FluidState ifluidstate = world.getFluidState(pos);
-			world.setBlockState(pos, this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER)));
+			world.setBlock(pos, this.defaultBlockState().setValue(MODEL, model).setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER)), 2);
 		}
 	}
 	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
-		int model = context.getWorld().getRandom().nextInt(5);
-		FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
-		return this.getDefaultState().with(MODEL, model).with(WATERLOGGED, Boolean.valueOf(ifluidstate.getFluid() == Fluids.WATER));
+		int model = context.getLevel().getRandom().nextInt(5);
+		FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
+		return this.defaultBlockState().setValue(MODEL, model).setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
 	}
 	
 	@Override
-	public BlockState updatePostPlacement(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
-		if (state.get(WATERLOGGED)) {
-			world.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
+		if (state.getValue(WATERLOGGED)) {
+			world.getLiquidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
 		}
 		return state;
 	}
 	
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
-		return world.getBlockState(pos.down()).isSolid();
+	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+		return world.getBlockState(pos.below()).isCollisionShapeFullBlock(world, pos);
 	}
 	
 	@Override
 	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-		if(!isValidPosition(state, world, pos)) {
+		if(!canSurvive(state, world, pos)) {
 			world.destroyBlock(pos, false);
 		}
-	}
-	
-	@Override
-	public boolean canSpawnInBlock() {
-		return true;
 	}
 	
 	@Override
@@ -92,16 +87,16 @@ public class GroundcoverBlock extends Block {
 	}
 	
 	@Override
-	public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
-		if (!player.abilities.allowEdit) {
+	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
+		if (!player.abilities.mayBuild) {
 			return ActionResultType.PASS;
 		} else {
-			int model = state.get(MODEL).intValue();
+			int model = state.getValue(MODEL).intValue();
 			if(model < 4)
 				model++;
 			else
 				model = 0;
-			world.setBlockState(pos, state.with(MODEL, model));
+			world.setBlock(pos, state.setValue(MODEL, model), 2);
 			return ActionResultType.SUCCESS;
 		}
 	}
@@ -119,11 +114,11 @@ public class GroundcoverBlock extends Block {
 	@Override
 	@SuppressWarnings("deprecation")
 	public FluidState getFluidState(BlockState state) {
-		return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
 	}
 	
 	@Override
-	protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
 		builder.add(MODEL, WATERLOGGED);
 	}
 }

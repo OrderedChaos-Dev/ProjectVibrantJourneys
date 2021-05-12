@@ -21,15 +21,15 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
+	public boolean place(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
 		//check dirt/grass
-		Block dirt = world.getBlockState(pos.down()).getBlock();
+		Block dirt = world.getBlockState(pos.below()).getBlock();
 		if(dirt != Blocks.DIRT && dirt != Blocks.GRASS_BLOCK)
 			return false;
 		
 		//check space
 		for(Direction dir : Direction.Plane.HORIZONTAL) {
-			BlockPos offsetPos = pos.add(dir.getDirectionVec());
+			BlockPos offsetPos = pos.offset(dir.getNormal());
 			Block block = world.getBlockState(offsetPos).getBlock();
 			if(block != Blocks.AIR && block != Blocks.TALL_GRASS) {
 				return false;
@@ -37,11 +37,11 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 		}
 		if (rand.nextFloat() < config.probability) {
 			for(Direction dir : Direction.Plane.HORIZONTAL) {
-				BlockPos offsetPos = pos.add(dir.getDirectionVec());
-				world.setBlockState(offsetPos, Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1), 2);
+				BlockPos offsetPos = pos.offset(dir.getNormal());
+				world.setBlock(offsetPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
 			}
-			world.setBlockState(pos.up(), Blocks.OAK_LEAVES.getDefaultState().with(LeavesBlock.DISTANCE, 1), 2);
-			world.setBlockState(pos, Blocks.OAK_LOG.getDefaultState(), 2);
+			world.setBlock(pos.above(), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+			world.setBlock(pos, Blocks.OAK_LOG.defaultBlockState(), 2);
 		}
 
 		return true;

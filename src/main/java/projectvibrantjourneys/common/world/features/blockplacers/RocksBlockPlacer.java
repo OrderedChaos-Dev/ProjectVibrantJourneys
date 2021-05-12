@@ -23,23 +23,23 @@ public class RocksBlockPlacer extends BlockPlacer {
 	public static final Codec<RocksBlockPlacer> CODEC;
 	public static final RocksBlockPlacer PLACER = new RocksBlockPlacer();
 
-	protected BlockPlacerType<?> getBlockPlacerType() {
-		return BlockPlacerType.SIMPLE_BLOCK;
+	protected BlockPlacerType<?> type() {
+		return BlockPlacerType.SIMPLE_BLOCK_PLACER;
 	}
 
 	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {
-		BlockState ground = world.getBlockState(pos.down());
+		BlockState ground = world.getBlockState(pos.below());
 		Block block = ground.getBlock();
 		if(rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
-			if (ground.isOpaqueCube(world, pos) && ground.isSolid() && block != Blocks.SNOW) {
+			if (ground.isSolidRender(world, pos) && ground.isCollisionShapeFullBlock(world, pos) && block != Blocks.SNOW) {
 				if(block == Blocks.SAND) {
-					world.setBlockState(pos, PVJBlocks.sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL,  rand.nextInt(5)), 2);
+					world.setBlock(pos, PVJBlocks.sandstone_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL,  rand.nextInt(5)), 2);
 				} else if(block == Blocks.RED_SAND) {
-					world.setBlockState(pos, PVJBlocks.red_sandstone_rocks.getDefaultState().with(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
-				} else if(!BiomeDictionary.hasType(RegistryKey.getOrCreateKey(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && rand.nextDouble() < 0.2){
-					world.setBlockState(pos, PVJBlocks.mossy_rocks.getDefaultState().with(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
+					world.setBlock(pos, PVJBlocks.red_sandstone_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
+				} else if(!BiomeDictionary.hasType(RegistryKey.create(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && rand.nextDouble() < 0.2){
+					world.setBlock(pos, PVJBlocks.mossy_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
 				} else {
-					world.setBlockState(pos, state.with(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
+					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
 				}
 			}
 		}

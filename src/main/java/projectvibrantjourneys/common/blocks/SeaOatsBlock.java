@@ -14,24 +14,24 @@ import net.minecraft.world.IWorldReader;
 public class SeaOatsBlock extends DoublePlantBlock {
 
 	public SeaOatsBlock() {
-		super(Block.Properties.create(Material.TALL_PLANTS).doesNotBlockMovement().hardnessAndResistance(0, 0).sound(SoundType.PLANT));
+		super(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS));
 	}
 
 	@Override
-	public boolean isValidPosition(BlockState state, IWorldReader world, BlockPos pos) {
-		if (state.get(HALF) != DoubleBlockHalf.UPPER) {
-			BlockState ground = world.getBlockState(pos.down());
-			return ground.getMaterial() == Material.SAND || ground.getMaterial() == Material.EARTH || ground.getBlock() instanceof GrassBlock;
+	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+			BlockState ground = world.getBlockState(pos.below());
+			return ground.getMaterial() == Material.SAND || ground.getMaterial() == Material.DIRT || ground.getBlock() instanceof GrassBlock;
 		} else {
-			BlockState blockstate = world.getBlockState(pos.down());
+			BlockState blockstate = world.getBlockState(pos.below());
 			if (state.getBlock() != this)
 				return false;
-			return blockstate.getBlock() == this && blockstate.get(HALF) == DoubleBlockHalf.LOWER;
+			return blockstate.getBlock() == this && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
 		}
 	}
 	
 	@Override
-	public boolean isReplaceable(BlockState state, BlockItemUseContext useContext) {
+	public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
 		return false;
 	}
 }

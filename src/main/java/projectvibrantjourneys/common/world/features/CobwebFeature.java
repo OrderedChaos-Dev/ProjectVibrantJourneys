@@ -18,17 +18,17 @@ public class CobwebFeature extends Feature<ProbabilityConfig> {
 	}
 
 	@Override
-	public boolean generate(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
+	public boolean place(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
 		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
 
 		for (int i = 64; i < world.getHeight(); i++) {
-			blockpos.setPos(pos);
+			blockpos.set(pos);
 			blockpos.move(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 			blockpos.setY(i);
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
-				if(world.isAirBlock(blockpos.down())) {
+				if(world.isEmptyBlock(blockpos.below())) {
 					if(rand.nextFloat() < config.probability) {
-						world.setBlockState(blockpos.down(), PVJBlocks.natural_cobweb.getDefaultState(), 2);
+						world.setBlock(blockpos.below(), PVJBlocks.natural_cobweb.defaultBlockState(), 2);
 						break;
 					}
 				}
