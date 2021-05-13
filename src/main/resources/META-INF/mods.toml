@@ -16,7 +16,7 @@ license="lol"
 [[dependencies.projectvibrantjourneys]]
     modId="forge"
     mandatory=true
-    versionRange="[30,)"
+    versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
 

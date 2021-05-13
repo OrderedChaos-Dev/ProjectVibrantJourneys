@@ -60,7 +60,9 @@ public class BarkMushroomBlock extends Block {
 		if (!player.abilities.mayBuild) {
 			return ActionResultType.PASS;
 		} else {
-			Block.dropResources(state, world, pos);
+			if(!player.isCreative())
+				Block.dropResources(state, world, pos);
+			world.removeBlock(pos, false);
 			return ActionResultType.SUCCESS;
 		}
 	}
