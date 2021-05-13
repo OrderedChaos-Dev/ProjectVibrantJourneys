@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
@@ -88,17 +89,11 @@ public class GroundcoverBlock extends Block {
 	
 	@Override
 	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
-		if (!player.abilities.mayBuild) {
-			return ActionResultType.PASS;
-		} else {
-			int model = state.getValue(MODEL).intValue();
-			if(model < 4)
-				model++;
-			else
-				model = 0;
-			world.setBlock(pos, state.setValue(MODEL, model), 2);
-			return ActionResultType.SUCCESS;
+		world.removeBlock(pos, true);
+		if(!player.isCreative() && player.mayBuild()) {
+			InventoryHelper.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
 		}
+		return ActionResultType.SUCCESS;
 	}
 	
 	@Override
