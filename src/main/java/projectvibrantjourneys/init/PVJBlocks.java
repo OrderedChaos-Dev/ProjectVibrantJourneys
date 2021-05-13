@@ -57,7 +57,7 @@ public class PVJBlocks {
 		
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
-		bark_mushroom = registerBlock(new BarkMushroomBlock(), "bark_mushroom");
+		bark_mushroom = registerBlockWithFuel(new BarkMushroomBlock(), "bark_mushroom", 100);
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");

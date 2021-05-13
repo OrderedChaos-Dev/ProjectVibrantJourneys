@@ -58,7 +58,7 @@ public class PVJConfig {
 		pinecones = COMMON_BUILDER.define("pinecones", true);
 		seashells = COMMON_BUILDER.define("seashells", true);
 		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
-		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist").define("groundcoverBlacklist", new ArrayList<String>());
+		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist, example: [\"minecraft:plains\", \"minecraft:beach\"]").define("groundcoverBlacklist", new ArrayList<String>());
 		COMMON_BUILDER.pop();
 		seaOats = COMMON_BUILDER.define("seaOats", true);
 		cattails = COMMON_BUILDER.define("cattails", true);
