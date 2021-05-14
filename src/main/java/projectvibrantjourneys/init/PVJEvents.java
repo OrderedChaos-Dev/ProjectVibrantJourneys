@@ -5,6 +5,7 @@ import net.minecraft.item.ShearsItem;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class PVJEvents {
 	

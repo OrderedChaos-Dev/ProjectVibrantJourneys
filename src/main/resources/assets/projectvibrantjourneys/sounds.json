@@ -1,0 +1,8 @@
+{
+	"entity.fly.ambient": {
+	    "sounds": [
+	      "projectvibrantjourneys:entity/fly/idle1"
+	    ],
+	    "subtitle": "subtitles.fly.ambient"
+	  }
+}

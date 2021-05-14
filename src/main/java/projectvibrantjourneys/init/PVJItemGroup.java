@@ -2,6 +2,7 @@ package projectvibrantjourneys.init;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class PVJItemGroup extends ItemGroup {
 

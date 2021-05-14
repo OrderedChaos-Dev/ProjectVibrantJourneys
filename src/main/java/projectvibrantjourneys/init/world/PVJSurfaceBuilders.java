@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init;
+package projectvibrantjourneys.init.world;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;

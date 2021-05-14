@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init;
+package projectvibrantjourneys.init.objectregistry;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,7 @@ import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.NetherPlantBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
+import projectvibrantjourneys.init.PVJItemGroup;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJBlocks {

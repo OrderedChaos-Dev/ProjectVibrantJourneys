@@ -17,7 +17,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.core.PVJConfig;
-import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class RocksBlockPlacer extends BlockPlacer {
 	public static final Codec<RocksBlockPlacer> CODEC;

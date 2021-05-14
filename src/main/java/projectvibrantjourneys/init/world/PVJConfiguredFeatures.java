@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init;
+package projectvibrantjourneys.init.world;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +29,7 @@ import net.minecraft.world.gen.placement.Placement;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();

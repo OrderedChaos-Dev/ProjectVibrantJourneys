@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.core.PVJConfig;
-import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class OceanFloorSeashellsFeature extends Feature<NoFeatureConfig> {
    public OceanFloorSeashellsFeature(Codec<NoFeatureConfig> p_i231988_1_) {

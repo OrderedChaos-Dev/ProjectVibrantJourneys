@@ -13,9 +13,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import projectvibrantjourneys.client.block.BlockRendering;
-import projectvibrantjourneys.init.PVJConfiguredFeatures;
+import projectvibrantjourneys.client.entity.EntityRendering;
 import projectvibrantjourneys.init.PVJEvents;
 import projectvibrantjourneys.init.PVJVanillaIntegration;
+import projectvibrantjourneys.init.world.PVJConfiguredFeatures;
 
 @Mod(ProjectVibrantJourneys.MOD_ID)
 public class ProjectVibrantJourneys {
@@ -44,6 +45,7 @@ public class ProjectVibrantJourneys {
 	private void clientSetup(FMLClientSetupEvent event) {
 		BlockRendering.registerRenderers();
 		BlockRendering.registerColors();
+		EntityRendering.registerRenderers();
 	}
 	
 	private void loadComplete(FMLLoadCompleteEvent event) {

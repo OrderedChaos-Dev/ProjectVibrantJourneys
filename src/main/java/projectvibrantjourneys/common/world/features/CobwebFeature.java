@@ -10,7 +10,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
-import projectvibrantjourneys.init.PVJBlocks;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 public class CobwebFeature extends Feature<ProbabilityConfig> {
 	public CobwebFeature(Codec<ProbabilityConfig> codec) {

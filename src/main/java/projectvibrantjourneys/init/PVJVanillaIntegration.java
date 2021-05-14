@@ -2,6 +2,7 @@ package projectvibrantjourneys.init;
 
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.util.IItemProvider;
+import projectvibrantjourneys.init.objectregistry.PVJBlocks;
 
 /*
  * Used to integrate vanilla mechanics into mod objects e.g. composting, fire spread, etc

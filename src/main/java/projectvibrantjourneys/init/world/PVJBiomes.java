@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init;
+package projectvibrantjourneys.init.world;
 
 import java.util.ArrayList;
 import java.util.List;

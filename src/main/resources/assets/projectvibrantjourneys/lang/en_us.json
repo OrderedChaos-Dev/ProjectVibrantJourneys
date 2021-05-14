@@ -21,5 +21,10 @@
 	"block.projectvibrantjourneys.warped_nettle": "Warped Nettle",
 	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
-	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands"
+	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
+	
+	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
+	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
+	
+	"subtitles.fly.ambient": "Fly buzzes"
 }

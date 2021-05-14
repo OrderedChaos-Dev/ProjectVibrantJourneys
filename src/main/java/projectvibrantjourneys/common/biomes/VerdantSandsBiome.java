@@ -7,7 +7,7 @@ import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import projectvibrantjourneys.init.PVJConfiguredSurfaceBuilders;
+import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
 public class VerdantSandsBiome {
 

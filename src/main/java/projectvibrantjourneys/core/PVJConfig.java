@@ -36,6 +36,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableFlies;
+	public static ForgeConfigSpec.ConfigValue<Boolean> muteFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	
 	public static ForgeConfigSpec.ConfigValue<Boolean> overgrownSpires;
@@ -73,8 +75,16 @@ public class PVJConfig {
 
 		COMMON_BUILDER.pop();
 		
-		COMMON_BUILDER.comment("Mob Spawn Settings").push("Mob Spawns");
+		COMMON_BUILDER.push("Mob Settings");
+		COMMON_BUILDER.push("Mob Toggles");
+		enableFlies = COMMON_BUILDER.define("Enable Flies", true);
+		COMMON_BUILDER.pop();
+		COMMON_BUILDER.push("Misc Mob Settings");
+		muteFlies = COMMON_BUILDER.define("Mute Flies", false);
+		COMMON_BUILDER.pop();
+		COMMON_BUILDER.push("Vanilla Mob Settings");
 		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);
+		COMMON_BUILDER.pop();
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.comment("Biome Settings").push("Biomes");
