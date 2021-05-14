@@ -29,7 +29,7 @@ import net.minecraft.world.gen.placement.Placement;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
-import projectvibrantjourneys.init.objectregistry.PVJBlocks;
+import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();

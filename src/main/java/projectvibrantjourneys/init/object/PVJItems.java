@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init.objectregistry;
+package projectvibrantjourneys.init.object;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
 
@@ -16,12 +17,13 @@ import projectvibrantjourneys.init.PVJItemGroup;
 public class PVJItems {
 	public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
 	
-	
+	public static Item starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.STARFISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
 		createSpawnEgg(PVJEntities.FLY, 0x7e7e7e, 0xb3b3b3);
 		createSpawnEgg(PVJEntities.FIREFLY, 0xd4d360, 0xf5f371);
+		createSpawnEgg(PVJEntities.STARFISH, 0xFE5F55, 0xFFCAD4);
 		
 		ITEMS.forEach((e) -> event.getRegistry().register(e));
 	}

@@ -1,8 +1,15 @@
 {
 	"entity.fly.ambient": {
-	    "sounds": [
-	      "projectvibrantjourneys:entity/fly/idle1"
-	    ],
-	    "subtitle": "subtitles.fly.ambient"
-	  }
+		"sounds": [
+			"projectvibrantjourneys:entity/fly/idle1"
+		],
+		"subtitle": "subtitles.fly.ambient"
+	},
+	"entity.starfish.patrick": {
+		"sounds": [
+			"projectvibrantjourneys:entity/starfish/patrick1",
+			"projectvibrantjourneys:entity/starfish/patrick2"
+		],
+		"subtitle": "subtitles.starfish.patrick"
+	}
 }

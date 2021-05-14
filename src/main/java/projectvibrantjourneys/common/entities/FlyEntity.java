@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.core.PVJConfig;
-import projectvibrantjourneys.init.objectregistry.PVJSoundEvents;
+import projectvibrantjourneys.init.object.PVJSoundEvents;
 
 public class FlyEntity extends AmbientEntity {
 	

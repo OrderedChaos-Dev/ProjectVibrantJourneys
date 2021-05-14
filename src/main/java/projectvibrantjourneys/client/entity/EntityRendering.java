@@ -5,7 +5,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import projectvibrantjourneys.client.entity.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.entity.renderers.FlyRenderer;
-import projectvibrantjourneys.init.objectregistry.PVJEntities;
+import projectvibrantjourneys.client.entity.renderers.StarfishRenderer;
+import projectvibrantjourneys.init.object.PVJEntities;
 
 public class EntityRendering {
 
@@ -13,5 +14,7 @@ public class EntityRendering {
 	public static void registerRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.FLY, FlyRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.FIREFLY, FireflyRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.STARFISH, StarfishRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.OCEAN_STARFISH, StarfishRenderer::new);
 	}
 }

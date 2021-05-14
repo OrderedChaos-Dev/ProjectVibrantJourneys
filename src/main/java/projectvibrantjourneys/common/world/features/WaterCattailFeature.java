@@ -13,7 +13,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.CattailBlock;
-import projectvibrantjourneys.init.objectregistry.PVJBlocks;
+import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class WaterCattailFeature extends Feature<NoFeatureConfig> {
 	public WaterCattailFeature(Codec<NoFeatureConfig> config) {

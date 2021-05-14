@@ -13,7 +13,7 @@ import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.BiomeColors;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import projectvibrantjourneys.init.objectregistry.PVJBlocks;
+import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class BlockRendering {
 		@OnlyIn(Dist.CLIENT)

@@ -11,7 +11,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
-import projectvibrantjourneys.init.objectregistry.PVJBlocks;
+import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class BarkMushroomFeature extends Feature<NoFeatureConfig> {
 	public BarkMushroomFeature(Codec<NoFeatureConfig> config) {

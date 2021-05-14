@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init.objectregistry;
+package projectvibrantjourneys.init.object;
 
 import java.util.ArrayList;
 

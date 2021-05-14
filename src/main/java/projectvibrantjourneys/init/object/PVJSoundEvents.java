@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init.objectregistry;
+package projectvibrantjourneys.init.object;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class PVJSoundEvents {
 	public static final ArrayList<SoundEvent> SOUNDS = new ArrayList<SoundEvent>();
 	
 	public static final SoundEvent FLY_AMBIENT = registerSoundEvent("entity.fly.ambient");
-//	public static final SoundEvent PATRICK_STAR = registerSoundEvent("entity.starfish.patrick");
+	public static final SoundEvent PATRICK_STAR = registerSoundEvent("entity.starfish.patrick");
 	
 	@SubscribeEvent
 	public static void initSoundEvents(RegistryEvent.Register<SoundEvent> event) {

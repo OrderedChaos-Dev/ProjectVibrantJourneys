@@ -20,11 +20,14 @@
 	"block.projectvibrantjourneys.crimson_nettle": "Crimson Nettle",
 	"block.projectvibrantjourneys.warped_nettle": "Warped Nettle",
 	
+	"item.projectvibrantjourneys.starfish_bucket": "Bucket of Starfish",
+	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
+	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
+	"item.projectvibrantjourneys.starfish_spawn_egg": "Starfish Spawn Egg",
+	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
 	
-	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
-	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
-	
-	"subtitles.fly.ambient": "Fly buzzes"
+	"subtitles.fly.ambient": "Fly buzzes",
+	"subtitles.starfish.patrick": "No, this is Patrick"
 }
