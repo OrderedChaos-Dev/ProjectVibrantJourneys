@@ -34,11 +34,15 @@ public class PVJEntitySpawnEvents {
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
 			}
 			
-			if(biomeTypes.contains(Type.BEACH)) {
+			if(biomeTypes.contains(Type.BEACH) && !biomeTypes.contains(Type.MUSHROOM)) {
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
 			}
 			if(biomeTypes.contains(Type.OCEAN)) {
 				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 3));
+			}
+			
+			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
+				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
 			}
 		}
 	}

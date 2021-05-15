@@ -18,12 +18,14 @@ public class PVJItems {
 	public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
 	
 	public static Item starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.STARFISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
+	public static Item clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.CLAM, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
 		createSpawnEgg(PVJEntities.FLY, 0x7e7e7e, 0xb3b3b3);
 		createSpawnEgg(PVJEntities.FIREFLY, 0xd4d360, 0xf5f371);
 		createSpawnEgg(PVJEntities.STARFISH, 0xFE5F55, 0xFFCAD4);
+		createSpawnEgg(PVJEntities.CLAM, 0x5b5943, 0xfbf0fb);
 		
 		ITEMS.forEach((e) -> event.getRegistry().register(e));
 	}

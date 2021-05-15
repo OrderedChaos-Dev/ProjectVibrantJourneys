@@ -43,7 +43,7 @@ public class PVJFishBucketItem extends BucketItem {
 	private void placeFish(ServerWorld worldIn, ItemStack stack, BlockPos pos) {
 		Entity entity = this.fishType.spawn(worldIn, stack, (PlayerEntity) null, pos, SpawnReason.BUCKET, true, false);
 		if (entity != null) {
-			((IBucketCollectable) entity).isFromBucket(true);
+			((IBucketCollectable) entity).setFromBucket(true);
 		}
 
 	}

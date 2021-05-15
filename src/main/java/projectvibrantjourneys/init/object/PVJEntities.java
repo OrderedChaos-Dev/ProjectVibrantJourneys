@@ -14,6 +14,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import projectvibrantjourneys.common.entities.ClamEntity;
 import projectvibrantjourneys.common.entities.FireflyEntity;
 import projectvibrantjourneys.common.entities.FlyEntity;
 import projectvibrantjourneys.common.entities.StarfishEntity;
@@ -30,6 +31,7 @@ public class PVJEntities {
 	public static final EntityType<FireflyEntity> FIREFLY = registerEntity(EntityType.Builder.of(FireflyEntity::new, PVJ_AMBIENT).sized(0.1F, 0.1F), "firefly");
 	public static final EntityType<StarfishEntity> STARFISH = registerEntity(EntityType.Builder.of(StarfishEntity::new, PVJ_AMBIENT).sized(0.4F, 0.1F), "starfish");
 	public static final EntityType<StarfishEntity> OCEAN_STARFISH = registerEntity(EntityType.Builder.of(StarfishEntity::new, PVJ_WATER_AMBIENT).sized(0.4F, 0.1F), "ocean_starfish");
+	public static final EntityType<ClamEntity> CLAM = registerEntity(EntityType.Builder.of(ClamEntity::new, PVJ_WATER_AMBIENT).sized(0.45F, 0.25F), "clam");
 	
 	public static <T extends Entity> EntityType<T> registerEntity(EntityType.Builder<?> builder, String name) {
 		EntityType<T> entity = (EntityType<T>) builder.build(name).setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
@@ -50,6 +52,7 @@ public class PVJEntities {
 		event.put(FIREFLY, FlyEntity.createAttributes().build());
 		event.put(STARFISH, StarfishEntity.createAttributes().build());
 		event.put(OCEAN_STARFISH, StarfishEntity.createAttributes().build());
+		event.put(CLAM, ClamEntity.createAttributes().build());
 	}
 	
 	public static void registerSpawnPlacements() {
@@ -57,5 +60,6 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(FIREFLY, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, FireflyEntity::canSpawnFirefly);
 		EntitySpawnPlacementRegistry.register(STARFISH, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, StarfishEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(OCEAN_STARFISH, PlacementType.IN_WATER, Type.OCEAN_FLOOR, StarfishEntity::canSpawnOcean);
+		EntitySpawnPlacementRegistry.register(CLAM, PlacementType.IN_WATER, Type.OCEAN_FLOOR, ClamEntity::canSpawn);
 	}
 }
