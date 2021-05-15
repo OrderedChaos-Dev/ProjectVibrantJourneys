@@ -1,5 +1,6 @@
 package projectvibrantjourneys.init;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -29,8 +30,10 @@ public class PVJEntitySpawnEvents {
 		List<Spawners> water_spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_WATER_AMBIENT);
 		
 		if(biomeTypes.contains(Type.OVERWORLD)) {
-			if(!biomeTypes.contains(Type.SNOWY) && !biomeTypes.contains(Type.WASTELAND) && !biomeTypes.contains(Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
+			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
+				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
+				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
 			}
 			
@@ -38,7 +41,7 @@ public class PVJEntitySpawnEvents {
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
 			}
 			if(biomeTypes.contains(Type.OCEAN)) {
-				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 3));
+				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 4));
 			}
 			
 			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
@@ -47,10 +50,15 @@ public class PVJEntitySpawnEvents {
 		}
 	}
 	
-	private static boolean hasType(Set<BiomeDictionary.Type> list, BiomeDictionary.Type...types) {
+	private static boolean hasType(Set<BiomeDictionary.Type> list, BiomeDictionary.Type... types) {
 		for(BiomeDictionary.Type t : types) {
 			if(list.contains(t)) return true;
 		}
 		return false;
+	}
+	
+	private static boolean doesNotHave(Set<BiomeDictionary.Type> list, BiomeDictionary.Type... types) {
+		List<Type> typeList = Arrays.asList(types);
+		return list.stream().noneMatch((type) -> typeList.contains(type));
 	}
 }

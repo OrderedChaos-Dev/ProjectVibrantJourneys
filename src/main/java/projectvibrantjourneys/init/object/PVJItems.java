@@ -26,6 +26,8 @@ public class PVJItems {
 		createSpawnEgg(PVJEntities.FIREFLY, 0xd4d360, 0xf5f371);
 		createSpawnEgg(PVJEntities.STARFISH, 0xFE5F55, 0xFFCAD4);
 		createSpawnEgg(PVJEntities.CLAM, 0x5b5943, 0xfbf0fb);
+		createSpawnEgg(PVJEntities.SNAIL, 0x865d2c, 0x6f928d);
+		createSpawnEgg(PVJEntities.SLUG, 0x865d2c, 0x241606);
 		
 		ITEMS.forEach((e) -> event.getRegistry().register(e));
 	}
