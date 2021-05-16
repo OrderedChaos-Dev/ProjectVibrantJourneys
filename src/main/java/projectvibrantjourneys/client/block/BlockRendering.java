@@ -56,6 +56,7 @@ public class BlockRendering {
 	
 			registerFoliageColorBlock(blockColors, PVJBlocks.twigs);
 			registerFoliageColorBlock(blockColors, PVJBlocks.fallen_leaves);
+//			registerGrassColorBlock(blockColors, PVJBlocks.cattail);
 	
 			registerFoliageColorItem(itemColors, blockColors, PVJBlocks.fallen_leaves);
 		}

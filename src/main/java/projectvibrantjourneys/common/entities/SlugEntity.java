@@ -93,6 +93,10 @@ public class SlugEntity extends CreatureEntity {
 	}
 	
 	@Override
+	protected void pushEntities() {
+	}
+	
+	@Override
 	protected int getExperienceReward(PlayerEntity player) {
 		return 0;
 	}

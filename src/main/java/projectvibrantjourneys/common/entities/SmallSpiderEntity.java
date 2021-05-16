@@ -19,6 +19,7 @@ import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.monster.SpiderEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -27,6 +28,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SmallSpiderEntity extends SpiderEntity {
 
@@ -45,8 +48,8 @@ public class SmallSpiderEntity extends SpiderEntity {
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new SwimGoal(this));
-		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.1));
-		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, 0.5F));
+		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 	}
 	
 	@Override
@@ -75,5 +78,16 @@ public class SmallSpiderEntity extends SpiderEntity {
 	@Override
 	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 		return 0.1F;
+	}
+	
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public boolean shouldRenderAtSqrDistance(double distance) {
+		return true;
+	}
+	
+	@Override
+	protected int getExperienceReward(PlayerEntity player) {
+		return 0;
 	}
 }

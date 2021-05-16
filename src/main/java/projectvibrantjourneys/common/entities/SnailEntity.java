@@ -126,6 +126,10 @@ public class SnailEntity extends CreatureEntity {
 		return world.getBlockState(pos.below()).getBlock() instanceof GrassBlock || world.getBlockState(pos.below()).getBlock() == Blocks.DIRT;
 	}
 	
+	@Override
+	protected void pushEntities() {
+	}
+	
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean shouldRenderAtSqrDistance(double distance) {

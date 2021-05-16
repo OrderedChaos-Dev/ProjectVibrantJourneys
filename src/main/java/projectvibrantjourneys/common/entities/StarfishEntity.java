@@ -166,6 +166,10 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	}
 	
 	@Override
+	protected void pushEntities() {
+	}
+	
+	@Override
 	public boolean shouldDespawnInPeaceful() {
 		return this.isFromBucket();
 	}
