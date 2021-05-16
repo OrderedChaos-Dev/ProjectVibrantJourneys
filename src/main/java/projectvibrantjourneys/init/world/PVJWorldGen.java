@@ -51,37 +51,39 @@ public class PVJWorldGen {
 			if(event.getCategory() == Biome.Category.NETHER) {
 				if(PVJConfig.charredBones.get())
 					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
-			}
-			
-			if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
-				if(PVJConfig.twigs.get())
-					vegetalFeatures.add(() -> PVJConfiguredFeatures.twigs);
 				
-				if(PVJConfig.fallenLeaves.get())
-					vegetalFeatures.add(() -> PVJConfiguredFeatures.fallen_leaves);
-			}
-			if(hasType(biomeTypes, Type.SNOWY) && PVJConfig.iceChunks.get()) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.ice_chunks);
-			}
-			if(hasType(biomeTypes, Type.CONIFEROUS) && PVJConfig.pinecones.get()) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.pinecones);
-			}
-			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && PVJConfig.seashells.get()) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.seashells);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.ocean_seashells);
+			} else if(hasType(biomeTypes, Type.OVERWORLD)) {
+		
+				if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
+					if(PVJConfig.twigs.get())
+						vegetalFeatures.add(() -> PVJConfiguredFeatures.twigs);
+					
+					if(PVJConfig.fallenLeaves.get())
+						vegetalFeatures.add(() -> PVJConfiguredFeatures.fallen_leaves);
+				}
+				if(hasType(biomeTypes, Type.SNOWY) && PVJConfig.iceChunks.get()) {
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.ice_chunks);
+				}
+				if(hasType(biomeTypes, Type.CONIFEROUS) && PVJConfig.pinecones.get()) {
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.pinecones);
+				}
+				if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && PVJConfig.seashells.get()) {
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.seashells);
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.ocean_seashells);
+				}
+				
+				if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.rocks.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.rocks);
+				
+				if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.bones.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
+			
 			}
 			
-			if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.rocks.get())
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.rocks);
-			
-			if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.bones.get())
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
 		}
 		
 		
 		if(event.getCategory() == Biome.Category.NETHER) {
-			if(PVJConfig.charredBones.get())
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
 			if(PVJConfig.glowcap.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
 			
