@@ -71,10 +71,10 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.ocean_seashells);
 			}
 			
-			if(PVJConfig.rocks.get())
+			if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.rocks.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.rocks);
 			
-			if(PVJConfig.bones.get())
+			if(!hasType(biomeTypes, Type.MUSHROOM) && PVJConfig.bones.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
 		}
 		
