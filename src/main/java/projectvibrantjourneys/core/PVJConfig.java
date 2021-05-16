@@ -37,6 +37,12 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFlies;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableFireflies;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableStarfish;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableClams;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableSnails;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableSlugs;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableSmallSpiders;
 	public static ForgeConfigSpec.ConfigValue<Boolean> muteFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	
@@ -78,6 +84,12 @@ public class PVJConfig {
 		COMMON_BUILDER.push("Mob Settings");
 		COMMON_BUILDER.push("Mob Toggles");
 		enableFlies = COMMON_BUILDER.define("Enable Flies", true);
+		enableFireflies = COMMON_BUILDER.define("Enable Fireflies", true);
+		enableStarfish = COMMON_BUILDER.define("Enable Starfish", true);
+		enableClams = COMMON_BUILDER.define("Enable Clams", true);
+		enableSnails = COMMON_BUILDER.define("Enable Snails", true);
+		enableSlugs = COMMON_BUILDER.define("Enable Slugs", true);
+		enableSmallSpiders = COMMON_BUILDER.define("Enable Small Spiders", true);
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.push("Misc Mob Settings");
 		muteFlies = COMMON_BUILDER.define("Mute Flies", false);

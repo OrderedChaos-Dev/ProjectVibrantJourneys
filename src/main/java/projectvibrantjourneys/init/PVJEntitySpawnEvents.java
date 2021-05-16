@@ -16,6 +16,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
+import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.object.PVJEntities;
 
@@ -31,22 +32,30 @@ public class PVJEntitySpawnEvents {
 		
 		if(biomeTypes.contains(Type.OVERWORLD)) {
 			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, 5, 1, 1));
+				if(PVJConfig.enableFlies.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
+				if(PVJConfig.enableFireflies.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
+				if(PVJConfig.enableSnails.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
+				if(PVJConfig.enableSlugs.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
+				if(PVJConfig.enableSmallSpiders.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, 5, 1, 1));
 			}
 			
 			if(biomeTypes.contains(Type.BEACH) && !biomeTypes.contains(Type.MUSHROOM)) {
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
+				if(PVJConfig.enableStarfish.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
 			}
 			if(biomeTypes.contains(Type.OCEAN)) {
-				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 4));
+				if(PVJConfig.enableStarfish.get())
+					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 4));
 			}
 			
 			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
-				water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
+				if(PVJConfig.enableClams.get())
+					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
 			}
 		}
 	}
