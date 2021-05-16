@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "projectvibrantjourneys:clam"
+  },
+  "result": "projectvibrantjourneys:cooked_clam",
+  "experience": 0.35,
+  "cookingtime": 100
+}
