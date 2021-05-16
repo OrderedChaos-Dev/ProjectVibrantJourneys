@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
@@ -21,7 +22,10 @@ public class GroundcoverPlacer extends BlockPlacer {
 				if (state.getBlock() instanceof FallenLeavesBlock) {
 					world.setBlock(pos, state, 2);
 				} else {
-					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
+					world.setBlock(pos, state, 2);
+					int model = world.getRandom().nextInt(5);
+					Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(world.getRandom());
+					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, model).setValue(GroundcoverBlock.FACING, facing), 2);
 				}
 			}
 		}

@@ -7,6 +7,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
@@ -23,16 +24,21 @@ public class OceanFloorSeashellsFeature extends Feature<NoFeatureConfig> {
    }
 
    @Override
-   public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+   public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
       boolean flag = false;
       int i = rand.nextInt(8) - rand.nextInt(8);
       int j = rand.nextInt(8) - rand.nextInt(8);
-      int k = reader.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX() + i, pos.getZ() + j);
+      int k = world.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX() + i, pos.getZ() + j);
       BlockPos blockpos = new BlockPos(pos.getX() + i, k, pos.getZ() + j);
-      if (reader.getBlockState(blockpos).is(Blocks.WATER)) {
+      if (world.getBlockState(blockpos).is(Blocks.WATER)) {
          BlockState state = PVJBlocks.seashells.defaultBlockState();
-         if (state.canSurvive(reader, blockpos) && rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
-        	 reader.setBlock(blockpos, state.setValue(GroundcoverBlock.MODEL, rand.nextInt(5)).setValue(BlockStateProperties.WATERLOGGED, true), 2);
+         if (state.canSurvive(world, blockpos) && rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
+				int model = rand.nextInt(5);
+				Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
+				world.setBlock(blockpos, state
+											.setValue(GroundcoverBlock.MODEL, model)
+											.setValue(GroundcoverBlock.FACING, facing)
+											.setValue(BlockStateProperties.WATERLOGGED, true), 2);
 
             flag = true;
          }

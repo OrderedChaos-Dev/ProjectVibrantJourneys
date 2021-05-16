@@ -1,12 +1,10 @@
 package projectvibrantjourneys.common.blocks;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -14,6 +12,7 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -30,36 +29,32 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
-public class GroundcoverBlock extends Block {
+public class GroundcoverBlock extends HorizontalBlock {
 
 	public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 4);
+	public static final DirectionProperty FACING = HorizontalBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
 	public GroundcoverBlock(Material material) {
 		super(Block.Properties.of(material).strength(0.05F, 0.0F).noOcclusion());
-		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(WATERLOGGED, false));
+		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	
 	public GroundcoverBlock(Material material, SoundType soundType) {
 		super(Block.Properties.of(material).strength(0.1F, 0.0F).sound(soundType).noOcclusion());
-		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(WATERLOGGED, false));
-	}
-
-	@Override
-	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-		if(!world.isClientSide) {
-			int model = world.getRandom().nextInt(5);
-			FluidState ifluidstate = world.getFluidState(pos);
-			world.setBlock(pos, this.defaultBlockState().setValue(MODEL, model).setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER)), 2);
-		}
+		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext context) {
 		int model = context.getLevel().getRandom().nextInt(5);
+		Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(context.getLevel().getRandom());
 		FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
-		return this.defaultBlockState().setValue(MODEL, model).setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
+		return this.defaultBlockState()
+				.setValue(MODEL, model)
+				.setValue(FACING, facing)
+				.setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
 	}
 	
 	@Override
@@ -114,6 +109,6 @@ public class GroundcoverBlock extends Block {
 	
 	@Override
 	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
-		builder.add(MODEL, WATERLOGGED);
+		builder.add(MODEL, FACING, WATERLOGGED);
 	}
 }
