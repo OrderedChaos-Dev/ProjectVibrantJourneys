@@ -35,6 +35,7 @@ public class PVJEntitySpawnEvents {
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
 				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
+				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, 5, 1, 1));
 			}
 			
 			if(biomeTypes.contains(Type.BEACH) && !biomeTypes.contains(Type.MUSHROOM)) {

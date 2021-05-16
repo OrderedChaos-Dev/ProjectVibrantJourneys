@@ -28,6 +28,7 @@ public class PVJItems {
 		createSpawnEgg(PVJEntities.CLAM, 0x5b5943, 0xfbf0fb);
 		createSpawnEgg(PVJEntities.SNAIL, 0x865d2c, 0x6f928d);
 		createSpawnEgg(PVJEntities.SLUG, 0x865d2c, 0x241606);
+		createSpawnEgg(PVJEntities.SMALL_SPIDER, 0x260300, 0xb31104);
 		
 		ITEMS.forEach((e) -> event.getRegistry().register(e));
 	}

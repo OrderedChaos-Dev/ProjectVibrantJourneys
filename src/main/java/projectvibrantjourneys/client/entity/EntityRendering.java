@@ -7,6 +7,7 @@ import projectvibrantjourneys.client.entity.renderers.ClamRenderer;
 import projectvibrantjourneys.client.entity.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.entity.renderers.FlyRenderer;
 import projectvibrantjourneys.client.entity.renderers.SlugRenderer;
+import projectvibrantjourneys.client.entity.renderers.SmallSpiderRenderer;
 import projectvibrantjourneys.client.entity.renderers.SnailRenderer;
 import projectvibrantjourneys.client.entity.renderers.StarfishRenderer;
 import projectvibrantjourneys.init.object.PVJEntities;
@@ -22,6 +23,6 @@ public class EntityRendering {
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.CLAM, ClamRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.SNAIL, SnailRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.SLUG, SlugRenderer::new);
-		
+		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.SMALL_SPIDER, SmallSpiderRenderer::new);
 	}
 }
