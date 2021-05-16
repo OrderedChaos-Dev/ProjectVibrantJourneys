@@ -44,8 +44,8 @@ public class PVJConfiguredFeatures {
 	public static BlockClusterFeatureConfig bonesCluster = makeFeatureConfig(
 			new SimpleBlockStateProvider(PVJBlocks.bones.defaultBlockState()), GROUNDCOVER_PLACER, 1);
 	public static BlockClusterFeatureConfig charredBonesCluster = new BlockClusterFeatureConfig.Builder(
-			new SimpleBlockStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer()).tries(64)
-					.noProjection().build();
+			new SimpleBlockStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer())
+					.tries(64).noProjection().build();
 	public static BlockClusterFeatureConfig pineconesCluster = makeFeatureConfig(
 			new SimpleBlockStateProvider(PVJBlocks.pinecones.defaultBlockState()), GROUNDCOVER_PLACER, 4);
 	public static BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(
@@ -86,12 +86,12 @@ public class PVJConfiguredFeatures {
 	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
 
 	public static void init() {
-		sea_oats = register("sea_oats", Feature.RANDOM_PATCH.configured(seaOatsCluster)
-				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+		sea_oats = register("sea_oats",
+				Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 		cattails = register("cattail", Feature.RANDOM_PATCH.configured(cattailCluster)
 				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2));
-		water_cattails = register("water_cattail", PVJFeatures.waterCattailFeature
-				.configured(IFeatureConfig.NONE).squared().count(30).chance(3));
+		water_cattails = register("water_cattail",
+				PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3));
 
 		twigs = register("twigs", Feature.RANDOM_PATCH.configured(twigsCluster)
 				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
@@ -109,33 +109,30 @@ public class PVJConfiguredFeatures {
 				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2));
 		seashells = register("seashells", Feature.RANDOM_PATCH.configured(seashellsCluster)
 				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
-		ocean_seashells = register("ocean_seashells",
-				PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE)
-						.decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2));
+		ocean_seashells = register("ocean_seashells", PVJFeatures.oceanFloorSeashellsFeature
+				.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2));
 
 		bushes = register("bush", PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F))
 				.decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE));
-		bark_mushrooms = register("bark_mushroom", PVJFeatures.barkMushroomFeature
-				.configured(IFeatureConfig.NONE).squared().count(30));
-		cobwebs = register("cobwebs", PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared()
-				.count(30).chance(25));
+		bark_mushrooms = register("bark_mushroom",
+				PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30));
+		cobwebs = register("cobwebs",
+				PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25));
 		glowcap = register("glowcap", Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2));
-		crimson_nettle = register("crimson_nettle",
-				Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40)
-						.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
+		crimson_nettle = register("crimson_nettle", Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig)
+				.chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
 		warped_nettle = register("warped_nettle", Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig)
 				.chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
 
-		overgrown_spires_vegetation = register("overgrown_spires_vegetation", Feature.RANDOM_SELECTOR
-				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(Features.FANCY_OAK.weighted(0.25F), Features.JUNGLE_BUSH.weighted(0.4F),
-								Features.MEGA_JUNGLE_TREE.weighted(0.3F), Features.DARK_OAK.weighted(0.25F)),
-						Features.JUNGLE_TREE))
-				.decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(7, 0.4F, 1))));
+		overgrown_spires_vegetation = register("overgrown_spires_vegetation",
+				Feature.RANDOM_SELECTOR
+						.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
+								Features.JUNGLE_BUSH.weighted(0.5F), Features.MEGA_JUNGLE_TREE.weighted(0.33333334F)), Features.JUNGLE_TREE))
+						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.4F, 1))));
 
-		fallen_tree = register("fallen_tree", PVJFeatures.fallenTreeFeature
-				.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP));
+		fallen_tree = register("fallen_tree", PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE)
+				.decorated(Placements.TOP_SOLID_HEIGHTMAP));
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer,

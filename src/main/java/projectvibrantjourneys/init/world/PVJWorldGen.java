@@ -79,7 +79,6 @@ public class PVJWorldGen {
 					vegetalFeatures.add(() -> PVJConfiguredFeatures.bones);
 			
 			}
-			
 		}
 		
 		

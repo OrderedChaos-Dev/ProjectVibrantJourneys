@@ -8,6 +8,8 @@ import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
@@ -42,6 +44,8 @@ public class OvergrownSpiresBiome {
 		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenSettings);
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
 		DefaultBiomeFeatures.addJungleExtraVegetation(biomeGenSettings);
+
+		biomeGenSettings.addFeature(Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
 
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(0.3625F)
 				.scale(1.225F).temperature(0.95F).downfall(0.9F)

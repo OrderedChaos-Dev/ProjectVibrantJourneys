@@ -50,10 +50,10 @@ public class PVJBiomes {
 	
 	public static void addBiomes() {
 		if(PVJConfig.overgrownSpires.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OVERGROWN_SPIRES, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OVERGROWN_SPIRES, 10));
 		
 		if(PVJConfig.verdantSands.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.VERDANT_SANDS, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.VERDANT_SANDS, 10));
 	}
 	
 	public static void addTypes() {
