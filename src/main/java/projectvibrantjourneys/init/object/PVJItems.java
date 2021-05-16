@@ -19,6 +19,7 @@ public class PVJItems {
 	
 	public static Item starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.STARFISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
 	public static Item clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.CLAM, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
+	public static Item pearl = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {

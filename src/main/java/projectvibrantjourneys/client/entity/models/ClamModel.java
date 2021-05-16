@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import projectvibrantjourneys.common.entities.ClamEntity;
 
 public class ClamModel<T extends Entity> extends SegmentedModel<T>
 {
@@ -41,6 +42,10 @@ public class ClamModel<T extends Entity> extends SegmentedModel<T>
 	
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		
+		if(!((ClamEntity)entity).hasPearl()) {
+			this.pearl.visible = false;
+		} else {
+			this.pearl.visible = true;
+		}
 	}
 }

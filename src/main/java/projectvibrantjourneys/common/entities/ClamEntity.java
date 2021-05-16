@@ -24,6 +24,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.ActionResultType;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -39,6 +40,7 @@ import projectvibrantjourneys.init.object.PVJItems;
 public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	
 	private static final DataParameter<Boolean> FROM_BUCKET = EntityDataManager.defineId(ClamEntity.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> HAS_PEARL = EntityDataManager.defineId(ClamEntity.class, DataSerializers.BOOLEAN);
 	
 	public ClamEntity(EntityType<? extends ClamEntity> type, World world) {
 		super(type, world);
@@ -53,7 +55,6 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new RandomWalkingGoal(this, 0.001F));
-//		this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
 	}
 	
 	public static boolean canSpawn(EntityType<ClamEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
@@ -68,7 +69,17 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 			this.setPos(pos.getX(), pos.getY() - 1, pos.getZ());
 			pos = this.blockPosition();
 		}
+		
+		if(world.getRandom().nextInt(5) == 0) 
+			this.setHasPearl(true);
 		return super.finalizeSpawn(world, difficulty, reason, spawnData, dataTag);
+	}
+	
+	@Override
+	protected void dropCustomDeathLoot(DamageSource source, int p_213333_2_, boolean p_213333_3_) {
+		if(this.hasPearl()) {
+			this.spawnAtLocation(PVJItems.pearl);
+		}
 	}
 	
 	@Override
@@ -89,7 +100,9 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	
 	@Override
 	protected int getExperienceReward(PlayerEntity player) {
-		return 1;
+		if(this.hasPearl())
+			return 1;
+		return 0;
 	}
 	
 	@Override
@@ -106,6 +119,7 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	public void defineSynchedData() {
 		super.defineSynchedData();
 		this.getEntityData().define(FROM_BUCKET, false);
+		this.getEntityData().define(HAS_PEARL, false);
 	}
 
 	@Override
@@ -117,17 +131,29 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	public void setFromBucket(boolean value) {
 		this.getEntityData().set(FROM_BUCKET, value);
 	}
+	
+
+	public boolean hasPearl() {
+		return this.getEntityData().get(HAS_PEARL);
+	}
+	
+	public void setHasPearl(boolean value) {
+		this.getEntityData().set(HAS_PEARL, value);
+	}
 
 	@Override
 	public void addAdditionalSaveData(CompoundNBT compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putBoolean("FromBucket", this.isFromBucket());
+		compound.putBoolean("HasPearl", this.hasPearl());
+		
 	}
 
 	@Override
 	public void readAdditionalSaveData(CompoundNBT compound) {
 		super.readAdditionalSaveData(compound);
 		this.setFromBucket(compound.getBoolean("FromBucket"));
+		this.setHasPearl(compound.getBoolean("HasPearl"));
 	}
 
 	@Override
