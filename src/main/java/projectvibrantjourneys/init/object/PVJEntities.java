@@ -24,6 +24,7 @@ import projectvibrantjourneys.common.entities.SmallSpiderEntity;
 import projectvibrantjourneys.common.entities.SnailEntity;
 import projectvibrantjourneys.common.entities.StarfishEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
+import projectvibrantjourneys.init.PVJEntitySpawnEvents;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJEntities {
@@ -81,6 +82,6 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(SLUG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(SMALL_SPIDER, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SmallSpiderEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(FROG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, FrogEntity::canSpawn);
-		EntitySpawnPlacementRegistry.register(NIGHT_BAT, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, (e, w, s, p, r) -> {return p.getY() > w.getSeaLevel() && w.canSeeSky(p);});
+		EntitySpawnPlacementRegistry.register(NIGHT_BAT, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, PVJEntitySpawnEvents::canBatSpawn);
 	}
 }

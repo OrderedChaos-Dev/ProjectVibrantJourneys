@@ -32,6 +32,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> bushes;
 	public static ForgeConfigSpec.ConfigValue<Boolean> glowcap;
 	public static ForgeConfigSpec.ConfigValue<Boolean> netherNettles;
+	public static ForgeConfigSpec.ConfigValue<Boolean> shortGrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> fallenTrees;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
@@ -77,6 +78,7 @@ public class PVJConfig {
 		bushes = COMMON_BUILDER.define("bushes", true);
 		glowcap = COMMON_BUILDER.define("glowcap", true);
 		netherNettles = COMMON_BUILDER.define("netherNettles", true);
+		shortGrass = COMMON_BUILDER.define("shortGrass", true);
 		fallenTrees = COMMON_BUILDER.define("fallenTrees", true);
 		moreSeagrass = COMMON_BUILDER.comment("Seagrass in lakes").define("moreSeagrass", true);
 		moreGrassInRivers = COMMON_BUILDER.comment("Denser river grass").define("moreGrassInRivers", true);

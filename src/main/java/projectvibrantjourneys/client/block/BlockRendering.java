@@ -43,6 +43,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.crimson_nettle, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.warped_nettle, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.short_grass, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_warped_nettle, cutout);
@@ -57,8 +58,10 @@ public class BlockRendering {
 			registerFoliageColorBlock(blockColors, PVJBlocks.twigs);
 			registerFoliageColorBlock(blockColors, PVJBlocks.fallen_leaves);
 //			registerGrassColorBlock(blockColors, PVJBlocks.cattail);
-	
+			registerGrassColorBlock(blockColors, PVJBlocks.short_grass);
+			
 			registerFoliageColorItem(itemColors, blockColors, PVJBlocks.fallen_leaves);
+			registerFoliageColorItem(itemColors, blockColors, PVJBlocks.short_grass);
 		}
 	
 		private static void registerFoliageColorBlock(BlockColors bc, Block block) {

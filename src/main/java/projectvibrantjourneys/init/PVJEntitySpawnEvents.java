@@ -2,11 +2,17 @@ package projectvibrantjourneys.init;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.util.RegistryKey;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.biome.Biomes;
@@ -84,5 +90,15 @@ public class PVJEntitySpawnEvents {
 	private static boolean doesNotHave(Set<BiomeDictionary.Type> list, BiomeDictionary.Type... types) {
 		List<Type> typeList = Arrays.asList(types);
 		return list.stream().noneMatch((type) -> typeList.contains(type));
+	}
+	
+	public static boolean canBatSpawn(EntityType<BatEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+		if (pos.getY() < world.getSeaLevel()) {
+			return false;
+		} else if(world.getMaxLocalRawBrightness(pos) > 9) {
+			return false;
+		} else {
+			return CreatureEntity.checkMobSpawnRules(entity, world, reason, pos, rand);
+		}
 	}
 }

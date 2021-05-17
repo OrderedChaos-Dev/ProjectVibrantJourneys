@@ -10,12 +10,9 @@ import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
@@ -109,10 +106,14 @@ public class PVJWorldGen {
 			if(PVJConfig.barkMushrooms.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.bark_mushrooms);
 			
+			if(PVJConfig.shortGrass.get())
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.short_grass);
+			
+			
+			//other
 			if(PVJConfig.cobwebs.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cobwebs);
 			
-			//other
 			if(event.getCategory() != Biome.Category.DESERT
 					&& event.getCategory() != Biome.Category.MESA
 					&& event.getCategory() != Biome.Category.RIVER

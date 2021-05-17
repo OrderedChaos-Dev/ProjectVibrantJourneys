@@ -24,6 +24,7 @@ import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.NetherPlantBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
+import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
 
@@ -39,6 +40,7 @@ public class PVJBlocks {
 	public static Block natural_cobweb;
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle;
+	public static Block short_grass;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -62,6 +64,7 @@ public class PVJBlocks {
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
+		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
 		
 		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
 		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");
