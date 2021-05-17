@@ -1,5 +1,6 @@
 package projectvibrantjourneys.client.entity;
 
+import net.minecraft.client.renderer.entity.BatRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -26,5 +27,6 @@ public class EntityRendering {
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.SLUG, SlugRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.SMALL_SPIDER, SmallSpiderRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.FROG, FrogRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(PVJEntities.NIGHT_BAT, BatRenderer::new);
 	}
 }

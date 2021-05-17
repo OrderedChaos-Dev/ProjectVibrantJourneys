@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntitySpawnPlacementRegistry.PlacementType;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.BatEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.Heightmap.Type;
 import net.minecraftforge.event.RegistryEvent;
@@ -29,10 +30,11 @@ public class PVJEntities {
 	
 	public static final EntityClassification PVJ_AMBIENT = EntityClassification.create("pvj_ambient", "pvj_ambient", 15, true, false, 128);
 	public static final EntityClassification PVJ_WATER_AMBIENT = EntityClassification.create("pvj_water_ambient", "pvj_water_ambient", 15, true, false, 128);
+	public static final EntityClassification PVJ_NIGHT_AMBIENT = EntityClassification.create("pvj_night_ambient", "pvj_night_ambient", 25, true, false, 128);
 	
 	public static final List<EntityType<?>> ENTITIES = new ArrayList<EntityType<?>>();
 	public static final EntityType<FlyEntity> FLY = registerEntity(EntityType.Builder.of(FlyEntity::new, PVJ_AMBIENT).sized(0.1F, 0.1F), "fly");
-	public static final EntityType<FireflyEntity> FIREFLY = registerEntity(EntityType.Builder.of(FireflyEntity::new, PVJ_AMBIENT).sized(0.1F, 0.1F), "firefly");
+	public static final EntityType<FireflyEntity> FIREFLY = registerEntity(EntityType.Builder.of(FireflyEntity::new, PVJ_NIGHT_AMBIENT).sized(0.1F, 0.1F), "firefly");
 	public static final EntityType<StarfishEntity> STARFISH = registerEntity(EntityType.Builder.of(StarfishEntity::new, PVJ_AMBIENT).sized(0.4F, 0.1F), "starfish");
 	public static final EntityType<StarfishEntity> OCEAN_STARFISH = registerEntity(EntityType.Builder.of(StarfishEntity::new, PVJ_WATER_AMBIENT).sized(0.4F, 0.1F), "ocean_starfish");
 	public static final EntityType<ClamEntity> CLAM = registerEntity(EntityType.Builder.of(ClamEntity::new, PVJ_WATER_AMBIENT).sized(0.45F, 0.25F), "clam");
@@ -40,6 +42,7 @@ public class PVJEntities {
 	public static final EntityType<SlugEntity> SLUG = registerEntity(EntityType.Builder.of(SlugEntity::new, PVJ_AMBIENT).sized(0.25F, 0.10F), "slug");
 	public static final EntityType<SmallSpiderEntity> SMALL_SPIDER = registerEntity(EntityType.Builder.of(SmallSpiderEntity::new, PVJ_AMBIENT).sized(0.28F, 0.18F), "small_spider");
 	public static final EntityType<FrogEntity> FROG = registerEntity(EntityType.Builder.of(FrogEntity::new, PVJ_AMBIENT).sized(0.45F, 0.3F), "frog");
+	public static final EntityType<BatEntity> NIGHT_BAT = registerEntity(EntityType.Builder.of(BatEntity::new, PVJ_NIGHT_AMBIENT).sized(0.5F, 0.9F), "night_bat");
 	
 	public static <T extends Entity> EntityType<T> registerEntity(EntityType.Builder<?> builder, String name) {
 		EntityType<T> entity = (EntityType<T>) builder.build(name).setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
@@ -65,6 +68,7 @@ public class PVJEntities {
 		event.put(SLUG, SlugEntity.createAttributes().build());
 		event.put(SMALL_SPIDER, SmallSpiderEntity.createAttributes().build());
 		event.put(FROG, FrogEntity.createAttributes().build());
+		event.put(NIGHT_BAT, BatEntity.createAttributes().build());
 	}
 	
 	public static void registerSpawnPlacements() {
@@ -77,5 +81,6 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(SLUG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(SMALL_SPIDER, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SmallSpiderEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(FROG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, FrogEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(NIGHT_BAT, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, (e, w, s, p, r) -> {return p.getY() > w.getSeaLevel() && w.canSeeSky(p);});
 	}
 }

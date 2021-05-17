@@ -46,6 +46,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFrogs;
 	public static ForgeConfigSpec.ConfigValue<Boolean> muteFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
+	public static ForgeConfigSpec.ConfigValue<Boolean> nightBats;
 	
 	public static ForgeConfigSpec.ConfigValue<Boolean> overgrownSpires;
 	public static ForgeConfigSpec.ConfigValue<Boolean> verdantSands;
@@ -98,6 +99,7 @@ public class PVJConfig {
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.push("Vanilla Mob Settings");
 		jungleTropicalFish = COMMON_BUILDER.comment("Tropical fish in jungles").define("jungleTropicalFish", true);
+		nightBats = COMMON_BUILDER.comment("Bats spawn outside at night").define("nightBats", true);
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.pop();
 		

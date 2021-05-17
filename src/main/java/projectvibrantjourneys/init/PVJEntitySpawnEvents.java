@@ -32,13 +32,16 @@ public class PVJEntitySpawnEvents {
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		List<Spawners> spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_AMBIENT);
 		List<Spawners> water_spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_WATER_AMBIENT);
+		List<Spawners> night_spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_NIGHT_AMBIENT);
 		
 		if(biomeTypes.contains(Type.OVERWORLD)) {
 			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
 				if(PVJConfig.enableFlies.get())
 					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
 				if(PVJConfig.enableFireflies.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 4));
+					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 5));
+				if(PVJConfig.enableFireflies.get())
+					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.NIGHT_BAT, 10, 1, 3));
 				if(PVJConfig.enableSnails.get())
 					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
 				if(PVJConfig.enableSlugs.get())
