@@ -124,9 +124,7 @@ public class PVJWorldGen {
 			if(event.getCategory() == Biome.Category.RIVER && PVJConfig.moreGrassInRivers.get()) {
 				vegetalFeatures.add(() -> Features.PATCH_GRASS_PLAIN);
 			}
-			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
-				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
-			}
+
 			if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.overgrown_spires_vegetation);
 			}

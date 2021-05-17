@@ -33,6 +33,7 @@ public class PVJItems {
 		createSpawnEgg(PVJEntities.SNAIL, 0x865d2c, 0x6f928d);
 		createSpawnEgg(PVJEntities.SLUG, 0x865d2c, 0x241606);
 		createSpawnEgg(PVJEntities.SMALL_SPIDER, 0x260300, 0xb31104);
+		createSpawnEgg(PVJEntities.FROG, 0x238748, 0xfbf0fb);
 		
 		ITEMS.forEach((e) -> event.getRegistry().register(e));
 	}
@@ -45,6 +46,6 @@ public class PVJItems {
 	}
 	
 	public static Item createSpawnEgg(EntityType<?> entity, int color1, int color2) {
-		return registerItem(new SpawnEggItem(entity, color2, color2, new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), entity.getRegistryName().getPath() + "_spawn_egg");
+		return registerItem(new SpawnEggItem(entity, color1, color2, new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), entity.getRegistryName().getPath() + "_spawn_egg");
 	}
 }

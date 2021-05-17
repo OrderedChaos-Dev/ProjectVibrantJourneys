@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MobSpawnInfo.Spawners;
 import net.minecraftforge.common.BiomeDictionary;
@@ -56,6 +59,14 @@ public class PVJEntitySpawnEvents {
 			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
 				if(PVJConfig.enableClams.get())
 					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
+			}
+			
+			if(biome == Biomes.RIVER || hasType(biomeTypes, Type.JUNGLE, Type.SWAMP)) {
+				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, 30, 1, 2));
+			}
+			
+			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
+				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
 			}
 		}
 	}

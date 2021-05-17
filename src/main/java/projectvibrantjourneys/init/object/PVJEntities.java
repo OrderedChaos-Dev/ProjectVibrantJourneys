@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.entities.ClamEntity;
 import projectvibrantjourneys.common.entities.FireflyEntity;
 import projectvibrantjourneys.common.entities.FlyEntity;
+import projectvibrantjourneys.common.entities.FrogEntity;
 import projectvibrantjourneys.common.entities.SlugEntity;
 import projectvibrantjourneys.common.entities.SmallSpiderEntity;
 import projectvibrantjourneys.common.entities.SnailEntity;
@@ -38,6 +39,7 @@ public class PVJEntities {
 	public static final EntityType<SnailEntity> SNAIL = registerEntity(EntityType.Builder.of(SnailEntity::new, PVJ_AMBIENT).sized(0.25F, 0.15F), "snail");
 	public static final EntityType<SlugEntity> SLUG = registerEntity(EntityType.Builder.of(SlugEntity::new, PVJ_AMBIENT).sized(0.25F, 0.10F), "slug");
 	public static final EntityType<SmallSpiderEntity> SMALL_SPIDER = registerEntity(EntityType.Builder.of(SmallSpiderEntity::new, PVJ_AMBIENT).sized(0.28F, 0.18F), "small_spider");
+	public static final EntityType<FrogEntity> FROG = registerEntity(EntityType.Builder.of(FrogEntity::new, PVJ_AMBIENT).sized(0.45F, 0.3F), "frog");
 	
 	public static <T extends Entity> EntityType<T> registerEntity(EntityType.Builder<?> builder, String name) {
 		EntityType<T> entity = (EntityType<T>) builder.build(name).setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));
@@ -62,6 +64,7 @@ public class PVJEntities {
 		event.put(SNAIL, SnailEntity.createAttributes().build());
 		event.put(SLUG, SlugEntity.createAttributes().build());
 		event.put(SMALL_SPIDER, SmallSpiderEntity.createAttributes().build());
+		event.put(FROG, FrogEntity.createAttributes().build());
 	}
 	
 	public static void registerSpawnPlacements() {
@@ -73,5 +76,6 @@ public class PVJEntities {
 		EntitySpawnPlacementRegistry.register(SNAIL, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SnailEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(SLUG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SlugEntity::canSpawn);
 		EntitySpawnPlacementRegistry.register(SMALL_SPIDER, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, SmallSpiderEntity::canSpawn);
+		EntitySpawnPlacementRegistry.register(FROG, PlacementType.ON_GROUND, Type.MOTION_BLOCKING_NO_LEAVES, FrogEntity::canSpawn);
 	}
 }

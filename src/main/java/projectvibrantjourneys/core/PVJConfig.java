@@ -43,6 +43,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableSnails;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableSlugs;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableSmallSpiders;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableFrogs;
 	public static ForgeConfigSpec.ConfigValue<Boolean> muteFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	
@@ -90,6 +91,7 @@ public class PVJConfig {
 		enableSnails = COMMON_BUILDER.define("Enable Snails", true);
 		enableSlugs = COMMON_BUILDER.define("Enable Slugs", true);
 		enableSmallSpiders = COMMON_BUILDER.define("Enable Small Spiders", true);
+		enableFrogs = COMMON_BUILDER.define("Enable Frogs", true);
 		COMMON_BUILDER.pop();
 		COMMON_BUILDER.push("Misc Mob Settings");
 		muteFlies = COMMON_BUILDER.define("Mute Flies", false);
