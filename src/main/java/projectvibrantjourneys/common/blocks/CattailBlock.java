@@ -2,6 +2,7 @@ package projectvibrantjourneys.common.blocks;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -149,6 +150,11 @@ public class CattailBlock extends DoublePlantBlock implements IWaterLoggable {
 	@Override
 	public FluidState getFluidState(BlockState state) {
 		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+	}
+	
+	@Override
+	public AbstractBlock.OffsetType getOffsetType() {
+		return AbstractBlock.OffsetType.XYZ;
 	}
 
 	@Override

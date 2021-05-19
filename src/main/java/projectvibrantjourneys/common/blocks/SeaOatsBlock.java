@@ -1,5 +1,6 @@
 package projectvibrantjourneys.common.blocks;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoublePlantBlock;
@@ -33,5 +34,10 @@ public class SeaOatsBlock extends DoublePlantBlock {
 	@Override
 	public boolean canBeReplaced(BlockState state, BlockItemUseContext useContext) {
 		return false;
+	}
+	
+	@Override
+	public AbstractBlock.OffsetType getOffsetType() {
+		return AbstractBlock.OffsetType.XYZ;
 	}
 }
