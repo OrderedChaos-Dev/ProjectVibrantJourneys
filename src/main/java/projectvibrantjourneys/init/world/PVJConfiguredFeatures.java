@@ -64,6 +64,8 @@ public class PVJConfiguredFeatures {
 			new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(
 			new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
+	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(
+			new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
 
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -84,18 +86,16 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> crimson_nettle;
 	public static ConfiguredFeature<?, ?> warped_nettle;
 	public static ConfiguredFeature<?, ?> short_grass;
+	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 
 	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
 
 	public static void init() {
-		sea_oats = register("sea_oats",
-				Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
-		cattails = register("cattail", Feature.RANDOM_PATCH.configured(cattailCluster)
-				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2));
-		water_cattails = register("water_cattail",
-				PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3));
+		sea_oats = register("sea_oats",Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+		cattails = register("cattail", Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2));
+		water_cattails = register("water_cattail", PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3));
 
 		twigs = register("twigs", Feature.RANDOM_PATCH.configured(twigsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
 		fallen_leaves = register("fallen_leaves", Feature.RANDOM_PATCH.configured(fallenLeavesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4).chance(2));
@@ -114,7 +114,7 @@ public class PVJConfiguredFeatures {
 		crimson_nettle = register("crimson_nettle", Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
 		warped_nettle = register("warped_nettle", Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
 		short_grass = register("short_grass", Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5));
-		
+		beach_grass = register("beach_grass", Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 		
 		overgrown_spires_vegetation = register("overgrown_spires_vegetation",
 				Feature.RANDOM_SELECTOR

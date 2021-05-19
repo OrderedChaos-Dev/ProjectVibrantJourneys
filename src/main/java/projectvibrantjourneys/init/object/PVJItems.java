@@ -20,9 +20,9 @@ public class PVJItems {
 	public static Item starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.STARFISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
 	public static Item clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.CLAM, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
 	public static Item pearl = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
-	public static Item clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam");
-	public static Item cooked_clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "cooked_clam");
-	public static Item clam_chowder = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_chowder");
+	public static Item clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.RAW_CLAM)), "clam");
+	public static Item cooked_clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
+	public static Item clam_chowder = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {

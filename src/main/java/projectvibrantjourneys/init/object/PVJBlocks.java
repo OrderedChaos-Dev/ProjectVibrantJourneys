@@ -17,6 +17,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
+import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
@@ -40,7 +41,7 @@ public class PVJBlocks {
 	public static Block natural_cobweb;
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle;
-	public static Block short_grass;
+	public static Block short_grass, beach_grass;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -65,6 +66,7 @@ public class PVJBlocks {
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
 		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
+		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
 		
 		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
 		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");

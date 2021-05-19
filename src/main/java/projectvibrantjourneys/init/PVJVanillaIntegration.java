@@ -21,6 +21,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.crimson_nettle, 0.65F);
 		setCompostInfo(PVJBlocks.warped_nettle, 0.65F);
 		setCompostInfo(PVJBlocks.short_grass, 0.25F);
+		setCompostInfo(PVJBlocks.beach_grass, 0.25F);
 	}
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {

@@ -109,6 +109,8 @@ public class PVJWorldGen {
 			if(PVJConfig.shortGrass.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.short_grass);
 			
+			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.beachGrass.get())
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
 			
 			//other
 			if(PVJConfig.cobwebs.get())
