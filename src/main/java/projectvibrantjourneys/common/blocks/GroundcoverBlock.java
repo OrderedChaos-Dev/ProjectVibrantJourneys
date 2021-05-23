@@ -67,7 +67,7 @@ public class GroundcoverBlock extends HorizontalBlock {
 	
 	@Override
 	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
-		return world.getBlockState(pos.below()).isCollisionShapeFullBlock(world, pos);
+		return Block.canSupportRigidBlock(world, pos.below());
 	}
 	
 	@Override
