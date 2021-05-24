@@ -34,7 +34,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class FrogEntity extends CreatureEntity {
 
-	private static final DataParameter<Integer> COLOR = EntityDataManager.defineId(StarfishEntity.class, DataSerializers.INT);
+	private static final DataParameter<Integer> COLOR = EntityDataManager.defineId(FrogEntity.class, DataSerializers.INT);
 	
 	private static final int NUM_COLORS = 5;
 	
