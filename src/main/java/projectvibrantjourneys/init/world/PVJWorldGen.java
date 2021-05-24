@@ -174,8 +174,8 @@ public class PVJWorldGen {
 				});
 			}
 		} catch(Exception e) {
-			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees");
-			e.printStackTrace();
+//			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees");
+//			e.printStackTrace();
 		}
 	
 	}
