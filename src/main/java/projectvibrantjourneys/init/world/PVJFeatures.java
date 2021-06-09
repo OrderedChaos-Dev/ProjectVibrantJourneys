@@ -20,7 +20,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class PVJFeatures {
-	public static ArrayList<Feature<?>> FEATURES = new ArrayList<Feature<?>>();
+	public static final ArrayList<Feature<?>> FEATURES = new ArrayList<Feature<?>>();
 	
 	public static Feature<NoFeatureConfig> oceanFloorSeashellsFeature;
 	public static Feature<ProbabilityConfig> bushFeature;
@@ -38,7 +38,7 @@ public class PVJFeatures {
 		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
 		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.CODEC), "fallen_tree_feature");
 		
-		event.getRegistry().registerAll(FEATURES.toArray(new Feature[0]));
+		FEATURES.forEach((feature) -> event.getRegistry().register(feature));
 	}
 	
 	public static <FC extends IFeatureConfig> Feature<FC> registerFeature(Feature<FC> feature, String name) {

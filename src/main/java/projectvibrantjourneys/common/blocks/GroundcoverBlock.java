@@ -38,7 +38,7 @@ public class GroundcoverBlock extends HorizontalBlock {
 	
 	public GroundcoverBlock(Material material) {
 		super(Block.Properties.of(material).strength(0.05F, 0.0F).noOcclusion());
-		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	
 	public GroundcoverBlock(Material material, SoundType soundType) {

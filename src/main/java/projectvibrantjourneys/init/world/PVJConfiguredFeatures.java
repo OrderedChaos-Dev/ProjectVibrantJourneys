@@ -1,8 +1,5 @@
 package projectvibrantjourneys.init.world;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.util.ResourceLocation;
@@ -90,8 +87,6 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> fallen_tree;
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 
-	public static final List<ConfiguredFeature<?, ?>> FALLEN_TREES = new ArrayList<ConfiguredFeature<?, ?>>();
-
 	public static void init() {
 		sea_oats = register("sea_oats",Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
 		cattails = register("cattail", Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2));
@@ -128,14 +123,11 @@ public class PVJConfiguredFeatures {
 				.decorated(Placements.TOP_SOLID_HEIGHTMAP));
 	}
 
-	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer,
-			int tries) {
+	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
 		return new BlockClusterFeatureConfig.Builder(provider, placer).tries(tries).build();
 	}
 
-	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key,
-			ConfiguredFeature<FC, ?> configuredFeature) {
-		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,
-				new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
+	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
+		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
 	}
 }

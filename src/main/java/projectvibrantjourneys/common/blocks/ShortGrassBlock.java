@@ -21,7 +21,7 @@ public class ShortGrassBlock extends BushBlock {
 	
 	public ShortGrassBlock() {
 		super(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS));
-		this.registerDefaultState(this.defaultBlockState().setValue(MODEL, 0));
+		this.registerDefaultState(this.stateDefinition.any().setValue(MODEL, 0));
 	}
 	
 	@Override
