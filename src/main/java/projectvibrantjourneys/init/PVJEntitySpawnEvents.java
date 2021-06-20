@@ -46,7 +46,7 @@ public class PVJEntitySpawnEvents {
 					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
 				if(PVJConfig.enableFireflies.get())
 					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 5));
-				if(PVJConfig.enableFireflies.get())
+				if(PVJConfig.nightBats.get())
 					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.NIGHT_BAT, 10, 1, 3));
 				if(PVJConfig.enableSnails.get())
 					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
@@ -71,7 +71,8 @@ public class PVJEntitySpawnEvents {
 			}
 			
 			if(biome == Biomes.RIVER || hasType(biomeTypes, Type.JUNGLE, Type.SWAMP)) {
-				spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, 30, 1, 2));
+				if(PVJConfig.enableFrogs.get())
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, 30, 1, 2));
 			}
 			
 			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
