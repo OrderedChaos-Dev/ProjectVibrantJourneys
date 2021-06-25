@@ -3,6 +3,7 @@ package projectvibrantjourneys.init.world;
 import java.util.ArrayList;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -15,6 +16,7 @@ import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
+import projectvibrantjourneys.common.world.features.SnowTreeFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -28,6 +30,7 @@ public class PVJFeatures {
 	public static Feature<NoFeatureConfig> barkMushroomFeature;
 	public static Feature<ProbabilityConfig> cobwebFeature;
 	public static Feature<NoFeatureConfig> fallenTreeFeature;
+	public static Feature<BaseTreeFeatureConfig> snowTree;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -37,6 +40,7 @@ public class PVJFeatures {
 		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.CODEC), "bark_mushroom_feature");
 		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
 		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.CODEC), "fallen_tree_feature");
+		snowTree = registerFeature(new SnowTreeFeature(BaseTreeFeatureConfig.CODEC), "snow_tree");
 		
 		FEATURES.forEach((feature) -> event.getRegistry().register(feature));
 	}

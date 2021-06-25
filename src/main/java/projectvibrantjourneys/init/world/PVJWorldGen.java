@@ -131,6 +131,16 @@ public class PVJWorldGen {
 			if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.overgrown_spires_vegetation);
 			}
+			
+			if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.REDWOOD_PEAKS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest);
+			} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST || biome == PVJBiomes.Keys.ALPINE_HEIGHTS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_forest);
+			}
+			
+			if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows);
+			}
 		}
 	}
 	

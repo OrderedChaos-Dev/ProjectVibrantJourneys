@@ -9,6 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import projectvibrantjourneys.common.entities.items.PVJBoatEntity;
+import projectvibrantjourneys.common.items.PVJBoatItem;
 import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
@@ -24,8 +26,13 @@ public class PVJItems {
 	public static Item cooked_clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
 	public static Item clam_chowder = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
 	
+	public static Item fir_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.FIR, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "fir_boat");
+	public static Item pine_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.PINE, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "pine_boat");
+	public static Item redwood_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.REDWOOD, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "redwood_boat");
+	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {
+		
 		createSpawnEgg(PVJEntities.FLY, 0x7e7e7e, 0xb3b3b3);
 		createSpawnEgg(PVJEntities.FIREFLY, 0xd4d360, 0xf5f371);
 		createSpawnEgg(PVJEntities.STARFISH, 0xFE5F55, 0xFFCAD4);

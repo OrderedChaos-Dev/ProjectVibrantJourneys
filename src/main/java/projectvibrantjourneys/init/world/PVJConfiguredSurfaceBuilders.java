@@ -10,8 +10,9 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 public class PVJConfiguredSurfaceBuilders {
 
-	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS = register("verdant_sands",
-			PVJSurfaceBuilders.VERDANT_SANDS.configured(SurfaceBuilder.CONFIG_OCEAN_SAND));
+	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> VERDANT_SANDS = register("verdant_sands", PVJSurfaceBuilders.VERDANT_SANDS.configured(SurfaceBuilder.CONFIG_OCEAN_SAND));
+	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> REDWOODS = register("cc_redwoods", PVJSurfaceBuilders.REDWOODS.configured(SurfaceBuilder.CONFIG_GRASS));
+	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> ALPINE_HEIGHTS = register("cc_alpine_heights", PVJSurfaceBuilders.ALPINE_HEIGHTS.configured(SurfaceBuilder.CONFIG_GRASS));
 
 	private static <SC extends ISurfaceBuilderConfig> ConfiguredSurfaceBuilder<SC> register(String name,
 			ConfiguredSurfaceBuilder<SC> builder) {

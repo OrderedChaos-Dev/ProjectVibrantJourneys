@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_door",
+	"projectvibrantjourneys:pine_door",
+	"projectvibrantjourneys:redwood_door"
+  ]
+}

@@ -38,6 +38,14 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	
+	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
+	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_boreal_forest;
+	public static ForgeConfigSpec.ConfigValue<Boolean> redwoods;
+	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_redwoods;
+	public static ForgeConfigSpec.ConfigValue<Boolean> redwood_peaks;
+	public static ForgeConfigSpec.ConfigValue<Boolean> pine_meadows;
+	public static ForgeConfigSpec.ConfigValue<Boolean> alpine_heights;
+	
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFireflies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableStarfish;
@@ -110,6 +118,13 @@ public class PVJConfig {
 		COMMON_BUILDER.comment("Biome Settings").push("Biomes");
 		overgrownSpires = COMMON_BUILDER.define("overgrownSpires", true);
 		verdantSands = COMMON_BUILDER.define("verdantSands", true);
+		boreal_forest = COMMON_BUILDER.define("boreal_forest", true);
+		snowy_boreal_forest = COMMON_BUILDER.define("snowy_boreal_forest", true);
+		redwoods = COMMON_BUILDER.define("redwoods", true);
+		snowy_redwoods = COMMON_BUILDER.define("snowy_redwoods", true);
+		redwood_peaks = COMMON_BUILDER.define("redwood_peaks", true);
+		pine_meadows = COMMON_BUILDER.define("pine_meadows", true);
+		alpine_heights = COMMON_BUILDER.define("alpine_heights", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

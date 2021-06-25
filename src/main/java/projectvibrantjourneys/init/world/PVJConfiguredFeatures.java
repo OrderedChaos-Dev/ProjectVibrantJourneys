@@ -10,10 +10,12 @@ import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureSpread;
 import net.minecraft.world.gen.feature.FeatureSpreadConfig;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
@@ -21,10 +23,18 @@ import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.TwoLayerFeature;
+import net.minecraft.world.gen.foliageplacer.MegaPineFoliagePlacer;
+import net.minecraft.world.gen.foliageplacer.PineFoliagePlacer;
+import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
+import projectvibrantjourneys.common.world.features.blockplacers.PVJPineFoliagePlacer;
+import projectvibrantjourneys.common.world.features.blockplacers.RedwoodTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
+import projectvibrantjourneys.common.world.features.blockplacers.SmallRedwoodTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.object.PVJBlocks;
@@ -86,6 +96,15 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
+	
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> huge_redwood;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> fir;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pine;
+
+	public static ConfiguredFeature<?, ?> redwood_forest;
+	public static ConfiguredFeature<?, ?> boreal_forest;
+	public static ConfiguredFeature<?, ?> pine_meadows;
 
 	public static void init() {
 		sea_oats = register("sea_oats",Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
@@ -121,6 +140,57 @@ public class PVJConfiguredFeatures {
 
 		fallen_tree = register("fallen_tree", PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE)
 				.decorated(Placements.TOP_SOLID_HEIGHTMAP));
+		
+		huge_redwood = register("huge_redwood",
+				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+						new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
+						new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0),
+								FeatureSpread.of(25, 7)),
+						new RedwoodTrunkPlacer(40, 30, 14), new TwoLayerFeature(1, 1, 2))).build()));
+
+		redwood = register("redwood",
+				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+						new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
+						new PineFoliagePlacer(FeatureSpread.fixed(1), FeatureSpread.fixed(1),
+								FeatureSpread.of(3, 1)),
+						new SmallRedwoodTrunkPlacer(7, 5, 0), new TwoLayerFeature(2, 0, 2))).ignoreVines()
+								.build()));
+		
+		fir = PVJFeatures.snowTree.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.fir_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.fir_leaves.defaultBlockState()),
+						new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
+								FeatureSpread.of(4, 2)),
+						new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+
+		pine = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.pine_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.pine_leaves.defaultBlockState()),
+						new PVJPineFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
+								FeatureSpread.of(3, 2)),
+						new StraightTrunkPlacer(9, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+
+		redwood_forest = register("redwood_forest", Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(huge_redwood.weighted(0.75F), redwood.weighted(0.25F)), huge_redwood))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.3F, 1))));
+
+		boreal_forest = register("boreal_forest",
+				Feature.RANDOM_SELECTOR
+						.configured(new MultipleRandomFeatureConfig(
+								ImmutableList.of(fir.weighted(0.75F), pine.weighted(0.25F)), fir))
+						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.3F, 1))));
+		
+		pine_meadows = register("pine_meadows",
+				Feature.RANDOM_SELECTOR
+						.configured(new MultipleRandomFeatureConfig(
+								ImmutableList.of(pine.weighted(0.75F)), pine))
+						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.5F, 2))));
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

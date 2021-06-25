@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "projectvibrantjourneys:fir_logs"
+    }
+  ],
+  "result": {
+    "item": "projectvibrantjourneys:fir_planks",
+    "count": 4
+  }
+}

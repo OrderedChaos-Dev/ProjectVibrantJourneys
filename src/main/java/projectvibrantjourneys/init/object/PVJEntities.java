@@ -23,6 +23,7 @@ import projectvibrantjourneys.common.entities.SlugEntity;
 import projectvibrantjourneys.common.entities.SmallSpiderEntity;
 import projectvibrantjourneys.common.entities.SnailEntity;
 import projectvibrantjourneys.common.entities.StarfishEntity;
+import projectvibrantjourneys.common.entities.items.PVJBoatEntity;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJEntitySpawnEvents;
 
@@ -44,6 +45,8 @@ public class PVJEntities {
 	public static final EntityType<SmallSpiderEntity> SMALL_SPIDER = registerEntity(EntityType.Builder.of(SmallSpiderEntity::new, PVJ_AMBIENT).sized(0.28F, 0.18F), "small_spider");
 	public static final EntityType<FrogEntity> FROG = registerEntity(EntityType.Builder.of(FrogEntity::new, PVJ_AMBIENT).sized(0.45F, 0.3F), "frog");
 	public static final EntityType<BatEntity> NIGHT_BAT = registerEntity(EntityType.Builder.of(BatEntity::new, PVJ_NIGHT_AMBIENT).sized(0.5F, 0.9F), "night_bat");
+	
+	public static final EntityType<PVJBoatEntity> PVJ_BOAT = registerEntity(EntityType.Builder.<PVJBoatEntity>of(PVJBoatEntity::new, EntityClassification.MISC).sized(1.375F, 0.5625F).setTrackingRange(10), "pvj_boat");
 	
 	public static <T extends Entity> EntityType<T> registerEntity(EntityType.Builder<?> builder, String name) {
 		EntityType<T> entity = (EntityType<T>) builder.build(name).setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+	"#projectvibrantjourneys:fir_logs",
+	"#projectvibrantjourneys:pine_logs",
+	"#projectvibrantjourneys:redwood_logs"
+  ]
+}

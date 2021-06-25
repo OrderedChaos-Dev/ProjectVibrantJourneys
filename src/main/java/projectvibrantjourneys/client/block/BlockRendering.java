@@ -49,6 +49,20 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_warped_nettle, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_crimson_nettle, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_fir_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_pine_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_redwood_sapling, cutout);
+			
+			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_trapdoor, cutout);
+
+			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_sapling, cutout_mipped);
 		}
 	
 		@OnlyIn(Dist.CLIENT)

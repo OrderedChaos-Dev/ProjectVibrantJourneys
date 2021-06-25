@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_slab",
+	"projectvibrantjourneys:pine_slab",
+	"projectvibrantjourneys:redwood_slab"
+  ]
+}

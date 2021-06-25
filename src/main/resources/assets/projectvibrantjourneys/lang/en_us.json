@@ -37,8 +37,83 @@
 	"item.projectvibrantjourneys.small_spider_spawn_egg": "Small Spider Spawn Egg",
 	"item.projectvibrantjourneys.frog_spawn_egg": "Frog Spawn Egg",
 	
+	"block.projectvibrantjourneys.fir_log": "Fir Log",
+	"block.projectvibrantjourneys.pine_log": "Pine Log",
+	"block.projectvibrantjourneys.redwood_log": "Redwood Log",
+	
+	"block.projectvibrantjourneys.fir_leaves": "Fir Leaves",
+	"block.projectvibrantjourneys.pine_leaves": "Pine Leaves",
+	"block.projectvibrantjourneys.redwood_leaves": "Redwood Leaves",
+	
+	"block.projectvibrantjourneys.fir_sapling": "Fir Sapling",
+	"block.projectvibrantjourneys.pine_sapling": "Pine Sapling",
+	"block.projectvibrantjourneys.redwood_sapling": "Redwood Sapling",
+	
+	"block.projectvibrantjourneys.fir_planks": "Fir Planks",
+	"block.projectvibrantjourneys.pine_planks": "Pine Planks",
+	"block.projectvibrantjourneys.redwood_planks": "Redwood Planks",
+	
+	"block.projectvibrantjourneys.fir_wood": "Fir Wood",
+	"block.projectvibrantjourneys.pine_wood": "Pine Wood",
+	"block.projectvibrantjourneys.redwood_wood": "Redwood Wood",
+	
+	"block.projectvibrantjourneys.stripped_fir_log": "Stripped Fir Log",
+	"block.projectvibrantjourneys.stripped_pine_log": "Stripped Pine Log",
+	"block.projectvibrantjourneys.stripped_redwood_log": "Stripped Redwood Log",
+	
+	"block.projectvibrantjourneys.stripped_fir_wood": "Stripped Fir Wood",
+	"block.projectvibrantjourneys.stripped_pine_wood": "Stripped Pine Wood",
+	"block.projectvibrantjourneys.stripped_redwood_wood": "Stripped Redwood Wood",
+	
+	"block.projectvibrantjourneys.fir_stairs": "Fir Stairs",
+	"block.projectvibrantjourneys.pine_stairs": "Pine Stairs",
+	"block.projectvibrantjourneys.redwood_stairs": "Redwood Stairs",
+	
+	"block.projectvibrantjourneys.fir_slab": "Fir Slab",
+	"block.projectvibrantjourneys.pine_slab": "Pine Slab",
+	"block.projectvibrantjourneys.redwood_slab": "Redwood Slab",
+	
+	"block.projectvibrantjourneys.fir_fence": "Fir Fence",
+	"block.projectvibrantjourneys.pine_fence": "Pine Fence",
+	"block.projectvibrantjourneys.redwood_fence": "Redwood Fence",
+	
+	"block.projectvibrantjourneys.fir_fence_gate": "Fir Fence Gate",
+	"block.projectvibrantjourneys.pine_fence_gate": "Pine Fence Gate",
+	"block.projectvibrantjourneys.redwood_fence_gate": "Redwood Fence Gate",
+	
+	"block.projectvibrantjourneys.fir_door": "Fir Door",
+	"block.projectvibrantjourneys.pine_door": "Pine Door",
+	"block.projectvibrantjourneys.redwood_door": "Redwood Door",
+	
+	"block.projectvibrantjourneys.fir_trapdoor": "Fir Trapdoor",
+	"block.projectvibrantjourneys.pine_trapdoor": "Pine Trapdoor",
+	"block.projectvibrantjourneys.redwood_trapdoor": "Redwood Trapdoor",
+	
+	"block.projectvibrantjourneys.fir_button": "Fir Button",
+	"block.projectvibrantjourneys.pine_button": "Pine Button",
+	"block.projectvibrantjourneys.redwood_button": "Redwood Button",
+	
+	"block.projectvibrantjourneys.fir_pressure_plate": "Fir Pressure Plate",
+	"block.projectvibrantjourneys.pine_pressure_plate": "Pine Pressure Plate",
+	"block.projectvibrantjourneys.redwood_pressure_plate": "Redwood Pressure Plate",
+	
+	"block.projectvibrantjourneys.potted_fir_sapling": "Potted Fir Sapling",
+	"block.projectvibrantjourneys.potted_pine_sapling": "Potted Pine Sapling",
+	"block.projectvibrantjourneys.potted_redwood_sapling": "Potted Redwood Sapling",
+	
+	"item.projectvibrantjourneys.fir_boat": "Fir Boat",
+	"item.projectvibrantjourneys.pine_boat": "Pine Boat",
+	"item.projectvibrantjourneys.redwood_boat": "Redwood Boat",
+	
 	"biome.projectvibrantjourneys.overgrown_spires": "Overgrown Spires",
 	"biome.projectvibrantjourneys.verdant_sands": "Verdant Sands",
+	"biome.projectvibrantjourneys.redwoods": "Redwoods",
+	"biome.projectvibrantjourneys.redwood_peaks": "Redwood Peaks",
+	"biome.projectvibrantjourneys.snowy_redwoods": "Snowy Redwoods",
+	"biome.projectvibrantjourneys.boreal_forest": "Boreal Forest",
+	"biome.projectvibrantjourneys.snowy_boreal_forest": "Snowy Boreal Forest",
+	"biome.projectvibrantjourneys.alpine_heights": "Alpine Heights",
+	"biome.projectvibrantjourneys.pine_meadows": "Pine Meadows",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",
@@ -53,4 +128,5 @@
 	
 	"subtitles.fly.ambient": "Fly buzzes",
 	"subtitles.starfish.patrick": "No, this is Patrick"
+	
 }

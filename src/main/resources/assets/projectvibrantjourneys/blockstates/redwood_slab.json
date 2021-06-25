@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "projectvibrantjourneys:block/redwood_slab" },
+        "type=top": { "model": "projectvibrantjourneys:block/redwood_slab_top" },
+        "type=double": { "model": "projectvibrantjourneys:block/redwood_planks" }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/pine_planks",
+        "top": "projectvibrantjourneys:block/pine_planks",
+        "side": "projectvibrantjourneys:block/pine_planks"
+    }
+}
