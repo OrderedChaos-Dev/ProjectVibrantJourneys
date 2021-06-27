@@ -32,7 +32,7 @@ public class BaobabFoliagePlacer extends FoliagePlacer  {
 
 	@Override
 	protected void createFoliage(IWorldGenerationReader world, Random rand, BaseTreeFeatureConfig config, int p_230372_4_, Foliage foliage, int p_230372_6_, int p_230372_7_, Set<BlockPos> blocks, int p_230372_9_, MutableBoundingBox box) {
-		int radius = 1 + rand.nextInt(4);
+		int radius = 3 + rand.nextInt(2);
 		for(int i = 0; i <= 2; i++) {
 			this.placeLeavesRow(world, rand, config, foliage.foliagePos(), radius + 1 - i, blocks, i, foliage.doubleTrunk(), box);
 		}

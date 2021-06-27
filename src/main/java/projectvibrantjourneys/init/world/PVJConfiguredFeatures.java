@@ -221,7 +221,7 @@ public class PVJConfiguredFeatures {
 		
 		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
 						.configured(new MultipleRandomFeatureConfig(
-								ImmutableList.of(pine_tree.weighted(0.75F)), pine_tree))
+								ImmutableList.of(baobab_tree.weighted(0.75F)), pine_tree))
 						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.5F, 2)));
 		

@@ -101,6 +101,16 @@ public class BaobabTrunkPlacer extends AbstractTrunkPlacer {
 			if(rand.nextBoolean())
 				placeLog(world, rand, temp.below(), blocks, box, config);
 		}
+		temp = temp.above();
+		placeLog(world, rand, temp.west(), blocks, box, config);
+		placeLog(world, rand, temp.east(), blocks, box, config);
+		placeLog(world, rand, temp.north(), blocks, box, config);
+		placeLog(world, rand, temp.south(), blocks, box, config);
+		temp = temp.above();
+		placeLog(world, rand, temp.west(2), blocks, box, config);
+		placeLog(world, rand, temp.east(2), blocks, box, config);
+		placeLog(world, rand, temp.north(2), blocks, box, config);
+		placeLog(world, rand, temp.south(2), blocks, box, config);
 		list.add(new FoliagePlacer.Foliage(temp, 0, true));
 	}
 	
