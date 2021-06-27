@@ -2,6 +2,7 @@ package projectvibrantjourneys.init.world;
 
 import com.google.common.collect.ImmutableList;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
@@ -24,18 +25,25 @@ import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.TwoLayerFeature;
+import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.MegaPineFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.PineFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
+import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
-import projectvibrantjourneys.common.world.features.blockplacers.PVJPineFoliagePlacer;
-import projectvibrantjourneys.common.world.features.blockplacers.RedwoodTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
-import projectvibrantjourneys.common.world.features.blockplacers.SmallRedwoodTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
+import projectvibrantjourneys.common.world.features.foliageplacers.PVJPineFoliagePlacer;
+import projectvibrantjourneys.common.world.features.foliageplacers.PalmFoliagePlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.MangroveTrunkPlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.PalmTrunkPlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.RedwoodTrunkPlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.SmallRedwoodTrunkPlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.WillowTrunkPlacer;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.object.PVJBlocks;
 
@@ -101,10 +109,14 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> fir;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pine;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> willow;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm;
 
 	public static ConfiguredFeature<?, ?> redwood_forest;
 	public static ConfiguredFeature<?, ?> boreal_forest;
 	public static ConfiguredFeature<?, ?> pine_meadows;
+	public static ConfiguredFeature<?, ?> swamp_test;
 
 	public static void init() {
 		sea_oats = register("sea_oats",Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
@@ -171,7 +183,29 @@ public class PVJConfiguredFeatures {
 						new PVJPineFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
 								FeatureSpread.of(3, 2)),
 						new StraightTrunkPlacer(9, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+		
+		willow = register("willow",
+				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+						new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0),
+								3),
+						new WillowTrunkPlacer(6, 3, 3), new TwoLayerFeature(1, 0, 1))).decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE)).build()));
+		
+		mangrove = register("mangrove",
+				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+						new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0),
+								3),
+						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(5).build()));
 
+		palm = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new PalmFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+						new PalmTrunkPlacer(7, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+		
 		redwood_forest = register("redwood_forest", Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(huge_redwood.weighted(0.75F), redwood.weighted(0.25F)), huge_redwood))

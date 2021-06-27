@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.world.features.blockplacers;
+package projectvibrantjourneys.common.world.features.foliageplacers;
 
 import java.util.Random;
 import java.util.Set;

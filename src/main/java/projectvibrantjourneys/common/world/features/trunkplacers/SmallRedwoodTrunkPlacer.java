@@ -1,4 +1,4 @@
-package projectvibrantjourneys.common.world.features.blockplacers;
+package projectvibrantjourneys.common.world.features.trunkplacers;
 
 import java.util.List;
 import java.util.Random;
@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 	
@@ -29,7 +30,7 @@ public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.STRAIGHT_TRUNK_PLACER;
+		return TrunkPlacerType.FANCY_TRUNK_PLACER;
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 			if(i < height - 1)
 				world.setBlock(temp, config.trunkProvider.getState(rand, temp), 2);
 			else
-				world.setBlock(temp, Blocks.SPRUCE_WOOD.defaultBlockState(), 2);
+				world.setBlock(temp, config.trunkProvider.getState(rand, temp), 2);
 		}
 	}
 }
