@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableList;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
@@ -37,8 +36,10 @@ import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
+import projectvibrantjourneys.common.world.features.foliageplacers.BaobabFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PVJPineFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PalmFoliagePlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.BaobabTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.MangroveTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.PalmTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.RedwoodTrunkPlacer;
@@ -111,6 +112,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> willow_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> baobab_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -199,6 +201,12 @@ public class PVJConfiguredFeatures {
 						new PalmFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
 						new PalmTrunkPlacer(7, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
+		baobab_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+				new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+				new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+				new BaobabFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				new BaobabTrunkPlacer(20, 5, 2), new TwoLayerFeature(1, 1, 2))).build());
+		
 		redwood_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(mega_redwood_tree.weighted(0.75F), redwood_tree.weighted(0.25F)), mega_redwood_tree))
@@ -245,6 +253,7 @@ public class PVJConfiguredFeatures {
 		register("willow", willow_tree);
 		register("mangrove", mangrove_tree);
 		register("palm", palm_tree);
+		register("baobab", baobab_tree);
 		
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -257,6 +266,6 @@ public class PVJConfiguredFeatures {
 	}
 
 	private static <FC extends IFeatureConfig> void register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
-		Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
+		WorldGenRegistries.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
 	}
 }
