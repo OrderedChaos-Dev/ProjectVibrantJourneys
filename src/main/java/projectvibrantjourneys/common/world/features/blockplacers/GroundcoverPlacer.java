@@ -2,6 +2,8 @@ package projectvibrantjourneys.common.world.features.blockplacers;
 
 import java.util.Random;
 
+import com.mojang.serialization.Codec;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Direction;
@@ -12,8 +14,11 @@ import net.minecraft.world.gen.blockplacer.BlockPlacerType;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.core.PVJConfig;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class GroundcoverPlacer extends BlockPlacer {
+	
+	public static final Codec<GroundcoverPlacer> CODEC = Codec.unit(GroundcoverPlacer::new);
 
 	@Override
 	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {
@@ -33,6 +38,6 @@ public class GroundcoverPlacer extends BlockPlacer {
 
 	@Override
 	protected BlockPlacerType<?> type() {
-		return BlockPlacerType.SIMPLE_BLOCK_PLACER;
+		return PVJBlockPlacers.GROUNDCOVER_PLACER;
 	}
 }

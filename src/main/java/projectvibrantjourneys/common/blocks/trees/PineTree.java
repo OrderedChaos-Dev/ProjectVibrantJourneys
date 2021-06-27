@@ -11,6 +11,6 @@ public class PineTree extends Tree {
 
 	@Override
 	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
-		return PVJConfiguredFeatures.pine;
+		return PVJConfiguredFeatures.pine_tree;
 	}
 }

@@ -103,135 +103,160 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> short_grass;
 	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
-	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> huge_redwood;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> fir;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pine;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> willow;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> fir_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pine_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> willow_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm_tree;
 
-	public static ConfiguredFeature<?, ?> redwood_forest;
-	public static ConfiguredFeature<?, ?> boreal_forest;
-	public static ConfiguredFeature<?, ?> pine_meadows;
-	public static ConfiguredFeature<?, ?> swamp_test;
+	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
+	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
+	public static ConfiguredFeature<?, ?> boreal_forest_vegetation;
+	public static ConfiguredFeature<?, ?> pine_meadows_vegetation;
 
 	public static void init() {
-		sea_oats = register("sea_oats",Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
-		cattails = register("cattail", Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2));
-		water_cattails = register("water_cattail", PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3));
+		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
+		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2);
+		water_cattails = PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3);
 
-		twigs = register("twigs", Feature.RANDOM_PATCH.configured(twigsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
-		fallen_leaves = register("fallen_leaves", Feature.RANDOM_PATCH.configured(fallenLeavesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4).chance(2));
-		rocks = register("rocks", Feature.RANDOM_PATCH.configured(rocksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
-		ice_chunks = register("ice_chunks", Feature.RANDOM_PATCH.configured(iceChunksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2));
-		bones = register("bones", Feature.RANDOM_PATCH.configured(bonesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1).chance(2));
-		charred_bones = register("charred_bones", Feature.RANDOM_PATCH.configured(charredBonesCluster).range(128).chance(2));
-		pinecones = register("pinecones", Feature.RANDOM_PATCH.configured(pineconesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2));
-		seashells = register("seashells", Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2));
-		ocean_seashells = register("ocean_seashells", PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2));
+		twigs = Feature.RANDOM_PATCH.configured(twigsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		fallen_leaves = Feature.RANDOM_PATCH.configured(fallenLeavesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4).chance(2);
+		rocks = Feature.RANDOM_PATCH.configured(rocksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		ice_chunks = Feature.RANDOM_PATCH.configured(iceChunksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2);
+		bones = Feature.RANDOM_PATCH.configured(bonesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1).chance(2);
+		charred_bones = Feature.RANDOM_PATCH.configured(charredBonesCluster).range(128).chance(2);
+		pinecones = Feature.RANDOM_PATCH.configured(pineconesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2);
+		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
 
-		bushes = register("bush", PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE));
-		bark_mushrooms = register("bark_mushroom", PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30));
-		cobwebs = register("cobwebs", PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25));
-		glowcap = register("glowcap", Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2));
-		crimson_nettle = register("crimson_nettle", Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
-		warped_nettle = register("warped_nettle", Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4))));
-		short_grass = register("short_grass", Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5));
-		beach_grass = register("beach_grass", Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2));
+		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
+		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
+		cobwebs = PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25);
+		glowcap = Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2);
+		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		short_grass =  Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
+		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		
-		overgrown_spires_vegetation = register("overgrown_spires_vegetation",
-				Feature.RANDOM_SELECTOR
-						.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
-								Features.JUNGLE_BUSH.weighted(0.5F), Features.MEGA_JUNGLE_TREE.weighted(0.33333334F)),
-								Features.JUNGLE_TREE))
-						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.4F, 1))));
+		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
+						Features.JUNGLE_BUSH.weighted(0.5F), Features.MEGA_JUNGLE_TREE.weighted(0.33333334F)),
+						Features.JUNGLE_TREE))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.4F, 1)));
 
-		fallen_tree = register("fallen_tree", PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE)
-				.decorated(Placements.TOP_SOLID_HEIGHTMAP));
+		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 		
-		huge_redwood = register("huge_redwood",
-				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-						new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
-						new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0),
-								FeatureSpread.of(25, 7)),
-						new RedwoodTrunkPlacer(40, 30, 14), new TwoLayerFeature(1, 1, 2))).build()));
+		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
+				new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
+				new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0),
+						FeatureSpread.of(25, 7)),
+				new RedwoodTrunkPlacer(40, 30, 14), new TwoLayerFeature(1, 1, 2))).build());
 
-		redwood = register("redwood",
-				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+		redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 						new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
 						new PineFoliagePlacer(FeatureSpread.fixed(1), FeatureSpread.fixed(1),
 								FeatureSpread.of(3, 1)),
 						new SmallRedwoodTrunkPlacer(7, 5, 0), new TwoLayerFeature(2, 0, 2))).ignoreVines()
-								.build()));
+								.build());
 		
-		fir = PVJFeatures.snowTree.configured(
+		fir_tree = PVJFeatures.snowTree.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.fir_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.fir_leaves.defaultBlockState()),
 						new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
 								FeatureSpread.of(4, 2)),
 						new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 
-		pine = Feature.TREE.configured(
+		pine_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.pine_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.pine_leaves.defaultBlockState()),
 						new PVJPineFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
 								FeatureSpread.of(3, 2)),
 						new StraightTrunkPlacer(9, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
-		willow = register("willow",
-				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+		willow_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 						new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
 						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
 						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0),
 								3),
-						new WillowTrunkPlacer(6, 3, 3), new TwoLayerFeature(1, 0, 1))).decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE)).build()));
+						new WillowTrunkPlacer(6, 3, 3), new TwoLayerFeature(1, 0, 1))).decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE)).build());
 		
-		mangrove = register("mangrove",
-				Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+		mangrove_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 						new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
 						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
 						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0),
 								3),
-						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(5).build()));
+						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(5).build());
 
-		palm = Feature.TREE.configured(
+		palm_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
 						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
 						new PalmFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
 						new PalmTrunkPlacer(7, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
-		redwood_forest = register("redwood_forest", Feature.RANDOM_SELECTOR
+		redwood_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(huge_redwood.weighted(0.75F), redwood.weighted(0.25F)), huge_redwood))
+						ImmutableList.of(mega_redwood_tree.weighted(0.75F), redwood_tree.weighted(0.25F)), mega_redwood_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.3F, 1))));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.3F, 1)));
 
-		boreal_forest = register("boreal_forest",
-				Feature.RANDOM_SELECTOR
+		boreal_forest_vegetation = Feature.RANDOM_SELECTOR
 						.configured(new MultipleRandomFeatureConfig(
-								ImmutableList.of(fir.weighted(0.75F), pine.weighted(0.25F)), fir))
+								ImmutableList.of(fir_tree.weighted(0.75F), pine_tree.weighted(0.25F)), fir_tree))
 						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.3F, 1))));
+						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.3F, 1)));
 		
-		pine_meadows = register("pine_meadows",
-				Feature.RANDOM_SELECTOR
+		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
 						.configured(new MultipleRandomFeatureConfig(
-								ImmutableList.of(pine.weighted(0.75F)), pine))
+								ImmutableList.of(pine_tree.weighted(0.75F)), pine_tree))
 						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.5F, 2))));
+						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.5F, 2)));
+		
+		register("sea_oats", sea_oats);
+		register("cattails", cattails);
+		register("water_cattails", water_cattails);
+		register("twigs", twigs);
+		register("fallen_leaves", fallen_leaves);
+		register("rocks", rocks);
+		register("ice_chunks", ice_chunks);
+		register("bones", bones);
+		register("charred_bones", charred_bones);
+		register("pinecones", pinecones);
+		register("seashells", seashells);
+		register("ocean_seashells", ocean_seashells);
+		register("bushes", bushes);
+		register("bark_mushrooms", bark_mushrooms);
+		register("cobwebs", cobwebs);
+		register("glowcap", glowcap);
+		register("crimson_nettle", crimson_nettle);
+		register("warped_nettle", warped_nettle);
+		register("short_grass", short_grass);
+		register("beach_grass", beach_grass);
+		register("fallen_tree", fallen_tree);
+		register("mega_redwood_tree", mega_redwood_tree);
+		register("redwood", redwood_tree);
+		register("fir", fir_tree);
+		register("pine", pine_tree);
+		register("willow", willow_tree);
+		register("mangrove", mangrove_tree);
+		register("palm", palm_tree);
+		
+		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
+		register("redwood_forest_vegetation", redwood_forest_vegetation);
+		register("boreal_forest_vegetation", boreal_forest_vegetation);
+		register("pine_meadows_vegetation", pine_meadows_vegetation);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
 		return new BlockClusterFeatureConfig.Builder(provider, placer).tries(tries).build();
 	}
 
-	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
-		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
+	private static <FC extends IFeatureConfig> void register(String key, ConfiguredFeature<FC, ?> configuredFeature) {
+		Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, key), configuredFeature);
 	}
 }

@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 /**
  * 
@@ -34,7 +35,7 @@ public class WillowTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.FORKING_TRUNK_PLACER;
+		return PVJBlockPlacers.WILLOW_TRUNK_PLACER;
 	}
 
 	@Override

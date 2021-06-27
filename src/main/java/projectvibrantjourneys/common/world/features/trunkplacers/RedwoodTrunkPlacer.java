@@ -16,6 +16,7 @@ import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
 import projectvibrantjourneys.init.object.PVJBlocks;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class RedwoodTrunkPlacer extends AbstractTrunkPlacer {
 	
@@ -29,7 +30,7 @@ public class RedwoodTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.GIANT_TRUNK_PLACER;
+		return PVJBlockPlacers.REDWOOD_TRUNK_PLACER;
 	}
 
 	@Override

@@ -16,10 +16,11 @@ import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class PalmTrunkPlacer extends AbstractTrunkPlacer {
-	public static final Codec<WillowTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
-		return trunkPlacerParts(x).apply(x, WillowTrunkPlacer::new);
+	public static final Codec<PalmTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
+		return trunkPlacerParts(x).apply(x, PalmTrunkPlacer::new);
 	});
 
 	public PalmTrunkPlacer(int baseHeight, int heightA, int heightB) {
@@ -28,7 +29,7 @@ public class PalmTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.FORKING_TRUNK_PLACER;
+		return PVJBlockPlacers.PALM_TRUNK_PLACER;
 	}
 
 	@Override

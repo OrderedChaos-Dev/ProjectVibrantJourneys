@@ -18,16 +18,30 @@ public class VerdantSandsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderCon
 	@Override
 	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise,
 			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-		if (random.nextFloat() < 0.33F) {
+//		if (random.nextFloat() < 0.33F) {
+//			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
+//					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_DESERT);
+//		} else if (random.nextFloat() < 0.33F) {
+//			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
+//					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_DESERT);
+//		} else {
+//			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
+//					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
+//		}
+
+		
+		if (noise > 1.8D) {
 			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_DESERT);
-		} else if (random.nextFloat() < 0.33F) {
+		} else if (noise <= 1.8D && noise > 1.2D) {
+			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
+					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
+		} else if (noise > -0.95D) {
 			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_DESERT);
 		} else {
 			SurfaceBuilder.DEFAULT.apply(random, chunkIn, biomeIn, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
 		}
-
 	}
 }

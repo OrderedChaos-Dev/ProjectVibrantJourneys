@@ -11,6 +11,6 @@ public class FirTree extends Tree {
 
 	@Override
 	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
-		return PVJConfiguredFeatures.fir;
+		return PVJConfiguredFeatures.fir_tree;
 	}
 }

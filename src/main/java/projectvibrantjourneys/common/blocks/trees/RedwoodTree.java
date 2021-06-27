@@ -11,11 +11,11 @@ public class RedwoodTree extends BigTree {
 
 	@Override
 	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
-		return PVJConfiguredFeatures.redwood;
+		return PVJConfiguredFeatures.redwood_tree;
 	}
 
 	@Override
 	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredMegaFeature(Random rand) {
-		return PVJConfiguredFeatures.huge_redwood;
+		return PVJConfiguredFeatures.mega_redwood_tree;
 	}
 }

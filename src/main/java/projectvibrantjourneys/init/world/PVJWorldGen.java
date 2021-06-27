@@ -133,13 +133,17 @@ public class PVJWorldGen {
 			}
 			
 			if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.REDWOOD_PEAKS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest_vegetation);
 			} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST || biome == PVJBiomes.Keys.ALPINE_HEIGHTS) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_forest);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_forest_vegetation);
 			}
 			
 			if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows_vegetation);
+			}
+			
+			if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
 			}
 		}
 	}
@@ -154,7 +158,7 @@ public class PVJWorldGen {
 		
 		//just gonna wrap this in a try catch to really make sure things don't go fubar
 		try {
-			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
+//			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
 			List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
 			RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 			Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
@@ -169,7 +173,7 @@ public class PVJWorldGen {
 					try {
 						Block block = ((BaseTreeFeatureConfig)pair.config()).trunkProvider.getState(rand, null).getBlock();
 						if(block instanceof RotatedPillarBlock) {
-							ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
+//							ProjectVibrantJourneys.LOGGER.debug("----> " + block.getRegistryName());
 							FallenTreeFeature.LOGS.add(new Pair<String, Block>(event.getName().toString(), block));
 						}
 					} catch(Exception e) {}

@@ -18,13 +18,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.object.PVJBlocks;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class RocksBlockPlacer extends BlockPlacer {
 	public static final Codec<RocksBlockPlacer> CODEC;
 	public static final RocksBlockPlacer PLACER = new RocksBlockPlacer();
 
 	protected BlockPlacerType<?> type() {
-		return BlockPlacerType.SIMPLE_BLOCK_PLACER;
+		return PVJBlockPlacers.ROCKS_BLOCK_PLACER;
 	}
 
 	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {

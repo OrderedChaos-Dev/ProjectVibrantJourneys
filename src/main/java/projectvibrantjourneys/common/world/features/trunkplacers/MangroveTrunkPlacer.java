@@ -15,11 +15,12 @@ import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class MangroveTrunkPlacer extends AbstractTrunkPlacer {
 	
-	public static final Codec<WillowTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
-		return trunkPlacerParts(x).apply(x, WillowTrunkPlacer::new);
+	public static final Codec<MangroveTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
+		return trunkPlacerParts(x).apply(x, MangroveTrunkPlacer::new);
 	});
 
 	public MangroveTrunkPlacer(int baseHeight, int heightA, int heightB) {
@@ -28,7 +29,7 @@ public class MangroveTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.FORKING_TRUNK_PLACER;
+		return PVJBlockPlacers.MANGROVE_TRUNK_PLACER;
 	}
 
 	@Override

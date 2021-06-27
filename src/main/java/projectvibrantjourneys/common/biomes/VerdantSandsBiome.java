@@ -40,6 +40,7 @@ public class VerdantSandsBiome {
 		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenSettings);
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
 		DefaultBiomeFeatures.addDefaultMushrooms(biomeGenSettings);
+		DefaultBiomeFeatures.addDesertExtraVegetation(biomeGenSettings);
 
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.125F)
 				.scale(0.05F).temperature(1.5F).downfall(0.5F)

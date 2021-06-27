@@ -8,7 +8,6 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.gen.IWorldGenerationReader;
@@ -30,7 +29,7 @@ public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	protected TrunkPlacerType<?> type() {
-		return TrunkPlacerType.FANCY_TRUNK_PLACER;
+		return PVJBlockPlacers.SMALL_REDWOOD_TRUNK_PLACER;
 	}
 
 	@Override
