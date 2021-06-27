@@ -38,14 +38,6 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreSeagrass;
 	public static ForgeConfigSpec.ConfigValue<Boolean> moreGrassInRivers;
 	
-	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
-	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_boreal_forest;
-	public static ForgeConfigSpec.ConfigValue<Boolean> redwoods;
-	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_redwoods;
-	public static ForgeConfigSpec.ConfigValue<Boolean> redwood_peaks;
-	public static ForgeConfigSpec.ConfigValue<Boolean> pine_meadows;
-	public static ForgeConfigSpec.ConfigValue<Boolean> alpine_heights;
-	
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFlies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableFireflies;
 	public static ForgeConfigSpec.ConfigValue<Boolean> enableStarfish;
@@ -60,6 +52,13 @@ public class PVJConfig {
 	
 	public static ForgeConfigSpec.ConfigValue<Boolean> overgrownSpires;
 	public static ForgeConfigSpec.ConfigValue<Boolean> verdantSands;
+	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
+	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_boreal_forest;
+	public static ForgeConfigSpec.ConfigValue<Boolean> redwoods;
+	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_redwoods;
+	public static ForgeConfigSpec.ConfigValue<Boolean> redwood_peaks;
+	public static ForgeConfigSpec.ConfigValue<Boolean> pine_meadows;
+	public static ForgeConfigSpec.ConfigValue<Boolean> alpine_heights;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;

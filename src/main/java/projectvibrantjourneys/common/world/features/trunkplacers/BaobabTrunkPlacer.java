@@ -38,6 +38,13 @@ public class BaobabTrunkPlacer extends AbstractTrunkPlacer {
 	public List<Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
 		List<FoliagePlacer.Foliage> list = Lists.newArrayList();
 		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+		
+		BlockPos blockpos = pos.below();
+		setDirtAt(world, blockpos);
+		setDirtAt(world, blockpos.east());
+		setDirtAt(world, blockpos.south());
+		setDirtAt(world, blockpos.south().east());
+		
 		for (int i = 0; i < height; ++i) {
 			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 0, i, 0);
 			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 1, i, 0);

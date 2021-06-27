@@ -29,7 +29,6 @@ public class PineMeadowsBiome {
 		DefaultBiomeFeatures.addDefaultCarvers(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultLakes(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenBuilder);
-		DefaultBiomeFeatures.addPlainVegetation(biomeGenBuilder);
 		DefaultBiomeFeatures.addTaigaGrass(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultOres(biomeGenBuilder);

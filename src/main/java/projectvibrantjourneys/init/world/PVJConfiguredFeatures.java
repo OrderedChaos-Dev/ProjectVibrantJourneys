@@ -37,9 +37,11 @@ import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlac
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
 import projectvibrantjourneys.common.world.features.foliageplacers.BaobabFoliagePlacer;
+import projectvibrantjourneys.common.world.features.foliageplacers.DesertJuniperFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PVJPineFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PalmFoliagePlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.BaobabTrunkPlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.DesertJuniperTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.MangroveTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.PalmTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.RedwoodTrunkPlacer;
@@ -113,6 +115,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> baobab_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> juniper_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -207,11 +210,17 @@ public class PVJConfiguredFeatures {
 				new BaobabFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
 				new BaobabTrunkPlacer(20, 5, 2), new TwoLayerFeature(1, 1, 2))).build());
 		
+		juniper_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new DesertJuniperFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+						new DesertJuniperTrunkPlacer(7, 2, 1), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+		
 		redwood_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(mega_redwood_tree.weighted(0.75F), redwood_tree.weighted(0.25F)), mega_redwood_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.3F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(6, 0.3F, 2)));
 
 		boreal_forest_vegetation = Feature.RANDOM_SELECTOR
 						.configured(new MultipleRandomFeatureConfig(
@@ -221,7 +230,7 @@ public class PVJConfiguredFeatures {
 		
 		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
 						.configured(new MultipleRandomFeatureConfig(
-								ImmutableList.of(baobab_tree.weighted(0.75F)), pine_tree))
+								ImmutableList.of(pine_tree.weighted(0.6F), Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), pine_tree))
 						.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 						.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.5F, 2)));
 		
@@ -247,13 +256,14 @@ public class PVJConfiguredFeatures {
 		register("beach_grass", beach_grass);
 		register("fallen_tree", fallen_tree);
 		register("mega_redwood_tree", mega_redwood_tree);
-		register("redwood", redwood_tree);
-		register("fir", fir_tree);
-		register("pine", pine_tree);
-		register("willow", willow_tree);
-		register("mangrove", mangrove_tree);
-		register("palm", palm_tree);
-		register("baobab", baobab_tree);
+		register("redwood_tree", redwood_tree);
+		register("fir_tree", fir_tree);
+		register("pine_tree", pine_tree);
+		register("willow_tree", willow_tree);
+		register("mangrove_tree", mangrove_tree);
+		register("palm_tree", palm_tree);
+		register("baobab_tree", baobab_tree);
+		register("junier_tree", juniper_tree);
 		
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
