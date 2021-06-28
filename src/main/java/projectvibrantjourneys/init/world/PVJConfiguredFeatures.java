@@ -41,10 +41,12 @@ import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
+import projectvibrantjourneys.common.world.features.foliageplacers.AspenFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.BaobabFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.DesertJuniperFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PVJPineFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PalmFoliagePlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.AspenTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.BaobabTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.DesertJuniperTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.MangroveTrunkPlacer;
@@ -57,38 +59,21 @@ import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();
-	public static BlockClusterFeatureConfig twigsCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.twigs.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig fallenLeavesCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.fallen_leaves.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.rocks.defaultBlockState()), new RocksBlockPlacer(), 5);
-	public static BlockClusterFeatureConfig iceChunksCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.ice_chunks.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig bonesCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.bones.defaultBlockState()), GROUNDCOVER_PLACER, 1);
-	public static BlockClusterFeatureConfig charredBonesCluster = new BlockClusterFeatureConfig.Builder(
-			new SimpleBlockStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer())
-					.tries(64).noProjection().build();
-	public static BlockClusterFeatureConfig pineconesCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.pinecones.defaultBlockState()), GROUNDCOVER_PLACER, 4);
-	public static BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.seashells.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.sea_oats.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.cattail.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(
-			new SimpleBlockStateProvider(PVJBlocks.glowcap.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(64)
-					.noProjection().build();
-	public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.crimson_nettle.defaultBlockState()));
-	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
-	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(
-			new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
-	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(
-			new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
+	public static BlockClusterFeatureConfig twigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.twigs.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static BlockClusterFeatureConfig fallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fallen_leaves.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.rocks.defaultBlockState()), new RocksBlockPlacer(), 5);
+	public static BlockClusterFeatureConfig iceChunksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.ice_chunks.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static BlockClusterFeatureConfig bonesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.bones.defaultBlockState()), GROUNDCOVER_PLACER, 1);
+	public static BlockClusterFeatureConfig charredBonesCluster = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer()).tries(64).noProjection().build();
+	public static BlockClusterFeatureConfig pineconesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.pinecones.defaultBlockState()), GROUNDCOVER_PLACER, 4);
+	public static BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
+	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
+	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(64).noProjection().build();
+	public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.crimson_nettle.defaultBlockState()));
+	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
+	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
+	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
 
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -123,6 +108,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> juniper_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree_bees005;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -130,43 +117,28 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> pine_meadows_vegetation;
 
 	public static void init() {
-		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(2);
-		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(5).chance(2);
+		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
+		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2);
 		water_cattails = PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3);
 
-		twigs = Feature.RANDOM_PATCH.configured(twigsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3)
-				.chance(2);
-		fallen_leaves = Feature.RANDOM_PATCH.configured(fallenLeavesCluster)
-				.decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4).chance(2);
-		rocks = Feature.RANDOM_PATCH.configured(rocksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3)
-				.chance(2);
-		ice_chunks = Feature.RANDOM_PATCH.configured(iceChunksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(2).chance(2);
-		bones = Feature.RANDOM_PATCH.configured(bonesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1)
-				.chance(2);
+		twigs = Feature.RANDOM_PATCH.configured(twigsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		fallen_leaves = Feature.RANDOM_PATCH.configured(fallenLeavesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4).chance(2);
+		rocks = Feature.RANDOM_PATCH.configured(rocksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		ice_chunks = Feature.RANDOM_PATCH.configured(iceChunksCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2);
+		bones = Feature.RANDOM_PATCH.configured(bonesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1).chance(2);
 		charred_bones = Feature.RANDOM_PATCH.configured(charredBonesCluster).range(128).chance(2);
-		pinecones = Feature.RANDOM_PATCH.configured(pineconesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(2).chance(2);
-		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(3).chance(2);
-		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE)
-				.decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
+		pinecones = Feature.RANDOM_PATCH.configured(pineconesCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2).chance(2);
+		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
+		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
 
-		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F))
-				.decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
+		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
 		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
 		cobwebs = PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25);
 		glowcap = Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2);
-		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40)
-				.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
-		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40)
-				.decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
-		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster)
-				.decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
-		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE)
-				.count(2);
+		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
+		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
@@ -175,8 +147,7 @@ public class PVJConfiguredFeatures {
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.4F, 1)));
 
-		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE)
-				.decorated(Placements.TOP_SOLID_HEIGHTMAP);
+		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 
 		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
@@ -243,6 +214,14 @@ public class PVJConfiguredFeatures {
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
 		cottonwood_tree_bees005 = Feature.TREE.configured(cottonwood_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		
+		aspen_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new AspenFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+						new AspenTrunkPlacer(11, 5, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+		
+		aspen_tree_bees005 = Feature.TREE.configured(aspen_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
 
 		redwood_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -295,6 +274,8 @@ public class PVJConfiguredFeatures {
 		register("juniper_tree", juniper_tree);
 		register("cottonwood_tree", cottonwood_tree);
 		register("cottonwood_tree_bees005", cottonwood_tree_bees005);
+		register("aspen_tree", aspen_tree);
+		register("aspen_tree_bees005", aspen_tree_bees005);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -302,8 +283,7 @@ public class PVJConfiguredFeatures {
 		register("pine_meadows_vegetation", pine_meadows_vegetation);
 	}
 
-	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer,
-			int tries) {
+	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
 		return new BlockClusterFeatureConfig.Builder(provider, placer).tries(tries).build();
 	}
 

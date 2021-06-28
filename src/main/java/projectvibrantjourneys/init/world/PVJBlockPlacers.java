@@ -19,9 +19,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
+import projectvibrantjourneys.common.world.features.foliageplacers.AspenFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.BaobabFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.DesertJuniperFoliagePlacer;
 import projectvibrantjourneys.common.world.features.foliageplacers.PalmFoliagePlacer;
+import projectvibrantjourneys.common.world.features.trunkplacers.AspenTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.BaobabTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.DesertJuniperTrunkPlacer;
 import projectvibrantjourneys.common.world.features.trunkplacers.MangroveTrunkPlacer;
@@ -41,10 +43,12 @@ public class PVJBlockPlacers {
 	public static final TrunkPlacerType<PalmTrunkPlacer> PALM_TRUNK_PLACER = registerTrunkPlacer("palm_trunk_placer", PalmTrunkPlacer.CODEC);
 	public static final TrunkPlacerType<BaobabTrunkPlacer> BAOBAB_TRUNK_PLACER = registerTrunkPlacer("baobab_trunk_placer", BaobabTrunkPlacer.CODEC);
 	public static final TrunkPlacerType<DesertJuniperTrunkPlacer> JUNIPER_TRUNK_PLACER = registerTrunkPlacer("juniper_trunk_placer", DesertJuniperTrunkPlacer.CODEC);
+	public static final TrunkPlacerType<AspenTrunkPlacer> ASPEN_TRUNK_PLACER = registerTrunkPlacer("aspen_trunk_placer", AspenTrunkPlacer.CODEC);
 	
 	public static final FoliagePlacerType<PalmFoliagePlacer> PALM_FOLIAGE_PLACER = registerFoliagePlacer("palm_foliage_placer", new FoliagePlacerType<PalmFoliagePlacer>(PalmFoliagePlacer.CODEC));
 	public static final FoliagePlacerType<BaobabFoliagePlacer> BAOBAB_FOLIAGE_PLACER = registerFoliagePlacer("baobab_foliage_placer", new FoliagePlacerType<BaobabFoliagePlacer>(BaobabFoliagePlacer.CODEC));
 	public static final FoliagePlacerType<DesertJuniperFoliagePlacer> JUNIPER_FOLIAGE_PLACER = registerFoliagePlacer("juniper_foliage_placer", new FoliagePlacerType<DesertJuniperFoliagePlacer>(DesertJuniperFoliagePlacer.CODEC));
+	public static final FoliagePlacerType<AspenFoliagePlacer> ASPEN_FOLIAGE_PLACER = registerFoliagePlacer("aspen_foliage_placer", new FoliagePlacerType<AspenFoliagePlacer>(AspenFoliagePlacer.CODEC));
 	
 	public static final BlockStateProviderType<ShortGrassBlockStateProvider> SHORT_GRASS_BLOCK_STATE_PROVIDER = registerBlockStateProvider("short_grass_block_state_provider", new BlockStateProviderType<ShortGrassBlockStateProvider>(ShortGrassBlockStateProvider.CODEC));
 	
