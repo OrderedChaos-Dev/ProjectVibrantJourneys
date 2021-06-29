@@ -136,14 +136,12 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest_vegetation);
 			} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST || biome == PVJBiomes.Keys.ALPINE_HEIGHTS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_forest_vegetation);
-			}
-			
-			if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
+			} else if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows_vegetation);
-			}
-			
-			if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
+			} else if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
+			} else if(biome == PVJBiomes.Keys.BOREAL_PLATEAU) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_plateau_vegetation);
 			}
 		}
 	}

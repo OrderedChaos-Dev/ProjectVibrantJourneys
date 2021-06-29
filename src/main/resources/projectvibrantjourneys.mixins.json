@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "projectvibrantjourneys.core.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"ShoreLayerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

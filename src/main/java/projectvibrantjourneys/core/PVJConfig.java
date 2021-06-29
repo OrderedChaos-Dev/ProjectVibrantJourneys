@@ -59,6 +59,13 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> redwood_peaks;
 	public static ForgeConfigSpec.ConfigValue<Boolean> pine_meadows;
 	public static ForgeConfigSpec.ConfigValue<Boolean> alpine_heights;
+	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_plateau;
+	public static ForgeConfigSpec.ConfigValue<Boolean> willow_wetlands;
+	public static ForgeConfigSpec.ConfigValue<Boolean> mangrove_marsh;
+	public static ForgeConfigSpec.ConfigValue<Boolean> baobab_fields;
+	public static ForgeConfigSpec.ConfigValue<Boolean> aspen_grove;
+	public static ForgeConfigSpec.ConfigValue<Boolean> crimson_thicket;
+	public static ForgeConfigSpec.ConfigValue<Boolean> prairie;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
@@ -124,6 +131,7 @@ public class PVJConfig {
 		redwood_peaks = COMMON_BUILDER.define("redwood_peaks", true);
 		pine_meadows = COMMON_BUILDER.define("pine_meadows", true);
 		alpine_heights = COMMON_BUILDER.define("alpine_heights", true);
+		boreal_plateau = COMMON_BUILDER.define("boreal_plateau", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

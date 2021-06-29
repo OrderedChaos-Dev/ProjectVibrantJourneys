@@ -18,7 +18,7 @@ import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.JuniperTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.SandTreeFeature;
-import projectvibrantjourneys.common.world.features.SnowTreeFeature;
+import projectvibrantjourneys.common.world.features.SnowMountainTreeFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -44,7 +44,7 @@ public class PVJFeatures {
 		barkMushroomFeature = registerFeature(new BarkMushroomFeature(NoFeatureConfig.CODEC), "bark_mushroom_feature");
 		cobwebFeature = registerFeature(new CobwebFeature(ProbabilityConfig.CODEC), "cobweb_feature");
 		fallenTreeFeature = registerFeature(new FallenTreeFeature(NoFeatureConfig.CODEC), "fallen_tree_feature");
-		snowTree = registerFeature(new SnowTreeFeature(BaseTreeFeatureConfig.CODEC), "snow_tree");
+		snowTree = registerFeature(new SnowMountainTreeFeature(BaseTreeFeatureConfig.CODEC), "snow_tree");
 		sandTree = registerFeature(new SandTreeFeature(BaseTreeFeatureConfig.CODEC), "sand_tree");
 		juniperTree = registerFeature(new JuniperTreeFeature(BaseTreeFeatureConfig.CODEC), "juniper_tree");
 		

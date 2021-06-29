@@ -34,9 +34,9 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 
-public class SnowTreeFeature extends Feature<BaseTreeFeatureConfig>{
+public class SnowMountainTreeFeature extends Feature<BaseTreeFeatureConfig>{
 
-	public SnowTreeFeature(Codec<BaseTreeFeatureConfig> CODEC) {
+	public SnowMountainTreeFeature(Codec<BaseTreeFeatureConfig> CODEC) {
 		super(CODEC);
 	}
 
@@ -67,7 +67,7 @@ public class SnowTreeFeature extends Feature<BaseTreeFeatureConfig>{
 	private static boolean isDirtOrFarmlandAt(IWorldGenerationBaseReader p_236418_0_, BlockPos p_236418_1_) {
 		return p_236418_0_.isStateAtPosition(p_236418_1_, (p_236409_0_) -> {
 			Block block = p_236409_0_.getBlock();
-			return isDirt(block) || block == Blocks.FARMLAND || block == Blocks.SNOW_BLOCK;
+			return isDirt(block) || block == Blocks.FARMLAND || block == Blocks.SNOW_BLOCK || block == Blocks.STONE;
 		});
 	}
 

@@ -123,6 +123,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
 	public static ConfiguredFeature<?, ?> boreal_forest_vegetation;
 	public static ConfiguredFeature<?, ?> pine_meadows_vegetation;
+	public static ConfiguredFeature<?, ?> boreal_plateau_vegetation;
 
 	public static void init() {
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
@@ -296,6 +297,12 @@ public class PVJConfiguredFeatures {
 						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), pine_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 2)));
+		
+		boreal_plateau_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(fir_tree.weighted(0.75F), Features.SPRUCE.weighted(0.25F)), fir_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.3F, 1)));
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -343,6 +350,7 @@ public class PVJConfiguredFeatures {
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
 		register("boreal_forest_vegetation", boreal_forest_vegetation);
 		register("pine_meadows_vegetation", pine_meadows_vegetation);
+		register("boreal_plateau_vegetation", boreal_plateau_vegetation);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

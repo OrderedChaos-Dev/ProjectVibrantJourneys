@@ -2,6 +2,7 @@ package projectvibrantjourneys.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.spongepowered.asm.mixin.Mixins;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -32,6 +33,7 @@ public class ProjectVibrantJourneys {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 		
 		PVJConfig.loadConfig(PVJConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-common.toml"));
+		Mixins.addConfiguration("projectvibrantjourneys.mixins.json");
 	}
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
