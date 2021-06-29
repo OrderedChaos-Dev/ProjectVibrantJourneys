@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:palm_log",
+	"projectvibrantjourneys:palm_wood",
+	"projectvibrantjourneys:stripped_palm_log",
+	"projectvibrantjourneys:stripped_palm_wood"
+  ]
+}

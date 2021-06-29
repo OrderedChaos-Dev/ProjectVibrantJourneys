@@ -3,6 +3,14 @@
   "values": [
 	"projectvibrantjourneys:fir_fence_gate",
 	"projectvibrantjourneys:pine_fence_gate",
-	"projectvibrantjourneys:redwood_fence_gate"
+	"projectvibrantjourneys:redwood_fence_gate",
+	"projectvibrantjourneys:willow_fence_gate",
+	"projectvibrantjourneys:mangrove_fence_gate",
+	"projectvibrantjourneys:palm_fence_gate",
+	"projectvibrantjourneys:aspen_fence_gate",
+	"projectvibrantjourneys:juniper_fence_gate",
+	"projectvibrantjourneys:cottonwood_fence_gate",
+	"projectvibrantjourneys:baobab_fence_gate",
+	"projectvibrantjourneys:maple_fence_gate"
   ]
 }

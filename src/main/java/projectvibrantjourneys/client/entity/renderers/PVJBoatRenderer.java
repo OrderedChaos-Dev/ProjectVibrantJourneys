@@ -14,7 +14,15 @@ public class PVJBoatRenderer extends BoatRenderer {
 	private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[] {
 			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/fir.png"),
 			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/pine.png"),
-			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/redwood.png") };
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/redwood.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/willow.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/mangrove.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/palm.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/aspen.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/juniper.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/cottonwood.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/baobab.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/boat/maple.png")};
 
 	public PVJBoatRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn);

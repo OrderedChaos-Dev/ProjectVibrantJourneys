@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom_rh",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/maple_door_bottom",
+        "top": "projectvibrantjourneys:block/maple_door_top"
+    }
+}

@@ -3,6 +3,14 @@
   "values": [
 	"projectvibrantjourneys:fir_planks",
 	"projectvibrantjourneys:pine_planks",
-	"projectvibrantjourneys:redwood_planks"
+	"projectvibrantjourneys:palm_planks",
+	"projectvibrantjourneys:willow_planks",
+	"projectvibrantjourneys:mangrove_planks",
+	"projectvibrantjourneys:redwood_planks",
+	"projectvibrantjourneys:baobab_planks",
+	"projectvibrantjourneys:aspen_planks",
+	"projectvibrantjourneys:maple_planks",
+	"projectvibrantjourneys:cottonwood_planks",
+	"projectvibrantjourneys:juniper_planks"
   ]
 }

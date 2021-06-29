@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:maple_planks"
+    }
+  ],
+  "result": {
+    "item": "projectvibrantjourneys:maple_button"
+  }
+}

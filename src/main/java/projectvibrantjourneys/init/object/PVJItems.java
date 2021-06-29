@@ -10,6 +10,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.entities.items.PVJBoatEntity;
+import projectvibrantjourneys.common.items.BottleFoodItem;
 import projectvibrantjourneys.common.items.PVJBoatItem;
 import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -25,10 +26,21 @@ public class PVJItems {
 	public static Item clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.RAW_CLAM)), "clam");
 	public static Item cooked_clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
 	public static Item clam_chowder = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CLAM_CHOWDER)), "clam_chowder");
+	public static Item juniper_berries = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.JUNIPER_BERRIES)), "juniper_berries");
+	public static Item cracked_coconut = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.CRACKED_COCONUT)), "cracked_coconut");
+	public static Item coconut_milk = registerItem(new BottleFoodItem(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COCONUT_MILK)), "coconut_milk");
 	
 	public static Item fir_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.FIR, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "fir_boat");
 	public static Item pine_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.PINE, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "pine_boat");
 	public static Item redwood_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.REDWOOD, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "redwood_boat");
+	public static Item willow_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.WILLOW, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "willow_boat");
+	public static Item mangrove_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.MANGROVE, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "mangrove_boat");
+	public static Item palm_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.PALM, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "palm_boat");
+	public static Item aspen_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.ASPEN, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "aspen_boat");
+	public static Item juniper_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.JUNIPER, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "juniper_boat");
+	public static Item cottonwood_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.COTTONWOOD, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "cottonwood_boat");
+	public static Item baobab_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.BAOBAB, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "baobab_boat");
+	public static Item maple_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.MAPLE, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "maple_boat");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:baobab_log"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:baobab_wood",
+    "count": 3
+  }
+}

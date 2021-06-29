@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:stripped_cottonwood_log"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:stripped_cottonwood_wood",
+    "count": 3
+  }
+}

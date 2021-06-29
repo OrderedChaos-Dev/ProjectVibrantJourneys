@@ -81,7 +81,15 @@ public class PVJBoatEntity extends BoatEntity {
 	public static enum PVJBoatType {
 		FIR(PVJBlocks.fir_planks, "fir"),
 		PINE(PVJBlocks.pine_planks, "pine"),
-		REDWOOD(PVJBlocks.redwood_planks, "redwood");
+		REDWOOD(PVJBlocks.redwood_planks, "redwood"),
+		WILLOW(PVJBlocks.willow_planks, "willow"),
+		MANGROVE(PVJBlocks.mangrove_planks, "mangrove"),
+		PALM(PVJBlocks.palm_planks, "palm"),
+		ASPEN(PVJBlocks.aspen_planks, "aspen"),
+		JUNIPER(PVJBlocks.juniper_planks, "juniper"),
+		COTTONWOOD(PVJBlocks.cottonwood_planks, "cottonwood"),
+		BAOBAB(PVJBlocks.baobab_planks, "baobab"),
+		MAPLE(PVJBlocks.maple_planks, "maple");
 
 		private final String name;
 		private final Block block;

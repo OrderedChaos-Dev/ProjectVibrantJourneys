@@ -3,6 +3,14 @@
   "values": [
 	"projectvibrantjourneys:fir_stairs",
 	"projectvibrantjourneys:pine_stairs",
-	"projectvibrantjourneys:redwood_stairs"
+	"projectvibrantjourneys:palm_stairs",
+	"projectvibrantjourneys:willow_stairs",
+	"projectvibrantjourneys:mangrove_stairs",
+	"projectvibrantjourneys:redwood_stairs",
+	"projectvibrantjourneys:baobab_stairs",
+	"projectvibrantjourneys:aspen_stairs",
+	"projectvibrantjourneys:maple_stairs",
+	"projectvibrantjourneys:cottonwood_stairs",
+	"projectvibrantjourneys:juniper_stairs"
   ]
 }

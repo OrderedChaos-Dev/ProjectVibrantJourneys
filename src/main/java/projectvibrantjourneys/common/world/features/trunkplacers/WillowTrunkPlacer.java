@@ -40,7 +40,8 @@ public class WillowTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	public List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		setDirtAt(world, pos.below());
+		if(!config.fromSapling)
+			setDirtAt(world, pos.below());
 		List<FoliagePlacer.Foliage> list = Lists.newArrayList();
 		Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 		int i = height - rand.nextInt(4) - 2;

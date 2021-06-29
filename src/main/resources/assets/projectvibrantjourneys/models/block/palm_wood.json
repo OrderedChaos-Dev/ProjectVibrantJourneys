@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "projectvibrantjourneys:block/palm_log",
+        "side": "projectvibrantjourneys:block/palm_log"
+    }
+}

@@ -52,6 +52,16 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_fir_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_pine_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_redwood_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_willow_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_mangrove_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_palm_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_aspen_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_juniper_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_cottonwood_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_baobab_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_red_maple_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_orange_maple_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_purple_maple_sapling, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_trapdoor, cutout);
@@ -59,10 +69,36 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_trapdoor, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.willow_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.willow_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.mangrove_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.mangrove_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.palm_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.palm_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.aspen_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.aspen_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.juniper_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.juniper_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.cottonwood_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.cottonwood_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.baobab_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.baobab_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.maple_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.maple_trapdoor, cutout);
 
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.redwood_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.willow_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.mangrove_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.palm_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.aspen_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.juniper_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.baobab_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.cottonwood_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.red_maple_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.orange_maple_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.purple_maple_sapling, cutout_mipped);
 		}
 	
 		@OnlyIn(Dist.CLIENT)

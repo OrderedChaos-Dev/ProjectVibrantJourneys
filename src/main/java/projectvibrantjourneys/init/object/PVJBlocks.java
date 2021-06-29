@@ -38,16 +38,31 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
+import projectvibrantjourneys.common.blocks.CoconutBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import projectvibrantjourneys.common.blocks.JuniperLeavesBlock;
+import projectvibrantjourneys.common.blocks.JuniperSaplingBlock;
+import projectvibrantjourneys.common.blocks.MangroveSaplingBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.NetherPlantBlock;
+import projectvibrantjourneys.common.blocks.SandySaplingBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
+import projectvibrantjourneys.common.blocks.trees.AspenTree;
+import projectvibrantjourneys.common.blocks.trees.BaobabTree;
+import projectvibrantjourneys.common.blocks.trees.CottonwoodTree;
 import projectvibrantjourneys.common.blocks.trees.FirTree;
+import projectvibrantjourneys.common.blocks.trees.JuniperTree;
+import projectvibrantjourneys.common.blocks.trees.MangroveTree;
+import projectvibrantjourneys.common.blocks.trees.OrangeMapleTree;
+import projectvibrantjourneys.common.blocks.trees.PalmTree;
 import projectvibrantjourneys.common.blocks.trees.PineTree;
+import projectvibrantjourneys.common.blocks.trees.PurpleMapleTree;
+import projectvibrantjourneys.common.blocks.trees.RedMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedwoodTree;
+import projectvibrantjourneys.common.blocks.trees.WillowTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
 
@@ -63,22 +78,64 @@ public class PVJBlocks {
 	public static Block natural_cobweb;
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle;
-	public static Block short_grass, beach_grass;
+	public static Block short_grass, beach_grass, dry_grass;
+	public static Block cindercane;
+	public static Block wildflowers;
+	public static Block coconut;
 	
 	public static Block fir_sapling, fir_log, fir_leaves, fir_planks, stripped_fir_log, fir_wood, stripped_fir_wood,
-	fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
-	fir_door, fir_stairs;
+			fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
+			fir_door, fir_stairs;
 
 	public static Block pine_sapling, pine_log, pine_leaves, pine_planks, stripped_pine_log, pine_wood,
-		stripped_pine_wood, pine_sign, pine_wall_sign, pine_pressure_plate, pine_trapdoor, pine_button, pine_slab,
-		pine_fence_gate, pine_fence, pine_door, pine_stairs;
-	
-	public static Block redwood_sapling, redwood_log, redwood_leaves, redwood_planks, stripped_redwood_log,
-		redwood_wood, stripped_redwood_wood, redwood_sign, redwood_wall_sign, redwood_pressure_plate,
-		redwood_trapdoor, redwood_button, redwood_slab, redwood_fence_gate, redwood_fence, redwood_door,
-		redwood_stairs;
+			stripped_pine_wood, pine_sign, pine_wall_sign, pine_pressure_plate, pine_trapdoor, pine_button, pine_slab,
+			pine_fence_gate, pine_fence, pine_door, pine_stairs;
 
-public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapling;
+	public static Block redwood_sapling, redwood_log, redwood_leaves, redwood_planks, stripped_redwood_log,
+			redwood_wood, stripped_redwood_wood, redwood_sign, redwood_wall_sign, redwood_pressure_plate,
+			redwood_trapdoor, redwood_button, redwood_slab, redwood_fence_gate, redwood_fence, redwood_door,
+			redwood_stairs;
+	
+	public static Block willow_sapling, willow_log, willow_leaves, willow_planks, stripped_willow_log, willow_wood,
+			stripped_willow_wood, willow_sign, willow_wall_sign, willow_pressure_plate, willow_trapdoor, willow_button,
+			willow_slab, willow_fence_gate, willow_fence, willow_door, willow_stairs;
+
+	public static Block mangrove_sapling, mangrove_log, mangrove_leaves, mangrove_planks, stripped_mangrove_log,
+			mangrove_wood, stripped_mangrove_wood, mangrove_sign, mangrove_wall_sign, mangrove_pressure_plate,
+			mangrove_trapdoor, mangrove_button, mangrove_slab, mangrove_fence_gate, mangrove_fence, mangrove_door,
+			mangrove_stairs;
+
+	public static Block palm_sapling, palm_log, palm_leaves, palm_planks, stripped_palm_log, palm_wood,
+			stripped_palm_wood, palm_sign, palm_wall_sign, palm_pressure_plate, palm_trapdoor, palm_button, palm_slab,
+			palm_fence_gate, palm_fence, palm_door, palm_stairs;
+	
+	public static Block cottonwood_sapling, cottonwood_log, cottonwood_leaves, cottonwood_planks,
+			stripped_cottonwood_log, cottonwood_wood, stripped_cottonwood_wood, cottonwood_sign, cottonwood_wall_sign,
+			cottonwood_pressure_plate, cottonwood_trapdoor, cottonwood_button, cottonwood_slab, cottonwood_fence_gate,
+			cottonwood_fence, cottonwood_door, cottonwood_stairs;
+	
+	public static Block aspen_sapling, aspen_log, aspen_leaves, aspen_planks, stripped_aspen_log, aspen_wood,
+			stripped_aspen_wood, aspen_sign, aspen_wall_sign, aspen_pressure_plate, aspen_trapdoor, aspen_button,
+			aspen_slab, aspen_fence_gate, aspen_fence, aspen_door, aspen_stairs;
+
+	public static Block juniper_sapling, juniper_log, juniper_leaves, berried_juniper_leaves, juniper_planks, stripped_juniper_log,
+			juniper_wood, stripped_juniper_wood, juniper_sign, juniper_wall_sign, juniper_pressure_plate,
+			juniper_trapdoor, juniper_button, juniper_slab, juniper_fence_gate, juniper_fence, juniper_door,
+			juniper_stairs;
+
+	public static Block baobab_sapling, baobab_log, baobab_leaves, baobab_planks, stripped_baobab_log, baobab_wood,
+			stripped_baobab_wood, baobab_sign, baobab_wall_sign, baobab_pressure_plate, baobab_trapdoor, baobab_button,
+			baobab_slab, baobab_fence_gate, baobab_fence, baobab_door, baobab_stairs;
+	
+	public static Block red_maple_sapling, orange_maple_sapling, purple_maple_sapling, maple_log, red_maple_leaves, orange_maple_leaves, purple_maple_leaves,
+			maple_planks, stripped_maple_log, maple_wood, stripped_maple_wood, maple_sign, maple_wall_sign,
+			maple_pressure_plate, maple_trapdoor, maple_button, maple_slab, maple_fence_gate, maple_fence, maple_door,
+			maple_stairs;
+
+	public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapling, potted_willow_sapling,
+			potted_mangrove_sapling, potted_palm_sapling, potted_aspen_sapling, potted_juniper_sapling,
+			potted_cottonwood_sapling, potted_baobab_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
+			potted_purple_maple_sapling;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -110,88 +167,202 @@ public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapl
 		potted_warped_nettle = registerBlockWithoutItem(createFlowerPot(warped_nettle), "potted_warped_nettle");
 		
 		natural_cobweb = registerBlockWithoutItem(new NaturalCobwebBlock(), "natural_cobweb");
+		coconut = registerBlock(new CoconutBlock(), "coconut");
 		
-		fir_sapling = registerBlockWithFuel(new SaplingBlock(new FirTree(), Properties.copy(Blocks.OAK_SAPLING)), "fir_sapling",
-				100);
+		fir_sapling = registerBlockWithFuel(new SaplingBlock(new FirTree(), Properties.copy(Blocks.OAK_SAPLING)), "fir_sapling", 100);
 		fir_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_fir_log), "fir_log", 300);
 		fir_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "fir_leaves");
 		fir_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_fir_wood), "fir_wood", 300);
 		fir_planks = registerBlockWithFuel(createPlanksBlock(), "fir_planks", 300);
-		stripped_fir_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_fir_log", 300);
-		stripped_fir_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_fir_wood", 300);
-		fir_pressure_plate = registerBlockWithFuel(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-				AbstractBlock.Properties.of(Material.WOOD, fir_planks.defaultMaterialColor()).noCollission()
-						.strength(0.5F).sound(SoundType.WOOD)),
-				"fir_pressure_plate", 300);
-		fir_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "fir_trapdoor",
-				300);
+		stripped_fir_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_fir_log", 300);
+		stripped_fir_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_fir_wood", 300);
+		fir_pressure_plate = registerBlockWithFuel(createPressurePlate(fir_planks.defaultMaterialColor()), "fir_pressure_plate", 300);
+		fir_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "fir_trapdoor", 300);
 		fir_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "fir_button", 100);
 		fir_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "fir_slab", 150);
-		fir_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)),
-				"fir_fence_gate", 300);
+		fir_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "fir_fence_gate", 300);
 		fir_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "fir_fence", 300);
 		fir_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "fir_door", 200);
-		fir_stairs = registerBlockWithFuel(
-				new StairsBlock(() -> fir_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)),
-				"fir_stairs", 300);
+		fir_stairs = registerBlockWithFuel(new StairsBlock(() -> fir_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "fir_stairs", 300);
 		
-		pine_sapling = registerBlockWithFuel(new SaplingBlock(new PineTree(), Properties.copy(Blocks.OAK_SAPLING)), "pine_sapling",
-				100);
+		pine_sapling = registerBlockWithFuel(new SaplingBlock(new PineTree(), Properties.copy(Blocks.OAK_SAPLING)), "pine_sapling", 100);
 		pine_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_pine_log), "pine_log", 300);
 		pine_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "pine_leaves");
 		pine_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_pine_wood), "pine_wood", 300);
 		pine_planks = registerBlockWithFuel(createPlanksBlock(), "pine_planks", 300);
-		stripped_pine_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_pine_log", 300);
-		stripped_pine_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_pine_wood", 300);
-		pine_pressure_plate = registerBlockWithFuel(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-				AbstractBlock.Properties.of(Material.WOOD, pine_planks.defaultMaterialColor()).noCollission()
-						.strength(0.5F).sound(SoundType.WOOD)),
-				"pine_pressure_plate", 300);
-		pine_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "pine_trapdoor",
-				300);
+		stripped_pine_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_pine_log", 300);
+		stripped_pine_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_pine_wood", 300);
+		pine_pressure_plate = registerBlockWithFuel(createPressurePlate(pine_planks.defaultMaterialColor()), "pine_pressure_plate", 300);
+		pine_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "pine_trapdoor", 300);
 		pine_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "pine_button", 100);
 		pine_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "pine_slab", 150);
-		pine_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)),
-				"pine_fence_gate", 300);
+		pine_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "pine_fence_gate", 300);
 		pine_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "pine_fence", 300);
 		pine_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "pine_door", 200);
-		pine_stairs = registerBlockWithFuel(
-				new StairsBlock(() -> pine_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)),
-				"pine_stairs", 300);
+		pine_stairs = registerBlockWithFuel(new StairsBlock(() -> pine_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "pine_stairs", 300);
 		
-		redwood_sapling = registerBlockWithFuel(new SaplingBlock(new RedwoodTree(), Properties.copy(Blocks.OAK_SAPLING)), "redwood_sapling",
-				100);
+		redwood_sapling = registerBlockWithFuel(new SaplingBlock(new RedwoodTree(), Properties.copy(Blocks.OAK_SAPLING)), "redwood_sapling", 100);
 		redwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_redwood_log), "redwood_log", 300);
 		redwood_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "redwood_leaves");
 		redwood_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_redwood_wood), "redwood_wood", 300);
 		redwood_planks = registerBlockWithFuel(createPlanksBlock(), "redwood_planks", 300);
-		stripped_redwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_redwood_log", 300);
-		stripped_redwood_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null),
-				"stripped_redwood_wood", 300);
-		redwood_pressure_plate = registerBlockWithFuel(new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-				AbstractBlock.Properties.of(Material.WOOD, redwood_planks.defaultMaterialColor()).noCollission()
-						.strength(0.5F).sound(SoundType.WOOD)),
-				"redwood_pressure_plate", 300);
-		redwood_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "redwood_trapdoor",
-				300);
+		stripped_redwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_redwood_log", 300);
+		stripped_redwood_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_redwood_wood", 300);
+		redwood_pressure_plate = registerBlockWithFuel(createPressurePlate(redwood_planks.defaultMaterialColor()),"redwood_pressure_plate", 300);
+		redwood_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "redwood_trapdoor", 300);
 		redwood_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "redwood_button", 100);
 		redwood_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "redwood_slab", 150);
-		redwood_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)),
-				"redwood_fence_gate", 300);
+		redwood_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "redwood_fence_gate", 300);
 		redwood_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "redwood_fence", 300);
 		redwood_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "redwood_door", 200);
-		redwood_stairs = registerBlockWithFuel(
-				new StairsBlock(() -> redwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)),
-				"redwood_stairs", 300);
+		redwood_stairs = registerBlockWithFuel(new StairsBlock(() -> redwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "redwood_stairs", 300);
+		
+		willow_sapling = registerBlockWithFuel(new SandySaplingBlock(new WillowTree(), Properties.copy(Blocks.OAK_SAPLING)), "willow_sapling", 100);
+		willow_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_willow_log), "willow_log", 300);
+		willow_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "willow_leaves");
+		willow_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_willow_wood), "willow_wood", 300);
+		willow_planks = registerBlockWithFuel(createPlanksBlock(), "willow_planks", 300);
+		stripped_willow_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_willow_log", 300);
+		stripped_willow_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_willow_wood", 300);
+		willow_pressure_plate = registerBlockWithFuel(createPressurePlate(willow_planks.defaultMaterialColor()),"willow_pressure_plate", 300);
+		willow_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "willow_trapdoor", 300);
+		willow_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "willow_button", 100);
+		willow_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "willow_slab", 150);
+		willow_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "willow_fence_gate", 300);
+		willow_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "willow_fence", 300);
+		willow_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "willow_door", 200);
+		willow_stairs = registerBlockWithFuel(new StairsBlock(() -> willow_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "willow_stairs", 300);
+		
+		mangrove_sapling = registerBlockWithFuel(new MangroveSaplingBlock(new MangroveTree(), Properties.copy(Blocks.OAK_SAPLING)), "mangrove_sapling", 100);
+		mangrove_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_mangrove_log), "mangrove_log", 300);
+		mangrove_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "mangrove_leaves");
+		mangrove_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_mangrove_wood), "mangrove_wood", 300);
+		mangrove_planks = registerBlockWithFuel(createPlanksBlock(), "mangrove_planks", 300);
+		stripped_mangrove_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_mangrove_log", 300);
+		stripped_mangrove_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_mangrove_wood", 300);
+		mangrove_pressure_plate = registerBlockWithFuel(createPressurePlate(mangrove_planks.defaultMaterialColor()),"mangrove_pressure_plate", 300);
+		mangrove_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "mangrove_trapdoor", 300);
+		mangrove_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "mangrove_button", 100);
+		mangrove_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "mangrove_slab", 150);
+		mangrove_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "mangrove_fence_gate", 300);
+		mangrove_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "mangrove_fence", 300);
+		mangrove_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "mangrove_door", 200);
+		mangrove_stairs = registerBlockWithFuel(new StairsBlock(() -> mangrove_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "mangrove_stairs", 300);
+		
+		palm_sapling = registerBlockWithFuel(new SandySaplingBlock(new PalmTree(), Properties.copy(Blocks.OAK_SAPLING)), "palm_sapling", 100);
+		palm_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_palm_log), "palm_log", 300);
+		palm_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "palm_leaves");
+		palm_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_palm_wood), "palm_wood", 300);
+		palm_planks = registerBlockWithFuel(createPlanksBlock(), "palm_planks", 300);
+		stripped_palm_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_palm_log", 300);
+		stripped_palm_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_palm_wood", 300);
+		palm_pressure_plate = registerBlockWithFuel(createPressurePlate(palm_planks.defaultMaterialColor()),"palm_pressure_plate", 300);
+		palm_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "palm_trapdoor", 300);
+		palm_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "palm_button", 100);
+		palm_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "palm_slab", 150);
+		palm_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "palm_fence_gate", 300);
+		palm_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "palm_fence", 300);
+		palm_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "palm_door", 200);
+		palm_stairs = registerBlockWithFuel(new StairsBlock(() -> palm_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "palm_stairs", 300);
+		
+		cottonwood_sapling = registerBlockWithFuel(new SaplingBlock(new CottonwoodTree(), Properties.copy(Blocks.OAK_SAPLING)), "cottonwood_sapling", 100);
+		cottonwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_cottonwood_log), "cottonwood_log", 300);
+		cottonwood_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "cottonwood_leaves");
+		cottonwood_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_cottonwood_wood), "cottonwood_wood", 300);
+		cottonwood_planks = registerBlockWithFuel(createPlanksBlock(), "cottonwood_planks", 300);
+		stripped_cottonwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_cottonwood_log", 300);
+		stripped_cottonwood_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_cottonwood_wood", 300);
+		cottonwood_pressure_plate = registerBlockWithFuel(createPressurePlate(cottonwood_planks.defaultMaterialColor()),"cottonwood_pressure_plate", 300);
+		cottonwood_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "cottonwood_trapdoor", 300);
+		cottonwood_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "cottonwood_button", 100);
+		cottonwood_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "cottonwood_slab", 150);
+		cottonwood_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "cottonwood_fence_gate", 300);
+		cottonwood_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "cottonwood_fence", 300);
+		cottonwood_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "cottonwood_door", 200);
+		cottonwood_stairs = registerBlockWithFuel(new StairsBlock(() -> cottonwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "cottonwood_stairs", 300);
+		
+		aspen_sapling = registerBlockWithFuel(new SaplingBlock(new AspenTree(), Properties.copy(Blocks.OAK_SAPLING)), "aspen_sapling", 100);
+		aspen_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_aspen_log), "aspen_log", 300);
+		aspen_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "aspen_leaves");
+		aspen_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_aspen_wood), "aspen_wood", 300);
+		aspen_planks = registerBlockWithFuel(createPlanksBlock(), "aspen_planks", 300);
+		stripped_aspen_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_aspen_log", 300);
+		stripped_aspen_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_aspen_wood", 300);
+		aspen_pressure_plate = registerBlockWithFuel(createPressurePlate(aspen_planks.defaultMaterialColor()),"aspen_pressure_plate", 300);
+		aspen_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "aspen_trapdoor", 300);
+		aspen_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "aspen_button", 100);
+		aspen_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "aspen_slab", 150);
+		aspen_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "aspen_fence_gate", 300);
+		aspen_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "aspen_fence", 300);
+		aspen_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "aspen_door", 200);
+		aspen_stairs = registerBlockWithFuel(new StairsBlock(() -> aspen_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "aspen_stairs", 300);
+		
+		juniper_sapling = registerBlockWithFuel(new JuniperSaplingBlock(new JuniperTree(), Properties.copy(Blocks.OAK_SAPLING)), "juniper_sapling", 100);
+		juniper_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_juniper_log), "juniper_log", 300);
+		berried_juniper_leaves = registerBlock(new JuniperLeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "berried_juniper_leaves");
+		juniper_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "juniper_leaves");
+		juniper_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_juniper_wood), "juniper_wood", 300);
+		juniper_planks = registerBlockWithFuel(createPlanksBlock(), "juniper_planks", 300);
+		stripped_juniper_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_juniper_log", 300);
+		stripped_juniper_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_juniper_wood", 300);
+		juniper_pressure_plate = registerBlockWithFuel(createPressurePlate(juniper_planks.defaultMaterialColor()),"juniper_pressure_plate", 300);
+		juniper_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "juniper_trapdoor", 300);
+		juniper_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "juniper_button", 100);
+		juniper_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "juniper_slab", 150);
+		juniper_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "juniper_fence_gate", 300);
+		juniper_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "juniper_fence", 300);
+		juniper_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "juniper_door", 200);
+		juniper_stairs = registerBlockWithFuel(new StairsBlock(() -> juniper_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "juniper_stairs", 300);
+		
+		baobab_sapling = registerBlockWithFuel(new SaplingBlock(new BaobabTree(), Properties.copy(Blocks.OAK_SAPLING)), "baobab_sapling", 100);
+		baobab_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_baobab_log), "baobab_log", 300);
+		baobab_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "baobab_leaves");
+		baobab_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_baobab_wood), "baobab_wood", 300);
+		baobab_planks = registerBlockWithFuel(createPlanksBlock(), "baobab_planks", 300);
+		stripped_baobab_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_baobab_log", 300);
+		stripped_baobab_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_baobab_wood", 300);
+		baobab_pressure_plate = registerBlockWithFuel(createPressurePlate(baobab_planks.defaultMaterialColor()),"baobab_pressure_plate", 300);
+		baobab_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "baobab_trapdoor", 300);
+		baobab_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "baobab_button", 100);
+		baobab_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "baobab_slab", 150);
+		baobab_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "baobab_fence_gate", 300);
+		baobab_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "baobab_fence", 300);
+		baobab_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "baobab_door", 200);
+		baobab_stairs = registerBlockWithFuel(new StairsBlock(() -> baobab_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "baobab_stairs", 300);
+		
+		red_maple_sapling = registerBlockWithFuel(new SaplingBlock(new RedMapleTree(), Properties.copy(Blocks.OAK_SAPLING)), "red_maple_sapling", 100);
+		orange_maple_sapling = registerBlockWithFuel(new SaplingBlock(new OrangeMapleTree(), Properties.copy(Blocks.OAK_SAPLING)), "orange_maple_sapling", 100);
+		purple_maple_sapling = registerBlockWithFuel(new SaplingBlock(new PurpleMapleTree(), Properties.copy(Blocks.OAK_SAPLING)), "purple_maple_sapling", 100);
+		maple_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_maple_log), "maple_log", 300);
+		red_maple_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)) { public MaterialColor defaultMaterialColor() { return MaterialColor.COLOR_RED; } }, "red_maple_leaves");
+		orange_maple_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)) { public MaterialColor defaultMaterialColor() { return MaterialColor.COLOR_ORANGE; } }, "orange_maple_leaves");
+		purple_maple_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)) { public MaterialColor defaultMaterialColor() { return MaterialColor.COLOR_PURPLE; } }, "purple_maple_leaves");
+		maple_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_maple_wood), "maple_wood", 300);
+		maple_planks = registerBlockWithFuel(createPlanksBlock(), "maple_planks", 300);
+		stripped_maple_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_maple_log", 300);
+		stripped_maple_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_maple_wood", 300);
+		maple_pressure_plate = registerBlockWithFuel(createPressurePlate(maple_planks.defaultMaterialColor()),"maple_pressure_plate", 300);
+		maple_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "maple_trapdoor", 300);
+		maple_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "maple_button", 100);
+		maple_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "maple_slab", 150);
+		maple_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "maple_fence_gate", 300);
+		maple_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "maple_fence", 300);
+		maple_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "maple_door", 200);
+		maple_stairs = registerBlockWithFuel(new StairsBlock(() -> maple_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "maple_stairs", 300);
 		
 		potted_fir_sapling =  registerBlockWithoutItem(createFlowerPot(fir_sapling), "potted_fir_sapling");
 		potted_pine_sapling =  registerBlockWithoutItem(createFlowerPot(pine_sapling), "potted_pine_sapling");
 		potted_redwood_sapling =  registerBlockWithoutItem(createFlowerPot(redwood_sapling), "potted_redwood_sapling");
+		potted_willow_sapling =  registerBlockWithoutItem(createFlowerPot(willow_sapling), "potted_willow_sapling");
+		potted_mangrove_sapling =  registerBlockWithoutItem(createFlowerPot(mangrove_sapling), "potted_mangrove_sapling");
+		potted_palm_sapling =  registerBlockWithoutItem(createFlowerPot(palm_sapling), "potted_palm_sapling");
+		potted_aspen_sapling =  registerBlockWithoutItem(createFlowerPot(aspen_sapling), "potted_aspen_sapling");
+		potted_juniper_sapling =  registerBlockWithoutItem(createFlowerPot(juniper_sapling), "potted_juniper_sapling");
+		potted_cottonwood_sapling =  registerBlockWithoutItem(createFlowerPot(cottonwood_sapling), "potted_cottonwood_sapling");
+		potted_baobab_sapling =  registerBlockWithoutItem(createFlowerPot(baobab_sapling), "potted_baobab_sapling");
+		potted_red_maple_sapling =  registerBlockWithoutItem(createFlowerPot(red_maple_sapling), "potted_red_maple_sapling");
+		potted_orange_maple_sapling =  registerBlockWithoutItem(createFlowerPot(orange_maple_sapling), "potted_orange_maple_sapling");
+		potted_purple_maple_sapling =  registerBlockWithoutItem(createFlowerPot(purple_maple_sapling), "potted_purple_maple_sapling");
 		
 		event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
 	}
@@ -246,6 +417,12 @@ public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapl
 				return super.getToolModifiedState(state, world, pos, player, stack, toolType);
 			}
 		};
+	}
+	
+	public static PressurePlateBlock createPressurePlate(MaterialColor color) {
+		return new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
+				AbstractBlock.Properties.of(Material.WOOD, color).noCollission()
+				.strength(0.5F).sound(SoundType.WOOD));
 	}
 
 	public static Block createPlanksBlock() {
