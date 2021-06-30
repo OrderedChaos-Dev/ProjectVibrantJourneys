@@ -128,11 +128,10 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> Features.PATCH_GRASS_PLAIN);
 			}
 
+			//PVJ BIOMES
 			if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.overgrown_spires_vegetation);
-			}
-			
-			if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.REDWOOD_PEAKS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
+			} else if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.REDWOOD_PEAKS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest_vegetation);
 			} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST || biome == PVJBiomes.Keys.ALPINE_HEIGHTS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_forest_vegetation);
@@ -144,6 +143,8 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_plateau_vegetation);
 			} else if(biome == PVJBiomes.Keys.ASPEN_GROVE || biome == PVJBiomes.Keys.ASPEN_GROVE_HILLS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.aspen_grove_vegetation);
+			} else if(biome == PVJBiomes.Keys.MANGROVE_MARSH) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.mangrove_marsh_vegetation);
 			}
 		}
 	}

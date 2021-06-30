@@ -133,6 +133,7 @@ public class PVJConfig {
 		alpine_heights = COMMON_BUILDER.define("alpine_heights", true);
 		boreal_plateau = COMMON_BUILDER.define("boreal_plateau", true);
 		aspen_grove = COMMON_BUILDER.define("aspen_grove", true);
+		mangrove_marsh = COMMON_BUILDER.define("mangrove_marsh", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();
