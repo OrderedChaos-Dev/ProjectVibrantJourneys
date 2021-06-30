@@ -134,6 +134,7 @@ public class PVJConfig {
 		boreal_plateau = COMMON_BUILDER.define("boreal_plateau", true);
 		aspen_grove = COMMON_BUILDER.define("aspen_grove", true);
 		mangrove_marsh = COMMON_BUILDER.define("mangrove_marsh", true);
+		willow_wetlands = COMMON_BUILDER.define("willow_wetlands", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

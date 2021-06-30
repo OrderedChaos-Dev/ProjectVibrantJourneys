@@ -126,6 +126,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> boreal_plateau_vegetation;
 	public static ConfiguredFeature<?, ?> aspen_grove_vegetation;
 	public static ConfiguredFeature<?, ?> mangrove_marsh_vegetation;
+	public static ConfiguredFeature<?, ?> willow_wetlands_vegetation;
 	
 	public static void init() {
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
@@ -324,6 +325,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(mangrove_tree.weighted(0.75F)), mangrove_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1)));
+		
+		willow_wetlands_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(willow_tree.weighted(0.75F)), willow_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1)));
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -374,6 +381,7 @@ public class PVJConfiguredFeatures {
 		register("boreal_plateau_vegetation", boreal_plateau_vegetation);
 		register("aspen_grove_vegetation", aspen_grove_vegetation);
 		register("mangrove_marsh_vegetation", mangrove_marsh_vegetation);
+		register("willow_wetlands_vegetation", willow_wetlands_vegetation);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
