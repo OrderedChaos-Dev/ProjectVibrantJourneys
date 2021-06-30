@@ -147,6 +147,8 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.mangrove_marsh_vegetation);
 			} else if(biome == PVJBiomes.Keys.WILLOW_WETLANDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.willow_wetlands_vegetation);
+			} else if(biome == PVJBiomes.Keys.BAOBAB_FIELDS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.baobab_fields_vegetation);
 			}
 		}
 	}

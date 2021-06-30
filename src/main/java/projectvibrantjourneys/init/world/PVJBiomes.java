@@ -20,6 +20,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.biomes.AlpineHeightsBiome;
 import projectvibrantjourneys.common.biomes.AspenGroveBiome;
+import projectvibrantjourneys.common.biomes.BaobabFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
@@ -52,6 +53,7 @@ public class PVJBiomes {
 	public static Biome aspen_grove_hills = register(AspenGroveBiome.makeBorealPlateauBiome(0.45F, 0.25F), "aspen_grove_hills");
 	public static Biome mangrove_marsh = register(MangroveMarshBiome.makeMangroveMarshBiome(), "mangrove_marsh");
 	public static Biome willow_wetlands = register(WillowWetlandsBiome.makeWillowWetlandsBiome(), "willow_wetlands");
+	public static Biome baobab_fields = register(BaobabFieldsBiome.makeBaobabFieldsBiome(), "baobab_fields");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -66,7 +68,7 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> BOREAL_PLATEAU = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "boreal_plateau"));
 		public static final RegistryKey<Biome> WILLOW_WETLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "willow_wetlands"));
 		public static final RegistryKey<Biome> MANGROVE_MARSH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "mangrove_marsh"));
-//		public static final RegistryKey<Biome> BAOBAB_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "baobab_fields"));
+		public static final RegistryKey<Biome> BAOBAB_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "baobab_fields"));
 		public static final RegistryKey<Biome> ASPEN_GROVE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove"));
 		public static final RegistryKey<Biome> ASPEN_GROVE_HILLS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove_hills"));
 //		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
@@ -115,6 +117,8 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.MANGROVE_MARSH, 1));
 		if(PVJConfig.willow_wetlands.get())
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.WILLOW_WETLANDS, 1));
+		if(PVJConfig.baobab_fields.get())
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.BAOBAB_FIELDS, 1));
 	}
 	
 	public static void addTypes() {
@@ -132,6 +136,7 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.ASPEN_GROVE_HILLS, Type.FOREST, Type.COLD, Type.HILLS, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.MANGROVE_MARSH, Type.SWAMP, Type.WATER, Type.WET, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.WILLOW_WETLANDS, Type.SWAMP, Type.WATER, Type.WET, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.BAOBAB_FIELDS, Type.SAVANNA, Type.DRY, Type.HOT, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {

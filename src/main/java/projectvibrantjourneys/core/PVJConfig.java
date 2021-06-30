@@ -135,6 +135,7 @@ public class PVJConfig {
 		aspen_grove = COMMON_BUILDER.define("aspen_grove", true);
 		mangrove_marsh = COMMON_BUILDER.define("mangrove_marsh", true);
 		willow_wetlands = COMMON_BUILDER.define("willow_wetlands", true);
+		baobab_fields = COMMON_BUILDER.define("baobab_fields", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();
