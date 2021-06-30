@@ -6,6 +6,8 @@ import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
@@ -42,6 +44,9 @@ public class VerdantSandsBiome {
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
 		DefaultBiomeFeatures.addDefaultMushrooms(biomeGenSettings);
 		DefaultBiomeFeatures.addDesertExtraVegetation(biomeGenSettings);
+		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_RIVER);
+		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
+		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_WATERLILLY);
 
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.125F)
 				.scale(0.05F).temperature(1.5F).downfall(0.5F)

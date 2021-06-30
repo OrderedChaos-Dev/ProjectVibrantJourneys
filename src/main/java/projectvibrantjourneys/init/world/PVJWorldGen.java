@@ -139,6 +139,7 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows_vegetation);
 			} else if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
 			} else if(biome == PVJBiomes.Keys.BOREAL_PLATEAU) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_plateau_vegetation);
 			} else if(biome == PVJBiomes.Keys.ASPEN_GROVE || biome == PVJBiomes.Keys.ASPEN_GROVE_HILLS) {
