@@ -124,7 +124,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> boreal_forest_vegetation;
 	public static ConfiguredFeature<?, ?> pine_meadows_vegetation;
 	public static ConfiguredFeature<?, ?> boreal_plateau_vegetation;
-
+	public static ConfiguredFeature<?, ?> aspen_grove_vegetation;
+	
 	public static void init() {
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2);
@@ -303,6 +304,19 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(fir_tree.weighted(0.75F), Features.SPRUCE.weighted(0.25F)), fir_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.3F, 1)));
+		
+		aspen_grove_vegetation = Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
+				aspen_tree_bees005.weighted(0.3F),
+				red_maple_tree.weighted(0.15F),
+				orange_maple_tree.weighted(0.15F),
+				purple_maple_tree.weighted(0.15F),
+				large_red_maple_tree.weighted(0.05F),
+				large_orange_maple_tree.weighted(0.05F),
+				large_purple_maple_tree.weighted(0.05F),
+				Features.OAK_BEES_005.weighted(0.25F),
+				Features.FANCY_OAK_BEES_005.weighted(0.05F)), Features.FANCY_OAK_BEES_005))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(6, 0.1F, 1)));
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -351,6 +365,7 @@ public class PVJConfiguredFeatures {
 		register("boreal_forest_vegetation", boreal_forest_vegetation);
 		register("pine_meadows_vegetation", pine_meadows_vegetation);
 		register("boreal_plateau_vegetation", boreal_plateau_vegetation);
+		register("aspen_grove_vegetation", aspen_grove_vegetation);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

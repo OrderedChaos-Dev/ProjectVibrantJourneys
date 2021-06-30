@@ -16,6 +16,7 @@ public class VerdantSandsBiome {
 				.surfaceBuilder(PVJConfiguredSurfaceBuilders.VERDANT_SANDS);
 
 		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
+		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
 		DefaultBiomeFeatures.desertSpawns(mobSpawnInfo);
 
 		mobSpawnInfo.setPlayerCanSpawn();

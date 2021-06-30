@@ -3,7 +3,8 @@
 	"package": "projectvibrantjourneys.core.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"ShoreLayerMixin"
+		"ShoreLayerMixin",
+		"HillsLayerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

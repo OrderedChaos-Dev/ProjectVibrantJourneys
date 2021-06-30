@@ -21,6 +21,7 @@ public class BorealForestBiome {
 		mobSpawnInfo.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
 		mobSpawnInfo.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
 		mobSpawnInfo.setPlayerCanSpawn();
+		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
 		DefaultBiomeFeatures.commonSpawns(mobSpawnInfo);
 
 		float f = isSnowy ? -0.4F : 0.23F;

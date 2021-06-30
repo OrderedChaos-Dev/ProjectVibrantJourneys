@@ -13,6 +13,7 @@ public class BorealPlateauBiome {
 
 	public static Biome makeBorealPlateauBiome() {
 		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
+		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
 		DefaultBiomeFeatures.commonSpawns(mobSpawnInfo);
 		BiomeGenerationSettings.Builder biomeGenBuilder = (new BiomeGenerationSettings.Builder())
 				.surfaceBuilder(ConfiguredSurfaceBuilders.STONE);

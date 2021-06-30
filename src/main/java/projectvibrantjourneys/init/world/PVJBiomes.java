@@ -1,12 +1,15 @@
 package projectvibrantjourneys.init.world;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
@@ -16,6 +19,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.biomes.AlpineHeightsBiome;
+import projectvibrantjourneys.common.biomes.AspenGroveBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
@@ -29,6 +33,8 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBiomes {
 	
 	public static final List<Biome> BIOMES = new ArrayList<Biome>();
+	public static final Map<RegistryKey<Biome>, RegistryKey<Biome>> SHORE_MAP = new HashMap<RegistryKey<Biome>, RegistryKey<Biome>>();
+	public static final Map<RegistryKey<Biome>, RegistryKey<Biome>> HILLS_MAP = new HashMap<RegistryKey<Biome>, RegistryKey<Biome>>();
 	
 	public static Biome overgrown_spires = register(OvergrownSpiresBiome.makeShatteredJungleBiome(), "overgrown_spires");
 	public static Biome verdant_sands = register(VerdantSandsBiome.makeVerdantSandsBiome(), "verdant_sands");
@@ -40,6 +46,8 @@ public class PVJBiomes {
 	public static Biome alpine_heights = register(AlpineHeightsBiome.makeAlpineHeightsBiome(5F, 1.1F), "alpine_heights");
 	public static Biome pine_meadows = register(PineMeadowsBiome.makePineMeadowsBiome(), "pine_meadows");
 	public static Biome boreal_plateau = register(BorealPlateauBiome.makeBorealPlateauBiome(), "boreal_plateau");
+	public static Biome aspen_grove = register(AspenGroveBiome.makeBorealPlateauBiome(0.2F, 0.2F), "aspen_grove");
+	public static Biome aspen_grove_hills = register(AspenGroveBiome.makeBorealPlateauBiome(0.45F, 0.25F), "aspen_grove_hills");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -55,7 +63,8 @@ public class PVJBiomes {
 //		public static final RegistryKey<Biome> WILLOW_WETLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "willow_wetlands"));
 //		public static final RegistryKey<Biome> MANGROVE_MARSH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "mangrove_marsh"));
 //		public static final RegistryKey<Biome> BAOBAB_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "baobab_fields"));
-//		public static final RegistryKey<Biome> ASPEN_GROVE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove"));
+		public static final RegistryKey<Biome> ASPEN_GROVE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove"));
+		public static final RegistryKey<Biome> ASPEN_GROVE_HILLS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove_hills"));
 //		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
 //		public static final RegistryKey<Biome> PRAIRIE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "prairie"));
 	}
@@ -66,6 +75,7 @@ public class PVJBiomes {
 		
 		addBiomes();
 		addTypes();
+		mapBiomesForMixins();
 	}
 	
 	public static Biome register(Biome biome, String name) {
@@ -84,17 +94,19 @@ public class PVJBiomes {
 		if(PVJConfig.redwood_peaks.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.REDWOOD_PEAKS, 1));
 		if(PVJConfig.snowy_redwoods.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.SNOWY_REDWOODS, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_REDWOODS, 1));
 		if(PVJConfig.boreal_forest.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BOREAL_FOREST, 1));
 		if(PVJConfig.snowy_boreal_forest.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.SNOWY_BOREAL_FOREST, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_BOREAL_FOREST, 1));
 		if(PVJConfig.alpine_heights.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.ALPINE_HEIGHTS, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.ALPINE_HEIGHTS, 1));
 		if(PVJConfig.pine_meadows.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.PINE_MEADOWS, 1));
 		if(PVJConfig.boreal_plateau.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BOREAL_PLATEAU, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.BOREAL_PLATEAU, 1));
+		if(PVJConfig.aspen_grove.get())
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.ASPEN_GROVE, 1));
 	}
 	
 	public static void addTypes() {
@@ -108,5 +120,27 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.ALPINE_HEIGHTS, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.SNOWY, Type.MOUNTAIN, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.PINE_MEADOWS, Type.CONIFEROUS, Type.PLAINS, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.BOREAL_PLATEAU, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.SNOWY, Type.MOUNTAIN, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.ASPEN_GROVE, Type.FOREST, Type.COLD, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.ASPEN_GROVE_HILLS, Type.FOREST, Type.COLD, Type.HILLS, Type.OVERWORLD);
+	}
+	
+	public static void mapBiomesForMixins() {
+		//BEACHES
+		mapShoreBiome(Keys.ALPINE_HEIGHTS, Biomes.STONE_SHORE);
+		mapShoreBiome(Keys.BOREAL_PLATEAU, Biomes.STONE_SHORE);
+		mapShoreBiome(Keys.REDWOOD_PEAKS, Biomes.STONE_SHORE);
+		mapShoreBiome(Keys.SNOWY_BOREAL_FOREST, Biomes.SNOWY_BEACH);
+		mapShoreBiome(Keys.SNOWY_REDWOODS, Biomes.SNOWY_BEACH);
+		
+		//HILLS
+		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);
+	}
+	
+	public static void mapShoreBiome(RegistryKey<Biome> biome, RegistryKey<Biome> shore) {
+		SHORE_MAP.put(biome, shore);
+	}
+	
+	public static void mapHillsBiome(RegistryKey<Biome> biome, RegistryKey<Biome> shore) {
+		HILLS_MAP.put(biome, shore);
 	}
 }

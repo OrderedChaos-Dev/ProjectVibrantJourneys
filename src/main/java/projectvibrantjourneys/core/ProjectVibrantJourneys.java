@@ -33,7 +33,6 @@ public class ProjectVibrantJourneys {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::loadComplete);
 		
 		PVJConfig.loadConfig(PVJConfig.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("projectvibrantjourneys-common.toml"));
-		Mixins.addConfiguration("projectvibrantjourneys.mixins.json");
 	}
 	
 	private void commonSetup(FMLCommonSetupEvent event) {
@@ -42,6 +41,7 @@ public class ProjectVibrantJourneys {
 		event.enqueueWork(() ->  {
 			PVJConfiguredFeatures.init();
 		});
+		Mixins.addConfiguration("projectvibrantjourneys.mixins.json");
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {
