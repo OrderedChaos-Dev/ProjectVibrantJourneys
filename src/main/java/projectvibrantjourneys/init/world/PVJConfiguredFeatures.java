@@ -75,7 +75,8 @@ public class PVJConfiguredFeatures {
 	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
-
+	public static BlockClusterFeatureConfig prairieGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
+	
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
 	public static ConfiguredFeature<?, ?> water_cattails;
@@ -96,6 +97,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> warped_nettle;
 	public static ConfiguredFeature<?, ?> short_grass;
 	public static ConfiguredFeature<?, ?> beach_grass;
+	public static ConfiguredFeature<?, ?> prairie_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
@@ -128,6 +130,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> mangrove_marsh_vegetation;
 	public static ConfiguredFeature<?, ?> willow_wetlands_vegetation;
 	public static ConfiguredFeature<?, ?> baobab_fields_vegetation;
+	public static ConfiguredFeature<?, ?> prairie_vegetation;
 	
 	public static void init() {
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
@@ -152,6 +155,7 @@ public class PVJConfiguredFeatures {
 		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
 		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
+		prairie_grass = Feature.RANDOM_PATCH.configured(prairieGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(40);
 
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
@@ -338,6 +342,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(Features.ACACIA.weighted(0.5F)), baobab_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.1F, 1)));
+		
+		prairie_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(cottonwood_tree_bees005.weighted(1.0F)), cottonwood_tree_bees005))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.3F, 1)));
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -359,6 +369,7 @@ public class PVJConfiguredFeatures {
 		register("warped_nettle", warped_nettle);
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
+		register("prairie_grass", prairie_grass);
 		register("fallen_tree", fallen_tree);
 		register("mega_redwood_tree", mega_redwood_tree);
 		register("redwood_tree", redwood_tree);
@@ -390,6 +401,7 @@ public class PVJConfiguredFeatures {
 		register("mangrove_marsh_vegetation", mangrove_marsh_vegetation);
 		register("willow_wetlands_vegetation", willow_wetlands_vegetation);
 		register("baobab_fields_vegetation", baobab_fields_vegetation);
+		register("prairie_vegetation", prairie_vegetation);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

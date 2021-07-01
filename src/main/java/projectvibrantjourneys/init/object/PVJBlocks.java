@@ -47,6 +47,7 @@ import projectvibrantjourneys.common.blocks.JuniperSaplingBlock;
 import projectvibrantjourneys.common.blocks.MangroveSaplingBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import projectvibrantjourneys.common.blocks.NetherPlantBlock;
+import projectvibrantjourneys.common.blocks.PVJTallGrassBlock;
 import projectvibrantjourneys.common.blocks.SandySaplingBlock;
 import projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
@@ -78,7 +79,7 @@ public class PVJBlocks {
 	public static Block natural_cobweb;
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle;
-	public static Block short_grass, beach_grass, dry_grass;
+	public static Block short_grass, beach_grass, prairie_grass, dry_grass;
 	public static Block cindercane;
 	public static Block wildflowers;
 	public static Block coconut;
@@ -161,6 +162,7 @@ public class PVJBlocks {
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
 		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
+		prairie_grass = registerBlock(new PVJTallGrassBlock(), "prairie_grass");
 		
 		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
 		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");

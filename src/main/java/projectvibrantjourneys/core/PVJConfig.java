@@ -136,6 +136,7 @@ public class PVJConfig {
 		mangrove_marsh = COMMON_BUILDER.define("mangrove_marsh", true);
 		willow_wetlands = COMMON_BUILDER.define("willow_wetlands", true);
 		baobab_fields = COMMON_BUILDER.define("baobab_fields", true);
+		prairie = COMMON_BUILDER.define("prairie", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

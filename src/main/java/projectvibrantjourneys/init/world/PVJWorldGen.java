@@ -150,6 +150,9 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.willow_wetlands_vegetation);
 			} else if(biome == PVJBiomes.Keys.BAOBAB_FIELDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.baobab_fields_vegetation);
+			} else if(biome == PVJBiomes.Keys.PRAIRIE) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_grass);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_vegetation);
 			}
 		}
 	}
