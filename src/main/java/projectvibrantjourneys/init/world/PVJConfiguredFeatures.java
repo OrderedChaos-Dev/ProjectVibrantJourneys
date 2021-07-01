@@ -206,7 +206,7 @@ public class PVJConfiguredFeatures {
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.mangrove_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.mangrove_leaves.defaultBlockState()),
 						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
-						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(5).build());
+						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(7).build());
 
 		palm_tree = PVJFeatures.sandTree.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.palm_log.defaultBlockState()),
@@ -344,7 +344,7 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(Features.ACACIA.weighted(0.5F)), baobab_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.1F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.3F, 1)));
 		
 		prairie_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(

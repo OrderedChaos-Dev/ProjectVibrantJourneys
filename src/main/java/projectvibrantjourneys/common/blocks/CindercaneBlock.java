@@ -43,7 +43,6 @@ public class CindercaneBlock extends Block implements IPlantable {
 		if (!state.canSurvive(world, pos)) {
 			world.destroyBlock(pos, true);
 		}
-
 	}
 
 	@Override

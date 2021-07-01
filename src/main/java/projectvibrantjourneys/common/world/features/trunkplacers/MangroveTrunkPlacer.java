@@ -34,7 +34,7 @@ public class MangroveTrunkPlacer extends AbstractTrunkPlacer {
 
 	@Override
 	public List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		int offY = 3 + rand.nextInt(3);
+		int offY = 4 + rand.nextInt(3);
 		BlockPos blockpos = pos.above(offY);
 		for(int i = 0; i < height; i++) {
 			placeLog(world, rand, blockpos.above(i), blocks, box, config);
