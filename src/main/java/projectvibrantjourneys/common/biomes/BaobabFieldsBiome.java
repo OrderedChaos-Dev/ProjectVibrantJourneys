@@ -37,7 +37,7 @@ public class BaobabFieldsBiome {
 		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
-		return (new Biome.Builder()).precipitation(Biome.RainType.NONE).biomeCategory(Biome.Category.SAVANNA).depth(0.125F)
+		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.SAVANNA).depth(0.125F)
 				.scale(0.05F).temperature(1.2F).downfall(0.0F)
 				.specialEffects((new BiomeAmbience.Builder())
 						.waterColor(4159204).waterFogColor(329011).grassColorOverride(0x8aab32)

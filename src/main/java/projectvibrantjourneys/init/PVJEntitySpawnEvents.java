@@ -28,6 +28,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.object.PVJEntities;
+import projectvibrantjourneys.init.world.PVJBiomes;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID)
 public class PVJEntitySpawnEvents {
@@ -76,6 +77,11 @@ public class PVJEntitySpawnEvents {
 			}
 			
 			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
+				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+			}
+			
+			//MOD BIOMES
+			if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
 				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
 			}
 		}

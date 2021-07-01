@@ -160,7 +160,7 @@ public class PVJBlocks {
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
-		cindercane = registerBlock(new CindercaneBlock(Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.TWISTING_VINES)), "cindercane");
+		cindercane = registerBlock(new CindercaneBlock(Properties.of(Material.PLANT, MaterialColor.NETHER).noCollission().randomTicks().instabreak().sound(SoundType.TWISTING_VINES)), "cindercane");
 		
 		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
