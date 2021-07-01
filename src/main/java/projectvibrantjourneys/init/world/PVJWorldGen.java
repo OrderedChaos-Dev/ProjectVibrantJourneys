@@ -154,6 +154,14 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_grass);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_vegetation);
 			}
+			
+			//PVJ TREES --> VANILLA BIOMES
+			if(biome == Biomes.BADLANDS || biome == Biomes.BADLANDS_PLATEAU || biome == Biomes.ERODED_BADLANDS || biome == Biomes.MODIFIED_BADLANDS_PLATEAU) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);
+			}
+			if(biome == Biomes.BEACH || biome == Biomes.JUNGLE || biome == Biomes.JUNGLE_HILLS || biome == Biomes.MODIFIED_JUNGLE) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_palm);
+			}
 		}
 	}
 	

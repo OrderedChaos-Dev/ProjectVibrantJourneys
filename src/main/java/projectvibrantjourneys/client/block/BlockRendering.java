@@ -43,6 +43,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.crimson_nettle, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.warped_nettle, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.cindercane, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.short_grass, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.beach_grass, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.prairie_grass, cutout);

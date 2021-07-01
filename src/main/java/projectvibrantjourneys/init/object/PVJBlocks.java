@@ -38,6 +38,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
+import projectvibrantjourneys.common.blocks.CindercaneBlock;
 import projectvibrantjourneys.common.blocks.CoconutBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
@@ -78,9 +79,8 @@ public class PVJBlocks {
 	public static Block bark_mushroom;
 	public static Block natural_cobweb;
 	public static Block glowcap;
-	public static Block crimson_nettle, warped_nettle;
+	public static Block crimson_nettle, warped_nettle, cindercane;
 	public static Block short_grass, beach_grass, prairie_grass, dry_grass;
-	public static Block cindercane;
 	public static Block wildflowers;
 	public static Block coconut;
 	
@@ -160,6 +160,8 @@ public class PVJBlocks {
 		glowcap = registerBlock(new GlowcapBlock(), "glowcap");
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
+		cindercane = registerBlock(new CindercaneBlock(Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.TWISTING_VINES)), "cindercane");
+		
 		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
 		prairie_grass = registerBlock(new PVJTallGrassBlock(), "prairie_grass");

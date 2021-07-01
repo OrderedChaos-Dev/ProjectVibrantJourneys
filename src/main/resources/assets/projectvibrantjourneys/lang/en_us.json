@@ -19,8 +19,10 @@
 	"block.projectvibrantjourneys.glowcap": "Glowcap",
 	"block.projectvibrantjourneys.crimson_nettle": "Crimson Nettle",
 	"block.projectvibrantjourneys.warped_nettle": "Warped Nettle",
+	"block.projectvibrantjourneys.cindercane": "Cindercane",
 	"block.projectvibrantjourneys.short_grass": "Short Grass",
 	"block.projectvibrantjourneys.beach_grass": "Beach Grass",
+	"block.projectvibrantjourneys.prairie_grass": "Prairie Grass",
 	"block.projectvibrantjourneys.coconut": "Coconut",
 	
 	"item.projectvibrantjourneys.starfish_bucket": "Bucket of Starfish",
@@ -267,6 +269,7 @@
 	"biome.projectvibrantjourneys.aspen_grove_hills": "Aspen Grove Hills",
 	"biome.projectvibrantjourneys.mangrove_marsh": "Mangrove Marsh",
 	"biome.projectvibrantjourneys.willow_wetlands": "Willow Wetlands",
+	"biome.projectvibrantjourneys.prairie": "Prairie",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

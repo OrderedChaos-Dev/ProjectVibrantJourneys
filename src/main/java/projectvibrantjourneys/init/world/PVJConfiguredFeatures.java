@@ -132,6 +132,9 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> baobab_fields_vegetation;
 	public static ConfiguredFeature<?, ?> prairie_vegetation;
 	
+	public static ConfiguredFeature<?, ?> vanilla_juniper;
+	public static ConfiguredFeature<?, ?> vanilla_palm;
+	
 	public static void init() {
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2);
@@ -348,6 +351,18 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(cottonwood_tree_bees005.weighted(1.0F)), cottonwood_tree_bees005))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.3F, 1)));
+		
+		vanilla_juniper = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(juniper_tree.weighted(1.0F)), juniper_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.05F, 1)));
+		
+		vanilla_palm = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(palm_tree.weighted(1.0F)), palm_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.1F, 1)));
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -402,6 +417,9 @@ public class PVJConfiguredFeatures {
 		register("willow_wetlands_vegetation", willow_wetlands_vegetation);
 		register("baobab_fields_vegetation", baobab_fields_vegetation);
 		register("prairie_vegetation", prairie_vegetation);
+		
+		register("vanilla_juniper", vanilla_juniper);
+		register("vanilla_palm", vanilla_palm);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
