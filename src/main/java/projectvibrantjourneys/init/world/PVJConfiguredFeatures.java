@@ -231,7 +231,7 @@ public class PVJConfiguredFeatures {
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.cottonwood_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.cottonwood_leaves.defaultBlockState()),
 						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
-						new FancyTrunkPlacer(8, 7, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
+						new FancyTrunkPlacer(15, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
 		cottonwood_tree_bees005 = Feature.TREE.configured(cottonwood_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
@@ -362,7 +362,7 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(cottonwood_tree_bees005.weighted(1.0F)), cottonwood_tree_bees005))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.3F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.15F, 1)));
 		
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(

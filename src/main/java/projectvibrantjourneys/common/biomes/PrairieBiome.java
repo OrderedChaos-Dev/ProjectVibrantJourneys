@@ -39,7 +39,7 @@ public class PrairieBiome {
 		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
-		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.05F)
+		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.01F)
 				.scale(0.0F).temperature(0.6F).downfall(0.8F)
 				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(0xe2fc6d)
 						.foliageColorOverride(0xa7cc5c)
