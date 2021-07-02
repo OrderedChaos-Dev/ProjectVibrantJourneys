@@ -21,8 +21,10 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.glowcap, 0.65F);
 		setCompostInfo(PVJBlocks.crimson_nettle, 0.65F);
 		setCompostInfo(PVJBlocks.warped_nettle, 0.65F);
+		setCompostInfo(PVJBlocks.cindercane, 0.8F);
 		setCompostInfo(PVJBlocks.short_grass, 0.25F);
 		setCompostInfo(PVJBlocks.beach_grass, 0.25F);
+		setCompostInfo(PVJBlocks.prairie_grass, 0.25F);
 		
 		setCompostInfo(PVJBlocks.coconut, 0.2F);
 		setCompostInfo(PVJItems.juniper_berries, 0.1F);

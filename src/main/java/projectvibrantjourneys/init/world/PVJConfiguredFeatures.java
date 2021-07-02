@@ -8,6 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.blockplacer.BlockPlacer;
+import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
@@ -73,6 +74,8 @@ public class PVJConfiguredFeatures {
 	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(64).noProjection().build();
 	public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.crimson_nettle.defaultBlockState()));
 	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
+	public static BlockClusterFeatureConfig cindercaneConfig = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.cindercane.defaultBlockState()), new ColumnBlockPlacer(2, 4)).tries(20).noProjection().build();
+	
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
 	public static BlockClusterFeatureConfig prairieGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
@@ -95,10 +98,12 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> glowcap;
 	public static ConfiguredFeature<?, ?> crimson_nettle;
 	public static ConfiguredFeature<?, ?> warped_nettle;
+	public static ConfiguredFeature<?, ?> cindercane;
 	public static ConfiguredFeature<?, ?> short_grass;
 	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> prairie_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
+
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -156,16 +161,10 @@ public class PVJConfiguredFeatures {
 		glowcap = Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2);
 		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
 		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		cindercane = Feature.RANDOM_PATCH.configured(cindercaneConfig).count(10).range(128);
 		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		prairie_grass = Feature.RANDOM_PATCH.configured(prairieGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(40);
-
-		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
-				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.FANCY_OAK.weighted(0.1F),
-						Features.JUNGLE_BUSH.weighted(0.5F), Features.MEGA_JUNGLE_TREE.weighted(0.33333334F)),
-						Features.JUNGLE_TREE))
-				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(15, 0.4F, 1)));
 
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 
@@ -290,6 +289,19 @@ public class PVJConfiguredFeatures {
 						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
 						new WillowTrunkPlacer(10, 6, 2), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
 
+		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
+						Features.FANCY_OAK.weighted(0.05F),
+						Features.JUNGLE_BUSH.weighted(0.35F),
+						Features.MEGA_JUNGLE_TREE.weighted(0.3F),
+						Features.DARK_OAK.weighted(0.05F),
+						Features.OAK.weighted(0.15F),
+						palm_tree.weighted(0.05F),
+						Features.JUNGLE_TREE.weighted(0.2F)),
+						Features.JUNGLE_TREE))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(20, 0.4F, 1)));
+		
 		redwood_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(mega_redwood_tree.weighted(0.75F), redwood_tree.weighted(0.25F)),
@@ -382,10 +394,13 @@ public class PVJConfiguredFeatures {
 		register("glowcap", glowcap);
 		register("crimson_nettle", crimson_nettle);
 		register("warped_nettle", warped_nettle);
+		register("warped_nettle", warped_nettle);
+		register("cindercane", cindercane);
+		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
 		register("prairie_grass", prairie_grass);
-		register("fallen_tree", fallen_tree);
+		
 		register("mega_redwood_tree", mega_redwood_tree);
 		register("redwood_tree", redwood_tree);
 		register("fir_tree", fir_tree);

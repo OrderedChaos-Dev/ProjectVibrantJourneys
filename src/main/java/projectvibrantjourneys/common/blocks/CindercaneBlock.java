@@ -21,6 +21,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.common.Tags;
 
 public class CindercaneBlock extends Block implements IPlantable {
 	
@@ -52,7 +53,7 @@ public class CindercaneBlock extends Block implements IPlantable {
 			for (i = 1; world.getBlockState(pos.below(i)).is(this); ++i) {
 			}
 
-			if (i < MAX_HEIGHT) {
+			if (i < MAX_HEIGHT && rand.nextInt(4) == 0) {
 				int j = state.getValue(AGE);
 				if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(world, pos, state, true)) {
 					if (j == 15) {
@@ -64,7 +65,6 @@ public class CindercaneBlock extends Block implements IPlantable {
 				}
 			}
 		}
-
 	}
 
 	@Override
@@ -78,14 +78,11 @@ public class CindercaneBlock extends Block implements IPlantable {
 
 	@Override
 	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
-		BlockState soil = world.getBlockState(pos.below());
-		if (soil.canSustainPlant(world, pos.below(), Direction.UP, this))
-			return true;
 		BlockState blockstate = world.getBlockState(pos.below());
 		if (blockstate.getBlock() == this) {
 			return true;
 		} else {
-			if (blockstate.is(Blocks.NETHERRACK)) {
+			if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(Blocks.CRIMSON_NYLIUM) || blockstate.is(Blocks.WARPED_NYLIUM)) {
 				BlockPos blockpos = pos.below();
 
 				for (Direction direction : Direction.Plane.HORIZONTAL) {

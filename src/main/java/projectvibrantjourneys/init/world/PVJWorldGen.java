@@ -44,11 +44,9 @@ public class PVJWorldGen {
 		
 		//GROUNDCOVER
 		if(!PVJConfig.groundcoverBlacklist.get().contains(event.getName().toString())) {
-			
 			if(event.getCategory() == Biome.Category.NETHER) {
 				if(PVJConfig.charredBones.get())
 					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
-				
 			} else if(hasType(biomeTypes, Type.OVERWORLD)) {
 		
 				if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
@@ -82,6 +80,10 @@ public class PVJWorldGen {
 		if(event.getCategory() == Biome.Category.NETHER) {
 			if(PVJConfig.glowcap.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
+			
+			if(biome == Biomes.NETHER_WASTES || biome == Biomes.CRIMSON_FOREST || biome == Biomes.WARPED_FOREST) {
+				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.cindercane);
+			}
 			
 			if(PVJConfig.netherNettles.get()) {
 				if(biome == Biomes.CRIMSON_FOREST)

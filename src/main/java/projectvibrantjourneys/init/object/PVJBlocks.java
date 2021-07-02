@@ -84,6 +84,8 @@ public class PVJBlocks {
 	public static Block wildflowers;
 	public static Block coconut;
 	
+	public static Block slime_geyser;
+	
 	public static Block fir_sapling, fir_log, fir_leaves, fir_planks, stripped_fir_log, fir_wood, stripped_fir_wood,
 			fir_sign, fir_wall_sign, fir_pressure_plate, fir_trapdoor, fir_button, fir_slab, fir_fence_gate, fir_fence,
 			fir_door, fir_stairs;
