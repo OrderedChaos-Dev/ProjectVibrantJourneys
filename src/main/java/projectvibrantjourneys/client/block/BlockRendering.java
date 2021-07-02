@@ -41,6 +41,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.red_maple_fallen_leaves, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.orange_maple_fallen_leaves, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.purple_maple_fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.pink_sakura_fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.white_sakura_fallen_leaves, cutout_mipped);
 	
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sea_oats, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.cattail, cutout_mipped);
@@ -68,6 +70,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_red_maple_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_orange_maple_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_purple_maple_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_pink_sakura_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_white_sakura_sapling, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_trapdoor, cutout);
@@ -91,6 +95,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.baobab_trapdoor, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.maple_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.maple_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.sakura_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.sakura_trapdoor, cutout);
 
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_sapling, cutout_mipped);
@@ -105,6 +111,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.red_maple_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.orange_maple_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.purple_maple_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.pink_sakura_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.white_sakura_sapling, cutout_mipped);
 		}
 	
 		@OnlyIn(Dist.CLIENT)

@@ -37,13 +37,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import projectvibrantjourneys.common.blocks.BeachGrassBlock;
+import projectvibrantjourneys.common.blocks.BerriedJuniperLeavesBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.CindercaneBlock;
 import projectvibrantjourneys.common.blocks.CoconutBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
-import projectvibrantjourneys.common.blocks.JuniperLeavesBlock;
 import projectvibrantjourneys.common.blocks.JuniperSaplingBlock;
 import projectvibrantjourneys.common.blocks.MangroveSaplingBlock;
 import projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
@@ -61,9 +61,11 @@ import projectvibrantjourneys.common.blocks.trees.MangroveTree;
 import projectvibrantjourneys.common.blocks.trees.OrangeMapleTree;
 import projectvibrantjourneys.common.blocks.trees.PalmTree;
 import projectvibrantjourneys.common.blocks.trees.PineTree;
+import projectvibrantjourneys.common.blocks.trees.PinkSakuraTree;
 import projectvibrantjourneys.common.blocks.trees.PurpleMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedwoodTree;
+import projectvibrantjourneys.common.blocks.trees.WhiteSakuraTree;
 import projectvibrantjourneys.common.blocks.trees.WillowTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
@@ -74,7 +76,7 @@ public class PVJBlocks {
 	
 	/* GROUNDCOVERS */
 	public static Block twigs, fallen_leaves, rocks, mossy_rocks, sandstone_rocks, red_sandstone_rocks, ice_chunks, bones, charred_bones, pinecones, seashells;
-	public static Block aspen_fallen_leaves, red_maple_fallen_leaves, orange_maple_fallen_leaves, purple_maple_fallen_leaves;
+	public static Block aspen_fallen_leaves, red_maple_fallen_leaves, orange_maple_fallen_leaves, purple_maple_fallen_leaves, pink_sakura_fallen_leaves, white_sakura_fallen_leaves;
 	
 	public static Block sea_oats;
 	public static Block cattail;
@@ -136,11 +138,16 @@ public class PVJBlocks {
 			maple_planks, stripped_maple_log, maple_wood, stripped_maple_wood, maple_sign, maple_wall_sign,
 			maple_pressure_plate, maple_trapdoor, maple_button, maple_slab, maple_fence_gate, maple_fence, maple_door,
 			maple_stairs;
+	
+	public static Block pink_sakura_sapling, white_sakura_sapling, sakura_log, pink_sakura_leaves, white_sakura_leaves, sakura_planks, stripped_sakura_log,
+			sakura_wood, stripped_sakura_wood, sakura_sign, sakura_wall_sign, sakura_pressure_plate,
+			sakura_trapdoor, sakura_button, sakura_slab, sakura_fence_gate, sakura_fence, sakura_door,
+			sakura_stairs;
 
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapling, potted_willow_sapling,
 			potted_mangrove_sapling, potted_palm_sapling, potted_aspen_sapling, potted_juniper_sapling,
 			potted_cottonwood_sapling, potted_baobab_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
-			potted_purple_maple_sapling;
+			potted_purple_maple_sapling, potted_pink_sakura_sapling, potted_white_sakura_sapling;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -162,6 +169,8 @@ public class PVJBlocks {
 		red_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "red_maple_fallen_leaves");
 		orange_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "orange_maple_fallen_leaves");
 		purple_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "purple_maple_fallen_leaves");
+		pink_sakura_fallen_leaves = registerBlock(new FallenLeavesBlock(), "pink_sakura_fallen_leaves");
+		white_sakura_fallen_leaves = registerBlock(new FallenLeavesBlock(), "white_sakura_fallen_leaves");
 
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
@@ -312,7 +321,7 @@ public class PVJBlocks {
 		
 		juniper_sapling = registerBlockWithFuel(new JuniperSaplingBlock(new JuniperTree(), Properties.copy(Blocks.OAK_SAPLING)), "juniper_sapling", 100);
 		juniper_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_juniper_log), "juniper_log", 300);
-		berried_juniper_leaves = registerBlock(new JuniperLeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "berried_juniper_leaves");
+		berried_juniper_leaves = registerBlock(new BerriedJuniperLeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "berried_juniper_leaves");
 		juniper_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "juniper_leaves");
 		juniper_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_juniper_wood), "juniper_wood", 300);
 		juniper_planks = registerBlockWithFuel(createPlanksBlock(), "juniper_planks", 300);
@@ -363,6 +372,24 @@ public class PVJBlocks {
 		maple_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "maple_door", 200);
 		maple_stairs = registerBlockWithFuel(new StairsBlock(() -> maple_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "maple_stairs", 300);
 		
+		pink_sakura_sapling = registerBlockWithFuel(new SaplingBlock(new PinkSakuraTree(), Properties.copy(Blocks.OAK_SAPLING)), "pink_sakura_sapling", 100);
+		white_sakura_sapling = registerBlockWithFuel(new SaplingBlock(new WhiteSakuraTree(), Properties.copy(Blocks.OAK_SAPLING)), "white_sakura_sapling", 100);
+		sakura_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_RED, () -> stripped_sakura_log), "sakura_log", 300);
+		pink_sakura_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "pink_sakura_leaves");
+		white_sakura_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "white_sakura_leaves");
+		sakura_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_RED, MaterialColor.COLOR_RED, () -> stripped_sakura_wood), "sakura_wood", 300);
+		sakura_planks = registerBlockWithFuel(createPlanksBlock(), "sakura_planks", 300);
+		stripped_sakura_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_RED, null), "stripped_sakura_log", 300);
+		stripped_sakura_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_RED, null), "stripped_sakura_wood", 300);
+		sakura_pressure_plate = registerBlockWithFuel(createPressurePlate(sakura_planks.defaultMaterialColor()),"sakura_pressure_plate", 300);
+		sakura_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "sakura_trapdoor", 300);
+		sakura_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "sakura_button", 100);
+		sakura_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "sakura_slab", 150);
+		sakura_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "sakura_fence_gate", 300);
+		sakura_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "sakura_fence", 300);
+		sakura_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "sakura_door", 200);
+		sakura_stairs = registerBlockWithFuel(new StairsBlock(() -> sakura_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "sakura_stairs", 300);
+		
 		potted_fir_sapling =  registerBlockWithoutItem(createFlowerPot(fir_sapling), "potted_fir_sapling");
 		potted_pine_sapling =  registerBlockWithoutItem(createFlowerPot(pine_sapling), "potted_pine_sapling");
 		potted_redwood_sapling =  registerBlockWithoutItem(createFlowerPot(redwood_sapling), "potted_redwood_sapling");
@@ -376,6 +403,8 @@ public class PVJBlocks {
 		potted_red_maple_sapling =  registerBlockWithoutItem(createFlowerPot(red_maple_sapling), "potted_red_maple_sapling");
 		potted_orange_maple_sapling =  registerBlockWithoutItem(createFlowerPot(orange_maple_sapling), "potted_orange_maple_sapling");
 		potted_purple_maple_sapling =  registerBlockWithoutItem(createFlowerPot(purple_maple_sapling), "potted_purple_maple_sapling");
+		potted_pink_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(pink_sakura_sapling), "potted_pink_sakura_sapling");
+		potted_white_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(white_sakura_sapling), "potted_white_sakura_sapling");
 		
 		event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
 	}

@@ -17,6 +17,8 @@
 	"block.projectvibrantjourneys.red_maple_fallen_leaves": "Fallen Red Maple Leaves",
 	"block.projectvibrantjourneys.orange_maple_fallen_leaves": "Fallen Orange Maple Leaves",
 	"block.projectvibrantjourneys.purple_maple_fallen_leaves": "Fallen Purple Maple Leaves",
+	"block.projectvibrantjourneys.pink_sakura_fallen_leaves": "Fallen Pink Cherry Blossom Leaves",
+	"block.projectvibrantjourneys.white_sakura_fallen_leaves": "Fallen White Cherry Blossom Leaves",
 	
 	"block.projectvibrantjourneys.sea_oats": "Sea Oats",
 	"block.projectvibrantjourneys.cattail": "Cattail",
@@ -56,6 +58,7 @@
 	"block.projectvibrantjourneys.maple_log": "Maple Log",
 	"block.projectvibrantjourneys.cottonwood_log": "Cottonwood Log",
 	"block.projectvibrantjourneys.juniper_log": "Juniper Log",
+	"block.projectvibrantjourneys.sakura_log": "Cherry Blossom Log",
 	
 	"block.projectvibrantjourneys.fir_leaves": "Fir Leaves",
 	"block.projectvibrantjourneys.pine_leaves": "Pine Leaves",
@@ -71,6 +74,8 @@
 	"block.projectvibrantjourneys.cottonwood_leaves": "Cottonwood Leaves",
 	"block.projectvibrantjourneys.juniper_leaves": "Juniper Leaves",
 	"block.projectvibrantjourneys.berried_juniper_leaves": "Berried Juniper Leaves",
+	"block.projectvibrantjourneys.pink_sakura_leaves": "Pink Cherry Blossom Leaves",
+	"block.projectvibrantjourneys.white_sakura_leaves": "White Cherry Blossom Leaves",
 	
 	"block.projectvibrantjourneys.fir_sapling": "Fir Sapling",
 	"block.projectvibrantjourneys.pine_sapling": "Pine Sapling",
@@ -85,6 +90,8 @@
 	"block.projectvibrantjourneys.purple_maple_sapling": "Purple Maple Sapling",
 	"block.projectvibrantjourneys.cottonwood_sapling": "Cottonwood Sapling",
 	"block.projectvibrantjourneys.juniper_sapling": "Juniper Sapling",
+	"block.projectvibrantjourneys.pink_sakura_sapling": "Pink Cherry Blossom Sapling",
+	"block.projectvibrantjourneys.white_sakura_sapling": "White Cherry Blossom Sapling",
 	
 	"block.projectvibrantjourneys.fir_planks": "Fir Planks",
 	"block.projectvibrantjourneys.pine_planks": "Pine Planks",
@@ -97,6 +104,7 @@
 	"block.projectvibrantjourneys.maple_planks": "Maple Planks",
 	"block.projectvibrantjourneys.cottonwood_planks": "Cottonwood Planks",
 	"block.projectvibrantjourneys.juniper_planks": "Juniper Planks",
+	"block.projectvibrantjourneys.sakura_planks": "Cherry Blossom Planks",
 	
 	"block.projectvibrantjourneys.fir_wood": "Fir Wood",
 	"block.projectvibrantjourneys.pine_wood": "Pine Wood",
@@ -109,6 +117,7 @@
 	"block.projectvibrantjourneys.maple_wood": "Maple Wood",
 	"block.projectvibrantjourneys.cottonwood_wood": "Cottonwood Wood",
 	"block.projectvibrantjourneys.juniper_wood": "Juniper Wood",
+	"block.projectvibrantjourneys.sakura_wood": "Cherry Blossom Wood",
 	
 	"block.projectvibrantjourneys.stripped_fir_log": "Stripped Fir Log",
 	"block.projectvibrantjourneys.stripped_pine_log": "Stripped Pine Log",
@@ -121,6 +130,7 @@
 	"block.projectvibrantjourneys.stripped_maple_log": "Stripped Maple Log",
 	"block.projectvibrantjourneys.stripped_cottonwood_log": "Stripped Cottonwood Log",
 	"block.projectvibrantjourneys.stripped_juniper_log": "Stripped Juniper Log",
+	"block.projectvibrantjourneys.stripped_sakura_log": "Stripped Cherry Blossom Log",
 	
 	"block.projectvibrantjourneys.stripped_fir_wood": "Stripped Fir Wood",
 	"block.projectvibrantjourneys.stripped_pine_wood": "Stripped Pine Wood",
@@ -133,6 +143,7 @@
 	"block.projectvibrantjourneys.stripped_maple_wood": "Stripped Maple Wood",
 	"block.projectvibrantjourneys.stripped_cottonwood_wood": "Stripped Cottonwood Wood",
 	"block.projectvibrantjourneys.stripped_juniper_wood": "Stripped Juniper Wood",
+	"block.projectvibrantjourneys.stripped_sakura_wood": "Stripped Cherry Blossom Wood",
 	
 	"block.projectvibrantjourneys.fir_stairs": "Fir Stairs",
 	"block.projectvibrantjourneys.pine_stairs": "Pine Stairs",
@@ -145,6 +156,7 @@
 	"block.projectvibrantjourneys.maple_stairs": "Maple Stairs",
 	"block.projectvibrantjourneys.cottonwood_stairs": "Cottonwood Stairs",
 	"block.projectvibrantjourneys.juniper_stairs": "Juniper Stairs",
+	"block.projectvibrantjourneys.sakura_stairs": "Cherry Blossom Stairs",
 	
 	"block.projectvibrantjourneys.fir_slab": "Fir Slab",
 	"block.projectvibrantjourneys.pine_slab": "Pine Slab",
@@ -157,6 +169,7 @@
 	"block.projectvibrantjourneys.maple_slab": "Maple Slab",
 	"block.projectvibrantjourneys.cottonwood_slab": "Cottonwood Slab",
 	"block.projectvibrantjourneys.juniper_slab": "Juniper Slab",
+	"block.projectvibrantjourneys.sakura_slab": "Cherry Blossom Slab",
 	
 	"block.projectvibrantjourneys.fir_fence": "Fir Fence",
 	"block.projectvibrantjourneys.pine_fence": "Pine Fence",
@@ -169,6 +182,7 @@
 	"block.projectvibrantjourneys.maple_fence": "Maple Fence",
 	"block.projectvibrantjourneys.cottonwood_fence": "Cottonwood Fence",
 	"block.projectvibrantjourneys.juniper_fence": "Juniper Fence",
+	"block.projectvibrantjourneys.sakura_fence": "Cherry Blossom Fence",
 	
 	"block.projectvibrantjourneys.fir_fence_gate": "Fir Fence Gate",
 	"block.projectvibrantjourneys.pine_fence_gate": "Pine Fence Gate",
@@ -181,6 +195,7 @@
 	"block.projectvibrantjourneys.maple_fence_gate": "Maple Fence Gate",
 	"block.projectvibrantjourneys.cottonwood_fence_gate": "Cottonwood Fence Gate",
 	"block.projectvibrantjourneys.juniper_fence_gate": "Juniper Fence Gate",
+	"block.projectvibrantjourneys.sakura_fence_gate": "Cherry Blossom Fence Gate",
 	
 	"block.projectvibrantjourneys.fir_door": "Fir Door",
 	"block.projectvibrantjourneys.pine_door": "Pine Door",
@@ -193,6 +208,7 @@
 	"block.projectvibrantjourneys.maple_door": "Maple Door",
 	"block.projectvibrantjourneys.cottonwood_door": "Cottonwood Door",
 	"block.projectvibrantjourneys.juniper_door": "Juniper Door",
+	"block.projectvibrantjourneys.sakura_door": "Cherry Blossom Door",
 	
 	"block.projectvibrantjourneys.fir_trapdoor": "Fir Trapdoor",
 	"block.projectvibrantjourneys.pine_trapdoor": "Pine Trapdoor",
@@ -205,6 +221,7 @@
 	"block.projectvibrantjourneys.maple_trapdoor": "Maple Trapdoor",
 	"block.projectvibrantjourneys.cottonwood_trapdoor": "Cottonwood Trapdoor",
 	"block.projectvibrantjourneys.juniper_trapdoor": "Juniper Trapdoor",
+	"block.projectvibrantjourneys.sakura_trapdoor": "Cherry Blossom Trapdoor",
 	
 	"block.projectvibrantjourneys.fir_button": "Fir Button",
 	"block.projectvibrantjourneys.pine_button": "Pine Button",
@@ -217,6 +234,7 @@
 	"block.projectvibrantjourneys.maple_button": "Maple Button",
 	"block.projectvibrantjourneys.cottonwood_button": "Cottonwood Button",
 	"block.projectvibrantjourneys.juniper_button": "Juniper Button",
+	"block.projectvibrantjourneys.sakura_button": "Cherry Blossom Button",
 	
 	"block.projectvibrantjourneys.fir_pressure_plate": "Fir Pressure Plate",
 	"block.projectvibrantjourneys.pine_pressure_plate": "Pine Pressure Plate",
@@ -229,6 +247,7 @@
 	"block.projectvibrantjourneys.maple_pressure_plate": "Maple Pressure Plate",
 	"block.projectvibrantjourneys.cottonwood_pressure_plate": "Cottonwood Pressure Plate",
 	"block.projectvibrantjourneys.juniper_pressure_plate": "Juniper Pressure Plate",
+	"block.projectvibrantjourneys.sakura_pressure_plate": "Cherry Blossom Pressure Plate",
 
 	"block.projectvibrantjourneys.potted_fir_sapling": "Potted Fir Sapling",
 	"block.projectvibrantjourneys.potted_pine_sapling": "Potted Pine Sapling",
@@ -243,6 +262,8 @@
 	"block.projectvibrantjourneys.potted_red_maple_sapling": "Potted Red Maple Sapling",
 	"block.projectvibrantjourneys.potted_orange_maple_sapling": "Potted Orange Maple Sapling",
 	"block.projectvibrantjourneys.potted_purple_maple_sapling": "Potted Purple Maple Sapling",
+	"block.projectvibrantjourneys.potted_pink_sakura_sapling": "Potted Pink Cherry Blossom Sapling",
+	"block.projectvibrantjourneys.potted_white_sakura_sapling": "Potted White Cherry Blossom Sapling",
 	
 	"item.projectvibrantjourneys.fir_boat": "Fir Boat",
 	"item.projectvibrantjourneys.pine_boat": "Pine Boat",
@@ -255,6 +276,7 @@
 	"item.projectvibrantjourneys.maple_boat": "Maple Boat",
 	"item.projectvibrantjourneys.cottonwood_boat": "Cottonwood Boat",
 	"item.projectvibrantjourneys.juniper_boat": "Juniper Boat",
+	"item.projectvibrantjourneys.sakura_boat": "Cherry Blossom Boat",
 	
 	"item.projectvibrantjourneys.juniper_berries": "Juniper Berries",
 	"item.projectvibrantjourneys.cracked_coconut": "Cracked Coconut",
@@ -274,7 +296,9 @@
 	"biome.projectvibrantjourneys.aspen_grove_hills": "Aspen Grove Hills",
 	"biome.projectvibrantjourneys.mangrove_marsh": "Mangrove Marsh",
 	"biome.projectvibrantjourneys.willow_wetlands": "Willow Wetlands",
+	"biome.projectvibrantjourneys.baobab_fields": "Baobab Fields",
 	"biome.projectvibrantjourneys.prairie": "Prairie",
+	"biome.projectvibrantjourneys.blossoming_fields": "Blossoming Fields",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

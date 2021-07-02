@@ -158,6 +158,9 @@ public class PVJWorldGen {
 			} else if(biome == PVJBiomes.Keys.PRAIRIE) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_grass);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_vegetation);
+			} else if(biome == PVJBiomes.Keys.BLOSSOMING_FIELDS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.blossoming_fields_vegetation);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.sakura_floor_foliage);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES

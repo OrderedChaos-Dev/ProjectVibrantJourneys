@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.object.PVJItems;
 
-public class JuniperLeavesBlock extends LeavesBlock {
+public class BerriedJuniperLeavesBlock extends LeavesBlock {
 
-	public JuniperLeavesBlock(Properties properties) {
+	public BerriedJuniperLeavesBlock(Properties properties) {
 		super(properties);
 	}
 

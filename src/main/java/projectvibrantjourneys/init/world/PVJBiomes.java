@@ -21,6 +21,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.biomes.AlpineHeightsBiome;
 import projectvibrantjourneys.common.biomes.AspenGroveBiome;
 import projectvibrantjourneys.common.biomes.BaobabFieldsBiome;
+import projectvibrantjourneys.common.biomes.BlossomingFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
@@ -57,6 +58,7 @@ public class PVJBiomes {
 	public static Biome willow_wetlands = register(WillowWetlandsBiome.makeWillowWetlandsBiome(), "willow_wetlands");
 	public static Biome baobab_fields = register(BaobabFieldsBiome.makeBaobabFieldsBiome(), "baobab_fields");
 	public static Biome prairie = register(PrairieBiome.makePrairieBiome(), "prairie");
+	public static Biome blossoming_fields = register(BlossomingFieldsBiome.makeBlossomingFieldsBiome(), "blossoming_fields");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -76,6 +78,7 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> ASPEN_GROVE_HILLS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove_hills"));
 //		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
 		public static final RegistryKey<Biome> PRAIRIE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "prairie"));
+		public static final RegistryKey<Biome> BLOSSOMING_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "blossoming_fields"));
 	}
 	
 	@SubscribeEvent
@@ -124,6 +127,8 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.BAOBAB_FIELDS, 1));
 		if(PVJConfig.prairie.get())
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.PRAIRIE, 1));
+		if(PVJConfig.blossoming_fields.get())
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BLOSSOMING_FIELDS, 1));
 	}
 	
 	public static void addTypes() {
@@ -143,6 +148,7 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.WILLOW_WETLANDS, Type.SWAMP, Type.WATER, Type.WET, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.BAOBAB_FIELDS, Type.SAVANNA, Type.DRY, Type.HOT, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.PRAIRIE, Type.PLAINS, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.BLOSSOMING_FIELDS, Type.PLAINS, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {

@@ -89,7 +89,8 @@ public class PVJBoatEntity extends BoatEntity {
 		JUNIPER(PVJBlocks.juniper_planks, "juniper"),
 		COTTONWOOD(PVJBlocks.cottonwood_planks, "cottonwood"),
 		BAOBAB(PVJBlocks.baobab_planks, "baobab"),
-		MAPLE(PVJBlocks.maple_planks, "maple");
+		MAPLE(PVJBlocks.maple_planks, "maple"),
+		SAKURA(PVJBlocks.sakura_planks, "sakura");
 
 		private final String name;
 		private final Block block;

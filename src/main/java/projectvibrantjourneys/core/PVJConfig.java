@@ -66,6 +66,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> aspen_grove;
 	public static ForgeConfigSpec.ConfigValue<Boolean> crimson_thicket;
 	public static ForgeConfigSpec.ConfigValue<Boolean> prairie;
+	public static ForgeConfigSpec.ConfigValue<Boolean> blossoming_fields;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
@@ -137,6 +138,7 @@ public class PVJConfig {
 		willow_wetlands = COMMON_BUILDER.define("willow_wetlands", true);
 		baobab_fields = COMMON_BUILDER.define("baobab_fields", true);
 		prairie = COMMON_BUILDER.define("prairie", true);
+		blossoming_fields = COMMON_BUILDER.define("blossoming_fields", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

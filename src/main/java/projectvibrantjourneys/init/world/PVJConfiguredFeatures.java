@@ -82,6 +82,8 @@ public class PVJConfiguredFeatures {
 																						.add(PVJBlocks.orange_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
+	public static BlockClusterFeatureConfig sakuraFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider().add(PVJBlocks.pink_sakura_fallen_leaves.defaultBlockState(), 1)
+																						.add(PVJBlocks.white_sakura_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
 	
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
@@ -124,13 +126,16 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree_bees005;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> jacaranda_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> red_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> orange_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> purple_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_red_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_orange_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_purple_maple_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees005;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -142,8 +147,10 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> willow_wetlands_vegetation;
 	public static ConfiguredFeature<?, ?> baobab_fields_vegetation;
 	public static ConfiguredFeature<?, ?> prairie_vegetation;
+	public static ConfiguredFeature<?, ?> blossoming_fields_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
+	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
 	
 	public static ConfiguredFeature<?, ?> vanilla_juniper;
 	public static ConfiguredFeature<?, ?> vanilla_palm;
@@ -163,7 +170,8 @@ public class PVJConfiguredFeatures {
 		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
 		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
 
-		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4);
+		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(6);
+		sakura_floor_foliage = Feature.RANDOM_PATCH.configured(sakuraFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(20);
 		
 		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
 		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
@@ -246,6 +254,23 @@ public class PVJConfiguredFeatures {
 		
 		cottonwood_tree_bees005 = Feature.TREE.configured(cottonwood_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
 		
+		pink_sakura_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.pink_sakura_leaves.defaultBlockState()),
+						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
+								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
+		
+		white_sakura_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
+						new SimpleBlockStateProvider(PVJBlocks.white_sakura_leaves.defaultBlockState()),
+						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
+								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
+		
+		pink_sakura_tree_bees005 = Feature.TREE.configured(pink_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		white_sakura_tree_bees005 = Feature.TREE.configured(white_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		
 		aspen_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.aspen_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.aspen_leaves.defaultBlockState()),
@@ -293,12 +318,6 @@ public class PVJConfiguredFeatures {
 				new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 
-		jacaranda_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.red_maple_leaves.defaultBlockState()),
-						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
-						new WillowTrunkPlacer(10, 6, 2), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
-
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
 						Features.FANCY_OAK.weighted(0.05F),
@@ -326,7 +345,7 @@ public class PVJConfiguredFeatures {
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.3F, 1)));
 
 		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
-				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(jacaranda_tree.weighted(0.6F),
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(pine_tree.weighted(0.6F),
 						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), pine_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 2)));
@@ -373,6 +392,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(cottonwood_tree_bees005.weighted(1.0F)), cottonwood_tree_bees005))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.15F, 1)));
+		
+		blossoming_fields_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(white_sakura_tree_bees005.weighted(0.5F), pink_sakura_tree_bees005.weighted(0.5F)), pink_sakura_tree_bees005))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.4F, 1)));
 		
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -426,13 +451,16 @@ public class PVJConfiguredFeatures {
 		register("cottonwood_tree_bees005", cottonwood_tree_bees005);
 		register("aspen_tree", aspen_tree);
 		register("aspen_tree_bees005", aspen_tree_bees005);
-		register("jacaranda_tree", jacaranda_tree);
 		register("red_maple_tree", red_maple_tree);
 		register("orange_maple_tree", orange_maple_tree);
 		register("purple_maple_tree", purple_maple_tree);
 		register("large_red_maple_tree", large_red_maple_tree);
 		register("large_orange_maple_tree", large_orange_maple_tree);
 		register("large_purple_maple_tree", large_purple_maple_tree);
+		register("pink_sakura_tree", pink_sakura_tree);
+		register("white_sakura_tree", white_sakura_tree);
+		register("pink_sakura_tree_bees005", pink_sakura_tree_bees005);
+		register("white_sakura_tree_bees005", white_sakura_tree_bees005);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -444,6 +472,7 @@ public class PVJConfiguredFeatures {
 		register("willow_wetlands_vegetation", willow_wetlands_vegetation);
 		register("baobab_fields_vegetation", baobab_fields_vegetation);
 		register("prairie_vegetation", prairie_vegetation);
+		register("blossoming_fields_vegetation", blossoming_fields_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);
