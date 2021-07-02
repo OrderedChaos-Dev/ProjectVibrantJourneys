@@ -13,6 +13,7 @@ import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
@@ -76,6 +77,12 @@ public class PVJConfiguredFeatures {
 	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
 	public static BlockClusterFeatureConfig cindercaneConfig = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.cindercane.defaultBlockState()), new ColumnBlockPlacer(2, 4)).tries(20).noProjection().build();
 	
+	public static BlockClusterFeatureConfig autumnFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+																						.add(PVJBlocks.aspen_fallen_leaves.defaultBlockState(), 1)
+																						.add(PVJBlocks.orange_maple_fallen_leaves.defaultBlockState(), 1)
+																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
+																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
+	
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
 	public static BlockClusterFeatureConfig prairieGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
@@ -103,7 +110,6 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> prairie_grass;
 	public static ConfiguredFeature<?, ?> fallen_tree;
-
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -137,6 +143,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> baobab_fields_vegetation;
 	public static ConfiguredFeature<?, ?> prairie_vegetation;
 	
+	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
+	
 	public static ConfiguredFeature<?, ?> vanilla_juniper;
 	public static ConfiguredFeature<?, ?> vanilla_palm;
 	
@@ -155,6 +163,8 @@ public class PVJConfiguredFeatures {
 		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
 		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
 
+		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(4);
+		
 		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
 		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
 		cobwebs = PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25);
@@ -375,6 +385,7 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(palm_tree.weighted(1.0F)), palm_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.1F, 1)));
+		
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -396,6 +407,7 @@ public class PVJConfiguredFeatures {
 		register("warped_nettle", warped_nettle);
 		register("warped_nettle", warped_nettle);
 		register("cindercane", cindercane);
+		register("autumn_floor_foliage", autumn_floor_foliage);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);

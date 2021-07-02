@@ -37,6 +37,10 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.natural_cobweb, cutout);
 	
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.aspen_fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.red_maple_fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.orange_maple_fallen_leaves, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.purple_maple_fallen_leaves, cutout_mipped);
 	
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sea_oats, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.cattail, cutout_mipped);

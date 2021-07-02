@@ -146,6 +146,7 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_plateau_vegetation);
 			} else if(biome == PVJBiomes.Keys.ASPEN_GROVE || biome == PVJBiomes.Keys.ASPEN_GROVE_HILLS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.aspen_grove_vegetation);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.autumn_floor_foliage);
 			} else if(biome == PVJBiomes.Keys.MANGROVE_MARSH) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.mangrove_marsh_vegetation);
 			} else if(biome == PVJBiomes.Keys.WILLOW_WETLANDS) {

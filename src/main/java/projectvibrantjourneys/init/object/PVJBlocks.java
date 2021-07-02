@@ -74,6 +74,8 @@ public class PVJBlocks {
 	
 	/* GROUNDCOVERS */
 	public static Block twigs, fallen_leaves, rocks, mossy_rocks, sandstone_rocks, red_sandstone_rocks, ice_chunks, bones, charred_bones, pinecones, seashells;
+	public static Block aspen_fallen_leaves, red_maple_fallen_leaves, orange_maple_fallen_leaves, purple_maple_fallen_leaves;
+	
 	public static Block sea_oats;
 	public static Block cattail;
 	public static Block bark_mushroom;
@@ -156,6 +158,11 @@ public class PVJBlocks {
 		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.DIRT), "pinecones", 100);
 		seashells = registerBlock(new GroundcoverBlock(Material.DIRT), "seashells");
 		
+		aspen_fallen_leaves = registerBlock(new FallenLeavesBlock(), "aspen_fallen_leaves");
+		red_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "red_maple_fallen_leaves");
+		orange_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "orange_maple_fallen_leaves");
+		purple_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "purple_maple_fallen_leaves");
+
 		sea_oats = registerBlock(new SeaOatsBlock(), "sea_oats");
 		cattail = registerBlock(new CattailBlock(), "cattail");
 		bark_mushroom = registerBlockWithFuel(new BarkMushroomBlock(), "bark_mushroom", 100);
