@@ -27,7 +27,6 @@ public class GroundcoverPlacer extends BlockPlacer {
 				if (state.getBlock() instanceof FallenLeavesBlock) {
 					world.setBlock(pos, state, 2);
 				} else {
-					world.setBlock(pos, state, 2);
 					int model = world.getRandom().nextInt(5);
 					Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(world.getRandom());
 					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, model).setValue(GroundcoverBlock.FACING, facing), 2);
