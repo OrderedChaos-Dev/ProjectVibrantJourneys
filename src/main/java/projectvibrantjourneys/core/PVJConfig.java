@@ -141,6 +141,7 @@ public class PVJConfig {
 		prairie = COMMON_BUILDER.define("prairie", true);
 		blossoming_fields = COMMON_BUILDER.define("blossoming_fields", true);
 		autumnal_coniferous_forest = COMMON_BUILDER.define("autumnal_coniferous_forest", true);
+		crimson_thicket = COMMON_BUILDER.define("crimson_thicket", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();

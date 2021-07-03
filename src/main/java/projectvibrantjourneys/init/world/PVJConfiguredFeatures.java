@@ -82,8 +82,12 @@ public class PVJConfiguredFeatures {
 																						.add(PVJBlocks.orange_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
-	public static BlockClusterFeatureConfig sakuraFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider().add(PVJBlocks.pink_sakura_fallen_leaves.defaultBlockState(), 1)
+	public static BlockClusterFeatureConfig sakuraFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+																						.add(PVJBlocks.pink_sakura_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.white_sakura_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
+	public static BlockClusterFeatureConfig crimsonFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
+																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
 	
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
@@ -137,6 +141,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree_bees005;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -150,9 +155,11 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> prairie_vegetation;
 	public static ConfiguredFeature<?, ?> blossoming_fields_vegetation;
 	public static ConfiguredFeature<?, ?> autumnnal_coniferous_forest_vegetation;
+	public static ConfiguredFeature<?, ?> crimson_thicket_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
+	public static ConfiguredFeature<?, ?> crimson_thicket_floor_foliage;
 	
 	public static ConfiguredFeature<?, ?> vanilla_juniper;
 	public static ConfiguredFeature<?, ?> vanilla_palm;
@@ -174,6 +181,7 @@ public class PVJConfiguredFeatures {
 
 		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(10);
 		sakura_floor_foliage = Feature.RANDOM_PATCH.configured(sakuraFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(20);
+		crimson_thicket_floor_foliage = Feature.RANDOM_PATCH.configured(crimsonFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(10);
 		
 		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
 		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
@@ -325,6 +333,8 @@ public class PVJConfiguredFeatures {
 				new SimpleBlockStateProvider(PVJBlocks.tamarack_leaves.defaultBlockState()),
 				new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1), FeatureSpread.of(4, 2)),
 				new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
+		
+		tamarack_tree_bees005 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
 
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -409,9 +419,16 @@ public class PVJConfiguredFeatures {
 		
 		autumnnal_coniferous_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(tamarack_tree.weighted(0.4F), fir_tree.weighted(0.55F)), Features.SPRUCE))
+						ImmutableList.of(tamarack_tree_bees005.weighted(0.4F), fir_tree.weighted(0.55F)), Features.SPRUCE))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(8, 0.4F, 1)));
+		
+		crimson_thicket_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(Features.PINE.weighted(0.05F), Features.SPRUCE.weighted(0.15F), Features.SPRUCE.weighted(0.15F),
+								red_maple_tree.weighted(0.25F), purple_maple_tree.weighted(0.25F), fir_tree.weighted(0.1F)), fir_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.4F, 1)));
 		
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -424,7 +441,6 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(palm_tree.weighted(1.0F)), palm_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.1F, 1)));
-		
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -447,6 +463,8 @@ public class PVJConfiguredFeatures {
 		register("warped_nettle", warped_nettle);
 		register("cindercane", cindercane);
 		register("autumn_floor_foliage", autumn_floor_foliage);
+		register("sakura_floor_foliage", sakura_floor_foliage);
+		register("crimson_thicket_floor_foliage", crimson_thicket_floor_foliage);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
@@ -476,6 +494,7 @@ public class PVJConfiguredFeatures {
 		register("pink_sakura_tree_bees005", pink_sakura_tree_bees005);
 		register("white_sakura_tree_bees005", white_sakura_tree_bees005);
 		register("tamarack_tree", tamarack_tree);
+		register("tamarack_tree_bees005", tamarack_tree_bees005);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -489,6 +508,7 @@ public class PVJConfiguredFeatures {
 		register("prairie_vegetation", prairie_vegetation);
 		register("blossoming_fields_vegetation", blossoming_fields_vegetation);
 		register("autumnnal_coniferous_forest_vegetation", autumnnal_coniferous_forest_vegetation);
+		register("crimson_thicket_vegetation", crimson_thicket_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);

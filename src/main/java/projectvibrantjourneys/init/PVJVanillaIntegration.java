@@ -51,6 +51,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.purple_maple_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.pink_sakura_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.white_sakura_leaves, 0.3F);
+		setCompostInfo(PVJBlocks.tamarack_leaves, 0.3F);
 		
 		setCompostInfo(PVJBlocks.fir_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.pine_sapling, 0.3F);
@@ -67,6 +68,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.purple_maple_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.pink_sakura_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.white_sakura_sapling, 0.3F);
+		setCompostInfo(PVJBlocks.tamarack_sapling, 0.3F);
 	}
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {

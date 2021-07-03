@@ -163,6 +163,9 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sakura_floor_foliage);
 			} else if(biome == PVJBiomes.Keys.AUTUMNAL_CONIFEROUS_FOREST) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.autumnnal_coniferous_forest_vegetation);
+			} else if(biome == PVJBiomes.Keys.CRIMSON_THICKET) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_vegetation);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_floor_foliage);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES
