@@ -136,6 +136,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -148,6 +149,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> baobab_fields_vegetation;
 	public static ConfiguredFeature<?, ?> prairie_vegetation;
 	public static ConfiguredFeature<?, ?> blossoming_fields_vegetation;
+	public static ConfiguredFeature<?, ?> autumnnal_coniferous_forest_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -170,7 +172,7 @@ public class PVJConfiguredFeatures {
 		seashells = Feature.RANDOM_PATCH.configured(seashellsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(3).chance(2);
 		ocean_seashells = PVJFeatures.oceanFloorSeashellsFeature.configured(IFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP_SQUARE).count(10).chance(2);
 
-		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(6);
+		autumn_floor_foliage = Feature.RANDOM_PATCH.configured(autumnFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(10);
 		sakura_floor_foliage = Feature.RANDOM_PATCH.configured(sakuraFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(20);
 		
 		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
@@ -317,6 +319,12 @@ public class PVJConfiguredFeatures {
 				new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
 				new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
+		
+		tamarack_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
+				new SimpleBlockStateProvider(PVJBlocks.tamarack_log.defaultBlockState()),
+				new SimpleBlockStateProvider(PVJBlocks.tamarack_leaves.defaultBlockState()),
+				new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1), FeatureSpread.of(4, 2)),
+				new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -399,6 +407,12 @@ public class PVJConfiguredFeatures {
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.4F, 1)));
 		
+		autumnnal_coniferous_forest_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(tamarack_tree.weighted(0.4F), fir_tree.weighted(0.55F)), Features.SPRUCE))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(8, 0.4F, 1)));
+		
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(juniper_tree.weighted(1.0F)), juniper_tree))
@@ -461,6 +475,7 @@ public class PVJConfiguredFeatures {
 		register("white_sakura_tree", white_sakura_tree);
 		register("pink_sakura_tree_bees005", pink_sakura_tree_bees005);
 		register("white_sakura_tree_bees005", white_sakura_tree_bees005);
+		register("tamarack_tree", tamarack_tree);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -473,6 +488,7 @@ public class PVJConfiguredFeatures {
 		register("baobab_fields_vegetation", baobab_fields_vegetation);
 		register("prairie_vegetation", prairie_vegetation);
 		register("blossoming_fields_vegetation", blossoming_fields_vegetation);
+		register("autumnnal_coniferous_forest_vegetation", autumnnal_coniferous_forest_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);

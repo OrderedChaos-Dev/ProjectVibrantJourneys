@@ -161,6 +161,8 @@ public class PVJWorldGen {
 			} else if(biome == PVJBiomes.Keys.BLOSSOMING_FIELDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blossoming_fields_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sakura_floor_foliage);
+			} else if(biome == PVJBiomes.Keys.AUTUMNAL_CONIFEROUS_FOREST) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.autumnnal_coniferous_forest_vegetation);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES

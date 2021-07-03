@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/tamarack_planks",
+        "top": "projectvibrantjourneys:block/tamarack_planks",
+        "side": "projectvibrantjourneys:block/tamarack_planks"
+    }
+}

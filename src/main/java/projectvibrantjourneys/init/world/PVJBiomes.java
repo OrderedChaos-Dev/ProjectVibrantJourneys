@@ -20,10 +20,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.biomes.AlpineHeightsBiome;
 import projectvibrantjourneys.common.biomes.AspenGroveBiome;
+import projectvibrantjourneys.common.biomes.AutumnalConiferousForestBiome;
 import projectvibrantjourneys.common.biomes.BaobabFieldsBiome;
 import projectvibrantjourneys.common.biomes.BlossomingFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
+import projectvibrantjourneys.common.biomes.GravelShoreBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.PineMeadowsBiome;
@@ -59,6 +61,8 @@ public class PVJBiomes {
 	public static Biome baobab_fields = register(BaobabFieldsBiome.makeBaobabFieldsBiome(), "baobab_fields");
 	public static Biome prairie = register(PrairieBiome.makePrairieBiome(), "prairie");
 	public static Biome blossoming_fields = register(BlossomingFieldsBiome.makeBlossomingFieldsBiome(), "blossoming_fields");
+	public static Biome autumnal_coniferous_forest = register(AutumnalConiferousForestBiome.makeAutumnalConiferousForestBiome(), "autumnal_coniferous_forest");
+	public static Biome gravel_shore = register(GravelShoreBiome.makeGravelShoreBiome(), "gravel_shore");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -79,6 +83,8 @@ public class PVJBiomes {
 //		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
 		public static final RegistryKey<Biome> PRAIRIE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "prairie"));
 		public static final RegistryKey<Biome> BLOSSOMING_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "blossoming_fields"));
+		public static final RegistryKey<Biome> AUTUMNAL_CONIFEROUS_FOREST = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "autumnal_coniferous_forest"));
+		public static final RegistryKey<Biome> GRAVEL_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
 	}
 	
 	@SubscribeEvent
@@ -129,6 +135,8 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.PRAIRIE, 1));
 		if(PVJConfig.blossoming_fields.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BLOSSOMING_FIELDS, 1));
+		if(PVJConfig.autumnal_coniferous_forest.get())
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.AUTUMNAL_CONIFEROUS_FOREST, 1));
 	}
 	
 	public static void addTypes() {
@@ -149,17 +157,20 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.BAOBAB_FIELDS, Type.SAVANNA, Type.DRY, Type.HOT, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.PRAIRIE, Type.PLAINS, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.BLOSSOMING_FIELDS, Type.PLAINS, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.AUTUMNAL_CONIFEROUS_FOREST, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.GRAVEL_SHORE, Type.BEACH, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {
 		//BEACHES
 		mapShoreBiome(Keys.ALPINE_HEIGHTS, Biomes.STONE_SHORE);
 		mapShoreBiome(Keys.BOREAL_PLATEAU, Biomes.STONE_SHORE);
-		mapShoreBiome(Keys.REDWOOD_PEAKS, Biomes.STONE_SHORE);
+		mapShoreBiome(Keys.REDWOOD_PEAKS, Keys.GRAVEL_SHORE);
 		mapShoreBiome(Keys.SNOWY_BOREAL_FOREST, Biomes.SNOWY_BEACH);
 		mapShoreBiome(Keys.SNOWY_REDWOODS, Biomes.SNOWY_BEACH);
 		mapShoreBiome(Keys.MANGROVE_MARSH, Keys.MANGROVE_MARSH);
 		mapShoreBiome(Keys.WILLOW_WETLANDS, Keys.WILLOW_WETLANDS);
+		mapShoreBiome(Keys.AUTUMNAL_CONIFEROUS_FOREST, Keys.GRAVEL_SHORE);
 		
 		//HILLS
 		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);

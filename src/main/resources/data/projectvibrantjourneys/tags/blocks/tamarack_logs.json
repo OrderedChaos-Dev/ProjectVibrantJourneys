@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:tamarack_log",
+	"projectvibrantjourneys:tamarack_wood",
+	"projectvibrantjourneys:stripped_tamarack_log",
+	"projectvibrantjourneys:stripped_tamarack_wood"
+  ]
+}

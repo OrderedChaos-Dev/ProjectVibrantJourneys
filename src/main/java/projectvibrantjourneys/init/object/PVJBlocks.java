@@ -65,6 +65,7 @@ import projectvibrantjourneys.common.blocks.trees.PinkSakuraTree;
 import projectvibrantjourneys.common.blocks.trees.PurpleMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedMapleTree;
 import projectvibrantjourneys.common.blocks.trees.RedwoodTree;
+import projectvibrantjourneys.common.blocks.trees.TamarackTree;
 import projectvibrantjourneys.common.blocks.trees.WhiteSakuraTree;
 import projectvibrantjourneys.common.blocks.trees.WillowTree;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -143,11 +144,15 @@ public class PVJBlocks {
 			sakura_wood, stripped_sakura_wood, sakura_sign, sakura_wall_sign, sakura_pressure_plate,
 			sakura_trapdoor, sakura_button, sakura_slab, sakura_fence_gate, sakura_fence, sakura_door,
 			sakura_stairs;
+	
+	public static Block tamarack_sapling, tamarack_log, tamarack_leaves, tamarack_planks, stripped_tamarack_log, tamarack_wood,
+			stripped_tamarack_wood, tamarack_sign, tamarack_wall_sign, tamarack_pressure_plate, tamarack_trapdoor, tamarack_button,
+			tamarack_slab, tamarack_fence_gate, tamarack_fence, tamarack_door, tamarack_stairs;
 
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapling, potted_willow_sapling,
 			potted_mangrove_sapling, potted_palm_sapling, potted_aspen_sapling, potted_juniper_sapling,
 			potted_cottonwood_sapling, potted_baobab_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
-			potted_purple_maple_sapling, potted_pink_sakura_sapling, potted_white_sakura_sapling;
+			potted_purple_maple_sapling, potted_pink_sakura_sapling, potted_white_sakura_sapling, potted_tamarack_sapling;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -390,6 +395,22 @@ public class PVJBlocks {
 		sakura_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "sakura_door", 200);
 		sakura_stairs = registerBlockWithFuel(new StairsBlock(() -> sakura_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "sakura_stairs", 300);
 		
+		tamarack_sapling = registerBlockWithFuel(new SaplingBlock(new TamarackTree(), Properties.copy(Blocks.OAK_SAPLING)), "tamarack_sapling", 100);
+		tamarack_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_tamarack_log), "tamarack_log", 300);
+		tamarack_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "tamarack_leaves");
+		tamarack_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_tamarack_wood), "tamarack_wood", 300);
+		tamarack_planks = registerBlockWithFuel(createPlanksBlock(), "tamarack_planks", 300);
+		stripped_tamarack_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_tamarack_log", 300);
+		stripped_tamarack_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_tamarack_wood", 300);
+		tamarack_pressure_plate = registerBlockWithFuel(createPressurePlate(tamarack_planks.defaultMaterialColor()),"tamarack_pressure_plate", 300);
+		tamarack_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "tamarack_trapdoor", 300);
+		tamarack_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "tamarack_button", 100);
+		tamarack_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "tamarack_slab", 150);
+		tamarack_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "tamarack_fence_gate", 300);
+		tamarack_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "tamarack_fence", 300);
+		tamarack_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "tamarack_door", 200);
+		tamarack_stairs = registerBlockWithFuel(new StairsBlock(() -> tamarack_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "tamarack_stairs", 300);
+		
 		potted_fir_sapling =  registerBlockWithoutItem(createFlowerPot(fir_sapling), "potted_fir_sapling");
 		potted_pine_sapling =  registerBlockWithoutItem(createFlowerPot(pine_sapling), "potted_pine_sapling");
 		potted_redwood_sapling =  registerBlockWithoutItem(createFlowerPot(redwood_sapling), "potted_redwood_sapling");
@@ -405,6 +426,7 @@ public class PVJBlocks {
 		potted_purple_maple_sapling =  registerBlockWithoutItem(createFlowerPot(purple_maple_sapling), "potted_purple_maple_sapling");
 		potted_pink_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(pink_sakura_sapling), "potted_pink_sakura_sapling");
 		potted_white_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(white_sakura_sapling), "potted_white_sakura_sapling");
+		potted_tamarack_sapling =  registerBlockWithoutItem(createFlowerPot(tamarack_sapling), "potted_tamarack_sapling");
 		
 		event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
 	}

@@ -42,6 +42,7 @@ public class PVJItems {
 	public static Item baobab_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.BAOBAB, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "baobab_boat");
 	public static Item maple_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.MAPLE, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "maple_boat");
 	public static Item sakura_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.SAKURA, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "sakura_boat");
+	public static Item tamarack_boat = registerItem(new PVJBoatItem(PVJBoatEntity.PVJBoatType.TAMARACK, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "tamarack_boat");
 	
 	@SubscribeEvent
 	public static void initItems(RegistryEvent.Register<Item> event) {

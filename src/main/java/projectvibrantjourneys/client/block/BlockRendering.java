@@ -72,6 +72,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_purple_maple_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_pink_sakura_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_white_sakura_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_tamarack_sapling, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_trapdoor, cutout);
@@ -97,6 +98,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.maple_trapdoor, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sakura_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sakura_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_trapdoor, cutout);
 
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_sapling, cutout_mipped);
@@ -113,6 +116,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.purple_maple_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pink_sakura_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.white_sakura_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_sapling, cutout_mipped);
 		}
 	
 		@OnlyIn(Dist.CLIENT)
@@ -127,12 +131,20 @@ public class BlockRendering {
 			
 			registerFoliageColorItem(itemColors, blockColors, PVJBlocks.fallen_leaves);
 			registerFoliageColorItem(itemColors, blockColors, PVJBlocks.short_grass);
+			
+			registerWaterColorBlock(blockColors, PVJBlocks.potted_mangrove_sapling);
 		}
 	
 		private static void registerFoliageColorBlock(BlockColors bc, Block block) {
 			bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
 					? BiomeColors.getAverageFoliageColor(world, pos)
 					: FoliageColors.getDefaultColor(), block);
+		}
+		
+		private static void registerWaterColorBlock(BlockColors bc, Block block) {
+			bc.register((state, world, pos, tintIndex) -> (world != null && pos != null)
+					? BiomeColors.getAverageWaterColor(world, pos)
+					: -1, block);
 		}
 	
 		private static void registerFoliageColorBlock(BlockColors bc, Block block, int color) {

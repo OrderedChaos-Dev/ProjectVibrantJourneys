@@ -50,6 +50,26 @@ public class PVJBoatEntity extends BoatEntity {
 			return PVJItems.pine_boat;
 		case REDWOOD:
 			return PVJItems.redwood_boat;
+		case WILLOW:
+			return PVJItems.willow_boat;
+		case MANGROVE:
+			return PVJItems.mangrove_boat;
+		case PALM:
+			return PVJItems.palm_boat;
+		case ASPEN:
+			return PVJItems.aspen_boat;
+		case JUNIPER:
+			return PVJItems.juniper_boat;
+		case COTTONWOOD:
+			return PVJItems.cottonwood_boat;
+		case BAOBAB:
+			return PVJItems.baobab_boat;
+		case MAPLE:
+			return PVJItems.maple_boat;
+		case SAKURA:
+			return PVJItems.sakura_boat;
+		case TAMARACK:
+			return PVJItems.tamarack_boat;
 		}
 	}
 
@@ -90,7 +110,8 @@ public class PVJBoatEntity extends BoatEntity {
 		COTTONWOOD(PVJBlocks.cottonwood_planks, "cottonwood"),
 		BAOBAB(PVJBlocks.baobab_planks, "baobab"),
 		MAPLE(PVJBlocks.maple_planks, "maple"),
-		SAKURA(PVJBlocks.sakura_planks, "sakura");
+		SAKURA(PVJBlocks.sakura_planks, "sakura"),
+		TAMARACK(PVJBlocks.tamarack_planks, "tamarack");
 
 		private final String name;
 		private final Block block;

@@ -1,7 +1,7 @@
 {
-    "parent": "block/flower_pot_cross",
+    "parent": "projectvibrantjourneys:block/flower_pot_cross_tinted_dirt",
     "textures": {
         "plant": "projectvibrantjourneys:block/mangrove_sapling",
-        "dirt": "block/sand"
+        "dirt": "block/water_still"
     }
 }
