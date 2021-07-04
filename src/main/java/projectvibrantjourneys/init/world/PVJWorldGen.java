@@ -166,6 +166,8 @@ public class PVJWorldGen {
 			} else if(biome == PVJBiomes.Keys.CRIMSON_THICKET) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_floor_foliage);
+			} else if(biome == PVJBiomes.Keys.OAK_WOODLANDS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.oak_woodlands_vegetation);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES
