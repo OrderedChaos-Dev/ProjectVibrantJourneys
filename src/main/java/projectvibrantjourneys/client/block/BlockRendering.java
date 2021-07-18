@@ -53,6 +53,10 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.short_grass, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.beach_grass, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.prairie_grass, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.dry_grass, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.desert_sage, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.desert_agave, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.blooming_desert_agave, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_glowcap, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_warped_nettle, cutout);
@@ -73,6 +77,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_pink_sakura_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_white_sakura_sapling, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_tamarack_sapling, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.potted_joshua_sapling, cutout);
 			
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_trapdoor, cutout);
@@ -100,6 +105,8 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.sakura_trapdoor, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_door, cutout);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_trapdoor, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.joshua_door, cutout);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.joshua_trapdoor, cutout);
 
 			RenderTypeLookup.setRenderLayer(PVJBlocks.fir_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pine_sapling, cutout_mipped);
@@ -117,6 +124,7 @@ public class BlockRendering {
 			RenderTypeLookup.setRenderLayer(PVJBlocks.pink_sakura_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.white_sakura_sapling, cutout_mipped);
 			RenderTypeLookup.setRenderLayer(PVJBlocks.tamarack_sapling, cutout_mipped);
+			RenderTypeLookup.setRenderLayer(PVJBlocks.joshua_sapling, cutout_mipped);
 		}
 	
 		@OnlyIn(Dist.CLIENT)

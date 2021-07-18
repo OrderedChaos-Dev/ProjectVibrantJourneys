@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "model=0": { "model": "projectvibrantjourneys:block/dry_grass_0" },
+        "model=1": { "model": "projectvibrantjourneys:block/dry_grass_1" }
+    }
+}

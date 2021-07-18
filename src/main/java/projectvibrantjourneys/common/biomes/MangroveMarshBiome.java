@@ -50,7 +50,7 @@ public class MangroveMarshBiome {
 				.precipitation(Biome.RainType.RAIN)
 				.biomeCategory(Biome.Category.SWAMP)
 				.depth(-0.3F)
-				.scale(0.005F)
+				.scale(0.001F)
 				.temperature(0.8F)
 				.downfall(0.9F)
 				.specialEffects((new BiomeAmbience.Builder())

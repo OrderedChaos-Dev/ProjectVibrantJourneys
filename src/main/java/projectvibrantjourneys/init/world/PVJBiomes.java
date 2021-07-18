@@ -26,6 +26,7 @@ import projectvibrantjourneys.common.biomes.BlossomingFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
+import projectvibrantjourneys.common.biomes.DesertShrublandBiome;
 import projectvibrantjourneys.common.biomes.GravelShoreBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
 import projectvibrantjourneys.common.biomes.OakWoodlandsBiome;
@@ -67,6 +68,7 @@ public class PVJBiomes {
 	public static Biome gravel_shore = register(GravelShoreBiome.makeGravelShoreBiome(), "gravel_shore");
 	public static Biome crimson_thicket = register(CrimsonThicketBiome.makeCrimsonThicketBiome(), "crimson_thicket");
 	public static Biome oak_woodlands = register(OakWoodlandsBiome.makeOakWoodlandsBiome(), "oak_woodlands");
+	public static Biome desert_shrubland = register(DesertShrublandBiome.makeDesertShrublandBiome(0.04F), "desert_shrubland");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -90,6 +92,7 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> GRAVEL_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
 		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
 		public static final RegistryKey<Biome> OAK_WOODLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "oak_woodlands"));
+		public static final RegistryKey<Biome> DESERT_SHRUBLAND = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
 	}
 	
 	@SubscribeEvent
@@ -146,6 +149,8 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRIMSON_THICKET, 1));
 		if(PVJConfig.oak_woodlands.get())
 			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OAK_WOODLANDS, 1));
+		if(PVJConfig.desert_shrubland.get())
+			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, 1));
 	}
 	
 	public static void addTypes() {
@@ -169,6 +174,7 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.AUTUMNAL_CONIFEROUS_FOREST, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.GRAVEL_SHORE, Type.BEACH, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.OAK_WOODLANDS, Type.FOREST, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.DESERT_SHRUBLAND, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {

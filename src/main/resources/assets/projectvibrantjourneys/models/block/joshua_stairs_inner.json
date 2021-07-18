@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/joshua_planks",
+        "top": "projectvibrantjourneys:block/joshua_planks",
+        "side": "projectvibrantjourneys:block/joshua_planks"
+    }
+}

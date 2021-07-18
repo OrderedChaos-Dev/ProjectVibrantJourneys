@@ -4,6 +4,7 @@ import java.util.OptionalInt;
 
 import com.google.common.collect.ImmutableList;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.Heightmap;
@@ -16,6 +17,7 @@ import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -39,6 +41,7 @@ import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
+import projectvibrantjourneys.common.blocks.DryGrassBlock;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
 import projectvibrantjourneys.common.world.features.blockstateproviders.ShortGrassBlockStateProvider;
@@ -92,6 +95,12 @@ public class PVJConfiguredFeatures {
 	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
 	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
 	public static BlockClusterFeatureConfig prairieGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
+	public static BlockClusterFeatureConfig desertSageCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.desert_sage.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 3);
+	public static BlockClusterFeatureConfig dryGrassCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+			.add(PVJBlocks.dry_grass.defaultBlockState().setValue(DryGrassBlock.MODEL, 0), 1)
+			.add(PVJBlocks.dry_grass.defaultBlockState().setValue(DryGrassBlock.MODEL, 1), 1), SimpleBlockPlacer.INSTANCE, 15);
+	public static BlockClusterFeatureConfig bloomingAgaveCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.blooming_desert_agave.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 2);
+	public static BlockClusterFeatureConfig desertAgaveCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.desert_agave.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 2);
 	
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -115,7 +124,12 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> short_grass;
 	public static ConfiguredFeature<?, ?> beach_grass;
 	public static ConfiguredFeature<?, ?> prairie_grass;
+	public static ConfiguredFeature<?, ?> dry_grass;
+	public static ConfiguredFeature<?, ?> desert_sage;
+	public static ConfiguredFeature<?, ?> blooming_desert_agave;
+	public static ConfiguredFeature<?, ?> desert_agave;
 	public static ConfiguredFeature<?, ?> fallen_tree;
+	public static ConfiguredFeature<?, ?> desert_rock;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -142,6 +156,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> joshua_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -157,6 +172,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> autumnnal_coniferous_forest_vegetation;
 	public static ConfiguredFeature<?, ?> crimson_thicket_vegetation;
 	public static ConfiguredFeature<?, ?> oak_woodlands_vegetation;
+	public static ConfiguredFeature<?, ?> desert_shrubland_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -194,8 +210,14 @@ public class PVJConfiguredFeatures {
 		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		prairie_grass = Feature.RANDOM_PATCH.configured(prairieGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(40);
+		dry_grass = Feature.RANDOM_PATCH.configured(dryGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(25);
+		desert_sage = Feature.RANDOM_PATCH.configured(desertSageCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
+		blooming_desert_agave = Feature.RANDOM_PATCH.configured(bloomingAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1);
+		desert_agave = Feature.RANDOM_PATCH.configured(desertAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
+		
+		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
 
 		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
@@ -336,6 +358,13 @@ public class PVJConfiguredFeatures {
 				new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
 		tamarack_tree_bees005 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		
+		joshua_tree = PVJFeatures.juniperTree.configured((new BaseTreeFeatureConfig.Builder(
+				new SimpleBlockStateProvider(PVJBlocks.joshua_log.defaultBlockState()),
+				new SimpleBlockStateProvider(PVJBlocks.joshua_leaves.defaultBlockState()),
+				new DesertJuniperFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				new FancyTrunkPlacer(8, 8, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
+						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 
 		overgrown_spires_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
@@ -436,6 +465,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(Features.FANCY_OAK_BEES_0002.weighted(0.2F)), Features.OAK_BEES_0002))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.1F, 1)));
+		
+		desert_shrubland_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(joshua_tree.weighted(1.0F)), joshua_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.30F, 1)));
 
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -472,10 +507,15 @@ public class PVJConfiguredFeatures {
 		register("autumn_floor_foliage", autumn_floor_foliage);
 		register("sakura_floor_foliage", sakura_floor_foliage);
 		register("crimson_thicket_floor_foliage", crimson_thicket_floor_foliage);
+		register("desert_rock", desert_rock);
+		register("desert_sage", desert_sage);
+		register("blooming_desert_agave", blooming_desert_agave);
+		register("desert_agave", desert_agave);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
 		register("prairie_grass", prairie_grass);
+		register("dry_grass", dry_grass);
 		
 		register("mega_redwood_tree", mega_redwood_tree);
 		register("redwood_tree", redwood_tree);
@@ -502,6 +542,7 @@ public class PVJConfiguredFeatures {
 		register("white_sakura_tree_bees005", white_sakura_tree_bees005);
 		register("tamarack_tree", tamarack_tree);
 		register("tamarack_tree_bees005", tamarack_tree_bees005);
+		register("joshua_tree", joshua_tree);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
 		register("redwood_forest_vegetation", redwood_forest_vegetation);
@@ -517,6 +558,7 @@ public class PVJConfiguredFeatures {
 		register("autumnnal_coniferous_forest_vegetation", autumnnal_coniferous_forest_vegetation);
 		register("crimson_thicket_vegetation", crimson_thicket_vegetation);
 		register("oak_woodlands_vegetation", oak_woodlands_vegetation);
+		register("desert_shrubland_vegetation", desert_shrubland_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);

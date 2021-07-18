@@ -21,10 +21,14 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.glowcap, 0.65F);
 		setCompostInfo(PVJBlocks.crimson_nettle, 0.65F);
 		setCompostInfo(PVJBlocks.warped_nettle, 0.65F);
+		setCompostInfo(PVJBlocks.desert_sage, 0.5F);
+		setCompostInfo(PVJBlocks.desert_agave, 0.65F);
+		setCompostInfo(PVJBlocks.blooming_desert_agave, 0.65F);
 		setCompostInfo(PVJBlocks.cindercane, 0.8F);
 		setCompostInfo(PVJBlocks.short_grass, 0.25F);
 		setCompostInfo(PVJBlocks.beach_grass, 0.25F);
 		setCompostInfo(PVJBlocks.prairie_grass, 0.25F);
+		setCompostInfo(PVJBlocks.dry_grass, 0.25F);
 		setCompostInfo(PVJBlocks.aspen_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.red_maple_fallen_leaves, 0.1F);
 		setCompostInfo(PVJBlocks.orange_maple_fallen_leaves, 0.1F);
@@ -52,6 +56,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.pink_sakura_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.white_sakura_leaves, 0.3F);
 		setCompostInfo(PVJBlocks.tamarack_leaves, 0.3F);
+		setCompostInfo(PVJBlocks.joshua_leaves, 0.3F);
 		
 		setCompostInfo(PVJBlocks.fir_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.pine_sapling, 0.3F);
@@ -69,6 +74,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.pink_sakura_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.white_sakura_sapling, 0.3F);
 		setCompostInfo(PVJBlocks.tamarack_sapling, 0.3F);
+		setCompostInfo(PVJBlocks.joshua_sapling, 0.3F);
 	}
 	
 	public static void setCompostInfo(IItemProvider item, float chance) {

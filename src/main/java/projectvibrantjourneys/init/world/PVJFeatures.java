@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
+import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -17,6 +18,7 @@ import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.JuniperTreeFeature;
 import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
+import projectvibrantjourneys.common.world.features.SandBlockBlobFeature;
 import projectvibrantjourneys.common.world.features.SandTreeFeature;
 import projectvibrantjourneys.common.world.features.SnowMountainTreeFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
@@ -35,6 +37,7 @@ public class PVJFeatures {
 	public static Feature<BaseTreeFeatureConfig> snowTree;
 	public static Feature<BaseTreeFeatureConfig> sandTree;
 	public static Feature<BaseTreeFeatureConfig> juniperTree;
+	public static Feature<BlockStateFeatureConfig> sandRock;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -47,6 +50,7 @@ public class PVJFeatures {
 		snowTree = registerFeature(new SnowMountainTreeFeature(BaseTreeFeatureConfig.CODEC), "snow_tree");
 		sandTree = registerFeature(new SandTreeFeature(BaseTreeFeatureConfig.CODEC), "sand_tree");
 		juniperTree = registerFeature(new JuniperTreeFeature(BaseTreeFeatureConfig.CODEC), "juniper_tree");
+		sandRock = registerFeature(new SandBlockBlobFeature(BlockStateFeatureConfig.CODEC), "sand_rock");
 		
 		FEATURES.forEach((feature) -> event.getRegistry().register(feature));
 	}

@@ -41,6 +41,7 @@ import projectvibrantjourneys.common.blocks.BerriedJuniperLeavesBlock;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.common.blocks.CindercaneBlock;
 import projectvibrantjourneys.common.blocks.CoconutBlock;
+import projectvibrantjourneys.common.blocks.DryGrassBlock;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GlowcapBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
@@ -56,6 +57,7 @@ import projectvibrantjourneys.common.blocks.trees.AspenTree;
 import projectvibrantjourneys.common.blocks.trees.BaobabTree;
 import projectvibrantjourneys.common.blocks.trees.CottonwoodTree;
 import projectvibrantjourneys.common.blocks.trees.FirTree;
+import projectvibrantjourneys.common.blocks.trees.JoshuaTree;
 import projectvibrantjourneys.common.blocks.trees.JuniperTree;
 import projectvibrantjourneys.common.blocks.trees.MangroveTree;
 import projectvibrantjourneys.common.blocks.trees.OrangeMapleTree;
@@ -86,7 +88,7 @@ public class PVJBlocks {
 	public static Block glowcap;
 	public static Block crimson_nettle, warped_nettle, cindercane;
 	public static Block short_grass, beach_grass, prairie_grass, dry_grass;
-	public static Block wildflowers;
+	public static Block wildflowers, desert_sage, desert_agave, blooming_desert_agave;
 	public static Block coconut;
 	
 	public static Block slime_geyser;
@@ -152,7 +154,13 @@ public class PVJBlocks {
 	public static Block potted_fir_sapling, potted_pine_sapling, potted_redwood_sapling, potted_willow_sapling,
 			potted_mangrove_sapling, potted_palm_sapling, potted_aspen_sapling, potted_juniper_sapling,
 			potted_cottonwood_sapling, potted_baobab_sapling, potted_red_maple_sapling, potted_orange_maple_sapling,
-			potted_purple_maple_sapling, potted_pink_sakura_sapling, potted_white_sakura_sapling, potted_tamarack_sapling;
+			potted_purple_maple_sapling, potted_pink_sakura_sapling, potted_white_sakura_sapling, potted_tamarack_sapling,
+			potted_joshua_sapling;
+	
+	public static Block joshua_sapling, joshua_log, joshua_leaves, joshua_planks,
+			stripped_joshua_log, joshua_wood, stripped_joshua_wood, joshua_sign, joshua_wall_sign,
+			joshua_pressure_plate, joshua_trapdoor, joshua_button, joshua_slab, joshua_fence_gate,
+			joshua_fence, joshua_door, joshua_stairs;
 	
 	public static Block potted_glowcap, potted_crimson_nettle, potted_warped_nettle;
 
@@ -184,10 +192,14 @@ public class PVJBlocks {
 		crimson_nettle = registerBlock(new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM), "crimson_nettle");
 		warped_nettle = registerBlock(new NetherPlantBlock(MaterialColor.COLOR_CYAN), "warped_nettle");
 		cindercane = registerBlock(new CindercaneBlock(Properties.of(Material.PLANT, MaterialColor.NETHER).noCollission().randomTicks().instabreak().sound(SoundType.TWISTING_VINES)), "cindercane");
+		desert_sage = registerBlock(new BeachGrassBlock(), "desert_sage");
+		desert_agave = registerBlock(new BeachGrassBlock(), "desert_agave");
+		blooming_desert_agave = registerBlock(new SeaOatsBlock(), "blooming_desert_agave");
 		
 		short_grass = registerBlock(new ShortGrassBlock(), "short_grass");
 		beach_grass = registerBlock(new BeachGrassBlock(), "beach_grass");
 		prairie_grass = registerBlock(new PVJTallGrassBlock(), "prairie_grass");
+		dry_grass = registerBlock(new DryGrassBlock(), "dry_grass");
 		
 		potted_glowcap = registerBlockWithoutItem(createFlowerPot(glowcap), "potted_glowcap");
 		potted_crimson_nettle = registerBlockWithoutItem(createFlowerPot(crimson_nettle), "potted_crimson_nettle");
@@ -411,6 +423,22 @@ public class PVJBlocks {
 		tamarack_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "tamarack_door", 200);
 		tamarack_stairs = registerBlockWithFuel(new StairsBlock(() -> tamarack_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "tamarack_stairs", 300);
 		
+		joshua_sapling = registerBlockWithFuel(new SaplingBlock(new JoshuaTree(), Properties.copy(Blocks.OAK_SAPLING)), "joshua_sapling", 100);
+		joshua_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_joshua_log), "joshua_log", 300);
+		joshua_leaves = registerBlock(new LeavesBlock(Properties.copy(Blocks.OAK_LEAVES)), "joshua_leaves");
+		joshua_wood = registerBlockWithFuel(createLogBlock(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN, () -> stripped_joshua_wood), "joshua_wood", 300);
+		joshua_planks = registerBlockWithFuel(createPlanksBlock(), "joshua_planks", 300);
+		stripped_joshua_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_joshua_log", 300);
+		stripped_joshua_wood = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.WOOD, null), "stripped_joshua_wood", 300);
+		joshua_pressure_plate = registerBlockWithFuel(createPressurePlate(joshua_planks.defaultMaterialColor()),"joshua_pressure_plate", 300);
+		joshua_trapdoor = registerBlockWithFuel(new TrapDoorBlock(Properties.copy(Blocks.OAK_TRAPDOOR)), "joshua_trapdoor", 300);
+		joshua_button = registerBlockWithFuel(new WoodButtonBlock(Properties.copy(Blocks.OAK_BUTTON)), "joshua_button", 100);
+		joshua_slab = registerBlockWithFuel(new SlabBlock(Properties.copy(Blocks.OAK_SLAB)), "joshua_slab", 150);
+		joshua_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "joshua_fence_gate", 300);
+		joshua_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "joshua_fence", 300);
+		joshua_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "joshua_door", 200);
+		joshua_stairs = registerBlockWithFuel(new StairsBlock(() -> joshua_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "joshua_stairs", 300);
+		
 		potted_fir_sapling =  registerBlockWithoutItem(createFlowerPot(fir_sapling), "potted_fir_sapling");
 		potted_pine_sapling =  registerBlockWithoutItem(createFlowerPot(pine_sapling), "potted_pine_sapling");
 		potted_redwood_sapling =  registerBlockWithoutItem(createFlowerPot(redwood_sapling), "potted_redwood_sapling");
@@ -427,6 +455,7 @@ public class PVJBlocks {
 		potted_pink_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(pink_sakura_sapling), "potted_pink_sakura_sapling");
 		potted_white_sakura_sapling =  registerBlockWithoutItem(createFlowerPot(white_sakura_sapling), "potted_white_sakura_sapling");
 		potted_tamarack_sapling =  registerBlockWithoutItem(createFlowerPot(tamarack_sapling), "potted_tamarack_sapling");
+		potted_joshua_sapling =  registerBlockWithoutItem(createFlowerPot(joshua_sapling), "potted_joshua_sapling");
 		
 		event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
 	}

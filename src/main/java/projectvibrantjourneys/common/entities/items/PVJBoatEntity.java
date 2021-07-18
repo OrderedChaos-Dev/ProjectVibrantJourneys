@@ -111,7 +111,8 @@ public class PVJBoatEntity extends BoatEntity {
 		BAOBAB(PVJBlocks.baobab_planks, "baobab"),
 		MAPLE(PVJBlocks.maple_planks, "maple"),
 		SAKURA(PVJBlocks.sakura_planks, "sakura"),
-		TAMARACK(PVJBlocks.tamarack_planks, "tamarack");
+		TAMARACK(PVJBlocks.tamarack_planks, "tamarack"),
+		JOSHUA(PVJBlocks.joshua_planks, "joshua");
 
 		private final String name;
 		private final Block block;

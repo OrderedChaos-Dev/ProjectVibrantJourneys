@@ -1,0 +1,7 @@
+{
+	"variants":
+	{
+		"half=upper": { "model": "projectvibrantjourneys:block/blooming_desert_agave_upper"},
+		"half=lower": { "model": "projectvibrantjourneys:block/blooming_desert_agave_lower"}
+	}
+}

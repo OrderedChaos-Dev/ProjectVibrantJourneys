@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "projectvibrantjourneys:block/joshua_slab" },
+        "type=top": { "model": "projectvibrantjourneys:block/joshua_slab_top" },
+        "type=double": { "model": "projectvibrantjourneys:block/joshua_planks" }
+    }
+}
