@@ -38,9 +38,11 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 		if (rand.nextFloat() < config.probability) {
 			for(Direction dir : Direction.Plane.HORIZONTAL) {
 				BlockPos offsetPos = pos.offset(dir.getNormal());
-				world.setBlock(offsetPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+				if(world.isStateAtPosition(offsetPos, (state) -> state.getMaterial().isReplaceable()));
+					world.setBlock(offsetPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
 			}
-			world.setBlock(pos.above(), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
+			if(world.isStateAtPosition(pos.above(), (state) -> state.getMaterial().isReplaceable()));
+				world.setBlock(pos.above(), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
 			world.setBlock(pos, Blocks.OAK_LOG.defaultBlockState(), 2);
 		}
 

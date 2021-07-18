@@ -21,7 +21,7 @@ public class DryGrassBlock extends BushBlock {
 	public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 1);
 	
 	public DryGrassBlock() {
-		super(Block.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS));
+		super(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS));
 	}
 	
 	@Override

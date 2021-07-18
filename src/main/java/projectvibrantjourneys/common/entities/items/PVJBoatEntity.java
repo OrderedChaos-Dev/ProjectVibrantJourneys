@@ -70,6 +70,8 @@ public class PVJBoatEntity extends BoatEntity {
 			return PVJItems.sakura_boat;
 		case TAMARACK:
 			return PVJItems.tamarack_boat;
+		case JOSHUA:
+			return PVJItems.joshua_boat;
 		}
 	}
 
