@@ -4,6 +4,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
+import net.minecraft.block.SandBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItemUseContext;
@@ -37,6 +38,11 @@ public class DryGrassBlock extends BushBlock {
 	@Override
 	public net.minecraftforge.common.PlantType getPlantType(IBlockReader world, BlockPos pos) {
 		return PlantType.DESERT;
+	}
+	
+	@Override
+	protected boolean mayPlaceOn(BlockState state, IBlockReader world, BlockPos pos) {
+		return super.mayPlaceOn(state, world, pos) || state.getBlock() instanceof SandBlock;
 	}
 	
 	@Override

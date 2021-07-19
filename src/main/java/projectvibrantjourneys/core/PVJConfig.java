@@ -70,6 +70,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> autumnal_coniferous_forest;
 	public static ForgeConfigSpec.ConfigValue<Boolean> oak_woodlands;
 	public static ForgeConfigSpec.ConfigValue<Boolean> desert_shrubland;
+	public static ForgeConfigSpec.ConfigValue<Boolean> red_rock_valley;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
@@ -146,6 +147,7 @@ public class PVJConfig {
 		crimson_thicket = COMMON_BUILDER.define("crimson_thicket", true);
 		oak_woodlands = COMMON_BUILDER.define("oak_woodlands", true);
 		desert_shrubland = COMMON_BUILDER.define("desert_shrubland", true);
+		red_rock_valley = COMMON_BUILDER.define("red_rock_valley", true);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();
