@@ -46,6 +46,7 @@ public class RedRockValleyBiome {
 				.downfall(0.55F)
 				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
 						.waterFogColor(329011).fogColor(12638463)
+						.grassColorOverride(0x8aab32)
 						.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(1.9F))
 						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
 				.mobSpawnSettings(mobSpawnInfo.build())

@@ -176,8 +176,6 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
 			} else if (biome == PVJBiomes.Keys.RED_ROCK_VALLEY_BIOME) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_shrubland_vegetation);
-//				vegetalFeatures.add(() -> PVJConfiguredFeatures.dry_grass);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_sage);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blooming_desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);

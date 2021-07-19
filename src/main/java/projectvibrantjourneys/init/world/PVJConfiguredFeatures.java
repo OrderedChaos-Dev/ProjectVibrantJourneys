@@ -143,7 +143,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree_bees005;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree_bees002;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> red_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> orange_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> purple_maple_tree;
@@ -152,10 +152,10 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_purple_maple_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees005;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees002;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees002;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree_bees005;
+	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree_bees002;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> joshua_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
@@ -300,8 +300,8 @@ public class PVJConfiguredFeatures {
 						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
-		pink_sakura_tree_bees005 = Feature.TREE.configured(pink_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
-		white_sakura_tree_bees005 = Feature.TREE.configured(white_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		pink_sakura_tree_bees002 = Feature.TREE.configured(pink_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
+		white_sakura_tree_bees002 = Feature.TREE.configured(white_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
 		aspen_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.aspen_log.defaultBlockState()),
@@ -309,7 +309,7 @@ public class PVJConfiguredFeatures {
 						new AspenFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
 						new AspenTrunkPlacer(11, 5, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
-		aspen_tree_bees005 = Feature.TREE.configured(aspen_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		aspen_tree_bees002 = Feature.TREE.configured(aspen_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
 		red_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
@@ -356,7 +356,7 @@ public class PVJConfiguredFeatures {
 				new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1), FeatureSpread.of(4, 2)),
 				new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
-		tamarack_tree_bees005 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
+		tamarack_tree_bees002 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
 		joshua_tree = PVJFeatures.juniperTree.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.joshua_log.defaultBlockState()),
@@ -404,7 +404,7 @@ public class PVJConfiguredFeatures {
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.3F, 1)));
 		
 		aspen_grove_vegetation = Feature.RANDOM_SELECTOR.configured(new MultipleRandomFeatureConfig(ImmutableList.of(
-				aspen_tree_bees005.weighted(0.3F),
+				aspen_tree_bees002.weighted(0.3F),
 				red_maple_tree.weighted(0.15F),
 				orange_maple_tree.weighted(0.15F),
 				purple_maple_tree.weighted(0.15F),
@@ -442,13 +442,13 @@ public class PVJConfiguredFeatures {
 		
 		blossoming_fields_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(white_sakura_tree_bees005.weighted(0.5F), pink_sakura_tree_bees005.weighted(0.5F)), pink_sakura_tree_bees005))
+						ImmutableList.of(white_sakura_tree_bees002.weighted(0.5F), pink_sakura_tree_bees002.weighted(0.5F)), pink_sakura_tree_bees002))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.4F, 1)));
 		
 		autumnnal_coniferous_forest_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(tamarack_tree_bees005.weighted(0.4F), fir_tree.weighted(0.55F)), Features.SPRUCE))
+						ImmutableList.of(tamarack_tree_bees002.weighted(0.4F), fir_tree.weighted(0.55F)), Features.SPRUCE))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(8, 0.4F, 1)));
 		
@@ -522,7 +522,7 @@ public class PVJConfiguredFeatures {
 		register("cottonwood_tree", cottonwood_tree);
 		register("cottonwood_tree_bees005", cottonwood_tree_bees005);
 		register("aspen_tree", aspen_tree);
-		register("aspen_tree_bees005", aspen_tree_bees005);
+		register("aspen_tree_bees002", aspen_tree_bees002);
 		register("red_maple_tree", red_maple_tree);
 		register("orange_maple_tree", orange_maple_tree);
 		register("purple_maple_tree", purple_maple_tree);
@@ -531,10 +531,10 @@ public class PVJConfiguredFeatures {
 		register("large_purple_maple_tree", large_purple_maple_tree);
 		register("pink_sakura_tree", pink_sakura_tree);
 		register("white_sakura_tree", white_sakura_tree);
-		register("pink_sakura_tree_bees005", pink_sakura_tree_bees005);
-		register("white_sakura_tree_bees005", white_sakura_tree_bees005);
+		register("pink_sakura_tree_bees002", pink_sakura_tree_bees002);
+		register("white_sakura_tree_bees002", white_sakura_tree_bees002);
 		register("tamarack_tree", tamarack_tree);
-		register("tamarack_tree_bees005", tamarack_tree_bees005);
+		register("tamarack_tree_bees002", tamarack_tree_bees002);
 		register("joshua_tree", joshua_tree);
 
 		register("overgrown_spires_vegetation", overgrown_spires_vegetation);
