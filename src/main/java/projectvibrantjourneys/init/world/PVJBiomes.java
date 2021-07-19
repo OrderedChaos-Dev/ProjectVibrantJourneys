@@ -68,7 +68,6 @@ public class PVJBiomes {
 	public static Biome autumnal_coniferous_forest = register(AutumnalConiferousForestBiome.makeAutumnalConiferousForestBiome(), "autumnal_coniferous_forest");
 	public static Biome gravel_shore = register(GravelShoreBiome.makeGravelShoreBiome(), "gravel_shore");
 	public static Biome crimson_thicket = register(CrimsonThicketBiome.makeCrimsonThicketBiome(), "crimson_thicket");
-	public static Biome oak_woodlands = register(OakWoodlandsBiome.makeOakWoodlandsBiome(), "oak_woodlands");
 	public static Biome desert_shrubland = register(DesertShrublandBiome.makeDesertShrublandBiome(0.2F), "desert_shrubland");
 	public static Biome red_rock_valley = register(RedRockValleyBiome.makeRedRockValleyBiome(), "red_rock_valley");
 	
@@ -93,7 +92,6 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> AUTUMNAL_CONIFEROUS_FOREST = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "autumnal_coniferous_forest"));
 		public static final RegistryKey<Biome> GRAVEL_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
 		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
-		public static final RegistryKey<Biome> OAK_WOODLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "oak_woodlands"));
 		public static final RegistryKey<Biome> DESERT_SHRUBLAND = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
 		public static final RegistryKey<Biome> RED_ROCK_VALLEY_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
 	}
@@ -150,8 +148,6 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.AUTUMNAL_CONIFEROUS_FOREST, 1));
 		if(PVJConfig.crimson_thicket.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRIMSON_THICKET, 1));
-		if(PVJConfig.oak_woodlands.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OAK_WOODLANDS, 1));
 		if(PVJConfig.desert_shrubland.get())
 			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, 1));
 		if(PVJConfig.red_rock_valley.get())
@@ -178,7 +174,6 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.BLOSSOMING_FIELDS, Type.PLAINS, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.AUTUMNAL_CONIFEROUS_FOREST, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.GRAVEL_SHORE, Type.BEACH, Type.OVERWORLD);
-		BiomeDictionary.addTypes(Keys.OAK_WOODLANDS, Type.FOREST, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.DESERT_SHRUBLAND, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.RED_ROCK_VALLEY_BIOME, Type.LUSH, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 	}

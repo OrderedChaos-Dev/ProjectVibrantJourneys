@@ -171,7 +171,6 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> blossoming_fields_vegetation;
 	public static ConfiguredFeature<?, ?> autumnnal_coniferous_forest_vegetation;
 	public static ConfiguredFeature<?, ?> crimson_thicket_vegetation;
-	public static ConfiguredFeature<?, ?> oak_woodlands_vegetation;
 	public static ConfiguredFeature<?, ?> desert_shrubland_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
@@ -460,12 +459,6 @@ public class PVJConfiguredFeatures {
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.4F, 1)));
 		
-		oak_woodlands_vegetation = Feature.RANDOM_SELECTOR
-				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(Features.FANCY_OAK_BEES_0002.weighted(0.2F)), Features.OAK_BEES_0002))
-				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.1F, 1)));
-		
 		desert_shrubland_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(joshua_tree.weighted(1.0F)), joshua_tree))
@@ -557,7 +550,6 @@ public class PVJConfiguredFeatures {
 		register("blossoming_fields_vegetation", blossoming_fields_vegetation);
 		register("autumnnal_coniferous_forest_vegetation", autumnnal_coniferous_forest_vegetation);
 		register("crimson_thicket_vegetation", crimson_thicket_vegetation);
-		register("oak_woodlands_vegetation", oak_woodlands_vegetation);
 		register("desert_shrubland_vegetation", desert_shrubland_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);

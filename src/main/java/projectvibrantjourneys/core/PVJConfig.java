@@ -68,7 +68,6 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> prairie;
 	public static ForgeConfigSpec.ConfigValue<Boolean> blossoming_fields;
 	public static ForgeConfigSpec.ConfigValue<Boolean> autumnal_coniferous_forest;
-	public static ForgeConfigSpec.ConfigValue<Boolean> oak_woodlands;
 	public static ForgeConfigSpec.ConfigValue<Boolean> desert_shrubland;
 	public static ForgeConfigSpec.ConfigValue<Boolean> red_rock_valley;
 	
@@ -145,7 +144,6 @@ public class PVJConfig {
 		blossoming_fields = COMMON_BUILDER.define("blossoming_fields", true);
 		autumnal_coniferous_forest = COMMON_BUILDER.define("autumnal_coniferous_forest", true);
 		crimson_thicket = COMMON_BUILDER.define("crimson_thicket", true);
-		oak_woodlands = COMMON_BUILDER.define("oak_woodlands", true);
 		desert_shrubland = COMMON_BUILDER.define("desert_shrubland", true);
 		red_rock_valley = COMMON_BUILDER.define("red_rock_valley", true);
 		COMMON_BUILDER.pop();

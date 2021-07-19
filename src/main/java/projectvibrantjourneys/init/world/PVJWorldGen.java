@@ -14,6 +14,7 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -166,8 +167,6 @@ public class PVJWorldGen {
 			} else if(biome == PVJBiomes.Keys.CRIMSON_THICKET) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.crimson_thicket_floor_foliage);
-			} else if(biome == PVJBiomes.Keys.OAK_WOODLANDS) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.oak_woodlands_vegetation);
 			} else if (biome == PVJBiomes.Keys.DESERT_SHRUBLAND) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_shrubland_vegetation);
 				event.getGeneration().getFeatures(Decoration.LOCAL_MODIFICATIONS).add(() -> PVJConfiguredFeatures.desert_rock);
