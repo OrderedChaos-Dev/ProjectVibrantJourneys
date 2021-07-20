@@ -132,6 +132,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> fallen_tree;
 	public static ConfiguredFeature<?, ?> desert_rock;
 	public static ConfiguredFeature<?, ?> tropical_beach_bush;
+	public static ConfiguredFeature<?, ?> oak_bush;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -217,7 +218,7 @@ public class PVJConfiguredFeatures {
 		blooming_desert_agave = Feature.RANDOM_PATCH.configured(bloomingAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1);
 		desert_agave = Feature.RANDOM_PATCH.configured(desertAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		tropical_beach_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
-		
+		oak_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
 		
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 		
@@ -397,8 +398,8 @@ public class PVJConfiguredFeatures {
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(10, 0.3F, 1)));
 
 		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
-				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(pine_tree.weighted(0.6F),
-						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), pine_tree))
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(pine_tree.weighted(0.4F),
+						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), oak_bush))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 2)));
 		
@@ -516,6 +517,7 @@ public class PVJConfiguredFeatures {
 		register("blooming_desert_agave", blooming_desert_agave);
 		register("desert_agave", desert_agave);
 		register("tropical_beach_bush", tropical_beach_bush);
+		register("oak_bush", oak_bush);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);

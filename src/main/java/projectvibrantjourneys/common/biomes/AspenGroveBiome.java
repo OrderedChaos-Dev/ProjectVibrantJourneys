@@ -13,7 +13,7 @@ import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
 public class AspenGroveBiome {
 
-	public static Biome makeBorealPlateauBiome(float depth, float scale) {
+	public static Biome makeAspenGroveBiome(float depth, float scale) {
 		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
 		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
 		DefaultBiomeFeatures.commonSpawns(mobSpawnInfo);

@@ -30,7 +30,6 @@ import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
 import projectvibrantjourneys.common.biomes.DesertShrublandBiome;
 import projectvibrantjourneys.common.biomes.GravelShoreBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
-import projectvibrantjourneys.common.biomes.OakWoodlandsBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.PineMeadowsBiome;
 import projectvibrantjourneys.common.biomes.PrairieBiome;
@@ -59,8 +58,8 @@ public class PVJBiomes {
 	public static Biome alpine_heights = register(AlpineHeightsBiome.makeAlpineHeightsBiome(5F, 1.1F), "alpine_heights");
 	public static Biome pine_meadows = register(PineMeadowsBiome.makePineMeadowsBiome(), "pine_meadows");
 	public static Biome boreal_plateau = register(BorealPlateauBiome.makeBorealPlateauBiome(), "boreal_plateau");
-	public static Biome aspen_grove = register(AspenGroveBiome.makeBorealPlateauBiome(0.2F, 0.2F), "aspen_grove");
-	public static Biome aspen_grove_hills = register(AspenGroveBiome.makeBorealPlateauBiome(0.45F, 0.25F), "aspen_grove_hills");
+	public static Biome aspen_grove = register(AspenGroveBiome.makeAspenGroveBiome(0.2F, 0.2F), "aspen_grove");
+	public static Biome aspen_grove_hills = register(AspenGroveBiome.makeAspenGroveBiome(0.45F, 0.25F), "aspen_grove_hills");
 	public static Biome mangrove_marsh = register(MangroveMarshBiome.makeMangroveMarshBiome(), "mangrove_marsh");
 	public static Biome willow_wetlands = register(WillowWetlandsBiome.makeWillowWetlandsBiome(), "willow_wetlands");
 	public static Biome baobab_fields = register(BaobabFieldsBiome.makeBaobabFieldsBiome(), "baobab_fields");

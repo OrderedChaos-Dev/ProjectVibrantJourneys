@@ -11,6 +11,7 @@ import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
+import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
 public class PineMeadowsBiome {
 
@@ -20,7 +21,7 @@ public class PineMeadowsBiome {
 		mobSpawnInfo.setPlayerCanSpawn();
 
 		BiomeGenerationSettings.Builder biomeGenBuilder = (new BiomeGenerationSettings.Builder())
-				.surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+				.surfaceBuilder(PVJConfiguredSurfaceBuilders.PINE_MEADOWS);
 		biomeGenBuilder.addStructureStart(StructureFeatures.VILLAGE_TAIGA)
 				.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
 
@@ -43,10 +44,11 @@ public class PineMeadowsBiome {
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.125F)
 				.scale(0.05F).temperature(0.7F).downfall(0.8F)
-				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(0xa7cc5c)
-						.foliageColorOverride(0xa7cc5c)
+				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011)
+						.grassColorOverride(0x59cf70)
+						.foliageColorOverride(0x69cf59)
 						.fogColor(12638463).skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.8F))
 						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
 				.mobSpawnSettings(mobSpawnInfo.build()).generationSettings(biomeGenBuilder.build()).build();
 	}
-}
+}//.grassColorOverride(0xa7cc5c)
