@@ -176,6 +176,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> crimson_thicket_vegetation;
 	public static ConfiguredFeature<?, ?> desert_shrubland_vegetation;
 	public static ConfiguredFeature<?, ?> tropical_beach_vegetation;
+	public static ConfiguredFeature<?, ?> crystal_lakes_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -476,6 +477,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(palm_tree.weighted(0.5F), tropical_beach_bush.weighted(0.5F)), palm_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(6, 0.4F, 1)));
+		
+		crystal_lakes_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(fir_tree.weighted(0.4F), pine_tree.weighted(0.2F)), Features.SPRUCE))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(8, 0.3F, 1)));
 
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -566,6 +573,7 @@ public class PVJConfiguredFeatures {
 		register("crimson_thicket_vegetation", crimson_thicket_vegetation);
 		register("desert_shrubland_vegetation", desert_shrubland_vegetation);
 		register("tropical_beach_vegetation", tropical_beach_vegetation);
+		register("crystal_lakes_vegetation", crystal_lakes_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);

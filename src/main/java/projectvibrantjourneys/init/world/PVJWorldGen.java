@@ -180,6 +180,8 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);
 			} else if (biome == PVJBiomes.Keys.TROPICAL_BEACH) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.tropical_beach_vegetation);
+			} else if (biome == PVJBiomes.Keys.CRYSTAL_LAKES) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.crystal_lakes_vegetation);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES

@@ -27,6 +27,7 @@ import projectvibrantjourneys.common.biomes.BlossomingFieldsBiome;
 import projectvibrantjourneys.common.biomes.BorealForestBiome;
 import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
+import projectvibrantjourneys.common.biomes.CrystalLakesBiome;
 import projectvibrantjourneys.common.biomes.DesertShrublandBiome;
 import projectvibrantjourneys.common.biomes.GravelShoreBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
@@ -71,6 +72,7 @@ public class PVJBiomes {
 	public static Biome desert_shrubland = register(DesertShrublandBiome.makeDesertShrublandBiome(0.2F), "desert_shrubland");
 	public static Biome red_rock_valley = register(RedRockValleyBiome.makeRedRockValleyBiome(), "red_rock_valley");
 	public static Biome tropical_beach = register(BiomeMaker.beachBiome(0.0F, 0.025F, 1.4F, 0.8F, 4159204, false, false), "tropical_beach");
+	public static Biome crystal_lakes = register(CrystalLakesBiome.makeCrystalLakesBiome(), "crystal_lakes");
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -96,6 +98,7 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> DESERT_SHRUBLAND = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
 		public static final RegistryKey<Biome> RED_ROCK_VALLEY_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
 		public static final RegistryKey<Biome> TROPICAL_BEACH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "tropical_beach"));
+		public static final RegistryKey<Biome> CRYSTAL_LAKES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crystal_lakes"));
 	}
 	
 	@SubscribeEvent
@@ -154,6 +157,8 @@ public class PVJBiomes {
 			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, 1));
 		if(PVJConfig.red_rock_valley.get())
 			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.RED_ROCK_VALLEY_BIOME, 1));
+		if(PVJConfig.crystal_lakes.get())
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRYSTAL_LAKES, 1));
 	}
 	
 	public static void addTypes() {
@@ -179,6 +184,7 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.DESERT_SHRUBLAND, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.RED_ROCK_VALLEY_BIOME, Type.LUSH, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.TROPICAL_BEACH, Type.BEACH, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.CRYSTAL_LAKES, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {
@@ -196,6 +202,7 @@ public class PVJBiomes {
 		
 		//HILLS
 		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);
+//		mapHillsBiome(Keys.CRYSTAL_LAKES, Keys.BOREAL_PLATEAU);
 	}
 	
 	public static void mapShoreBiome(RegistryKey<Biome> biome, RegistryKey<Biome> shore) {
