@@ -14,7 +14,6 @@ import net.minecraft.util.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.GenerationStage.Carving;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -179,6 +178,8 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blooming_desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);
+			} else if (biome == PVJBiomes.Keys.TROPICAL_BEACH) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.tropical_beach_vegetation);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES

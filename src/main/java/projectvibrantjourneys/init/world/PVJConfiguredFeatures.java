@@ -31,6 +31,7 @@ import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.TwoLayerFeature;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.MegaPineFoliagePlacer;
 import net.minecraft.world.gen.foliageplacer.PineFoliagePlacer;
@@ -130,6 +131,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> desert_agave;
 	public static ConfiguredFeature<?, ?> fallen_tree;
 	public static ConfiguredFeature<?, ?> desert_rock;
+	public static ConfiguredFeature<?, ?> tropical_beach_bush;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -172,6 +174,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> autumnnal_coniferous_forest_vegetation;
 	public static ConfiguredFeature<?, ?> crimson_thicket_vegetation;
 	public static ConfiguredFeature<?, ?> desert_shrubland_vegetation;
+	public static ConfiguredFeature<?, ?> tropical_beach_vegetation;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -213,7 +216,9 @@ public class PVJConfiguredFeatures {
 		desert_sage = Feature.RANDOM_PATCH.configured(desertSageCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		blooming_desert_agave = Feature.RANDOM_PATCH.configured(bloomingAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1);
 		desert_agave = Feature.RANDOM_PATCH.configured(desertAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
-
+		tropical_beach_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
+		
+		
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 		
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
@@ -464,6 +469,12 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(joshua_tree.weighted(1.0F)), joshua_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.30F, 1)));
+		
+		tropical_beach_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+						ImmutableList.of(palm_tree.weighted(0.5F), tropical_beach_bush.weighted(0.5F)), palm_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(6, 0.4F, 1)));
 
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -504,6 +515,7 @@ public class PVJConfiguredFeatures {
 		register("desert_sage", desert_sage);
 		register("blooming_desert_agave", blooming_desert_agave);
 		register("desert_agave", desert_agave);
+		register("tropical_beach_bush", tropical_beach_bush);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
@@ -551,6 +563,7 @@ public class PVJConfiguredFeatures {
 		register("autumnnal_coniferous_forest_vegetation", autumnnal_coniferous_forest_vegetation);
 		register("crimson_thicket_vegetation", crimson_thicket_vegetation);
 		register("desert_shrubland_vegetation", desert_shrubland_vegetation);
+		register("tropical_beach_vegetation", tropical_beach_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);
