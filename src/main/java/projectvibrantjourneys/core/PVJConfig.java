@@ -50,8 +50,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	public static ForgeConfigSpec.ConfigValue<Boolean> nightBats;
 	
-	public static ForgeConfigSpec.ConfigValue<Boolean> overgrownSpires;
-	public static ForgeConfigSpec.ConfigValue<Boolean> verdantSands;
+	public static ForgeConfigSpec.ConfigValue<Boolean> overgrown_spires;
+	public static ForgeConfigSpec.ConfigValue<Boolean> verdant_sands;
 	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
 	public static ForgeConfigSpec.ConfigValue<Boolean> snowy_boreal_forest;
 	public static ForgeConfigSpec.ConfigValue<Boolean> redwoods;
@@ -72,6 +72,29 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> red_rock_valley;
 	public static ForgeConfigSpec.ConfigValue<Boolean> crystal_lakes;
 	public static ForgeConfigSpec.ConfigValue<Boolean> windswept_cliffs;
+	
+	public static ForgeConfigSpec.ConfigValue<Integer> overgrown_spires_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> verdant_sands_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> boreal_forest_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> snowy_boreal_forest_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> redwoods_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> snowy_redwoods_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> redwood_peaks_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> pine_meadows_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> alpine_heights_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> boreal_plateau_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> willow_wetlands_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> mangrove_marsh_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> baobab_fields_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> aspen_grove_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> crimson_thicket_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> prairie_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> blossoming_fields_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> autumnal_coniferous_forest_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> desert_shrubland_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> red_rock_valley_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> crystal_lakes_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> windswept_cliffs_weight;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
@@ -128,8 +151,8 @@ public class PVJConfig {
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.comment("Biome Settings").push("Biomes");
-		overgrownSpires = COMMON_BUILDER.define("overgrownSpires", true);
-		verdantSands = COMMON_BUILDER.define("verdantSands", true);
+		overgrown_spires = COMMON_BUILDER.define("overgrown_spires", true);
+		verdant_sands = COMMON_BUILDER.define("verdant_sands", true);
 		boreal_forest = COMMON_BUILDER.define("boreal_forest", true);
 		snowy_boreal_forest = COMMON_BUILDER.define("snowy_boreal_forest", true);
 		redwoods = COMMON_BUILDER.define("redwoods", true);
@@ -150,7 +173,31 @@ public class PVJConfig {
 		red_rock_valley = COMMON_BUILDER.define("red_rock_valley", true);
 		crystal_lakes = COMMON_BUILDER.define("crystal_lakes", true);
 		windswept_cliffs = COMMON_BUILDER.define("windswept_cliffs", true);
-		COMMON_BUILDER.pop();
+		
+		COMMON_BUILDER.comment("Biome Weights").push("Biome Weights");
+		overgrown_spires_weight = COMMON_BUILDER.define("overgrown_spires_weight", 3);
+		verdant_sands_weight = COMMON_BUILDER.define("verdant_sands_weight", 3);
+		boreal_forest_weight = COMMON_BUILDER.define("boreal_forest_weight", 3);
+		snowy_boreal_forest_weight = COMMON_BUILDER.define("snowy_boreal_forest_weight", 3);
+		redwoods_weight = COMMON_BUILDER.define("redwoods_weight", 3);
+		snowy_redwoods_weight = COMMON_BUILDER.define("snowy_redwoods_weight", 3);
+		redwood_peaks_weight = COMMON_BUILDER.define("redwood_peaks_weight", 3);
+		pine_meadows_weight = COMMON_BUILDER.define("pine_meadows_weight", 3);
+		alpine_heights_weight = COMMON_BUILDER.define("alpine_heights_weight", 3);
+		boreal_plateau_weight = COMMON_BUILDER.define("boreal_plateau_weight", 3);
+		aspen_grove_weight = COMMON_BUILDER.define("aspen_grove_weight", 3);
+		mangrove_marsh_weight = COMMON_BUILDER.define("mangrove_marsh_weight", 3);
+		willow_wetlands_weight = COMMON_BUILDER.define("willow_wetlands_weight", 3);
+		baobab_fields_weight = COMMON_BUILDER.define("baobab_fields_weight", 3);
+		prairie_weight = COMMON_BUILDER.define("prairie_weight", 3);
+		blossoming_fields_weight = COMMON_BUILDER.define("blossoming_fields_weight", 3);
+		autumnal_coniferous_forest_weight = COMMON_BUILDER.define("autumnal_coniferous_forest_weight", 3);
+		crimson_thicket_weight = COMMON_BUILDER.define("crimson_thicket_weight", 3);
+		desert_shrubland_weight = COMMON_BUILDER.define("desert_shrubland_weight", 3);
+		red_rock_valley_weight = COMMON_BUILDER.define("red_rock_valley_weight", 3);
+		crystal_lakes_weight = COMMON_BUILDER.define("crystal_lakes_weight", 3);
+		windswept_cliffs_weight = COMMON_BUILDER.define("windswept_cliffs_weight", 3);
+		COMMON_BUILDER.pop(2);
 		
 		COMMON_BUILDER.pop();
 		COMMON_CONFIG = COMMON_BUILDER.build();

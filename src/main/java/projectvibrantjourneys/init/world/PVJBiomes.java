@@ -120,50 +120,50 @@ public class PVJBiomes {
 	}
 	
 	public static void addBiomes() {
-		if(PVJConfig.overgrownSpires.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OVERGROWN_SPIRES, 1));
-		if(PVJConfig.verdantSands.get())
-			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.VERDANT_SANDS, 1));
+		if(PVJConfig.overgrown_spires.get())
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.OVERGROWN_SPIRES, PVJConfig.overgrown_spires_weight.get()));
+		if(PVJConfig.verdant_sands.get())
+			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.VERDANT_SANDS, PVJConfig.verdant_sands_weight.get()));
 		if(PVJConfig.redwoods.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.REDWOODS, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.REDWOODS, PVJConfig.redwoods_weight.get()));
 		if(PVJConfig.redwood_peaks.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.REDWOOD_PEAKS, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.REDWOOD_PEAKS, PVJConfig.redwood_peaks_weight.get()));
 		if(PVJConfig.snowy_redwoods.get())
-			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_REDWOODS, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_REDWOODS, PVJConfig.snowy_redwoods_weight.get()));
 		if(PVJConfig.boreal_forest.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BOREAL_FOREST, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BOREAL_FOREST, PVJConfig.boreal_forest_weight.get()));
 		if(PVJConfig.snowy_boreal_forest.get())
-			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_BOREAL_FOREST, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.SNOWY_BOREAL_FOREST, PVJConfig.snowy_boreal_forest_weight.get()));
 		if(PVJConfig.alpine_heights.get())
-			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.ALPINE_HEIGHTS, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.ALPINE_HEIGHTS, PVJConfig.alpine_heights_weight.get()));
 		if(PVJConfig.pine_meadows.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.PINE_MEADOWS, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.PINE_MEADOWS, PVJConfig.pine_meadows_weight.get()));
 		if(PVJConfig.boreal_plateau.get())
-			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.BOREAL_PLATEAU, 1));
+			BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(Keys.BOREAL_PLATEAU, PVJConfig.boreal_plateau_weight.get()));
 		if(PVJConfig.aspen_grove.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.ASPEN_GROVE, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.ASPEN_GROVE, PVJConfig.aspen_grove_weight.get()));
 		if(PVJConfig.mangrove_marsh.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.MANGROVE_MARSH, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.MANGROVE_MARSH, PVJConfig.mangrove_marsh_weight.get()));
 		if(PVJConfig.willow_wetlands.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.WILLOW_WETLANDS, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.WILLOW_WETLANDS, PVJConfig.willow_wetlands_weight.get()));
 		if(PVJConfig.baobab_fields.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.BAOBAB_FIELDS, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.BAOBAB_FIELDS, PVJConfig.baobab_fields_weight.get()));
 		if(PVJConfig.prairie.get())
-			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.PRAIRIE, 1));
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.PRAIRIE, PVJConfig.prairie_weight.get()));
 		if(PVJConfig.blossoming_fields.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BLOSSOMING_FIELDS, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.BLOSSOMING_FIELDS, PVJConfig.blossoming_fields_weight.get()));
 		if(PVJConfig.autumnal_coniferous_forest.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.AUTUMNAL_CONIFEROUS_FOREST, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.AUTUMNAL_CONIFEROUS_FOREST, PVJConfig.autumnal_coniferous_forest_weight.get()));
 		if(PVJConfig.crimson_thicket.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRIMSON_THICKET, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRIMSON_THICKET, PVJConfig.crimson_thicket_weight.get()));
 		if(PVJConfig.desert_shrubland.get())
-			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, 1));
+			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, PVJConfig.desert_shrubland_weight.get()));
 		if(PVJConfig.red_rock_valley.get())
-			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.RED_ROCK_VALLEY_BIOME, 1));
+			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.RED_ROCK_VALLEY_BIOME, PVJConfig.red_rock_valley_weight.get()));
 		if(PVJConfig.crystal_lakes.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRYSTAL_LAKES, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRYSTAL_LAKES, PVJConfig.crystal_lakes_weight.get()));
 		if(PVJConfig.windswept_cliffs.get())
-			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.WINDSWEPT_CLIFFS, 1));
+			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.WINDSWEPT_CLIFFS, PVJConfig.windswept_cliffs_weight.get()));
 	}
 	
 	public static void addTypes() {
