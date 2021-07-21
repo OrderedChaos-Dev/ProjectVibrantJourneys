@@ -133,6 +133,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> desert_rock;
 	public static ConfiguredFeature<?, ?> tropical_beach_bush;
 	public static ConfiguredFeature<?, ?> oak_bush;
+	public static ConfiguredFeature<?, ?> cliff_rocks;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -177,6 +178,9 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> desert_shrubland_vegetation;
 	public static ConfiguredFeature<?, ?> tropical_beach_vegetation;
 	public static ConfiguredFeature<?, ?> crystal_lakes_vegetation;
+	public static ConfiguredFeature<?, ?> windswept_cliffs_vegetation;
+	
+	public static ConfiguredFeature<?, ?> marsh_tall_grass;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -224,7 +228,8 @@ public class PVJConfiguredFeatures {
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 		
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
-
+		cliff_rocks = PVJFeatures.cliffRock.configured(new ProbabilityConfig(0.5F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE).count(2);
+		
 		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
 				new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
@@ -427,7 +432,7 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(mangrove_tree.weighted(0.75F)), mangrove_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(3, 0.4F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(4, 0.4F, 1)));
 		
 		willow_wetlands_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -439,7 +444,7 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(
 						ImmutableList.of(Features.ACACIA.weighted(0.5F)), baobab_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.3F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(7, 0.3F, 1)));
 		
 		prairie_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -483,6 +488,11 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(fir_tree.weighted(0.4F), pine_tree.weighted(0.2F)), Features.SPRUCE))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(8, 0.3F, 1)));
+		
+		windswept_cliffs_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.OAK.weighted(0.6F)), oak_bush))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.4F, 2)));
 
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -495,6 +505,8 @@ public class PVJConfiguredFeatures {
 						ImmutableList.of(palm_tree.weighted(1.0F)), palm_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.1F, 1)));
+		
+		marsh_tall_grass = Features.PATCH_TALL_GRASS.count(30);
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -525,6 +537,7 @@ public class PVJConfiguredFeatures {
 		register("desert_agave", desert_agave);
 		register("tropical_beach_bush", tropical_beach_bush);
 		register("oak_bush", oak_bush);
+		register("cliff_rocks", cliff_rocks);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
@@ -574,9 +587,12 @@ public class PVJConfiguredFeatures {
 		register("desert_shrubland_vegetation", desert_shrubland_vegetation);
 		register("tropical_beach_vegetation", tropical_beach_vegetation);
 		register("crystal_lakes_vegetation", crystal_lakes_vegetation);
+		register("windswept_cliffs_vegetation", windswept_cliffs_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);
+		
+		register("marsh_tall_grass", marsh_tall_grass);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

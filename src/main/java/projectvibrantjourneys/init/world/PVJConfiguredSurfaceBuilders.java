@@ -16,6 +16,7 @@ public class PVJConfiguredSurfaceBuilders {
 	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> GRAVEL_SHORE = register("gravel_shore", SurfaceBuilder.DEFAULT.configured(SurfaceBuilder.CONFIG_GRAVEL));
 	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_VALLEY = register("red_rock_valley", PVJSurfaceBuilders.RED_ROCK_VALLEY.configured(SurfaceBuilder.CONFIG_BADLANDS));
 	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> PINE_MEADOWS = register("pine_meadows", PVJSurfaceBuilders.PINE_MEADOWS.configured(SurfaceBuilder.CONFIG_GRASS));
+	public static final ConfiguredSurfaceBuilder<SurfaceBuilderConfig> WINDSWEPT_CLIFFS = register("windswept_cliffs", PVJSurfaceBuilders.WINDSWEPT_CLIFFS.configured(SurfaceBuilder.CONFIG_GRASS));
 
 	private static <SC extends ISurfaceBuilderConfig> ConfiguredSurfaceBuilder<SC> register(String name,
 			ConfiguredSurfaceBuilder<SC> builder) {

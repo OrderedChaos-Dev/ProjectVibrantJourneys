@@ -14,6 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
+import projectvibrantjourneys.common.world.features.CliffRockFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
 import projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import projectvibrantjourneys.common.world.features.JuniperTreeFeature;
@@ -38,6 +39,7 @@ public class PVJFeatures {
 	public static Feature<BaseTreeFeatureConfig> sandTree;
 	public static Feature<BaseTreeFeatureConfig> juniperTree;
 	public static Feature<BlockStateFeatureConfig> sandRock;
+	public static Feature<ProbabilityConfig> cliffRock;
 	
 	@SubscribeEvent
 	public static void initFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -51,6 +53,7 @@ public class PVJFeatures {
 		sandTree = registerFeature(new SandTreeFeature(BaseTreeFeatureConfig.CODEC), "sand_tree");
 		juniperTree = registerFeature(new JuniperTreeFeature(BaseTreeFeatureConfig.CODEC), "juniper_tree");
 		sandRock = registerFeature(new SandBlockBlobFeature(BlockStateFeatureConfig.CODEC), "sand_rock");
+		cliffRock = registerFeature(new CliffRockFeature(ProbabilityConfig.CODEC), "cliff_rock");
 		
 		FEATURES.forEach((feature) -> event.getRegistry().register(feature));
 	}

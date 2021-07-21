@@ -10,7 +10,6 @@ import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
 public class PineMeadowsBiome {
