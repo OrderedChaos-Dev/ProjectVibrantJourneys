@@ -108,7 +108,11 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
 	
+	public static ArrayList<String> groundcoverBlacklistDefault = new ArrayList<String>();
+	
 	static {
+		groundcoverBlacklistDefault.add("minecraft:snowy_tundra");
+		groundcoverBlacklistDefault.add("minecraft:snowy_mountains");
 		
 		COMMON_BUILDER.comment("Project: Vibrant Journeys settings").push("Settings");
 		COMMON_BUILDER.comment("World Gen Settings").push("World Gen");
@@ -122,7 +126,7 @@ public class PVJConfig {
 		pinecones = COMMON_BUILDER.define("pinecones", true);
 		seashells = COMMON_BUILDER.define("seashells", true);
 		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
-		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist, example: [\"minecraft:plains\", \"minecraft:beach\"]").define("groundcoverBlacklist", new ArrayList<String>());
+		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist, example: [\"minecraft:plains\", \"minecraft:beach\"]").define("groundcoverBlacklist", groundcoverBlacklistDefault);
 		COMMON_BUILDER.pop();
 		seaOats = COMMON_BUILDER.define("seaOats", true);
 		cattails = COMMON_BUILDER.define("cattails", true);
