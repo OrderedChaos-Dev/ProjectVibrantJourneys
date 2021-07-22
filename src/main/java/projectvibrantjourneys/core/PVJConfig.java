@@ -50,6 +50,15 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> jungleTropicalFish;
 	public static ForgeConfigSpec.ConfigValue<Boolean> nightBats;
 	
+	public static ForgeConfigSpec.ConfigValue<Integer> flySpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> fireflySpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> starfishSpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> clamSpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> snailSpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> slugSpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> smallSpiderSpawnWeight;
+	public static ForgeConfigSpec.ConfigValue<Integer> frogSpawnWeight;
+	
 	public static ForgeConfigSpec.ConfigValue<Boolean> overgrown_spires;
 	public static ForgeConfigSpec.ConfigValue<Boolean> verdant_sands;
 	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
@@ -140,7 +149,17 @@ public class PVJConfig {
 		enableSlugs = COMMON_BUILDER.define("Enable Slugs", true);
 		enableSmallSpiders = COMMON_BUILDER.define("Enable Small Spiders", true);
 		enableFrogs = COMMON_BUILDER.define("Enable Frogs", true);
-		COMMON_BUILDER.pop();
+		COMMON_BUILDER.push("Mob Spawn Weights");
+		flySpawnWeight = COMMON_BUILDER.define("Fly Spawn Weight", 15);
+		fireflySpawnWeight = COMMON_BUILDER.define("Firefly Spawn Weight", 30);
+		starfishSpawnWeight = COMMON_BUILDER.define("Starfish Spawn Weight", 30);
+		clamSpawnWeight = COMMON_BUILDER.define("Clam Spawn Weight", 10);
+		snailSpawnWeight = COMMON_BUILDER.define("Snail Spawn Weight", 30);
+		slugSpawnWeight = COMMON_BUILDER.define("Slug Spawn Weight", 25);
+		smallSpiderSpawnWeight = COMMON_BUILDER.define("Small Spider Spawn Weight", 5);
+		frogSpawnWeight = COMMON_BUILDER.define("Frog Spawn Weight", 30);
+		
+		COMMON_BUILDER.pop(2);
 		COMMON_BUILDER.push("Misc Mob Settings");
 		muteFlies = COMMON_BUILDER.define("Mute Flies", false);
 		COMMON_BUILDER.pop();

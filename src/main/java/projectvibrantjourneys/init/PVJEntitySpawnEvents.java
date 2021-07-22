@@ -44,22 +44,22 @@ public class PVJEntitySpawnEvents {
 		if(biomeTypes.contains(Type.OVERWORLD)) {
 			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
 				if(PVJConfig.enableFlies.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, PVJConfig.flySpawnWeight.get(), 1, 3));
 				if(PVJConfig.enableFireflies.get())
-					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 5));
+					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, PVJConfig.fireflySpawnWeight.get(), 1, 5));
 				if(PVJConfig.nightBats.get())
 					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.NIGHT_BAT, 10, 1, 3));
 				if(PVJConfig.enableSnails.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, PVJConfig.snailSpawnWeight.get(), 1, 3));
 				if(PVJConfig.enableSlugs.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, PVJConfig.slugSpawnWeight.get(), 1, 3));
 				if(PVJConfig.enableSmallSpiders.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, 5, 1, 1));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, PVJConfig.smallSpiderSpawnWeight.get(), 1, 1));
 			}
 			
 			if(biomeTypes.contains(Type.BEACH) && !biomeTypes.contains(Type.MUSHROOM)) {
 				if(PVJConfig.enableStarfish.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, PVJConfig.starfishSpawnWeight.get(), 1, 3));
 			}
 			if(biomeTypes.contains(Type.OCEAN)) {
 				if(PVJConfig.enableStarfish.get())
@@ -68,12 +68,12 @@ public class PVJEntitySpawnEvents {
 			
 			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
 				if(PVJConfig.enableClams.get())
-					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
+					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, PVJConfig.clamSpawnWeight.get(), 1, 3));
 			}
 			
 			if(biome == Biomes.RIVER || hasType(biomeTypes, Type.JUNGLE, Type.SWAMP)) {
 				if(PVJConfig.enableFrogs.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, 30, 1, 2));
+					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, PVJConfig.frogSpawnWeight.get(), 1, 2));
 			}
 			
 			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
