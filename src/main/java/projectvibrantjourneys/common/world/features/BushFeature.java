@@ -13,6 +13,7 @@ import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.gen.feature.TreeFeature;
 
 public class BushFeature extends Feature<ProbabilityConfig> {
 	
@@ -38,10 +39,10 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 		if (rand.nextFloat() < config.probability) {
 			for(Direction dir : Direction.Plane.HORIZONTAL) {
 				BlockPos offsetPos = pos.offset(dir.getNormal());
-				if(world.getBlockState(offsetPos).getMaterial().isReplaceable());
+				if(TreeFeature.validTreePos(world, offsetPos))
 					world.setBlock(offsetPos, Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
 			}
-			if(world.getBlockState(pos.above()).getMaterial().isReplaceable());
+			if(TreeFeature.validTreePos(world, pos.above()))
 				world.setBlock(pos.above(), Blocks.OAK_LEAVES.defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), 2);
 			world.setBlock(pos, Blocks.OAK_LOG.defaultBlockState(), 2);
 		}

@@ -30,6 +30,7 @@ public class WindsweptCliffsBiome {
 		
 		DefaultBiomeFeatures.addDefaultCarvers(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultLakes(biomeGenBuilder);
+		DefaultBiomeFeatures.addExtraEmeralds(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenBuilder);
 		DefaultBiomeFeatures.addForestGrass(biomeGenBuilder);
 		DefaultBiomeFeatures.addMossyStoneBlock(biomeGenBuilder);

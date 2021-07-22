@@ -16,6 +16,7 @@ public class RedRockValleyBiome {
 		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
 		
 		DefaultBiomeFeatures.desertSpawns(mobSpawnInfo);
+		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
 		mobSpawnInfo.setPlayerCanSpawn();
 		
 		BiomeGenerationSettings.Builder biomeGenBuilder = (new BiomeGenerationSettings.Builder()).surfaceBuilder(PVJConfiguredSurfaceBuilders.RED_ROCK_VALLEY);

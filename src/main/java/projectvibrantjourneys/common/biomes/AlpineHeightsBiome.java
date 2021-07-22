@@ -33,6 +33,7 @@ public class AlpineHeightsBiome {
 		DefaultBiomeFeatures.addGiantTaigaVegetation(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultMushrooms(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenBuilder);
+		DefaultBiomeFeatures.addExtraEmeralds(biomeGenBuilder);
 		DefaultBiomeFeatures.addSparseBerryBushes(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);

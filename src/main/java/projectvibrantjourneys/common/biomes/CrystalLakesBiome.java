@@ -9,6 +9,8 @@ import net.minecraft.world.biome.BiomeGenerationSettings;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
 import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
 
@@ -34,6 +36,7 @@ public class CrystalLakesBiome {
 		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenBuilder);
 		DefaultBiomeFeatures.addMossyStoneBlock(biomeGenBuilder);
 		DefaultBiomeFeatures.addFerns(biomeGenBuilder);
+		DefaultBiomeFeatures.addExtraEmeralds(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultOres(biomeGenBuilder);
 		DefaultBiomeFeatures.addDefaultSoftDisks(biomeGenBuilder);
@@ -45,6 +48,7 @@ public class CrystalLakesBiome {
 		DefaultBiomeFeatures.addSparseBerryBushes(biomeGenBuilder);
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
 		DefaultBiomeFeatures.addPlainVegetation(biomeGenBuilder);
+		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
 	      
 		return (new Biome.Builder()).precipitation(RainType.RAIN)
 				.biomeCategory(Biome.Category.TAIGA).depth(-0.3F).scale(0.1F).temperature(0.23F)
