@@ -83,6 +83,8 @@ public class PVJEntitySpawnEvents {
 			//MOD BIOMES
 			if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
 				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+			} else if(biome == PVJBiomes.Keys.CRYSTAL_LAKES) {
+				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.SALMON, 15, 1, 5));
 			}
 		}
 	}

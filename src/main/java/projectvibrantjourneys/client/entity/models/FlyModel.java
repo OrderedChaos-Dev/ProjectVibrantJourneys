@@ -10,8 +10,7 @@ public class FlyModel<T extends Entity> extends SegmentedModel<T>
 {
     public ModelRenderer body;
 
-    public FlyModel()
-    {
+    public FlyModel() {
     	super();
         this.texWidth = 1;
         this.texHeight = 1;

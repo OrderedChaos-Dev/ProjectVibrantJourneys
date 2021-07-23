@@ -13,8 +13,7 @@ public class ClamModel<T extends Entity> extends SegmentedModel<T>
     public ModelRenderer top;
     public ModelRenderer pearl;
 
-    public ClamModel()
-    {
+    public ClamModel() {
         this.texWidth = 64;
         this.texHeight = 32;
         this.pearl = new ModelRenderer(this, 0, 0);

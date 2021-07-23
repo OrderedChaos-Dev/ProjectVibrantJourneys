@@ -14,8 +14,7 @@ public class StarfishModel<T extends Entity> extends SegmentedModel<T> {
     public ModelRenderer body4;
     public ModelRenderer body5;
 
-    public StarfishModel()
-    {
+    public StarfishModel() {
         this.texWidth = 64;
         this.texHeight = 32;
         this.body2 = new ModelRenderer(this, 0, 0);
