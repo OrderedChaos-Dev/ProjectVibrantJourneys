@@ -90,4 +90,9 @@ public class SmallSpiderEntity extends SpiderEntity {
 	protected int getExperienceReward(PlayerEntity player) {
 		return 0;
 	}
+	
+	@Override
+	public boolean isPreventingPlayerRest(PlayerEntity player) {
+		return false;
+	}
 }
