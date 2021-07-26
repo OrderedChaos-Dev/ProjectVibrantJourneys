@@ -4,14 +4,14 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.blockplacer.BlockPlacer;
-import net.minecraft.world.gen.blockplacer.BlockPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -28,7 +28,7 @@ public class RocksBlockPlacer extends BlockPlacer {
 		return PVJBlockPlacers.ROCKS_BLOCK_PLACER;
 	}
 
-	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {
+	public void place(LevelAccessor world, BlockPos pos, BlockState state, Random rand) {
 		BlockState ground = world.getBlockState(pos.below());
 		Block block = ground.getBlock();
 		if(rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
@@ -37,7 +37,7 @@ public class RocksBlockPlacer extends BlockPlacer {
 					world.setBlock(pos, PVJBlocks.sandstone_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL,  rand.nextInt(5)), 2);
 				} else if(block == Blocks.RED_SAND) {
 					world.setBlock(pos, PVJBlocks.red_sandstone_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
-				} else if(!BiomeDictionary.hasType(RegistryKey.create(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && rand.nextDouble() < 0.2){
+				} else if(!BiomeDictionary.hasType(ResourceKey.create(ForgeRegistries.Keys.BIOMES, world.getBiome(pos).getRegistryName()), Type.DRY) && rand.nextDouble() < 0.2){
 					world.setBlock(pos, PVJBlocks.mossy_rocks.defaultBlockState().setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);
 				} else {
 					world.setBlock(pos, state.setValue(GroundcoverBlock.MODEL, rand.nextInt(5)), 2);

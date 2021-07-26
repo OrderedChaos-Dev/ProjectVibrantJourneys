@@ -2,23 +2,23 @@ package projectvibrantjourneys.common.world.features.trunkplacers;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
-public class DesertJuniperTrunkPlacer extends AbstractTrunkPlacer {
+public class DesertJuniperTrunkPlacer extends TrunkPlacer {
 	
 	public static final Codec<DesertJuniperTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
 		return trunkPlacerParts(x).apply(x, DesertJuniperTrunkPlacer::new);
@@ -34,25 +34,25 @@ public class DesertJuniperTrunkPlacer extends AbstractTrunkPlacer {
 	}
 
 	@Override
-	public List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		if(!config.fromSapling)
-			setDirtAt(world, pos.below());
-		List<FoliagePlacer.Foliage> list = Lists.newArrayList();
+	public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, int height, BlockPos pos, TreeConfiguration config) {
+		if(config.forceDirt)
+			setDirtAt(world, placer, rand, pos.below(), config);
+		List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();
 		Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 		
-		BlockPos.Mutable blockpos = pos.mutable();
+		BlockPos.MutableBlockPos blockpos = pos.mutable();
 
 		for(int i = 0; i < height; i++) {
-			placeLog(world, rand, blockpos, blocks, box, config);
+			placeLog(world, placer, rand, blockpos, config);
 			if(i > height / 2) {
-				list.add(new FoliagePlacer.Foliage(blockpos.immutable(), 0, false));
+				list.add(new FoliagePlacer.FoliageAttachment(blockpos.immutable(), 0, false));
 			}
 			
 			if(rand.nextBoolean()) {
 				blockpos = blockpos.setWithOffset(blockpos, direction);
-				placeLog(world, rand, blockpos, blocks, box, config);
+				placeLog(world, placer, rand, blockpos, config);
 				if(i > height / 3) {
-					list.add(new FoliagePlacer.Foliage(blockpos.immutable(), 0, false));
+					list.add(new FoliagePlacer.FoliageAttachment(blockpos.immutable(), 0, false));
 				}
 			}
 

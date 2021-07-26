@@ -3,7 +3,7 @@ package projectvibrantjourneys.client.entity;
 import net.minecraft.client.renderer.entity.BatRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fmlclient.registry.RenderingRegistry;
 import projectvibrantjourneys.client.entity.renderers.ClamRenderer;
 import projectvibrantjourneys.client.entity.renderers.FireflyRenderer;
 import projectvibrantjourneys.client.entity.renderers.FlyRenderer;

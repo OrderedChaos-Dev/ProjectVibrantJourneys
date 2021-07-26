@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.passive.BatEntity;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MobSpawnInfo.Spawners;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.ambient.Bat;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -35,54 +35,54 @@ public class PVJEntitySpawnEvents {
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void setSpawns(BiomeLoadingEvent event) {
-		RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
+		ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
-		List<Spawners> spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_AMBIENT);
-		List<Spawners> water_spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_WATER_AMBIENT);
-		List<Spawners> night_spawners = event.getSpawns().getSpawner(PVJEntities.PVJ_NIGHT_AMBIENT);
+		List<SpawnerData> SpawnerData = event.getSpawns().getSpawner(PVJEntities.PVJ_AMBIENT);
+		List<SpawnerData> water_SpawnerData = event.getSpawns().getSpawner(PVJEntities.PVJ_WATER_AMBIENT);
+		List<SpawnerData> night_SpawnerData = event.getSpawns().getSpawner(PVJEntities.PVJ_NIGHT_AMBIENT);
 		
 		if(biomeTypes.contains(Type.OVERWORLD)) {
-			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != Category.DESERT) {
+			if(doesNotHave(biomeTypes, Type.SNOWY, Type.WASTELAND, Type.MUSHROOM) && event.getCategory() != BiomeCategory.DESERT) {
 				if(PVJConfig.enableFlies.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FLY, 15, 1, 3));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.FLY, 15, 1, 3));
 				if(PVJConfig.enableFireflies.get())
-					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FIREFLY, 50, 1, 5));
+					night_SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.FIREFLY, 50, 1, 5));
 				if(PVJConfig.nightBats.get())
-					night_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.NIGHT_BAT, 10, 1, 3));
+					night_SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.NIGHT_BAT, 10, 1, 3));
 				if(PVJConfig.enableSnails.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SNAIL, 30, 1, 3));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.SNAIL, 30, 1, 3));
 				if(PVJConfig.enableSlugs.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SLUG, 25, 1, 3));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.SLUG, 25, 1, 3));
 				if(PVJConfig.enableSmallSpiders.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.SMALL_SPIDER, 5, 1, 1));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.SMALL_SPIDER, 5, 1, 1));
 			}
 			
 			if(biomeTypes.contains(Type.BEACH) && !biomeTypes.contains(Type.MUSHROOM)) {
 				if(PVJConfig.enableStarfish.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.STARFISH, 30, 1, 3));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.STARFISH, 30, 1, 3));
 			}
 			if(biomeTypes.contains(Type.OCEAN)) {
 				if(PVJConfig.enableStarfish.get())
-					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.OCEAN_STARFISH, 15, 1, 4));
+					water_SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.OCEAN_STARFISH, 15, 1, 4));
 			}
 			
-			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != Category.DESERT) {
+			if(!biomeTypes.contains(Type.WASTELAND) && event.getCategory() != BiomeCategory.DESERT) {
 				if(PVJConfig.enableClams.get())
-					water_spawners.add(new MobSpawnInfo.Spawners(PVJEntities.CLAM, 10, 1, 3));
+					water_SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.CLAM, 10, 1, 3));
 			}
 			
 			if(biome == Biomes.RIVER || hasType(biomeTypes, Type.JUNGLE, Type.SWAMP)) {
 				if(PVJConfig.enableFrogs.get())
-					spawners.add(new MobSpawnInfo.Spawners(PVJEntities.FROG, 30, 1, 2));
+					SpawnerData.add(new MobSpawnSettings.SpawnerData(PVJEntities.FROG, 30, 1, 2));
 			}
 			
-			if((event.getCategory() == Biome.Category.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
-				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+			if((event.getCategory() == Biome.BiomeCategory.JUNGLE || hasType(biomeTypes, Type.JUNGLE)) && PVJConfig.jungleTropicalFish.get()) {
+				event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 20, 1, 8));
 			}
 			
 			//MOD BIOMES
 			if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
-				event.getSpawns().getSpawner(EntityClassification.WATER_AMBIENT).add(new MobSpawnInfo.Spawners(EntityType.TROPICAL_FISH, 20, 1, 8));
+				event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 20, 1, 8));
 			}
 		}
 	}
@@ -99,13 +99,13 @@ public class PVJEntitySpawnEvents {
 		return list.stream().noneMatch((type) -> typeList.contains(type));
 	}
 	
-	public static boolean canBatSpawn(EntityType<BatEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+	public static boolean canBatSpawn(EntityType<Bat> entity, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
 		if (pos.getY() < world.getSeaLevel()) {
 			return false;
 		} else if(world.getMaxLocalRawBrightness(pos) > 9) {
 			return false;
 		} else {
-			return CreatureEntity.checkMobSpawnRules(entity, world, reason, pos, rand);
+			return Mob.checkMobSpawnRules(entity, world, reason, pos, rand);
 		}
 	}
 }

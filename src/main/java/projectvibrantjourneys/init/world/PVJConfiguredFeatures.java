@@ -4,44 +4,48 @@ import java.util.OptionalInt;
 
 import com.google.common.collect.ImmutableList;
 
-import net.minecraft.block.Blocks;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.blockplacer.BlockPlacer;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.gen.blockplacer.ColumnBlockPlacer;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.BlockStateProvidingFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureSpread;
-import net.minecraft.world.gen.feature.FeatureSpreadConfig;
-import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.Features.Placements;
 import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.world.gen.feature.IntProviderConfig;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.ProbabilityConfig;
 import net.minecraft.world.gen.feature.TwoLayerFeature;
-import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.BushFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FancyFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.MegaPineFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.PineFoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.SpruceFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.treedecorator.LeaveVineTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
-import net.minecraft.world.gen.trunkplacer.FancyTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.StraightTrunkPlacer;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.DoublePlantPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.SimpleBlockPlacer;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FancyFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.MegaPineFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.PineFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.SpruceFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import projectvibrantjourneys.common.blocks.DryGrassBlock;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
 import projectvibrantjourneys.common.world.features.blockplacers.RocksBlockPlacer;
@@ -66,42 +70,42 @@ import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class PVJConfiguredFeatures {
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();
-	public static BlockClusterFeatureConfig twigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.twigs.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig fallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fallen_leaves.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig rocksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.rocks.defaultBlockState()), new RocksBlockPlacer(), 5);
-	public static BlockClusterFeatureConfig iceChunksCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.ice_chunks.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig bonesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.bones.defaultBlockState()), GROUNDCOVER_PLACER, 1);
-	public static BlockClusterFeatureConfig charredBonesCluster = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer()).tries(64).noProjection().build();
-	public static BlockClusterFeatureConfig pineconesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.pinecones.defaultBlockState()), GROUNDCOVER_PLACER, 4);
-	public static BlockClusterFeatureConfig seashellsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.seashells.defaultBlockState()), GROUNDCOVER_PLACER, 5);
-	public static BlockClusterFeatureConfig seaOatsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.sea_oats.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig cattailCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.cattail.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig glowcapCluster = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.glowcap.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(64).noProjection().build();
-	public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.crimson_nettle.defaultBlockState()));
-	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
-	public static BlockClusterFeatureConfig cindercaneConfig = new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.cindercane.defaultBlockState()), new ColumnBlockPlacer(2, 4)).tries(20).noProjection().build();
+	public static RandomPatchConfiguration.GrassConfigurationBuilder twigsCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.twigs.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder fallenLeavesCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.fallen_leaves.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder rocksCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.rocks.defaultBlockState()), new RocksBlockPlacer(), 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder iceChunksCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.ice_chunks.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder bonesCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.bones.defaultBlockState()), GROUNDCOVER_PLACER, 1);
+	public static RandomPatchConfiguration charredBonesCluster = new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(PVJBlocks.charred_bones.defaultBlockState()), new GroundcoverPlacer()).tries(64).noProjection().build();
+	public static RandomPatchConfiguration.GrassConfigurationBuilder pineconesCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.pinecones.defaultBlockState()), GROUNDCOVER_PLACER, 4);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder seashellsCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.seashells.defaultBlockState()), GROUNDCOVER_PLACER, 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder seaOatsCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.sea_oats.defaultBlockState()), DoublePlantPlacer.INSTANCE, 15);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder cattailCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.cattail.defaultBlockState()), DoublePlantPlacer.INSTANCE, 15);
+	public static RandomPatchConfiguration glowcapCluster = new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(PVJBlocks.glowcap.defaultBlockState()), SimpleBlockPlacer.INSTANCE).tries(64).noProjection().build();
+	public static BlockStateProvidingFeatureConfig crimsonNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleStateProvider(PVJBlocks.crimson_nettle.defaultBlockState()));
+	public static BlockStateProvidingFeatureConfig warpedNettleConfig = new BlockStateProvidingFeatureConfig(new SimpleStateProvider(PVJBlocks.warped_nettle.defaultBlockState()));
+	public static RandomPatchConfiguration cindercaneConfig = new RandomPatchConfiguration.GrassConfigurationBuilder(new SimpleStateProvider(PVJBlocks.cindercane.defaultBlockState()), new ColumnBlockPlacer(2, 4)).tries(20).noProjection().build();
 	
-	public static BlockClusterFeatureConfig autumnFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+	public static RandomPatchConfiguration.GrassConfigurationBuilder autumnFoliageCluster = makeFeatureConfig(new WeightedStateProvider(SimpleWeightedRandomList.builder()
 																						.add(PVJBlocks.aspen_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.orange_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
-																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
-	public static BlockClusterFeatureConfig sakuraFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1).build()), SimpleBlockPlacer.INSTANCE, 5);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder sakuraFoliageCluster = makeFeatureConfig(new WeightedStateProvider()
 																						.add(PVJBlocks.pink_sakura_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.white_sakura_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
-	public static BlockClusterFeatureConfig crimsonFoliageCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+	public static RandomPatchConfiguration.GrassConfigurationBuilder crimsonFoliageCluster = makeFeatureConfig(new WeightedStateProvider()
 																						.add(PVJBlocks.red_maple_fallen_leaves.defaultBlockState(), 1)
 																						.add(PVJBlocks.purple_maple_fallen_leaves.defaultBlockState(), 1), SimpleBlockPlacer.INSTANCE, 5);
 	
-	public static BlockClusterFeatureConfig shortGrassCluster = (new BlockClusterFeatureConfig.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
-	public static BlockClusterFeatureConfig beachGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig prairieGrassCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
-	public static BlockClusterFeatureConfig desertSageCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.desert_sage.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 3);
-	public static BlockClusterFeatureConfig dryGrassCluster = makeFeatureConfig(new WeightedBlockStateProvider()
+	public static RandomPatchConfiguration.GrassConfigurationBuilder shortGrassCluster = (new RandomPatchConfiguration.GrassConfigurationBuilder.Builder(new ShortGrassBlockStateProvider(), SimpleBlockPlacer.INSTANCE)).tries(16).build();
+	public static RandomPatchConfiguration.GrassConfigurationBuilder beachGrassCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.beach_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 15);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder prairieGrassCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.prairie_grass.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 50);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder desertSageCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.desert_sage.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 3);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder dryGrassCluster = makeFeatureConfig(new WeightedBlockStateProvider()
 			.add(PVJBlocks.dry_grass.defaultBlockState().setValue(DryGrassBlock.MODEL, 0), 1)
 			.add(PVJBlocks.dry_grass.defaultBlockState().setValue(DryGrassBlock.MODEL, 1), 1), SimpleBlockPlacer.INSTANCE, 15);
-	public static BlockClusterFeatureConfig bloomingAgaveCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.blooming_desert_agave.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 2);
-	public static BlockClusterFeatureConfig desertAgaveCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.desert_agave.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 2);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder bloomingAgaveCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.blooming_desert_agave.defaultBlockState()), DoublePlantBlockPlacer.INSTANCE, 2);
+	public static RandomPatchConfiguration.GrassConfigurationBuilder desertAgaveCluster = makeFeatureConfig(new SimpleStateProvider(PVJBlocks.desert_agave.defaultBlockState()), SimpleBlockPlacer.INSTANCE, 2);
 	
 	public static ConfiguredFeature<?, ?> sea_oats;
 	public static ConfiguredFeature<?, ?> cattails;
@@ -135,32 +139,32 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> oak_bush;
 	public static ConfiguredFeature<?, ?> cliff_rocks;
 
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> fir_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pine_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> willow_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mangrove_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> palm_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> baobab_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> juniper_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> cottonwood_tree_bees005;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> aspen_tree_bees002;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> red_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> orange_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> purple_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_red_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_orange_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> large_purple_maple_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> pink_sakura_tree_bees002;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> white_sakura_tree_bees002;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> tamarack_tree_bees002;
-	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> joshua_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> mega_redwood_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> redwood_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> fir_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> pine_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> willow_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> mangrove_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> palm_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> baobab_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> juniper_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> cottonwood_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> cottonwood_tree_bees005;
+	public static ConfiguredFeature<TreeConfiguration, ?> aspen_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> aspen_tree_bees002;
+	public static ConfiguredFeature<TreeConfiguration, ?> red_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> orange_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> purple_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> large_red_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> large_orange_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> large_purple_maple_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> pink_sakura_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> white_sakura_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> pink_sakura_tree_bees002;
+	public static ConfiguredFeature<TreeConfiguration, ?> white_sakura_tree_bees002;
+	public static ConfiguredFeature<TreeConfiguration, ?> tamarack_tree;
+	public static ConfiguredFeature<TreeConfiguration, ?> tamarack_tree_bees002;
+	public static ConfiguredFeature<TreeConfiguration, ?> joshua_tree;
 
 	public static ConfiguredFeature<?, ?> overgrown_spires_vegetation;
 	public static ConfiguredFeature<?, ?> redwood_forest_vegetation;
@@ -208,12 +212,12 @@ public class PVJConfiguredFeatures {
 		sakura_floor_foliage = Feature.RANDOM_PATCH.configured(sakuraFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(20);
 		crimson_thicket_floor_foliage = Feature.RANDOM_PATCH.configured(crimsonFoliageCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(10);
 		
-		bushes = PVJFeatures.bushFeature.configured(new ProbabilityConfig(0.3F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE);
+		bushes = PVJFeatures.bushFeature.configured(new ProbabilityFeatureConfiguration(0.3F)).decorated(Features.Decorators.HEIGHTMAP_WORLD_SURFACE);
 		bark_mushrooms = PVJFeatures.barkMushroomFeature.configured(IFeatureConfig.NONE).squared().count(30);
 		cobwebs = PVJFeatures.cobwebFeature.configured(new ProbabilityConfig(0.1F)).squared().count(30).chance(25);
 		glowcap = Feature.RANDOM_PATCH.configured(glowcapCluster).range(128).chance(2);
-		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
-		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new FeatureSpreadConfig(4)));
+		crimson_nettle = Feature.NETHER_FOREST_VEGETATION.configured(crimsonNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new IntProviderConfig(4)));
+		warped_nettle = Feature.NETHER_FOREST_VEGETATION.configured(warpedNettleConfig).chance(40).decorated(Placement.COUNT_MULTILAYER.configured(new IntProviderConfig(4)));
 		cindercane = Feature.RANDOM_PATCH.configured(cindercaneConfig).count(10).range(128);
 		short_grass = Feature.RANDOM_PATCH.configured(shortGrassCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		beach_grass = Feature.RANDOM_PATCH.configured(beachGrassCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
@@ -222,93 +226,93 @@ public class PVJConfiguredFeatures {
 		desert_sage = Feature.RANDOM_PATCH.configured(desertSageCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5);
 		blooming_desert_agave = Feature.RANDOM_PATCH.configured(bloomingAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(1);
 		desert_agave = Feature.RANDOM_PATCH.configured(desertAgaveCluster).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
-		tropical_beach_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
-		oak_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
+		tropical_beach_bush = PVJFeatures.sandTree.configured((new TreeConfiguration.Builder(new SimpleStateProvider(Blocks.JUNGLE_LOG.defaultBlockState()), new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
+		oak_bush = PVJFeatures.sandTree.configured((new TreeConfiguration.Builder(new SimpleStateProvider(Blocks.OAK_LOG.defaultBlockState()), new SimpleStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
 		
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
 		
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
 		cliff_rocks = PVJFeatures.cliffRock.configured(new ProbabilityConfig(0.5F)).decorated(Features.Placements.HEIGHTMAP_WORLD_SURFACE).count(2);
 		
-		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
-				new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0), FeatureSpread.of(25, 7)),
+		mega_redwood_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
+				new MegaPineFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0), IntProvider.of(25, 7)),
 				new RedwoodTrunkPlacer(40, 30, 14), new TwoLayerFeature(1, 1, 2))).build());
 
-		redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
-				new PineFoliagePlacer(FeatureSpread.fixed(1), FeatureSpread.fixed(1), FeatureSpread.of(3, 1)),
+		redwood_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
+				new PineFoliagePlacer(IntProvider.fixed(1), IntProvider.fixed(1), IntProvider.of(3, 1)),
 				new SmallRedwoodTrunkPlacer(7, 5, 0), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 
 		fir_tree = PVJFeatures.snowTree.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.fir_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.fir_leaves.defaultBlockState()),
-						new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1), FeatureSpread.of(4, 2)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.fir_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.fir_leaves.defaultBlockState()),
+						new SpruceFoliagePlacer(IntProvider.of(3, 1), IntProvider.of(1, 1), IntProvider.of(4, 2)),
 						new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 
 		pine_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.pine_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.pine_leaves.defaultBlockState()),
-						new PVJPineFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1),
-								FeatureSpread.of(3, 2)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.pine_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.pine_leaves.defaultBlockState()),
+						new PVJPineFoliagePlacer(IntProvider.of(3, 1), IntProvider.of(1, 1),
+								IntProvider.of(3, 2)),
 						new StraightTrunkPlacer(9, 2, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 
 		willow_tree = PVJFeatures.sandTree.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.willow_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.willow_leaves.defaultBlockState()),
-						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.willow_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.willow_leaves.defaultBlockState()),
+						new BlobFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(0), 3),
 						new WillowTrunkPlacer(6, 3, 3), new TwoLayerFeature(1, 0, 1))).decorators(
 								ImmutableList.of(TrunkVineTreeDecorator.INSTANCE, LeaveVineTreeDecorator.INSTANCE))
 								.build());
 
 		mangrove_tree = PVJFeatures.sandTree.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.mangrove_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.mangrove_leaves.defaultBlockState()),
-						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.mangrove_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.mangrove_leaves.defaultBlockState()),
+						new BlobFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(0), 3),
 						new MangroveTrunkPlacer(4, 2, 2), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(7).build());
 
 		palm_tree = PVJFeatures.sandTree.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.palm_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.palm_leaves.defaultBlockState()),
-						new PalmFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.palm_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.palm_leaves.defaultBlockState()),
+						new PalmFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0)),
 						new PalmTrunkPlacer(7, 2, 2), new TwoLayerFeature(2, 0, 2)).decorators(
 								ImmutableList.of(CoconutDecorator.INSTANCE))).ignoreVines().build());
 
 		baobab_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.baobab_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.baobab_leaves.defaultBlockState()),
-						new BaobabFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.baobab_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.baobab_leaves.defaultBlockState()),
+						new BaobabFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0)),
 						new BaobabTrunkPlacer(20, 5, 2), new TwoLayerFeature(1, 1, 2))).build());
 
 		juniper_tree = PVJFeatures.juniperTree.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.juniper_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.juniper_leaves.defaultBlockState()),
-						new DesertJuniperFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.juniper_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.juniper_leaves.defaultBlockState()),
+						new DesertJuniperFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0)),
 						new DesertJuniperTrunkPlacer(7, 2, 1), new TwoLayerFeature(2, 0, 2)).decorators(
 								ImmutableList.of(JuniperBerriesDecorator.INSTANCE)).ignoreVines().build()));
 
 		cottonwood_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.cottonwood_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.cottonwood_leaves.defaultBlockState()),
-						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.cottonwood_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.cottonwood_leaves.defaultBlockState()),
+						new FancyFoliagePlacer(IntProvider.fixed(3), IntProvider.fixed(4), 4),
 						new FancyTrunkPlacer(15, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
 		cottonwood_tree_bees005 = Feature.TREE.configured(cottonwood_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_005)));
 		
 		pink_sakura_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.pink_sakura_leaves.defaultBlockState()),
-						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.pink_sakura_leaves.defaultBlockState()),
+						new FancyFoliagePlacer(IntProvider.fixed(3), IntProvider.fixed(4), 4),
 						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
 		white_sakura_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.white_sakura_leaves.defaultBlockState()),
-						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.white_sakura_leaves.defaultBlockState()),
+						new FancyFoliagePlacer(IntProvider.fixed(3), IntProvider.fixed(4), 4),
 						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
@@ -316,64 +320,64 @@ public class PVJConfiguredFeatures {
 		white_sakura_tree_bees002 = Feature.TREE.configured(white_sakura_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
 		aspen_tree = Feature.TREE.configured(
-				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.aspen_log.defaultBlockState()),
-						new SimpleBlockStateProvider(PVJBlocks.aspen_leaves.defaultBlockState()),
-						new AspenFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+				(new TreeConfiguration.Builder(new SimpleStateProvider(PVJBlocks.aspen_log.defaultBlockState()),
+						new SimpleStateProvider(PVJBlocks.aspen_leaves.defaultBlockState()),
+						new AspenFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0)),
 						new AspenTrunkPlacer(11, 5, 2), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
 		aspen_tree_bees002 = Feature.TREE.configured(aspen_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
-		red_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.red_maple_leaves.defaultBlockState()),
-				new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+		red_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.red_maple_leaves.defaultBlockState()),
+				new BlobFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(0), 3),
 				new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
 		
-		orange_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.orange_maple_leaves.defaultBlockState()),
-				new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+		orange_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.orange_maple_leaves.defaultBlockState()),
+				new BlobFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(0), 3),
 				new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
 		
-		purple_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.purple_maple_leaves.defaultBlockState()),
-				new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+		purple_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.purple_maple_leaves.defaultBlockState()),
+				new BlobFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(0), 3),
 				new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).ignoreVines().build());
 
-		large_red_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.red_maple_leaves.defaultBlockState()),
-				new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
+		large_red_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.red_maple_leaves.defaultBlockState()),
+				new FancyFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(4), 4),
 				new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
-		large_orange_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.orange_maple_leaves.defaultBlockState()),
-				new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
+		large_orange_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.orange_maple_leaves.defaultBlockState()),
+				new FancyFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(4), 4),
 				new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
-		large_purple_maple_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.maple_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.purple_maple_leaves.defaultBlockState()),
-				new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
+		large_purple_maple_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.maple_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.purple_maple_leaves.defaultBlockState()),
+				new FancyFoliagePlacer(IntProvider.fixed(2), IntProvider.fixed(4), 4),
 				new FancyTrunkPlacer(3, 11, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
-		tamarack_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.tamarack_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.tamarack_leaves.defaultBlockState()),
-				new SpruceFoliagePlacer(FeatureSpread.of(3, 1), FeatureSpread.of(1, 1), FeatureSpread.of(4, 2)),
+		tamarack_tree = Feature.TREE.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.tamarack_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.tamarack_leaves.defaultBlockState()),
+				new SpruceFoliagePlacer(IntProvider.of(3, 1), IntProvider.of(1, 1), IntProvider.of(4, 2)),
 				new StraightTrunkPlacer(15, 3, 4), new TwoLayerFeature(2, 0, 2))).ignoreVines().build());
 		
 		tamarack_tree_bees002 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
-		joshua_tree = PVJFeatures.juniperTree.configured((new BaseTreeFeatureConfig.Builder(
-				new SimpleBlockStateProvider(PVJBlocks.joshua_log.defaultBlockState()),
-				new SimpleBlockStateProvider(PVJBlocks.joshua_leaves.defaultBlockState()),
-				new DesertJuniperFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0)),
+		joshua_tree = PVJFeatures.juniperTree.configured((new TreeConfiguration.Builder(
+				new SimpleStateProvider(PVJBlocks.joshua_log.defaultBlockState()),
+				new SimpleStateProvider(PVJBlocks.joshua_leaves.defaultBlockState()),
+				new DesertJuniperFoliagePlacer(IntProvider.fixed(0), IntProvider.fixed(0)),
 				new FancyTrunkPlacer(8, 8, 0), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 						.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 
@@ -595,8 +599,8 @@ public class PVJConfiguredFeatures {
 		register("marsh_tall_grass", marsh_tall_grass);
 	}
 
-	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
-		return new BlockClusterFeatureConfig.Builder(provider, placer).tries(tries).build();
+	private static RandomPatchConfiguration.GrassConfigurationBuilder makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {
+		return new RandomPatchConfiguration.GrassConfigurationBuilder.Builder(provider, placer).tries(tries).build();
 	}
 
 	private static <FC extends IFeatureConfig> void register(String key, ConfiguredFeature<FC, ?> configuredFeature) {

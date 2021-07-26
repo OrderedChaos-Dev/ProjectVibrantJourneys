@@ -4,22 +4,25 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import projectvibrantjourneys.init.object.PVJBlocks;
 
-public class CobwebFeature extends Feature<ProbabilityConfig> {
-	public CobwebFeature(Codec<ProbabilityConfig> codec) {
+public class CobwebFeature extends Feature<ProbabilityFeatureConfiguration> {
+	public CobwebFeature(Codec<ProbabilityFeatureConfiguration> codec) {
 		super(codec);
 	}
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
-		BlockPos.Mutable blockpos = new BlockPos.Mutable(pos.getX(), pos.getY(), pos.getZ());
+	public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
+		WorldGenLevel world = context.level();
+		BlockPos pos = context.origin();
+		Random rand = context.random();
+		BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(pos.getX(), pos.getY(), pos.getZ());
 
 		for (int i = 64; i < world.getHeight(); i++) {
 			blockpos.set(pos);
@@ -27,7 +30,7 @@ public class CobwebFeature extends Feature<ProbabilityConfig> {
 			blockpos.setY(i);
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
 				if(world.isEmptyBlock(blockpos.below())) {
-					if(rand.nextFloat() < config.probability) {
+					if(rand.nextFloat() < context.config().probability) {
 						world.setBlock(blockpos.below(), PVJBlocks.natural_cobweb.defaultBlockState(), 2);
 						break;
 					}

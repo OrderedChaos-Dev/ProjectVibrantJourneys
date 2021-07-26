@@ -2,20 +2,20 @@ package projectvibrantjourneys.common.blocks.trees;
 
 import java.util.Random;
 
-import net.minecraft.block.trees.BigTree;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.level.block.grower.AbstractMegaTreeGrower;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import projectvibrantjourneys.init.world.PVJConfiguredFeatures;
 
-public class RedwoodTree extends BigTree {
+public class RedwoodTree extends AbstractMegaTreeGrower {
 
 	@Override
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
+	protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random randomIn, boolean largeHive) {
 		return PVJConfiguredFeatures.redwood_tree;
 	}
 
 	@Override
-	protected ConfiguredFeature<BaseTreeFeatureConfig, ?> getConfiguredMegaFeature(Random rand) {
+	protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredMegaFeature(Random rand) {
 		return PVJConfiguredFeatures.mega_redwood_tree;
 	}
 }

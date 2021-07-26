@@ -1,21 +1,21 @@
 package projectvibrantjourneys.common.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.GravelBlock;
-import net.minecraft.block.SandBlock;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.GravelBlock;
+import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class SandySaplingBlock extends SaplingBlock {
 
-	public SandySaplingBlock(Tree tree, Properties props) {
+	public SandySaplingBlock(AbstractTreeGrower tree, Properties props) {
 		super(tree, props);
 	}
 
 	@Override
-	protected boolean mayPlaceOn(BlockState state, IBlockReader world, BlockPos pos) {
+	protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
 		return super.mayPlaceOn(state, world, pos) || state.getBlock() instanceof SandBlock || state.getBlock() instanceof GravelBlock;
 	}
 }

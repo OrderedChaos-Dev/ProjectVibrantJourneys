@@ -3,23 +3,23 @@ package projectvibrantjourneys.client.entity.models;
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.client.renderer.model.ModelPart;
 import net.minecraft.entity.Entity;
 
 public class SnailModel<T extends Entity> extends SegmentedModel<T> {
-	public final ModelRenderer body;
-	public final ModelRenderer head;
+	public final ModelPart body;
+	public final ModelPart head;
 
 	public SnailModel() {
         this.texWidth = 64;
         this.texHeight = 64;
 
-		body = new ModelRenderer(this);
+		body = new ModelPart(this);
 		body.setPos(0.0F, 24.0F, 0.0F);
 		body.addBox("body", -2.0F, -4.0F, -8.0F, 4, 4, 16, 0.0F, 0, 0);
 		body.addBox("shell", -2.0F, -12.0F, -4.0F, 4, 8, 8, 0.0F, 40, 4);
 
-		head = new ModelRenderer(this);
+		head = new ModelPart(this);
 		head.setPos(0.0F, 24.0F, 0.0F);
 		setRotationAngle(head, -0.2618F, 0.0F, 0.0F);
 		head.addBox("head", -2.0F, -2.0F, -11.5F, 4, 4, 4, 0.0F, 0, 0);
@@ -28,14 +28,14 @@ public class SnailModel<T extends Entity> extends SegmentedModel<T> {
 	}
 	
 	@Override
-	public Iterable<ModelRenderer> parts() {
+	public Iterable<ModelPart> parts() {
 		return ImmutableList.of(this.body, this.head);
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.xRot = x;
-		modelRenderer.yRot = y;
-		modelRenderer.zRot = z;
+	public void setRotationAngle(ModelPart ModelPart, float x, float y, float z) {
+		ModelPart.xRot = x;
+		ModelPart.yRot = y;
+		ModelPart.zRot = z;
 	}
 
 	@Override

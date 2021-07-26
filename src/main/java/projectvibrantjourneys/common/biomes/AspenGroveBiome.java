@@ -1,64 +1,64 @@
 package projectvibrantjourneys.common.biomes;
 
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.data.worldgen.SurfaceBuilders;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.AmbientMoodSettings;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 
 public class AspenGroveBiome {
 
 	public static Biome makeAspenGroveBiome(float depth, float scale) {
-		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
-		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
-		DefaultBiomeFeatures.commonSpawns(mobSpawnInfo);
-		mobSpawnInfo.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.WOLF, 8, 4, 4));
-		mobSpawnInfo.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.RABBIT, 4, 2, 3));
-		mobSpawnInfo.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.FOX, 8, 2, 4));
+		MobSpawnSettings.Builder MobSpawnSettings = new MobSpawnSettings.Builder();
+		BiomeDefaultFeatures.farmAnimals(MobSpawnSettings);
+		BiomeDefaultFeatures.commonSpawns(MobSpawnSettings);
+		MobSpawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 8, 4, 4));
+		MobSpawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+		MobSpawnSettings.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 		
 		BiomeGenerationSettings.Builder biomeGenBuilder = (new BiomeGenerationSettings.Builder())
-				.surfaceBuilder(ConfiguredSurfaceBuilders.GRASS);
+				.surfaceBuilder(SurfaceBuilders.GRASS);
 
-		DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultOverworldLandStructures(biomeGenBuilder);
 		biomeGenBuilder.addStructureStart(StructureFeatures.RUINED_PORTAL_STANDARD);
 		biomeGenBuilder.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
 		
-		DefaultBiomeFeatures.addDefaultCarvers(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultLakes(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenBuilder);
-		DefaultBiomeFeatures.addFerns(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultOres(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultSoftDisks(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultFlowers(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenBuilder);
-		DefaultBiomeFeatures.addTaigaGrass(biomeGenBuilder);
-		DefaultBiomeFeatures.addSparseBerryBushes(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
-		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultCarvers(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultLakes(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultMonsterRoom(biomeGenBuilder);
+		BiomeDefaultFeatures.addFerns(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultOres(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultSoftDisks(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultFlowers(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultExtraVegetation(biomeGenBuilder);
+		BiomeDefaultFeatures.addTaigaGrass(biomeGenBuilder);
+		BiomeDefaultFeatures.addSparseBerryBushes(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultSprings(biomeGenBuilder);
+		BiomeDefaultFeatures.addSurfaceFreezing(biomeGenBuilder);
 		
-		return (new Biome.Builder())
-				.precipitation(Biome.RainType.RAIN)
-				.biomeCategory(Biome.Category.FOREST)
+		return (new Biome.BiomeBuilder())
+				.precipitation(Biome.Precipitation.RAIN)
+				.biomeCategory(Biome.BiomeCategory.FOREST)
 				.depth(depth)
 				.scale(scale)
 				.temperature(0.7F)
 				.downfall(0.8F)
-				.specialEffects((new BiomeAmbience.Builder())
+				.specialEffects((new BiomeSpecialEffects.Builder())
 						.waterColor(4159204)
 						.waterFogColor(329011)
 						.fogColor(12638463)
 						.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(2.0F))
 						.foliageColorOverride(0xB8E83E)
 						.grassColorOverride(0xF4D342)
-						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS)
+						.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
 						.build())
-				.mobSpawnSettings(mobSpawnInfo.build())
+				.mobSpawnSettings(MobSpawnSettings.build())
 				.generationSettings(biomeGenBuilder.build()).build();
 	}
 }

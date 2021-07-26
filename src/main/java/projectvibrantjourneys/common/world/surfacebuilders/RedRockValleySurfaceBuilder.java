@@ -4,26 +4,27 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.BadlandsSurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.BadlandsSurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
 public class RedRockValleySurfaceBuilder extends BadlandsSurfaceBuilder {
    private static final BlockState WHITE_TERRACOTTA = Blocks.WHITE_TERRACOTTA.defaultBlockState();
    private static final BlockState ORANGE_TERRACOTTA = Blocks.ORANGE_TERRACOTTA.defaultBlockState();
    private static final BlockState TERRACOTTA = Blocks.TERRACOTTA.defaultBlockState();
 
-   public RedRockValleySurfaceBuilder(Codec<SurfaceBuilderConfig> p_i232125_1_) {
-      super(p_i232125_1_);
+   public RedRockValleySurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> codec) {
+      super(codec);
    }
 
-   public void apply(Random random, IChunk chunk, Biome biome, int x, int z, int startNoise, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+   @Override
+   public void apply(Random random, ChunkAccess chunk, Biome biome, int x, int z, int startNoise, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int bottom, long seed, SurfaceBuilderBaseConfiguration config) {
       double d0 = 0.0D;
       double d1 = Math.min(Math.abs(noise), this.pillarNoise.getValue((double)x * 0.25D, (double)z * 0.25D, false) * 15.0D);
       if (d1 > 0.0D) {
@@ -41,15 +42,15 @@ public class RedRockValleySurfaceBuilder extends BadlandsSurfaceBuilder {
       int i1 = x & 15;
       int i = z & 15;
       BlockState blockstate3 = WHITE_TERRACOTTA;
-      ISurfaceBuilderConfig isurfacebuilderconfig = biome.getGenerationSettings().getSurfaceBuilderConfig();
-      BlockState blockstate4 = isurfacebuilderconfig.getUnderMaterial();
-      BlockState blockstate = isurfacebuilderconfig.getTopMaterial();
+      SurfaceBuilderConfiguration iSurfaceBuilderConfiguration = biome.getGenerationSettings().getSurfaceBuilderConfig();
+      BlockState blockstate4 = iSurfaceBuilderConfiguration.getUnderMaterial();
+      BlockState blockstate = iSurfaceBuilderConfiguration.getTopMaterial();
       BlockState blockstate1 = blockstate4;
       int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
       boolean flag = Math.cos(noise / 3.0D * Math.PI) > 0.0D;
       int k = -1;
       boolean flag1 = false;
-      BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+      BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
       for(int l = Math.max(startNoise, (int)d0 + 1); l >= 0; --l) {
          blockpos$mutable.set(i1, l, i);

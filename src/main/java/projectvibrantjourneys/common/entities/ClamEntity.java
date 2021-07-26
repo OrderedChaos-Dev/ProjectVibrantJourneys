@@ -4,66 +4,65 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.passive.WaterMobEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.animal.Bucketable;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.init.object.PVJItems;
 
-public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
+public class ClamEntity extends WaterAnimal implements Bucketable {
 	
-	private static final DataParameter<Boolean> FROM_BUCKET = EntityDataManager.defineId(ClamEntity.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Boolean> HAS_PEARL = EntityDataManager.defineId(ClamEntity.class, DataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(ClamEntity.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Boolean> HAS_PEARL = SynchedEntityData.defineId(ClamEntity.class, EntityDataSerializers.BOOLEAN);
 	
-	public ClamEntity(EntityType<? extends ClamEntity> type, World world) {
+	public ClamEntity(EntityType<? extends ClamEntity> type, Level world) {
 		super(type, world);
-		this.yHeadRot = MathHelper.wrapDegrees(world.getRandom().nextFloat() * 360.0F);
+		this.yHeadRot = Mth.wrapDegrees(world.getRandom().nextFloat() * 360.0F);
 	}
 	
-	public static AttributeModifierMap.MutableAttribute createAttributes() {
-		return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 5.0D);
+	public static AttributeSupplier.Builder createAttributes() {
+		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 5.0D);
 	}
 	
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(0, new RandomWalkingGoal(this, 0.001F));
+		this.goalSelector.addGoal(0, new RandomStrollGoal(this, 0.001F));
 	}
 	
-	public static boolean canSpawn(EntityType<ClamEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+	public static boolean canSpawn(EntityType<ClamEntity> entity, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
 		return true;
 	}
 	
 	@Nullable
 	@Override
-	public ILivingEntityData finalizeSpawn(IServerWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
 		BlockPos pos = this.blockPosition();
 		while(world.getBlockState(pos.below(2)).getBlock() == Blocks.WATER) {
 			this.setPos(pos.getX(), pos.getY() - 1, pos.getZ());
@@ -99,7 +98,7 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	}
 	
 	@Override
-	protected int getExperienceReward(PlayerEntity player) {
+	protected int getExperienceReward(Player player) {
 		if(this.hasPearl())
 			return 1;
 		return 0;
@@ -107,12 +106,12 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	
 	@Override
 	public boolean shouldDespawnInPeaceful() {
-		return this.isFromBucket();
+		return this.fromBucket();
 	}
 
 	@Override
 	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-		return !this.isFromBucket() && !this.hasCustomName();
+		return !this.fromBucket() && !this.hasCustomName();
 	}
 	   
 	@Override
@@ -123,7 +122,7 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	}
 
 	@Override
-	public boolean isFromBucket() {
+	public boolean fromBucket() {
 		return this.getEntityData().get(FROM_BUCKET);
 	}
 
@@ -142,54 +141,42 @@ public class ClamEntity extends WaterMobEntity implements IBucketCollectable {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundNBT compound) {
+	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
-		compound.putBoolean("FromBucket", this.isFromBucket());
+		compound.putBoolean("FromBucket", this.fromBucket());
 		compound.putBoolean("HasPearl", this.hasPearl());
 		
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundNBT compound) {
+	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
 		this.setFromBucket(compound.getBoolean("FromBucket"));
 		this.setHasPearl(compound.getBoolean("HasPearl"));
 	}
 
 	@Override
-	public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
-		ItemStack itemstack = player.getItemInHand(hand);
-		if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
-			this.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
-			itemstack.shrink(1);
-			ItemStack itemstack1 = this.getFishBucket();
-			this.setBucketData(itemstack1);
-			if (!this.level.isClientSide()) {
-				CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) player, itemstack1);
-			}
-
-			if (itemstack.isEmpty()) {
-				player.setItemInHand(hand, itemstack1);
-			} else if (!player.inventory.add(itemstack1)) {
-				player.drop(itemstack1, false);
-			}
-
-			this.remove();
-			return ActionResultType.SUCCESS;
-		} else {
-			return super.mobInteract(player, hand);
-		}
+	protected InteractionResult mobInteract(Player p_27477_, InteractionHand p_27478_) {
+		return Bucketable.bucketMobPickup(p_27477_, p_27478_, this).orElse(super.mobInteract(p_27477_, p_27478_));
 	}
 
 	@Override
-	public void setBucketData(ItemStack bucket) {
-		if (this.hasCustomName()) {
-			bucket.setHoverName(this.getCustomName());
-		}
+	public void saveToBucketTag(ItemStack p_27494_) {
+		Bucketable.saveDefaultDataToBucketTag(this, p_27494_);
 	}
 
 	@Override
-	public ItemStack getFishBucket() {
+	public void loadFromBucketTag(CompoundTag p_148708_) {
+		Bucketable.loadDefaultDataFromBucketTag(this, p_148708_);
+	}
+
+	@Override
+	public ItemStack getBucketItemStack() {
 		return new ItemStack(PVJItems.clam_bucket);
+	}
+
+	@Override
+	public SoundEvent getPickupSound() {
+		return SoundEvents.BUCKET_FILL_FISH;
 	}
 }

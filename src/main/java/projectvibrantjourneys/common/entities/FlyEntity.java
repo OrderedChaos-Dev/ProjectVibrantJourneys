@@ -2,31 +2,31 @@ package projectvibrantjourneys.common.entities;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.passive.AmbientEntity;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ambient.AmbientCreature;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.object.PVJSoundEvents;
 
-public class FlyEntity extends AmbientEntity {
+public class FlyEntity extends AmbientCreature {
 	
 	private BlockPos targetPosition;
 
-	public FlyEntity(EntityType<? extends FlyEntity> entityType, World world) {
+	public FlyEntity(EntityType<? extends FlyEntity> entityType, Level world) {
 		super(entityType, world);
 	}
 
@@ -43,8 +43,8 @@ public class FlyEntity extends AmbientEntity {
 	protected void pushEntities() {
 	}
 
-	public static AttributeModifierMap.MutableAttribute createAttributes() {
-		return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 1.0D);
+	public static AttributeSupplier.Builder createAttributes() {
+		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 1.0D);
 	}
 
 	@Override
@@ -79,15 +79,15 @@ public class FlyEntity extends AmbientEntity {
 		double d2 = (double) this.targetPosition.getX() + 0.5D - this.getX();
 		double d0 = (double) this.targetPosition.getY() + 0.1D - this.getY();
 		double d1 = (double) this.targetPosition.getZ() + 0.5D - this.getZ();
-		Vector3d vector3d = this.getDeltaMovement();
-		Vector3d vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double) 0.1F,
+		Vec3 vector3d = this.getDeltaMovement();
+		Vec3 vector3d1 = vector3d.add((Math.signum(d2) * 0.5D - vector3d.x) * (double) 0.1F,
 				(Math.signum(d0) * (double) 0.7F - vector3d.y) * (double) 0.1F,
 				(Math.signum(d1) * 0.5D - vector3d.z) * (double) 0.1F);
 		this.setDeltaMovement(vector3d1);
-		float f = (float) (MathHelper.atan2(vector3d1.z, vector3d1.x) * (double) (180F / (float) Math.PI)) - 90.0F;
-		float f1 = MathHelper.wrapDegrees(f - this.yRot);
+		float f = (float) (Mth.atan2(vector3d1.z, vector3d1.x) * (double) (180F / (float) Math.PI)) - 90.0F;
+		float f1 = Mth.wrapDegrees(f - this.getYRot());
 		this.zza = 0.5F;
-		this.yRot += f1;
+		this.setYRot(this.getYRot() + f1);
 
 		if (this.isInWater()) {
 			this.setDeltaMovement(this.getDeltaMovement().multiply(0, 0, 0));
@@ -95,12 +95,12 @@ public class FlyEntity extends AmbientEntity {
 	}
 
 	@Override
-	protected boolean isMovementNoisy() {
-		return false;
+	protected Entity.MovementEmission getMovementEmission() {
+		return Entity.MovementEmission.NONE;
 	}
 
 	@Override
-	public boolean causeFallDamage(float distance, float damageMultiplier) {
+	public boolean causeFallDamage(float distance, float damage, DamageSource source) {
 		return false;
 	}
 
@@ -131,7 +131,7 @@ public class FlyEntity extends AmbientEntity {
 		return true;
 	}
 
-	public static boolean canSpawn(EntityType<FlyEntity> fly, IWorld world, SpawnReason reason, BlockPos pos,
+	public static boolean canSpawn(EntityType<FlyEntity> fly, LevelAccessor world, MobSpawnType reason, BlockPos pos,
 			Random rand) {
 		if (pos.getY() < world.getSeaLevel()) {
 			return false;

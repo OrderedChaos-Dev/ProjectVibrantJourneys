@@ -1,58 +1,56 @@
 package projectvibrantjourneys.common.biomes;
 
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.GenerationStage.Decoration;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.data.worldgen.SurfaceBuilders;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.AmbientMoodSettings;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 
 public class OvergrownSpiresBiome {
 
 	public static Biome makeShatteredJungleBiome() {
 		BiomeGenerationSettings.Builder biomeGenSettings = (new BiomeGenerationSettings.Builder())
-				.surfaceBuilder(ConfiguredSurfaceBuilders.SHATTERED_SAVANNA);
+				.surfaceBuilder(SurfaceBuilders.SHATTERED_SAVANNA);
 		
-	      MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
-	      DefaultBiomeFeatures.baseJungleSpawns(mobSpawnInfo);
-		mobSpawnInfo
-				.addSpawn(EntityClassification.CREATURE,
-						new MobSpawnInfo.Spawners(EntityType.PARROT, 40, 1, 2))
-				.addSpawn(EntityClassification.MONSTER,
-						new MobSpawnInfo.Spawners(EntityType.OCELOT, 2, 1, 3))
-				.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(EntityType.PANDA, 1, 1, 2));
-		mobSpawnInfo.setPlayerCanSpawn();
+	      MobSpawnSettings.Builder MobSpawnSettings = new MobSpawnSettings.Builder();
+	      BiomeDefaultFeatures.baseJungleSpawns(MobSpawnSettings);
+		MobSpawnSettings
+				.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PARROT, 40, 1, 2))
+				.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.OCELOT, 2, 1, 3))
+				.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.PANDA, 1, 1, 2));
+		MobSpawnSettings.setPlayerCanSpawn();
 
 		biomeGenSettings.addStructureStart(StructureFeatures.JUNGLE_TEMPLE);
 		biomeGenSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_JUNGLE);
 
-		DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultCarvers(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultLakes(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultOres(biomeGenSettings);
-		DefaultBiomeFeatures.addWarmFlowers(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultSoftDisks(biomeGenSettings);
-		DefaultBiomeFeatures.addJungleGrass(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
-		DefaultBiomeFeatures.addJungleExtraVegetation(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultOverworldLandStructures(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultCarvers(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultLakes(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultMonsterRoom(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultOres(biomeGenSettings);
+		BiomeDefaultFeatures.addWarmFlowers(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultSoftDisks(biomeGenSettings);
+		BiomeDefaultFeatures.addJungleGrass(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultExtraVegetation(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultSprings(biomeGenSettings);
+		BiomeDefaultFeatures.addJungleExtraVegetation(biomeGenSettings);
 
 		biomeGenSettings.addFeature(Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
 
-		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.JUNGLE).depth(0.3625F)
+		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.JUNGLE).depth(0.3625F)
 				.scale(1.225F).temperature(0.95F).downfall(0.9F)
-				.specialEffects((new BiomeAmbience.Builder()).waterColor(4445678).waterFogColor(270131)
+				.specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4445678).waterFogColor(270131)
 						.fogColor(12638463).skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.95F))
-						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
-				.mobSpawnSettings(mobSpawnInfo.build()).generationSettings(biomeGenSettings.build()).build();
+						.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+				.mobSpawnSettings(MobSpawnSettings.build()).generationSettings(biomeGenSettings.build()).build();
 	}
 
 }

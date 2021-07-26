@@ -1,15 +1,15 @@
 package projectvibrantjourneys.common.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.object.PVJItems;
 
@@ -20,11 +20,11 @@ public class BerriedJuniperLeavesBlock extends LeavesBlock {
 	}
 
 	@Override
-	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
+	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult brt) {
 		if(player.mayBuild()) {
-			InventoryHelper.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(PVJItems.juniper_berries, 1 + world.getRandom().nextInt(2)));
+			Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(PVJItems.juniper_berries, 1 + world.getRandom().nextInt(2)));
 			world.setBlock(pos, PVJBlocks.juniper_leaves.defaultBlockState().setValue(PERSISTENT, state.getValue(PERSISTENT)), 2);
 		}
-		return ActionResultType.SUCCESS;
+		return InteractionResult.SUCCESS;
 	}
 }

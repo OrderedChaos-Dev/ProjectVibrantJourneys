@@ -4,18 +4,18 @@ import java.lang.reflect.Constructor;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.blockplacer.BlockPlacer;
-import net.minecraft.world.gen.blockplacer.BlockPlacerType;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProvider;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProviderType;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacerType;
-import net.minecraft.world.gen.treedecorator.TreeDecorator;
-import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
-import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecorator;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.features.blockplacers.GroundcoverPlacer;
@@ -66,7 +66,7 @@ public class PVJBlockPlacers {
 	public static final BlockPlacerType<RocksBlockPlacer> ROCKS_BLOCK_PLACER = registerBlockPlacer("rocks_block_placer", new BlockPlacerType<RocksBlockPlacer>(RocksBlockPlacer.CODEC));
 	public static final BlockPlacerType<GroundcoverPlacer> GROUNDCOVER_PLACER = registerBlockPlacer("groundcover_placer", new BlockPlacerType<GroundcoverPlacer>(GroundcoverPlacer.CODEC));
 	
-	private static <P extends AbstractTrunkPlacer> TrunkPlacerType<P> registerTrunkPlacer(String key, Codec<P> codec) {
+	private static <P extends TrunkPlacer> TrunkPlacerType<P> registerTrunkPlacer(String key, Codec<P> codec) {
 		try {
 			Constructor<TrunkPlacerType> c = TrunkPlacerType.class.getDeclaredConstructor(Codec.class);
 			c.setAccessible(true);

@@ -1,18 +1,18 @@
 package projectvibrantjourneys.common.world.features.foliageplacers;
 
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.FeatureSpread;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class DesertJuniperFoliagePlacer extends FoliagePlacer  {
@@ -21,7 +21,7 @@ public class DesertJuniperFoliagePlacer extends FoliagePlacer  {
 		return foliagePlacerParts(p).apply(p, DesertJuniperFoliagePlacer::new);
 	});
 	
-	public DesertJuniperFoliagePlacer(FeatureSpread f1, FeatureSpread f2) {
+	public DesertJuniperFoliagePlacer(IntProvider f1, IntProvider f2) {
 		super(f1, f2);
 	}
 
@@ -31,14 +31,16 @@ public class DesertJuniperFoliagePlacer extends FoliagePlacer  {
 	}
 
 	@Override
-	protected void createFoliage(IWorldGenerationReader world, Random rand, BaseTreeFeatureConfig config, int p_230372_4_, Foliage foliage, int p_230372_6_, int p_230372_7_, Set<BlockPos> blocks, int p_230372_9_, MutableBoundingBox box) {
-		BlockPos pos = foliage.foliagePos();
-		this.placeLeavesRow(world, rand, config, pos, 1, blocks, 0, foliage.doubleTrunk(), box);
-		this.placeLeavesRow(world, rand, config, pos.above(), 0, blocks, 0, foliage.doubleTrunk(), box);
+	protected void createFoliage(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer,
+			Random rand, TreeConfiguration config, int p_161350_, FoliagePlacer.FoliageAttachment foliage,
+			int p_161352_, int p_161353_, int p_161354_) {
+		BlockPos pos = foliage.pos();
+		this.placeLeavesRow(world, placer, rand, config, pos, 1, 0, foliage.doubleTrunk());
+		this.placeLeavesRow(world, placer, rand, config, pos.above(), 0, 0, foliage.doubleTrunk());
 	}
 
 	@Override
-	public int foliageHeight(Random rand, int h, BaseTreeFeatureConfig config) {
+	public int foliageHeight(Random rand, int h, TreeConfiguration config) {
 		return 1;
 	}
 

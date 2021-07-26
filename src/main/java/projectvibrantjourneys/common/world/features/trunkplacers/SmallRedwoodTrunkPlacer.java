@@ -2,22 +2,23 @@ package projectvibrantjourneys.common.world.features.trunkplacers;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
-public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
+public class SmallRedwoodTrunkPlacer extends TrunkPlacer {
 	
 	public static final Codec<SmallRedwoodTrunkPlacer> CODEC = RecordCodecBuilder.create((instance) -> {
 		return trunkPlacerParts(instance).apply(instance, SmallRedwoodTrunkPlacer::new);
@@ -33,23 +34,23 @@ public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 	}
 
 	@Override
-	public List<FoliagePlacer.Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		setDirtAt(world, pos.below());
+	public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, int height, BlockPos pos, TreeConfiguration config) {
+		setDirtAt(world, placer, rand, pos.below(), config);
 
 		for (int i = 0; i < height; ++i) {
-			placeLog(world, rand, pos.above(i), blocks, box, config);
+			placeLog(world, placer, rand, pos.above(i), config);
 		}
 		
-		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
-		placeBase(world, rand, blockpos$mutable, config, pos, 1, 4, 0, 1);
-		placeBase(world, rand, blockpos$mutable, config, pos, 1, 4, 1, 0);
-		placeBase(world, rand, blockpos$mutable, config, pos, 1, 4, -1, 0);
-		placeBase(world, rand, blockpos$mutable, config, pos, 1, 4, 0, -1);
+		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
+		placeBase(world, placer, rand, blockpos$mutable, config, pos, 1, 4, 0, 1);
+		placeBase(world, placer, rand, blockpos$mutable, config, pos, 1, 4, 1, 0);
+		placeBase(world, placer, rand, blockpos$mutable, config, pos, 1, 4, -1, 0);
+		placeBase(world, placer, rand, blockpos$mutable, config, pos, 1, 4, 0, -1);
 
-		return ImmutableList.of(new FoliagePlacer.Foliage(pos.above(height), 0, false));
+		return ImmutableList.of(new FoliagePlacer.FoliageAttachment(pos.above(height), 0, false));
 	}
 	
-	public static void placeBase(IWorldGenerationReader world, Random rand, BlockPos.Mutable pos, BaseTreeFeatureConfig config, BlockPos start, int heightMin, int heightMax, int offX, int offZ) {
+	public static void placeBase(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, BlockPos.MutableBlockPos pos, TreeConfiguration config, BlockPos start, int heightMin, int heightMax, int offX, int offZ) {
 		int height = rand.nextInt(heightMax - heightMin) + heightMin;
 		int offY = 1;
 		while(offY > -3 && world.isStateAtPosition(pos.setWithOffset(start, offX, offY, offZ), (state) -> state.getMaterial().isReplaceable())) {
@@ -57,12 +58,12 @@ public class SmallRedwoodTrunkPlacer extends AbstractTrunkPlacer {
 		}
 		
 		for(int i = offY; i < height; i++) {
-			BlockPos.Mutable temp = pos.setWithOffset(start, offX, i, offZ);
+			BlockPos.MutableBlockPos temp = pos.setWithOffset(start, offX, i, offZ);
 			
 			if(i < height - 1)
-				world.setBlock(temp, config.trunkProvider.getState(rand, temp), 2);
+				placer.accept(temp, config.trunkProvider.getState(rand, temp));
 			else
-				world.setBlock(temp, config.trunkProvider.getState(rand, temp), 2);
+				placer.accept(temp, PVJBlocks.redwood_wood.defaultBlockState());
 		}
 	}
 }

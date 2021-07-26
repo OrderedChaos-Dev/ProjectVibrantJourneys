@@ -1,11 +1,11 @@
 package projectvibrantjourneys.common.items;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 
 public class BottleFoodItem extends Item {
 
@@ -14,9 +14,9 @@ public class BottleFoodItem extends Item {
 	}
 
 	@Override
-	public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
+	public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
 		ItemStack itemstack = super.finishUsingItem(stack, world, entity);
-		return entity instanceof PlayerEntity && ((PlayerEntity) entity).abilities.instabuild ? itemstack : new ItemStack(Items.GLASS_BOTTLE);
+		return entity instanceof Player && ((Player) entity).getAbilities().instabuild ? itemstack : new ItemStack(Items.GLASS_BOTTLE);
 	}
 		   
 }

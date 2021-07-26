@@ -1,14 +1,14 @@
 package projectvibrantjourneys.common.biomes;
 
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.world.level.biome.AmbientMoodSettings;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
 public class VerdantSandsBiome {
@@ -17,43 +17,43 @@ public class VerdantSandsBiome {
 		BiomeGenerationSettings.Builder biomeGenSettings = (new BiomeGenerationSettings.Builder())
 				.surfaceBuilder(PVJConfiguredSurfaceBuilders.VERDANT_SANDS);
 
-		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
-		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
-		DefaultBiomeFeatures.desertSpawns(mobSpawnInfo);
+		MobSpawnSettings.Builder MobSpawnSettings = new MobSpawnSettings.Builder();
+		BiomeDefaultFeatures.farmAnimals(MobSpawnSettings);
+		BiomeDefaultFeatures.desertSpawns(MobSpawnSettings);
 
-		mobSpawnInfo.setPlayerCanSpawn();
+		MobSpawnSettings.setPlayerCanSpawn();
 
-		DefaultBiomeFeatures.addDesertExtraDecoration(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomeGenSettings);
+		BiomeDefaultFeatures.addDesertExtraDecoration(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultOverworldLandStructures(biomeGenSettings);
 		biomeGenSettings.addStructureStart(StructureFeatures.VILLAGE_DESERT);
 		biomeGenSettings.addStructureStart(StructureFeatures.PILLAGER_OUTPOST);
 		biomeGenSettings.addStructureStart(StructureFeatures.DESERT_PYRAMID);
 		biomeGenSettings.addStructureStart(StructureFeatures.RUINED_PORTAL_DESERT);
 
-		DefaultBiomeFeatures.addFossilDecoration(biomeGenSettings);
-		DefaultBiomeFeatures.addJungleEdgeTrees(biomeGenSettings);
-		DefaultBiomeFeatures.addSavannaTrees(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultCarvers(biomeGenSettings);
-		DefaultBiomeFeatures.addDesertLakes(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultOres(biomeGenSettings);
-		DefaultBiomeFeatures.addWarmFlowers(biomeGenSettings);
-		DefaultBiomeFeatures.addJungleGrass(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultExtraVegetation(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultSprings(biomeGenSettings);
-		DefaultBiomeFeatures.addDefaultMushrooms(biomeGenSettings);
-		DefaultBiomeFeatures.addDesertExtraVegetation(biomeGenSettings);
-		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_RIVER);
-		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
-		biomeGenSettings.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_WATERLILLY);
+		BiomeDefaultFeatures.addFossilDecoration(biomeGenSettings);
+		BiomeDefaultFeatures.addJungleEdgeTrees(biomeGenSettings);
+		BiomeDefaultFeatures.addSavannaTrees(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultCarvers(biomeGenSettings);
+		BiomeDefaultFeatures.addDesertLakes(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultMonsterRoom(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultOres(biomeGenSettings);
+		BiomeDefaultFeatures.addWarmFlowers(biomeGenSettings);
+		BiomeDefaultFeatures.addJungleGrass(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultExtraVegetation(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultSprings(biomeGenSettings);
+		BiomeDefaultFeatures.addDefaultMushrooms(biomeGenSettings);
+		BiomeDefaultFeatures.addDesertExtraVegetation(biomeGenSettings);
+		biomeGenSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_RIVER);
+		biomeGenSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
+		biomeGenSettings.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.PATCH_WATERLILLY);
 
-		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.DESERT).depth(0.125F)
+		return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.DESERT).depth(0.125F)
 				.scale(0.05F).temperature(1.5F).downfall(0.5F)
-				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011)
+				.specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011)
 						.fogColor(12638463).skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.95F))
-						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
-				.mobSpawnSettings(mobSpawnInfo.build()).generationSettings(biomeGenSettings.build()).build();
+						.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build())
+				.mobSpawnSettings(MobSpawnSettings.build()).generationSettings(biomeGenSettings.build()).build();
 	}
 
 }

@@ -4,59 +4,57 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ILivingEntityData;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.passive.WaterMobEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.pathfinding.ClimberPathNavigator;
-import net.minecraft.pathfinding.PathNavigator;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
+import net.minecraft.world.entity.animal.Bucketable;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import projectvibrantjourneys.init.object.PVJItems;
 import projectvibrantjourneys.init.object.PVJSoundEvents;
 
-public class StarfishEntity extends WaterMobEntity implements IBucketCollectable {
+public class StarfishEntity extends WaterAnimal implements Bucketable {
 	
-	private static final DataParameter<Integer> COLOR = EntityDataManager.defineId(StarfishEntity.class, DataSerializers.INT);
-	private static final DataParameter<Boolean> FROM_BUCKET = EntityDataManager.defineId(StarfishEntity.class, DataSerializers.BOOLEAN);
-	private static final DataParameter<Byte> CLIMBING = EntityDataManager.defineId(StarfishEntity.class, DataSerializers.BYTE);
+	private static final EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(StarfishEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(StarfishEntity.class, EntityDataSerializers.BOOLEAN);
+	private static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(StarfishEntity.class, EntityDataSerializers.BYTE);
 	private static final int NUM_COLORS = 5;
 	
-	public StarfishEntity(EntityType<? extends StarfishEntity> type, World world) {
+	public StarfishEntity(EntityType<? extends StarfishEntity> type, Level world) {
 		super(type, world);
 	}
 	
-	public static AttributeModifierMap.MutableAttribute createAttributes() {
-		return MobEntity.createMobAttributes().add(Attributes.MAX_HEALTH, 2.0D).add(Attributes.MOVEMENT_SPEED, 0.05D);
+	public static AttributeSupplier.Builder createAttributes() {
+		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 2.0D).add(Attributes.MOVEMENT_SPEED, 0.05D);
 	}
 	
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(0, new RandomWalkingGoal(this, 0.5F));
+		this.goalSelector.addGoal(0, new RandomStrollGoal(this, 0.5F));
 	}
 	
 	@Override
@@ -68,14 +66,14 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	}
 	
 	@Override
-	public void addAdditionalSaveData(CompoundNBT compound) {
+	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putInt("Color", this.getColor());
-		compound.putBoolean("FromBucket", this.isFromBucket());
+		compound.putBoolean("FromBucket", this.fromBucket());
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundNBT compound) {
+	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
 		this.setColor(compound.getInt("Color"));
 		this.setFromBucket(compound.getBoolean("FromBucket"));
@@ -124,7 +122,7 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	
 	@Nullable
 	@Override
-	public ILivingEntityData finalizeSpawn(IServerWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
 		if (dataTag != null && dataTag.contains("BucketVariantTag", 3))
 			this.setColor(dataTag.getInt("BucketVariantTag"));
 		else
@@ -139,18 +137,18 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	}
 	
 	@Override
-	protected PathNavigator createNavigation(World worldIn) {
-		return new ClimberPathNavigator(this, worldIn);
+	protected PathNavigation createNavigation(Level worldIn) {
+		return new WallClimberNavigation(this, worldIn);
 	}
 	
 	@Override
 	protected void handleAirSupply(int air) {}
 	
-	public static boolean canSpawn(EntityType<StarfishEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+	public static boolean canSpawn(EntityType<StarfishEntity> entity, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
 		return pos.getY() > 60;
 	}
 	
-	public static boolean canSpawnOcean(EntityType<StarfishEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+	public static boolean canSpawnOcean(EntityType<StarfishEntity> entity, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
 		return pos.getY() < world.getSeaLevel();
 	}
 	
@@ -161,7 +159,7 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	}
 	
 	@Override
-	protected int getExperienceReward(PlayerEntity player) {
+	protected int getExperienceReward(Player player) {
 		return 0;
 	}
 	
@@ -171,16 +169,16 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	
 	@Override
 	public boolean shouldDespawnInPeaceful() {
-		return this.isFromBucket();
+		return this.fromBucket();
 	}
 
 	@Override
 	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-		return !this.isFromBucket() && !this.hasCustomName();
+		return !this.fromBucket() && !this.hasCustomName();
 	}
 
 	@Override
-	public boolean isFromBucket() {
+	public boolean fromBucket() {
 		return this.getEntityData().get(FROM_BUCKET);
 	}
 
@@ -190,42 +188,28 @@ public class StarfishEntity extends WaterMobEntity implements IBucketCollectable
 	}
 
 	@Override
-	public ActionResultType mobInteract(PlayerEntity player, Hand hand) {
-		ItemStack itemstack = player.getItemInHand(hand);
-		if (itemstack.getItem() == Items.WATER_BUCKET && this.isAlive()) {
-			this.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
-			itemstack.shrink(1);
-			ItemStack itemstack1 = this.getFishBucket();
-			this.setBucketData(itemstack1);
-			if (!this.level.isClientSide()) {
-				CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayerEntity) player, itemstack1);
-			}
-
-			if (itemstack.isEmpty()) {
-				player.setItemInHand(hand, itemstack1);
-			} else if (!player.inventory.add(itemstack1)) {
-				player.drop(itemstack1, false);
-			}
-
-			this.remove();
-			return ActionResultType.SUCCESS;
-		} else {
-			return super.mobInteract(player, hand);
-		}
+	protected InteractionResult mobInteract(Player p_27477_, InteractionHand p_27478_) {
+		return Bucketable.bucketMobPickup(p_27477_, p_27478_, this).orElse(super.mobInteract(p_27477_, p_27478_));
 	}
 
 	@Override
-	public void setBucketData(ItemStack bucket) {
-		if (this.hasCustomName()) {
-			bucket.setHoverName(this.getCustomName());
-		}
-		CompoundNBT compoundnbt = bucket.getOrCreateTag();
-		compoundnbt.putInt("BucketVariantTag", this.getColor());
+	public void saveToBucketTag(ItemStack p_27494_) {
+		Bucketable.saveDefaultDataToBucketTag(this, p_27494_);
 	}
 
 	@Override
-	public ItemStack getFishBucket() {
+	public void loadFromBucketTag(CompoundTag p_148708_) {
+		Bucketable.loadDefaultDataFromBucketTag(this, p_148708_);
+	}
+
+	@Override
+	public ItemStack getBucketItemStack() {
 		return new ItemStack(PVJItems.starfish_bucket);
+	}
+
+	@Override
+	public SoundEvent getPickupSound() {
+		return SoundEvents.BUCKET_FILL_FISH;
 	}
 	
 	@Override

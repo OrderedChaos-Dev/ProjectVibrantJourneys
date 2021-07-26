@@ -2,29 +2,29 @@ package projectvibrantjourneys.common.blocks;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class EpiphyteBlock extends Block {
-	public static final DirectionProperty FACING = HorizontalBlock.FACING;
+	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	
 	public EpiphyteBlock(Block.Properties props) {
 		super(props);
@@ -32,31 +32,31 @@ public class EpiphyteBlock extends Block {
 	}
 	
 	@Override
-	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult brt) {
-		if (!player.abilities.mayBuild) {
-			return ActionResultType.PASS;
+	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult brt) {
+		if (!player.getAbilities().mayBuild) {
+			return InteractionResult.PASS;
 		} else {
 			if(!player.isCreative())
 				Block.dropResources(state, world, pos);
 			world.removeBlock(pos, false);
-			return ActionResultType.SUCCESS;
+			return InteractionResult.SUCCESS;
 		}
 	}
 	
-	public static boolean canAttachTo(IBlockReader world, BlockPos pos, Direction direction) {
+	public static boolean canAttachTo(BlockGetter world, BlockPos pos, Direction direction) {
 		BlockState blockstate = world.getBlockState(pos);
 		return blockstate.getBlock().getTags().contains(ItemTags.LOGS.getName()) && world.getBlockState(pos).isCollisionShapeFullBlock(world, pos);
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, IWorldReader worldIn, BlockPos pos) {
+	public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
 		Direction direction = state.getValue(FACING);
 		return canAttachTo(worldIn, pos.offset(direction.getOpposite().getNormal()), direction);
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, IWorld world, BlockPos currentPos, BlockPos facingPos) {
+	public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos currentPos, BlockPos facingPos) {
 		if (facing.getOpposite() == state.getValue(FACING) && !state.canSurvive(world, currentPos)) {
 			return Blocks.AIR.defaultBlockState();
 		} else {
@@ -66,7 +66,7 @@ public class EpiphyteBlock extends Block {
 	
 	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockItemUseContext context) {
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		if (!context.replacingClickedOnBlock()) {
 			BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().offset(context.getClickedFace().getOpposite().getNormal()));
 			if (blockstate.getBlock() == this && blockstate.getValue(FACING) == context.getClickedFace()) {
@@ -75,13 +75,13 @@ public class EpiphyteBlock extends Block {
 		}
 
 		BlockState blockstate1 = this.defaultBlockState();
-		IWorldReader iworldreader = context.getLevel();
+		LevelReader LevelReader = context.getLevel();
 		BlockPos blockpos = context.getClickedPos();
 
 		for (Direction direction : context.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
 				blockstate1 = blockstate1.setValue(FACING, direction.getOpposite());
-				if (blockstate1.canSurvive(iworldreader, blockpos)) {
+				if (blockstate1.canSurvive(LevelReader, blockpos)) {
 					return blockstate1;
 				}
 			}
@@ -101,7 +101,7 @@ public class EpiphyteBlock extends Block {
 	}
 
 	@Override
-	protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
 	}
 }

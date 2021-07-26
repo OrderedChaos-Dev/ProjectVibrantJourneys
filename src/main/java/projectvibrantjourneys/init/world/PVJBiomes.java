@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeMaker;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.biome.VanillaBiomes;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
@@ -46,9 +46,9 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBiomes {
 	
 	public static final List<Biome> BIOMES = new ArrayList<Biome>();
-	public static final Map<RegistryKey<Biome>, RegistryKey<Biome>> SHORE_MAP = new HashMap<RegistryKey<Biome>, RegistryKey<Biome>>();
-	public static final Map<RegistryKey<Biome>, RegistryKey<Biome>> HILLS_MAP = new HashMap<RegistryKey<Biome>, RegistryKey<Biome>>();
-	public static final Map<RegistryKey<Biome>, RegistryKey<Biome>> RIVER_MAP = new HashMap<RegistryKey<Biome>, RegistryKey<Biome>>();
+	public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> SHORE_MAP = new HashMap<ResourceKey<Biome>, ResourceKey<Biome>>();
+	public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> HILLS_MAP = new HashMap<ResourceKey<Biome>, ResourceKey<Biome>>();
+	public static final Map<ResourceKey<Biome>, ResourceKey<Biome>> RIVER_MAP = new HashMap<ResourceKey<Biome>, ResourceKey<Biome>>();
 	
 	public static Biome overgrown_spires = register(OvergrownSpiresBiome.makeShatteredJungleBiome(), "overgrown_spires");
 	public static Biome verdant_sands = register(VerdantSandsBiome.makeVerdantSandsBiome(), "verdant_sands");
@@ -72,36 +72,36 @@ public class PVJBiomes {
 	public static Biome crimson_thicket = register(CrimsonThicketBiome.makeCrimsonThicketBiome(), "crimson_thicket");
 	public static Biome desert_shrubland = register(DesertShrublandBiome.makeDesertShrublandBiome(0.2F), "desert_shrubland");
 	public static Biome red_rock_valley = register(RedRockValleyBiome.makeRedRockValleyBiome(), "red_rock_valley");
-	public static Biome tropical_beach = register(BiomeMaker.beachBiome(0.0F, 0.025F, 1.4F, 0.8F, 4159204, false, false), "tropical_beach");
+	public static Biome tropical_beach = register(VanillaBiomes.beachBiome(0.0F, 0.025F, 1.4F, 0.8F, 4159204, false, false), "tropical_beach");
 	public static Biome crystal_lakes = register(CrystalLakesBiome.makeCrystalLakesBiome(), "crystal_lakes");
 	public static Biome windswept_cliffs = register(WindsweptCliffsBiome.makeWindsweptCliffsBiome(), "windswept_cliffs");
 	
 	public static class Keys {
-		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
-		public static final RegistryKey<Biome> VERDANT_SANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "verdant_sands"));
-		public static final RegistryKey<Biome> REDWOODS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "redwoods"));
-		public static final RegistryKey<Biome> REDWOOD_PEAKS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "redwood_peaks"));
-		public static final RegistryKey<Biome> SNOWY_REDWOODS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "snowy_redwoods"));
-		public static final RegistryKey<Biome> BOREAL_FOREST = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "boreal_forest"));
-		public static final RegistryKey<Biome> SNOWY_BOREAL_FOREST = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "snowy_boreal_forest"));
-		public static final RegistryKey<Biome> ALPINE_HEIGHTS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "alpine_heights"));
-		public static final RegistryKey<Biome> PINE_MEADOWS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "pine_meadows"));
-		public static final RegistryKey<Biome> BOREAL_PLATEAU = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "boreal_plateau"));
-		public static final RegistryKey<Biome> WILLOW_WETLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "willow_wetlands"));
-		public static final RegistryKey<Biome> MANGROVE_MARSH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "mangrove_marsh"));
-		public static final RegistryKey<Biome> BAOBAB_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "baobab_fields"));
-		public static final RegistryKey<Biome> ASPEN_GROVE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove"));
-		public static final RegistryKey<Biome> ASPEN_GROVE_HILLS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove_hills"));
-		public static final RegistryKey<Biome> PRAIRIE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "prairie"));
-		public static final RegistryKey<Biome> BLOSSOMING_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "blossoming_fields"));
-		public static final RegistryKey<Biome> AUTUMNAL_CONIFEROUS_FOREST = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "autumnal_coniferous_forest"));
-		public static final RegistryKey<Biome> GRAVEL_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
-		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
-		public static final RegistryKey<Biome> DESERT_SHRUBLAND = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
-		public static final RegistryKey<Biome> RED_ROCK_VALLEY_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
-		public static final RegistryKey<Biome> TROPICAL_BEACH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "tropical_beach"));
-		public static final RegistryKey<Biome> CRYSTAL_LAKES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crystal_lakes"));
-		public static final RegistryKey<Biome> WINDSWEPT_CLIFFS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "windswept_cliffs"));
+		public static final ResourceKey<Biome> OVERGROWN_SPIRES = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
+		public static final ResourceKey<Biome> VERDANT_SANDS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "verdant_sands"));
+		public static final ResourceKey<Biome> REDWOODS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "redwoods"));
+		public static final ResourceKey<Biome> REDWOOD_PEAKS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "redwood_peaks"));
+		public static final ResourceKey<Biome> SNOWY_REDWOODS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "snowy_redwoods"));
+		public static final ResourceKey<Biome> BOREAL_FOREST = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "boreal_forest"));
+		public static final ResourceKey<Biome> SNOWY_BOREAL_FOREST = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "snowy_boreal_forest"));
+		public static final ResourceKey<Biome> ALPINE_HEIGHTS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "alpine_heights"));
+		public static final ResourceKey<Biome> PINE_MEADOWS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "pine_meadows"));
+		public static final ResourceKey<Biome> BOREAL_PLATEAU = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "boreal_plateau"));
+		public static final ResourceKey<Biome> WILLOW_WETLANDS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "willow_wetlands"));
+		public static final ResourceKey<Biome> MANGROVE_MARSH = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "mangrove_marsh"));
+		public static final ResourceKey<Biome> BAOBAB_FIELDS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "baobab_fields"));
+		public static final ResourceKey<Biome> ASPEN_GROVE = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove"));
+		public static final ResourceKey<Biome> ASPEN_GROVE_HILLS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "aspen_grove_hills"));
+		public static final ResourceKey<Biome> PRAIRIE = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "prairie"));
+		public static final ResourceKey<Biome> BLOSSOMING_FIELDS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "blossoming_fields"));
+		public static final ResourceKey<Biome> AUTUMNAL_CONIFEROUS_FOREST = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "autumnal_coniferous_forest"));
+		public static final ResourceKey<Biome> GRAVEL_SHORE = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
+		public static final ResourceKey<Biome> CRIMSON_THICKET = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
+		public static final ResourceKey<Biome> DESERT_SHRUBLAND = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
+		public static final ResourceKey<Biome> RED_ROCK_VALLEY_BIOME = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
+		public static final ResourceKey<Biome> TROPICAL_BEACH = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "tropical_beach"));
+		public static final ResourceKey<Biome> CRYSTAL_LAKES = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crystal_lakes"));
+		public static final ResourceKey<Biome> WINDSWEPT_CLIFFS = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "windswept_cliffs"));
 	}
 	
 	@SubscribeEvent
@@ -212,11 +212,11 @@ public class PVJBiomes {
 //		mapHillsBiome(Keys.CRYSTAL_LAKES, Keys.BOREAL_PLATEAU);
 	}
 	
-	public static void mapShoreBiome(RegistryKey<Biome> biome, RegistryKey<Biome> shore) {
+	public static void mapShoreBiome(ResourceKey<Biome> biome, ResourceKey<Biome> shore) {
 		SHORE_MAP.put(biome, shore);
 	}
 	
-	public static void mapHillsBiome(RegistryKey<Biome> biome, RegistryKey<Biome> hills) {
+	public static void mapHillsBiome(ResourceKey<Biome> biome, ResourceKey<Biome> hills) {
 		HILLS_MAP.put(biome, hills);
 	}
 }

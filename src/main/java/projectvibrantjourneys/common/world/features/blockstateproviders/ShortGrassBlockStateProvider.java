@@ -4,15 +4,15 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.blockstateprovider.BlockStateProviderType;
-import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
-public class ShortGrassBlockStateProvider extends SimpleBlockStateProvider {
+public class ShortGrassBlockStateProvider extends SimpleStateProvider {
 	
 	public static final Codec<ShortGrassBlockStateProvider> CODEC = Codec.unit(ShortGrassBlockStateProvider::new);
 

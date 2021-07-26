@@ -2,24 +2,23 @@ package projectvibrantjourneys.common.world.features.trunkplacers;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer.Foliage;
-import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
-import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
-public class BaobabTrunkPlacer extends AbstractTrunkPlacer {
+public class BaobabTrunkPlacer extends TrunkPlacer {
 	
 	public static final Codec<BaobabTrunkPlacer> CODEC = RecordCodecBuilder.create((x) -> {
 		return trunkPlacerParts(x).apply(x, BaobabTrunkPlacer::new);
@@ -35,28 +34,28 @@ public class BaobabTrunkPlacer extends AbstractTrunkPlacer {
 	}
 
 	@Override
-	public List<Foliage> placeTrunk(IWorldGenerationReader world, Random rand, int height, BlockPos pos, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config) {
-		List<FoliagePlacer.Foliage> list = Lists.newArrayList();
-		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+	public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, int height, BlockPos pos, TreeConfiguration config) {
+		List<FoliagePlacer.FoliageAttachment> list = Lists.newArrayList();
+		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 		
 		BlockPos blockpos = pos.below();
-		setDirtAt(world, blockpos);
-		setDirtAt(world, blockpos.east());
-		setDirtAt(world, blockpos.south());
-		setDirtAt(world, blockpos.south().east());
+		setDirtAt(world, placer, rand, blockpos, config);
+		setDirtAt(world, placer, rand, blockpos.east(), config);
+		setDirtAt(world, placer, rand, blockpos.south(), config);
+		setDirtAt(world, placer, rand, blockpos.north(), config);
 		
 		for (int i = 0; i < height; ++i) {
-			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 0, i, 0);
-			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 1, i, 0);
-			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 1, i, 1);
-			placeLog(world, rand, blockpos$mutable, blocks, box, config, pos, 0, i, 1);
+			placeLog(world, placer, rand, blockpos$mutable, config, pos, 0, i, 0);
+			placeLog(world, placer, rand, blockpos$mutable, config, pos, 1, i, 0);
+			placeLog(world, placer, rand, blockpos$mutable, config, pos, 1, i, 1);
+			placeLog(world, placer, rand, blockpos$mutable, config, pos, 0, i, 1);
 		}
 		
 		BlockPos branchStart = pos.above(height - 2);
-		genBranches(world, Direction.NORTH, Direction.WEST, rand, branchStart, blocks, box, config, list);
-		genBranches(world, Direction.SOUTH, Direction.WEST, rand, branchStart.south(), blocks, box, config, list);
-		genBranches(world, Direction.NORTH, Direction.EAST, rand, branchStart.east(), blocks, box, config, list);
-		genBranches(world, Direction.SOUTH, Direction.EAST, rand, branchStart.south().east(), blocks, box, config, list);
+		genBranches(world, placer, Direction.NORTH, Direction.WEST, rand, branchStart, config, list);
+		genBranches(world, placer, Direction.SOUTH, Direction.WEST, rand, branchStart.south(), config, list);
+		genBranches(world, placer, Direction.NORTH, Direction.EAST, rand, branchStart.east(), config, list);
+		genBranches(world, placer, Direction.SOUTH, Direction.EAST, rand, branchStart.south().east(), config, list);
 		
 		BlockPos innerLayerPos = pos.south(2).west();
 		for (int x = 0; x < 4; x++) {
@@ -66,74 +65,74 @@ public class BaobabTrunkPlacer extends AbstractTrunkPlacer {
 				for (int i = 0; i < 10; i++) {
 					BlockPos p = tempPos.below(i);
 					if (canPlaceRoot(world, p))
-						placeLog(world, rand, p, blocks, box, config);
+						placeLog(world, placer, rand, p, config);
 					else
 						break;
 				}
 			}
 		}
 		
-		placeRoot(world, rand, pos.west(2), blocks, box, config);
-		placeRoot(world, rand, pos.west(2).south(), blocks, box, config);
-		placeRoot(world, rand, pos.north(2), blocks, box, config);
-		placeRoot(world, rand, pos.north(2).east(), blocks, box, config);
-		placeRoot(world, rand, pos.east(3), blocks, box, config);
-		placeRoot(world, rand, pos.east(3).south(), blocks, box, config);
-		placeRoot(world, rand, pos.south(3), blocks, box, config);
-		placeRoot(world, rand, pos.south(3).east(), blocks, box, config);
+		placeRoot(world, placer, rand, pos.west(2), config);
+		placeRoot(world, placer, rand, pos.west(2).south(), config);
+		placeRoot(world, placer, rand, pos.north(2), config);
+		placeRoot(world, placer, rand, pos.north(2).east(), config);
+		placeRoot(world, placer, rand, pos.east(3), config);
+		placeRoot(world, placer, rand, pos.east(3).south(), config);
+		placeRoot(world, placer, rand, pos.south(3), config);
+		placeRoot(world, placer, rand, pos.south(3).east(), config);
 		
 		
 		return list;
 	}
 	
-	private void placeLog(IWorldGenerationReader world, Random rand, BlockPos.Mutable pos, Set<BlockPos> blocks, MutableBoundingBox boundingBox, BaseTreeFeatureConfig config, BlockPos start, int offX, int offY, int offZ) {
+	private void placeLog(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, BlockPos.MutableBlockPos pos, TreeConfiguration config, BlockPos start, int offX, int offY, int offZ) {
 		pos.setWithOffset(start, offX, offY, offZ);
 		//place log
-		placeLog(world, rand, pos, blocks, boundingBox, config);
+		placeLog(world, placer, rand, pos, config);
 	}
 
-	public void genBranches(IWorldGenerationReader world, Direction d1, Direction d2, Random rand, BlockPos branchStart, Set<BlockPos> blocks, MutableBoundingBox box, BaseTreeFeatureConfig config, List<FoliagePlacer.Foliage> list) {
+	public void genBranches(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Direction d1, Direction d2, Random rand, BlockPos branchStart, TreeConfiguration config, List<FoliagePlacer.FoliageAttachment> list) {
 		BlockPos temp = branchStart;
 		for(int length = 0; length <= 3 + rand.nextInt(4); length++) {
 			temp = temp.offset(d1.getNormal());
 			if(rand.nextBoolean()) {
-				placeLog(world, rand, temp, blocks, box, config);
+				placeLog(world, placer, rand, temp, config);
 				temp = temp.offset(d2.getNormal());
 			}
 			
 			if(rand.nextFloat() > 0.33)
 				temp = temp.above();
 			
-			placeLog(world, rand, temp, blocks, box, config);
+			placeLog(world, placer, rand, temp, config);
 			if(rand.nextBoolean())
-				placeLog(world, rand, temp.below(), blocks, box, config);
+				placeLog(world, placer, rand, temp.below(), config);
 		}
 		temp = temp.above();
-		placeLog(world, rand, temp.west(), blocks, box, config);
-		placeLog(world, rand, temp.east(), blocks, box, config);
-		placeLog(world, rand, temp.north(), blocks, box, config);
-		placeLog(world, rand, temp.south(), blocks, box, config);
+		placeLog(world, placer, rand, temp.west(), config);
+		placeLog(world, placer, rand, temp.east(), config);
+		placeLog(world, placer, rand, temp.north(), config);
+		placeLog(world, placer, rand, temp.south(), config);
 		temp = temp.above();
-		placeLog(world, rand, temp.west(2), blocks, box, config);
-		placeLog(world, rand, temp.east(2), blocks, box, config);
-		placeLog(world, rand, temp.north(2), blocks, box, config);
-		placeLog(world, rand, temp.south(2), blocks, box, config);
-		list.add(new FoliagePlacer.Foliage(temp, 0, true));
+		placeLog(world, placer, rand, temp.west(2), config);
+		placeLog(world, placer, rand, temp.east(2), config);
+		placeLog(world, placer, rand, temp.north(2), config);
+		placeLog(world, placer, rand, temp.south(2), config);
+		list.add(new FoliagePlacer.FoliageAttachment(temp, 0, true));
 	}
 	
-	private void placeRoot(IWorldGenerationReader world, Random rand, BlockPos pos, Set<BlockPos> logs, MutableBoundingBox box, BaseTreeFeatureConfig config) {
+	private void placeRoot(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer, Random rand, BlockPos pos,TreeConfiguration config) {
 		int h = 2 + rand.nextInt(3);
 		BlockPos tempPos = pos.above(h);
 		for (int i = 0; i < 10; i++) {
 			BlockPos p = tempPos.below(i);
 			if (canPlaceRoot(world, p))
-				placeLog(world, rand, p, logs, box, config);
+				placeLog(world, placer, rand, p, config);
 			else
 				break;
 		}
 	}
 	
-	private boolean canPlaceRoot(IWorldGenerationReader world, BlockPos pos) {
+	private boolean canPlaceRoot(LevelSimulatedReader world, BlockPos pos) {
 		return !world.isStateAtPosition(pos, (s) -> s.getMaterial().isSolid());
 	}
 }

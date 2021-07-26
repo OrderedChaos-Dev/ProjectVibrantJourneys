@@ -4,24 +4,27 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 
-public class BushFeature extends Feature<ProbabilityConfig> {
+public class BushFeature extends Feature<ProbabilityFeatureConfiguration> {
 	
-	public BushFeature(Codec<ProbabilityConfig> config) {
+	public BushFeature(Codec<ProbabilityFeatureConfiguration> config) {
 		super(config);
 	}
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator chunkGen, Random rand, BlockPos pos, ProbabilityConfig config) {
+	public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
+		WorldGenLevel world = context.level();
+		BlockPos pos = context.origin();
+		Random rand = context.random();
 		//check dirt/grass
 		Block dirt = world.getBlockState(pos.below()).getBlock();
 		if(dirt != Blocks.DIRT && dirt != Blocks.GRASS_BLOCK)
@@ -35,7 +38,7 @@ public class BushFeature extends Feature<ProbabilityConfig> {
 				return false;
 			}
 		}
-		if (rand.nextFloat() < config.probability) {
+		if (rand.nextFloat() < context.config().probability) {
 			for(Direction dir : Direction.Plane.HORIZONTAL) {
 				BlockPos offsetPos = pos.offset(dir.getNormal());
 				if(world.getBlockState(offsetPos).getMaterial().isReplaceable());

@@ -3,34 +3,34 @@ package projectvibrantjourneys.init.object;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.AbstractBlock.Properties;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.block.TrapDoorBlock;
-import net.minecraft.block.WoodButtonBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WoodButtonBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -222,7 +222,7 @@ public class PVJBlocks {
 		fir_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "fir_fence_gate", 300);
 		fir_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "fir_fence", 300);
 		fir_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "fir_door", 200);
-		fir_stairs = registerBlockWithFuel(new StairsBlock(() -> fir_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "fir_stairs", 300);
+		fir_stairs = registerBlockWithFuel(new StairBlock(() -> fir_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "fir_stairs", 300);
 		
 		pine_sapling = registerBlockWithFuel(new SaplingBlock(new PineTree(), Properties.copy(Blocks.OAK_SAPLING)), "pine_sapling", 100);
 		pine_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_pine_log), "pine_log", 300);
@@ -238,7 +238,7 @@ public class PVJBlocks {
 		pine_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "pine_fence_gate", 300);
 		pine_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "pine_fence", 300);
 		pine_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "pine_door", 200);
-		pine_stairs = registerBlockWithFuel(new StairsBlock(() -> pine_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "pine_stairs", 300);
+		pine_stairs = registerBlockWithFuel(new StairBlock(() -> pine_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "pine_stairs", 300);
 		
 		redwood_sapling = registerBlockWithFuel(new SaplingBlock(new RedwoodTree(), Properties.copy(Blocks.OAK_SAPLING)), "redwood_sapling", 100);
 		redwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_redwood_log), "redwood_log", 300);
@@ -254,7 +254,7 @@ public class PVJBlocks {
 		redwood_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "redwood_fence_gate", 300);
 		redwood_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "redwood_fence", 300);
 		redwood_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "redwood_door", 200);
-		redwood_stairs = registerBlockWithFuel(new StairsBlock(() -> redwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "redwood_stairs", 300);
+		redwood_stairs = registerBlockWithFuel(new StairBlock(() -> redwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "redwood_stairs", 300);
 		
 		willow_sapling = registerBlockWithFuel(new SandySaplingBlock(new WillowTree(), Properties.copy(Blocks.OAK_SAPLING)), "willow_sapling", 100);
 		willow_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_willow_log), "willow_log", 300);
@@ -270,7 +270,7 @@ public class PVJBlocks {
 		willow_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "willow_fence_gate", 300);
 		willow_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "willow_fence", 300);
 		willow_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "willow_door", 200);
-		willow_stairs = registerBlockWithFuel(new StairsBlock(() -> willow_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "willow_stairs", 300);
+		willow_stairs = registerBlockWithFuel(new StairBlock(() -> willow_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "willow_stairs", 300);
 		
 		mangrove_sapling = registerBlockWithFuel(new MangroveSaplingBlock(new MangroveTree(), Properties.copy(Blocks.OAK_SAPLING)), "mangrove_sapling", 100);
 		mangrove_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_mangrove_log), "mangrove_log", 300);
@@ -286,7 +286,7 @@ public class PVJBlocks {
 		mangrove_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "mangrove_fence_gate", 300);
 		mangrove_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "mangrove_fence", 300);
 		mangrove_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "mangrove_door", 200);
-		mangrove_stairs = registerBlockWithFuel(new StairsBlock(() -> mangrove_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "mangrove_stairs", 300);
+		mangrove_stairs = registerBlockWithFuel(new StairBlock(() -> mangrove_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "mangrove_stairs", 300);
 		
 		palm_sapling = registerBlockWithFuel(new SandySaplingBlock(new PalmTree(), Properties.copy(Blocks.OAK_SAPLING)), "palm_sapling", 100);
 		palm_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_palm_log), "palm_log", 300);
@@ -302,7 +302,7 @@ public class PVJBlocks {
 		palm_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "palm_fence_gate", 300);
 		palm_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "palm_fence", 300);
 		palm_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "palm_door", 200);
-		palm_stairs = registerBlockWithFuel(new StairsBlock(() -> palm_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "palm_stairs", 300);
+		palm_stairs = registerBlockWithFuel(new StairBlock(() -> palm_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "palm_stairs", 300);
 		
 		cottonwood_sapling = registerBlockWithFuel(new SaplingBlock(new CottonwoodTree(), Properties.copy(Blocks.OAK_SAPLING)), "cottonwood_sapling", 100);
 		cottonwood_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_cottonwood_log), "cottonwood_log", 300);
@@ -318,7 +318,7 @@ public class PVJBlocks {
 		cottonwood_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "cottonwood_fence_gate", 300);
 		cottonwood_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "cottonwood_fence", 300);
 		cottonwood_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "cottonwood_door", 200);
-		cottonwood_stairs = registerBlockWithFuel(new StairsBlock(() -> cottonwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "cottonwood_stairs", 300);
+		cottonwood_stairs = registerBlockWithFuel(new StairBlock(() -> cottonwood_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "cottonwood_stairs", 300);
 		
 		aspen_sapling = registerBlockWithFuel(new SaplingBlock(new AspenTree(), Properties.copy(Blocks.OAK_SAPLING)), "aspen_sapling", 100);
 		aspen_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_aspen_log), "aspen_log", 300);
@@ -334,7 +334,7 @@ public class PVJBlocks {
 		aspen_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "aspen_fence_gate", 300);
 		aspen_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "aspen_fence", 300);
 		aspen_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "aspen_door", 200);
-		aspen_stairs = registerBlockWithFuel(new StairsBlock(() -> aspen_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "aspen_stairs", 300);
+		aspen_stairs = registerBlockWithFuel(new StairBlock(() -> aspen_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "aspen_stairs", 300);
 		
 		juniper_sapling = registerBlockWithFuel(new JuniperSaplingBlock(new JuniperTree(), Properties.copy(Blocks.OAK_SAPLING)), "juniper_sapling", 100);
 		juniper_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_juniper_log), "juniper_log", 300);
@@ -351,7 +351,7 @@ public class PVJBlocks {
 		juniper_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "juniper_fence_gate", 300);
 		juniper_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "juniper_fence", 300);
 		juniper_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "juniper_door", 200);
-		juniper_stairs = registerBlockWithFuel(new StairsBlock(() -> juniper_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "juniper_stairs", 300);
+		juniper_stairs = registerBlockWithFuel(new StairBlock(() -> juniper_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "juniper_stairs", 300);
 		
 		baobab_sapling = registerBlockWithFuel(new SaplingBlock(new BaobabTree(), Properties.copy(Blocks.OAK_SAPLING)), "baobab_sapling", 100);
 		baobab_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_baobab_log), "baobab_log", 300);
@@ -367,7 +367,7 @@ public class PVJBlocks {
 		baobab_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "baobab_fence_gate", 300);
 		baobab_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "baobab_fence", 300);
 		baobab_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "baobab_door", 200);
-		baobab_stairs = registerBlockWithFuel(new StairsBlock(() -> baobab_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "baobab_stairs", 300);
+		baobab_stairs = registerBlockWithFuel(new StairBlock(() -> baobab_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "baobab_stairs", 300);
 		
 		red_maple_sapling = registerBlockWithFuel(new SaplingBlock(new RedMapleTree(), Properties.copy(Blocks.OAK_SAPLING)), "red_maple_sapling", 100);
 		orange_maple_sapling = registerBlockWithFuel(new SaplingBlock(new OrangeMapleTree(), Properties.copy(Blocks.OAK_SAPLING)), "orange_maple_sapling", 100);
@@ -387,7 +387,7 @@ public class PVJBlocks {
 		maple_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "maple_fence_gate", 300);
 		maple_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "maple_fence", 300);
 		maple_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "maple_door", 200);
-		maple_stairs = registerBlockWithFuel(new StairsBlock(() -> maple_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "maple_stairs", 300);
+		maple_stairs = registerBlockWithFuel(new StairBlock(() -> maple_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "maple_stairs", 300);
 		
 		pink_sakura_sapling = registerBlockWithFuel(new SaplingBlock(new PinkSakuraTree(), Properties.copy(Blocks.OAK_SAPLING)), "pink_sakura_sapling", 100);
 		white_sakura_sapling = registerBlockWithFuel(new SaplingBlock(new WhiteSakuraTree(), Properties.copy(Blocks.OAK_SAPLING)), "white_sakura_sapling", 100);
@@ -405,7 +405,7 @@ public class PVJBlocks {
 		sakura_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "sakura_fence_gate", 300);
 		sakura_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "sakura_fence", 300);
 		sakura_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "sakura_door", 200);
-		sakura_stairs = registerBlockWithFuel(new StairsBlock(() -> sakura_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "sakura_stairs", 300);
+		sakura_stairs = registerBlockWithFuel(new StairBlock(() -> sakura_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "sakura_stairs", 300);
 		
 		tamarack_sapling = registerBlockWithFuel(new SaplingBlock(new TamarackTree(), Properties.copy(Blocks.OAK_SAPLING)), "tamarack_sapling", 100);
 		tamarack_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_tamarack_log), "tamarack_log", 300);
@@ -421,7 +421,7 @@ public class PVJBlocks {
 		tamarack_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "tamarack_fence_gate", 300);
 		tamarack_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "tamarack_fence", 300);
 		tamarack_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "tamarack_door", 200);
-		tamarack_stairs = registerBlockWithFuel(new StairsBlock(() -> tamarack_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "tamarack_stairs", 300);
+		tamarack_stairs = registerBlockWithFuel(new StairBlock(() -> tamarack_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "tamarack_stairs", 300);
 		
 		joshua_sapling = registerBlockWithFuel(new SaplingBlock(new JoshuaTree(), Properties.copy(Blocks.OAK_SAPLING)), "joshua_sapling", 100);
 		joshua_log = registerBlockWithFuel(createLogBlock(MaterialColor.WOOD, MaterialColor.COLOR_BROWN, () -> stripped_joshua_log), "joshua_log", 300);
@@ -437,7 +437,7 @@ public class PVJBlocks {
 		joshua_fence_gate = registerBlockWithFuel(new FenceGateBlock(Properties.copy(Blocks.SPRUCE_FENCE_GATE)), "joshua_fence_gate", 300);
 		joshua_fence = registerBlockWithFuel(new FenceBlock(Properties.copy(Blocks.SPRUCE_FENCE)), "joshua_fence", 300);
 		joshua_door = registerBlockWithFuel(new DoorBlock(Properties.copy(Blocks.SPRUCE_DOOR)), "joshua_door", 200);
-		joshua_stairs = registerBlockWithFuel(new StairsBlock(() -> joshua_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "joshua_stairs", 300);
+		joshua_stairs = registerBlockWithFuel(new StairBlock(() -> joshua_planks.defaultBlockState(), Properties.copy(Blocks.SPRUCE_STAIRS)), "joshua_stairs", 300);
 		
 		potted_fir_sapling =  registerBlockWithoutItem(createFlowerPot(fir_sapling), "potted_fir_sapling");
 		potted_pine_sapling =  registerBlockWithoutItem(createFlowerPot(pine_sapling), "potted_pine_sapling");
@@ -500,11 +500,11 @@ public class PVJBlocks {
 	}
 	
 	public static RotatedPillarBlock createLogBlock(MaterialColor topColor, MaterialColor barkColor, Supplier<Block> stripped) {
-		return new RotatedPillarBlock(AbstractBlock.Properties.of(Material.WOOD, (state) -> {
+		return new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (state) -> {
 			return state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
 		}).strength(2.0F).sound(SoundType.WOOD)) {
 			@Override
-			public BlockState getToolModifiedState(BlockState state, World world, BlockPos pos, PlayerEntity player, ItemStack stack, ToolType toolType) {
+			public BlockState getToolModifiedState(BlockState state, Level world, BlockPos pos, Player player, ItemStack stack, ToolType toolType) {
 				if(toolType == ToolType.AXE)
 					return stripped.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS));
 				return super.getToolModifiedState(state, world, pos, player, stack, toolType);
@@ -514,7 +514,7 @@ public class PVJBlocks {
 	
 	public static PressurePlateBlock createPressurePlate(MaterialColor color) {
 		return new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-				AbstractBlock.Properties.of(Material.WOOD, color).noCollission()
+				BlockBehaviour.Properties.of(Material.WOOD, color).noCollission()
 				.strength(0.5F).sound(SoundType.WOOD));
 	}
 

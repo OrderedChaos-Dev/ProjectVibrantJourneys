@@ -2,19 +2,19 @@ package projectvibrantjourneys.common.entities;
 
 import java.util.Random;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 
 public class FireflyEntity extends FlyEntity {
 	
-	public FireflyEntity(EntityType<? extends FireflyEntity> entityType, World world) {
+	public FireflyEntity(EntityType<? extends FireflyEntity> entityType, Level world) {
 		super(entityType, world);
 	}
 	
-	public static boolean canSpawnFirefly(EntityType<FireflyEntity> firefly, IWorld world, SpawnReason reason, BlockPos pos, Random rand) {
+	public static boolean canSpawnFirefly(EntityType<FireflyEntity> firefly, LevelAccessor world, MobSpawnType reason, BlockPos pos, Random rand) {
 		if (pos.getY() < world.getSeaLevel()) {
 			return false;
 		} else if(world.getMaxLocalRawBrightness(pos) > 9) {

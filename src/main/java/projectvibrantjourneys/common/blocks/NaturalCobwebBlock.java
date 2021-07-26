@@ -1,14 +1,14 @@
 package projectvibrantjourneys.common.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.WebBlock;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.WebBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class NaturalCobwebBlock extends WebBlock {
 
@@ -17,7 +17,7 @@ public class NaturalCobwebBlock extends WebBlock {
 	}
 
 	@Override
-	public boolean canSurvive(BlockState state, IWorldReader world, BlockPos pos) {
+	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
 		for(Direction d : Direction.values()) {
 			if(world.getBlockState(pos.offset(d.getNormal())).getBlock() instanceof LeavesBlock) {
 				return true;
@@ -27,7 +27,7 @@ public class NaturalCobwebBlock extends WebBlock {
 	}
 	
 	@Override
-	public void neighborChanged(BlockState state, World world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
+	public void neighborChanged(BlockState state, Level world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 		if(!canSurvive(state, world, pos))
 			world.removeBlock(pos, isMoving);
 	}

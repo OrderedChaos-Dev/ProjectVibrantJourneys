@@ -2,17 +2,21 @@ package projectvibrantjourneys.init.object;
 
 import java.util.ArrayList;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MobBucketItem;
+import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.entities.items.PVJBoatEntity;
 import projectvibrantjourneys.common.items.BottleFoodItem;
 import projectvibrantjourneys.common.items.PVJBoatItem;
-import projectvibrantjourneys.common.items.PVJFishBucketItem;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.PVJItemGroup;
 
@@ -20,8 +24,8 @@ import projectvibrantjourneys.init.PVJItemGroup;
 public class PVJItems {
 	public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
 	
-	public static Item starfish_bucket = registerItem(new PVJFishBucketItem(PVJEntities.STARFISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
-	public static Item clam_bucket = registerItem(new PVJFishBucketItem(PVJEntities.CLAM, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
+	public static Item starfish_bucket = registerItem(new MobBucketItem(() -> PVJEntities.STARFISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "starfish_bucket");
+	public static Item clam_bucket = registerItem(new MobBucketItem(() -> PVJEntities.CLAM, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(PVJItemGroup.PVJ_ITEMGROUP)), "clam_bucket");
 	public static Item pearl = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), "pearl");
 	public static Item clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.RAW_CLAM)), "clam");
 	public static Item cooked_clam = registerItem(new Item(new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP).food(PVJFoods.COOKED_CLAM)), "cooked_clam");
@@ -67,7 +71,7 @@ public class PVJItems {
 		return item;
 	}
 	
-	public static Item createSpawnEgg(EntityType<?> entity, int color1, int color2) {
+	public static Item createSpawnEgg(EntityType<? extends Mob> entity, int color1, int color2) {
 		return registerItem(new SpawnEggItem(entity, color1, color2, new Item.Properties().tab(PVJItemGroup.PVJ_ITEMGROUP)), entity.getRegistryName().getPath() + "_spawn_egg");
 	}
 }

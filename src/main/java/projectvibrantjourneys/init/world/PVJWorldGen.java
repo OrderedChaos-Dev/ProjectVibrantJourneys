@@ -8,21 +8,21 @@ import java.util.function.Supplier;
 
 import com.mojang.datafixers.util.Pair;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.DecoratedFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
 import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.Placement;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -38,15 +38,15 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJWorldGen {
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void addBiomeFeatures(BiomeLoadingEvent event) {
-		RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
+		ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
-		List<Supplier<ConfiguredFeature<?, ?>>> vegetalFeatures = event.getGeneration().getFeatures(GenerationStage.Decoration.VEGETAL_DECORATION);
+		List<Supplier<ConfiguredFeature<?, ?>>> vegetalFeatures = event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 		
 		//GROUNDCOVER
 		if(!PVJConfig.groundcoverBlacklist.get().contains(event.getName().toString())) {
-			if(event.getCategory() == Biome.Category.NETHER) {
+			if(event.getCategory() == Biome.BiomeCategory.NETHER) {
 				if(PVJConfig.charredBones.get())
-					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
+					event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.charred_bones);
 			} else if(hasType(biomeTypes, Type.OVERWORLD)) {
 				if(biome != Biomes.SNOWY_TUNDRA) {
 					if(hasType(biomeTypes, Type.FOREST, Type.PLAINS)) {
@@ -79,26 +79,26 @@ public class PVJWorldGen {
 		}
 		
 		
-		if(event.getCategory() == Biome.Category.NETHER) {
+		if(event.getCategory() == Biome.BiomeCategory.NETHER) {
 			if(PVJConfig.glowcap.get())
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
+				event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
 			
 			if(biome == Biomes.NETHER_WASTES || biome == Biomes.CRIMSON_FOREST || biome == Biomes.WARPED_FOREST) {
-				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.cindercane);
+				event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.cindercane);
 			}
 			
 			if(PVJConfig.netherNettles.get()) {
 				if(biome == Biomes.CRIMSON_FOREST)
-					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.crimson_nettle);
+					event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.crimson_nettle);
 				if(biome == Biomes.WARPED_FOREST)
-					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
+					event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
 			}
 
-		} else if(event.getCategory() != Biome.Category.THEEND && event.getCategory() != Biome.Category.MUSHROOM) {
+		} else if(event.getCategory() != Biome.BiomeCategory.THEEND && event.getCategory() != Biome.BiomeCategory.MUSHROOM) {
 			//plants
 			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
-			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.Category.DESERT && PVJConfig.cattails.get()) {
+			if(!hasType(biomeTypes, Type.OCEAN, Type.BEACH) && event.getCategory() != Biome.BiomeCategory.DESERT && PVJConfig.cattails.get()) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.water_cattails);
 			}
@@ -120,15 +120,15 @@ public class PVJWorldGen {
 			if(PVJConfig.cobwebs.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cobwebs);
 			
-			if(event.getCategory() != Biome.Category.DESERT
-					&& event.getCategory() != Biome.Category.MESA
-					&& event.getCategory() != Biome.Category.RIVER
-					&& event.getCategory() != Biome.Category.OCEAN
+			if(event.getCategory() != Biome.BiomeCategory.DESERT
+					&& event.getCategory() != Biome.BiomeCategory.MESA
+					&& event.getCategory() != Biome.BiomeCategory.RIVER
+					&& event.getCategory() != Biome.BiomeCategory.OCEAN
 					&& PVJConfig.moreSeagrass.get()) {
 				vegetalFeatures.add(() -> Features.SEAGRASS_RIVER);
 			}
 			
-			if(event.getCategory() == Biome.Category.RIVER && PVJConfig.moreGrassInRivers.get()) {
+			if(event.getCategory() == Biome.BiomeCategory.RIVER && PVJConfig.moreGrassInRivers.get()) {
 				vegetalFeatures.add(() -> Features.PATCH_GRASS_PLAIN);
 			}
 
@@ -210,7 +210,7 @@ public class PVJWorldGen {
 		try {
 //			ProjectVibrantJourneys.LOGGER.debug(event.getName().toString());
 			List<Supplier<ConfiguredFeature<?, ?>>> features = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
-			RegistryKey<Biome> biome = RegistryKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
+			ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
 			Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 			List<ConfiguredFeature<?, ?>> trees = new ArrayList<ConfiguredFeature<?, ?>>();
 			for(Supplier<ConfiguredFeature<?, ?>> cf : features)

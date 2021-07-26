@@ -1,10 +1,10 @@
 package projectvibrantjourneys.init;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import projectvibrantjourneys.init.object.PVJBlocks;
 
-public class PVJItemGroup extends ItemGroup {
+public class PVJItemGroup extends CreativeModeTab {
 
 	public static final PVJItemGroup PVJ_ITEMGROUP = new PVJItemGroup("projectvibrantjourneys");
 	

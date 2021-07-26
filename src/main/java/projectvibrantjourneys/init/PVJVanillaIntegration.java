@@ -1,7 +1,7 @@
 package projectvibrantjourneys.init;
 
-import net.minecraft.block.ComposterBlock;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.ComposterBlock;
 import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.object.PVJItems;
 
@@ -77,7 +77,7 @@ public class PVJVanillaIntegration {
 		setCompostInfo(PVJBlocks.joshua_sapling, 0.3F);
 	}
 	
-	public static void setCompostInfo(IItemProvider item, float chance) {
+	public static void setCompostInfo(ItemLike item, float chance) {
 		ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
 	}
 }

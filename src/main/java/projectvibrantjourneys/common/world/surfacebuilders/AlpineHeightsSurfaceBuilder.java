@@ -4,34 +4,34 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.IChunk;
-import net.minecraft.world.gen.surfacebuilders.ISurfaceBuilderConfig;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilder;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderBaseConfiguration;
+import net.minecraft.world.level.levelgen.surfacebuilders.SurfaceBuilderConfiguration;
 
-public class AlpineHeightsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+public class AlpineHeightsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderBaseConfiguration> {
 	
-	public AlpineHeightsSurfaceBuilder(Codec<SurfaceBuilderConfig> CODEC) {
-		super(CODEC);
+	public AlpineHeightsSurfaceBuilder(Codec<SurfaceBuilderBaseConfiguration> codec) {
+		super(codec);
 	}
 	
 	@Override
-	public void apply(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise,
-			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
+	public void apply(Random random, ChunkAccess chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise,
+			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int bottom, long seed, SurfaceBuilderBaseConfiguration config) {
 		int i = x & 15;
 		int j = z & 15;
 		BlockState blockstate = Blocks.STONE.defaultBlockState();
-		ISurfaceBuilderConfig isurfacebuilderconfig = biomeIn.getGenerationSettings().getSurfaceBuilderConfig();
+		SurfaceBuilderConfiguration isurfacebuilderconfig = biomeIn.getGenerationSettings().getSurfaceBuilderConfig();
 		BlockState blockstate1 = isurfacebuilderconfig.getUnderMaterial();
 		BlockState blockstate3 = blockstate1;
 		int k = (int) (noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
 		int l = -1;
 		int i1 = 0;
-		BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 
 		for (int j1 = startHeight; j1 >= 0; --j1) {
 			if (i1 < 15) {

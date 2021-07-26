@@ -4,29 +4,32 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import projectvibrantjourneys.common.blocks.CattailBlock;
 import projectvibrantjourneys.init.object.PVJBlocks;
 
-public class WaterCattailFeature extends Feature<NoFeatureConfig> {
-	public WaterCattailFeature(Codec<NoFeatureConfig> config) {
+public class WaterCattailFeature extends Feature<NoneFeatureConfiguration> {
+	public WaterCattailFeature(Codec<NoneFeatureConfiguration> config) {
 		super(config);
 	}
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+		WorldGenLevel world = context.level();
+		BlockPos pos = context.origin();
+		Random rand = context.random();
 		int i = 0;
 
 		int k = rand.nextInt(8) - rand.nextInt(8);
 		int l = rand.nextInt(8) - rand.nextInt(8);
-		int i1 = world.getHeight(Heightmap.Type.OCEAN_FLOOR, pos.getX() + k, pos.getZ() + l);
+		int i1 = world.getHeight(Heightmap.Types.OCEAN_FLOOR, pos.getX() + k, pos.getZ() + l);
 		BlockPos blockpos = new BlockPos(pos.getX() + k, i1, pos.getZ() + l);
 		if (world.getBlockState(blockpos).getBlock() == Blocks.WATER && world.getBlockState(blockpos.above()).getBlock() == Blocks.AIR) {
 			BlockState state = PVJBlocks.cattail.defaultBlockState();

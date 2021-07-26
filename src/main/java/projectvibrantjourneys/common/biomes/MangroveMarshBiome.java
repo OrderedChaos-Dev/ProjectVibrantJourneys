@@ -1,66 +1,66 @@
 package projectvibrantjourneys.common.biomes;
 
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeAmbience;
-import net.minecraft.world.biome.BiomeGenerationSettings;
-import net.minecraft.world.biome.DefaultBiomeFeatures;
-import net.minecraft.world.biome.MobSpawnInfo;
-import net.minecraft.world.biome.MoodSoundAmbience;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.structure.StructureFeatures;
-import net.minecraft.world.gen.surfacebuilders.ConfiguredSurfaceBuilders;
+import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.Features;
+import net.minecraft.data.worldgen.StructureFeatures;
+import net.minecraft.data.worldgen.SurfaceBuilders;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.AmbientMoodSettings;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeGenerationSettings;
+import net.minecraft.world.level.biome.BiomeSpecialEffects;
+import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class MangroveMarshBiome {
 
 	public static Biome makeMangroveMarshBiome() {
-		MobSpawnInfo.Builder mobSpawnInfo = new MobSpawnInfo.Builder();
-		DefaultBiomeFeatures.farmAnimals(mobSpawnInfo);
-		DefaultBiomeFeatures.commonSpawns(mobSpawnInfo);
-		mobSpawnInfo.addSpawn(EntityClassification.MONSTER, new MobSpawnInfo.Spawners(EntityType.SLIME, 1, 1, 1));
+		MobSpawnSettings.Builder MobSpawnSettings = new MobSpawnSettings.Builder();
+		BiomeDefaultFeatures.farmAnimals(MobSpawnSettings);
+		BiomeDefaultFeatures.commonSpawns(MobSpawnSettings);
+		MobSpawnSettings.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1, 1));
 		
 		BiomeGenerationSettings.Builder biomeGenBuilder = (new BiomeGenerationSettings.Builder())
-				.surfaceBuilder(ConfiguredSurfaceBuilders.SWAMP);
+				.surfaceBuilder(SurfaceBuilders.SWAMP);
 
-		DefaultBiomeFeatures.addDefaultOverworldLandStructures(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultOverworldLandStructures(biomeGenBuilder);
 		biomeGenBuilder.addStructureStart(StructureFeatures.RUINED_PORTAL_SWAMP);
 		biomeGenBuilder.addStructureStart(StructureFeatures.SWAMP_HUT);
 		
-		DefaultBiomeFeatures.addDefaultCarvers(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultLakes(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultMonsterRoom(biomeGenBuilder);
-		DefaultBiomeFeatures.addFossilDecoration(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultOres(biomeGenBuilder);
-		DefaultBiomeFeatures.addSwampClayDisk(biomeGenBuilder);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_GRASS_NORMAL);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.PATCH_WATERLILLY);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_SWAMP);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_SWAMP);
-		DefaultBiomeFeatures.addSwampExtraVegetation(biomeGenBuilder);
-		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
-		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
-		biomeGenBuilder.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
+		BiomeDefaultFeatures.addDefaultCarvers(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultLakes(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultMonsterRoom(biomeGenBuilder);
+		BiomeDefaultFeatures.addFossilDecoration(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultOres(biomeGenBuilder);
+		BiomeDefaultFeatures.addSwampClayDisk(biomeGenBuilder);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.FLOWER_SWAMP);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.PATCH_GRASS_NORMAL);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.PATCH_DEAD_BUSH);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.PATCH_WATERLILLY);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.BROWN_MUSHROOM_SWAMP);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.RED_MUSHROOM_SWAMP);
+		BiomeDefaultFeatures.addSwampExtraVegetation(biomeGenBuilder);
+		BiomeDefaultFeatures.addDefaultSprings(biomeGenBuilder);
+		BiomeDefaultFeatures.addSurfaceFreezing(biomeGenBuilder);
+		biomeGenBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, Features.SEAGRASS_SWAMP);
 		
-		return (new Biome.Builder())
-				.precipitation(Biome.RainType.RAIN)
-				.biomeCategory(Biome.Category.SWAMP)
+		return (new Biome.BiomeBuilder())
+				.precipitation(Biome.Precipitation.RAIN)
+				.biomeCategory(Biome.BiomeCategory.SWAMP)
 				.depth(-0.3F)
 				.scale(0.001F)
 				.temperature(0.8F)
 				.downfall(1.9F)
-				.specialEffects((new BiomeAmbience.Builder())
+				.specialEffects((new BiomeSpecialEffects.Builder())
 						.waterColor(0x009463)
 						.waterFogColor(2302743)
 						.fogColor(12638463)
 						.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.8F))
-						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS)
+						.ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS)
 						.build())
-				.mobSpawnSettings(mobSpawnInfo.build())
+				.mobSpawnSettings(MobSpawnSettings.build())
 				.generationSettings(biomeGenBuilder.build()).build();
 	}
 }

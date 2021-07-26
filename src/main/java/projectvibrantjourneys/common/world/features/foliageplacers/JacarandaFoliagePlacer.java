@@ -1,20 +1,20 @@
 package projectvibrantjourneys.common.world.features.foliageplacers;
 
 import java.util.Random;
-import java.util.Set;
+import java.util.function.BiConsumer;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.gen.IWorldGenerationReader;
-import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
-import net.minecraft.world.gen.feature.FeatureSpread;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
-import net.minecraft.world.gen.foliageplacer.FoliagePlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.material.Material;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class JacarandaFoliagePlacer extends FoliagePlacer  {
@@ -23,7 +23,7 @@ public class JacarandaFoliagePlacer extends FoliagePlacer  {
 		return foliagePlacerParts(p).apply(p, JacarandaFoliagePlacer::new);
 	});
 	
-	public JacarandaFoliagePlacer(FeatureSpread f1, FeatureSpread f2) {
+	public JacarandaFoliagePlacer(IntProvider f1, IntProvider f2) {
 		super(f1, f2);
 	}
 
@@ -33,8 +33,10 @@ public class JacarandaFoliagePlacer extends FoliagePlacer  {
 	}
 
 	@Override
-	protected void createFoliage(IWorldGenerationReader world, Random rand, BaseTreeFeatureConfig config, int p_230372_4_, Foliage foliage, int p_230372_6_, int p_230372_7_, Set<BlockPos> blocks, int p_230372_9_, MutableBoundingBox box) {
-		BlockPos pos = foliage.foliagePos();
+	protected void createFoliage(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> placer,
+			Random rand, TreeConfiguration config, int p_161350_, FoliagePlacer.FoliageAttachment foliage,
+			int p_161352_, int p_161353_, int p_161354_) {
+		BlockPos pos = foliage.pos();
 		
 		for(int x = -2; x <= 2; x++) {
 			for(int y = -1; y <= 2; y++) {
@@ -54,21 +56,21 @@ public class JacarandaFoliagePlacer extends FoliagePlacer  {
 								if(shouldGenLeaves) {
 									if(Math.abs(x) == Math.abs(z)) {
 										if(rand.nextInt(4) == 0)
-											this.placeLeavesRow(world, rand, config, leafPos, 0, blocks, 0, foliage.doubleTrunk(), box);
+											this.placeLeavesRow(world, placer, rand, config, leafPos, 0, 0, foliage.doubleTrunk());
 									}
 									else {
-										this.placeLeavesRow(world, rand, config, leafPos, 0, blocks, 0, foliage.doubleTrunk(), box);
+										this.placeLeavesRow(world, placer, rand, config, leafPos, 0, 0, foliage.doubleTrunk());
 									}
 								}
 							}
 						}
 						else {
-							this.placeLeavesRow(world, rand, config, leafPos, 0, blocks, 0, foliage.doubleTrunk(), box);
+							this.placeLeavesRow(world, placer, rand, config, leafPos, 0, 0, foliage.doubleTrunk());
 						}
 						if(rand.nextInt(8) < 2) {
 							BlockPos tempPos = leafPos.below();
 							if(world.isStateAtPosition(tempPos, (state) -> state.getMaterial().isReplaceable())) {
-								this.placeLeavesRow(world, rand, config, tempPos, 0, blocks, 0, foliage.doubleTrunk(), box);
+								this.placeLeavesRow(world, placer, rand, config, tempPos, 0, 0, foliage.doubleTrunk());
 							}
 						}
 					}
@@ -78,7 +80,7 @@ public class JacarandaFoliagePlacer extends FoliagePlacer  {
 	}
 
 	@Override
-	public int foliageHeight(Random rand, int h, BaseTreeFeatureConfig config) {
+	public int foliageHeight(Random rand, int h, TreeConfiguration config) {
 		return 0;
 	}
 

@@ -1,13 +1,13 @@
 package projectvibrantjourneys.common.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SandBlock;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.trees.Tree;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class JuniperSaplingBlock extends SaplingBlock {
 	
@@ -19,12 +19,12 @@ public class JuniperSaplingBlock extends SaplingBlock {
 			Blocks.BLACK_TERRACOTTA
 	};
 
-	public JuniperSaplingBlock(Tree tree, Properties props) {
+	public JuniperSaplingBlock(AbstractTreeGrower tree, Properties props) {
 		super(tree, props);
 	}
 
 	@Override
-	protected boolean mayPlaceOn(BlockState state, IBlockReader world, BlockPos pos) {
+	protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
 		for(Block block : TERRACOTTA_BLOCKS)
 			if(state.getBlock() == block)
 				return true;

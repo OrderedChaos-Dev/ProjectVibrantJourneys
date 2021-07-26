@@ -4,13 +4,13 @@ import java.util.Random;
 
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.gen.blockplacer.BlockPlacer;
-import net.minecraft.world.gen.blockplacer.BlockPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacer;
+import net.minecraft.world.level.levelgen.feature.blockplacers.BlockPlacerType;
 import projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import projectvibrantjourneys.core.PVJConfig;
@@ -21,7 +21,7 @@ public class GroundcoverPlacer extends BlockPlacer {
 	public static final Codec<GroundcoverPlacer> CODEC = Codec.unit(GroundcoverPlacer::new);
 
 	@Override
-	public void place(IWorld world, BlockPos pos, BlockState state, Random rand) {
+	public void place(LevelAccessor world, BlockPos pos, BlockState state, Random rand) {
 		if(rand.nextInt(100) < PVJConfig.groundcoverChance.get()) {
 			if (world.getBlockState(pos.below()).isCollisionShapeFullBlock(world, pos) && world.getBlockState(pos.below()).getBlock() != Blocks.SNOW) {
 				if (state.getBlock() instanceof FallenLeavesBlock) {

@@ -10,29 +10,32 @@ import java.util.stream.Collectors;
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ISeedReader;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.material.Material;
 
-public class FallenTreeFeature extends Feature<NoFeatureConfig> {
+public class FallenTreeFeature extends Feature<NoneFeatureConfiguration> {
 
-	public FallenTreeFeature(Codec<NoFeatureConfig> codec) {
+	public FallenTreeFeature(Codec<NoneFeatureConfiguration> codec) {
 		super(codec);
 	}
 	
 	public static final Set<Pair<String, Block>> LOGS = new HashSet<Pair<String, Block>>();
 
 	@Override
-	public boolean place(ISeedReader world, ChunkGenerator generator, Random rand, BlockPos pos, NoFeatureConfig config) {
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+		WorldGenLevel world = context.level();
+		BlockPos pos = context.origin();
+		Random rand = context.random();
 		BlockState state = getLog(world, pos);
 		if(state == null) {
 			return false;
@@ -48,7 +51,7 @@ public class FallenTreeFeature extends Feature<NoFeatureConfig> {
 
 		while(length > 0) {
 			if(world.getBlockState(pos).getMaterial().isReplaceable()) {
-				positions.add(pos);
+				positions.add(pos);	
 				length--;
 				pos = pos.offset(dir.getNormal());
 				
@@ -80,7 +83,7 @@ public class FallenTreeFeature extends Feature<NoFeatureConfig> {
 		return true;
 	}
 	
-	private BlockState getLog(ISeedReader world, BlockPos pos) {
+	private BlockState getLog(WorldGenLevel world, BlockPos pos) {
 		Biome biome = world.getBiome(pos);
 		List<Block> logs = LOGS.stream().filter((pair) -> pair.getFirst().equals(biome.getRegistryName().toString())).map((pair) -> pair.getSecond()).collect(Collectors.toList());
 		if(logs.size() > 0)
