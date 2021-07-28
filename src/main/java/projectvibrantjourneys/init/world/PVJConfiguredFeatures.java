@@ -235,8 +235,8 @@ public class PVJConfiguredFeatures {
 		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
 				new SimpleBlockStateProvider(PVJBlocks.redwood_leaves.defaultBlockState()),
-				new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0), FeatureSpread.of(25, 7)),
-				new RedwoodTrunkPlacer(40, 30, 14), new TwoLayerFeature(1, 1, 2))).build());
+				new MegaPineFoliagePlacer(FeatureSpread.fixed(0), FeatureSpread.fixed(0), FeatureSpread.of(16, 7)),
+				new RedwoodTrunkPlacer(32, 24, 24), new TwoLayerFeature(1, 1, 2))).build());
 
 		redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
