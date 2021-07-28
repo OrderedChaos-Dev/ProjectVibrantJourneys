@@ -227,12 +227,7 @@ public class PVJWorldGen {
 				}
 			}
 			if(trees.size() > 0) {
-				features.add(() ->{
-					float chance = 0.1F;
-					if(hasType(biomeTypes, Type.PLAINS, Type.DRY))
-						chance = 0.05F;
-					return PVJConfiguredFeatures.fallen_tree.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, chance, 1)));
-				});
+				features.add(() -> PVJConfiguredFeatures.fallen_tree);
 			}
 		} catch(Exception e) {
 //			ProjectVibrantJourneys.LOGGER.debug("Caught error when trying to add fallen trees");

@@ -65,6 +65,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 import projectvibrantjourneys.init.object.PVJBlocks;
 
 public class PVJConfiguredFeatures {
+	
 	public static final GroundcoverPlacer GROUNDCOVER_PLACER = new GroundcoverPlacer();
 	public static BlockClusterFeatureConfig twigsCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.twigs.defaultBlockState()), GROUNDCOVER_PLACER, 5);
 	public static BlockClusterFeatureConfig fallenLeavesCluster = makeFeatureConfig(new SimpleBlockStateProvider(PVJBlocks.fallen_leaves.defaultBlockState()), GROUNDCOVER_PLACER, 5);
@@ -190,6 +191,7 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> vanilla_palm;
 	
 	public static void init() {
+		
 		sea_oats = Feature.RANDOM_PATCH.configured(seaOatsCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		cattails = Feature.RANDOM_PATCH.configured(cattailCluster).decorated(Placements.HEIGHTMAP_DOUBLE_SQUARE).count(5).chance(2);
 		water_cattails = PVJFeatures.waterCattailFeature.configured(IFeatureConfig.NONE).squared().count(30).chance(3);
@@ -225,7 +227,7 @@ public class PVJConfiguredFeatures {
 		tropical_beach_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.JUNGLE_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
 		oak_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
 		
-		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP);
+		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.05F, 1)));
 		
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
 		cliff_rocks = PVJFeatures.cliffRock.configured(new ProbabilityConfig(0.5F)).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
@@ -405,7 +407,7 @@ public class PVJConfiguredFeatures {
 
 		pine_meadows_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(pine_tree.weighted(0.4F),
-						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.05F)), oak_bush))
+						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.15F)), oak_bush))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 2)));
 		
@@ -442,9 +444,9 @@ public class PVJConfiguredFeatures {
 		
 		baobab_fields_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(Features.ACACIA.weighted(0.5F)), baobab_tree))
+						ImmutableList.of(Features.ACACIA.weighted(0.6F)), baobab_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(7, 0.3F, 1)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(6, 0.3F, 1)));
 		
 		prairie_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -526,7 +528,6 @@ public class PVJConfiguredFeatures {
 		register("glowcap", glowcap);
 		register("crimson_nettle", crimson_nettle);
 		register("warped_nettle", warped_nettle);
-		register("warped_nettle", warped_nettle);
 		register("cindercane", cindercane);
 		register("autumn_floor_foliage", autumn_floor_foliage);
 		register("sakura_floor_foliage", sakura_floor_foliage);
@@ -538,6 +539,7 @@ public class PVJConfiguredFeatures {
 		register("tropical_beach_bush", tropical_beach_bush);
 		register("oak_bush", oak_bush);
 		register("cliff_rocks", cliff_rocks);
+		register("fallen_tree", fallen_tree);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);

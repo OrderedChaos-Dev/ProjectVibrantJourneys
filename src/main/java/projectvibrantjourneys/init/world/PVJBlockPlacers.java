@@ -43,7 +43,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 public class PVJBlockPlacers {
 
 	public static final TrunkPlacerType<SmallRedwoodTrunkPlacer> SMALL_REDWOOD_TRUNK_PLACER = registerTrunkPlacer("small_redwood_trunk_placer", SmallRedwoodTrunkPlacer.CODEC);
-	public static final TrunkPlacerType<RedwoodTrunkPlacer> REDWOOD_TRUNK_PLACER = registerTrunkPlacer("small_redwood_trunk_placer", RedwoodTrunkPlacer.CODEC);
+	public static final TrunkPlacerType<RedwoodTrunkPlacer> REDWOOD_TRUNK_PLACER = registerTrunkPlacer("redwood_trunk_placer", RedwoodTrunkPlacer.CODEC);
 	public static final TrunkPlacerType<MangroveTrunkPlacer> MANGROVE_TRUNK_PLACER = registerTrunkPlacer("mangrove_trunk_placer", MangroveTrunkPlacer.CODEC);
 	public static final TrunkPlacerType<WillowTrunkPlacer> WILLOW_TRUNK_PLACER = registerTrunkPlacer("willow_trunk_placer", WillowTrunkPlacer.CODEC);
 	public static final TrunkPlacerType<PalmTrunkPlacer> PALM_TRUNK_PLACER = registerTrunkPlacer("palm_trunk_placer", PalmTrunkPlacer.CODEC);
