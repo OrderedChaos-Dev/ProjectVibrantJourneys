@@ -14,7 +14,7 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class SlugRenderer extends MobRenderer<SlugEntity, SlugModel<SlugEntity>> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_0.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/slug.png");
 	
 	public SlugRenderer(EntityRendererManager manager) {
 		super(manager, new SlugModel<>(), 0.05F);
