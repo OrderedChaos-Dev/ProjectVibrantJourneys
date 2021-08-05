@@ -59,6 +59,9 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> smallSpiderSpawnWeight;
 	public static ForgeConfigSpec.ConfigValue<Integer> frogSpawnWeight;
 	
+	public static ForgeConfigSpec.ConfigValue<Boolean> enablePalmTrees;
+	public static ForgeConfigSpec.ConfigValue<Boolean> enableJuniperTrees;
+	
 	public static ForgeConfigSpec.ConfigValue<Boolean> overgrown_spires;
 	public static ForgeConfigSpec.ConfigValue<Boolean> verdant_sands;
 	public static ForgeConfigSpec.ConfigValue<Boolean> boreal_forest;
@@ -221,6 +224,11 @@ public class PVJConfig {
 		crystal_lakes_weight = COMMON_BUILDER.define("crystal_lakes_weight", 3);
 		windswept_cliffs_weight = COMMON_BUILDER.define("windswept_cliffs_weight", 3);
 		COMMON_BUILDER.pop(2);
+		
+		COMMON_BUILDER.comment("Tree Settings").push("Tree Settings");
+		enablePalmTrees = COMMON_BUILDER.define("enablePalmTrees", true);
+		enableJuniperTrees = COMMON_BUILDER.define("enableJuniperTrees", true);
+		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.pop();
 		COMMON_CONFIG = COMMON_BUILDER.build();
