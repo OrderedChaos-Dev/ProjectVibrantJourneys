@@ -166,17 +166,17 @@ public class PVJBlocks {
 
 	@SubscribeEvent
 	public static void initBlocks(RegistryEvent.Register<Block> event) {
-		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.DIRT), "twigs", 100);
+		twigs = registerBlockWithFuel(new GroundcoverBlock(Material.DECORATION), "twigs", 100);
 		fallen_leaves = registerBlock(new FallenLeavesBlock(), "fallen_leaves");
-		rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "rocks");
-		mossy_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "mossy_rocks");
-		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "sandstone_rocks");
-		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DIRT), "red_sandstone_rocks");
-		ice_chunks = registerBlock(new GroundcoverBlock(Material.DIRT, SoundType.GLASS), "ice_chunks");
-		bones = registerBlock(new GroundcoverBlock(Material.DIRT), "bones");
-		charred_bones = registerBlock(new GroundcoverBlock(Material.DIRT), "charred_bones");
-		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.DIRT), "pinecones", 100);
-		seashells = registerBlock(new GroundcoverBlock(Material.DIRT), "seashells");
+		rocks = registerBlock(new GroundcoverBlock(Material.DECORATION), "rocks");
+		mossy_rocks = registerBlock(new GroundcoverBlock(Material.DECORATION), "mossy_rocks");
+		sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DECORATION), "sandstone_rocks");
+		red_sandstone_rocks = registerBlock(new GroundcoverBlock(Material.DECORATION), "red_sandstone_rocks");
+		ice_chunks = registerBlock(new GroundcoverBlock(Material.DECORATION, SoundType.GLASS), "ice_chunks");
+		bones = registerBlock(new GroundcoverBlock(Material.DECORATION), "bones");
+		charred_bones = registerBlock(new GroundcoverBlock(Material.DECORATION), "charred_bones");
+		pinecones = registerBlockWithFuel(new GroundcoverBlock(Material.DECORATION), "pinecones", 100);
+		seashells = registerBlock(new GroundcoverBlock(Material.DECORATION), "seashells");
 		
 		aspen_fallen_leaves = registerBlock(new FallenLeavesBlock(), "aspen_fallen_leaves");
 		red_maple_fallen_leaves = registerBlock(new FallenLeavesBlock(), "red_maple_fallen_leaves");
