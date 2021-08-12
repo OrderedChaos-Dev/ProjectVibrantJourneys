@@ -108,6 +108,8 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> crystal_lakes_weight;
 	public static ForgeConfigSpec.ConfigValue<Integer> windswept_cliffs_weight;
 	
+	public static ForgeConfigSpec.ConfigValue<Boolean> windswept_cliffs_particles;
+	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
 	public static ConfigValue<List<String>> groundcoverBlacklist;
 	
@@ -223,6 +225,10 @@ public class PVJConfig {
 		red_rock_valley_weight = COMMON_BUILDER.define("red_rock_valley_weight", 3);
 		crystal_lakes_weight = COMMON_BUILDER.define("crystal_lakes_weight", 3);
 		windswept_cliffs_weight = COMMON_BUILDER.define("windswept_cliffs_weight", 3);
+		COMMON_BUILDER.pop();
+		
+		COMMON_BUILDER.comment("Biome Ambience Settings").push("Biome Ambience");
+		windswept_cliffs_particles = COMMON_BUILDER.define("windswept_cliffs_particles", true);
 		COMMON_BUILDER.pop(2);
 		
 		COMMON_BUILDER.comment("Tree Settings").push("Tree Settings");

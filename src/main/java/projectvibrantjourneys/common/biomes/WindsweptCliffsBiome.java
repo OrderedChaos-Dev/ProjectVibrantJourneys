@@ -12,6 +12,7 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.biome.MoodSoundAmbience;
 import net.minecraft.world.biome.ParticleEffectAmbience;
 import net.minecraft.world.gen.feature.structure.StructureFeatures;
+import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.init.world.PVJConfiguredSurfaceBuilders;
 
 public class WindsweptCliffsBiome {
@@ -44,17 +45,29 @@ public class WindsweptCliffsBiome {
 		DefaultBiomeFeatures.addDefaultSprings(biomeGenBuilder);
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
 
-	      
-		return (new Biome.Builder()).precipitation(RainType.RAIN)
-				.biomeCategory(Biome.Category.TAIGA).depth(2.8F).scale(0.4F).temperature(0.5F)
-				.downfall(0.3F)
-				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
-						.waterFogColor(329011).fogColor(12638463)
-						.ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.05F))
-						.grassColorOverride(0x98d957).foliageColorOverride(0x98d957)
-						.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.25F))
-						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
-				.mobSpawnSettings(mobSpawnInfo.build())
-				.generationSettings(biomeGenBuilder.build()).build();
+		if(PVJConfig.windswept_cliffs_particles.get()) {
+			return (new Biome.Builder()).precipitation(RainType.RAIN)
+					.biomeCategory(Biome.Category.TAIGA).depth(2.8F).scale(0.4F).temperature(0.5F)
+					.downfall(0.3F)
+					.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
+							.waterFogColor(329011).fogColor(12638463)
+							.ambientParticle(new ParticleEffectAmbience(ParticleTypes.WHITE_ASH, 0.05F))
+							.grassColorOverride(0x98d957).foliageColorOverride(0x98d957)
+							.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.25F))
+							.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
+					.mobSpawnSettings(mobSpawnInfo.build())
+					.generationSettings(biomeGenBuilder.build()).build();
+		} else {
+			return (new Biome.Builder()).precipitation(RainType.RAIN)
+					.biomeCategory(Biome.Category.TAIGA).depth(2.8F).scale(0.4F).temperature(0.5F)
+					.downfall(0.3F)
+					.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
+							.waterFogColor(329011).fogColor(12638463)
+							.grassColorOverride(0x98d957).foliageColorOverride(0x98d957)
+							.skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.25F))
+							.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())
+					.mobSpawnSettings(mobSpawnInfo.build())
+					.generationSettings(biomeGenBuilder.build()).build();
+		}
 	}
 }

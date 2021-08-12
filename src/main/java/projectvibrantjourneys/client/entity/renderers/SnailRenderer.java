@@ -14,6 +14,15 @@ import projectvibrantjourneys.core.ProjectVibrantJourneys;
 @OnlyIn(Dist.CLIENT)
 public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEntity>> {
 	
+	private static final ResourceLocation[] SNAIL_TEXTURES = new ResourceLocation[] {
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_0.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_1.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_2.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_3.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_4.png"),
+			new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_5.png")
+};
+	
 	public SnailRenderer(EntityRendererManager manager) {
 		super(manager, new SnailModel<>(), 0.01F);
 	}
@@ -26,6 +35,6 @@ public class SnailRenderer extends MobRenderer<SnailEntity, SnailModel<SnailEnti
 	@Override
 	public ResourceLocation getTextureLocation(SnailEntity entity) {
 		int color = entity.getColor();
-		return new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "textures/entity/snail/snail_" + color + ".png");
+		return SNAIL_TEXTURES[color];
 	}
 }
