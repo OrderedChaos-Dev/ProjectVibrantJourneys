@@ -19,6 +19,7 @@ import net.minecraft.world.gen.feature.TreeFeature;
 import net.minecraft.world.gen.foliageplacer.FoliagePlacer;
 import net.minecraft.world.gen.trunkplacer.AbstractTrunkPlacer;
 import net.minecraft.world.gen.trunkplacer.TrunkPlacerType;
+import projectvibrantjourneys.init.object.PVJBlocks;
 import projectvibrantjourneys.init.world.PVJBlockPlacers;
 
 public class AspenTrunkPlacer extends AbstractTrunkPlacer {
@@ -58,7 +59,7 @@ public class AspenTrunkPlacer extends AbstractTrunkPlacer {
 							for(int j = 0; j < length; j++) {
 								if (TreeFeature.validTreePos(world, branchPos.offset(dir.getNormal()))) {
 									branchPos = branchPos.offset(dir.getNormal()).mutable();
-									setBlock(world, branchPos, Blocks.OAK_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, dir.getAxis()), box);
+									setBlock(world, branchPos, PVJBlocks.aspen_log.defaultBlockState().setValue(RotatedPillarBlock.AXIS, dir.getAxis()), box);
 									blocks.add(branchPos.immutable());
 								}
 								list.add(new FoliagePlacer.Foliage(branchPos, 0, false));
