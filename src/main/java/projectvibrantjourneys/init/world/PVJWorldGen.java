@@ -90,7 +90,7 @@ public class PVJWorldGen {
 					event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.warped_nettle);
 			}
 
-		} else if(event.getCategory() != Biome.Category.THEEND && event.getCategory() != Biome.Category.MUSHROOM) {
+		} else if(hasType(biomeTypes, Type.OVERWORLD) && event.getCategory() != Biome.Category.THEEND && event.getCategory() != Biome.Category.MUSHROOM) {
 			//plants
 			if(hasType(biomeTypes, Type.OCEAN, Type.BEACH) && !hasType(biomeTypes, Type.SNOWY) && PVJConfig.seaOats.get())
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.sea_oats);
