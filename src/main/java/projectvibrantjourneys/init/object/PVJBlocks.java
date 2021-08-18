@@ -505,7 +505,7 @@ public class PVJBlocks {
 		}).strength(2.0F).sound(SoundType.WOOD)) {
 			@Override
 			public BlockState getToolModifiedState(BlockState state, World world, BlockPos pos, PlayerEntity player, ItemStack stack, ToolType toolType) {
-				if(toolType == ToolType.AXE)
+				if(toolType == ToolType.AXE && stripped != null)
 					return stripped.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS));
 				return super.getToolModifiedState(state, world, pos, player, stack, toolType);
 			}
