@@ -303,14 +303,14 @@ public class PVJConfiguredFeatures {
 		pink_sakura_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.pink_sakura_leaves.defaultBlockState()),
-						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+						new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
 						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		
 		white_sakura_tree = Feature.TREE.configured(
 				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(PVJBlocks.sakura_log.defaultBlockState()),
 						new SimpleBlockStateProvider(PVJBlocks.white_sakura_leaves.defaultBlockState()),
-						new FancyFoliagePlacer(FeatureSpread.fixed(3), FeatureSpread.fixed(4), 4),
+						new FancyFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(4), 4),
 						new FancyTrunkPlacer(10, 4, 3), new TwoLayerFeature(0, 0, 0, OptionalInt.of(4)))).ignoreVines()
 								.heightmap(Heightmap.Type.MOTION_BLOCKING).build());
 		

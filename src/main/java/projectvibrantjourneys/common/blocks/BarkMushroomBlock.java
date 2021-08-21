@@ -20,6 +20,7 @@ public class BarkMushroomBlock extends EpiphyteBlock {
 		super(Block.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.WOOD));
 	}
 	
+	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 		switch ((Direction) state.getValue(FACING)) {
 			case NORTH:
