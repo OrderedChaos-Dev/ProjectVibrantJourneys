@@ -468,7 +468,7 @@ public class PVJConfiguredFeatures {
 		
 		crimson_thicket_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-						ImmutableList.of(Features.PINE.weighted(0.05F), Features.SPRUCE.weighted(0.15F), Features.SPRUCE.weighted(0.15F),
+						ImmutableList.of(Features.PINE.weighted(0.05F), Features.SPRUCE.weighted(0.15F),
 								red_maple_tree.weighted(0.25F), purple_maple_tree.weighted(0.25F), fir_tree.weighted(0.1F)), fir_tree))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(9, 0.4F, 1)));
