@@ -2,7 +2,6 @@ package projectvibrantjourneys.core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.spongepowered.asm.mixin.Mixins;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -41,7 +40,6 @@ public class ProjectVibrantJourneys {
 		event.enqueueWork(() ->  {
 			PVJConfiguredFeatures.init();
 		});
-		Mixins.addConfiguration("projectvibrantjourneys.mixins.json");
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {
