@@ -1,7 +1,9 @@
 {
 	"required": true,
+	"minVersion": "0.8",
 	"package": "projectvibrantjourneys.core.mixin",
 	"compatibilityLevel": "JAVA_8",
+	"refmap": "projectvibrantjourneys.refmap.json",
 	"mixins": [
 		"ShoreLayerMixin",
 		"HillsLayerMixin"
