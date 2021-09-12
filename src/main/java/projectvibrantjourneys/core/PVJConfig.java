@@ -111,7 +111,7 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> windswept_cliffs_particles;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> groundcoverChance;
-	public static ConfigValue<List<String>> groundcoverBlacklist;
+	public static ConfigValue<List<? extends String>> groundcoverBlacklist;
 	
 	public static ArrayList<String> groundcoverBlacklistDefault = new ArrayList<String>();
 	
@@ -131,7 +131,7 @@ public class PVJConfig {
 		pinecones = COMMON_BUILDER.define("pinecones", true);
 		seashells = COMMON_BUILDER.define("seashells", true);
 		groundcoverChance = COMMON_BUILDER.comment(" % chance of groundcover placement").defineInRange("groundcoverChance", 100, 0, 100);
-		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist, example: [\"minecraft:plains\", \"minecraft:beach\"]").define("groundcoverBlacklist", groundcoverBlacklistDefault);
+		groundcoverBlacklist = COMMON_BUILDER.comment("Groundcover Biome Blacklist, example: [\"minecraft:plains\", \"minecraft:beach\"]").defineList("groundcoverBlacklist", groundcoverBlacklistDefault, (o) -> true);
 		COMMON_BUILDER.pop();
 		seaOats = COMMON_BUILDER.define("seaOats", true);
 		cattails = COMMON_BUILDER.define("cattails", true);
