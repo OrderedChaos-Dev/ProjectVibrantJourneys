@@ -386,7 +386,6 @@ public class PVJConfiguredFeatures {
 						Features.MEGA_JUNGLE_TREE.weighted(0.3F),
 						Features.DARK_OAK.weighted(0.05F),
 						Features.OAK.weighted(0.15F),
-						palm_tree.weighted(0.05F),
 						Features.JUNGLE_TREE.weighted(0.2F)),
 						Features.JUNGLE_TREE))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)

@@ -130,6 +130,8 @@ public class PVJWorldGen {
 			//PVJ BIOMES
 			if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.overgrown_spires_vegetation);
+				if(PVJConfig.enablePalmTrees.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_palm);
 			} else if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.REDWOOD_PEAKS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.redwood_forest_vegetation);
 			} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST || biome == PVJBiomes.Keys.ALPINE_HEIGHTS) {
@@ -137,13 +139,17 @@ public class PVJWorldGen {
 			} else if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.pine_meadows_vegetation);
 			} else if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
+				if(PVJConfig.beachGrass.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.beach_grass);
+				if(PVJConfig.cattails.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.cattails);
 			} else if(biome == PVJBiomes.Keys.BOREAL_PLATEAU) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.boreal_plateau_vegetation);
 			} else if(biome == PVJBiomes.Keys.ASPEN_GROVE || biome == PVJBiomes.Keys.ASPEN_GROVE_HILLS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.aspen_grove_vegetation);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.autumn_floor_foliage);
+				
+				if(PVJConfig.fallenLeaves.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.autumn_floor_foliage);
 			} else if(biome == PVJBiomes.Keys.MANGROVE_MARSH) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.mangrove_marsh_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.marsh_tall_grass);
@@ -156,7 +162,9 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.prairie_vegetation);
 			} else if(biome == PVJBiomes.Keys.BLOSSOMING_FIELDS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blossoming_fields_vegetation);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.sakura_floor_foliage);
+				
+				if(PVJConfig.fallenLeaves.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.sakura_floor_foliage);
 			} else if(biome == PVJBiomes.Keys.AUTUMNAL_CONIFEROUS_FOREST) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.autumnnal_coniferous_forest_vegetation);
 			} else if(biome == PVJBiomes.Keys.CRIMSON_THICKET) {
@@ -173,7 +181,9 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_shrubland_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blooming_desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
-				vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);
+				
+				if(PVJConfig.enableJuniperTrees.get())
+					vegetalFeatures.add(() -> PVJConfiguredFeatures.vanilla_juniper);
 			} else if (biome == PVJBiomes.Keys.TROPICAL_BEACH) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.tropical_beach_vegetation);
 			} else if (biome == PVJBiomes.Keys.CRYSTAL_LAKES) {
