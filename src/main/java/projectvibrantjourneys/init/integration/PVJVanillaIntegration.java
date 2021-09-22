@@ -1,4 +1,4 @@
-package projectvibrantjourneys.init;
+package projectvibrantjourneys.init.integration;
 
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.util.IItemProvider;
