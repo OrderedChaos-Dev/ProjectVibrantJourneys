@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -17,7 +16,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import projectvibrantjourneys.client.block.BlockRendering;
 import projectvibrantjourneys.client.entity.EntityRendering;
 import projectvibrantjourneys.init.PVJEvents;
-import projectvibrantjourneys.init.integration.DietIntegration;
 import projectvibrantjourneys.init.integration.PVJVanillaIntegration;
 import projectvibrantjourneys.init.world.PVJConfiguredFeatures;
 
@@ -47,8 +45,7 @@ public class ProjectVibrantJourneys {
 	}
 	
 	private void intermodEnqueue(InterModEnqueueEvent event) {
-		if(ModList.get().isLoaded("diet"))
-			DietIntegration.init();
+
 	}
 	
 	private void clientSetup(FMLClientSetupEvent event) {
