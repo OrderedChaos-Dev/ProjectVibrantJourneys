@@ -135,6 +135,8 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> tropical_beach_bush;
 	public static ConfiguredFeature<?, ?> oak_bush;
 	public static ConfiguredFeature<?, ?> cliff_rocks;
+	public static ConfiguredFeature<?, ?> boulder;
+	public static ConfiguredFeature<?, ?> stone_spike;
 
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> mega_redwood_tree;
 	public static ConfiguredFeature<BaseTreeFeatureConfig, ?> redwood_tree;
@@ -180,8 +182,13 @@ public class PVJConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> tropical_beach_vegetation;
 	public static ConfiguredFeature<?, ?> crystal_lakes_vegetation;
 	public static ConfiguredFeature<?, ?> windswept_cliffs_vegetation;
+	public static ConfiguredFeature<?, ?> meadows_vegetation;
+	public static ConfiguredFeature<?, ?> flooded_forest_extra_vegetation;
 	
 	public static ConfiguredFeature<?, ?> marsh_tall_grass;
+	public static ConfiguredFeature<?, ?> lots_of_grass;
+	public static ConfiguredFeature<?, ?> flooded_oak_tree;
+	public static ConfiguredFeature<?, ?> flooded_birch_tree;
 	
 	public static ConfiguredFeature<?, ?> autumn_floor_foliage;
 	public static ConfiguredFeature<?, ?> sakura_floor_foliage;
@@ -228,9 +235,11 @@ public class PVJConfiguredFeatures {
 		oak_bush = PVJFeatures.sandTree.configured((new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()), new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()), new BushFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(1), 2), new StraightTrunkPlacer(1, 0, 0), new TwoLayerFeature(0, 0, 0))).heightmap(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES).build());
 		
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.05F, 1)));
-		
+
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
+		boulder = PVJFeatures.boulder.configured(new BlockStateFeatureConfig(Blocks.STONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(6);
 		cliff_rocks = PVJFeatures.cliffRock.configured(new ProbabilityConfig(0.5F)).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
+		stone_spike = PVJFeatures.spike.configured(new BlockStateFeatureConfig(Blocks.STONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
 		
 		mega_redwood_tree = Feature.TREE.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.redwood_log.defaultBlockState()),
@@ -372,6 +381,17 @@ public class PVJConfiguredFeatures {
 		
 		tamarack_tree_bees002 = Feature.TREE.configured(tamarack_tree.config().withDecorators(ImmutableList.of(Features.Placements.BEEHIVE_002)));
 		
+		flooded_oak_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.OAK_LEAVES.defaultBlockState()),
+						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+						new StraightTrunkPlacer(4, 2, 0), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(2).ignoreVines().build());
+		flooded_birch_tree = Feature.TREE.configured(
+				(new BaseTreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BIRCH_LOG.defaultBlockState()),
+						new SimpleBlockStateProvider(Blocks.BIRCH_LEAVES.defaultBlockState()),
+						new BlobFoliagePlacer(FeatureSpread.fixed(2), FeatureSpread.fixed(0), 3),
+						new StraightTrunkPlacer(5, 2, 0), new TwoLayerFeature(1, 0, 1))).maxWaterDepth(2).ignoreVines().build());
+		
 		joshua_tree = PVJFeatures.juniperTree.configured((new BaseTreeFeatureConfig.Builder(
 				new SimpleBlockStateProvider(PVJBlocks.joshua_log.defaultBlockState()),
 				new SimpleBlockStateProvider(PVJBlocks.joshua_leaves.defaultBlockState()),
@@ -408,7 +428,7 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(pine_tree.weighted(0.4F),
 						Features.OAK.weighted(0.2F), Features.OAK_BEES_0002.weighted(0.15F)), oak_bush))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
-				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.2F, 2)));
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(2, 0.1F, 2)));
 		
 		boreal_plateau_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -494,6 +514,20 @@ public class PVJConfiguredFeatures {
 				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(Features.OAK.weighted(0.6F)), oak_bush))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.4F, 2)));
+		
+		meadows_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(
+								ImmutableList.of(Features.OAK.weighted(0.6F), Features.OAK_BEES_005.weighted(0.02F),
+										Features.BIRCH.weighted(0.3F), Features.BIRCH_BEES_002.weighted(0.02F)),
+								oak_bush))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.7F, 2)));
+		
+		flooded_forest_extra_vegetation = Feature.RANDOM_SELECTOR
+				.configured(new MultipleRandomFeatureConfig(ImmutableList.of(flooded_oak_tree.weighted(0.6F),
+						flooded_birch_tree.weighted(0.2F)), flooded_birch_tree))
+				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
+				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(5, 0.4F, 2)));
 
 		vanilla_juniper = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
@@ -508,6 +542,7 @@ public class PVJConfiguredFeatures {
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.1F, 1)));
 		
 		marsh_tall_grass = Features.PATCH_TALL_GRASS.count(30);
+		lots_of_grass = Features.PATCH_GRASS_PLAIN.count(2);
 
 		register("sea_oats", sea_oats);
 		register("cattails", cattails);
@@ -539,6 +574,8 @@ public class PVJConfiguredFeatures {
 		register("oak_bush", oak_bush);
 		register("cliff_rocks", cliff_rocks);
 		register("fallen_tree", fallen_tree);
+		register("boulder", boulder);
+		register("stone_spike", stone_spike);
 		
 		register("short_grass", short_grass);
 		register("beach_grass", beach_grass);
@@ -589,11 +626,16 @@ public class PVJConfiguredFeatures {
 		register("tropical_beach_vegetation", tropical_beach_vegetation);
 		register("crystal_lakes_vegetation", crystal_lakes_vegetation);
 		register("windswept_cliffs_vegetation", windswept_cliffs_vegetation);
+		register("meadows_vegetation", meadows_vegetation);
+		register("flooded_forest_extra_vegetation", flooded_forest_extra_vegetation);
 		
 		register("vanilla_juniper", vanilla_juniper);
 		register("vanilla_palm", vanilla_palm);
 		
 		register("marsh_tall_grass", marsh_tall_grass);
+		register("lots_of_grass", lots_of_grass);
+		register("flooded_oak_tree", flooded_oak_tree);
+		register("flooded_birch_tree", flooded_birch_tree);
 	}
 
 	private static BlockClusterFeatureConfig makeFeatureConfig(BlockStateProvider provider, BlockPlacer placer, int tries) {

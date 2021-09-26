@@ -84,6 +84,9 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Boolean> red_rock_valley;
 	public static ForgeConfigSpec.ConfigValue<Boolean> crystal_lakes;
 	public static ForgeConfigSpec.ConfigValue<Boolean> windswept_cliffs;
+	public static ForgeConfigSpec.ConfigValue<Boolean> meadows;
+	public static ForgeConfigSpec.ConfigValue<Boolean> flooded_woodlands;
+	public static ForgeConfigSpec.ConfigValue<Boolean> stony_fields;
 	
 	public static ForgeConfigSpec.ConfigValue<Integer> overgrown_spires_weight;
 	public static ForgeConfigSpec.ConfigValue<Integer> verdant_sands_weight;
@@ -107,6 +110,9 @@ public class PVJConfig {
 	public static ForgeConfigSpec.ConfigValue<Integer> red_rock_valley_weight;
 	public static ForgeConfigSpec.ConfigValue<Integer> crystal_lakes_weight;
 	public static ForgeConfigSpec.ConfigValue<Integer> windswept_cliffs_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> meadows_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> flooded_woodlands_weight;
+	public static ForgeConfigSpec.ConfigValue<Integer> stony_fields_weight;
 	
 	public static ForgeConfigSpec.ConfigValue<Boolean> windswept_cliffs_particles;
 	
@@ -201,6 +207,9 @@ public class PVJConfig {
 		red_rock_valley = COMMON_BUILDER.define("red_rock_valley", true);
 		crystal_lakes = COMMON_BUILDER.define("crystal_lakes", true);
 		windswept_cliffs = COMMON_BUILDER.define("windswept_cliffs", true);
+		meadows = COMMON_BUILDER.define("meadows", true);
+		flooded_woodlands = COMMON_BUILDER.define("flooded_woodlands", true);
+		stony_fields = COMMON_BUILDER.define("stony_fields", true);
 		
 		COMMON_BUILDER.comment("Biome Weights").push("Biome Weights");
 		overgrown_spires_weight = COMMON_BUILDER.define("overgrown_spires_weight", 3);
@@ -225,6 +234,9 @@ public class PVJConfig {
 		red_rock_valley_weight = COMMON_BUILDER.define("red_rock_valley_weight", 3);
 		crystal_lakes_weight = COMMON_BUILDER.define("crystal_lakes_weight", 3);
 		windswept_cliffs_weight = COMMON_BUILDER.define("windswept_cliffs_weight", 3);
+		meadows_weight = COMMON_BUILDER.define("meadows_weight", 3);
+		flooded_woodlands_weight = COMMON_BUILDER.define("flooded_woodlands_weight", 3);
+		stony_fields_weight = COMMON_BUILDER.define("stony_fields_weight", 3);
 		COMMON_BUILDER.pop();
 		
 		COMMON_BUILDER.comment("Biome Ambience Settings").push("Biome Ambience");

@@ -74,7 +74,6 @@ public class PVJWorldGen {
 			}
 		}
 		
-		
 		if(event.getCategory() == Biome.Category.NETHER) {
 			if(PVJConfig.glowcap.get())
 				event.getGeneration().getFeatures(GenerationStage.Decoration.UNDERGROUND_DECORATION).add(() -> PVJConfiguredFeatures.glowcap);
@@ -177,7 +176,7 @@ public class PVJWorldGen {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_sage);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blooming_desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
-			} else if (biome == PVJBiomes.Keys.RED_ROCK_VALLEY_BIOME) {
+			} else if (biome == PVJBiomes.Keys.RED_ROCK_VALLEY) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_shrubland_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.blooming_desert_agave);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.desert_agave);
@@ -191,6 +190,14 @@ public class PVJWorldGen {
 			} else if (biome == PVJBiomes.Keys.WINDSWEPT_CLIFFS) {
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.windswept_cliffs_vegetation);
 				vegetalFeatures.add(() -> PVJConfiguredFeatures.cliff_rocks);
+			} else if (biome == PVJBiomes.Keys.MEADOWS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.lots_of_grass);
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.meadows_vegetation);
+			} else if (biome == PVJBiomes.Keys.FLOODED_WOODLANDS) {
+				vegetalFeatures.add(() -> PVJConfiguredFeatures.flooded_forest_extra_vegetation);
+			} else if (biome == PVJBiomes.Keys.STONY_FIELDS) {
+				event.getGeneration().getFeatures(Decoration.LOCAL_MODIFICATIONS).add(() -> PVJConfiguredFeatures.boulder);
+				event.getGeneration().getFeatures(Decoration.LOCAL_MODIFICATIONS).add(() -> PVJConfiguredFeatures.stone_spike);
 			}
 			
 			//PVJ TREES --> VANILLA BIOMES

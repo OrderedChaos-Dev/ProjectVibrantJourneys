@@ -5,16 +5,15 @@ import java.util.Random;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.SandBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ISeedReader;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 
-public class SandBlockBlobFeature extends Feature<BlockStateFeatureConfig> {
+public class BoulderFeature extends Feature<BlockStateFeatureConfig> {
 	
-	   public SandBlockBlobFeature(Codec<BlockStateFeatureConfig> config) {
+	   public BoulderFeature(Codec<BlockStateFeatureConfig> config) {
 	      super(config);
 	   }
 
@@ -27,7 +26,7 @@ public class SandBlockBlobFeature extends Feature<BlockStateFeatureConfig> {
 	               }
 
 	               Block block = world.getBlockState(pos.below()).getBlock();
-	               if (!(block instanceof SandBlock)) {
+	               if (!isDirt(block) && !isStone(block)) {
 	                  break label46;
 	               }
 	            }
@@ -37,9 +36,9 @@ public class SandBlockBlobFeature extends Feature<BlockStateFeatureConfig> {
 	            }
 
 	            for(int l = 0; l < 4; ++l) {
-	               int i = rand.nextInt(3);
-	               int j = rand.nextInt(3);
-	               int k = rand.nextInt(3);
+	               int i = rand.nextInt(4);
+	               int j = rand.nextInt(4);
+	               int k = rand.nextInt(4);
 	               float f = (float)(i + j + k) * 0.333F + 0.5F;
 
 	               for(BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-i, -j, -k), pos.offset(i, j, k))) {

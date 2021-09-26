@@ -7,9 +7,10 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.registries.ForgeRegistries;
 import projectvibrantjourneys.common.world.surfacebuilders.AlpineHeightsSurfaceBuilder;
-import projectvibrantjourneys.common.world.surfacebuilders.PineMeadowsSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.RedRockValleySurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.RedwoodsSurfaceBuilder;
+import projectvibrantjourneys.common.world.surfacebuilders.ScatteredNoiseStripSurfaceBuilder;
+import projectvibrantjourneys.common.world.surfacebuilders.StonyFieldsSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.VerdantSandsSurfaceBuilder;
 import projectvibrantjourneys.common.world.surfacebuilders.WindsweptCliffsSurfaceBuilder;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
@@ -26,8 +27,9 @@ public class PVJSurfaceBuilders {
 	public static final SurfaceBuilder<SurfaceBuilderConfig> REDWOODS = register("redwoods", new RedwoodsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> ALPINE_HEIGHTS = register("alpine_heights", new AlpineHeightsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> RED_ROCK_VALLEY = register("red_rock_valley", new RedRockValleySurfaceBuilder(SurfaceBuilderConfig.CODEC));
-	public static final SurfaceBuilder<SurfaceBuilderConfig> PINE_MEADOWS = register("pine_meadows", new PineMeadowsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+	public static final SurfaceBuilder<SurfaceBuilderConfig> SCATTERED_NOISE_STRIP = register("pine_meadows", new ScatteredNoiseStripSurfaceBuilder(SurfaceBuilderConfig.CODEC));
 	public static final SurfaceBuilder<SurfaceBuilderConfig> WINDSWEPT_CLIFFS = register("windswept_cliffs", new WindsweptCliffsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
+	public static final SurfaceBuilder<SurfaceBuilderConfig> STONY_FIELDS = register("stony_fields", new StonyFieldsSurfaceBuilder(SurfaceBuilderConfig.CODEC));
 	
 	public static <C extends ISurfaceBuilderConfig, F extends SurfaceBuilder<C>> F register(String name, F builder) {
 		builder.setRegistryName(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name));

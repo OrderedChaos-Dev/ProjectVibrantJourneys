@@ -11,24 +11,30 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import projectvibrantjourneys.init.world.PVJSurfaceBuilders;
 
-public class PineMeadowsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
-	public PineMeadowsSurfaceBuilder(Codec<SurfaceBuilderConfig> CODEC) {
+public class StonyFieldsSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConfig> {
+	public StonyFieldsSurfaceBuilder(Codec<SurfaceBuilderConfig> CODEC) {
 		super(CODEC);
 	}
 
 	@Override
 	public void apply(Random rand, IChunk chunk, Biome biome, int x, int z, int startHeight, double noise,
 			BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-		if (noise > 1.75D) {
+		float f = rand.nextFloat();
+		if(f >= 0.85F) {
+			SurfaceBuilder.DEFAULT.apply(rand, chunk, biome, x, z, startHeight, noise, defaultBlock,
+					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_STONE);
+		} else if (f >= 0.70F) {
+			SurfaceBuilder.DEFAULT.apply(rand, chunk, biome, x, z, startHeight, noise, defaultBlock,
+					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRAVEL);
+		} else if (f >= 0.55F) {
 			SurfaceBuilder.DEFAULT.apply(rand, chunk, biome, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
-		} else if (noise <= 1.75D && noise > 0.2D && rand.nextBoolean()) {
+		} else if (f >= 0.4F) {
 			SurfaceBuilder.DEFAULT.apply(rand, chunk, biome, x, z, startHeight, noise, defaultBlock,
-					defaultFluid, seaLevel, seed, PVJSurfaceBuilders.CONFIG_DIORITE);
+					defaultFluid, seaLevel, seed, PVJSurfaceBuilders.CONFIG_ANDESITE);
 		} else {
 			SurfaceBuilder.DEFAULT.apply(rand, chunk, biome, x, z, startHeight, noise, defaultBlock,
 					defaultFluid, seaLevel, seed, SurfaceBuilder.CONFIG_GRASS);
 		}
-
 	}
 }

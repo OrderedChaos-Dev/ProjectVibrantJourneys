@@ -29,13 +29,16 @@ import projectvibrantjourneys.common.biomes.BorealPlateauBiome;
 import projectvibrantjourneys.common.biomes.CrimsonThicketBiome;
 import projectvibrantjourneys.common.biomes.CrystalLakesBiome;
 import projectvibrantjourneys.common.biomes.DesertShrublandBiome;
+import projectvibrantjourneys.common.biomes.FloodedWoodlandsBiome;
 import projectvibrantjourneys.common.biomes.GravelShoreBiome;
 import projectvibrantjourneys.common.biomes.MangroveMarshBiome;
+import projectvibrantjourneys.common.biomes.MeadowsBiome;
 import projectvibrantjourneys.common.biomes.OvergrownSpiresBiome;
 import projectvibrantjourneys.common.biomes.PineMeadowsBiome;
 import projectvibrantjourneys.common.biomes.PrairieBiome;
 import projectvibrantjourneys.common.biomes.RedRockValleyBiome;
 import projectvibrantjourneys.common.biomes.RedwoodsBiome;
+import projectvibrantjourneys.common.biomes.StonyFieldsBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiome;
 import projectvibrantjourneys.common.biomes.WindsweptCliffsBiome;
@@ -75,7 +78,12 @@ public class PVJBiomes {
 	public static Biome tropical_beach = register(BiomeMaker.beachBiome(0.0F, 0.025F, 1.4F, 0.8F, 4159204, false, false), "tropical_beach");
 	public static Biome crystal_lakes = register(CrystalLakesBiome.makeCrystalLakesBiome(), "crystal_lakes");
 	public static Biome windswept_cliffs = register(WindsweptCliffsBiome.makeWindsweptCliffsBiome(), "windswept_cliffs");
-	//flooded woodlands
+	public static Biome meadows = register(MeadowsBiome.makeMeadowsBiome(), "meadows");
+	public static Biome flooded_woodlands = register(FloodedWoodlandsBiome.makeFloodedWoodlandsBiome(), "flooded_woodlands");
+	public static Biome stony_fields = register(StonyFieldsBiome.makeStonyFieldsBiome(), "stony_fields");
+
+	//mountainside, taiga mountains, red rock forest (rivers), autumn forest, snowy maple, hot springs
+	//inland sea, inland shore, snowcapped peaks (ice spikes on mountain, always snowing)
 	
 	public static class Keys {
 		public static final RegistryKey<Biome> OVERGROWN_SPIRES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "overgrown_spires"));
@@ -99,10 +107,13 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> GRAVEL_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "gravel_shore"));
 		public static final RegistryKey<Biome> CRIMSON_THICKET = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crimson_thicket"));
 		public static final RegistryKey<Biome> DESERT_SHRUBLAND = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "desert_shrubland"));
-		public static final RegistryKey<Biome> RED_ROCK_VALLEY_BIOME = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
+		public static final RegistryKey<Biome> RED_ROCK_VALLEY = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "red_rock_valley"));
 		public static final RegistryKey<Biome> TROPICAL_BEACH = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "tropical_beach"));
 		public static final RegistryKey<Biome> CRYSTAL_LAKES = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "crystal_lakes"));
 		public static final RegistryKey<Biome> WINDSWEPT_CLIFFS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "windswept_cliffs"));
+		public static final RegistryKey<Biome> MEADOWS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "meadows"));
+		public static final RegistryKey<Biome> FLOODED_WOODLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "flooded_woodlands"));
+		public static final RegistryKey<Biome> STONY_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "stony_fields"));
 	}
 	
 	@SubscribeEvent
@@ -160,11 +171,17 @@ public class PVJBiomes {
 		if(PVJConfig.desert_shrubland.get())
 			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.DESERT_SHRUBLAND, PVJConfig.desert_shrubland_weight.get()));
 		if(PVJConfig.red_rock_valley.get())
-			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.RED_ROCK_VALLEY_BIOME, PVJConfig.red_rock_valley_weight.get()));
+			BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(Keys.RED_ROCK_VALLEY, PVJConfig.red_rock_valley_weight.get()));
 		if(PVJConfig.crystal_lakes.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.CRYSTAL_LAKES, PVJConfig.crystal_lakes_weight.get()));
 		if(PVJConfig.windswept_cliffs.get())
 			BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(Keys.WINDSWEPT_CLIFFS, PVJConfig.windswept_cliffs_weight.get()));
+		if(PVJConfig.meadows.get())
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.MEADOWS, PVJConfig.meadows_weight.get()));
+		if(PVJConfig.flooded_woodlands.get())
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.FLOODED_WOODLANDS, PVJConfig.flooded_woodlands_weight.get()));
+		if(PVJConfig.stony_fields.get())
+			BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(Keys.STONY_FIELDS, PVJConfig.stony_fields_weight.get()));
 	}
 	
 	public static void addTypes() {
@@ -189,10 +206,13 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.AUTUMNAL_CONIFEROUS_FOREST, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.GRAVEL_SHORE, Type.BEACH, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.DESERT_SHRUBLAND, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
-		BiomeDictionary.addTypes(Keys.RED_ROCK_VALLEY_BIOME, Type.LUSH, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.RED_ROCK_VALLEY, Type.LUSH, Type.HOT, Type.SANDY, Type.DRY, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.TROPICAL_BEACH, Type.BEACH, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.CRYSTAL_LAKES, Type.FOREST, Type.CONIFEROUS, Type.COLD, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.WINDSWEPT_CLIFFS, Type.MOUNTAIN, Type.COLD, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.MEADOWS, Type.PLAINS, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.FLOODED_WOODLANDS, Type.FOREST, Type.WET, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.STONY_FIELDS, Type.PLAINS, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {
@@ -205,9 +225,10 @@ public class PVJBiomes {
 		mapShoreBiome(Keys.MANGROVE_MARSH, Keys.MANGROVE_MARSH);
 		mapShoreBiome(Keys.WILLOW_WETLANDS, Keys.WILLOW_WETLANDS);
 		mapShoreBiome(Keys.AUTUMNAL_CONIFEROUS_FOREST, Keys.GRAVEL_SHORE);
-		mapShoreBiome(Keys.RED_ROCK_VALLEY_BIOME, Biomes.BADLANDS);
+		mapShoreBiome(Keys.RED_ROCK_VALLEY, Biomes.BADLANDS);
 		mapShoreBiome(Keys.OVERGROWN_SPIRES, Keys.TROPICAL_BEACH);
 		mapShoreBiome(Keys.WINDSWEPT_CLIFFS, Biomes.STONE_SHORE);
+		mapShoreBiome(Keys.FLOODED_WOODLANDS, Keys.FLOODED_WOODLANDS);
 		
 		//HILLS
 		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);

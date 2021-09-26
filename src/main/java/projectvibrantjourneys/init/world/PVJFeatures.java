@@ -13,6 +13,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import projectvibrantjourneys.common.world.features.BarkMushroomFeature;
+import projectvibrantjourneys.common.world.features.BoulderFeature;
 import projectvibrantjourneys.common.world.features.BushFeature;
 import projectvibrantjourneys.common.world.features.CliffRockFeature;
 import projectvibrantjourneys.common.world.features.CobwebFeature;
@@ -22,6 +23,7 @@ import projectvibrantjourneys.common.world.features.OceanFloorSeashellsFeature;
 import projectvibrantjourneys.common.world.features.SandBlockBlobFeature;
 import projectvibrantjourneys.common.world.features.SandTreeFeature;
 import projectvibrantjourneys.common.world.features.SnowMountainTreeFeature;
+import projectvibrantjourneys.common.world.features.SpikeFeature;
 import projectvibrantjourneys.common.world.features.WaterCattailFeature;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -39,6 +41,8 @@ public class PVJFeatures {
 	public static Feature<BaseTreeFeatureConfig> sandTree;
 	public static Feature<BaseTreeFeatureConfig> juniperTree;
 	public static Feature<BlockStateFeatureConfig> sandRock;
+	public static Feature<BlockStateFeatureConfig> boulder;
+	public static Feature<BlockStateFeatureConfig> spike;
 	public static Feature<ProbabilityConfig> cliffRock;
 	
 	@SubscribeEvent
@@ -53,6 +57,8 @@ public class PVJFeatures {
 		sandTree = registerFeature(new SandTreeFeature(BaseTreeFeatureConfig.CODEC), "sand_tree");
 		juniperTree = registerFeature(new JuniperTreeFeature(BaseTreeFeatureConfig.CODEC), "juniper_tree");
 		sandRock = registerFeature(new SandBlockBlobFeature(BlockStateFeatureConfig.CODEC), "sand_rock");
+		boulder = registerFeature(new BoulderFeature(BlockStateFeatureConfig.CODEC), "boulder");
+		spike = registerFeature(new SpikeFeature(BlockStateFeatureConfig.CODEC), "spike");
 		cliffRock = registerFeature(new CliffRockFeature(ProbabilityConfig.CODEC), "cliff_rock");
 		
 		FEATURES.forEach((feature) -> event.getRegistry().register(feature));
