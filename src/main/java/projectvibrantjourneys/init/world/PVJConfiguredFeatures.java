@@ -517,8 +517,9 @@ public class PVJConfiguredFeatures {
 		
 		meadows_vegetation = Feature.RANDOM_SELECTOR
 				.configured(new MultipleRandomFeatureConfig(
-								ImmutableList.of(Features.OAK.weighted(0.6F), Features.OAK_BEES_005.weighted(0.02F),
-										Features.BIRCH.weighted(0.3F), Features.BIRCH_BEES_002.weighted(0.02F)),
+								ImmutableList.of(Features.OAK.weighted(0.5F), Features.OAK_BEES_005.weighted(0.02F),
+										Features.BIRCH.weighted(0.2F), Features.BIRCH_BEES_002.weighted(0.02F),
+										Features.FANCY_OAK.weighted(0.05F), Features.BIRCH_TALL.weighted(0.1F)),
 								oak_bush))
 				.decorated(Features.Placements.HEIGHTMAP_SQUARE)
 				.decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(1, 0.7F, 2)));

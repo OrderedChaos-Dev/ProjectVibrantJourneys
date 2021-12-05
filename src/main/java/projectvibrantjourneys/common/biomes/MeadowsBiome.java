@@ -41,7 +41,7 @@ public class MeadowsBiome {
 		DefaultBiomeFeatures.addSurfaceFreezing(biomeGenBuilder);
 		return (new Biome.Builder()).precipitation(Biome.RainType.RAIN).biomeCategory(Biome.Category.PLAINS).depth(0.04F)
 				.scale(0.05F).temperature(0.65F).downfall(0.85F)
-				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(0x59d923)
+				.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204).waterFogColor(329011).grassColorOverride(0x97ff6b)
 						.foliageColorOverride(0x59d923)
 						.fogColor(12638463).skyColor(BiomeUtils.getSkyColorWithTemperatureModifier(0.8F))
 						.ambientMoodSound(MoodSoundAmbience.LEGACY_CAVE_SETTINGS).build())

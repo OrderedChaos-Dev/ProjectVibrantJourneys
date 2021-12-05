@@ -233,6 +233,7 @@ public class PVJBiomes {
 		mapShoreBiome(Keys.OVERGROWN_SPIRES, Keys.TROPICAL_BEACH);
 		mapShoreBiome(Keys.FLOODED_WOODLANDS, Keys.FLOODED_WOODLANDS);
 		mapShoreBiome(Keys.WINDSWEPT_CLIFFS, Keys.WINDSWEPT_SHORE);
+		mapShoreBiome(Keys.STONY_FIELDS, Keys.GRAVEL_SHORE);
 		
 		//HILLS
 		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);
