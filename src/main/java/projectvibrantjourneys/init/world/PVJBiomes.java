@@ -42,6 +42,7 @@ import projectvibrantjourneys.common.biomes.StonyFieldsBiome;
 import projectvibrantjourneys.common.biomes.VerdantSandsBiome;
 import projectvibrantjourneys.common.biomes.WillowWetlandsBiome;
 import projectvibrantjourneys.common.biomes.WindsweptCliffsBiome;
+import projectvibrantjourneys.common.biomes.WindsweptShoreBiome;
 import projectvibrantjourneys.core.PVJConfig;
 import projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -81,6 +82,7 @@ public class PVJBiomes {
 	public static Biome meadows = register(MeadowsBiome.makeMeadowsBiome(), "meadows");
 	public static Biome flooded_woodlands = register(FloodedWoodlandsBiome.makeFloodedWoodlandsBiome(), "flooded_woodlands");
 	public static Biome stony_fields = register(StonyFieldsBiome.makeStonyFieldsBiome(), "stony_fields");
+	public static Biome windswept_shore = register(WindsweptShoreBiome.makeWindsweptShoreBiome(), "windswept_shore");
 
 	//mountainside, taiga mountains, red rock forest (rivers), autumn forest, snowy maple, hot springs
 	//inland sea, inland shore, snowcapped peaks (ice spikes on mountain, always snowing)
@@ -114,6 +116,7 @@ public class PVJBiomes {
 		public static final RegistryKey<Biome> MEADOWS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "meadows"));
 		public static final RegistryKey<Biome> FLOODED_WOODLANDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "flooded_woodlands"));
 		public static final RegistryKey<Biome> STONY_FIELDS = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "stony_fields"));
+		public static final RegistryKey<Biome> WINDSWEPT_SHORE = RegistryKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "windswept_shore"));
 	}
 	
 	@SubscribeEvent
@@ -213,6 +216,7 @@ public class PVJBiomes {
 		BiomeDictionary.addTypes(Keys.MEADOWS, Type.PLAINS, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.FLOODED_WOODLANDS, Type.FOREST, Type.WET, Type.OVERWORLD);
 		BiomeDictionary.addTypes(Keys.STONY_FIELDS, Type.PLAINS, Type.OVERWORLD);
+		BiomeDictionary.addTypes(Keys.WINDSWEPT_SHORE, Type.BEACH, Type.OVERWORLD);
 	}
 	
 	public static void mapBiomesForMixins() {
@@ -227,8 +231,8 @@ public class PVJBiomes {
 		mapShoreBiome(Keys.AUTUMNAL_CONIFEROUS_FOREST, Keys.GRAVEL_SHORE);
 		mapShoreBiome(Keys.RED_ROCK_VALLEY, Biomes.BADLANDS);
 		mapShoreBiome(Keys.OVERGROWN_SPIRES, Keys.TROPICAL_BEACH);
-		mapShoreBiome(Keys.WINDSWEPT_CLIFFS, Biomes.STONE_SHORE);
 		mapShoreBiome(Keys.FLOODED_WOODLANDS, Keys.FLOODED_WOODLANDS);
+		mapShoreBiome(Keys.WINDSWEPT_CLIFFS, Keys.WINDSWEPT_SHORE);
 		
 		//HILLS
 		mapHillsBiome(Keys.ASPEN_GROVE, Keys.ASPEN_GROVE_HILLS);

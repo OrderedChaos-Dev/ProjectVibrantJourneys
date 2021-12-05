@@ -237,7 +237,7 @@ public class PVJConfiguredFeatures {
 		fallen_tree = PVJFeatures.fallenTreeFeature.configured(NoFeatureConfig.NONE).decorated(Placements.TOP_SOLID_HEIGHTMAP).decorated(Placement.COUNT_EXTRA.configured(new AtSurfaceWithExtraConfig(0, 0.05F, 1)));
 
 		desert_rock = PVJFeatures.sandRock.configured(new BlockStateFeatureConfig(Blocks.SANDSTONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
-		boulder = PVJFeatures.boulder.configured(new BlockStateFeatureConfig(Blocks.STONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(6);
+		boulder = PVJFeatures.boulder.configured(new BlockStateFeatureConfig(Blocks.STONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(4);
 		cliff_rocks = PVJFeatures.cliffRock.configured(new ProbabilityConfig(0.5F)).decorated(Features.Placements.HEIGHTMAP_DOUBLE_SQUARE).count(2);
 		stone_spike = PVJFeatures.spike.configured(new BlockStateFeatureConfig(Blocks.STONE.defaultBlockState())).decorated(Features.Placements.HEIGHTMAP_SQUARE).countRandom(2);
 		

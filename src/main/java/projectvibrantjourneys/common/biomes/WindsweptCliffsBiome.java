@@ -47,7 +47,7 @@ public class WindsweptCliffsBiome {
 
 		if(PVJConfig.windswept_cliffs_particles.get()) {
 			return (new Biome.Builder()).precipitation(RainType.RAIN)
-					.biomeCategory(Biome.Category.TAIGA).depth(2.8F).scale(0.4F).temperature(0.5F)
+					.biomeCategory(Biome.Category.EXTREME_HILLS).depth(2.8F).scale(0.4F).temperature(0.5F)
 					.downfall(0.3F)
 					.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
 							.waterFogColor(329011).fogColor(12638463)
@@ -59,7 +59,7 @@ public class WindsweptCliffsBiome {
 					.generationSettings(biomeGenBuilder.build()).build();
 		} else {
 			return (new Biome.Builder()).precipitation(RainType.RAIN)
-					.biomeCategory(Biome.Category.TAIGA).depth(2.8F).scale(0.4F).temperature(0.5F)
+					.biomeCategory(Biome.Category.EXTREME_HILLS).depth(2.8F).scale(0.4F).temperature(0.5F)
 					.downfall(0.3F)
 					.specialEffects((new BiomeAmbience.Builder()).waterColor(4159204)
 							.waterFogColor(329011).fogColor(12638463)
