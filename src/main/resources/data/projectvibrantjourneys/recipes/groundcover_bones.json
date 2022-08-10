@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "bones",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:bones"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bone",
+    "count": 1
+  }
+}

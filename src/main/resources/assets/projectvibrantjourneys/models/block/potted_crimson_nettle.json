@@ -1,0 +1,7 @@
+{
+    "parent": "block/flower_pot_cross",
+    "textures": {
+        "plant": "projectvibrantjourneys:block/crimson_nettle",
+        "dirt": "block/crimson_nylium"
+    }
+}

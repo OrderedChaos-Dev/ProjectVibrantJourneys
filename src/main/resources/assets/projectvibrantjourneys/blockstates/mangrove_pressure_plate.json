@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "projectvibrantjourneys:block/mangrove_pressure_plate" },
+        "powered=true": { "model": "projectvibrantjourneys:block/mangrove_pressure_plate_down" }
+    }
+}

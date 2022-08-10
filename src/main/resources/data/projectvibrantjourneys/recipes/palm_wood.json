@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:palm_log"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:palm_wood",
+    "count": 3
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+  	" # ",
+  	"#N#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:glowcap"
+    },
+    "N": {
+    	"item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "minecraft:shroomlight"
+  }
+}

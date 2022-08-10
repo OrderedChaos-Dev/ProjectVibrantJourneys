@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_leaves",
+	"projectvibrantjourneys:pine_leaves",
+	"projectvibrantjourneys:palm_leaves",
+	"projectvibrantjourneys:willow_leaves",
+	"projectvibrantjourneys:mangrove_leaves",
+	"projectvibrantjourneys:redwood_leaves",
+	"projectvibrantjourneys:baobab_leaves",
+	"projectvibrantjourneys:aspen_leaves",
+	"projectvibrantjourneys:red_maple_leaves",
+	"projectvibrantjourneys:orange_maple_leaves",
+	"projectvibrantjourneys:purple_maple_leaves",
+	"projectvibrantjourneys:cottonwood_leaves",
+	"projectvibrantjourneys:juniper_leaves",
+	"projectvibrantjourneys:berried_juniper_leaves",
+	"projectvibrantjourneys:pink_sakura_leaves",
+	"projectvibrantjourneys:white_sakura_leaves",
+	"projectvibrantjourneys:tamarack_leaves",
+	"projectvibrantjourneys:joshua_leaves"
+  ]
+}

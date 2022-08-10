@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:pine_planks"
+    }
+  },
+  "result": {
+    "item": "minecraft:oak_boat"
+  }
+}

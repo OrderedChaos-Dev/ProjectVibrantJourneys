@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "projectvibrantjourneys:block/pine_leaves"
+    }
+}

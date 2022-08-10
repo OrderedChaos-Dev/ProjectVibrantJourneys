@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:juniper_log"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:juniper_wood",
+    "count": 3
+  }
+}

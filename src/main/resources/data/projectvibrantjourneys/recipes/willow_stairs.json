@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:willow_planks"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:willow_stairs",
+    "count": 4
+  }
+}

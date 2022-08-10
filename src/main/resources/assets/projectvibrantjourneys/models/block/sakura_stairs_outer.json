@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/sakura_planks",
+        "top": "projectvibrantjourneys:block/sakura_planks",
+        "side": "projectvibrantjourneys:block/sakura_planks"
+    }
+}

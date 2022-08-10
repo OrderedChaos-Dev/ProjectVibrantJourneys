@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_side",
+    "textures": {
+        "texture": "projectvibrantjourneys:block/redwood_planks"
+    }
+}

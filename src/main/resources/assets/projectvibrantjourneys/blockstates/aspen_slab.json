@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "projectvibrantjourneys:block/aspen_slab" },
+        "type=top": { "model": "projectvibrantjourneys:block/aspen_slab_top" },
+        "type=double": { "model": "projectvibrantjourneys:block/aspen_planks" }
+    }
+}

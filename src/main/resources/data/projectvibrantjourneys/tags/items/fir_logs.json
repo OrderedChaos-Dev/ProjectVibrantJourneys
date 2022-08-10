@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_log",
+	"projectvibrantjourneys:fir_wood",
+	"projectvibrantjourneys:stripped_fir_log",
+	"projectvibrantjourneys:stripped_fir_wood"
+  ]
+}

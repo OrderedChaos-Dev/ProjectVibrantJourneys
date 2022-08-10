@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "projectvibrantjourneys:willow_planks"
+    }
+  },
+  "result": {
+    "item": "projectvibrantjourneys:willow_trapdoor",
+    "count": 2
+  }
+}

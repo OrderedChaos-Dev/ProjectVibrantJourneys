@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_fence",
+	"projectvibrantjourneys:pine_fence",
+	"projectvibrantjourneys:palm_fence",
+	"projectvibrantjourneys:willow_fence",
+	"projectvibrantjourneys:mangrove_fence",
+	"projectvibrantjourneys:redwood_fence",
+	"projectvibrantjourneys:baobab_fence",
+	"projectvibrantjourneys:aspen_fence",
+	"projectvibrantjourneys:maple_fence",
+	"projectvibrantjourneys:cottonwood_fence",
+	"projectvibrantjourneys:juniper_fence",
+	"projectvibrantjourneys:sakura_fence",
+	"projectvibrantjourneys:tamarack_fence",
+	"projectvibrantjourneys:joshua_fence"
+  ]
+}

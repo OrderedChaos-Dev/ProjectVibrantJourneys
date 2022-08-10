@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "projectvibrantjourneys:block/baobab_door_bottom",
+        "top": "projectvibrantjourneys:block/baobab_door_top"
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+	"projectvibrantjourneys:fir_button",
+	"projectvibrantjourneys:pine_button",
+	"projectvibrantjourneys:palm_button",
+	"projectvibrantjourneys:willow_button",
+	"projectvibrantjourneys:mangrove_button",
+	"projectvibrantjourneys:redwood_button",
+	"projectvibrantjourneys:baobab_button",
+	"projectvibrantjourneys:aspen_button",
+	"projectvibrantjourneys:maple_button",
+	"projectvibrantjourneys:cottonwood_button",
+	"projectvibrantjourneys:juniper_button",
+	"projectvibrantjourneys:sakura_button",
+	"projectvibrantjourneys:tamarack_button",
+	"projectvibrantjourneys:joshua_button"
+  ]
+}
