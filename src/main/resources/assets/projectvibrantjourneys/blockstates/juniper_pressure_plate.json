@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "powered=false": { "model": "projectvibrantjourneys:block/juniper_pressure_plate" },
-        "powered=true": { "model": "projectvibrantjourneys:block/juniper_pressure_plate_down" }
-    }
-}

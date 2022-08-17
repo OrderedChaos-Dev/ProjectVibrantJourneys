@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "projectvibrantjourneys:block/red_maple_sapling"
-    }
-}

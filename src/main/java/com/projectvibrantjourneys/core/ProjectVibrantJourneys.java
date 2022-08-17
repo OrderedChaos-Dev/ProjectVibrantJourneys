@@ -9,14 +9,10 @@ import com.projectvibrantjourneys.event.PVJWorldGenEvents;
 import com.projectvibrantjourneys.init.object.PVJBlocks;
 import com.projectvibrantjourneys.init.object.PVJItems;
 import com.projectvibrantjourneys.init.object.PVJVanilla;
-import com.projectvibrantjourneys.init.world.PVJBiomes;
 import com.projectvibrantjourneys.init.world.features.PVJConfiguredFeatures;
 import com.projectvibrantjourneys.init.world.features.PVJFeatures;
-import com.projectvibrantjourneys.init.world.features.PVJTreePlacers;
 import com.projectvibrantjourneys.init.world.placements.PVJPlacements;
-import com.projectvibrantjourneys.world.gen.PVJBiomeProvider;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -25,7 +21,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import terrablender.api.Regions;
 
 @Mod(ProjectVibrantJourneys.MOD_ID)
 public class ProjectVibrantJourneys
@@ -38,12 +33,8 @@ public class ProjectVibrantJourneys
         
     	PVJBlocks.BLOCKS.register(bus);
         PVJItems.ITEMS.register(bus);
-        PVJBiomes.BIOMES.register(bus);
         PVJFeatures.FEATURES.register(bus);
         PVJFeatures.StateProviders.TYPES.register(bus);
-        PVJTreePlacers.Trunk.TRUNK_PLACERS.register(bus);
-        PVJTreePlacers.Foliage.PLACERS.register(bus);
-        PVJTreePlacers.Decorator.DECORATORS.register(bus);
         PVJConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
         PVJPlacements.PLACED_FEATURES.register(bus);
 
@@ -59,7 +50,6 @@ public class ProjectVibrantJourneys
 
     private void commonSetup(final FMLCommonSetupEvent event) {
     	event.enqueueWork(() -> {
-    		Regions.register(new PVJBiomeProvider(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "biome_provider"), 7));
     		PVJVanilla.init();
     	});
     	

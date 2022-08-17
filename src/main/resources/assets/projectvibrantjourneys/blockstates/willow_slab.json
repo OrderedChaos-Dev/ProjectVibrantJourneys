@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "projectvibrantjourneys:block/willow_slab" },
-        "type=top": { "model": "projectvibrantjourneys:block/willow_slab_top" },
-        "type=double": { "model": "projectvibrantjourneys:block/willow_planks" }
-    }
-}

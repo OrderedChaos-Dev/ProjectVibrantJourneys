@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-	"projectvibrantjourneys:mangrove_log",
-	"projectvibrantjourneys:mangrove_wood",
-	"projectvibrantjourneys:stripped_mangrove_log",
-	"projectvibrantjourneys:stripped_mangrove_wood"
-  ]
-}

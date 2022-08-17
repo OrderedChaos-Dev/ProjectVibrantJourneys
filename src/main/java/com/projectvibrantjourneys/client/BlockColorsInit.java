@@ -2,7 +2,6 @@ package com.projectvibrantjourneys.client;
 
 import com.projectvibrantjourneys.init.object.PVJBlocks;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
@@ -25,8 +24,6 @@ public class BlockColorsInit {
 		registerFoliageColorBlock(blockColors, PVJBlocks.twigs.get());
 		registerFoliageColorBlock(blockColors, PVJBlocks.fallen_leaves.get());
 		registerGrassColorBlock(blockColors, PVJBlocks.short_grass.get());
-		
-		registerWaterColorBlock(blockColors, PVJBlocks.potted_mangrove_sapling.get());
     }
     
     @SubscribeEvent

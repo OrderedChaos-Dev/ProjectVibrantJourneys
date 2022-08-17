@@ -1,6 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "cross": "projectvibrantjourneys:block/blooming_desert_agave_upper"
-    }
-}

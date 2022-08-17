@@ -1,8 +1,0 @@
-{
-    "parent": "block/outer_stairs",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/cottonwood_planks",
-        "top": "projectvibrantjourneys:block/cottonwood_planks",
-        "side": "projectvibrantjourneys:block/cottonwood_planks"
-    }
-}

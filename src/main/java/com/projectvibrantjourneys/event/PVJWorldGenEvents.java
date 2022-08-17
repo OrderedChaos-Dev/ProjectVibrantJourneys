@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.projectvibrantjourneys.core.PVJConfig;
-import com.projectvibrantjourneys.init.world.PVJBiomes;
 import com.projectvibrantjourneys.init.world.placements.PVJPlacements;
 
 import net.minecraft.core.Holder;
@@ -100,12 +99,9 @@ public class PVJWorldGenEvents {
 						
 					if(PVJConfig.CONFIG_DATA.enableBeachGrass.get())
 						vegetalFeatures.add(PVJPlacements.BEACH_GRASS.getHolder().get());
-					
-					if(PVJConfig.CONFIG_DATA.enablePalmTrees.get())
-						vegetalFeatures.add(PVJPlacements.TREES_PALM.getHolder().get());
 				}
 				
-				if(!hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) && (event.getCategory() != Biome.BiomeCategory.DESERT || biome == PVJBiomes.Keys.VERDANT_SANDS)) {
+				if(!hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) && (event.getCategory() != Biome.BiomeCategory.DESERT)) {
 					if(PVJConfig.CONFIG_DATA.enableCattails.get())
 						vegetalFeatures.add(PVJPlacements.CATTAILS.getHolder().get());
 				}
@@ -141,10 +137,6 @@ public class PVJWorldGenEvents {
 						vegetalFeatures.add(VegetationPlacements.PATCH_GRASS_PLAIN);
 				}
 			}
-
-			if(biome == Biomes.LUSH_CAVES) {
-				vegetalFeatures.add(PVJPlacements.EXTRA_VEGETATION_LUSH_CAVES.getHolder().get());
-			}
 		}
 		
 		//ENTITY STUFF
@@ -152,45 +144,6 @@ public class PVJWorldGenEvents {
 			if(event.getCategory() == Biome.BiomeCategory.JUNGLE && PVJConfig.CONFIG_DATA.enableJungleTropicalFish.get()) {
 				mobSpawns.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 25, 5, 5));
 			}
-		}
-
-		
-		//BIOMES
-		if(biome == PVJBiomes.Keys.PINE_MEADOWS) {
-			vegetalFeatures.add(PVJPlacements.PINE_MEADOWS_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.VERDANT_SANDS) {
-//			vegetalFeatures.add(PVJPlacements.LUSH_CACTUS);
-		} else if(biome == PVJBiomes.Keys.AUTUMNAL_CONIFEROUS_FOREST) {
-			vegetalFeatures.add(PVJPlacements.AUTUMNAL_CONIFEROUS_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.BOREAL_FOREST || biome == PVJBiomes.Keys.SNOWY_BOREAL_FOREST) {
-			vegetalFeatures.add(PVJPlacements.BOREAL_FOREST_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.DESERT_SHRUBLAND) {
-			vegetalFeatures.add(PVJPlacements.DRY_GRASS.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.DESERT_SAGE.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.DESERT_AGAVE.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.DESERT_SHRUBLAND_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.OVERGROWN_SPIRES) {
-			vegetalFeatures.add(PVJPlacements.OVERGROWN_SPIRES_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.PRAIRIE) {
-			vegetalFeatures.add(PVJPlacements.PRAIRIE_TREES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.PRAIRIE_GRASS.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.BAOBAB_FIELDS) {
-			vegetalFeatures.add(PVJPlacements.BAOBAB_FIELDS_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.REDWOODS || biome == PVJBiomes.Keys.SNOWY_REDWOODS) {
-			vegetalFeatures.add(PVJPlacements.REDWOOD_FOREST_TREES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.CRYSTAL_LAKES) {
-			vegetalFeatures.add(PVJPlacements.CRYSTAL_LAKES_TREES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.CRYSTAL_POOL.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.AMETHYST_CRYSTALS.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.BLOSSOMING_FIELDS) {
-			vegetalFeatures.add(PVJPlacements.BLOSSOMING_FIELDS_TREES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.WHITE_SAKURA_FALLEN_LEAVES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.PINK_SAKURA_FALLEN_LEAVES.getHolder().get());
-		} else if(biome == PVJBiomes.Keys.ASPEN_GROVE) {
-			vegetalFeatures.add(PVJPlacements.ASPEN_GROVE_TREES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.RED_MAPLE_FALLEN_LEAVES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.ORANGE_MAPLE_FALLEN_LEAVES.getHolder().get());
-			vegetalFeatures.add(PVJPlacements.PURPLE_MAPLE_FALLEN_LEAVES.getHolder().get());
 		}
 	}
 	

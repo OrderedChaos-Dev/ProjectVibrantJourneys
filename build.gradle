@@ -14,7 +14,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.18.2-4.0.0-ALPHA7'
+version = '1.18.2-4.0.0-BETA1'
 group = 'com.projectvibrantjourneys'
 archivesBaseName = 'projectvibrantjourneys'
 
@@ -75,7 +75,6 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.73'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.2-1.1.0.99')
 }
 
 jar {

@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "axis=y": { "model": "projectvibrantjourneys:block/tamarack_wood" },
-        "axis=z": { "model": "projectvibrantjourneys:block/tamarack_wood", "x": 90 },
-        "axis=x": { "model": "projectvibrantjourneys:block/tamarack_wood", "x": 90, "y": 90 }
-    }
-}

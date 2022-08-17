@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "projectvibrantjourneys:block/tamarack_slab" },
-        "type=top": { "model": "projectvibrantjourneys:block/tamarack_slab_top" },
-        "type=double": { "model": "projectvibrantjourneys:block/tamarack_planks" }
-    }
-}

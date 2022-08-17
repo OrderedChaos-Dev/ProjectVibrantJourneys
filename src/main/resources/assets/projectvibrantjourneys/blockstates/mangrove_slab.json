@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "projectvibrantjourneys:block/mangrove_slab" },
-        "type=top": { "model": "projectvibrantjourneys:block/mangrove_slab_top" },
-        "type=double": { "model": "projectvibrantjourneys:block/mangrove_planks" }
-    }
-}

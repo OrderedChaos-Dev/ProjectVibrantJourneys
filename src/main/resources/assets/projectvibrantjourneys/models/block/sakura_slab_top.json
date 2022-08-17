@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab_top",
-    "textures": {
-        "bottom": "projectvibrantjourneys:block/sakura_planks",
-        "top": "projectvibrantjourneys:block/sakura_planks",
-        "side": "projectvibrantjourneys:block/sakura_planks"
-    }
-}

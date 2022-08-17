@@ -1,7 +1,5 @@
 package com.projectvibrantjourneys.init.world.features;
 
-import java.util.ArrayList;
-
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import com.projectvibrantjourneys.world.gen.features.BarkSideFeature;
 import com.projectvibrantjourneys.world.gen.features.NaturalCobwebFeature;
@@ -9,17 +7,12 @@ import com.projectvibrantjourneys.world.gen.features.RocksGroundcoverFeature;
 import com.projectvibrantjourneys.world.gen.features.SimpleBlockMatchWaterFeature;
 import com.projectvibrantjourneys.world.gen.features.stateproviders.DirectionalStateProvider;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

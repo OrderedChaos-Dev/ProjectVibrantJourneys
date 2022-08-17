@@ -1,7 +1,0 @@
-{
-    "parent": "block/flower_pot_cross",
-    "textures": {
-        "plant": "projectvibrantjourneys:block/juniper_sapling",
-        "dirt": "block/red_sand"
-    }
-}

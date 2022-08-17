@@ -1,7 +1,0 @@
-{
-    "variants": {
-        "type=bottom": { "model": "projectvibrantjourneys:block/cottonwood_slab" },
-        "type=top": { "model": "projectvibrantjourneys:block/cottonwood_slab_top" },
-        "type=double": { "model": "projectvibrantjourneys:block/cottonwood_planks" }
-    }
-}
