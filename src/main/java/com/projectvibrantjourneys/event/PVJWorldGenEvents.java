@@ -3,8 +3,11 @@ package com.projectvibrantjourneys.event;
 import java.util.List;
 import java.util.Set;
 
-import com.projectvibrantjourneys.core.PVJConfig;
-import com.projectvibrantjourneys.init.world.placements.PVJPlacements;
+import com.projectvibrantjourneys.core.config.PVJConfig;
+import com.projectvibrantjourneys.core.config.WeightedTreeFeatureConfig;
+import com.projectvibrantjourneys.core.registry.features.PVJPlacements;
+import com.projectvibrantjourneys.util.PVJFeatureVars;
+import com.projectvibrantjourneys.util.TreeFeatureUtils;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
@@ -135,6 +138,25 @@ public class PVJWorldGenEvents {
 				if(event.getCategory() == Biome.BiomeCategory.RIVER) {
 					if(PVJConfig.CONFIG_DATA.enableExtraRiverGrass.get())
 						vegetalFeatures.add(VegetationPlacements.PATCH_GRASS_PLAIN);
+				}
+				
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.OAK_FALLEN_TREE.getHolder().get());
+				}
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.BIRCH_FALLEN_TREE.getHolder().get());
+				}
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.SPRUCE, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.SPRUCE_FALLEN_TREE.getHolder().get());
+				}
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.JUNGLE, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.JUNGLE_FALLEN_TREE.getHolder().get());
+				}
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.ACACIA, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.ACACIA_FALLEN_TREE.getHolder().get());
+				}
+				if(TreeFeatureUtils.isIn(PVJFeatureVars.DARK_OAK, event.getName())) {
+					vegetalFeatures.add(PVJPlacements.DARK_OAK_FALLEN_TREE.getHolder().get());
 				}
 			}
 		}

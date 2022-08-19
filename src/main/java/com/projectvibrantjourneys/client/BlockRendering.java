@@ -1,6 +1,6 @@
 package com.projectvibrantjourneys.client;
 
-import com.projectvibrantjourneys.init.object.PVJBlocks;
+import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -14,36 +14,36 @@ public class BlockRendering {
 		RenderType cutout = RenderType.cutout();
 		RenderType cutout_mipped = RenderType.cutoutMipped();
 	
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.twigs.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.rocks.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.mossy_rocks.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.sandstone_rocks.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.red_sandstone_rocks.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ice_chunks.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.bones.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.charred_bones.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.pinecones.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.seashells.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.TWIGS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ROCKS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.MOSSY_ROCKS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SANDSTONE_ROCKS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.RED_SANDSTONE_ROCKS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ICE_CHUNKS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BONES.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CHARRED_BONES.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.PINECONES.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SEASHELLS.get(), cutout);
 	
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.bark_mushroom.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.natural_cobweb.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.fallen_leaves.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BARK_MUSHROOM.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.NATURAL_COBWEB.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.FALLEN_LEAVES.get(), cutout_mipped);
 
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.sea_oats.get(), cutout_mipped);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.cattail.get(), cutout_mipped);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.glowcap.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.crimson_nettle.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.warped_nettle.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.cindercane.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.short_grass.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.beach_grass.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.small_cactus.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SEA_OATS.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CATTAIL.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.GLOWCAP.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CRIMSON_NETTLE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.WARPED_NETTLE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CINDERCANE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SHORT_GRASS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BEACH_GRASS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SMALL_CACTUS.get(), cutout);
 		
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.potted_glowcap.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.potted_warped_nettle.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.potted_crimson_nettle.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.potted_cindercane.get(), cutout);
-		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.potted_small_cactus.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_GLOWCAP.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_WARPED_NETTLE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CRIMSON_NETTLE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CINDERCANE.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_SMALL_CACTUS.get(), cutout);
 	}
 
 	

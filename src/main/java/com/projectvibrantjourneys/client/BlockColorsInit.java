@@ -1,6 +1,6 @@
 package com.projectvibrantjourneys.client;
 
-import com.projectvibrantjourneys.init.object.PVJBlocks;
+import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
@@ -21,9 +21,9 @@ public class BlockColorsInit {
     @SubscribeEvent
     public static void onColorHandlerEvent(ColorHandlerEvent.Block event) {
     	BlockColors blockColors = event.getBlockColors();
-		registerFoliageColorBlock(blockColors, PVJBlocks.twigs.get());
-		registerFoliageColorBlock(blockColors, PVJBlocks.fallen_leaves.get());
-		registerGrassColorBlock(blockColors, PVJBlocks.short_grass.get());
+		registerFoliageColorBlock(blockColors, PVJBlocks.TWIGS.get());
+		registerFoliageColorBlock(blockColors, PVJBlocks.FALLEN_LEAVES.get());
+		registerGrassColorBlock(blockColors, PVJBlocks.SHORT_GRASS.get());
     }
     
     @SubscribeEvent
@@ -35,13 +35,13 @@ public class BlockColorsInit {
 			BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
 			int color = blockColors.getColor(state, null, null, tintIndex); // get color
 			return color;
-		}, PVJBlocks.fallen_leaves.get());
+		}, PVJBlocks.FALLEN_LEAVES.get());
 		
     	itemColors.register((itemstack, tintIndex) -> {
 			BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
 			int color = blockColors.getColor(state, null, null, tintIndex); // get color
 			return color;
-		}, PVJBlocks.short_grass.get());
+		}, PVJBlocks.SHORT_GRASS.get());
     }
     
 	private static void registerFoliageColorBlock(BlockColors bc, Block block) {

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:oak_hollow_log"
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_planks",
+    "count": 2
+  }
+}

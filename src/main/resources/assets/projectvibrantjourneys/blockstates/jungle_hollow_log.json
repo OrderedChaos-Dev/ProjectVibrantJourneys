@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "projectvibrantjourneys:block/jungle_hollow_log", "x": 90},
+        "axis=z":   { "model": "projectvibrantjourneys:block/jungle_hollow_log"},
+        "axis=x":   { "model": "projectvibrantjourneys:block/jungle_hollow_log", "y": 90}
+    }
+}

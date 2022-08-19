@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:jungle_hollow_log"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_planks",
+    "count": 2
+  }
+}
