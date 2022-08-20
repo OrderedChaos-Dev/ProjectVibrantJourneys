@@ -19,6 +19,8 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enablePinecones;
 		public ForgeConfigSpec.BooleanValue enableSeashells;
 		
+		public ForgeConfigSpec.BooleanValue enableFallenTrees;
+		
 		public ForgeConfigSpec.BooleanValue enableSeaOats;
 		public ForgeConfigSpec.BooleanValue enableCattails;
 		public ForgeConfigSpec.BooleanValue enableBeachGrass;
@@ -33,6 +35,7 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableExtraLilypads;
 		public ForgeConfigSpec.BooleanValue enableExtraSeagrass;
 		public ForgeConfigSpec.BooleanValue enableExtraRiverGrass;
+		public ForgeConfigSpec.BooleanValue enableMossCarpets;
 		
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
@@ -46,6 +49,8 @@ public class PVJConfig {
 			enableIceChunks = builder.comment("Enable generation of ice chunks").define("enableIceChunks", true);
 			enablePinecones = builder.comment("Enable generation of pinecones").define("enablePinecones", true);
 			enableSeashells = builder.comment("Enable generation of seashells").define("enableSeashells", true);
+			
+			enableFallenTrees = builder.comment("Enable generation of fallen trees").define("enableFallenTrees", true);
 			
 			enableSeaOats = builder.comment("Enable generation of sea oats").define("enableSeaOats", true);
 			enableCattails = builder.comment("Enable generation of cattails").define("enableCattails", true);
@@ -61,6 +66,7 @@ public class PVJConfig {
 			enableExtraLilypads = builder.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true);
 			enableExtraSeagrass = builder.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true);
 			enableExtraRiverGrass = builder.comment("Enable generation of extra grass in rivers").define("enableExtraRiverGrass", true);
+			enableMossCarpets = builder.comment("Enable moss carpets in old growth taiga biomes").define("enableMossCarpets", true);
 			builder.pop();
 			
 			builder.push("Entity Options");

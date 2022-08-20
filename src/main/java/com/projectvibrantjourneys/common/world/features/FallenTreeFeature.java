@@ -8,17 +8,14 @@ import com.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.world.features.configs.FallenTreeConfiguration;
-import com.projectvibrantjourneys.core.registry.PVJBlocks;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
 import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -26,7 +23,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 	
@@ -42,7 +38,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 		BlockState hollowLog = context.config().hollowLog();
 		BlockState baseLog = context.config().baseLog();
 		ResourceLocation biome = world.getBiome(pos).value().getRegistryName();
-
+		
 		int weight = TreeFeatureUtils.getWeight(biome, new HashSet<WeightedBiomeEntry>(context.config().data()));
 		if(rand.nextFloat() > weight / 100.0F)
 			return false;

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.projectvibrantjourneys.core.config.PVJConfig;
-import com.projectvibrantjourneys.core.config.WeightedTreeFeatureConfig;
 import com.projectvibrantjourneys.core.registry.features.PVJPlacements;
 import com.projectvibrantjourneys.util.PVJFeatureVars;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
@@ -13,168 +12,87 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biome.BiomeCategory;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.world.MobSpawnSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
+@SuppressWarnings("deprecation")
 public class PVJWorldGenEvents {
+
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void addBiomeFeatures(BiomeLoadingEvent event) {
 		ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
+		Holder<Biome> holder = ForgeRegistries.BIOMES.getHolder(biome).get();
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		List<Holder<PlacedFeature>> vegetalFeatures = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
 		MobSpawnSettingsBuilder mobSpawns = event.getSpawns();
 		
+		
+		//WORLD GENERATION
 		if(event.getCategory() == Biome.BiomeCategory.NETHER) {
+
+			addFeature(vegetalFeatures, PVJPlacements.CHARRED_BONES, PVJConfig.CONFIG_DATA.enableCharredBones, true);
+			addFeature(vegetalFeatures, PVJPlacements.GLOWCAP, PVJConfig.CONFIG_DATA.enableGlowcap, true);
+			addFeature(vegetalFeatures, PVJPlacements.CINDERCANE, PVJConfig.CONFIG_DATA.enableCindercane, true);
+			addFeature(vegetalFeatures, PVJPlacements.WARPED_NETTLE, PVJConfig.CONFIG_DATA.enableNetherNettles, biome == Biomes.WARPED_FOREST);
+			addFeature(vegetalFeatures, PVJPlacements.CRIMSON_NETTLE, PVJConfig.CONFIG_DATA.enableNetherNettles, biome == Biomes.CRIMSON_FOREST);
+		} else if(biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD)) {
 			
-			if(PVJConfig.CONFIG_DATA.enableCharredBones.get())
-				vegetalFeatures.add(PVJPlacements.CHARRED_BONES.getHolder().get());
-			
-			if(PVJConfig.CONFIG_DATA.enableGlowcap.get())
-				vegetalFeatures.add(PVJPlacements.GLOWCAP.getHolder().get());
-			
-			if(PVJConfig.CONFIG_DATA.enableCindercane.get())
-				vegetalFeatures.add(PVJPlacements.CINDERCANE.getHolder().get());
-			
-			if(biome == Biomes.WARPED_FOREST && PVJConfig.CONFIG_DATA.enableNetherNettles.get()) {
-				vegetalFeatures.add(PVJPlacements.WARPED_NETTLE.getHolder().get());
-			}
-			
-			if(biome == Biomes.CRIMSON_FOREST && PVJConfig.CONFIG_DATA.enableNetherNettles.get()) {
-				vegetalFeatures.add(PVJPlacements.CRIMSON_NETTLE.getHolder().get());
-			}
-			
-		} else if(biomeTypes.contains(Type.OVERWORLD)) {
+			//disable worldgen in snowy plains because it looks ugly
 			if(biome != Biomes.SNOWY_PLAINS && event.getCategory() != Biome.BiomeCategory.MUSHROOM) {
-				if(hasAnyType(biomeTypes, Type.FOREST, Type.PLAINS)) {
-					
-					if(PVJConfig.CONFIG_DATA.enableTwigs.get())
-						vegetalFeatures.add(PVJPlacements.TWIGS.getHolder().get());
-					
-					if(PVJConfig.CONFIG_DATA.enableFallenLeaves.get()) {
-						vegetalFeatures.add(PVJPlacements.FALLEN_LEAVES.getHolder().get());
-//						vegetalFeatures.add(PVJPlacements.DEAD_FALLEN_LEAVES.getHolder().get());
-					}
-				}
-				if(hasAnyType(biomeTypes, Type.CONIFEROUS) && PVJConfig.CONFIG_DATA.enablePinecones.get()) {
-					vegetalFeatures.add(PVJPlacements.PINECONES.getHolder().get());
-				}
-				if(hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) && PVJConfig.CONFIG_DATA.enableSeashells.get()) {
-					vegetalFeatures.add(PVJPlacements.SEASHELLS.getHolder().get());
-				}
 				
-				if(hasAnyType(biomeTypes, Type.OCEAN) && PVJConfig.CONFIG_DATA.enableSeashells.get()) {
-					vegetalFeatures.add(PVJPlacements.OCEAN_FLOOR_SEASHELLS.getHolder().get());
-				}
+				addFeature(vegetalFeatures, PVJPlacements.TWIGS, PVJConfig.CONFIG_DATA.enableTwigs, forestOrPlains(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, forestOrPlains(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.PINECONES, PVJConfig.CONFIG_DATA.enablePinecones, coniferous(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.SEASHELLS, PVJConfig.CONFIG_DATA.enableSeashells, oceanOrBeach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.OCEAN_FLOOR_SEASHELLS, PVJConfig.CONFIG_DATA.enableSeashells, oceanOrBeach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.EXTRA_OCEAN_FLOOR_SEASHELLS, PVJConfig.CONFIG_DATA.enableSeashells, oceanOrBeach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.ROCKS, PVJConfig.CONFIG_DATA.enableRocks, true);
+				addFeature(vegetalFeatures, PVJPlacements.BONES, PVJConfig.CONFIG_DATA.enableBones, true);
+				addFeature(vegetalFeatures, PVJPlacements.ICE_CHUNKS, PVJConfig.CONFIG_DATA.enableIceChunks, snowy(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
+				addFeature(vegetalFeatures, PVJPlacements.MOSS_CARPET, PVJConfig.CONFIG_DATA.enableMossCarpets, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
+				addFeature(vegetalFeatures, PVJPlacements.BARK_MUSHROOM, PVJConfig.CONFIG_DATA.enableBarkMushrooms, true);
+				addFeature(vegetalFeatures, PVJPlacements.SEA_OATS, PVJConfig.CONFIG_DATA.enableSeaOats, beach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.BEACH_GRASS, PVJConfig.CONFIG_DATA.enableBeachGrass, beach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.CATTAILS, PVJConfig.CONFIG_DATA.enableCattails, !oceanOrBeach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.SHORT_GRASS, PVJConfig.CONFIG_DATA.enableShortGrass, true);
+				addFeature(vegetalFeatures, PVJPlacements.NATURAL_COBWEB, PVJConfig.CONFIG_DATA.enableNaturalCobwebs, true);
+				addFeature(vegetalFeatures, PVJPlacements.SMALL_CACTUS, PVJConfig.CONFIG_DATA.enableSmallCacti, event.getCategory() == Biome.BiomeCategory.DESERT);
+				addFeature(vegetalFeatures, AquaticPlacements.SEAGRASS_RIVER, PVJConfig.CONFIG_DATA.enableSmallCacti, inlandNotDesert(event.getCategory()));
+				addFeature(vegetalFeatures, VegetationPlacements.PATCH_WATERLILY, PVJConfig.CONFIG_DATA.enableSmallCacti, inlandNotDesert(event.getCategory()));
+				addFeature(vegetalFeatures, VegetationPlacements.PATCH_GRASS_PLAIN, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
 				
-				if(biome == Biomes.WARM_OCEAN && PVJConfig.CONFIG_DATA.enableSeashells.get()) {
-					vegetalFeatures.add(PVJPlacements.EXTRA_OCEAN_FLOOR_SEASHELLS.getHolder().get());
-				}
-				
-				if(PVJConfig.CONFIG_DATA.enableRocks.get())
-					vegetalFeatures.add(PVJPlacements.ROCKS.getHolder().get());
-				
-				if(PVJConfig.CONFIG_DATA.enableBones.get())
-					vegetalFeatures.add(PVJPlacements.BONES.getHolder().get());
-			
-				if(hasAnyType(biomeTypes, Type.SNOWY) && PVJConfig.CONFIG_DATA.enableIceChunks.get()) {
-					vegetalFeatures.add(PVJPlacements.ICE_CHUNKS.getHolder().get());
-				}
-				
-				if(biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA) {
-					if(PVJConfig.CONFIG_DATA.enableFallenLeaves.get()) {
-						vegetalFeatures.add(PVJPlacements.DENSE_DEAD_FALLEN_LEAVES.getHolder().get());
-					}
-					vegetalFeatures.add(PVJPlacements.MOSS_CARPET.getHolder().get());
-				}
-				
-				if(PVJConfig.CONFIG_DATA.enableBarkMushrooms.get()) {
-					vegetalFeatures.add(PVJPlacements.BARK_MUSHROOM.getHolder().get());
-				}
-				
-				if(biomeTypes.contains(Type.BEACH)) {
-					
-					if(PVJConfig.CONFIG_DATA.enableSeaOats.get())
-						vegetalFeatures.add(PVJPlacements.SEA_OATS.getHolder().get());
-						
-					if(PVJConfig.CONFIG_DATA.enableBeachGrass.get())
-						vegetalFeatures.add(PVJPlacements.BEACH_GRASS.getHolder().get());
-				}
-				
-				if(!hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) && (event.getCategory() != Biome.BiomeCategory.DESERT)) {
-					if(PVJConfig.CONFIG_DATA.enableCattails.get())
-						vegetalFeatures.add(PVJPlacements.CATTAILS.getHolder().get());
-				}
-				
-				if(PVJConfig.CONFIG_DATA.enableShortGrass.get()) {
-					vegetalFeatures.add(PVJPlacements.SHORT_GRASS.getHolder().get());
-				}
-				
-				if(PVJConfig.CONFIG_DATA.enableNaturalCobwebs.get()) {
-					vegetalFeatures.add(PVJPlacements.NATURAL_COBWEB.getHolder().get());
-				}
-				
-				if(event.getCategory() == Biome.BiomeCategory.DESERT) {
-					if(PVJConfig.CONFIG_DATA.enableSmallCacti.get())
-						vegetalFeatures.add(PVJPlacements.SMALL_CACTUS.getHolder().get());
-				}
-				
-				if(event.getCategory() != Biome.BiomeCategory.DESERT
-						&& event.getCategory() != Biome.BiomeCategory.MESA
-						&& event.getCategory() != Biome.BiomeCategory.RIVER
-						&& event.getCategory() != Biome.BiomeCategory.OCEAN
-						&& event.getCategory() != Biome.BiomeCategory.BEACH) {
-					
-					if(PVJConfig.CONFIG_DATA.enableExtraSeagrass.get())
-						vegetalFeatures.add(AquaticPlacements.SEAGRASS_RIVER);
-					
-					if(PVJConfig.CONFIG_DATA.enableExtraLilypads.get())
-						vegetalFeatures.add(VegetationPlacements.PATCH_WATERLILY);
-				}
-				
-				if(event.getCategory() == Biome.BiomeCategory.RIVER) {
-					if(PVJConfig.CONFIG_DATA.enableExtraRiverGrass.get())
-						vegetalFeatures.add(VegetationPlacements.PATCH_GRASS_PLAIN);
-				}
-				
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.OAK_FALLEN_TREE.getHolder().get());
-				}
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.BIRCH_FALLEN_TREE.getHolder().get());
-				}
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.SPRUCE, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.SPRUCE_FALLEN_TREE.getHolder().get());
-				}
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.JUNGLE, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.JUNGLE_FALLEN_TREE.getHolder().get());
-				}
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.ACACIA, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.ACACIA_FALLEN_TREE.getHolder().get());
-				}
-				if(TreeFeatureUtils.isIn(PVJFeatureVars.DARK_OAK, event.getName())) {
-					vegetalFeatures.add(PVJPlacements.DARK_OAK_FALLEN_TREE.getHolder().get());
-				}
+				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
+				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));
+				addFeature(vegetalFeatures, PVJPlacements.SPRUCE_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.SPRUCE, event.getName()));
+				addFeature(vegetalFeatures, PVJPlacements.JUNGLE_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.JUNGLE, event.getName()));
+				addFeature(vegetalFeatures, PVJPlacements.ACACIA_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.ACACIA, event.getName()));
+				addFeature(vegetalFeatures, PVJPlacements.DARK_OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.DARK_OAK, event.getName()));
 			}
 		}
 		
 		//ENTITY STUFF
-		if(biomeTypes.contains(Type.OVERWORLD)) {
-			if(event.getCategory() == Biome.BiomeCategory.JUNGLE && PVJConfig.CONFIG_DATA.enableJungleTropicalFish.get()) {
-				mobSpawns.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(EntityType.TROPICAL_FISH, 25, 5, 5));
-			}
+		if(biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD)) {
+			addSpawn(mobSpawns, MobCategory.WATER_AMBIENT, EntityType.TROPICAL_FISH, 25, 5, 5, PVJConfig.CONFIG_DATA.enableJungleTropicalFish, event.getCategory() == Biome.BiomeCategory.JUNGLE);
 		}
 	}
 	
@@ -183,7 +101,52 @@ public class PVJWorldGenEvents {
 			if(list.contains(t))
 				return true;
 		}
-		
 		return false;
+	}
+	
+	@SafeVarargs
+	private boolean hasAnyTag(Holder<Biome> biome, TagKey<Biome>... tags) {
+		for(TagKey<Biome> tag : tags) {
+			return biome.is(tag);
+		}
+		return false;
+	}
+	
+	private void addFeature(List<Holder<PlacedFeature>> decorations, Holder<PlacedFeature> placedFeature, ForgeConfigSpec.BooleanValue configValue, boolean conditions) {
+		if(configValue.get() && conditions)
+			decorations.add(placedFeature);
+	}
+	
+	private void addFeature(List<Holder<PlacedFeature>> decorations, RegistryObject<PlacedFeature> placedFeature, ForgeConfigSpec.BooleanValue configValue, boolean conditions) {
+		addFeature(decorations, placedFeature.getHolder().get(), configValue, conditions);
+	}
+	
+	private void addSpawn(MobSpawnSettingsBuilder spawns, MobCategory category, EntityType<?> entityType, int weight, int minCount, int maxCount, ForgeConfigSpec.BooleanValue configValue, boolean conditions) {
+		if(configValue.get() && conditions)
+			spawns.addSpawn(category, new MobSpawnSettings.SpawnerData(entityType, weight, minCount, maxCount));
+	}
+	
+	private boolean forestOrPlains(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return hasAnyType(biomeTypes, Type.FOREST, Type.PLAINS) || hasAnyTag(holder, Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST);
+	}
+	
+	private boolean oceanOrBeach(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return (hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) || hasAnyTag(holder, Tags.Biomes.IS_BEACH, BiomeTags.IS_BEACH, BiomeTags.IS_OCEAN));
+	}
+	
+	private boolean beach(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return (hasAnyType(biomeTypes, Type.BEACH) || hasAnyTag(holder, Tags.Biomes.IS_BEACH, BiomeTags.IS_BEACH));
+	}
+	
+	private boolean coniferous(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return hasAnyType(biomeTypes, Type.CONIFEROUS) || hasAnyTag(holder, Tags.Biomes.IS_CONIFEROUS);
+	}
+	
+	private boolean snowy(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return hasAnyType(biomeTypes, Type.SNOWY) || hasAnyTag(holder, Tags.Biomes.IS_SNOWY);
+	}
+	
+	private boolean inlandNotDesert(BiomeCategory category) {
+		return category != Biome.BiomeCategory.DESERT && category != Biome.BiomeCategory.MESA && category != Biome.BiomeCategory.RIVER && category != Biome.BiomeCategory.OCEAN && category != Biome.BiomeCategory.BEACH;
 	}
 }
