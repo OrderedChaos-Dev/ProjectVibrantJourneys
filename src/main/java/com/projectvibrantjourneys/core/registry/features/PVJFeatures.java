@@ -1,6 +1,6 @@
 package com.projectvibrantjourneys.core.registry.features;
 
-import com.projectvibrantjourneys.common.world.features.BarkSideFeature;
+import com.projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import com.projectvibrantjourneys.common.world.features.FallenTreeFeature;
 import com.projectvibrantjourneys.common.world.features.NaturalCobwebFeature;
 import com.projectvibrantjourneys.common.world.features.RocksGroundcoverFeature;
@@ -24,7 +24,7 @@ public class PVJFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, ProjectVibrantJourneys.MOD_ID);
 	
 	public static final RegistryObject<Feature<NoneFeatureConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(NoneFeatureConfiguration.CODEC));
-	public static final RegistryObject<Feature<SimpleBlockConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkSideFeature(SimpleBlockConfiguration.CODEC));
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkMushroomFeature(NoneFeatureConfiguration.CODEC));
 	public static final RegistryObject<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
 	public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));
 	public static final RegistryObject<Feature<FallenTreeConfiguration>> FALLEN_TREE = registerFeature("fallen_tree", new FallenTreeFeature(FallenTreeConfiguration.CODEC));

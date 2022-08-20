@@ -8,6 +8,7 @@ import com.projectvibrantjourneys.common.blocks.CattailBlock;
 import com.projectvibrantjourneys.common.blocks.CindercaneBlock;
 import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GlowcapBlock;
+import com.projectvibrantjourneys.common.blocks.GlowingFungusBlock;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.blocks.HollowLogBlock;
 import com.projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
@@ -23,6 +24,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -43,18 +45,24 @@ public class PVJBlocks {
 	
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ProjectVibrantJourneys.MOD_ID);
 	
+	/* OVERWORLD FLORA */
 	public static final RegistryObject<Block> BEACH_GRASS = registerBlock("beach_grass", () -> new BeachGrassBlock());
 	public static final RegistryObject<Block> SEA_OATS = registerBlock("sea_oats", () -> new SeaOatsBlock());
 	public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock());
+	public static final RegistryObject<Block> BARK_MUSHROOM = registerBlockWithFuel("bark_mushroom", 100, () -> new BarkMushroomBlock());
+	public static final RegistryObject<Block> LIGHT_BROWN_BARK_MUSHROOM = registerBlockWithFuel("light_brown_bark_mushroom", 100, () -> new BarkMushroomBlock());
+	public static final RegistryObject<Block> ORANGE_BARK_MUSHROOM = registerBlockWithFuel("orange_bark_mushroom", 100, () -> new BarkMushroomBlock());
+	public static final RegistryObject<Block> GLOWING_BLUE_FUNGUS = registerBlockWithFuel("glowing_blue_fungus", 100, () -> new GlowingFungusBlock());
+	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
+	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
+	
+	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));
 	public static final RegistryObject<Block> WARPED_NETTLE = registerBlock("warped_nettle", () -> new NetherPlantBlock(MaterialColor.WARPED_NYLIUM));
 	public static final RegistryObject<Block> CINDERCANE = registerBlockWithFuel("cindercane", 800, () -> new CindercaneBlock());
 	public static final RegistryObject<Block> GLOWCAP = registerBlock("glowcap", () -> new GlowcapBlock());
-	public static final RegistryObject<Block> BARK_MUSHROOM = registerBlockWithFuel("bark_mushroom", 100, () -> new BarkMushroomBlock());
-	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
-	public static final RegistryObject<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb", () -> new NaturalCobwebBlock());
-	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
 	
+	/* GROUNDCOVER */
 	public static final RegistryObject<Block> TWIGS = registerBlockWithFuel("twigs", 100, () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> FALLEN_LEAVES = registerBlock("fallen_leaves", () -> new FallenLeavesBlock());
 	public static final RegistryObject<Block> ROCKS = registerBlock("rocks", () -> new GroundcoverBlock());
@@ -66,6 +74,9 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> CHARRED_BONES = registerBlock("charred_bones", () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> PINECONES = registerBlockWithFuel("pinecones", 100, () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new GroundcoverBlock());
+	
+	/* MISC */
+	public static final RegistryObject<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb", () -> new NaturalCobwebBlock());
 	
 	public static final RegistryObject<Block> OAK_HOLLOW_LOG = registerBlock("oak_hollow_log", () -> new HollowLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
 	public static final RegistryObject<Block> BIRCH_HOLLOW_LOG = registerBlock("birch_hollow_log", () -> new HollowLogBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_LOG)));
@@ -87,23 +98,28 @@ public class PVJBlocks {
 		return temp;
 	}
 	
+	private static RegistryObject<Block> registerBlock(String name, Supplier<Item> item, Supplier<Block> block) {
+		RegistryObject<Block> temp = BLOCKS.register(name, block);
+		
+		PVJItems.ITEMS.register(name, item);
+		return temp;
+	}
+	
 	private static RegistryObject<Block> registerBlockWithoutItem(String name, Supplier<Block> block) {
 		return BLOCKS.register(name, block);
 	}
 	
 	private static RegistryObject<Block> registerBlockWithFuel(String name, int burnTime, Supplier<Block> block) {
-		return registerBlock(name, block);
-//		ResourceLocation res = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, name);
-//		
-//		ItemNameBlockItem item = new ItemNameBlockItem(block.get(), new Item.Properties().tab(PVJCreativeModeTab.INSTANCE)) {
-//			@Override
-//			public int getBurnTime(ItemStack stack, RecipeType type) {
-//				return burnTime;
-//			}
-//		};
-//		
-//		PVJItems.ITEMS.register(name, () -> item);
-//		return BLOCKS.register(name, block);
+		RegistryObject<Block> temp = BLOCKS.register(name, block);
+		
+		PVJItems.ITEMS.register(name, () -> new ItemNameBlockItem(temp.get(), new Item.Properties().tab(PVJCreativeModeTab.INSTANCE)) {
+			@Override
+			public int getBurnTime(ItemStack stack, RecipeType<?> type) {
+				return burnTime;
+			}
+		});
+		
+		return temp;
 	}
 
 	

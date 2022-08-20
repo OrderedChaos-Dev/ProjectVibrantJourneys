@@ -91,7 +91,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 						if(rand.nextFloat() < 0.4F && Block.isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP)) {
 							world.setBlock(pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
 						} else if(rand.nextFloat() < 0.4F) {
-							world.setBlock(pos, PVJBlocks.BARK_MUSHROOM.get().defaultBlockState().setValue(BarkMushroomBlock.FACING, dirCounterClockwise), 2);
+							BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
+							world.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirCounterClockwise), 2);
 						}
 					}
 					
@@ -101,7 +102,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 						if(rand.nextFloat() < 0.4F && Block.isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP)) {
 							world.setBlock(pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
 						} else if(rand.nextFloat() < 0.4F) {
-							world.setBlock(pos, PVJBlocks.BARK_MUSHROOM.get().defaultBlockState().setValue(BarkMushroomBlock.FACING, dirClockwise), 2);
+							BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
+							world.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirClockwise), 2);
 						}
 					}
 					
