@@ -1,0 +1,7 @@
+{
+  "parent": "projectvibrantjourneys:block/fallen_leaves",
+  "textures": {
+    "particle": "projectvibrantjourneys:block/dead_leaves",
+    "texture": "projectvibrantjourneys:block/dead_leaves"
+  }
+}

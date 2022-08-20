@@ -26,8 +26,12 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SEASHELLS.get(), cutout);
 	
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BARK_MUSHROOM.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ORANGE_BARK_MUSHROOM.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.GLOWING_BLUE_FUNGUS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.NATURAL_COBWEB.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.FALLEN_LEAVES.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.DEAD_FALLEN_LEAVES.get(), cutout_mipped);
 
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SEA_OATS.get(), cutout_mipped);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CATTAIL.get(), cutout_mipped);

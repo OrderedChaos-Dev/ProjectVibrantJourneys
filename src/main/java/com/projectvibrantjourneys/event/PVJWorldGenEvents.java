@@ -63,8 +63,10 @@ public class PVJWorldGenEvents {
 					if(PVJConfig.CONFIG_DATA.enableTwigs.get())
 						vegetalFeatures.add(PVJPlacements.TWIGS.getHolder().get());
 					
-					if(PVJConfig.CONFIG_DATA.enableFallenLeaves.get())
+					if(PVJConfig.CONFIG_DATA.enableFallenLeaves.get()) {
 						vegetalFeatures.add(PVJPlacements.FALLEN_LEAVES.getHolder().get());
+//						vegetalFeatures.add(PVJPlacements.DEAD_FALLEN_LEAVES.getHolder().get());
+					}
 				}
 				if(hasAnyType(biomeTypes, Type.CONIFEROUS) && PVJConfig.CONFIG_DATA.enablePinecones.get()) {
 					vegetalFeatures.add(PVJPlacements.PINECONES.getHolder().get());
@@ -89,6 +91,13 @@ public class PVJWorldGenEvents {
 			
 				if(hasAnyType(biomeTypes, Type.SNOWY) && PVJConfig.CONFIG_DATA.enableIceChunks.get()) {
 					vegetalFeatures.add(PVJPlacements.ICE_CHUNKS.getHolder().get());
+				}
+				
+				if(biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA) {
+					if(PVJConfig.CONFIG_DATA.enableFallenLeaves.get()) {
+						vegetalFeatures.add(PVJPlacements.DENSE_DEAD_FALLEN_LEAVES.getHolder().get());
+					}
+					vegetalFeatures.add(PVJPlacements.MOSS_CARPET.getHolder().get());
 				}
 				
 				if(PVJConfig.CONFIG_DATA.enableBarkMushrooms.get()) {

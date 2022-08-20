@@ -65,6 +65,7 @@ public class PVJBlocks {
 	/* GROUNDCOVER */
 	public static final RegistryObject<Block> TWIGS = registerBlockWithFuel("twigs", 100, () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> FALLEN_LEAVES = registerBlock("fallen_leaves", () -> new FallenLeavesBlock());
+	public static final RegistryObject<Block> DEAD_FALLEN_LEAVES = registerBlock("dead_fallen_leaves", () -> new FallenLeavesBlock());
 	public static final RegistryObject<Block> ROCKS = registerBlock("rocks", () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> MOSSY_ROCKS = registerBlock("mossy_rocks", () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> SANDSTONE_ROCKS = registerBlock("sandstone_rocks", () -> new GroundcoverBlock());

@@ -23,16 +23,20 @@ import net.minecraftforge.registries.RegistryObject;
 public class PVJPlacements {
 	public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, ProjectVibrantJourneys.MOD_ID);
 	
+	public static final RegistryObject<PlacedFeature> MOSS_CARPET = register("moss_carpet", PVJConfiguredFeatures.MOSS_CARPETS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
+	
 	public static final RegistryObject<PlacedFeature> SEA_OATS = register("sea_oats", PVJConfiguredFeatures.SEA_OATS, onceEvery(5));
 	public static final RegistryObject<PlacedFeature> CATTAILS = register("cattails", PVJConfiguredFeatures.CATTAILS, onceEvery(1));
 	public static final RegistryObject<PlacedFeature> BEACH_GRASS = register("beach_grass", PVJConfiguredFeatures.BEACH_GRASS, onceEvery(5));
 	public static final RegistryObject<PlacedFeature> BARK_MUSHROOM = register("bark_mushroom", PVJConfiguredFeatures.BARK_MUSHROOM, VegetationPlacements.worldSurfaceSquaredWithCount(30));
-	public static final RegistryObject<PlacedFeature> SHORT_GRASS = register("short_grass", PVJConfiguredFeatures.SHORT_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(2));
+	public static final RegistryObject<PlacedFeature> SHORT_GRASS = register("short_grass", PVJConfiguredFeatures.SHORT_GRASS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
 	public static final RegistryObject<PlacedFeature> NATURAL_COBWEB = register("natural_cobweb", PVJConfiguredFeatures.NATURAL_COBWEB, VegetationPlacements.worldSurfaceSquaredWithCount(5));
 	public static final RegistryObject<PlacedFeature> SMALL_CACTUS = register("small_cactus", PVJConfiguredFeatures.SMALL_CACTUS, RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	
 	public static final RegistryObject<PlacedFeature> TWIGS = register("twigs", PVJConfiguredFeatures.TWIGS, VegetationPlacements.worldSurfaceSquaredWithCount(3));
 	public static final RegistryObject<PlacedFeature> FALLEN_LEAVES = register("fallen_leaves", PVJConfiguredFeatures.FALLEN_LEAVES, VegetationPlacements.worldSurfaceSquaredWithCount(3));
+	public static final RegistryObject<PlacedFeature> DEAD_FALLEN_LEAVES = register("dead_fallen_leaves", PVJConfiguredFeatures.DEAD_FALLEN_LEAVES, VegetationPlacements.worldSurfaceSquaredWithCount(3));
+	public static final RegistryObject<PlacedFeature> DENSE_DEAD_FALLEN_LEAVES = register("dense_dead_fallen_leaves", PVJConfiguredFeatures.DEAD_FALLEN_LEAVES, VegetationPlacements.worldSurfaceSquaredWithCount(6));
 	public static final RegistryObject<PlacedFeature> PINECONES = register("pinecones", PVJConfiguredFeatures.PINECONES, VegetationPlacements.worldSurfaceSquaredWithCount(2));
 	public static final RegistryObject<PlacedFeature> SEASHELLS = register("seashells", PVJConfiguredFeatures.SEASHELLS, VegetationPlacements.worldSurfaceSquaredWithCount(2));
 	public static final RegistryObject<PlacedFeature> OCEAN_FLOOR_SEASHELLS = register("ocean_floor_seashells", PVJConfiguredFeatures.SEASHELLS, AquaticPlacements.seagrassPlacement(2));
