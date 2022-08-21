@@ -11,15 +11,15 @@ import com.google.gson.JsonParser;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
+import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class TreeFeatureUtils {
 
-	public static boolean isIn(Set<WeightedBiomeEntry> Set, ResourceLocation biome) {
-		for(WeightedBiomeEntry entry : Set) {
+	public static boolean isIn(Set<ChanceBiomeEntry> Set, ResourceLocation biome) {
+		for(ChanceBiomeEntry entry : Set) {
 			if(entry.biomeName().equals(biome.toString())) {
 				return true;
 			}
@@ -27,23 +27,23 @@ public class TreeFeatureUtils {
 		return false;
 	}
 	
-	public static WeightedBiomeEntry entry(String biomeName, int weight) {
-		return new WeightedBiomeEntry(biomeName, weight);
+	public static ChanceBiomeEntry entry(String biomeName, int chance) {
+		return new ChanceBiomeEntry(biomeName, chance);
 	}
 	
-	public static int getWeight(String biomeName, Set<WeightedBiomeEntry> data) {
-		for(WeightedBiomeEntry entry : data) {
+	public static int getChance(String biomeName, Set<ChanceBiomeEntry> data) {
+		for(ChanceBiomeEntry entry : data) {
 			if(entry.biomeName().equals(biomeName))
-				return entry.weight();
+				return entry.chance();
 		}
 		return -1;
 	}
 	
-	public static int getWeight(ResourceLocation biomeName, Set<WeightedBiomeEntry> data) {
-		return getWeight(biomeName.toString(), data);
+	public static int getChance(ResourceLocation biomeName, Set<ChanceBiomeEntry> data) {
+		return getChance(biomeName.toString(), data);
 	}
 	
-	public static void serializeAndLoad(String name, String loc, Set<WeightedBiomeEntry> defaults, Set<WeightedBiomeEntry> data) {
+	public static void serializeAndLoad(String name, String loc, Set<ChanceBiomeEntry> defaults, Set<ChanceBiomeEntry> data) {
 		Path path = FMLPaths.CONFIGDIR.get().resolve(ProjectVibrantJourneys.MOD_ID + "/" + loc + "/" + name + ".json");
 		if(!path.toFile().exists()) {
 			try {
@@ -61,22 +61,22 @@ public class TreeFeatureUtils {
 			array.forEach((element) -> {
 				JsonObject object = element.getAsJsonObject();
 				String biomeName = object.getAsJsonPrimitive("biomeName").getAsString();
-				int weight = object.getAsJsonPrimitive("weight").getAsInt();
+				int chance = object.getAsJsonPrimitive("chance").getAsInt();
 				
-				data.add(new WeightedBiomeEntry(biomeName, weight));
+				data.add(new ChanceBiomeEntry(biomeName, chance));
 			});
 		} catch(Exception e) {
 			ProjectVibrantJourneys.LOGGER.error(e.toString());
 		}
 	}
 	
-	public record WeightedBiomeEntry(String biomeName, int weight) {
+	public record ChanceBiomeEntry(String biomeName, int chance) {
 		
-		public static final Codec<WeightedBiomeEntry> CODEC = RecordCodecBuilder.create((builder) -> {
+		public static final Codec<ChanceBiomeEntry> CODEC = RecordCodecBuilder.create((builder) -> {
 			   return builder.group(
-					   Codec.STRING.fieldOf("biomeName").forGetter(WeightedBiomeEntry::biomeName),
-					   Codec.intRange(0, 100).fieldOf("weight").forGetter(WeightedBiomeEntry::weight)
-					   ).apply(builder, WeightedBiomeEntry::new);
+					   Codec.STRING.fieldOf("biomeName").forGetter(ChanceBiomeEntry::biomeName),
+					   Codec.intRange(0, 100).fieldOf("chance").forGetter(ChanceBiomeEntry::chance)
+					   ).apply(builder, ChanceBiomeEntry::new);
 		   });
 	}
 

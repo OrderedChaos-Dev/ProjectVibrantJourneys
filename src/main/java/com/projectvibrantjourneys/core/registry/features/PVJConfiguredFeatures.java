@@ -12,7 +12,7 @@ import com.projectvibrantjourneys.common.world.features.stateproviders.Direction
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 import com.projectvibrantjourneys.util.PVJFeatureVars;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
+import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -121,7 +121,7 @@ public class PVJConfiguredFeatures {
 							  BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))))));
 	}
 	
-	private static ConfiguredFeature<?, ?> fallenTree(Block hollowLog, Block baseLog, Set<WeightedBiomeEntry> data) {
+	private static ConfiguredFeature<?, ?> fallenTree(Block hollowLog, Block baseLog, Set<ChanceBiomeEntry> data) {
 		return new ConfiguredFeature<>(PVJFeatures.FALLEN_TREE.get(), new FallenTreeConfiguration(hollowLog.defaultBlockState(), baseLog.defaultBlockState(), new ArrayList<>(data)));
 	}
 	

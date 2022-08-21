@@ -6,11 +6,11 @@ import java.util.Set;
 
 import com.projectvibrantjourneys.util.PVJFeatureVars;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
+import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 public class BOP {
 	
-	public static final Set<WeightedBiomeEntry> OAK_DEFAULT = Set.of(entry("biomesoplenty:bamboo_grove", 10),
+	public static final Set<ChanceBiomeEntry> OAK_DEFAULT = Set.of(entry("biomesoplenty:bamboo_grove", 10),
 																	 entry("biomesoplenty:dead_forest", 2),
 																	 entry("biomesoplenty:floodplain ", 2),
 																	 entry("biomesoplenty:fungal_jungle", 5),
@@ -27,22 +27,22 @@ public class BOP {
 																	 entry("biomesoplenty:wetland", 5),
 																	 entry("biomesoplenty:woodland", 5));
 
-	public static final Set<WeightedBiomeEntry> BIRCH_DEFAULT = Set.of(entry("biomesoplenty:boreal_forest", 20),
+	public static final Set<ChanceBiomeEntry> BIRCH_DEFAULT = Set.of(entry("biomesoplenty:boreal_forest", 20),
 																	   entry("biomesoplenty:rainbow_hills", 10),
 																	   entry("biomesoplenty:seasonal_forest", 10));
 	
-	public static final Set<WeightedBiomeEntry> SPRUCE_DEFAULT = Set.of(entry("biomesoplenty:dead_forest", 2),
+	public static final Set<ChanceBiomeEntry> SPRUCE_DEFAULT = Set.of(entry("biomesoplenty:dead_forest", 2),
 																		entry("biomesoplenty:forested_field", 10),
 																		entry("biomesoplenty:jade_cliffs", 5),
 																		entry("biomesoplenty:mediterranean_forest", 5),
 																		entry("biomesoplenty:old_growth_dead_forest", 2),
 																		entry("biomesoplenty:wetland", 5));
 	
-	public static final Set<WeightedBiomeEntry> JUNGLE_DEFAULT = Set.of();
+	public static final Set<ChanceBiomeEntry> JUNGLE_DEFAULT = Set.of();
 	
-	public static final Set<WeightedBiomeEntry> ACACIA_DEFAULT = Set.of(entry("biomesoplenty:lush_desert", 5));
+	public static final Set<ChanceBiomeEntry> ACACIA_DEFAULT = Set.of(entry("biomesoplenty:lush_desert", 5));
 	
-	public static final Set<WeightedBiomeEntry> DARK_OAK_DEFAULT = Set.of(entry("biomesoplenty:pumpkin_patch", 5),
+	public static final Set<ChanceBiomeEntry> DARK_OAK_DEFAULT = Set.of(entry("biomesoplenty:pumpkin_patch", 5),
 																		  entry("biomesoplenty:seasonal_forest", 10));
 	
 	public static void init() {

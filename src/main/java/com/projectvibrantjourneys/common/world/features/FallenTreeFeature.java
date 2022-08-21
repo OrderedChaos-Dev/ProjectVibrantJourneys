@@ -9,7 +9,7 @@ import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.world.features.configs.FallenTreeConfiguration;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
+import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,8 +39,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 		BlockState baseLog = context.config().baseLog();
 		ResourceLocation biome = world.getBiome(pos).value().getRegistryName();
 		
-		int weight = TreeFeatureUtils.getWeight(biome, new HashSet<WeightedBiomeEntry>(context.config().data()));
-		if(rand.nextFloat() > weight / 100.0F)
+		int chance = TreeFeatureUtils.getChance(biome, new HashSet<ChanceBiomeEntry>(context.config().data()));
+		if(rand.nextFloat() > chance / 100.0F)
 			return false;
 		
 		BlockState below = world.getBlockState(pos.below());

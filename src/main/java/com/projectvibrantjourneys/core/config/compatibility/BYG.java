@@ -6,11 +6,11 @@ import java.util.Set;
 
 import com.projectvibrantjourneys.util.PVJFeatureVars;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.WeightedBiomeEntry;
+import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 public class BYG {
 	
-	public static final Set<WeightedBiomeEntry> OAK_DEFAULT = Set.of(entry("byg:allium_fields", 5),
+	public static final Set<ChanceBiomeEntry> OAK_DEFAULT = Set.of(entry("byg:allium_fields", 5),
 																	 entry("byg:araucaria_savanna", 5),
 																	 entry("byg:autumnal_forest", 30),
 																	 entry("byg:baobab_savanna", 5),
@@ -22,12 +22,12 @@ public class BYG {
 																	 entry("byg:temperate_rainforest", 10),
 																	 entry("byg:white_mangrove_marshes", 5));
 
-	public static final Set<WeightedBiomeEntry> BIRCH_DEFAULT = Set.of(entry("byg:autumnal_forest", 10),
+	public static final Set<ChanceBiomeEntry> BIRCH_DEFAULT = Set.of(entry("byg:autumnal_forest", 10),
 																	   entry("byg:borealis_grove", 10),
 																	   entry("byg:howling_peaks", 5),
 																	   entry("byg:temperate_grove", 10));
 
-	public static final Set<WeightedBiomeEntry> SPRUCE_DEFAULT = Set.of(entry("byg:autumnal_taiga", 20),
+	public static final Set<ChanceBiomeEntry> SPRUCE_DEFAULT = Set.of(entry("byg:autumnal_taiga", 20),
 																		entry("byg:borealis_grove", 10),
 																		entry("byg:canadian_shield", 15),
 																		entry("byg:dacite_ridges", 10),
@@ -37,12 +37,12 @@ public class BYG {
 																		entry("byg:rose_fields", 5),
 																		entry("byg:weeping_witch_forest", 5));
 	
-	public static final Set<WeightedBiomeEntry> JUNGLE_DEFAULT = Set.of(entry("byg:crag_gardens", 10));
+	public static final Set<ChanceBiomeEntry> JUNGLE_DEFAULT = Set.of(entry("byg:crag_gardens", 10));
 	
-	public static final Set<WeightedBiomeEntry> ACACIA_DEFAULT = Set.of(entry("byg:araucaria_savanna", 10),
+	public static final Set<ChanceBiomeEntry> ACACIA_DEFAULT = Set.of(entry("byg:araucaria_savanna", 10),
 																		entry("byg:baobab_savanna", 10));
 	
-	public static final Set<WeightedBiomeEntry> DARK_OAK_DEFAULT = Set.of(entry("byg:temperate_rainforest", 10));
+	public static final Set<ChanceBiomeEntry> DARK_OAK_DEFAULT = Set.of(entry("byg:temperate_rainforest", 10));
 	
 	public static void init() {
 		TreeFeatureUtils.serializeAndLoad("oak_trees", "byg", OAK_DEFAULT, PVJFeatureVars.OAK);
