@@ -53,7 +53,7 @@ public class PVJWorldGenEvents {
 			addFeature(vegetalFeatures, PVJPlacements.CINDERCANE, PVJConfig.CONFIG_DATA.enableCindercane, true);
 			addFeature(vegetalFeatures, PVJPlacements.WARPED_NETTLE, PVJConfig.CONFIG_DATA.enableNetherNettles, biome == Biomes.WARPED_FOREST);
 			addFeature(vegetalFeatures, PVJPlacements.CRIMSON_NETTLE, PVJConfig.CONFIG_DATA.enableNetherNettles, biome == Biomes.CRIMSON_FOREST);
-		} else if(biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD)) {
+		} else if(overworld(biomeTypes, holder) && !biome.getRegistryName().toString().equals("biomesoplenty:origin_valley")) {
 			
 			//disable worldgen in snowy plains because it looks ugly
 			if(biome != Biomes.SNOWY_PLAINS && event.getCategory() != Biome.BiomeCategory.MUSHROOM) {
@@ -148,5 +148,9 @@ public class PVJWorldGenEvents {
 	
 	private boolean inlandNotDesert(BiomeCategory category) {
 		return category != Biome.BiomeCategory.DESERT && category != Biome.BiomeCategory.MESA && category != Biome.BiomeCategory.RIVER && category != Biome.BiomeCategory.OCEAN && category != Biome.BiomeCategory.BEACH;
+	}
+	
+	private boolean overworld(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+		return biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD);
 	}
 }

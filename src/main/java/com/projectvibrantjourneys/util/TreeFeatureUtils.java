@@ -43,8 +43,8 @@ public class TreeFeatureUtils {
 		return getWeight(biomeName.toString(), data);
 	}
 	
-	public static void serializeAndLoad(String name, Set<WeightedBiomeEntry> defaults, Set<WeightedBiomeEntry> data) {
-		Path path = FMLPaths.CONFIGDIR.get().resolve(ProjectVibrantJourneys.MOD_ID + "/" + name + ".json");
+	public static void serializeAndLoad(String name, String loc, Set<WeightedBiomeEntry> defaults, Set<WeightedBiomeEntry> data) {
+		Path path = FMLPaths.CONFIGDIR.get().resolve(ProjectVibrantJourneys.MOD_ID + "/" + loc + "/" + name + ".json");
 		if(!path.toFile().exists()) {
 			try {
 				Files.createDirectories(path.getParent());
