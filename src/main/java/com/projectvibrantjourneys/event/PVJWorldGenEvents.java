@@ -36,7 +36,6 @@ import net.minecraftforge.registries.RegistryObject;
 @SuppressWarnings("deprecation")
 public class PVJWorldGenEvents {
 
-
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void addBiomeFeatures(BiomeLoadingEvent event) {
 		ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
@@ -68,6 +67,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.ROCKS, PVJConfig.CONFIG_DATA.enableRocks, true);
 				addFeature(vegetalFeatures, PVJPlacements.BONES, PVJConfig.CONFIG_DATA.enableBones, true);
 				addFeature(vegetalFeatures, PVJPlacements.ICE_CHUNKS, PVJConfig.CONFIG_DATA.enableIceChunks, snowy(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.WOODED_BADLANDS);
 				addFeature(vegetalFeatures, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.MOSS_CARPET, PVJConfig.CONFIG_DATA.enableMossCarpets, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.BARK_MUSHROOM, PVJConfig.CONFIG_DATA.enableBarkMushrooms, true);
