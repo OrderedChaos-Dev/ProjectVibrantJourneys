@@ -1,7 +1,10 @@
 package com.projectvibrantjourneys.event;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+
+import org.jetbrains.annotations.NotNull;
 
 import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.core.registry.features.PVJPlacements;
@@ -39,7 +42,9 @@ public class PVJWorldGenEvents {
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void addBiomeFeatures(BiomeLoadingEvent event) {
 		ResourceKey<Biome> biome = ResourceKey.create(ForgeRegistries.Keys.BIOMES, event.getName());
-		Holder<Biome> holder = ForgeRegistries.BIOMES.getHolder(biome).get();
+		
+		Optional<Holder<Biome>> holder = ForgeRegistries.BIOMES.getHolder(biome);
+
 		Set<BiomeDictionary.Type> biomeTypes = BiomeDictionary.getTypes(biome);
 		List<Holder<PlacedFeature>> vegetalFeatures = event.getGeneration().getFeatures(Decoration.VEGETAL_DECORATION);
 		MobSpawnSettingsBuilder mobSpawns = event.getSpawns();
@@ -105,10 +110,10 @@ public class PVJWorldGenEvents {
 	}
 	
 	@SafeVarargs
-	private boolean hasAnyTag(Holder<Biome> biome, TagKey<Biome>... tags) {
-		for(TagKey<Biome> tag : tags) {
-			return biome.is(tag);
-		}
+	private boolean hasAnyTag(Optional<Holder<Biome>> biome, TagKey<Biome>... tags) {
+//		for(TagKey<Biome> tag : tags) {
+//			return biome.is(tag);
+//		}
 		return false;
 	}
 	
@@ -126,23 +131,23 @@ public class PVJWorldGenEvents {
 			spawns.addSpawn(category, new MobSpawnSettings.SpawnerData(entityType, weight, minCount, maxCount));
 	}
 	
-	private boolean forestOrPlains(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean forestOrPlains(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>>holder) {
 		return hasAnyType(biomeTypes, Type.FOREST, Type.PLAINS) || hasAnyTag(holder, Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST);
 	}
 	
-	private boolean oceanOrBeach(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean oceanOrBeach(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return (hasAnyType(biomeTypes, Type.OCEAN, Type.BEACH) || hasAnyTag(holder, Tags.Biomes.IS_BEACH, BiomeTags.IS_BEACH, BiomeTags.IS_OCEAN));
 	}
 	
-	private boolean beach(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean beach(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return (hasAnyType(biomeTypes, Type.BEACH) || hasAnyTag(holder, Tags.Biomes.IS_BEACH, BiomeTags.IS_BEACH));
 	}
 	
-	private boolean coniferous(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean coniferous(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return hasAnyType(biomeTypes, Type.CONIFEROUS) || hasAnyTag(holder, Tags.Biomes.IS_CONIFEROUS);
 	}
 	
-	private boolean snowy(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean snowy(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return hasAnyType(biomeTypes, Type.SNOWY) || hasAnyTag(holder, Tags.Biomes.IS_SNOWY);
 	}
 	
@@ -150,7 +155,7 @@ public class PVJWorldGenEvents {
 		return category != Biome.BiomeCategory.DESERT && category != Biome.BiomeCategory.MESA && category != Biome.BiomeCategory.RIVER && category != Biome.BiomeCategory.OCEAN && category != Biome.BiomeCategory.BEACH;
 	}
 	
-	private boolean overworld(Set<BiomeDictionary.Type> biomeTypes, Holder<Biome> holder) {
+	private boolean overworld(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD);
 	}
 }
