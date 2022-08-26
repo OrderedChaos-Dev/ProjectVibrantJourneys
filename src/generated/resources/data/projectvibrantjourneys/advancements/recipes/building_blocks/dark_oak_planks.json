@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:oak_planks"
+      "projectvibrantjourneys:dark_oak_planks"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "projectvibrantjourneys:oak_hollow_log"
+              "projectvibrantjourneys:dark_oak_hollow_log"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:oak_planks"
+        "recipe": "projectvibrantjourneys:dark_oak_planks"
       }
     }
   },

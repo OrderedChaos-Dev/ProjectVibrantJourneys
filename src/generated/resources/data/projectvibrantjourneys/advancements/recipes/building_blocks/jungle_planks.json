@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:spruce_planks"
+      "projectvibrantjourneys:jungle_planks"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "projectvibrantjourneys:spruce_hollow_log"
+              "projectvibrantjourneys:jungle_hollow_log"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:spruce_planks"
+        "recipe": "projectvibrantjourneys:jungle_planks"
       }
     }
   },

@@ -58,7 +58,6 @@ public class ProjectVibrantJourneys
         
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
-        bus.addListener(this::data);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -74,19 +73,5 @@ public class ProjectVibrantJourneys
     	});
     }
     
-    private void data(GatherDataEvent event) {
-    	DataGenerator gen = event.getGenerator();
-    	ExistingFileHelper helper = event.getExistingFileHelper();
-    	
-    	if(event.includeServer()) {
-    		PVJBlockTagsProvider blockTags = new PVJBlockTagsProvider(gen, helper);
-    		gen.addProvider(blockTags);
-    		gen.addProvider(new PVJItemTagsProvider(gen, blockTags, helper));
-    		gen.addProvider(new PVJRecipesProvider(gen));
-    	}
-    	
-    	if(event.includeClient()) {
-    		
-    	}
-    }
+
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:acacia_planks"
+      "projectvibrantjourneys:acacia_planks"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:acacia_planks"
+        "recipe": "projectvibrantjourneys:acacia_planks"
       }
     }
   },
