@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.projectvibrantjourneys.core.config.compatibility.BOP;
 import com.projectvibrantjourneys.core.config.compatibility.BYG;
+import com.projectvibrantjourneys.core.config.compatibility.Pioneer;
 import com.projectvibrantjourneys.util.PVJFeatureVars;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
 import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
@@ -54,5 +55,6 @@ public class ChanceTreeFeatureConfig {
 		/* Mod Compatibility */
 		BYG.init();
 		BOP.init();
+		Pioneer.init();
 	}
 }

@@ -13,9 +13,11 @@ public class Pioneer {
 	public static final Set<ChanceBiomeEntry> OAK_DEFAULT = Set.of(entry("pioneer:verdant_sands", 5),
 																   entry("pioneer:pine_meadows", 10),
 																   entry("pioneer:aspen_grove", 10),
-																   entry("pioneer:overgrown_spires", 10));
+																   entry("pioneer:overgrown_spires", 10),
+																   entry("pioneer:flooded_forest", 20),
+																   entry("pioneer:windswept_cliffs", 5));
 
-	public static final Set<ChanceBiomeEntry> BIRCH_DEFAULT = Set.of();
+	public static final Set<ChanceBiomeEntry> BIRCH_DEFAULT = Set.of(entry("pioneer:flooded_forest", 10));
 	
 	public static final Set<ChanceBiomeEntry> SPRUCE_DEFAULT = Set.of(entry("pioneer:pine_meadows", 3),
 																	  entry("pioneer:autumnal_coniferous_forest", 3));

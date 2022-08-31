@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.18.2-4.0.0-BETA3'
+version = '1.18.2-4.0.0-BETA4'
 group = 'com.projectvibrantjourneys'
 archivesBaseName = 'projectvibrantjourneys'
 

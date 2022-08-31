@@ -82,9 +82,9 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.SHORT_GRASS, PVJConfig.CONFIG_DATA.enableShortGrass, true);
 				addFeature(vegetalFeatures, PVJPlacements.NATURAL_COBWEB, PVJConfig.CONFIG_DATA.enableNaturalCobwebs, true);
 				addFeature(vegetalFeatures, PVJPlacements.SMALL_CACTUS, PVJConfig.CONFIG_DATA.enableSmallCacti, event.getCategory() == Biome.BiomeCategory.DESERT);
-				addFeature(vegetalFeatures, AquaticPlacements.SEAGRASS_RIVER, PVJConfig.CONFIG_DATA.enableSmallCacti, inlandNotDesert(event.getCategory()));
-				addFeature(vegetalFeatures, VegetationPlacements.PATCH_WATERLILY, PVJConfig.CONFIG_DATA.enableSmallCacti, inlandNotDesert(event.getCategory()));
-				addFeature(vegetalFeatures, VegetationPlacements.PATCH_GRASS_PLAIN, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
+				addFeature(vegetalFeatures, PVJPlacements.EXTRA_SEAGRASS, PVJConfig.CONFIG_DATA.enableExtraSeagrass, inlandNotDesert(event.getCategory()));
+				addFeature(vegetalFeatures, PVJPlacements.EXTRA_LILYPADS, PVJConfig.CONFIG_DATA.enableExtraLilypads, inlandNotDesert(event.getCategory()));
+				addFeature(vegetalFeatures, PVJPlacements.EXTRA_GRASS, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));
