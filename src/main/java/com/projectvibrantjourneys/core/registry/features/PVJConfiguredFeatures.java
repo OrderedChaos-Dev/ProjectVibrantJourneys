@@ -8,6 +8,7 @@ import java.util.function.Supplier;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import com.projectvibrantjourneys.common.world.features.configs.FallenTreeConfiguration;
+import com.projectvibrantjourneys.common.world.features.configs.MultipleVegetationPatchConfiguration;
 import com.projectvibrantjourneys.common.world.features.stateproviders.DirectionalStateProvider;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
@@ -17,9 +18,13 @@ import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.features.AquaticFeatures;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -28,6 +33,7 @@ import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockColumnConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.CountConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NetherForestVegetationConfig;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -36,6 +42,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
+import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.registries.DeferredRegister;
@@ -78,6 +85,9 @@ public class PVJConfiguredFeatures {
 	public static final RegistryObject<ConfiguredFeature<?, ?>> JUNGLE_FALLEN_TREE = register("jungle_fallen_tree", () -> fallenTree(PVJBlocks.JUNGLE_HOLLOW_LOG.get(), Blocks.JUNGLE_LOG, PVJFeatureVars.JUNGLE));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> ACACIA_FALLEN_TREE = register("acacia_fallen_tree", () -> fallenTree(PVJBlocks.ACACIA_HOLLOW_LOG.get(), Blocks.ACACIA_LOG, PVJFeatureVars.ACACIA));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> DARK_OAK_FALLEN_TREE = register("dark_oak_fallen_tree", () -> fallenTree(PVJBlocks.DARK_OAK_HOLLOW_LOG.get(), Blocks.DARK_OAK_LOG, PVJFeatureVars.DARK_OAK));
+	
+	public static final RegistryObject<ConfiguredFeature<?, ?>> SEA_PICKLE = register("sea_pickle", () ->  new ConfiguredFeature<>(Feature.SEA_PICKLE, new CountConfiguration(1)));
+	public static final RegistryObject<ConfiguredFeature<?, ?>> TIDE_POOL = register("tide_pool", () -> new ConfiguredFeature<>(PVJFeatures.POOL.get(), new MultipleVegetationPatchConfiguration(BlockTags.LUSH_GROUND_REPLACEABLE, BlockStateProvider.simple(Blocks.STONE), 0.15F, List.of(PlacementUtils.inlinePlaced(SEA_PICKLE.getHolder().get()), PlacementUtils.inlinePlaced(AquaticFeatures.SEAGRASS_TALL), PlacementUtils.inlinePlaced(AquaticFeatures.KELP), PlacementUtils.inlinePlaced(AquaticFeatures.KELP)), CaveSurface.FLOOR, ConstantInt.of(3), 1F, 5, 0.3F, UniformInt.of(2, 3), 0.7F)));
 	
 	public static <FC extends FeatureConfiguration, F extends Feature<FC>> RegistryObject<ConfiguredFeature<?, ?>> register(String name, Supplier<ConfiguredFeature<?, ?>> configuredFeature) {
 		return CONFIGURED_FEATURES.register(name, configuredFeature);

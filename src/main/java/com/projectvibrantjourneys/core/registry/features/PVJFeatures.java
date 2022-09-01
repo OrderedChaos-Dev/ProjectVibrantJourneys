@@ -2,10 +2,12 @@ package com.projectvibrantjourneys.core.registry.features;
 
 import com.projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import com.projectvibrantjourneys.common.world.features.FallenTreeFeature;
+import com.projectvibrantjourneys.common.world.features.MultipleWaterloggedVegetationPatchFeature;
 import com.projectvibrantjourneys.common.world.features.NaturalCobwebFeature;
 import com.projectvibrantjourneys.common.world.features.RocksGroundcoverFeature;
 import com.projectvibrantjourneys.common.world.features.SimpleBlockMatchWaterFeature;
 import com.projectvibrantjourneys.common.world.features.configs.FallenTreeConfiguration;
+import com.projectvibrantjourneys.common.world.features.configs.MultipleVegetationPatchConfiguration;
 import com.projectvibrantjourneys.common.world.features.stateproviders.DirectionalStateProvider;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
@@ -28,6 +30,7 @@ public class PVJFeatures {
 	public static final RegistryObject<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
 	public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));
 	public static final RegistryObject<Feature<FallenTreeConfiguration>> FALLEN_TREE = registerFeature("fallen_tree", new FallenTreeFeature(FallenTreeConfiguration.CODEC));
+	public static final RegistryObject<Feature<MultipleVegetationPatchConfiguration>> POOL = registerFeature("ppool", new MultipleWaterloggedVegetationPatchFeature(MultipleVegetationPatchConfiguration.CODEC));
 
 	private static<FC extends FeatureConfiguration> RegistryObject<Feature<FC>> registerFeature(String name, Feature<FC> feature) {
 		return FEATURES.register(name, () -> feature);

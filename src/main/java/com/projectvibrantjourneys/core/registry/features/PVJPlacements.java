@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.AquaticFeatures;
@@ -15,14 +16,19 @@ import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
+import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;;
@@ -76,7 +82,7 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> EXTRA_SEAGRASS = copy("extra_seagrass", AquaticPlacements.SEAGRASS_RIVER);
 	public static final RegistryObject<PlacedFeature> EXTRA_LILYPADS = copy("extra_lilypads", VegetationPlacements.PATCH_WATERLILY);
 	public static final RegistryObject<PlacedFeature> EXTRA_GRASS = copy("extra_grass", VegetationPlacements.PATCH_GRASS_PLAIN);
-	
+	public static final RegistryObject<PlacedFeature> TIDE_POOL = register("tide_pool", PVJConfiguredFeatures.TIDE_POOL, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
 	
 	private static RegistryObject<PlacedFeature> copy(String name, Holder<PlacedFeature> placedFeature) {
 		return register(name, placedFeature.value().feature(), placedFeature.value().placement());

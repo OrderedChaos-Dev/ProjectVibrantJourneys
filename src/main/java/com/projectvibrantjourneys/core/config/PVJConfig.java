@@ -36,6 +36,7 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableExtraSeagrass;
 		public ForgeConfigSpec.BooleanValue enableExtraRiverGrass;
 		public ForgeConfigSpec.BooleanValue enableMossCarpets;
+		public ForgeConfigSpec.BooleanValue enableTidePools;
 		
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
@@ -67,6 +68,7 @@ public class PVJConfig {
 			enableExtraSeagrass = builder.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true);
 			enableExtraRiverGrass = builder.comment("Enable generation of extra grass in rivers").define("enableExtraRiverGrass", true);
 			enableMossCarpets = builder.comment("Enable moss carpets in old growth taiga biomes").define("enableMossCarpets", true);
+			enableTidePools = builder.comment("Enable of tide pools in stony shores").define("enableTidePools", true);
 			builder.pop();
 			
 			builder.push("Entity Options");

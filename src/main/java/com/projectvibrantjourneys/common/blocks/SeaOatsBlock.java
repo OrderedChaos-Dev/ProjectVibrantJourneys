@@ -1,6 +1,7 @@
 package com.projectvibrantjourneys.common.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -22,6 +23,10 @@ public class SeaOatsBlock extends DoublePlantBlock {
 	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
 		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
 			BlockState ground = world.getBlockState(pos.below());
+			
+			if(!ground.isFaceSturdy(world, pos.below(), Direction.UP))
+					return false;
+			
 			return ground.getMaterial() == Material.SAND || ground.getMaterial() == Material.DIRT || ground.getBlock() instanceof GrassBlock;
 		} else {
 			BlockState blockstate = world.getBlockState(pos.below());

@@ -62,7 +62,6 @@ public class PVJWorldGenEvents {
 			
 			//disable worldgen in snowy plains because it looks ugly
 			if(biome != Biomes.SNOWY_PLAINS && event.getCategory() != Biome.BiomeCategory.MUSHROOM) {
-				
 				addFeature(vegetalFeatures, PVJPlacements.TWIGS, PVJConfig.CONFIG_DATA.enableTwigs, forestOrPlains(biomeTypes, holder));
 				addFeature(vegetalFeatures, PVJPlacements.FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, forestOrPlains(biomeTypes, holder));
 				addFeature(vegetalFeatures, PVJPlacements.PINECONES, PVJConfig.CONFIG_DATA.enablePinecones, coniferous(biomeTypes, holder));
@@ -85,6 +84,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_SEAGRASS, PVJConfig.CONFIG_DATA.enableExtraSeagrass, inlandNotDesert(event.getCategory()));
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_LILYPADS, PVJConfig.CONFIG_DATA.enableExtraLilypads, inlandNotDesert(event.getCategory()));
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_GRASS, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
+				addFeature(vegetalFeatures, PVJPlacements.TIDE_POOL, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));
@@ -98,6 +98,7 @@ public class PVJWorldGenEvents {
 		//ENTITY STUFF
 		if(biomeTypes.contains(Type.OVERWORLD) || hasAnyTag(holder, Tags.Biomes.IS_OVERWORLD)) {
 			addSpawn(mobSpawns, MobCategory.WATER_AMBIENT, EntityType.TROPICAL_FISH, 25, 5, 5, PVJConfig.CONFIG_DATA.enableJungleTropicalFish, event.getCategory() == Biome.BiomeCategory.JUNGLE);
+			addSpawn(mobSpawns, MobCategory.WATER_AMBIENT, EntityType.COD, 25, 1, 4, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
 		}
 	}
 	
