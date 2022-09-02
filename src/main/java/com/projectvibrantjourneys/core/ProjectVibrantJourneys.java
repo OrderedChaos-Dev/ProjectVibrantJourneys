@@ -37,7 +37,7 @@ public class ProjectVibrantJourneys
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "projectvibrantjourneys";
-
+    
     public ProjectVibrantJourneys() {                
 		ChanceTreeFeatureConfig.init();
 		

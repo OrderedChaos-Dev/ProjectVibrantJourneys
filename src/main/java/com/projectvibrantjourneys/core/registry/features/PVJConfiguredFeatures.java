@@ -17,6 +17,7 @@ import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.AquaticFeatures;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -53,6 +54,7 @@ public class PVJConfiguredFeatures {
 	public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, ProjectVibrantJourneys.MOD_ID);
 
 	public static final RegistryObject<ConfiguredFeature<?, ?>> MOSS_CARPETS = register("moss_carpet", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, mossCarpetConfig(10, 7, 2, Blocks.MOSS_CARPET)));
+	public static final RegistryObject<ConfiguredFeature<?, ?>> LILYPADS = register("lilypads", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(PVJFeatures.LILYPAD.get(), new ProbabilityFeatureConfiguration(0.75F)))));
 	
 	public static final RegistryObject<ConfiguredFeature<?, ?>> BEACH_GRASS = register("beach_grass", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.BEACH_GRASS.get().defaultBlockState())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> SEA_OATS = register("sea_oats", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SEA_OATS.get().defaultBlockState())));

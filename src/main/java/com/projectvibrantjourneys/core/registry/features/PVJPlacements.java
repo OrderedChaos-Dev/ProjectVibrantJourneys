@@ -80,7 +80,7 @@ public class PVJPlacements {
 //	public static final RegistryObject<PlacedFeature> EXTRA_LILYPADS = register("extra_lilypads", VegetationFeatures.PATCH_WATERLILY, worldSurfaceSquaredWithCount(4));
 //	public static final RegistryObject<PlacedFeature> EXTRA_GRASS = register("extra_grass", VegetationFeatures.PATCH_GRASS, List.of(NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 	public static final RegistryObject<PlacedFeature> EXTRA_SEAGRASS = copy("extra_seagrass", AquaticPlacements.SEAGRASS_RIVER);
-	public static final RegistryObject<PlacedFeature> EXTRA_LILYPADS = copy("extra_lilypads", VegetationPlacements.PATCH_WATERLILY);
+	public static final RegistryObject<PlacedFeature> EXTRA_LILYPADS = register("extra_lilypads", PVJConfiguredFeatures.LILYPADS, worldSurfaceSquaredWithCount(4));
 	public static final RegistryObject<PlacedFeature> EXTRA_GRASS = copy("extra_grass", VegetationPlacements.PATCH_GRASS_PLAIN);
 	public static final RegistryObject<PlacedFeature> TIDE_POOL = register("tide_pool", PVJConfiguredFeatures.TIDE_POOL, CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
 	
