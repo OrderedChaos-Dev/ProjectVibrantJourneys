@@ -75,14 +75,14 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.MOSS_CARPET, PVJConfig.CONFIG_DATA.enableMossCarpets, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.BARK_MUSHROOM, PVJConfig.CONFIG_DATA.enableBarkMushrooms, true);
-				addFeature(vegetalFeatures, PVJPlacements.SEA_OATS, PVJConfig.CONFIG_DATA.enableSeaOats, beach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.SEA_OATS, PVJConfig.CONFIG_DATA.enableSeaOats, beach(biomeTypes, holder) && !veryCold(biome));
 				addFeature(vegetalFeatures, PVJPlacements.BEACH_GRASS, PVJConfig.CONFIG_DATA.enableBeachGrass, beach(biomeTypes, holder));
-				addFeature(vegetalFeatures, PVJPlacements.CATTAILS, PVJConfig.CONFIG_DATA.enableCattails, !oceanOrBeach(biomeTypes, holder));
+				addFeature(vegetalFeatures, PVJPlacements.CATTAILS, PVJConfig.CONFIG_DATA.enableCattails, !oceanOrBeach(biomeTypes, holder) && !veryCold(biome));
 				addFeature(vegetalFeatures, PVJPlacements.SHORT_GRASS, PVJConfig.CONFIG_DATA.enableShortGrass, true);
 				addFeature(vegetalFeatures, PVJPlacements.NATURAL_COBWEB, PVJConfig.CONFIG_DATA.enableNaturalCobwebs, true);
 				addFeature(vegetalFeatures, PVJPlacements.SMALL_CACTUS, PVJConfig.CONFIG_DATA.enableSmallCacti, event.getCategory() == Biome.BiomeCategory.DESERT);
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_SEAGRASS, PVJConfig.CONFIG_DATA.enableExtraSeagrass, inlandNotDesert(event.getCategory()));
-				addFeature(vegetalFeatures, PVJPlacements.EXTRA_LILYPADS, PVJConfig.CONFIG_DATA.enableExtraLilypads, inlandNotDesert(event.getCategory()));
+				addFeature(vegetalFeatures, PVJPlacements.EXTRA_LILYPADS, PVJConfig.CONFIG_DATA.enableExtraLilypads, inlandNotDesert(event.getCategory()) && !veryCold(biome));
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_GRASS, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
 				addFeature(vegetalFeatures, PVJPlacements.TIDE_POOL, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
 				
@@ -150,6 +150,13 @@ public class PVJWorldGenEvents {
 	
 	private boolean snowy(Set<BiomeDictionary.Type> biomeTypes, Optional<Holder<Biome>> holder) {
 		return hasAnyType(biomeTypes, Type.SNOWY) || hasAnyTag(holder, Tags.Biomes.IS_SNOWY);
+	}
+	
+	
+	//basically snowy biomes except snowy taiga
+	private boolean veryCold(ResourceKey<Biome> biome) {
+		return biome == Biomes.FROZEN_RIVER || biome == Biomes.SNOWY_PLAINS || biome == Biomes.SNOWY_BEACH || biome == Biomes.SNOWY_SLOPES
+				|| biome == Biomes.ICE_SPIKES || biome == Biomes.FROZEN_OCEAN || biome == Biomes.DEEP_FROZEN_OCEAN;
 	}
 	
 	private boolean inlandNotDesert(BiomeCategory category) {
