@@ -16,6 +16,7 @@ import com.projectvibrantjourneys.common.blocks.NetherPlantBlock;
 import com.projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import com.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import com.projectvibrantjourneys.common.blocks.SmallCactusBlock;
+import com.projectvibrantjourneys.common.blocks.PricklyBushBlock;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 import net.minecraft.core.BlockPos;
@@ -55,6 +56,7 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> GLOWING_BLUE_FUNGUS = registerBlockWithFuel("glowing_blue_fungus", 100, () -> new GlowingFungusBlock());
 	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
 	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
+	public static final RegistryObject<Block> PRICKLY_BUSH = registerBlockWithFuel("prickly_bush", 100, () -> new PricklyBushBlock());
 	
 	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));
@@ -75,7 +77,7 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> CHARRED_BONES = registerBlock("charred_bones", () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> PINECONES = registerBlockWithFuel("pinecones", 100, () -> new GroundcoverBlock());
 	public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new GroundcoverBlock());
-	
+
 	/* MISC */
 	public static final RegistryObject<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb", () -> new NaturalCobwebBlock());
 	
@@ -91,6 +93,7 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> POTTED_WARPED_NETTLE = registerBlockWithoutItem("potted_warped_nettle", () -> createFlowerPot(WARPED_NETTLE.get()));
 	public static final RegistryObject<Block> POTTED_CINDERCANE = registerBlockWithoutItem("potted_cindercane", () -> createFlowerPot(CINDERCANE.get()));
 	public static final RegistryObject<Block> POTTED_SMALL_CACTUS = registerBlockWithoutItem("potted_small_cactus", () -> createFlowerPot(SMALL_CACTUS.get()));
+	public static final RegistryObject<Block> POTTED_PRICKLY_BUSH = registerBlockWithoutItem("potted_prickly_bush", () -> createFlowerPot(PRICKLY_BUSH.get()));
 	
 	private static RegistryObject<Block> registerBlock(String name, Supplier<Block> block) {
 		RegistryObject<Block> temp = BLOCKS.register(name, block);

@@ -27,6 +27,7 @@
 	"item.projectvibrantjourneys.short_grass": "Short Grass",
 	"item.projectvibrantjourneys.beach_grass": "Beach Grass",
 	"item.projectvibrantjourneys.small_cactus": "Small Cactus",
+	"item.projectvibrantjourneys.prickly_bush": "Prickly Bush",
 	
 	"item.projectvibrantjourneys.oak_hollow_log": "Oak Hollow Log",
 	"item.projectvibrantjourneys.birch_hollow_log": "Birch Hollow Log",
@@ -52,6 +53,10 @@
 
 	"item.projectvibrantjourneys.potted_small_cactus": "Potted Small Cactus",
 	"item.projectvibrantjourneys.potted_cindercane": "Potted Cindercane",
+	"item.projectvibrantjourneys.potted_warped_nettle": "Potted Warped Nettle",
+	"item.projectvibrantjourneys.potted_crimson_nettle": "Potted Crimson Nettle",
+	"item.projectvibrantjourneys.potted_glowcap": "Potted Glowcap",
+	"item.projectvibrantjourneys.potted_prickly_bush": "Potted Prickly Bush",
 	
 	"entity.projectvibrantjourneys.fly": "Fly",
 	"entity.projectvibrantjourneys.firefly": "Firefly",

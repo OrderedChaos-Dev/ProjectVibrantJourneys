@@ -31,6 +31,7 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableShortGrass;
 		public ForgeConfigSpec.BooleanValue enableNaturalCobwebs;
 		public ForgeConfigSpec.BooleanValue enableSmallCacti;
+		public ForgeConfigSpec.BooleanValue enablePricklyBush;
 		
 		public ForgeConfigSpec.BooleanValue enableExtraLilypads;
 		public ForgeConfigSpec.BooleanValue enableExtraSeagrass;
@@ -63,6 +64,7 @@ public class PVJConfig {
 			enableShortGrass = builder.comment("Enable generation of short grass").define("enableShortGrass", true);
 			enableNaturalCobwebs = builder.comment("Enable generation of natural cobwebs").define("enableNaturalCobwebs", true);
 			enableSmallCacti = builder.comment("Enable generation of small cacti").define("enableSmallCacti", true);
+			enablePricklyBush = builder.comment("Enable generation of prickly bushes").define("enablePricklyBush", true);
 			
 			enableExtraLilypads = builder.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true);
 			enableExtraSeagrass = builder.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true);

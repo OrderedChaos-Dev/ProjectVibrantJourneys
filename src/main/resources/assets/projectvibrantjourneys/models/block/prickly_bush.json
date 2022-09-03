@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "projectvibrantjourneys:block/prickly_bush"
+    }
+}

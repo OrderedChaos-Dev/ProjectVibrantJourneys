@@ -45,6 +45,7 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> BARK_MUSHROOM = register("bark_mushroom", PVJConfiguredFeatures.BARK_MUSHROOM, worldSurfaceSquaredWithCount(30));
 	public static final RegistryObject<PlacedFeature> SHORT_GRASS = register("short_grass", PVJConfiguredFeatures.SHORT_GRASS, worldSurfaceSquaredWithCount(3));
 	public static final RegistryObject<PlacedFeature> SMALL_CACTUS = register("small_cactus", PVJConfiguredFeatures.SMALL_CACTUS, RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+	public static final RegistryObject<PlacedFeature> PRICKLY_BUSH = register("prickly_bush", PVJConfiguredFeatures.PRICKLY_BUSH, onceEvery(2));
 	
 	/* GROUNDCOVER */
 	public static final RegistryObject<PlacedFeature> TWIGS = register("twigs", PVJConfiguredFeatures.TWIGS, worldSurfaceSquaredWithCount(3));

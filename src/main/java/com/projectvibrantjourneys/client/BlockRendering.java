@@ -42,12 +42,14 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SHORT_GRASS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BEACH_GRASS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SMALL_CACTUS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.PRICKLY_BUSH.get(), cutout);
 		
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_GLOWCAP.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_WARPED_NETTLE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CRIMSON_NETTLE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CINDERCANE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_SMALL_CACTUS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_PRICKLY_BUSH.get(), cutout);
 	}
 
 	

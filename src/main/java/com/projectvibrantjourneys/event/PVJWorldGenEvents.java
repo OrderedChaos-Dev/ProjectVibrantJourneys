@@ -85,6 +85,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_LILYPADS, PVJConfig.CONFIG_DATA.enableExtraLilypads, inlandNotDesert(event.getCategory()) && !veryCold(biome));
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_GRASS, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
 				addFeature(vegetalFeatures, PVJPlacements.TIDE_POOL, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
+				addFeature(vegetalFeatures, PVJPlacements.PRICKLY_BUSH, PVJConfig.CONFIG_DATA.enablePricklyBush, biome == Biomes.WOODED_BADLANDS);
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));

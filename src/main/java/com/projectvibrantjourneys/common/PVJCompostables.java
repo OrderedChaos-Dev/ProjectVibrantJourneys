@@ -26,7 +26,7 @@ public class PVJCompostables {
 		setCompostInfo(PVJBlocks.CINDERCANE.get(), 0.8F);
 		setCompostInfo(PVJBlocks.BEACH_GRASS.get(), 0.25F);
 		setCompostInfo(PVJBlocks.SMALL_CACTUS.get(), 0.25F);
-
+		setCompostInfo(PVJBlocks.PRICKLY_BUSH.get(), 0.2F);
 	}
 
 	public static void setCompostInfo(ItemLike item, float chance) {
