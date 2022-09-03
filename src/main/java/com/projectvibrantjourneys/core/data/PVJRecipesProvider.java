@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class PVJRecipesProvider extends RecipeProvider {
 	
@@ -30,6 +31,8 @@ public class PVJRecipesProvider extends RecipeProvider {
     }
     
     private void planksFromHollowLog(Block planks, Block log, Consumer<FinishedRecipe> consumer) {
-    	ShapelessRecipeBuilder.shapeless(planks, 2).requires(log).group("planks").unlockedBy("has_logs", has(log)).save(consumer, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, planks.getRegistryName().getPath()));
+    	ShapelessRecipeBuilder.shapeless(planks, 2).requires(log).group("planks")
+    		.unlockedBy("has_logs", has(log))
+    		.save(consumer, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, ForgeRegistries.BLOCKS.getKey(planks).getPath()));
     }
 }

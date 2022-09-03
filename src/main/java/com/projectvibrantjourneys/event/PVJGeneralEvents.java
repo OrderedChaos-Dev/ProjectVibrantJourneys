@@ -13,7 +13,7 @@ public class PVJGeneralEvents {
 	@SubscribeEvent
 	public void harvestCobweb(PlayerEvent.BreakSpeed event) {
 		if(event.getState().getBlock() == PVJBlocks.NATURAL_COBWEB.get()) {
-			Item item = event.getPlayer().getMainHandItem().getItem();
+			Item item = event.getEntity().getMainHandItem().getItem();
 			if(item instanceof SwordItem || item instanceof ShearsItem) {
 				event.setNewSpeed(15.0F);
 			}
@@ -23,7 +23,7 @@ public class PVJGeneralEvents {
 	@SubscribeEvent
 	public void harvestCobweb(PlayerEvent.HarvestCheck event) {
 		if(event.getTargetBlock().getBlock() == PVJBlocks.NATURAL_COBWEB.get()) {
-			Item item = event.getPlayer().getMainHandItem().getItem();
+			Item item = event.getEntity().getMainHandItem().getItem();
 			if(item instanceof SwordItem || item instanceof ShearsItem) {
 				event.setCanHarvest(true);
 			}

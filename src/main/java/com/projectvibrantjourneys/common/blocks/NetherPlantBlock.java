@@ -14,16 +14,11 @@ import net.minecraft.world.level.material.MaterialColor;
 public class NetherPlantBlock extends BushBlock {
 
 	public NetherPlantBlock(MaterialColor color) {
-		super(Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, color).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS));
+		super(Properties.of(Material.REPLACEABLE_FIREPROOF_PLANT, color).noCollission().instabreak().sound(SoundType.NETHER_SPROUTS).offsetType(OffsetType.XZ));
 	}
 
 	@Override
 	protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
 		return state.is(BlockTags.NYLIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
-	}
-	
-	@Override
-	public BlockBehaviour.OffsetType getOffsetType() {
-		return BlockBehaviour.OffsetType.XZ;
 	}
 }

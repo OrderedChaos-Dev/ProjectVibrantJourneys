@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -21,7 +22,7 @@ public class NaturalCobwebFeature extends Feature<ProbabilityFeatureConfiguratio
 	public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
 		WorldGenLevel world = context.level();
 		BlockPos pos = context.origin();
-		Random rand = context.random();
+		RandomSource rand = context.random();
 		BlockPos.MutableBlockPos blockpos = new BlockPos.MutableBlockPos(pos.getX(), pos.getY(), pos.getZ());
 
 		for (int i = 64; i < pos.getY() + 50; i++) {

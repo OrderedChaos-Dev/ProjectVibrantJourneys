@@ -1,4 +1,4 @@
-package com.projectvibrantjourneys.core.registry.features;
+package com.projectvibrantjourneys.core.registry.world;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
 

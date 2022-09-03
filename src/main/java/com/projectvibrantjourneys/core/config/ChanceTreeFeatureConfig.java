@@ -15,7 +15,7 @@ public class ChanceTreeFeatureConfig {
 	
 	public static final Set<ChanceBiomeEntry> OAK_DEFAULT = Set.of(entry("minecraft:forest", 20),
 																	 entry("minecraft:plains", 5),
-																	 entry("mineraft:flower_forest", 20),
+																	 entry("minecraft:flower_forest", 20),
 																	 entry("minecraft:sunflower_plains", 5),
 																	 entry("minecraft:swamp", 20),
 																	 entry("minecraft:meadow", 5),
@@ -23,6 +23,7 @@ public class ChanceTreeFeatureConfig {
 																	 entry("minecraft:dark_forest", 2));
 
 	public static final Set<ChanceBiomeEntry> BIRCH_DEFAULT = Set.of(entry("minecraft:forest", 10),
+			 														 entry("minecraft:flower_forest", 20),
 																	   entry("minecraft:birch_forest", 20),
 																	   entry("minecraft:old_growth_birch_forest", 20),
 																	   entry("minecraft:meadow", 5),

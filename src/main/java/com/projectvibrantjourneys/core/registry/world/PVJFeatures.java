@@ -1,4 +1,4 @@
-package com.projectvibrantjourneys.core.registry.features;
+package com.projectvibrantjourneys.core.registry.world;
 
 import com.projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import com.projectvibrantjourneys.common.world.features.ExtraLilyPadFeature;

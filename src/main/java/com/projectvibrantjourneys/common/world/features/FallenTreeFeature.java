@@ -1,7 +1,6 @@
 package com.projectvibrantjourneys.common.world.features;
 
 import java.util.HashSet;
-import java.util.Random;
 
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
@@ -13,8 +12,8 @@ import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -34,12 +33,12 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 	public boolean place(FeaturePlaceContext<FallenTreeConfiguration> context) {
 		WorldGenLevel world = context.level();
 		BlockPos pos = context.origin();
-		Random rand = context.random();	
+		RandomSource rand = context.random();	
 		BlockState hollowLog = context.config().hollowLog();
 		BlockState baseLog = context.config().baseLog();
-		ResourceLocation biome = world.getBiome(pos).value().getRegistryName();
 		
-		int chance = TreeFeatureUtils.getChance(biome, new HashSet<ChanceBiomeEntry>(context.config().data()));
+		int chance = TreeFeatureUtils.getChance(world.getBiome(pos).unwrapKey().get().location().toString(), new HashSet<ChanceBiomeEntry>(context.config().data()));
+
 		if(rand.nextFloat() > chance / 100.0F)
 			return false;
 		

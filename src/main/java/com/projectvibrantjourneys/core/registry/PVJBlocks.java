@@ -4,18 +4,20 @@ import java.util.function.Supplier;
 
 import com.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import com.projectvibrantjourneys.common.blocks.BeachGrassBlock;
-import com.projectvibrantjourneys.common.blocks.CattailBlock;
 import com.projectvibrantjourneys.common.blocks.CindercaneBlock;
+import com.projectvibrantjourneys.common.blocks.DoubleHighWaterPlantBlock;
 import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GlowcapBlock;
 import com.projectvibrantjourneys.common.blocks.GlowingFungusBlock;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.blocks.HollowLogBlock;
+import com.projectvibrantjourneys.common.blocks.IcicleBlock;
 import com.projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import com.projectvibrantjourneys.common.blocks.NetherPlantBlock;
 import com.projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import com.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import com.projectvibrantjourneys.common.blocks.SmallCactusBlock;
+import com.projectvibrantjourneys.common.blocks.ThornsBlock;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 import net.minecraft.core.BlockPos;
@@ -24,6 +26,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -48,13 +51,16 @@ public class PVJBlocks {
 	/* OVERWORLD FLORA */
 	public static final RegistryObject<Block> BEACH_GRASS = registerBlock("beach_grass", () -> new BeachGrassBlock());
 	public static final RegistryObject<Block> SEA_OATS = registerBlock("sea_oats", () -> new SeaOatsBlock());
-	public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock());
+	public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new DoubleHighWaterPlantBlock());
 	public static final RegistryObject<Block> BARK_MUSHROOM = registerBlockWithFuel("bark_mushroom", 100, () -> new BarkMushroomBlock());
 	public static final RegistryObject<Block> LIGHT_BROWN_BARK_MUSHROOM = registerBlockWithFuel("light_brown_bark_mushroom", 100, () -> new BarkMushroomBlock());
 	public static final RegistryObject<Block> ORANGE_BARK_MUSHROOM = registerBlockWithFuel("orange_bark_mushroom", 100, () -> new BarkMushroomBlock());
 	public static final RegistryObject<Block> GLOWING_BLUE_FUNGUS = registerBlockWithFuel("glowing_blue_fungus", 100, () -> new GlowingFungusBlock());
 	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
 	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
+//	public static final RegistryObject<Block> THORNS = registerBlock("thorns", () -> new ThornsBlock());
+//	public static final RegistryObject<Block> REEDS = registerBlock("reeds", () -> new DoubleHighWaterPlantBlock());
+//	public static final RegistryObject<Block> ICICLE = registerBlock("icicle", () -> new IcicleBlock());
 	
 	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));
@@ -129,17 +135,17 @@ public class PVJBlocks {
 			return state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
 		}).strength(2.0F).sound(SoundType.WOOD)) {
 			@Override
-			public BlockState getToolModifiedState(BlockState state, Level world, BlockPos pos, Player player, ItemStack stack, ToolAction toolType) {
-				if(toolType == ToolActions.AXE_STRIP && stripped != null)
+			public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+				if(toolAction == ToolActions.AXE_STRIP && stripped != null)
 					return stripped.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS));
-				return super.getToolModifiedState(state, world, pos, player, stack, toolType);
+				return super.getToolModifiedState(state, context, toolAction, simulate);
 			}
 		};
 	}
 	
 	public static Block createFlowerPot(Block plant) {
 		Block block = new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, ()-> plant, BlockBehaviour.Properties.copy(Blocks.FLOWER_POT).lightLevel((state) -> plant == GLOWCAP.get() ? 12 : 0));
-		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(plant.getRegistryName(), () -> block);
+		((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(ForgeRegistries.BLOCKS.getKey(plant), () -> block);
 		return block;
 	}
 }

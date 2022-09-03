@@ -16,7 +16,7 @@ import net.minecraft.world.level.material.Material;
 public class SeaOatsBlock extends DoublePlantBlock {
 
 	public SeaOatsBlock() {
-		super(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS));
+		super(Block.Properties.of(Material.REPLACEABLE_PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(OffsetType.XYZ));
 	}
 
 	@Override
@@ -39,10 +39,5 @@ public class SeaOatsBlock extends DoublePlantBlock {
 	@Override
 	public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
 		return false;
-	}
-	
-	@Override
-	public BlockBehaviour.OffsetType getOffsetType() {
-		return BlockBehaviour.OffsetType.XYZ;
 	}
 }

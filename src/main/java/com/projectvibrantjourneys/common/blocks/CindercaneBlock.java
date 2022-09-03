@@ -1,11 +1,10 @@
 package com.projectvibrantjourneys.common.blocks;
 
-import java.util.Random;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -41,14 +40,14 @@ public class CindercaneBlock extends Block implements IPlantable {
 	}
 
 	@Override
-	public void tick(BlockState state, ServerLevel world, BlockPos pos, Random rand) {
+	public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
 		if (!state.canSurvive(world, pos)) {
 			world.destroyBlock(pos, true);
 		}
 	}
 
 	@Override
-	public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random rand) {
+	public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
 		if (world.isEmptyBlock(pos.above())) {
 			int i;
 			for (i = 1; world.getBlockState(pos.below(i)).is(this); ++i) {

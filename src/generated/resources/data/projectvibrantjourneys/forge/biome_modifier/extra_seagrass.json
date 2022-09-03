@@ -1,0 +1,18 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#minecraft:is_overworld",
+    []
+  ],
+  "blacklist": [
+    "#minecraft:is_beach",
+    "#minecraft:is_ocean",
+    "#minecraft:has_structure/desert_pyramid",
+    "#minecraft:is_badlands",
+    []
+  ],
+  "configOption": "enableExtraSeagrass",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:extra_seagrass"
+}

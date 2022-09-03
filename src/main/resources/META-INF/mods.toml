@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[40,)" #mandatory
+loaderVersion="[43,)" #mandatory
 license="All rights reserved"
 issueTrackerURL="https://github.com/OrderedChaos-Dev/ProjectVibrantJourneys/issues" #optional
 

@@ -27,13 +27,13 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 
-public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
+public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-	public CattailBlock() {
+	public DoubleHighWaterPlantBlock() {
 		super(Block.Properties.of(Material.PLANT).noCollission().instabreak()
-				.sound(SoundType.GRASS));
+				.sound(SoundType.GRASS).offsetType(OffsetType.XYZ));
 		this.registerDefaultState(
 				this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
 	}
@@ -81,7 +81,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
 		}
 		if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
 			BlockState stateUpper = world.getBlockState(pos.above());
-			if (stateUpper.getBlock() instanceof CattailBlock) {
+			if (stateUpper.getBlock() instanceof DoubleHighWaterPlantBlock) {
 				if (!canSurvive(stateUpper, world, pos.above())) {
 					world.destroyBlock(pos.above(), false);
 				}
@@ -148,11 +148,6 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
 	@Override
 	public FluidState getFluidState(BlockState state) {
 		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-	}
-	
-	@Override
-	public BlockBehaviour.OffsetType getOffsetType() {
-		return BlockBehaviour.OffsetType.XYZ;
 	}
 
 	@Override

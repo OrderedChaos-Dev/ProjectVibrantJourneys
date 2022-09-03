@@ -1,0 +1,14 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#forge:is_snowy",
+    []
+  ],
+  "blacklist": [
+    "minecraft:snowy_beach"
+  ],
+  "configOption": "enableIceChunks",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:ice_chunks"
+}

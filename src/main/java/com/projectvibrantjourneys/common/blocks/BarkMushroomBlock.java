@@ -1,11 +1,10 @@
 package com.projectvibrantjourneys.common.blocks;
 
-import java.util.Random;
-
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -39,7 +38,7 @@ public class BarkMushroomBlock extends EpiphyteBlock {
 		}
 	}
 	
-	public static BarkMushroomBlock getRandom(Random rand) {
+	public static BarkMushroomBlock getRandom(RandomSource rand) {
 		float f = rand.nextFloat();
 		if(f > 0.66F)
 			return (BarkMushroomBlock) PVJBlocks.BARK_MUSHROOM.get();

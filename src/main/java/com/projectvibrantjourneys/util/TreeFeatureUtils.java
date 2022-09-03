@@ -2,19 +2,23 @@ package com.projectvibrantjourneys.util;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.ibm.icu.impl.Pair;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class TreeFeatureUtils {
 
@@ -39,8 +43,16 @@ public class TreeFeatureUtils {
 		return -1;
 	}
 	
-	public static int getChance(ResourceLocation biomeName, Set<ChanceBiomeEntry> data) {
-		return getChance(biomeName.toString(), data);
+	
+	public static int getChance(Biome biome, Set<ChanceBiomeEntry> data) {
+		List<Pair<Biome, Integer>> biomes = data.stream().map((entry) -> Pair.of(ForgeRegistries.BIOMES.getValue(new ResourceLocation(entry.biomeName())),entry.chance())).toList();
+		
+		for(Pair<Biome, Integer> pair : biomes) {
+			if(pair.first.equals(biome))
+				return pair.second;
+		}
+		
+		return -1;
 	}
 	
 	public static void serializeAndLoad(String name, String loc, Set<ChanceBiomeEntry> defaults, Set<ChanceBiomeEntry> data) {

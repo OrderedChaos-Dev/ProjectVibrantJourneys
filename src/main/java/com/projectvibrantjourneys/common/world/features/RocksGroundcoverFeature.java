@@ -8,6 +8,7 @@ import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -26,7 +27,7 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		Random random = context.random();
+		RandomSource random = context.random();
 		BlockPos pos = context.origin();
 		WorldGenLevel level = context.level();
 		Block ground = level.getBlockState(pos.below()).getBlock();

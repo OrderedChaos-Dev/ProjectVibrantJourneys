@@ -9,8 +9,8 @@ import java.util.function.Predicate;
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.common.world.features.configs.MultipleVegetationPatchConfiguration;
 import com.projectvibrantjourneys.core.config.PVJConfig;
-import com.projectvibrantjourneys.core.registry.features.PVJConfiguredFeatures;
-import com.projectvibrantjourneys.core.registry.features.PVJPlacements;
+import com.projectvibrantjourneys.core.registry.world.PVJConfiguredFeatures;
+import com.projectvibrantjourneys.core.registry.world.PVJPlacements;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +18,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Blocks;
@@ -42,7 +43,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 	public boolean place(FeaturePlaceContext<MultipleVegetationPatchConfiguration> context) {
 		WorldGenLevel worldgenlevel = context.level();
 		MultipleVegetationPatchConfiguration config = context.config();
-		Random random = context.random();
+		RandomSource random = context.random();
 		
 		if(random.nextFloat() > config.placementChance)
 			return false;
@@ -59,7 +60,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		return !set.isEmpty();
 	}
 
-	protected Set<BlockPos> placeGroundPatch(WorldGenLevel level, MultipleVegetationPatchConfiguration config, Random rand, BlockPos pos, Predicate<BlockState> replace, int x, int z) {
+	protected Set<BlockPos> placeGroundPatch(WorldGenLevel level, MultipleVegetationPatchConfiguration config, RandomSource rand, BlockPos pos, Predicate<BlockState> replace, int x, int z) {
 		Set<BlockPos> set = createGround(level, config, rand, pos, replace, x, z);
 		Set<BlockPos> set1 = new HashSet<>();
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
@@ -90,7 +91,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		return !level.getBlockState(posMutable).isFaceSturdy(level, posMutable, dir.getOpposite());
 	}
 
-	protected Set<BlockPos> createGround(WorldGenLevel level, MultipleVegetationPatchConfiguration config, Random rand, BlockPos pos, Predicate<BlockState> predicate, int x, int z) {
+	protected Set<BlockPos> createGround(WorldGenLevel level, MultipleVegetationPatchConfiguration config, RandomSource rand, BlockPos pos, Predicate<BlockState> predicate, int x, int z) {
 		Set<BlockPos> set = new HashSet<>();
 
 		carve(set, level, config, rand, pos, predicate, x, z, true);
@@ -99,7 +100,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		return set;
 	}
 	
-	private void carve(Set<BlockPos> set, WorldGenLevel level, MultipleVegetationPatchConfiguration config, Random rand, BlockPos pos, Predicate<BlockState> predicate, int x, int z, boolean surface) {
+	private void carve(Set<BlockPos> set, WorldGenLevel level, MultipleVegetationPatchConfiguration config, RandomSource rand, BlockPos pos, Predicate<BlockState> predicate, int x, int z, boolean surface) {
 		BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
 		BlockPos.MutableBlockPos blockpos$mutableblockpos1 = blockpos$mutableblockpos.mutable();
 		Direction direction = config.surface.getDirection();
@@ -142,7 +143,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 	}
 
 	//TODO: move hardcoded vegetation to config for flexibility (may re-use this feature for other things who knows)
-	protected void distributeVegetation(FeaturePlaceContext<MultipleVegetationPatchConfiguration> context, WorldGenLevel level, MultipleVegetationPatchConfiguration config, Random rand, Set<BlockPos> set, int p_160619_, int p_160620_) {
+	protected void distributeVegetation(FeaturePlaceContext<MultipleVegetationPatchConfiguration> context, WorldGenLevel level, MultipleVegetationPatchConfiguration config, RandomSource rand, Set<BlockPos> set, int p_160619_, int p_160620_) {
 		for(BlockPos blockpos : set) {
 			if (config.vegetationChance > 0.0F && rand.nextFloat() < config.vegetationChance) {
 				this.placeVegetation(level, config, context.chunkGenerator(), rand, blockpos);
@@ -185,7 +186,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		}
 	}
 	
-	private void tryPlaceCoral(WorldGenLevel level, BlockPos pos, Random rand) {
+	private void tryPlaceCoral(WorldGenLevel level, BlockPos pos, RandomSource rand) {
 
 		if(level.getBlockState(pos.below()).isCollisionShapeFullBlock(level, pos.below())) {
 			if(rand.nextBoolean()) {
@@ -215,7 +216,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		}
 	}
 
-	protected boolean placeVegetation(WorldGenLevel level, MultipleVegetationPatchConfiguration config, ChunkGenerator chunkGenerator, Random rand, BlockPos pos) {
+	protected boolean placeVegetation(WorldGenLevel level, MultipleVegetationPatchConfiguration config, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos) {
 		boolean flag = false;
 		
 		for(Holder<PlacedFeature> feature : config.vegetationFeature) {
@@ -231,7 +232,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		return flag;
 	}
 
-	protected boolean placeGround(WorldGenLevel level, MultipleVegetationPatchConfiguration config, Predicate<BlockState> pred, Random rand, BlockPos.MutableBlockPos pos, int iterations) {
+	protected boolean placeGround(WorldGenLevel level, MultipleVegetationPatchConfiguration config, Predicate<BlockState> pred, RandomSource rand, BlockPos.MutableBlockPos pos, int iterations) {
 		for(int i = 0; i < iterations; ++i) {
 			BlockState blockstate = config.groundState.getState(rand, pos);
 			BlockState blockstate1 = level.getBlockState(pos);

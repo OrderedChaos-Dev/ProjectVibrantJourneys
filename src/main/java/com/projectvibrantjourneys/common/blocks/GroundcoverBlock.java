@@ -38,12 +38,12 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
 	public GroundcoverBlock() {
-		super(Block.Properties.of(Material.DIRT).strength(0.05F, 0.0F).noOcclusion());
+		super(Block.Properties.of(Material.DIRT).strength(0.05F, 0.0F).noOcclusion().offsetType(OffsetType.XZ));
 		this.registerDefaultState(this.stateDefinition.any().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	
 	public GroundcoverBlock(Material material, SoundType soundType) {
-		super(Block.Properties.of(material).strength(0.1F, 0.0F).sound(soundType).noOcclusion());
+		super(Block.Properties.of(material).strength(0.1F, 0.0F).sound(soundType).noOcclusion().offsetType(OffsetType.XZ));
 		this.registerDefaultState(defaultBlockState().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	
@@ -90,11 +90,6 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 			Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
 		}
 		return InteractionResult.SUCCESS;
-	}
-	
-	@Override
-	public Block.OffsetType getOffsetType() {
-		return Block.OffsetType.XZ;
 	}
 	
 	@Override

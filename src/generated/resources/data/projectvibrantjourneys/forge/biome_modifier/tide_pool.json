@@ -1,0 +1,13 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "minecraft:stony_shore"
+  ],
+  "blacklist": [
+    []
+  ],
+  "configOption": "enableTidePools",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:tide_pool"
+}

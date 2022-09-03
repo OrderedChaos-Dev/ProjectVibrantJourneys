@@ -1,12 +1,11 @@
 package com.projectvibrantjourneys.common.world.features.stateproviders;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
-import com.projectvibrantjourneys.core.registry.features.PVJFeatures;
+import com.projectvibrantjourneys.core.registry.world.PVJFeatures;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -28,7 +27,7 @@ public class DirectionalStateProvider extends BlockStateProvider {
 	      return PVJFeatures.StateProviders.DIRECTIONAL_STATE_PROVIDER.get();
 	   }
 
-	   public BlockState getState(Random random, BlockPos pos) {
+	   public BlockState getState(RandomSource random, BlockPos pos) {
 		   Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 	      return this.block.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, dir);
 	   }

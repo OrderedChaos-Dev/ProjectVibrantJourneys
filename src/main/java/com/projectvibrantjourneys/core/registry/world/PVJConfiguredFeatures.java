@@ -1,4 +1,4 @@
-package com.projectvibrantjourneys.core.registry.features;
+package com.projectvibrantjourneys.core.registry.world;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +17,9 @@ import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.AquaticFeatures;
 import net.minecraft.data.worldgen.features.FeatureUtils;
-import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.BiasedToBottomInt;
@@ -70,8 +68,8 @@ public class PVJConfiguredFeatures {
 	public static final RegistryObject<ConfiguredFeature<?, ?>> PINECONES = register("pinecones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> SEASHELLS = register("seashells", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.SEASHELLS.get())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> ROCKS = register("rocks", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(4, 7, 3, PlacementUtils.filtered(PVJFeatures.ROCKS.get(), NoneFeatureConfiguration.INSTANCE,
-																			BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.ICE, new BlockPos(0, -1, 0))),
-																					BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))))))));
+																			BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.ICE)),
+																					BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW)))))));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> ICE_CHUNKS = register("ice_chunks", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.ICE_CHUNKS.get())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> BONES = register("bones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(1, 7, 3, PVJBlocks.BONES.get())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> CHARRED_BONES = register("charred_bones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(50, 7, 3, PVJBlocks.CHARRED_BONES.get())));
@@ -97,40 +95,42 @@ public class PVJConfiguredFeatures {
 	
 	private static RandomPatchConfiguration randomPatchConfig(int tries, int xzSpread, int ySpread, BlockState block) {
 		return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
-				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.ICE, new BlockPos(0, -1, 0))),
-								BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))),
-								BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.LAVA, new BlockPos(0, 0, 0))),
-								BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, 0, 0))))));
+				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(BlockPredicate.replaceable(),
+								BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.ICE)),
+								BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, 0, 0), Blocks.SNOW)),
+								BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.LAVA)),
+								BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.WATER)))));
 	}
 	
 	private static RandomPatchConfiguration cattailConfig(int tries, int xzSpread, int ySpread, BlockState block) {
 		return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
-				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(BlockPredicate.replaceable(), BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.ICE, new BlockPos(0, -1, 0))),
-								BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))),
-								BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.LAVA, new BlockPos(0, 0, 0))))));
+				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(BlockPredicate.replaceable(),
+								BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.ICE)),
+								BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, 0, 0), Blocks.SNOW)),
+								BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.LAVA)))));
 	}
 	
 	private static RandomPatchConfiguration groundcoverConfig(int tries, int xzSpread, int ySpread, Block block) {
 		return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
 		      new SimpleBlockConfiguration(new RandomizedIntStateProvider(new DirectionalStateProvider(block), GroundcoverBlock.MODEL, UniformInt.of(0, 4))),
 		    		  BlockPredicate.allOf(BlockPredicate.replaceable(), 
-		    				  BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.ICE, new BlockPos(0, -1, 0))),
-		    				  BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.LAVA, new BlockPos(0, 0, 0))),
-		    				  BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, 0, 0))),
-							  BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))))));
+		    				  BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.ICE)),
+		    				  BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.LAVA)),
+		    				  BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.WATER)),
+							  BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, 0, 0), Blocks.SNOW)))));
 	}
 	
 	private static RandomPatchConfiguration mossCarpetConfig(int tries, int xzSpread, int ySpread, Block block) {
 		return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
 		      new SimpleBlockConfiguration(BlockStateProvider.simple(block)),
 		    		  BlockPredicate.allOf(BlockPredicate.replaceable(), 
-		    				  BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.ICE, new BlockPos(0, -1, 0))),
-		    				  BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, -1, 0))),
+		    				  BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, -1, 0), Blocks.ICE)),
+		    				  BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, -1, 0), Fluids.WATER)),
 		    				  BlockPredicate.not(BlockPredicate.replaceable(new BlockPos(0, -1, 0))),
 		    				  BlockPredicate.hasSturdyFace(new BlockPos(0, -1, 0), Direction.UP),
-		    				  BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.LAVA, new BlockPos(0, 0, 0))),
-		    				  BlockPredicate.not(BlockPredicate.matchesFluid(Fluids.WATER, new BlockPos(0, 0, 0))),
-							  BlockPredicate.not(BlockPredicate.matchesBlock(Blocks.SNOW, new BlockPos(0, 0, 0))))));
+		    				  BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.LAVA)),
+		    				  BlockPredicate.not(BlockPredicate.matchesFluids(new BlockPos(0, 0, 0), Fluids.WATER)),
+							  BlockPredicate.not(BlockPredicate.matchesBlocks(new BlockPos(0, 0, 0), Blocks.SNOW)))));
 	}
 	
 	private static ConfiguredFeature<?, ?> fallenTree(Block hollowLog, Block baseLog, Set<ChanceBiomeEntry> data) {
@@ -147,12 +147,12 @@ public class PVJConfiguredFeatures {
 	
 	private static RandomPatchConfiguration columnPlantWithFluid(int tries, int xzspread, int yspread, Block block, Fluid fluid1, Fluid fluid2) {
 		return new RandomPatchConfiguration(tries, xzspread, yspread, PlacementUtils.filtered(Feature.BLOCK_COLUMN, BlockColumnConfiguration.simple(BiasedToBottomInt.of(2, 4), BlockStateProvider.simple(block)),
-		    		  BlockPredicate.allOf(BlockPredicate.matchesBlock(Blocks.AIR, BlockPos.ZERO),
-		    				  BlockPredicate.wouldSurvive(block.defaultBlockState(), BlockPos.ZERO),
-		    				  BlockPredicate.anyOf(BlockPredicate.matchesFluids(List.of(fluid1, fluid2),
-		    						  new BlockPos(1, -1, 0)), BlockPredicate.matchesFluids(List.of(fluid1, fluid2),
-		    								  new BlockPos(-1, -1, 0)), BlockPredicate.matchesFluids(List.of(fluid1, fluid2),
-		    										  new BlockPos(0, -1, 1)), BlockPredicate.matchesFluids(List.of(fluid1, fluid2), new BlockPos(0, -1, -1))))));
+							BlockPredicate.allOf(BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.AIR),
+									BlockPredicate.wouldSurvive(block.defaultBlockState(), BlockPos.ZERO),
+									BlockPredicate.anyOf(BlockPredicate.matchesFluids(new BlockPos(1, -1, 0), List.of(fluid1, fluid2)),
+									BlockPredicate.matchesFluids(new BlockPos(-1, -1, 0), List.of(fluid1, fluid2)),
+									BlockPredicate.matchesFluids(new BlockPos(0, -1, 1), List.of(fluid1, fluid2)),
+									BlockPredicate.matchesFluids(new BlockPos(0, -1, -1), List.of(fluid1, fluid2))))));
 	}
 
 }
