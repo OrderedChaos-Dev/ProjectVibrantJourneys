@@ -64,7 +64,7 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> WARPED_NETTLE = register("warped_nettle", PVJConfiguredFeatures.WARPED_NETTLE, RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
 	public static final RegistryObject<PlacedFeature> CRIMSON_NETTLE = register("crimson_nettle", PVJConfiguredFeatures.CRIMSON_NETTLE, RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
 	public static final RegistryObject<PlacedFeature> GLOWCAP = register("glowcap", PVJConfiguredFeatures.GLOWCAP, RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-	public static final RegistryObject<PlacedFeature> CINDERCANE = register("cindercane", PVJConfiguredFeatures.CINDERCANE, RarityFilter.onAverageOnceEvery(3), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
+	public static final RegistryObject<PlacedFeature> CINDERCANE = register("cindercane", PVJConfiguredFeatures.CINDERCANE, InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 	
 	/* FALLEN TREES */
 	public static final RegistryObject<PlacedFeature> OAK_FALLEN_TREE = register("oak_fallen_tree", PVJConfiguredFeatures.OAK_FALLEN_TREE, worldSurfaceSquaredWithCount(1));
