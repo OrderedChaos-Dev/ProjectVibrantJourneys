@@ -2,13 +2,13 @@
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
     [
-      "minecraft:forest",
-      "minecraft:swamp",
       "minecraft:sunflower_plains",
+      "minecraft:plains",
+      "minecraft:meadow",
       "minecraft:windswept_forest",
       "minecraft:dark_forest",
-      "minecraft:plains",
-      "minecraft:meadow"
+      "minecraft:swamp",
+      "minecraft:forest"
     ]
   ],
   "blacklist": [
