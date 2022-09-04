@@ -13,6 +13,7 @@ import com.projectvibrantjourneys.util.TreeFeatureUtils;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
@@ -69,7 +70,9 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.OCEAN_FLOOR_SEASHELLS, PVJConfig.CONFIG_DATA.enableSeashells, oceanOrBeach(biomeTypes, holder));
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_OCEAN_FLOOR_SEASHELLS, PVJConfig.CONFIG_DATA.enableSeashells, oceanOrBeach(biomeTypes, holder));
 				addFeature(vegetalFeatures, PVJPlacements.ROCKS, PVJConfig.CONFIG_DATA.enableRocks, true);
+				addFeature(vegetalFeatures, PVJPlacements.CAVE_ROCKS, PVJConfig.CONFIG_DATA.enableBones, true);
 				addFeature(vegetalFeatures, PVJPlacements.BONES, PVJConfig.CONFIG_DATA.enableBones, true);
+				addFeature(vegetalFeatures, PVJPlacements.CAVE_BONES, PVJConfig.CONFIG_DATA.enableBones, true);
 				addFeature(vegetalFeatures, PVJPlacements.ICE_CHUNKS, PVJConfig.CONFIG_DATA.enableIceChunks, snowy(biomeTypes, holder));
 				addFeature(vegetalFeatures, PVJPlacements.BADLANDS_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.WOODED_BADLANDS);
 				addFeature(vegetalFeatures, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
@@ -87,6 +90,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.TIDE_POOL, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
 				addFeature(vegetalFeatures, PVJPlacements.PRICKLY_BUSH, PVJConfig.CONFIG_DATA.enablePricklyBush, biome == Biomes.WOODED_BADLANDS);
 				addFeature(vegetalFeatures, PVJPlacements.REEDS, PVJConfig.CONFIG_DATA.enableReeds, event.getCategory() == Biome.BiomeCategory.PLAINS || event.getCategory() == Biome.BiomeCategory.SAVANNA);
+				addFeature(vegetalFeatures, PVJPlacements.CAVE_ROOTS, PVJConfig.CONFIG_DATA.enableCaveRoots, true);
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));

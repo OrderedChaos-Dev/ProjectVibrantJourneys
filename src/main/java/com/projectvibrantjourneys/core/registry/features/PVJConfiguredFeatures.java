@@ -56,6 +56,7 @@ public class PVJConfiguredFeatures {
 
 	public static final RegistryObject<ConfiguredFeature<?, ?>> MOSS_CARPETS = register("moss_carpet", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, mossCarpetConfig(10, 7, 2, Blocks.MOSS_CARPET)));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> LILYPADS = register("lilypads", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(PVJFeatures.LILYPAD.get(), new ProbabilityFeatureConfiguration(0.75F)))));
+	public static final RegistryObject<ConfiguredFeature<?, ?>> CAVE_ROOTS = register("cave_roots", () -> new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.HANGING_ROOTS))));
 	
 	public static final RegistryObject<ConfiguredFeature<?, ?>> BEACH_GRASS = register("beach_grass", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.BEACH_GRASS.get().defaultBlockState())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> SEA_OATS = register("sea_oats", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SEA_OATS.get().defaultBlockState())));
@@ -65,7 +66,7 @@ public class PVJConfiguredFeatures {
 	public static final RegistryObject<ConfiguredFeature<?, ?>> SHORT_GRASS = register("short_grass", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(PVJBlocks.SHORT_GRASS.get()), ShortGrassBlock.MODEL, UniformInt.of(0, 6))))));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> SMALL_CACTUS = register("small_cactus", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, randomPatchConfig(8, 7, 3, PVJBlocks.SMALL_CACTUS.get().defaultBlockState())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> PRICKLY_BUSH = register("prickly_bush", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState())));
-	public static final RegistryObject<ConfiguredFeature<?, ?>> REEDS = register("reeds", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, cattailConfig(400, 12, 2, PVJBlocks.REEDS.get().defaultBlockState())));
+	public static final RegistryObject<ConfiguredFeature<?, ?>> REEDS = register("reeds", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.REEDS.get().defaultBlockState())));
 	
 	public static final RegistryObject<ConfiguredFeature<?, ?>> TWIGS = register("twigs", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get())));
 	public static final RegistryObject<ConfiguredFeature<?, ?>> FALLEN_LEAVES = register("fallen_leaves", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState())));
