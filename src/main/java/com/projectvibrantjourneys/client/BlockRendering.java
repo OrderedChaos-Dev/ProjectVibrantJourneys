@@ -43,6 +43,7 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BEACH_GRASS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SMALL_CACTUS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.PRICKLY_BUSH.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.REEDS.get(), cutout_mipped);
 		
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_GLOWCAP.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_WARPED_NETTLE.get(), cutout);

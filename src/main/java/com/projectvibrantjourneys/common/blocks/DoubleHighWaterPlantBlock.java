@@ -27,11 +27,11 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 
-public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
+public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-	public CattailBlock() {
+	public DoubleHighWaterPlantBlock() {
 		super(Block.Properties.of(Material.PLANT).noCollission().instabreak()
 				.sound(SoundType.GRASS));
 		this.registerDefaultState(
@@ -81,7 +81,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
 		}
 		if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
 			BlockState stateUpper = world.getBlockState(pos.above());
-			if (stateUpper.getBlock() instanceof CattailBlock) {
+			if (stateUpper.getBlock() instanceof DoubleHighWaterPlantBlock) {
 				if (!canSurvive(stateUpper, world, pos.above())) {
 					world.destroyBlock(pos.above(), false);
 				}

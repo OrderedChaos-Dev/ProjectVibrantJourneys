@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 import com.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import com.projectvibrantjourneys.common.blocks.BeachGrassBlock;
-import com.projectvibrantjourneys.common.blocks.CattailBlock;
+import com.projectvibrantjourneys.common.blocks.DoubleHighWaterPlantBlock;
 import com.projectvibrantjourneys.common.blocks.CindercaneBlock;
 import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GlowcapBlock;
@@ -49,7 +49,7 @@ public class PVJBlocks {
 	/* OVERWORLD FLORA */
 	public static final RegistryObject<Block> BEACH_GRASS = registerBlock("beach_grass", () -> new BeachGrassBlock());
 	public static final RegistryObject<Block> SEA_OATS = registerBlock("sea_oats", () -> new SeaOatsBlock());
-	public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new CattailBlock());
+	public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", () -> new DoubleHighWaterPlantBlock());
 	public static final RegistryObject<Block> BARK_MUSHROOM = registerBlockWithFuel("bark_mushroom", 100, () -> new BarkMushroomBlock());
 	public static final RegistryObject<Block> LIGHT_BROWN_BARK_MUSHROOM = registerBlockWithFuel("light_brown_bark_mushroom", 100, () -> new BarkMushroomBlock());
 	public static final RegistryObject<Block> ORANGE_BARK_MUSHROOM = registerBlockWithFuel("orange_bark_mushroom", 100, () -> new BarkMushroomBlock());
@@ -57,6 +57,7 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
 	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
 	public static final RegistryObject<Block> PRICKLY_BUSH = registerBlockWithFuel("prickly_bush", 100, () -> new PricklyBushBlock());
+	public static final RegistryObject<Block> REEDS = registerBlock("reeds", () -> new DoubleHighWaterPlantBlock());
 	
 	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));

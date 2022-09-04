@@ -5,11 +5,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.projectvibrantjourneys.client.BlockRendering;
 import com.projectvibrantjourneys.common.PVJCompostables;
-import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.core.config.ChanceTreeFeatureConfig;
-import com.projectvibrantjourneys.core.data.PVJBlockTagsProvider;
-import com.projectvibrantjourneys.core.data.PVJItemTagsProvider;
-import com.projectvibrantjourneys.core.data.PVJRecipesProvider;
+import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 import com.projectvibrantjourneys.core.registry.PVJItems;
 import com.projectvibrantjourneys.core.registry.features.PVJConfiguredFeatures;
@@ -17,12 +14,8 @@ import com.projectvibrantjourneys.core.registry.features.PVJFeatures;
 import com.projectvibrantjourneys.core.registry.features.PVJPlacements;
 import com.projectvibrantjourneys.event.PVJGeneralEvents;
 import com.projectvibrantjourneys.event.PVJWorldGenEvents;
-import com.projectvibrantjourneys.util.PVJFeatureVars;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
-import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -30,7 +23,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod(ProjectVibrantJourneys.MOD_ID)
 public class ProjectVibrantJourneys

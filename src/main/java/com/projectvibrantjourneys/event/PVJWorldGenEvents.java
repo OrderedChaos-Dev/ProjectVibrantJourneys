@@ -71,13 +71,13 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.ROCKS, PVJConfig.CONFIG_DATA.enableRocks, true);
 				addFeature(vegetalFeatures, PVJPlacements.BONES, PVJConfig.CONFIG_DATA.enableBones, true);
 				addFeature(vegetalFeatures, PVJPlacements.ICE_CHUNKS, PVJConfig.CONFIG_DATA.enableIceChunks, snowy(biomeTypes, holder));
-				addFeature(vegetalFeatures, PVJPlacements.DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.WOODED_BADLANDS);
+				addFeature(vegetalFeatures, PVJPlacements.BADLANDS_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.WOODED_BADLANDS);
 				addFeature(vegetalFeatures, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, PVJConfig.CONFIG_DATA.enableFallenLeaves, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.MOSS_CARPET, PVJConfig.CONFIG_DATA.enableMossCarpets, biome == Biomes.OLD_GROWTH_PINE_TAIGA || biome == Biomes.OLD_GROWTH_SPRUCE_TAIGA);
 				addFeature(vegetalFeatures, PVJPlacements.BARK_MUSHROOM, PVJConfig.CONFIG_DATA.enableBarkMushrooms, true);
 				addFeature(vegetalFeatures, PVJPlacements.SEA_OATS, PVJConfig.CONFIG_DATA.enableSeaOats, beach(biomeTypes, holder) && !veryCold(biome));
 				addFeature(vegetalFeatures, PVJPlacements.BEACH_GRASS, PVJConfig.CONFIG_DATA.enableBeachGrass, beach(biomeTypes, holder));
-				addFeature(vegetalFeatures, PVJPlacements.CATTAILS, PVJConfig.CONFIG_DATA.enableCattails, !oceanOrBeach(biomeTypes, holder) && !veryCold(biome));
+				addFeature(vegetalFeatures, PVJPlacements.CATTAILS, PVJConfig.CONFIG_DATA.enableCattails, !oceanOrBeach(biomeTypes, holder) && !veryCold(biome) && event.getCategory() != Biome.BiomeCategory.MESA);
 				addFeature(vegetalFeatures, PVJPlacements.SHORT_GRASS, PVJConfig.CONFIG_DATA.enableShortGrass, true);
 				addFeature(vegetalFeatures, PVJPlacements.NATURAL_COBWEB, PVJConfig.CONFIG_DATA.enableNaturalCobwebs, true);
 				addFeature(vegetalFeatures, PVJPlacements.SMALL_CACTUS, PVJConfig.CONFIG_DATA.enableSmallCacti, event.getCategory() == Biome.BiomeCategory.DESERT);
@@ -86,6 +86,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.EXTRA_GRASS, PVJConfig.CONFIG_DATA.enableExtraRiverGrass, event.getCategory() == Biome.BiomeCategory.RIVER);
 				addFeature(vegetalFeatures, PVJPlacements.TIDE_POOL, PVJConfig.CONFIG_DATA.enableTidePools, biome == Biomes.STONY_SHORE);
 				addFeature(vegetalFeatures, PVJPlacements.PRICKLY_BUSH, PVJConfig.CONFIG_DATA.enablePricklyBush, biome == Biomes.WOODED_BADLANDS);
+				addFeature(vegetalFeatures, PVJPlacements.REEDS, PVJConfig.CONFIG_DATA.enableReeds, event.getCategory() == Biome.BiomeCategory.PLAINS || event.getCategory() == Biome.BiomeCategory.SAVANNA);
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));

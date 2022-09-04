@@ -11,12 +11,11 @@ import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.AquaticFeatures;
-import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -24,8 +23,8 @@ import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.EnvironmentScanPlacement;
+import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.NoiseThresholdCountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.levelgen.placement.RandomOffsetPlacement;
@@ -46,11 +45,12 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> SHORT_GRASS = register("short_grass", PVJConfiguredFeatures.SHORT_GRASS, worldSurfaceSquaredWithCount(3));
 	public static final RegistryObject<PlacedFeature> SMALL_CACTUS = register("small_cactus", PVJConfiguredFeatures.SMALL_CACTUS, RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 	public static final RegistryObject<PlacedFeature> PRICKLY_BUSH = register("prickly_bush", PVJConfiguredFeatures.PRICKLY_BUSH, onceEvery(2));
+	public static final RegistryObject<PlacedFeature> REEDS = register("reeds", PVJConfiguredFeatures.REEDS, onceEvery(1));
 	
 	/* GROUNDCOVER */
 	public static final RegistryObject<PlacedFeature> TWIGS = register("twigs", PVJConfiguredFeatures.TWIGS, worldSurfaceSquaredWithCount(3));
 	public static final RegistryObject<PlacedFeature> FALLEN_LEAVES = register("fallen_leaves", PVJConfiguredFeatures.FALLEN_LEAVES, worldSurfaceSquaredWithCount(3));
-	public static final RegistryObject<PlacedFeature> DEAD_FALLEN_LEAVES = register("dead_fallen_leaves", PVJConfiguredFeatures.DEAD_FALLEN_LEAVES, worldSurfaceSquaredWithCount(3));
+	public static final RegistryObject<PlacedFeature> BADLANDS_DEAD_FALLEN_LEAVES = register("dead_fallen_leaves", PVJConfiguredFeatures.DEAD_FALLEN_LEAVES, CountPlacement.of(40), InSquarePlacement.spread(), BiomeFilter.biome(), HeightRangePlacement.uniform(VerticalAnchor.absolute(95), VerticalAnchor.absolute(130)));
 	public static final RegistryObject<PlacedFeature> DENSE_DEAD_FALLEN_LEAVES = register("dense_dead_fallen_leaves", PVJConfiguredFeatures.DEAD_FALLEN_LEAVES, worldSurfaceSquaredWithCount(6));
 	public static final RegistryObject<PlacedFeature> PINECONES = register("pinecones", PVJConfiguredFeatures.PINECONES, worldSurfaceSquaredWithCount(2));
 	public static final RegistryObject<PlacedFeature> SEASHELLS = register("seashells", PVJConfiguredFeatures.SEASHELLS, worldSurfaceSquaredWithCount(2));
