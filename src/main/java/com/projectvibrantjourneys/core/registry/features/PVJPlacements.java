@@ -21,6 +21,7 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.heightproviders.VeryBiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountOnEveryLayerPlacement;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
@@ -49,6 +50,7 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> PRICKLY_BUSH = register("prickly_bush", PVJConfiguredFeatures.PRICKLY_BUSH, onceEvery(2));
 	public static final RegistryObject<PlacedFeature> REEDS = register("reeds", PVJConfiguredFeatures.REEDS, onceEvery(1));
 	public static final RegistryObject<PlacedFeature> CAVE_ROOTS = register("cave_roots", PVJConfiguredFeatures.CAVE_ROOTS, CountPlacement.of(188), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome());
+	public static final RegistryObject<PlacedFeature> ICICLE = register("icicle", PVJConfiguredFeatures.ICICLE, CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome());
 	
 	/* GROUNDCOVER */
 	public static final RegistryObject<PlacedFeature> TWIGS = register("twigs", PVJConfiguredFeatures.TWIGS, worldSurfaceSquaredWithCount(3));
@@ -62,8 +64,8 @@ public class PVJPlacements {
 	public static final RegistryObject<PlacedFeature> ROCKS = register("rocks", PVJConfiguredFeatures.ROCKS, worldSurfaceSquaredWithCount(2));
 	public static final RegistryObject<PlacedFeature> ICE_CHUNKS = register("ice_chunks", PVJConfiguredFeatures.ICE_CHUNKS, worldSurfaceSquaredWithCount(1));
 	public static final RegistryObject<PlacedFeature> BONES = register("bones", PVJConfiguredFeatures.BONES, worldSurfaceSquaredWithCount(1));
-	public static final RegistryObject<PlacedFeature> CAVE_BONES = register("cave_bones", PVJConfiguredFeatures.BONES, CountPlacement.of(100), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
-	public static final RegistryObject<PlacedFeature> CAVE_ROCKS = register("cave_rocks", PVJConfiguredFeatures.ROCKS, CountPlacement.of(250), InSquarePlacement.spread(), PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
+	public static final RegistryObject<PlacedFeature> CAVE_BONES = register("cave_bones", PVJConfiguredFeatures.BONES, CountPlacement.of(100), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
+	public static final RegistryObject<PlacedFeature> CAVE_ROCKS = register("cave_rocks", PVJConfiguredFeatures.ROCKS, CountPlacement.of(250), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
 	public static final RegistryObject<PlacedFeature> CHARRED_BONES = register("charred_bones", PVJConfiguredFeatures.CHARRED_BONES, RarityFilter.onAverageOnceEvery(5), CountOnEveryLayerPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 	
 	/* NETHER PLANTS */

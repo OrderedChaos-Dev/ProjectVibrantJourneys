@@ -4,19 +4,20 @@ import java.util.function.Supplier;
 
 import com.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import com.projectvibrantjourneys.common.blocks.BeachGrassBlock;
-import com.projectvibrantjourneys.common.blocks.DoubleHighWaterPlantBlock;
 import com.projectvibrantjourneys.common.blocks.CindercaneBlock;
+import com.projectvibrantjourneys.common.blocks.DoubleHighWaterPlantBlock;
 import com.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import com.projectvibrantjourneys.common.blocks.GlowcapBlock;
 import com.projectvibrantjourneys.common.blocks.GlowingFungusBlock;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.common.blocks.HollowLogBlock;
+import com.projectvibrantjourneys.common.blocks.IcicleBlock;
 import com.projectvibrantjourneys.common.blocks.NaturalCobwebBlock;
 import com.projectvibrantjourneys.common.blocks.NetherPlantBlock;
+import com.projectvibrantjourneys.common.blocks.PricklyBushBlock;
 import com.projectvibrantjourneys.common.blocks.SeaOatsBlock;
 import com.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import com.projectvibrantjourneys.common.blocks.SmallCactusBlock;
-import com.projectvibrantjourneys.common.blocks.PricklyBushBlock;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 import net.minecraft.core.BlockPos;
@@ -58,6 +59,7 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
 	public static final RegistryObject<Block> PRICKLY_BUSH = registerBlockWithFuel("prickly_bush", 100, () -> new PricklyBushBlock());
 	public static final RegistryObject<Block> REEDS = registerBlock("reeds", () -> new DoubleHighWaterPlantBlock());
+	public static final RegistryObject<Block> ICICLE = registerBlock("icicle", () -> new IcicleBlock());
 	
 	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));

@@ -13,6 +13,7 @@ public class BlockRendering {
 	public static void registerRenderers() {
 		RenderType cutout = RenderType.cutout();
 		RenderType cutout_mipped = RenderType.cutoutMipped();
+		RenderType translucent = RenderType.translucent();
 	
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.TWIGS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ROCKS.get(), cutout);
@@ -32,7 +33,6 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.NATURAL_COBWEB.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.FALLEN_LEAVES.get(), cutout_mipped);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.DEAD_FALLEN_LEAVES.get(), cutout_mipped);
-
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SEA_OATS.get(), cutout_mipped);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.CATTAIL.get(), cutout_mipped);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.GLOWCAP.get(), cutout);
@@ -44,6 +44,7 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SMALL_CACTUS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.PRICKLY_BUSH.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.REEDS.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ICICLE.get(), translucent);
 		
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_GLOWCAP.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_WARPED_NETTLE.get(), cutout);

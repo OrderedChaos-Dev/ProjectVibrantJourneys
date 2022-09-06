@@ -91,6 +91,7 @@ public class PVJWorldGenEvents {
 				addFeature(vegetalFeatures, PVJPlacements.PRICKLY_BUSH, PVJConfig.CONFIG_DATA.enablePricklyBush, biome == Biomes.WOODED_BADLANDS);
 				addFeature(vegetalFeatures, PVJPlacements.REEDS, PVJConfig.CONFIG_DATA.enableReeds, event.getCategory() == Biome.BiomeCategory.PLAINS || event.getCategory() == Biome.BiomeCategory.SAVANNA);
 				addFeature(vegetalFeatures, PVJPlacements.CAVE_ROOTS, PVJConfig.CONFIG_DATA.enableCaveRoots, true);
+				addFeature(vegetalFeatures, PVJPlacements.ICICLE, PVJConfig.CONFIG_DATA.enableCaveRoots, snowy(biomeTypes, holder));
 				
 				addFeature(vegetalFeatures, PVJPlacements.OAK_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.OAK, event.getName()));
 				addFeature(vegetalFeatures, PVJPlacements.BIRCH_FALLEN_TREE, PVJConfig.CONFIG_DATA.enableFallenTrees, TreeFeatureUtils.isIn(PVJFeatureVars.BIRCH, event.getName()));
