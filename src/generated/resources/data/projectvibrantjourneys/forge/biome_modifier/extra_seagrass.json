@@ -9,7 +9,7 @@
     "#minecraft:is_ocean",
     "#minecraft:has_structure/desert_pyramid",
     "#minecraft:is_badlands",
-    []
+    "minecraft:stony_shore"
   ],
   "configOption": "enableExtraSeagrass",
   "decoration": "vegetal_decoration",

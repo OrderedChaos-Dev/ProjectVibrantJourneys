@@ -40,8 +40,8 @@ public class PVJBiomeModifierDataGen {
 
 	public static Map<ResourceLocation, BiomeModifier> createFeatureGenMap(RegistryOps<JsonElement> registryOps) {
 		Map<ResourceLocation, BiomeModifier> map = new HashMap<>();
-		addFeature(map, "twigs", new Builder(registryOps, "twigs", "enableTwigs").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()));
-		addFeature(map, "fallen_leaves", new Builder(registryOps, "fallen_leaves", "enableFallenLeaves").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()));
+		addFeature(map, "twigs", new Builder(registryOps, "twigs", "enableTwigs").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
+		addFeature(map, "fallen_leaves", new Builder(registryOps, "fallen_leaves", "enableFallenLeaves").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
 		addFeature(map, "dead_fallen_leaves", new Builder(registryOps, "dead_fallen_leaves", "enableFallenLeaves").extraBiomes(Biomes.WOODED_BADLANDS));
 		addFeature(map, "dense_dead_fallen_leaves", new Builder(registryOps, "dense_dead_fallen_leaves", "enableFallenLeaves").extraBiomes(Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA));
 		addFeature(map, "pinecones", new Builder(registryOps, "pinecones", "enablePinecones").tag(coniferous()));
@@ -56,16 +56,16 @@ public class PVJBiomeModifierDataGen {
 		addFeature(map, "bark_mushroom", new Builder(registryOps, "bark_mushroom", "enableBarkMushrooms").tag(overworld()));
 		addFeature(map, "sea_oats", new Builder(registryOps, "sea_oats", "enableSeaOats").tag(beach()).extraBlacklist(veryCold()));
 		addFeature(map, "beach_grass", new Builder(registryOps, "beach_grass", "enableBeachGrass").tag(beach()).extraBlacklist(veryCold()));
-		addFeature(map, "cattails", new Builder(registryOps, "cattails", "enableCattails").tag(overworld()).blacklist(oceanOrBeach(), badlands()).extraBlacklist(veryCold()));
+		addFeature(map, "cattails", new Builder(registryOps, "cattails", "enableCattails").tag(overworld()).blacklist(oceanOrBeach(), badlands()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
 		addFeature(map, "short_grass", new Builder(registryOps, "short_grass", "enableShortGrass").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "natural_cobweb", new Builder(registryOps, "natural_cobweb", "enableNaturalCobwebs").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "small_cactus", new Builder(registryOps, "small_cactus", "enableSmallCacti").tag(desert()));
-		addFeature(map, "extra_seagrass", new Builder(registryOps, "extra_seagrass", "enableExtraSeagrass").tag(overworld()).blacklist(oceanOrBeach(), desert()));
-		addFeature(map, "extra_lilypads", new Builder(registryOps, "extra_lilypads", "enableExtraLilypads").tag(overworld()).blacklist(oceanOrBeach(), desert()).extraBlacklist(veryCold()));
+		addFeature(map, "extra_seagrass", new Builder(registryOps, "extra_seagrass", "enableExtraSeagrass").tag(overworld()).blacklist(oceanOrBeach(), desert()).extraBlacklist(Biomes.STONY_SHORE));
+		addFeature(map, "extra_lilypads", new Builder(registryOps, "extra_lilypads", "enableExtraLilypads").tag(overworld()).blacklist(oceanOrBeach(), desert()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
 		addFeature(map, "extra_grass", new Builder(registryOps, "extra_grass", "enableExtraSeagrass").tag(river()));
 		addFeature(map, "tide_pool", new Builder(registryOps, "tide_pool", "enableTidePools").extraBiomes(Biomes.STONY_SHORE));
 		addFeature(map, "cave_roots", new Builder(registryOps, "cave_roots", "enableCaveRoots").tag(overworld()));
-		addFeature(map, "reeds", new Builder(registryOps, "reeds", "enableReeds").tag(plainsType()));
+		addFeature(map, "reeds", new Builder(registryOps, "reeds", "enableReeds").tag(plainsType()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "prickly_bush", new Builder(registryOps, "prickly_bush", "enablePricklyBush").extraBiomes(Biomes.WOODED_BADLANDS));
 		addFeature(map, "icicle", new Builder(registryOps, "icicle", "enableIcicles").tag(snowy()));
 		

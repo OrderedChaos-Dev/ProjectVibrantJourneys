@@ -6,7 +6,7 @@
     []
   ],
   "blacklist": [
-    []
+    "minecraft:snowy_plains"
   ],
   "configOption": "enableReeds",
   "decoration": "vegetal_decoration",
