@@ -2,11 +2,11 @@
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
     [
+      "minecraft:grove",
+      "minecraft:windswept_forest",
       "minecraft:old_growth_spruce_taiga",
       "minecraft:taiga",
-      "minecraft:old_growth_pine_taiga",
-      "minecraft:windswept_forest",
-      "minecraft:grove"
+      "minecraft:old_growth_pine_taiga"
     ]
   ],
   "blacklist": [

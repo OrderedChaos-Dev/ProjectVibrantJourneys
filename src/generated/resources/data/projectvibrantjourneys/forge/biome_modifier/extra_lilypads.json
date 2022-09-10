@@ -22,7 +22,7 @@
     ]
   ],
   "configOption": "enableExtraLilypads",
-  "decoration": "vegetal_decoration",
+  "decoration": "top_layer_modification",
   "dimension": "minecraft:is_overworld",
   "feature": "projectvibrantjourneys:extra_lilypads"
 }
