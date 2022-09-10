@@ -36,7 +36,7 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 			state = PVJBlocks.RED_SANDSTONE_ROCKS.get().defaultBlockState();
 		} else if(ground == Blocks.SAND || ground == Blocks.SANDSTONE) {
 			state = PVJBlocks.SANDSTONE_ROCKS.get().defaultBlockState();
-		} else if(random.nextFloat() < 0.2F) {
+		} else if(random.nextFloat() < 0.2F && ground != Blocks.DEEPSLATE) {
 			state = PVJBlocks.MOSSY_ROCKS.get().defaultBlockState();
 		}
 		

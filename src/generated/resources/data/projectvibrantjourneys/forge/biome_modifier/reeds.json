@@ -1,15 +1,15 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_overworld",
+    "#forge:is_plains",
+    "#minecraft:is_savanna",
     []
   ],
   "blacklist": [
-    "#forge:is_mushroom",
-    "minecraft:snowy_plains"
+    []
   ],
-  "configOption": "enableShortGrass",
+  "configOption": "enableReeds",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",
-  "feature": "projectvibrantjourneys:short_grass"
+  "feature": "projectvibrantjourneys:reeds"
 }

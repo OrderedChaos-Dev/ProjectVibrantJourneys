@@ -5,9 +5,7 @@
     []
   ],
   "blacklist": [
-    "#minecraft:is_beach",
-    "#minecraft:is_ocean",
-    "#minecraft:is_badlands",
+    "#forge:is_mushroom",
     [
       "minecraft:frozen_river",
       "minecraft:snowy_plains",
@@ -19,8 +17,8 @@
       "minecraft:jagged_peaks"
     ]
   ],
-  "configOption": "enableCattails",
+  "configOption": "enableRocks",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",
-  "feature": "projectvibrantjourneys:cattails"
+  "feature": "projectvibrantjourneys:cave_rocks"
 }

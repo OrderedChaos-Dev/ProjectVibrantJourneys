@@ -9,10 +9,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockRendering {
 	
+	//TODO move to block json
 	@OnlyIn(Dist.CLIENT)
 	public static void registerRenderers() {
 		RenderType cutout = RenderType.cutout();
 		RenderType cutout_mipped = RenderType.cutoutMipped();
+		RenderType translucent = RenderType.translucent();
 	
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.TWIGS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ROCKS.get(), cutout);
@@ -42,12 +44,16 @@ public class BlockRendering {
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SHORT_GRASS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.BEACH_GRASS.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.SMALL_CACTUS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.PRICKLY_BUSH.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.REEDS.get(), cutout_mipped);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.ICICLE.get(), translucent);
 		
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_GLOWCAP.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_WARPED_NETTLE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CRIMSON_NETTLE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_CINDERCANE.get(), cutout);
 		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_SMALL_CACTUS.get(), cutout);
+		ItemBlockRenderTypes.setRenderLayer(PVJBlocks.POTTED_PRICKLY_BUSH.get(), cutout);
 	}
 
 	

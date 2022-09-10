@@ -36,12 +36,16 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableShortGrass;
 		public ForgeConfigSpec.BooleanValue enableNaturalCobwebs;
 		public ForgeConfigSpec.BooleanValue enableSmallCacti;
+		public ForgeConfigSpec.BooleanValue enablePricklyBush;
+		public ForgeConfigSpec.BooleanValue enableReeds;
+		public ForgeConfigSpec.BooleanValue enableIcicles;
 		
 		public ForgeConfigSpec.BooleanValue enableExtraLilypads;
 		public ForgeConfigSpec.BooleanValue enableExtraSeagrass;
 		public ForgeConfigSpec.BooleanValue enableExtraRiverGrass;
 		public ForgeConfigSpec.BooleanValue enableMossCarpets;
 		public ForgeConfigSpec.BooleanValue enableTidePools;
+		public ForgeConfigSpec.BooleanValue enableCaveRoots;
 		
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
@@ -68,12 +72,16 @@ public class PVJConfig {
 			config("enableShortGrass", enableShortGrass, builder.comment("Enable generation of short grass").define("enableShortGrass", true));
 			config("enableNaturalCobwebs", enableNaturalCobwebs, builder.comment("Enable generation of natural cobwebs").define("enableNaturalCobwebs", true));
 			config("enableSmallCacti", enableSmallCacti, builder.comment("Enable generation of small cacti").define("enableSmallCacti", true));
+			config("enablePricklyBush", enablePricklyBush, builder.comment("Enable generation of prickly bushes").define("enablePricklyBush", true));
+			config("enableReeds", enableReeds, builder.comment("Enable generation of reeds").define("enableReeds", true));
+			config("enableIcicles", enableIcicles, builder.comment("Enable generation of icicles").define("enableIcicles ", true));
 			
 			config("enableExtraLilypads", enableExtraLilypads, builder.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true));
 			config("enableExtraSeagrass", enableExtraSeagrass, builder.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true));
 			config("enableExtraRiverGrass", enableExtraRiverGrass, builder.comment("Enable generation of extra grass in rivers").define("enableExtraRiverGrass", true));
 			config("enableMossCarpets", enableMossCarpets, builder.comment("Enable moss carpets in old growth taiga biomes").define("enableMossCarpets", true));
 			config("enableTidePools", enableTidePools, builder.comment("Enable of tide pools in stony shores").define("enableTidePools", true));
+			config("enableCaveRoots", enableCaveRoots , builder.comment("Enable cave roots").define("enableCaveRoots", true));
 			builder.pop();
 			
 			builder.push("Entity Options");

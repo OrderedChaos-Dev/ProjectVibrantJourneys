@@ -27,6 +27,9 @@
 	"item.projectvibrantjourneys.short_grass": "Short Grass",
 	"item.projectvibrantjourneys.beach_grass": "Beach Grass",
 	"item.projectvibrantjourneys.small_cactus": "Small Cactus",
+	"item.projectvibrantjourneys.prickly_bush": "Prickly Bush",
+	"item.projectvibrantjourneys.reeds": "Reeds",
+	"item.projectvibrantjourneys.icicle": "Icicle",
 	
 	"item.projectvibrantjourneys.oak_hollow_log": "Oak Hollow Log",
 	"item.projectvibrantjourneys.birch_hollow_log": "Birch Hollow Log",
@@ -34,37 +37,12 @@
 	"item.projectvibrantjourneys.jungle_hollow_log": "Jungle Hollow Log",
 	"item.projectvibrantjourneys.acacia_hollow_log": "Acacia Hollow Log",
 	"item.projectvibrantjourneys.dark_oak_hollow_log": "Dark Oak Hollow Log",
-	
-	"item.projectvibrantjourneys.starfish_bucket": "Bucket of Starfish",
-	"item.projectvibrantjourneys.clam_bucket": "Bucket of Clam",
-	"item.projectvibrantjourneys.clam": "Clam",
-	"item.projectvibrantjourneys.cooked_clam": "Cooked Clam",
-	"item.projectvibrantjourneys.clam_chowder": "Clam Chowder",
-	"item.projectvibrantjourneys.pearl": "Pearl",
-	"item.projectvibrantjourneys.fly_spawn_egg": "Fly Spawn Egg",
-	"item.projectvibrantjourneys.firefly_spawn_egg": "Firefly Spawn Egg",
-	"item.projectvibrantjourneys.starfish_spawn_egg": "Starfish Spawn Egg",
-	"item.projectvibrantjourneys.clam_spawn_egg": "Clam Spawn Egg",
-	"item.projectvibrantjourneys.snail_spawn_egg": "Snail Spawn Egg",
-	"item.projectvibrantjourneys.slug_spawn_egg": "Slug Spawn Egg",
-	"item.projectvibrantjourneys.small_spider_spawn_egg": "Small Spider Spawn Egg",
-	"item.projectvibrantjourneys.frog_spawn_egg": "Frog Spawn Egg",
 
 	"item.projectvibrantjourneys.potted_small_cactus": "Potted Small Cactus",
 	"item.projectvibrantjourneys.potted_cindercane": "Potted Cindercane",
-	
-	"entity.projectvibrantjourneys.fly": "Fly",
-	"entity.projectvibrantjourneys.firefly": "Firefly",
-	"entity.projectvibrantjourneys.starfish": "Starfish",
-	"entity.projectvibrantjourneys.ocean_starfish": "Starfish",
-	"entity.projectvibrantjourneys.clam": "Clam",
-	"entity.projectvibrantjourneys.snail": "Snail",
-	"entity.projectvibrantjourneys.slug": "Slug",
-	"entity.projectvibrantjourneys.small_spider": "Small Spider",
-	"entity.projectvibrantjourneys.frog": "Frog",
-	"entity.projectvibrantjourneys.night_bat": "Bat",
-	
-	"subtitles.fly.ambient": "Fly buzzes",
-	"subtitles.starfish.patrick": "No, this is Patrick"
+	"item.projectvibrantjourneys.potted_warped_nettle": "Potted Warped Nettle",
+	"item.projectvibrantjourneys.potted_crimson_nettle": "Potted Crimson Nettle",
+	"item.projectvibrantjourneys.potted_glowcap": "Potted Glowcap",
+	"item.projectvibrantjourneys.potted_prickly_bush": "Potted Prickly Bush"
 	
 }

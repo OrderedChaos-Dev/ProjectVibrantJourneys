@@ -58,9 +58,9 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> GLOWING_BLUE_FUNGUS = registerBlockWithFuel("glowing_blue_fungus", 100, () -> new GlowingFungusBlock());
 	public static final RegistryObject<Block> SHORT_GRASS = registerBlock("short_grass", () -> new ShortGrassBlock());
 	public static final RegistryObject<Block> SMALL_CACTUS = registerBlock("small_cactus", () -> new SmallCactusBlock());
-//	public static final RegistryObject<Block> THORNS = registerBlock("thorns", () -> new ThornsBlock());
-//	public static final RegistryObject<Block> REEDS = registerBlock("reeds", () -> new DoubleHighWaterPlantBlock());
-//	public static final RegistryObject<Block> ICICLE = registerBlock("icicle", () -> new IcicleBlock());
+	public static final RegistryObject<Block> PRICKLY_BUSH = registerBlock("prickly_bush", () -> new ThornsBlock());
+	public static final RegistryObject<Block> REEDS = registerBlock("reeds", () -> new DoubleHighWaterPlantBlock());
+	public static final RegistryObject<Block> ICICLE = registerBlock("icicle", () -> new IcicleBlock());
 	
 	/* NETHER FLORA */
 	public static final RegistryObject<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle", () -> new NetherPlantBlock(MaterialColor.CRIMSON_NYLIUM));
@@ -97,6 +97,8 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> POTTED_WARPED_NETTLE = registerBlockWithoutItem("potted_warped_nettle", () -> createFlowerPot(WARPED_NETTLE.get()));
 	public static final RegistryObject<Block> POTTED_CINDERCANE = registerBlockWithoutItem("potted_cindercane", () -> createFlowerPot(CINDERCANE.get()));
 	public static final RegistryObject<Block> POTTED_SMALL_CACTUS = registerBlockWithoutItem("potted_small_cactus", () -> createFlowerPot(SMALL_CACTUS.get()));
+	public static final RegistryObject<Block> POTTED_PRICKLY_BUSH = registerBlockWithoutItem("potted_prickly_bush", () -> createFlowerPot(PRICKLY_BUSH.get()));
+
 	
 	private static RegistryObject<Block> registerBlock(String name, Supplier<Block> block) {
 		RegistryObject<Block> temp = BLOCKS.register(name, block);

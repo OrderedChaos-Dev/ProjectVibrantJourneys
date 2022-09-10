@@ -3,6 +3,7 @@ package com.projectvibrantjourneys.core.registry.world;
 import com.projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import com.projectvibrantjourneys.common.world.features.ExtraLilyPadFeature;
 import com.projectvibrantjourneys.common.world.features.FallenTreeFeature;
+import com.projectvibrantjourneys.common.world.features.IcicleFeature;
 import com.projectvibrantjourneys.common.world.features.MultipleWaterloggedVegetationPatchFeature;
 import com.projectvibrantjourneys.common.world.features.NaturalCobwebFeature;
 import com.projectvibrantjourneys.common.world.features.RocksGroundcoverFeature;
@@ -33,6 +34,8 @@ public class PVJFeatures {
 	public static final RegistryObject<Feature<FallenTreeConfiguration>> FALLEN_TREE = registerFeature("fallen_tree", new FallenTreeFeature(FallenTreeConfiguration.CODEC));
 	public static final RegistryObject<Feature<MultipleVegetationPatchConfiguration>> POOL = registerFeature("pool", new MultipleWaterloggedVegetationPatchFeature(MultipleVegetationPatchConfiguration.CODEC));
 	public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> LILYPAD = registerFeature("lily_pad", new ExtraLilyPadFeature(ProbabilityFeatureConfiguration.CODEC));
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> ICICLE = registerFeature("icicle", new IcicleFeature(NoneFeatureConfiguration.CODEC));
+
 	
 	private static<FC extends FeatureConfiguration> RegistryObject<Feature<FC>> registerFeature(String name, Feature<FC> feature) {
 		return FEATURES.register(name, () -> feature);

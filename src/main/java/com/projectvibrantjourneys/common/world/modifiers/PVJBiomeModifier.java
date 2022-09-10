@@ -3,6 +3,7 @@ package com.projectvibrantjourneys.common.world.modifiers;
 import java.util.List;
 
 import com.mojang.serialization.Codec;
+import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.core.registry.world.PVJBiomeModifiers;
 

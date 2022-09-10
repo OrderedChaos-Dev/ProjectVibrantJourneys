@@ -49,12 +49,14 @@ public class PVJBiomeModifierDataGen {
 		addFeature(map, "ocean_floor_seashells", new Builder(registryOps, "ocean_floor_seashells", "enableSeashells").tag(oceanOrBeach()));
 		addFeature(map, "rocks", new Builder(registryOps, "rocks", "enableRocks").tag(overworld()).blacklist(mushroom()).extraBlacklist(veryCold()));
 		addFeature(map, "bones", new Builder(registryOps, "bones", "enableBones").tag(overworld()).blacklist(mushroom()).extraBlacklist(veryCold()));
+		addFeature(map, "cave_rocks", new Builder(registryOps, "cave_rocks", "enableRocks").tag(overworld()).blacklist(mushroom()).extraBlacklist(veryCold()));
+		addFeature(map, "cave_bones", new Builder(registryOps, "cave_bones", "enableBones").tag(overworld()).blacklist(mushroom()).extraBlacklist(veryCold()));
 		addFeature(map, "ice_chunks", new Builder(registryOps, "ice_chunks", "enableIceChunks").tag(snowy()).extraBlacklist(Biomes.SNOWY_BEACH));
 		addFeature(map, "moss_carpet", new Builder(registryOps, "moss_carpet", "enableMossCarpets").extraBiomes(Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA));
 		addFeature(map, "bark_mushroom", new Builder(registryOps, "bark_mushroom", "enableBarkMushrooms").tag(overworld()));
 		addFeature(map, "sea_oats", new Builder(registryOps, "sea_oats", "enableSeaOats").tag(beach()).extraBlacklist(veryCold()));
 		addFeature(map, "beach_grass", new Builder(registryOps, "beach_grass", "enableBeachGrass").tag(beach()).extraBlacklist(veryCold()));
-		addFeature(map, "cattails", new Builder(registryOps, "cattails", "enableCattails").tag(overworld()).blacklist(oceanOrBeach()).extraBlacklist(veryCold()));
+		addFeature(map, "cattails", new Builder(registryOps, "cattails", "enableCattails").tag(overworld()).blacklist(oceanOrBeach(), badlands()).extraBlacklist(veryCold()));
 		addFeature(map, "short_grass", new Builder(registryOps, "short_grass", "enableShortGrass").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "natural_cobweb", new Builder(registryOps, "natural_cobweb", "enableNaturalCobwebs").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "small_cactus", new Builder(registryOps, "small_cactus", "enableSmallCacti").tag(desert()));
@@ -62,6 +64,10 @@ public class PVJBiomeModifierDataGen {
 		addFeature(map, "extra_lilypads", new Builder(registryOps, "extra_lilypads", "enableExtraLilypads").tag(overworld()).blacklist(oceanOrBeach(), desert()).extraBlacklist(veryCold()));
 		addFeature(map, "extra_grass", new Builder(registryOps, "extra_grass", "enableExtraSeagrass").tag(river()));
 		addFeature(map, "tide_pool", new Builder(registryOps, "tide_pool", "enableTidePools").extraBiomes(Biomes.STONY_SHORE));
+		addFeature(map, "cave_roots", new Builder(registryOps, "cave_roots", "enableCaveRoots").tag(overworld()));
+		addFeature(map, "reeds", new Builder(registryOps, "reeds", "enableReeds").tag(plainsType()));
+		addFeature(map, "prickly_bush", new Builder(registryOps, "prickly_bush", "enablePricklyBush").extraBiomes(Biomes.WOODED_BADLANDS));
+		addFeature(map, "icicle", new Builder(registryOps, "icicle", "enableIcicles").tag(snowy()));
 		
 		addFeature(map, "oak_fallen_tree", new Builder(registryOps, "oak_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.OAK)));
 		addFeature(map, "birch_fallen_tree", new Builder(registryOps, "birch_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.BIRCH)));
@@ -99,8 +105,16 @@ public class PVJBiomeModifierDataGen {
 		return List.of(Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST);
 	}
 	
+	private static List<TagKey<Biome>> plainsType() {
+		return List.of(Tags.Biomes.IS_PLAINS, BiomeTags.IS_SAVANNA);
+	}
+	
 	private static List<TagKey<Biome>> oceanOrBeach() {
 		return List.of(BiomeTags.IS_BEACH, BiomeTags.IS_OCEAN);
+	}
+	
+	private static List<TagKey<Biome>> badlands() {
+		return List.of(BiomeTags.IS_BADLANDS);
 	}
 
 	private static List<TagKey<Biome>> beach() {

@@ -1,15 +1,13 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_overworld",
-    []
+    "minecraft:wooded_badlands"
   ],
   "blacklist": [
-    "#forge:is_mushroom",
-    "minecraft:snowy_plains"
+    []
   ],
-  "configOption": "enableShortGrass",
+  "configOption": "enablePricklyBush",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",
-  "feature": "projectvibrantjourneys:short_grass"
+  "feature": "projectvibrantjourneys:prickly_bush"
 }

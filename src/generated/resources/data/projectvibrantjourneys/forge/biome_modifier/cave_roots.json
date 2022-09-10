@@ -5,11 +5,10 @@
     []
   ],
   "blacklist": [
-    "#forge:is_mushroom",
-    "minecraft:snowy_plains"
+    []
   ],
-  "configOption": "enableShortGrass",
+  "configOption": "enableCaveRoots",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",
-  "feature": "projectvibrantjourneys:short_grass"
+  "feature": "projectvibrantjourneys:cave_roots"
 }
