@@ -14,7 +14,6 @@ import com.projectvibrantjourneys.core.registry.world.PVJConfiguredFeatures;
 import com.projectvibrantjourneys.core.registry.world.PVJFeatures;
 import com.projectvibrantjourneys.core.registry.world.PVJPlacements;
 import com.projectvibrantjourneys.event.PVJGeneralEvents;
-import com.projectvibrantjourneys.event.PVJWorldGenEvents;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -46,7 +45,6 @@ public class ProjectVibrantJourneys
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.CONFIG);
 
-        MinecraftForge.EVENT_BUS.register(new PVJWorldGenEvents());
         MinecraftForge.EVENT_BUS.register(new PVJGeneralEvents());
         MinecraftForge.EVENT_BUS.register(this);
         

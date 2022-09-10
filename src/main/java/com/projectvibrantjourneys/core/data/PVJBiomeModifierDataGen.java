@@ -55,7 +55,7 @@ public class PVJBiomeModifierDataGen {
 		addFeature(map, "sea_oats", new Builder(registryOps, "sea_oats", "enableSeaOats").tag(beach()).extraBlacklist(veryCold()));
 		addFeature(map, "beach_grass", new Builder(registryOps, "beach_grass", "enableBeachGrass").tag(beach()).extraBlacklist(veryCold()));
 		addFeature(map, "cattails", new Builder(registryOps, "cattails", "enableCattails").tag(overworld()).blacklist(oceanOrBeach()).extraBlacklist(veryCold()));
-		addFeature(map, "short_grass", new Builder(registryOps, "short_grass", "enableCattails").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
+		addFeature(map, "short_grass", new Builder(registryOps, "short_grass", "enableShortGrass").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "natural_cobweb", new Builder(registryOps, "natural_cobweb", "enableNaturalCobwebs").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "small_cactus", new Builder(registryOps, "small_cactus", "enableSmallCacti").tag(desert()));
 		addFeature(map, "extra_seagrass", new Builder(registryOps, "extra_seagrass", "enableExtraSeagrass").tag(overworld()).blacklist(oceanOrBeach(), desert()));
