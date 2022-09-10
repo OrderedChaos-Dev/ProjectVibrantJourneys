@@ -68,18 +68,18 @@ public class PVJBlocks {
 	public static final RegistryObject<Block> GLOWCAP = registerBlock("glowcap", () -> new GlowcapBlock());
 	
 	/* GROUNDCOVER */
-	public static final RegistryObject<Block> TWIGS = registerBlockWithFuel("twigs", 100, () -> new GroundcoverBlock());
+	public static final RegistryObject<Block> TWIGS = registerBlockWithFuel("twigs", 100, () -> new GroundcoverBlock(SoundType.CROP));
 	public static final RegistryObject<Block> FALLEN_LEAVES = registerBlock("fallen_leaves", () -> new FallenLeavesBlock());
 	public static final RegistryObject<Block> DEAD_FALLEN_LEAVES = registerBlock("dead_fallen_leaves", () -> new FallenLeavesBlock());
-	public static final RegistryObject<Block> ROCKS = registerBlock("rocks", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> MOSSY_ROCKS = registerBlock("mossy_rocks", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> SANDSTONE_ROCKS = registerBlock("sandstone_rocks", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> RED_SANDSTONE_ROCKS = registerBlock("red_sandstone_rocks", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> ICE_CHUNKS = registerBlock("ice_chunks", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> BONES = registerBlock("bones", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> CHARRED_BONES = registerBlock("charred_bones", () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> PINECONES = registerBlockWithFuel("pinecones", 100, () -> new GroundcoverBlock());
-	public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new GroundcoverBlock());
+	public static final RegistryObject<Block> ROCKS = registerBlock("rocks", () -> new GroundcoverBlock(SoundType.STONE));
+	public static final RegistryObject<Block> MOSSY_ROCKS = registerBlock("mossy_rocks", () -> new GroundcoverBlock(SoundType.STONE));
+	public static final RegistryObject<Block> SANDSTONE_ROCKS = registerBlock("sandstone_rocks", () -> new GroundcoverBlock(SoundType.STONE));
+	public static final RegistryObject<Block> RED_SANDSTONE_ROCKS = registerBlock("red_sandstone_rocks", () -> new GroundcoverBlock(SoundType.STONE));
+	public static final RegistryObject<Block> ICE_CHUNKS = registerBlock("ice_chunks", () -> new GroundcoverBlock(SoundType.GLASS));
+	public static final RegistryObject<Block> BONES = registerBlock("bones", () -> new GroundcoverBlock(SoundType.BONE_BLOCK));
+	public static final RegistryObject<Block> CHARRED_BONES = registerBlock("charred_bones", () -> new GroundcoverBlock(SoundType.BONE_BLOCK));
+	public static final RegistryObject<Block> PINECONES = registerBlockWithFuel("pinecones", 100, () -> new GroundcoverBlock(SoundType.CROP));
+	public static final RegistryObject<Block> SEASHELLS = registerBlock("seashells", () -> new GroundcoverBlock(SoundType.STONE));
 
 	/* MISC */
 	public static final RegistryObject<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb", () -> new NaturalCobwebBlock());

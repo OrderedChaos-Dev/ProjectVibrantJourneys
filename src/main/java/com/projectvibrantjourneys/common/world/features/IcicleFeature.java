@@ -1,4 +1,4 @@
-package com.projectvibrantjourneys.core.registry.features;
+package com.projectvibrantjourneys.common.world.features;
 
 import java.util.Random;
 import java.util.function.Consumer;
@@ -50,7 +50,7 @@ public class IcicleFeature extends Feature<NoneFeatureConfiguration> {
 			mutable.move(dir);
 		}
 		
-		return Math.min(height, MAX_LENGTH);
+		return Math.min(temp, MAX_LENGTH);
 	}
 	
 	private void buildBaseToTipColumn(Direction dir, int height, Consumer<BlockState> consumer) {
@@ -76,7 +76,6 @@ public class IcicleFeature extends Feature<NoneFeatureConfiguration> {
 		if (level.getBlockState(pos.relative(dir.getOpposite())).isCollisionShapeFullBlock(level, pos.relative(dir.getOpposite()))) {
 			BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
 			buildBaseToTipColumn(dir, height, (state) -> {
-				System.out.println(blockpos$mutableblockpos);
 				level.setBlock(blockpos$mutableblockpos, state, 2);
 				blockpos$mutableblockpos.move(dir);
 			});

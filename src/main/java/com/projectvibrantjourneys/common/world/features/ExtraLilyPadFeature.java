@@ -23,7 +23,11 @@ public class ExtraLilyPadFeature extends Feature<ProbabilityFeatureConfiguration
 		WorldGenLevel level = context.level();
 		BlockPos blockpos = context.origin();
 		BlockState blockstate = Blocks.LILY_PAD.defaultBlockState();
-		if (context.random().nextFloat() < config.probability && blockstate.canSurvive(level, blockpos)) {
+		if(level.getBlockState(blockpos.below()).is(Blocks.ICE)) {
+			return false;
+		}
+
+		if (context.random().nextFloat() < config.probability && level.getBlockState(blockpos.below()).is(Blocks.WATER)) {
 			
 			int surfaceY = level.getHeight(Types.WORLD_SURFACE, blockpos.getX(), blockpos.getZ());
 			int oceanFloorY = level.getHeight(Types.OCEAN_FLOOR, blockpos.getX(), blockpos.getZ());

@@ -37,8 +37,8 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 2.0D, 15.0D);
 	
-	public GroundcoverBlock() {
-		super(Block.Properties.of(Material.DIRT).strength(0.05F, 0.0F).noOcclusion());
+	public GroundcoverBlock(SoundType soundType) {
+		super(Block.Properties.of(Material.DIRT).strength(0.05F, 0.0F).noOcclusion().sound(soundType));
 		this.registerDefaultState(this.stateDefinition.any().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
 	

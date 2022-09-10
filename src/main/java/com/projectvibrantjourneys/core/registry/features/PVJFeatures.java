@@ -3,6 +3,7 @@ package com.projectvibrantjourneys.core.registry.features;
 import com.projectvibrantjourneys.common.world.features.BarkMushroomFeature;
 import com.projectvibrantjourneys.common.world.features.ExtraLilyPadFeature;
 import com.projectvibrantjourneys.common.world.features.FallenTreeFeature;
+import com.projectvibrantjourneys.common.world.features.IcicleFeature;
 import com.projectvibrantjourneys.common.world.features.MultipleWaterloggedVegetationPatchFeature;
 import com.projectvibrantjourneys.common.world.features.NaturalCobwebFeature;
 import com.projectvibrantjourneys.common.world.features.RocksGroundcoverFeature;
