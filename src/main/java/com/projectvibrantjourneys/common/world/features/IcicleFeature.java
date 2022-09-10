@@ -49,7 +49,7 @@ public class IcicleFeature extends Feature<NoneFeatureConfiguration> {
 			mutable.move(dir);
 		}
 		
-		return Math.min(height, MAX_LENGTH);
+		return Math.min(temp, MAX_LENGTH);
 	}
 	
 	private void buildBaseToTipColumn(Direction dir, int height, Consumer<BlockState> consumer) {
