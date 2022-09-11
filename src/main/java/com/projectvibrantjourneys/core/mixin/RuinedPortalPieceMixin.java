@@ -12,21 +12,25 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.util.PortalType;
 
+import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelSettings;
 import net.minecraft.world.level.StructureFeatureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.RuinedPortalPiece;
 import net.minecraft.world.level.levelgen.structure.TemplateStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraftforge.common.Tags;
 
 @Mixin(RuinedPortalPiece.class)
 public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
@@ -42,7 +46,7 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
 					shift = At.Shift.AFTER),
 			locals = LocalCapture.CAPTURE_FAILEXCEPTION)
 	public void postProcess(WorldGenLevel level, StructureFeatureManager manager, ChunkGenerator generator, Random random, BoundingBox box, ChunkPos chunkPos, BlockPos blockPos, CallbackInfo info, BoundingBox boundingbox) {
-		if(PVJConfig.CONFIG_DATA.enableBetterRuinedNetherPortals.get() && random.nextFloat() > 0.3F) {
+		if(PVJConfig.CONFIG_DATA.enableBetterRuinedNetherPortals.get() && random.nextFloat() > 0.3F && level.getBiome(blockPos).is(Tags.Biomes.IS_OVERWORLD)) { //this is how I'm checking if dimension == overworld I guess
 			PortalType type = PortalType.getRandom(random);
 			
 			BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
