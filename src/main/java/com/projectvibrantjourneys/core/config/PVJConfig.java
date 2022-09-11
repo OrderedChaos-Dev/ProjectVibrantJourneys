@@ -40,6 +40,7 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableMossCarpets;
 		public ForgeConfigSpec.BooleanValue enableTidePools;
 		public ForgeConfigSpec.BooleanValue enableCaveRoots;
+		public ForgeConfigSpec.BooleanValue enableBetterRuinedNetherPortals;
 		
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
@@ -75,6 +76,7 @@ public class PVJConfig {
 			enableMossCarpets = builder.comment("Enable moss carpets in old growth taiga biomes").define("enableMossCarpets", true);
 			enableTidePools = builder.comment("Enable tide pools in stony shores").define("enableTidePools", true);
 			enableCaveRoots = builder.comment("Enable cave roots").define("enableCaveRoots", true);
+			enableBetterRuinedNetherPortals = builder.comment("Enable better ruined nether portals").define("enableBetterRuinedNetherPortals", true);
 			builder.pop();
 			
 			builder.push("Entity Options");
