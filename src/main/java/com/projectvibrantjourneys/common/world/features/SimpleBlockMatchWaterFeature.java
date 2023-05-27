@@ -20,10 +20,13 @@ public class SimpleBlockMatchWaterFeature extends Feature<SimpleBlockConfigurati
 	}
 
 	public boolean place(FeaturePlaceContext<SimpleBlockConfiguration> context) {
+		boolean placed = false;
+
 		SimpleBlockConfiguration config = context.config();
 		WorldGenLevel level = context.level();
 		BlockPos pos = context.origin();
 		BlockState state = config.toPlace().getState(context.random(), pos);
+
 		if (state.canSurvive(level, pos)) {
 			if (state.getBlock() instanceof DoublePlantBlock) {
 				if (!level.isEmptyBlock(pos.above())) {
@@ -34,18 +37,18 @@ public class SimpleBlockMatchWaterFeature extends Feature<SimpleBlockConfigurati
 			} else {
 				if(state.getBlock() instanceof SimpleWaterloggedBlock) {
 					if(level.isFluidAtPosition(pos, (fluidstate) -> fluidstate.getType() == Fluids.WATER)) {
-						level.setBlock(pos, state.setValue(BlockStateProperties.WATERLOGGED, true), 2);
+						placed = Utils.setBlock(level, pos, state.setValue(BlockStateProperties.WATERLOGGED, true), 2);
 					} else {
-						level.setBlock(pos, state, 2);
+						placed = Utils.setBlock(level, pos, state, 2);
 					}
 				} else {
-					level.setBlock(pos, state, 2);
+					placed = Utils.setBlock(level, pos, state, 2);
 				}
 			}
 
-			return true;
+			return placed;
 		} else {
 			return false;
 		}
 	}
-	}
+}

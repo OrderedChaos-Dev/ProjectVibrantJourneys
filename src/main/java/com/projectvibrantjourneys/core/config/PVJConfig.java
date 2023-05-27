@@ -56,7 +56,7 @@ public class PVJConfig {
 			config("enableTwigs", enableTwigs, builder.comment("Enable generation of twigs").define("enableTwigs", true));
 			config("enableFallenLeaves", enableFallenLeaves, builder.comment("Enable generation of fallen leaves").define("enableFallenLeaves", true));
 			config("enableBones", enableBones, builder.comment("Enable generation of bones").define("enableBones", true));
-			config("enableCharredBones", enableCharredBones, builder.comment("Enable generation of charred bones").define("enableCharredBones", true));
+			config("enableCharredBones", enableCharredBones, builder.comment("Enable generation of charred bones").define("enableCharredBones", false));
 			config("enableIceChunks", enableIceChunks, builder.comment("Enable generation of ice chunks").define("enableIceChunks", true));
 			config("enablePinecones", enablePinecones, builder.comment("Enable generation of pinecones").define("enablePinecones", true));
 			config("enableSeashells", enableSeashells, builder.comment("Enable generation of seashells").define("enableSeashells", true));

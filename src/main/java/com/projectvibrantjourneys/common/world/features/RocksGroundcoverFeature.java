@@ -1,7 +1,5 @@
 package com.projectvibrantjourneys.common.world.features;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
@@ -32,6 +30,7 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 		WorldGenLevel level = context.level();
 		Block ground = level.getBlockState(pos.below()).getBlock();
 		BlockState state = PVJBlocks.ROCKS.get().defaultBlockState();
+
 		if(ground == Blocks.RED_SAND || ground == Blocks.RED_SANDSTONE) {
 			state = PVJBlocks.RED_SANDSTONE_ROCKS.get().defaultBlockState();
 		} else if(ground == Blocks.SAND || ground == Blocks.SANDSTONE) {
@@ -42,14 +41,17 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 		
 		Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 		int model = random.nextInt(5);
+
+		boolean placed = false;
 		
 		if (state.canSurvive(level, pos)) {
 			if(level.isFluidAtPosition(pos, (fluidstate) -> fluidstate.getType() == Fluids.WATER)) {
-				level.setBlock(pos, state.setValue(BlockStateProperties.WATERLOGGED, true).setValue(GroundcoverBlock.FACING, dir).setValue(GroundcoverBlock.MODEL, model), 2);
+				placed = Utils.setBlock(level, pos, state.setValue(BlockStateProperties.WATERLOGGED, true).setValue(GroundcoverBlock.FACING, dir).setValue(GroundcoverBlock.MODEL, model), 2);
 			} else {
-				level.setBlock(pos, state.setValue(GroundcoverBlock.FACING, dir).setValue(GroundcoverBlock.MODEL, model), 2);
+				placed = Utils.setBlock(level, pos, state.setValue(GroundcoverBlock.FACING, dir).setValue(GroundcoverBlock.MODEL, model), 2);
 			}
-			return true;
+
+			return placed;
 		}
 		
 		return false;

@@ -1,7 +1,5 @@
 package com.projectvibrantjourneys.common.world.features;
 
-import java.util.Random;
-
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
@@ -29,15 +27,16 @@ public class NaturalCobwebFeature extends Feature<ProbabilityFeatureConfiguratio
 			blockpos.set(pos);
 			blockpos.move(rand.nextInt(4) - rand.nextInt(4), 0, rand.nextInt(4) - rand.nextInt(4));
 			blockpos.setY(i);
+
 			if (world.getBlockState(blockpos).getBlock() instanceof LeavesBlock) {
 				if(world.isEmptyBlock(blockpos.below())) {
 					if(rand.nextFloat() < context.config().probability) {
-						world.setBlock(blockpos.below(), PVJBlocks.NATURAL_COBWEB.get().defaultBlockState(), 2);
-						break;
+						return Utils.setBlock(world, blockpos.below(), PVJBlocks.NATURAL_COBWEB.get().defaultBlockState(), 2);
 					}
 				}
 			}
 		}
+
 		return true;
 	}
 }

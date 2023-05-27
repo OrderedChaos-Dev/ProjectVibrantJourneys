@@ -36,7 +36,7 @@ public class BarkMushroomFeature extends Feature<NoneFeatureConfiguration> {
 				while(!flag) {
 					Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(rand);
 					if (world.isEmptyBlock(blockpos.offset(dir.getNormal())) && world.getBlockState(blockpos).isCollisionShapeFullBlock(world, pos))
-						if(world.setBlock(blockpos.offset(dir.getNormal()), block.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, dir), 2)) {
+						if(Utils.setBlock(world, blockpos.offset(dir.getNormal()), block.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, dir), 2)) {
 							count++;
 						}
 					

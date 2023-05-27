@@ -29,13 +29,12 @@ public class ExtraLilyPadFeature extends Feature<ProbabilityFeatureConfiguration
 		}
 		
 		if (context.random().nextFloat() < config.probability && level.getBlockState(blockpos.below()).is(Blocks.WATER)) {
-			
 			int surfaceY = level.getHeight(Types.WORLD_SURFACE, blockpos.getX(), blockpos.getZ());
 			int oceanFloorY = level.getHeight(Types.OCEAN_FLOOR, blockpos.getX(), blockpos.getZ());
 			int waterDepth = surfaceY - oceanFloorY;
 			
 			if(waterDepth <= 3) {
-				return level.setBlock(blockpos, blockstate, 2);
+				return Utils.setBlock(level, blockpos, blockstate, 2);
 			} else {
 				return false;
 			}

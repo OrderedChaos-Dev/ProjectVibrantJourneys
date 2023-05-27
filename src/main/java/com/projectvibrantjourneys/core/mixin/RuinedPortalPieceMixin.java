@@ -2,6 +2,7 @@ package com.projectvibrantjourneys.core.mixin;
 
 import java.util.function.Function;
 
+import com.projectvibrantjourneys.common.world.features.Utils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -11,9 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import com.projectvibrantjourneys.core.config.PVJConfig;
 import com.projectvibrantjourneys.util.PortalType;
 
-import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.DimensionTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -50,7 +49,7 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
 			BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
 				if(level.getBlockState(pos).is(Blocks.NETHERRACK) && (level.isEmptyBlock(pos.above()) || level.getBlockState(pos.above()).is(Blocks.WATER))) {
 					if(random.nextFloat() < 0.75F) {
-						level.setBlock(pos, type.topSoil.defaultBlockState(), 3);
+						Utils.setBlock(level, pos, type.topSoil.defaultBlockState(), 3);
 						
 						if(level.isEmptyBlock(pos.above())) {
 							if(random.nextBoolean()) {
@@ -63,7 +62,7 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
 											int i = 1;
 											while(length > 0) {
 												if(level.isEmptyBlock(pos.above(i))) {
-													level.setBlock(pos.above(i), Blocks.TWISTING_VINES_PLANT.defaultBlockState(), 3);
+													Utils.setBlock(level, pos.above(i), Blocks.TWISTING_VINES_PLANT.defaultBlockState(), 3);
 												} else {
 													break;
 												}
@@ -71,22 +70,22 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
 												length--;
 												i++;
 											}
-											level.setBlock(pos.above(i - 1), Blocks.TWISTING_VINES.defaultBlockState(), 3);
+											Utils.setBlock(level, pos.above(i - 1), Blocks.TWISTING_VINES.defaultBlockState(), 3);
 										}
 										break;
 									case BASALT_DELTAS:
 										if(random.nextBoolean()) {
-											level.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 3);
+											Utils.setBlock(level, pos, Blocks.BLACKSTONE.defaultBlockState(), 3);
 										}
 										break;
 									case SOUL_SAND_VALLEY:
 										if(random.nextFloat() < 0.4F) {
-											level.setBlock(pos.above(), Blocks.SOUL_FIRE.defaultBlockState(), 3);
+											Utils.setBlock(level, pos.above(), Blocks.SOUL_FIRE.defaultBlockState(), 3);
 										} else if(random.nextFloat() < 0.05F) {
 											int height = random.nextInt(3) + 2;
 											for(int i = 1; i <= height; i++) {
 												if(level.isEmptyBlock(pos.above(i)) || level.getBlockState(pos.above(i)).getMaterial().isReplaceable()) {
-													level.setBlock(pos.above(i), Blocks.BONE_BLOCK.defaultBlockState(), 3);
+													Utils.setBlock(level, pos.above(i), Blocks.BONE_BLOCK.defaultBlockState(), 3);
 												} else {
 													break;
 												}

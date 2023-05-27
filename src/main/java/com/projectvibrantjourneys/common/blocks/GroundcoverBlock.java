@@ -1,7 +1,10 @@
 package com.projectvibrantjourneys.common.blocks;
 
+import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,10 +28,14 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.apache.logging.log4j.core.jmx.Server;
 
 public class GroundcoverBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 
@@ -85,10 +92,33 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 	
 	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult brt) {
-		world.removeBlock(pos, true);
-		if(!player.isCreative() && player.mayBuild()) {
-			Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
+		if (!player.getItemInHand(hand).isEmpty()) {
+			return super.use(state, world, pos, player, hand, brt);
 		}
+
+		if(!player.isCreative() && player.mayBuild()) {
+			ItemStack loot = null;
+
+			if (!world.isClientSide()) {
+				LootTable lootTable = world.getServer().getLootTables().get(this.getLootTable());
+
+				LootContext lootContext = new LootContext.Builder((ServerLevel) world).withRandom(world.getRandom()).create(LootContextParamSets.EMPTY);
+				ObjectArrayList<ItemStack> randomItems = lootTable.getRandomItems(lootContext);
+
+				if (randomItems.size() > 0) {
+					loot = randomItems.get(0);
+				}
+			}
+
+			if (loot == null) {
+				loot = new ItemStack(this);
+			}
+
+			Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), loot);
+		}
+
+		world.removeBlock(pos, true);
+
 		return InteractionResult.SUCCESS;
 	}
 	

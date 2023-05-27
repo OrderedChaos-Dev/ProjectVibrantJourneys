@@ -75,7 +75,7 @@ public class IcicleFeature extends Feature<NoneFeatureConfiguration> {
 		if (level.getBlockState(pos.relative(dir.getOpposite())).isCollisionShapeFullBlock(level, pos.relative(dir.getOpposite()))) {
 			BlockPos.MutableBlockPos blockpos$mutableblockpos = pos.mutable();
 			buildBaseToTipColumn(dir, height, (state) -> {
-				level.setBlock(blockpos$mutableblockpos, state, 2);
+				Utils.setBlock(level, blockpos$mutableblockpos, state, 2);
 				blockpos$mutableblockpos.move(dir);
 			});
 		}
