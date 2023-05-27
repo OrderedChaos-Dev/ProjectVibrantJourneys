@@ -2,9 +2,9 @@
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
     [
+      "minecraft:savanna_plateau",
       "minecraft:savanna",
-      "minecraft:windswept_savanna",
-      "minecraft:savanna_plateau"
+      "minecraft:windswept_savanna"
     ]
   ],
   "blacklist": [

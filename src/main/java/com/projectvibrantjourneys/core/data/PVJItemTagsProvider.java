@@ -20,11 +20,11 @@ public class PVJItemTagsProvider extends ItemTagsProvider {
 	@Override
 	protected void addTags() {
 		copy(BlockTags.LOGS, ItemTags.LOGS);
-		copy(BlockTags.LOGS, ItemTags.OAK_LOGS);
-		copy(BlockTags.LOGS, ItemTags.BIRCH_LOGS);
-		copy(BlockTags.LOGS, ItemTags.SPRUCE_LOGS);
-		copy(BlockTags.LOGS, ItemTags.JUNGLE_LOGS);
-		copy(BlockTags.LOGS, ItemTags.ACACIA_LOGS);
-		copy(BlockTags.LOGS, ItemTags.DARK_OAK_LOGS);
+		copy(BlockTags.OAK_LOGS, ItemTags.OAK_LOGS);
+		copy(BlockTags.BIRCH_LOGS, ItemTags.BIRCH_LOGS);
+		copy(BlockTags.SPRUCE_LOGS, ItemTags.SPRUCE_LOGS);
+		copy(BlockTags.JUNGLE_LOGS, ItemTags.JUNGLE_LOGS);
+		copy(BlockTags.ACACIA_LOGS, ItemTags.ACACIA_LOGS);
+		copy(BlockTags.DARK_OAK_LOGS, ItemTags.DARK_OAK_LOGS);
 	}
 }

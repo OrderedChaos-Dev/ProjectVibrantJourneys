@@ -2,11 +2,12 @@
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
     [
-      "minecraft:forest",
-      "minecraft:meadow",
       "minecraft:birch_forest",
+      "minecraft:forest",
       "minecraft:old_growth_birch_forest",
-      "minecraft:dark_forest"
+      "minecraft:dark_forest",
+      "minecraft:meadow",
+      "minecraft:flower_forest"
     ]
   ],
   "blacklist": [
