@@ -1,6 +1,5 @@
 package com.projectvibrantjourneys.common.blocks;
 
-import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -35,7 +34,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.apache.logging.log4j.core.jmx.Server;
 
 public class GroundcoverBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 
@@ -62,7 +60,7 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 		return this.defaultBlockState()
 				.setValue(MODEL, model)
 				.setValue(FACING, facing)
-				.setValue(WATERLOGGED, Boolean.valueOf(ifluidstate.getType() == Fluids.WATER));
+				.setValue(WATERLOGGED, ifluidstate.getType() == Fluids.WATER);
 	}
 	
 	@Override

@@ -8,7 +8,6 @@ import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 
 public class Utils {
     public static boolean setBlock(final LevelAccessor level, final BlockPos position, final BlockState blockState, int parameter) {
@@ -20,10 +19,6 @@ public class Utils {
     }
 
     public static boolean setBlockAndUpdate(final LevelAccessor level, final BlockPos position, final BlockState blockState) {
-        if (!isValid(level, position, blockState)) {
-            return false;
-        }
-
         if (level instanceof ServerLevel serverLevel) {
             return serverLevel.setBlockAndUpdate(position, blockState);
         }
@@ -32,15 +27,13 @@ public class Utils {
     }
 
     private static boolean isValid(final LevelAccessor level, final BlockPos position, final BlockState blockState) {
-        // TODO :: Add `canSurvive`?
         boolean respectsCutoff = respectsCutoff(level, position, blockState);
-        boolean placedInLava = level.isFluidAtPosition(position, (fluidState -> fluidState.getType() == Fluids.LAVA));
 
-        if (!respectsCutoff || placedInLava) {
-            ProjectVibrantJourneys.LOGGER.debug("Skipped placing feature (" +  blockState.getBlock().getDescriptionId() + ") [respectsCutoff: " + respectsCutoff + " | placedInLava: " + placedInLava + "]");
+        if (!respectsCutoff) {
+            ProjectVibrantJourneys.LOGGER.debug("Skipped placing feature (" +  blockState.getBlock().getDescriptionId() + ") [respectsCutoff: " + respectsCutoff + "]");
         }
 
-        return respectsCutoff && !placedInLava;
+        return respectsCutoff;
     }
 
     private static boolean respectsCutoff(final LevelAccessor level, final BlockPos position, BlockState blockState) {

@@ -18,7 +18,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.material.Fluids;
 
 public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
-	
 	public RocksGroundcoverFeature(Codec<NoneFeatureConfiguration> codec) {
 		super(codec);
 	}
@@ -42,7 +41,7 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 		Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 		int model = random.nextInt(5);
 
-		boolean placed = false;
+		boolean placed;
 		
 		if (state.canSurvive(level, pos)) {
 			if(level.isFluidAtPosition(pos, (fluidstate) -> fluidstate.getType() == Fluids.WATER)) {

@@ -51,6 +51,8 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
 		public Data(ForgeConfigSpec.Builder builder) {
+			// TODO :: Add blacklist of blocks where the feature should not spawn on (and around?)
+
 			builder.push("World Generation");
 			config("enableRocks", enableRocks, builder.comment("Enable generation of rocks").define("enableRocks", true));
 			config("enableTwigs", enableTwigs, builder.comment("Enable generation of twigs").define("enableTwigs", true));
