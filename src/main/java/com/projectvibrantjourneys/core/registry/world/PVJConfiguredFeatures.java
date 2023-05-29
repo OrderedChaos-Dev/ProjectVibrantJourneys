@@ -102,7 +102,7 @@ public class PVJConfiguredFeatures {
 				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(
                         BlockPredicate.replaceable(),
 						BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE)),
-						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LAVA, Blocks.WATER)),
+						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA, Blocks.WATER)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA, Fluids.WATER))
                 )
         ));
@@ -114,7 +114,7 @@ public class PVJConfiguredFeatures {
 				new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(
                         BlockPredicate.replaceable(),
 						BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.SNOW)),
-						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LAVA)),
+						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
                 )
         ));
@@ -127,7 +127,7 @@ public class PVJConfiguredFeatures {
                 BlockPredicate.allOf(
                         BlockPredicate.replaceable(),
                         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.SNOW)),
-                        BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LAVA)),
+                        BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
                 )
         ));
@@ -140,7 +140,7 @@ public class PVJConfiguredFeatures {
 				BlockPredicate.allOf(
 						BlockPredicate.replaceable(),
 						BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW)),
-						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LAVA)),
+						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
 				)
 		));
@@ -155,7 +155,7 @@ public class PVJConfiguredFeatures {
 		    			BlockPredicate.not(BlockPredicate.replaceable(Direction.DOWN.getNormal())),
                         BlockPredicate.hasSturdyFace(Direction.DOWN.getNormal(), Direction.UP),
                         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.SNOW, Blocks.WATER)),
-						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LAVA)),
+						BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Direction.DOWN.getNormal(), Fluids.WATER)),
 						BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
                 )
