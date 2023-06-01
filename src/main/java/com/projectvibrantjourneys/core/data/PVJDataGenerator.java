@@ -29,6 +29,7 @@ public class PVJDataGenerator {
 		gen.addProvider(event.includeServer(), blockTags);
 		gen.addProvider(event.includeServer(), new PVJItemTagsProvider(gen, blockTags, helper));
 		gen.addProvider(event.includeServer(), new PVJRecipesProvider(gen));
+		gen.addProvider(event.includeServer(), new PVJBiomeTagsProvider(gen, ProjectVibrantJourneys.MOD_ID, helper));
 		
 		RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.builtinCopy());
 		Map<ResourceLocation, BiomeModifier> featureGenMap = PVJBiomeModifierDataGen.createFeatureGenMap(registryOps);

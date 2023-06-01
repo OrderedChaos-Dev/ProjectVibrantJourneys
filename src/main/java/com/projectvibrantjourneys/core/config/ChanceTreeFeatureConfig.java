@@ -7,12 +7,12 @@ import java.util.Set;
 import com.projectvibrantjourneys.core.config.compatibility.BOP;
 import com.projectvibrantjourneys.core.config.compatibility.BYG;
 import com.projectvibrantjourneys.core.config.compatibility.Pioneer;
+import com.projectvibrantjourneys.core.config.compatibility.Terralith;
 import com.projectvibrantjourneys.util.PVJFeatureVars;
 import com.projectvibrantjourneys.util.TreeFeatureUtils;
 import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
 
 public class ChanceTreeFeatureConfig {
-	
 	public static final Set<ChanceBiomeEntry> OAK_DEFAULT = Set.of(entry("minecraft:forest", 20),
 																	 entry("minecraft:plains", 5),
 																	 entry("minecraft:flower_forest", 20),
@@ -57,5 +57,6 @@ public class ChanceTreeFeatureConfig {
 		BYG.init();
 		BOP.init();
 		Pioneer.init();
+		Terralith.init();
 	}
 }

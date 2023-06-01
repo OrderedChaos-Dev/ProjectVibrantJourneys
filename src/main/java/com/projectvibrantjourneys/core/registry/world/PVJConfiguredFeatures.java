@@ -72,7 +72,7 @@ public class PVJConfiguredFeatures {
     public static final RegistryObject<ConfiguredFeature<?, ?>> DEAD_FALLEN_LEAVES = register("dead_fallen_leaves", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, randomPatchConfig(3, 7, 3, PVJBlocks.DEAD_FALLEN_LEAVES.get().defaultBlockState())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> PINECONES = register("pinecones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> SEASHELLS = register("seashells", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.SEASHELLS.get())));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ROCKS = register("rocks", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.ROCKS.get())));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ROCKS = register("rocks", () -> new ConfiguredFeature<>(PVJFeatures.ROCKS.get(), groundcoverConfig(4, 7, 3, PVJBlocks.ROCKS.get())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> ICE_CHUNKS = register("ice_chunks", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, iceChunksConfig(4, 7, 3, PVJBlocks.ICE_CHUNKS.get())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> BONES = register("bones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(1, 7, 3, PVJBlocks.BONES.get())));
     public static final RegistryObject<ConfiguredFeature<?, ?>> CHARRED_BONES = register("charred_bones", () -> new ConfiguredFeature<>(Feature.RANDOM_PATCH, groundcoverConfig(50, 7, 3, PVJBlocks.CHARRED_BONES.get())));
@@ -174,7 +174,7 @@ public class PVJConfiguredFeatures {
         return FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(provider));
     }
 
-    private static RandomPatchConfiguration columnPlantWithFluid(int tries, int xzspread, int yspread, Block block, Fluid fluid1, Fluid fluid2) {
+    private static RandomPatchConfiguration columnPlantWithFluid(int tries, int xzspread, int yspread, Block block, Fluid... fluids) {
         return new RandomPatchConfiguration(tries, xzspread, yspread, PlacementUtils.filtered(
                 Feature.BLOCK_COLUMN,
                 BlockColumnConfiguration.simple(BiasedToBottomInt.of(2, 4), BlockStateProvider.simple(block)),
@@ -182,11 +182,11 @@ public class PVJConfiguredFeatures {
                         BlockPredicate.matchesBlocks(BlockPos.ZERO, Blocks.AIR),
                         BlockPredicate.wouldSurvive(block.defaultBlockState(), BlockPos.ZERO),
                         BlockPredicate.anyOf(
-                                BlockPredicate.matchesFluids(new BlockPos(1, -1, 0), List.of(fluid1, fluid2)),
-                                BlockPredicate.matchesFluids(new BlockPos(1, -1, 0), List.of(fluid1, fluid2)),
-                                BlockPredicate.matchesFluids(new BlockPos(-1, -1, 0), List.of(fluid1, fluid2)),
-                                BlockPredicate.matchesFluids(new BlockPos(0, -1, 1), List.of(fluid1, fluid2)),
-                                BlockPredicate.matchesFluids(new BlockPos(0, -1, -1), List.of(fluid1, fluid2))
+                                BlockPredicate.matchesFluids(new BlockPos(1, -1, 0), List.of(fluids)),
+                                BlockPredicate.matchesFluids(new BlockPos(1, -1, 0), List.of(fluids)),
+                                BlockPredicate.matchesFluids(new BlockPos(-1, -1, 0), List.of(fluids)),
+                                BlockPredicate.matchesFluids(new BlockPos(0, -1, 1), List.of(fluids)),
+                                BlockPredicate.matchesFluids(new BlockPos(0, -1, -1), List.of(fluids))
                         )
                 )
         ));

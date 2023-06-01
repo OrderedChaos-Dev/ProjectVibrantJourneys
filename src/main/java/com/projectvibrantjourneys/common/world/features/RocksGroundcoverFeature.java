@@ -2,6 +2,7 @@ package com.projectvibrantjourneys.common.world.features;
 
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.core.BlockPos;
@@ -14,16 +15,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.material.Fluids;
 
-public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
-	public RocksGroundcoverFeature(Codec<NoneFeatureConfiguration> codec) {
+public class RocksGroundcoverFeature extends Feature<RandomPatchConfiguration> {
+	public RocksGroundcoverFeature(Codec<RandomPatchConfiguration> codec) {
 		super(codec);
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
+	public boolean place(FeaturePlaceContext<RandomPatchConfiguration> context) {
 		RandomSource random = context.random();
 		BlockPos pos = context.origin();
 		WorldGenLevel level = context.level();
@@ -37,7 +38,7 @@ public class RocksGroundcoverFeature extends Feature<NoneFeatureConfiguration> {
 		} else if(random.nextFloat() < 0.2F && ground != Blocks.DEEPSLATE) {
 			state = PVJBlocks.MOSSY_ROCKS.get().defaultBlockState();
 		}
-		
+
 		Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 		int model = random.nextInt(5);
 

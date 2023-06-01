@@ -14,10 +14,7 @@ import com.projectvibrantjourneys.common.world.features.stateproviders.Direction
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
 
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,7 +24,7 @@ public class PVJFeatures {
 	
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, ProjectVibrantJourneys.MOD_ID);
 	
-	public static final RegistryObject<Feature<NoneFeatureConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(NoneFeatureConfiguration.CODEC));
+	public static final RegistryObject<Feature<RandomPatchConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(RandomPatchConfiguration.CODEC));
 	public static final RegistryObject<Feature<NoneFeatureConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkMushroomFeature(NoneFeatureConfiguration.CODEC));
 	public static final RegistryObject<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
 	public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));
