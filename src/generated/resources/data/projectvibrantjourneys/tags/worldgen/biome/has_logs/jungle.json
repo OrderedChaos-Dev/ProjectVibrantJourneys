@@ -1,0 +1,43 @@
+{
+  "values": [
+    {
+      "id": "terralith:jungle_mountains",
+      "required": false
+    },
+    {
+      "id": "byg:crag_gardens",
+      "required": false
+    },
+    {
+      "id": "terralith:skylands_summer",
+      "required": false
+    },
+    {
+      "id": "terralith:desert_oasis",
+      "required": false
+    },
+    "minecraft:sparse_jungle",
+    {
+      "id": "pioneer:overgrown_spires",
+      "required": false
+    },
+    {
+      "id": "terralith:red_oasis",
+      "required": false
+    },
+    "minecraft:jungle",
+    "minecraft:bamboo_jungle",
+    {
+      "id": "pioneer:verdant_sands",
+      "required": false
+    },
+    {
+      "id": "terralith:tropical_jungle",
+      "required": false
+    },
+    {
+      "id": "terralith:rocky_jungle",
+      "required": false
+    }
+  ]
+}
