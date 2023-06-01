@@ -1,12 +1,9 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_nether",
-    []
+    "#minecraft:is_nether"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableGlowcap",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_nether",

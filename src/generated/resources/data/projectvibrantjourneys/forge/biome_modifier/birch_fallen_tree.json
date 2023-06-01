@@ -1,18 +1,9 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    [
-      "minecraft:birch_forest",
-      "minecraft:forest",
-      "minecraft:old_growth_birch_forest",
-      "minecraft:dark_forest",
-      "minecraft:meadow",
-      "minecraft:flower_forest"
-    ]
+    "#projectvibrantjourneys:has_logs/birch"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableFallenTrees",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

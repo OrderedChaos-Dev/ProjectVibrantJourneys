@@ -6,9 +6,7 @@
       "minecraft:old_growth_spruce_taiga"
     ]
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableFallenLeaves",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

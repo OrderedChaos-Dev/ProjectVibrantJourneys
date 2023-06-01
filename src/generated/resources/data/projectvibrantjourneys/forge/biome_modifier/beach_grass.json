@@ -1,8 +1,7 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_beach",
-    []
+    "#minecraft:is_beach"
   ],
   "blacklist": [
     [

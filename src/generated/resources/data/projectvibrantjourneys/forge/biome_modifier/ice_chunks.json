@@ -1,8 +1,7 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#forge:is_snowy",
-    []
+    "#forge:is_snowy"
   ],
   "blacklist": [
     "minecraft:snowy_beach"

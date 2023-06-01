@@ -1,12 +1,9 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_river",
-    []
+    "#minecraft:is_river"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableExtraSeagrass",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

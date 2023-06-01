@@ -3,9 +3,7 @@
   "biomes": [
     "minecraft:wooded_badlands"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enablePricklyBush",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

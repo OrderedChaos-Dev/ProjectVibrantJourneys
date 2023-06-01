@@ -3,9 +3,7 @@
   "biomes": [
     "minecraft:crimson_forest"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableNetherNettles",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_nether",
