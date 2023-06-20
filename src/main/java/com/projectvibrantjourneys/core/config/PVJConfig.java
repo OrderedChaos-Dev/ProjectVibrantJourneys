@@ -51,12 +51,14 @@ public class PVJConfig {
 		public ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 		
 		public Data(ForgeConfigSpec.Builder builder) {
+			// TODO :: Add blacklist of blocks where the feature should not spawn on (and around?)
+
 			builder.push("World Generation");
 			config("enableRocks", enableRocks, builder.comment("Enable generation of rocks").define("enableRocks", true));
 			config("enableTwigs", enableTwigs, builder.comment("Enable generation of twigs").define("enableTwigs", true));
 			config("enableFallenLeaves", enableFallenLeaves, builder.comment("Enable generation of fallen leaves").define("enableFallenLeaves", true));
 			config("enableBones", enableBones, builder.comment("Enable generation of bones").define("enableBones", true));
-			config("enableCharredBones", enableCharredBones, builder.comment("Enable generation of charred bones").define("enableCharredBones", true));
+			config("enableCharredBones", enableCharredBones, builder.comment("Enable generation of charred bones").define("enableCharredBones", false));
 			config("enableIceChunks", enableIceChunks, builder.comment("Enable generation of ice chunks").define("enableIceChunks", true));
 			config("enablePinecones", enablePinecones, builder.comment("Enable generation of pinecones").define("enablePinecones", true));
 			config("enableSeashells", enableSeashells, builder.comment("Enable generation of seashells").define("enableSeashells", true));

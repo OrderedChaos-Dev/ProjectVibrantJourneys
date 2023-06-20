@@ -3,9 +3,7 @@
   "biomes": [
     "minecraft:wooded_badlands"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableFallenLeaves",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

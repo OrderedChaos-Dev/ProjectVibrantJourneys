@@ -1,12 +1,12 @@
 package com.projectvibrantjourneys.common.blocks;
 
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 import javax.annotation.Nullable;
 
+import com.projectvibrantjourneys.common.world.features.Utils;
 import com.projectvibrantjourneys.core.registry.PVJBlocks;
 
 import net.minecraft.core.BlockPos;
@@ -151,10 +151,10 @@ public class IcicleBlock extends Block implements Fallable {
 			if(cauldronPos != null) {
 				BlockState cauldron = level.getBlockState(cauldronPos);
 				if(cauldron.getBlock() instanceof CauldronBlock) {
-					level.setBlockAndUpdate(cauldronPos, Blocks.WATER_CAULDRON.defaultBlockState());
+					Utils.setBlockAndUpdate(level, cauldronPos, Blocks.WATER_CAULDRON.defaultBlockState());
 				} else if(cauldron.getBlock() == Blocks.WATER_CAULDRON) {
 					if(!((LayeredCauldronBlock)cauldron.getBlock()).isFull(cauldron)) {
-						level.setBlockAndUpdate(cauldronPos, cauldron.setValue(LayeredCauldronBlock.LEVEL, Integer.valueOf(cauldron.getValue(LayeredCauldronBlock.LEVEL) + 1)));
+						Utils.setBlockAndUpdate(level, cauldronPos, cauldron.setValue(LayeredCauldronBlock.LEVEL, Integer.valueOf(cauldron.getValue(LayeredCauldronBlock.LEVEL) + 1)));
 					}
 				}
 			}

@@ -1,12 +1,9 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_overworld",
-    []
+    "#minecraft:is_overworld"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableCaveRoots",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

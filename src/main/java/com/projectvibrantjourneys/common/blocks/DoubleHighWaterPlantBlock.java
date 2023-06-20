@@ -2,6 +2,7 @@ package com.projectvibrantjourneys.common.blocks;
 
 import javax.annotation.Nullable;
 
+import com.projectvibrantjourneys.common.world.features.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -17,7 +18,6 @@ import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -74,7 +74,7 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
 	public void neighborChanged(BlockState state, Level world, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
 		if (!canSurvive(state, world, pos)) {
 			if (state.getValue(WATERLOGGED)) {
-				world.setBlock(pos, Blocks.WATER.defaultBlockState(), 2);
+				Utils.setBlock(world, pos, Blocks.WATER.defaultBlockState(), 2);
 			} else {
 				world.destroyBlock(pos, false);
 			}
@@ -97,9 +97,9 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
 		if (blockstate.getBlock() == this && blockstate.getValue(HALF) != doubleblockhalf) {
 			if (blockstate.getValue(HALF) == DoubleBlockHalf.LOWER) {
 				if (blockstate.getValue(WATERLOGGED)) {
-					world.setBlock(blockpos, Blocks.WATER.defaultBlockState(), 2);
+					Utils.setBlock(world, blockpos, Blocks.WATER.defaultBlockState(), 2);
 				} else {
-					world.setBlock(blockpos, Blocks.AIR.defaultBlockState(), 35);
+					Utils.setBlock(world, blockpos, Blocks.AIR.defaultBlockState(), 35);
 				}
 			}
 
@@ -113,8 +113,8 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
 	}
 	
 	public void placeInWater(LevelAccessor worldIn, BlockPos pos, int flags) {
-		worldIn.setBlock(pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, true), flags);
-		worldIn.setBlock(pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER), flags);
+		Utils.setBlock(worldIn, pos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, true), flags);
+		Utils.setBlock(worldIn, pos.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER), flags);
 	}
 
 	@Override

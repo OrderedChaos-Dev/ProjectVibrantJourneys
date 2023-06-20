@@ -26,6 +26,7 @@ minecraft {
     mappings channel: 'official', version: '1.19.2'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
+
     runs {
         client {
             workingDirectory project.file('run')

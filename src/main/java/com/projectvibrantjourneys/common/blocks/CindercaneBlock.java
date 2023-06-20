@@ -1,5 +1,6 @@
 package com.projectvibrantjourneys.common.blocks;
 
+import com.projectvibrantjourneys.common.world.features.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -57,10 +58,10 @@ public class CindercaneBlock extends Block implements IPlantable {
 				int j = state.getValue(AGE);
 				if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(world, pos, state, true)) {
 					if (j == 15) {
-						world.setBlockAndUpdate(pos.above(), this.defaultBlockState());
-						world.setBlock(pos, state.setValue(AGE, Integer.valueOf(0)), 4);
+						Utils.setBlockAndUpdate(world, pos.above(), this.defaultBlockState());
+						Utils.setBlock(world, pos, state.setValue(AGE, Integer.valueOf(0)), 4);
 					} else {
-						world.setBlock(pos, state.setValue(AGE, Integer.valueOf(j + 1)), 4);
+						Utils.setBlock(world, pos, state.setValue(AGE, Integer.valueOf(j + 1)), 4);
 					}
 				}
 			}

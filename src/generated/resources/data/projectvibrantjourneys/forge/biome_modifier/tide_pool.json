@@ -3,9 +3,7 @@
   "biomes": [
     "minecraft:stony_shore"
   ],
-  "blacklist": [
-    []
-  ],
+  "blacklist": [],
   "configOption": "enableTidePools",
   "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",

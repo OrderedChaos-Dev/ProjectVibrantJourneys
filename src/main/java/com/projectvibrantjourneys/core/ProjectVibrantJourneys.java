@@ -29,8 +29,8 @@ public class ProjectVibrantJourneys
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "projectvibrantjourneys";
-    
-    public ProjectVibrantJourneys() {                
+
+    public ProjectVibrantJourneys() {
 		ChanceTreeFeatureConfig.init();
 		
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -53,17 +53,10 @@ public class ProjectVibrantJourneys
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-    	event.enqueueWork(() -> {
-    		PVJCompostables.init();
-    	});
-    	
+    	event.enqueueWork(PVJCompostables::init);
     }
     
     private void clientSetup(final FMLClientSetupEvent event) {
-    	event.enqueueWork(() -> {
-        	BlockRendering.registerRenderers();
-    	});
+    	event.enqueueWork(BlockRendering::registerRenderers);
     }
-    
-
 }

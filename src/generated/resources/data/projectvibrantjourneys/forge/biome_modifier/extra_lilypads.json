@@ -1,8 +1,7 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:is_overworld",
-    []
+    "#minecraft:is_overworld"
   ],
   "blacklist": [
     "#minecraft:is_beach",
@@ -22,7 +21,7 @@
     ]
   ],
   "configOption": "enableExtraLilypads",
-  "decoration": "top_layer_modification",
+  "decoration": "vegetal_decoration",
   "dimension": "minecraft:is_overworld",
   "feature": "projectvibrantjourneys:extra_lilypads"
 }

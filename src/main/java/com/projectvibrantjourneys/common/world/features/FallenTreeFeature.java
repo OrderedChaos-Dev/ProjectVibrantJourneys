@@ -64,17 +64,17 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 		for(int i = 0; i < length; i++) {
 			if(canReplace(world, pos)) {
 				if(!(below.getMaterial().isReplaceable() || below.getFluidState().is(Fluids.WATER)) || i > (length / 2)) {
-					world.setBlock(pos, hollowLog.setValue(RotatedPillarBlock.AXIS, dir.getAxis()), 2);
+					Utils.setBlock(world, pos, hollowLog.setValue(RotatedPillarBlock.AXIS, dir.getAxis()), 2);
 					
 					if(world.isEmptyBlock(pos.above()) && rand.nextFloat() < 0.4F) {
-						world.setBlock(pos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 2);
+						Utils.setBlock(world, pos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 2);
 					}
 					
 					if(!branched && i <= (length / 2) + 1 && rand.nextFloat() < 0.2F) {
 						BlockPos branchPos = rand.nextBoolean() ? pos.offset(dirCounterClockwise.getNormal()) : pos.offset(dirClockwise.getNormal());;
-						world.setBlock(branchPos, baseLog.setValue(RotatedPillarBlock.AXIS, dirCounterClockwise.getAxis()), 2);
+						Utils.setBlock(world, branchPos, baseLog.setValue(RotatedPillarBlock.AXIS, dirCounterClockwise.getAxis()), 2);
 						if(world.isEmptyBlock(branchPos.above()) && rand.nextFloat() < 0.4F) {
-							world.setBlock(branchPos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 2);
+							Utils.setBlock(world, branchPos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 2);
 						}
 						branched = true;
 					}
@@ -84,10 +84,10 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 					pos = pos.offset(dirCounterClockwise.getNormal());
 					if(canReplace(world, pos)) {
 						if(rand.nextFloat() < 0.4F && Block.isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP)) {
-							world.setBlock(pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
+							Utils.setBlock(world, pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
 						} else if(rand.nextFloat() < 0.4F) {
 							BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
-							world.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirCounterClockwise), 2);
+							Utils.setBlock(world, pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirCounterClockwise), 2);
 						}
 					}
 					
@@ -95,10 +95,10 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 					pos = pos.offset(dirClockwise.getNormal());
 					if(canReplace(world, pos)) {
 						if(rand.nextFloat() < 0.4F && Block.isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP)) {
-							world.setBlock(pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
+							Utils.setBlock(world, pos, Blocks.MOSS_CARPET.defaultBlockState(), 2);
 						} else if(rand.nextFloat() < 0.4F) {
 							BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
-							world.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirClockwise), 2);
+							Utils.setBlock(world, pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirClockwise), 2);
 						}
 					}
 					

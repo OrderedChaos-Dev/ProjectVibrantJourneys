@@ -1,17 +1,12 @@
 package com.projectvibrantjourneys.core.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.google.gson.JsonElement;
 import com.projectvibrantjourneys.common.world.modifiers.PVJBiomeModifier;
 import com.projectvibrantjourneys.common.world.modifiers.PVJSpawnModifier;
 import com.projectvibrantjourneys.core.ProjectVibrantJourneys;
-import com.projectvibrantjourneys.util.PVJFeatureVars;
-import com.projectvibrantjourneys.util.TreeFeatureUtils.ChanceBiomeEntry;
+import com.projectvibrantjourneys.core.config.PVJTags;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
@@ -33,7 +28,7 @@ import net.minecraftforge.common.world.BiomeModifier;
 
 @SuppressWarnings("unchecked")
 public class PVJBiomeModifierDataGen {
-	
+
 	private static final TagKey<Biome> OVERWORLD = BiomeTags.IS_OVERWORLD;
 	private static final TagKey<Biome> NETHER = BiomeTags.IS_NETHER;
 	private static final TagKey<Biome> END = BiomeTags.IS_END;
@@ -68,14 +63,14 @@ public class PVJBiomeModifierDataGen {
 		addFeature(map, "reeds", new Builder(registryOps, "reeds", "enableReeds").tag(plainsType()).extraBlacklist(Biomes.SNOWY_PLAINS));
 		addFeature(map, "prickly_bush", new Builder(registryOps, "prickly_bush", "enablePricklyBush").extraBiomes(Biomes.WOODED_BADLANDS));
 		addFeature(map, "icicle", new Builder(registryOps, "icicle", "enableIcicles").tag(snowy()));
-		
-		addFeature(map, "oak_fallen_tree", new Builder(registryOps, "oak_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.OAK)));
-		addFeature(map, "birch_fallen_tree", new Builder(registryOps, "birch_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.BIRCH)));
-		addFeature(map, "spruce_fallen_tree", new Builder(registryOps, "spruce_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.SPRUCE)));
-		addFeature(map, "jungle_fallen_tree", new Builder(registryOps, "jungle_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.JUNGLE)));
-		addFeature(map, "acacia_fallen_tree", new Builder(registryOps, "acacia_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.ACACIA)));
-		addFeature(map, "dark_oak_fallen_tree", new Builder(registryOps, "dark_oak_fallen_tree", "enableFallenTrees").extraBiomes(getBiomes(registryOps, PVJFeatureVars.DARK_OAK)));
-		
+
+		addFeature(map, "oak_fallen_tree", new Builder(registryOps, "oak_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_OAK_LOGS)));
+		addFeature(map, "birch_fallen_tree", new Builder(registryOps, "birch_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_BIRCH_LOGS)));
+		addFeature(map, "spruce_fallen_tree", new Builder(registryOps, "spruce_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_SPRUCE_LOGS)));
+		addFeature(map, "jungle_fallen_tree", new Builder(registryOps, "jungle_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_JUNGLE_LOGS)));
+		addFeature(map, "acacia_fallen_tree", new Builder(registryOps, "acacia_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_ACACIA_LOGS)));
+		addFeature(map, "dark_oak_fallen_tree", new Builder(registryOps, "dark_oak_fallen_tree", "enableFallenTrees").biomes(new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), PVJTags.HAS_DARK_OAK_LOGS)));
+
 		addFeature(map, "charred_bones", new Builder(registryOps, "charred_bones", "enableCharredBones").dimension(NETHER).tag(List.of(NETHER)));
 		addFeature(map, "glowcap", new Builder(registryOps, "glowcap", "enableGlowcap").dimension(NETHER).tag(List.of(NETHER)));
 		addFeature(map, "cindercane", new Builder(registryOps, "cindercane", "enableCindercane").dimension(NETHER).tag(List.of(NETHER)));
@@ -85,34 +80,34 @@ public class PVJBiomeModifierDataGen {
 		addSpawn(map, "tropical_fish_in_jungles", getAllBiomes(registryOps, BiomeTags.IS_JUNGLE), OVERWORLD, MobCategory.WATER_AMBIENT, new SpawnerData(EntityType.TROPICAL_FISH, 25, 5, 5));
 		return map;
 	}
-	
+
 	private static void addFeature(Map<ResourceLocation, BiomeModifier> map, String placedFeatureName, Builder builder) {
 		BiomeModifier modifier = builder.build();
 		ResourceLocation location = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, placedFeatureName);
 		map.put(location, modifier);
 	}
-	
+
 	private static void addSpawn(Map<ResourceLocation, BiomeModifier> map, String spawnName, HolderSet<Biome> biomes, TagKey<Biome> dimension, MobCategory category, SpawnerData data) {
 		BiomeModifier modifier = new PVJSpawnModifier(dimension, biomes, category, data, "enableJungleTropicalFish");
 		map.put(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, spawnName), modifier);
 	}
-	
+
 	private static HolderSet<Biome> getAllBiomes(RegistryOps<JsonElement> registryOps, TagKey<Biome> tag) {
 		return new HolderSet.Named<>(registryOps.registry(Registry.BIOME_REGISTRY).get(), tag);
 	}
-	
+
 	private static List<TagKey<Biome>> forestOrPlains() {
 		return List.of(Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST);
 	}
-	
+
 	private static List<TagKey<Biome>> plainsType() {
 		return List.of(Tags.Biomes.IS_PLAINS, BiomeTags.IS_SAVANNA);
 	}
-	
+
 	private static List<TagKey<Biome>> oceanOrBeach() {
 		return List.of(BiomeTags.IS_BEACH, BiomeTags.IS_OCEAN);
 	}
-	
+
 	private static List<TagKey<Biome>> badlands() {
 		return List.of(BiomeTags.IS_BADLANDS);
 	}
@@ -120,19 +115,19 @@ public class PVJBiomeModifierDataGen {
 	private static List<TagKey<Biome>> beach() {
 		return List.of(BiomeTags.IS_BEACH);
 	}
-	
+
 	private static List<TagKey<Biome>> river() {
 		return List.of(BiomeTags.IS_RIVER);
 	}
-	
+
 	private static List<TagKey<Biome>> coniferous() {
 		return List.of(Tags.Biomes.IS_CONIFEROUS);
 	}
-	
+
 	private static List<TagKey<Biome>> snowy() {
 		return List.of(Tags.Biomes.IS_SNOWY);
 	}
-	
+
 	private static List<TagKey<Biome>> mushroom() {
 		return List.of(Tags.Biomes.IS_MUSHROOM);
 	}
@@ -146,122 +141,128 @@ public class PVJBiomeModifierDataGen {
 						Biomes.DEEP_FROZEN_OCEAN,
 						Biomes.JAGGED_PEAKS);
 	}
-	
+
 	private static List<TagKey<Biome>> desert() {
 		/* rip BiomeCategory, going to take a risk and hope modded biomes with desert pyramids are also actually deserts */
 		return List.of(BiomeTags.HAS_DESERT_PYRAMID, BiomeTags.IS_BADLANDS);
 	}
-	
+
 	private static List<TagKey<Biome>> overworld() {
 		return List.of(BiomeTags.IS_OVERWORLD);
 	}
-	
+
 	private static List<TagKey<Biome>> nether() {
 		return List.of(BiomeTags.IS_NETHER);
 	}
-	
+
 	private static Holder<Biome> getBiome(RegistryOps<JsonElement> registryOps, ResourceKey<Biome> biomeKey) {
 		return registryOps.registry(Registry.BIOME_REGISTRY).get().getHolder(biomeKey).get();
 	}
 
-	private static List<Holder<Biome>> getBiomes(RegistryOps<JsonElement> registryOps, Set<ChanceBiomeEntry> entries) {
-		List<Holder<Biome>> list = new ArrayList<>();
-		List<String> biomes = entries.stream().map(entry -> entry.biomeName()).toList();
-		registryOps.registry(Registry.BIOME_REGISTRY).get().registryKeySet().forEach((key) -> {
-			if(biomes.contains(key.location().toString())) {
-				list.add(registryOps.registry(Registry.BIOME_REGISTRY).get().getHolder(key).get());
-			}
-		});
-		
-		return list;
-	}
-
 	private static class Builder {
-		
 		private String placedFeatureName;
 		private TagKey<Biome> dimension = OVERWORLD;
+		private HolderSet.Named<Biome> namedTags;
 		private List<TagKey<Biome>> biomeTags = new ArrayList<>();
-		private List<TagKey<Biome>> blacklistTags = new ArrayList<>();;
-		private List<Holder<Biome>> extraBiomes = new ArrayList<>();;
-		private List<Holder<Biome>> extraBlacklist = new ArrayList<>();;
+		private List<TagKey<Biome>> blacklistTags = new ArrayList<>();
+		private List<Holder<Biome>> extraBiomes = new ArrayList<>();
+		private List<Holder<Biome>> extraBlacklist = new ArrayList<>();
 		private RegistryOps<JsonElement> registryOps;
 		private Decoration decoration = Decoration.VEGETAL_DECORATION;
 		private String configOption;
-		
+
 		public Builder(RegistryOps<JsonElement> registryOps, String placedFeatureName, String configOption) {
 			this.registryOps = registryOps;
 			this.placedFeatureName = placedFeatureName;
 			this.configOption = configOption;
 		}
-		
+
 		public Builder dimension(TagKey<Biome> tag) {
 			this.dimension = tag;
 			return this;
 		}
-		
+
 		public Builder tag(List<TagKey<Biome>> tags) {
 			this.biomeTags.addAll(combine(tags));
 			return this;
 		}
-		
+
 		public Builder blacklist(List<TagKey<Biome>>... tags) {
 			this.blacklistTags.addAll(combine(tags));
 			return this;
 		}
-		
+
 		public Builder extraBiomes(List<Holder<Biome>>... biomes) {
 			this.extraBiomes.addAll(combine(biomes));
 			return this;
 		}
-		
+
 		public Builder extraBiomes(ResourceKey<Biome>... biomes) {
 			for(ResourceKey<Biome> biome : biomes) {
 				this.extraBiomes.add(registryOps.registry(Registry.BIOME_REGISTRY).get().getHolder(biome).get());
 			}
+
 			return this;
 		}
-		
+
+		public Builder biomes(HolderSet.Named<Biome> holders) {
+			namedTags = holders;
+			return this;
+		}
+
 		public Builder extraBlacklist(List<Holder<Biome>>... biomes) {
 			this.extraBlacklist.addAll(combine(biomes));
 			return this;
 		}
-		
+
 		public Builder extraBlacklist(ResourceKey<Biome>... biomes) {
 			for(ResourceKey<Biome> biome : biomes) {
 				this.extraBlacklist.add(registryOps.registry(Registry.BIOME_REGISTRY).get().getHolder(biome).get());
 			}
 			return this;
 		}
-		
+
 		public Builder extraBlacklist(List<ResourceKey<Biome>> biomes) {
 			for(ResourceKey<Biome> biome : biomes) {
 				this.extraBlacklist.add(registryOps.registry(Registry.BIOME_REGISTRY).get().getHolder(biome).get());
 			}
 			return this;
 		}
-		
+
 		public Builder decoration(Decoration decoration) {
 			this.decoration = decoration;
 			return this;
 		}
-		
+
 		@SafeVarargs
 		public final <T> List<T> combine(List<T>... lists) {
 			List<T> list = new ArrayList<>();
 			for(List<T> i : lists)
 				for(T tag : i)
 					list.add(tag);
-			
+
 			return list;
 		}
-		
+
 		public PVJBiomeModifier build() {
 			List<HolderSet<Biome>> biomesSet = new ArrayList<>(this.biomeTags.stream().map(tag -> getAllBiomes(registryOps, tag)).toList());
 			List<HolderSet<Biome>> blacklistSet = new ArrayList<>(this.blacklistTags.stream().map(tag -> getAllBiomes(registryOps, tag)).toList());
-			biomesSet.add(HolderSet.direct(this.extraBiomes));
-			blacklistSet.add(HolderSet.direct(this.extraBlacklist));
+
+			if (!this.extraBiomes.isEmpty()) {
+				biomesSet.add(HolderSet.direct(this.extraBiomes));
+			}
+
+			if (namedTags != null) {
+				biomesSet.add(this.namedTags);
+			}
+
+			if (!extraBlacklist.isEmpty()) {
+				blacklistSet.add(HolderSet.direct(this.extraBlacklist));
+			}
+
 			ResourceLocation location = new ResourceLocation(ProjectVibrantJourneys.MOD_ID, placedFeatureName);
 			Holder<PlacedFeature> placedFeature = registryOps.registry(Registry.PLACED_FEATURE_REGISTRY).get().getHolderOrThrow(ResourceKey.create(Registry.PLACED_FEATURE_REGISTRY, location));
+
 			return new PVJBiomeModifier(dimension, biomesSet, blacklistSet, decoration, placedFeature, configOption);
 		}
 	}

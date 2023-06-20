@@ -1,28 +1,18 @@
 package com.projectvibrantjourneys.common.world.features;
 
-import java.sql.Types;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 import java.util.function.Predicate;
 
 import com.mojang.serialization.Codec;
 import com.projectvibrantjourneys.common.world.features.configs.MultipleVegetationPatchConfiguration;
-import com.projectvibrantjourneys.core.config.PVJConfig;
-import com.projectvibrantjourneys.core.registry.world.PVJConfiguredFeatures;
-import com.projectvibrantjourneys.core.registry.world.PVJPlacements;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.core.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.GrowingPlantHeadBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -72,7 +62,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		}
 
 		for (BlockPos blockpos1 : set1) {
-			level.setBlock(blockpos1, Blocks.WATER.defaultBlockState(), 2);
+			Utils.setBlock(level, blockpos1, Blocks.WATER.defaultBlockState(), 2);
 		}
 
 		return set1;
@@ -155,19 +145,20 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 
 						for(int j = 0; j < i / 16; ++j) {
 							pos = pos.offset(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+
 							if (level.getBlockState(pos.below()).isCollisionShapeFullBlock(level, pos.below())) {
 								if (blockstate.canSurvive(level, pos)) {
 									BlockState blockstate1 = level.getBlockState(pos);
 									if (blockstate1.is(Blocks.WATER) && level.getFluidState(pos).getAmount() == 8) {
-										level.setBlock(pos, blockstate, 3);
+										Utils.setBlock(level, pos, blockstate, 3);
 									} else if (blockstate1.is(Blocks.KELP) && rand.nextBoolean()) {
 									      int l = Math.min(blockstate1.getValue(GrowingPlantHeadBlock.AGE) + 1, 25);
 									      if(level.getBlockState(pos.above()).getFluidState().getType() == Fluids.WATER) {
-									    	  level.setBlock(pos, blockstate1.setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(l)), 3);
+											  Utils.setBlock(level, pos, blockstate1.setValue(GrowingPlantHeadBlock.AGE, Integer.valueOf(l)), 3);
 									      }
 									} else if (blockstate1.is(Blocks.SEAGRASS) && rand.nextInt(3) == 0) {
 									      if(level.getBlockState(pos.above()).getFluidState().getType() == Fluids.WATER) {
-									    	  level.setBlock(pos, Blocks.TALL_SEAGRASS.defaultBlockState(), 3);
+											  Utils.setBlock(level, pos, Blocks.TALL_SEAGRASS.defaultBlockState(), 3);
 									      }
 									}
 								}
@@ -187,13 +178,12 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 	}
 	
 	private void tryPlaceCoral(WorldGenLevel level, BlockPos pos, RandomSource rand) {
-
 		if(level.getBlockState(pos.below()).isCollisionShapeFullBlock(level, pos.below())) {
 			if(rand.nextBoolean()) {
 				Registry.BLOCK.getTag(BlockTags.CORALS).flatMap((blocks) -> {
 					return blocks.getRandomElement(rand);
 				}).map(Holder::value).ifPresent((p_204720_) -> {
-					level.setBlock(pos, p_204720_.defaultBlockState(), 2);
+					Utils.setBlock(level, pos, p_204720_.defaultBlockState(), 2);
 				});
 			}
 		} else {
@@ -208,7 +198,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 		                         blockstate1 = blockstate1.setValue(BaseCoralWallFanBlock.FACING, direction.getOpposite());
 		                      }
 
-		                      level.setBlock(pos, blockstate1, 2);
+							  Utils.setBlock(level, pos, blockstate1, 2);
 		                   });
 					}
 				}
@@ -218,12 +208,12 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 
 	protected boolean placeVegetation(WorldGenLevel level, MultipleVegetationPatchConfiguration config, ChunkGenerator chunkGenerator, RandomSource rand, BlockPos pos) {
 		boolean flag = false;
-		
+
 		for(Holder<PlacedFeature> feature : config.vegetationFeature) {
 			if(feature.value().place(level, chunkGenerator, rand, pos.below().relative(config.surface.getDirection().getOpposite()))) {
 				BlockState blockstate = level.getBlockState(pos);
 				if (blockstate.hasProperty(BlockStateProperties.WATERLOGGED) && !blockstate.getValue(BlockStateProperties.WATERLOGGED)) {
-					level.setBlock(pos, blockstate.setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(true)), 2);
+					Utils.setBlock(level, pos, blockstate.setValue(BlockStateProperties.WATERLOGGED, Boolean.valueOf(true)), 2);
 				}
 				flag = true;
 			}
@@ -241,7 +231,7 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
 					return i != 0;
 				}
 
-				level.setBlock(pos, blockstate, 2);
+				Utils.setBlock(level, pos, blockstate, 2);
 				pos.move(config.surface.getDirection());
 			}
 		}

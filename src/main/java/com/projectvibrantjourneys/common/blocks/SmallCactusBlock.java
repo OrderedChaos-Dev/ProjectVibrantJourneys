@@ -1,5 +1,6 @@
 package com.projectvibrantjourneys.common.blocks;
 
+import com.projectvibrantjourneys.common.world.features.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -57,6 +58,6 @@ public class SmallCactusBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-		level.setBlock(pos, Blocks.CACTUS.defaultBlockState(), 2);
+		Utils.setBlock(level, pos, Blocks.CACTUS.defaultBlockState(), 2);
 	}
 }

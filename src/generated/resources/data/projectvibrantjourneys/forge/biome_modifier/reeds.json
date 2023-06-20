@@ -2,8 +2,7 @@
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
     "#forge:is_plains",
-    "#minecraft:is_savanna",
-    []
+    "#minecraft:is_savanna"
   ],
   "blacklist": [
     "minecraft:snowy_plains"
