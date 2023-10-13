@@ -1,7 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/rocks0",
-    "textures": {
-        "particle": "block/ice",
-        "0": "block/ice"
-    }
-}

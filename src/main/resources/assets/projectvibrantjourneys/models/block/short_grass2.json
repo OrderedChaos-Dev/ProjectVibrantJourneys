@@ -1,6 +1,0 @@
-{
-    "parent": "projectvibrantjourneys:block/cross_tinted",
-    "textures": {
-        "cross": "projectvibrantjourneys:block/short_grass2"
-    }
-}

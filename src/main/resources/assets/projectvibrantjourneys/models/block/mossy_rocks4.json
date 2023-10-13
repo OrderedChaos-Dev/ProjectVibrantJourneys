@@ -1,7 +1,0 @@
-{
-	"parent": "projectvibrantjourneys:block/rocks4",
-    "textures": {
-    	"particle": "block/mossy_cobblestone",
-        "0": "block/mossy_cobblestone"
-    }
-}

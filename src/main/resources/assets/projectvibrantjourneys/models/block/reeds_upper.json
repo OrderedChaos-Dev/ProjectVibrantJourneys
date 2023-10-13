@@ -1,6 +1,0 @@
-{
-    "parent": "block/crop",
-    "textures": {
-        "crop": "projectvibrantjourneys:block/reeds_upper"
-    }
-}
