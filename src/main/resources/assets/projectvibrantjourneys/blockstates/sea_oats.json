@@ -1,0 +1,7 @@
+{
+	"variants":
+	{
+		"half=upper": { "model": "projectvibrantjourneys:block/sea_oats_upper"},
+		"half=lower": { "model": "projectvibrantjourneys:block/sea_oats_lower"}
+	}
+}
