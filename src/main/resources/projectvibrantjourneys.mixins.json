@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "dev.orderedchaos.projectvibrantjourneys.common.mixin",
+  "minVersion": "0.8",
+  "refmap": "projectvibrantjourneys.refmap.json",
+  "mixins": [
+    "RuinedPortalPieceMixin"
+  ]
+}

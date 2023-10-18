@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID)
 public class PVJConfig {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec COMMON_CONFIG = BUILDER.build();
 
     public static ForgeConfigSpec.BooleanValue enableRocks;
     public static ForgeConfigSpec.BooleanValue enableTwigs;
@@ -83,6 +82,7 @@ public class PVJConfig {
         BUILDER.push("Entity Options");
         enableJungleTropicalFish = BUILDER.comment("Enable spawning of tropical fish in jungles").define("enableJungleTropicalFish", true);
         BUILDER.pop();
-
     }
+
+    public static final ForgeConfigSpec COMMON_CONFIG = BUILDER.build();
 }
