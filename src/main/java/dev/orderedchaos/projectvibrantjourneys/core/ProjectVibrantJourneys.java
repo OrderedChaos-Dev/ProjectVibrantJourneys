@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.core;
 
 import com.mojang.logging.LogUtils;
+import dev.orderedchaos.projectvibrantjourneys.common.PVJGeneralEvents;
 import dev.orderedchaos.projectvibrantjourneys.core.config.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJCreativeModeTab;
@@ -30,6 +31,7 @@ public class ProjectVibrantJourneys {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new PVJGeneralEvents());
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);
     }
