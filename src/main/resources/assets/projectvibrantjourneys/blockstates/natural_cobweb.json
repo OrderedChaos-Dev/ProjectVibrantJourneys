@@ -1,5 +1,5 @@
 {
     "variants": {
-        "": { "model": "block/cobweb" }
+        "": { "model": "projectvibrantjourneys:block/natural_cobweb" }
     }
 }
