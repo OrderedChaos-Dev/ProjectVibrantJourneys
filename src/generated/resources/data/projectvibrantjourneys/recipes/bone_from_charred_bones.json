@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:charred_bones"
+    }
+  ],
+  "result": {
+    "item": "minecraft:bone"
+  }
+}

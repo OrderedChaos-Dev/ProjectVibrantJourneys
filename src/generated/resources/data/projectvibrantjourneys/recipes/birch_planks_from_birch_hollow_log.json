@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:birch_hollow_log"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:birch_planks"
+  }
+}

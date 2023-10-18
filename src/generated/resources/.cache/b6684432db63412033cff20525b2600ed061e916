@@ -1,0 +1,11 @@
+// 1.20.1	2023-10-17T20:27:09.9537525	Tags for minecraft:block mod id projectvibrantjourneys
+aa39a468f57c481e52d35eb38fba685667033f40 data/minecraft/tags/blocks/acacia_logs.json
+e607d4360ded8461dbcbf2cd25eef5443635ed42 data/minecraft/tags/blocks/birch_logs.json
+53089328ee640ffdb1e2c7e39ce6a077d8ab25d0 data/minecraft/tags/blocks/dark_oak_logs.json
+eb9a302f35fd9067787dd193b806d3d5e26edda8 data/minecraft/tags/blocks/jungle_logs.json
+486e2cbfa6a1d048c71419a1c89f5fc9ca221f11 data/minecraft/tags/blocks/logs.json
+486e2cbfa6a1d048c71419a1c89f5fc9ca221f11 data/minecraft/tags/blocks/logs_that_burn.json
+486e2cbfa6a1d048c71419a1c89f5fc9ca221f11 data/minecraft/tags/blocks/mineable/axe.json
+486e2cbfa6a1d048c71419a1c89f5fc9ca221f11 data/minecraft/tags/blocks/mushroom_grow_block.json
+7be24047a96ed6433d58337c34eac50c310cb59e data/minecraft/tags/blocks/oak_logs.json
+9e7d3ae66262dea030f1b09eb13cedd50a237b2e data/minecraft/tags/blocks/spruce_logs.json

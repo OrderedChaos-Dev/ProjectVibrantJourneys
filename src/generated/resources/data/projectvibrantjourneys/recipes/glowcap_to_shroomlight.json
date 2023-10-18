@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:glowstone"
+    },
+    "N": {
+      "item": "projectvibrantjourneys:glowcap"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#N#",
+    " # "
+  ],
+  "result": {
+    "item": "minecraft:shroomlight"
+  },
+  "show_notification": true
+}

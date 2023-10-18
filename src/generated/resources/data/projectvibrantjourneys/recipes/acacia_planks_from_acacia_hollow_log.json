@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:acacia_hollow_log"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:acacia_planks"
+  }
+}
