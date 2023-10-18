@@ -80,7 +80,7 @@ public class PVJBlocks {
 
     /* MISC */
     public static final RegistryObject<Block> NATURAL_COBWEB = BLOCKS.register("natural_cobweb",
-            () -> new NaturalCobwebBlock());
+            NaturalCobwebBlock::new);
 
     public static final RegistryObject<Block> OAK_HOLLOW_LOG = BLOCKS.register("oak_hollow_log",
             () -> new HollowLogBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));

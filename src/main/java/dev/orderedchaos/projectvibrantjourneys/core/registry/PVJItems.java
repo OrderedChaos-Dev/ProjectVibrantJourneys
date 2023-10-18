@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.*;
+import dev.orderedchaos.projectvibrantjourneys.common.items.FuelBlockItem;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -27,11 +28,11 @@ public class PVJItems {
     public static final RegistryObject<Item> CATTAIL = registerItem("cattail",
             () -> new BlockItem(PVJBlocks.CATTAIL.get(), basicItem()));
     public static final RegistryObject<Item> BARK_MUSHROOM = registerItem("bark_mushroom",
-            () -> new BlockItem(PVJBlocks.BARK_MUSHROOM.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.BARK_MUSHROOM.get(), basicItem(), 100));
     public static final RegistryObject<Item> LIGHT_BROWN_BARK_MUSHROOM = registerItem("light_brown_bark_mushroom",
-            () -> new BlockItem(PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), basicItem(), 100));
     public static final RegistryObject<Item> ORANGE_BARK_MUSHROOM = registerItem("orange_bark_mushroom",
-            () -> new BlockItem(PVJBlocks.ORANGE_BARK_MUSHROOM.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.ORANGE_BARK_MUSHROOM.get(), basicItem(), 100));
     public static final RegistryObject<Item> GLOWING_BLUE_FUNGUS = registerItem("glowing_blue_fungus",
             () -> new BlockItem(PVJBlocks.GLOWING_BLUE_FUNGUS.get(), basicItem()));
     public static final RegistryObject<Item> SHORT_GRASS = registerItem("short_grass",
@@ -50,7 +51,7 @@ public class PVJItems {
     public static final RegistryObject<Item> WARPED_NETTLE = registerItem("warped_nettle",
             () -> new BlockItem(PVJBlocks.WARPED_NETTLE.get(), basicItem()));
     public static final RegistryObject<Item> CINDERCANE = registerItem("cindercane",
-            () -> new BlockItem(PVJBlocks.CINDERCANE.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.CINDERCANE.get(), basicItem(), 800));
     public static final RegistryObject<Item> GLOWCAP = registerItem("glowcap",
             () -> new BlockItem(PVJBlocks.GLOWCAP.get(), basicItem()));
     
@@ -59,7 +60,7 @@ public class PVJItems {
     public static final RegistryObject<Item> DEAD_FALLEN_LEAVES = registerItem("dead_fallen_leaves",
             () -> new BlockItem(PVJBlocks.DEAD_FALLEN_LEAVES.get(), basicItem()));
     public static final RegistryObject<Item> TWIGS = registerItem("twigs",
-            () -> new BlockItem(PVJBlocks.TWIGS.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.TWIGS.get(), basicItem(), 100));
     public static final RegistryObject<Item> ROCKS = registerItem("rocks",
             () -> new BlockItem(PVJBlocks.ROCKS.get(), basicItem()));
     public static final RegistryObject<Item> MOSSY_ROCKS = registerItem("mossy_rocks",
@@ -75,22 +76,22 @@ public class PVJItems {
     public static final RegistryObject<Item> CHARRED_BONES = registerItem("charred_bones",
             () -> new BlockItem(PVJBlocks.CHARRED_BONES.get(), basicItem()));
     public static final RegistryObject<Item> PINECONES = registerItem("pinecones",
-            () -> new BlockItem(PVJBlocks.PINECONES.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.PINECONES.get(), basicItem(), 100));
     public static final RegistryObject<Item> SEASHELLS = registerItem("seashells",
             () -> new BlockItem(PVJBlocks.SEASHELLS.get(), basicItem()));
 
     public static final RegistryObject<Item> OAK_HOLLOW_LOG = registerItem("oak_hollow_log",
-            () -> new BlockItem(PVJBlocks.OAK_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.OAK_HOLLOW_LOG.get(), basicItem(), 300));
     public static final RegistryObject<Item> BIRCH_HOLLOW_LOG = registerItem("birch_hollow_log",
-            () -> new BlockItem(PVJBlocks.BIRCH_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.BIRCH_HOLLOW_LOG.get(), basicItem(), 300));
     public static final RegistryObject<Item> SPRUCE_HOLLOW_LOG = registerItem("spruce_hollow_log",
-            () -> new BlockItem(PVJBlocks.SPRUCE_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.SPRUCE_HOLLOW_LOG.get(), basicItem(), 300));
     public static final RegistryObject<Item> JUNGLE_HOLLOW_LOG = registerItem("jungle_hollow_log",
-            () -> new BlockItem(PVJBlocks.JUNGLE_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.JUNGLE_HOLLOW_LOG.get(), basicItem(), 300));
     public static final RegistryObject<Item> ACACIA_HOLLOW_LOG = registerItem("acacia_hollow_log",
-            () -> new BlockItem(PVJBlocks.ACACIA_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.ACACIA_HOLLOW_LOG.get(), basicItem(), 300));
     public static final RegistryObject<Item> DARK_OAK_HOLLOW_LOG = registerItem("dark_oak_hollow_log",
-            () -> new BlockItem(PVJBlocks.DARK_OAK_HOLLOW_LOG.get(), basicItem()));
+            () -> new FuelBlockItem(PVJBlocks.DARK_OAK_HOLLOW_LOG.get(), basicItem(), 300));
 
     private static Item.Properties basicItem() {
         return new Item.Properties();

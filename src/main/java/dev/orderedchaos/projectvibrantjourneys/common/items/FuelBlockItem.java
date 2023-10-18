@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Block;
 
 public class FuelBlockItem extends BlockItem {
 
-    private int burnTime;
+    private final int burnTime;
 
     public FuelBlockItem(Block block, Properties props, int burnTime) {
         super(block, props);
