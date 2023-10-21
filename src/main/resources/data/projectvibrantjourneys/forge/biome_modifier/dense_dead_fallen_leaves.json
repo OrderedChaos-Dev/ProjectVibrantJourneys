@@ -1,0 +1,14 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    [
+      "minecraft:old_growth_pine_taiga",
+      "minecraft:old_growth_spruce_taiga"
+    ]
+  ],
+  "blacklist": [],
+  "configOption": "enableFallenLeaves",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:dense_dead_fallen_leaves"
+}

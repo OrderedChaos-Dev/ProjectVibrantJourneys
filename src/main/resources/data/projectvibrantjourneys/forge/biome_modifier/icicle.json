@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#forge:is_snowy"
+  ],
+  "blacklist": [],
+  "configOption": "enableIcicles",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:icicle"
+}

@@ -1,0 +1,44 @@
+{
+  "type": "projectvibrantjourneys:pool",
+  "config": {
+    "depth": 3,
+    "extra_bottom_block_chance": 1.0,
+    "extra_edge_column_chance": 0.7,
+    "ground_state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:stone"
+      }
+    },
+    "placement_chance": 0.15,
+    "replaceable": "#minecraft:lush_ground_replaceable",
+    "surface": "floor",
+    "vegetation_chance": 0.3,
+    "vegetation_feature": [
+      {
+        "feature": "projectvibrantjourneys:sea_pickle",
+        "placement": []
+      },
+      {
+        "feature": "minecraft:seagrass_tall",
+        "placement": []
+      },
+      {
+        "feature": "minecraft:kelp",
+        "placement": []
+      },
+      {
+        "feature": "minecraft:kelp",
+        "placement": []
+      }
+    ],
+    "vertical_range": 5,
+    "xz_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 2
+      }
+    }
+  }
+}

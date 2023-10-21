@@ -1,15 +1,8 @@
 package dev.orderedchaos.projectvibrantjourneys.common.mixin;
 
-import java.util.function.Function;
-
 import dev.orderedchaos.projectvibrantjourneys.common.world.PortalType;
 import dev.orderedchaos.projectvibrantjourneys.core.config.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -26,6 +19,13 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.structures.RuinedPortalPiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import java.util.function.Function;
 
 @Mixin(RuinedPortalPiece.class)
 public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
@@ -41,7 +41,7 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
                     shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILEXCEPTION)
     public void postProcess(WorldGenLevel level, StructureManager manager, ChunkGenerator generator, RandomSource random, BoundingBox box, ChunkPos chunkPos, BlockPos blockPos, CallbackInfo info, BoundingBox boundingbox) {
-        if(PVJConfig.enableBetterRuinedNetherPortals.get() && random.nextFloat() > 0.3F && level.getLevel().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD) {
+        if(PVJConfig.configOptions.get("enableBetterRuinedNetherPortals").get() && random.nextFloat() > 0.3F && level.getLevel().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD) {
             PortalType type = PortalType.getRandom(random);
 
             BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {

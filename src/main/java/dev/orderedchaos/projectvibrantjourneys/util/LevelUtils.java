@@ -47,13 +47,11 @@ public class LevelUtils {
 
 //            ProjectVibrantJourneys.LOGGER.debug("Feature: " + blockState.getBlock().getDescriptionId() + " x: " + x + " | z: " + z + " | xResult: " + xResult + " | zResult: " + zResult + " | chunkPos: " + chunkpos + " | writeRadiusCutoff: " + region.writeRadiusCutoff);
 
-//            return xResult <= region.writeRadiusCutoff && zResult <= region.writeRadiusCutoff;
+            return xResult <= region.writeRadiusCutoff && zResult <= region.writeRadiusCutoff;
         } else {
             return false;
             // Has not reached this point yet
 //            ProjectVibrantJourneys.LOGGER.warn("WorldGenRegion is not being used to place features, instead it is: " + level.getClass());
         }
-
-        return true;
     }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "projectvibrantjourneys:fallen_tree",
+  "config": {
+    "baseLog": {
+      "Name": "minecraft:birch_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "hollowLog": {
+      "Name": "projectvibrantjourneys:birch_hollow_log",
+      "Properties": {
+        "axis": "y",
+        "waterlogged": "false"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#forge:is_plains",
+    "#minecraft:is_savanna"
+  ],
+  "blacklist": [
+    "minecraft:snowy_plains"
+  ],
+  "configOption": "enableReeds",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:reeds"
+}

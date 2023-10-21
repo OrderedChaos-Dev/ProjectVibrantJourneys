@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#minecraft:is_overworld"
+  ],
+  "blacklist": [],
+  "configOption": "enableBarkMushrooms",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:bark_mushroom"
+}

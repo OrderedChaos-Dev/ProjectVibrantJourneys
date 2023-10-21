@@ -20,7 +20,7 @@ public enum PortalType {
     public final Block topSoil;
     public final List<Block> flora;
 
-    private PortalType(ResourceKey<Biome> biome, Block topSoil, List<Block> flora) {
+    PortalType(ResourceKey<Biome> biome, Block topSoil, List<Block> flora) {
         this.biome = biome;
         this.topSoil = topSoil;
         this.flora = flora;
