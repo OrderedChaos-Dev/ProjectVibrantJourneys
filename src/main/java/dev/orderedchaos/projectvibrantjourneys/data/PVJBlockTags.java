@@ -49,6 +49,9 @@ public class PVJBlockTags extends BlockTagsProvider {
                 PVJBlocks.DARK_OAK_HOLLOW_LOG.get(),
                 PVJBlocks.ACACIA_HOLLOW_LOG.get()
         );
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                PVJBlocks.ICICLE.get()
+        );
         tag(BlockTags.MUSHROOM_GROW_BLOCK).add(
                 PVJBlocks.OAK_HOLLOW_LOG.get(),
                 PVJBlocks.BIRCH_HOLLOW_LOG.get(),

@@ -1,21 +1,15 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
-import javax.annotation.Nullable;
-
 import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DoublePlantBlock;
-import net.minecraft.world.level.block.GrassBlock;
-import net.minecraft.world.level.block.SandBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,6 +19,8 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+
+import javax.annotation.Nullable;
 
 public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
@@ -63,7 +59,7 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
 	}
 	
 	public boolean canGrow(Block ground) {
-		return ground == Blocks.DIRT || ground instanceof GrassBlock || ground instanceof SandBlock
+		return ground.defaultBlockState().is(BlockTags.DIRT) || ground instanceof GrassBlock || ground.defaultBlockState().is(BlockTags.SAND)
 				|| ground == Blocks.GRAVEL || ground == Blocks.CLAY || ground == Blocks.MOSS_BLOCK;
 	}
 
@@ -103,7 +99,6 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
 			world.levelEvent(player, 2001, blockpos, Block.getId(blockstate));
 			if (!world.isClientSide && !player.isCreative()) {
 				dropResources(state, world, pos, (BlockEntity) null, player, player.getMainHandItem());
-				dropResources(blockstate, world, blockpos, (BlockEntity) null, player, player.getMainHandItem());
 			}
 		}
 		world.levelEvent(player, 2001, pos, Block.getId(state));

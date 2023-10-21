@@ -13,7 +13,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -54,7 +53,6 @@ public class PVJBiomeTagsProvider extends BiomeTagsProvider {
         ResourceLocation location = new ResourceLocation(biomeEntry.biomeName().trim());
 
         if (location.getNamespace().equals("minecraft")) {
-            Biome biome = ForgeRegistries.BIOMES.getValue(location);
             tag(tagKey).add(ResourceKey.create(Registries.BIOME, location));
         } else {
             tag(tagKey).addOptional(location);

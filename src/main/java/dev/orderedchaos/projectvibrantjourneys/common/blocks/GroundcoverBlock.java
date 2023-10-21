@@ -9,7 +9,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,10 +28,10 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -93,8 +95,14 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 			ItemStack loot = null;
 
 			if (!world.isClientSide()) {
+				ItemStack tool = new ItemStack(Items.APPLE);
+				tool.enchant(Enchantments.SILK_TOUCH, 1); // right click mimics silk touch
 				LootTable lootTable = world.getServer().getLootData().getLootTable(this.getLootTable());
-				LootParams lootParams = new LootParams.Builder((ServerLevel) world).create(LootContextParamSets.BLOCK);
+				LootParams lootParams = new LootParams.Builder((ServerLevel) world)
+						.withParameter(LootContextParams.BLOCK_STATE, state)
+						.withParameter(LootContextParams.ORIGIN, pos.getCenter())
+						.withParameter(LootContextParams.TOOL, tool)
+						.create(LootContextParamSets.BLOCK);
 				ObjectArrayList<ItemStack> randomItems = lootTable.getRandomItems(lootParams);
 
 				if (randomItems.size() > 0) {
