@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "projectvibrantjourneys:block/fallen_leaves" }
+  "variants": {
+    "": {
+      "model": "projectvibrantjourneys:block/fallen_leaves"
     }
+  }
 }

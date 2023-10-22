@@ -17,37 +17,37 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PVJBlockColorRegistry {
 
-    @SubscribeEvent
-    public static void onColorHandlerEventBlock(RegisterColorHandlersEvent.Block event) {
-        event.register(getFoliageColor(), PVJBlocks.TWIGS.get());
-        event.register(getFoliageColor(), PVJBlocks.FALLEN_LEAVES.get());
-        event.register(getGrassColor(), PVJBlocks.SHORT_GRASS.get());
-    }
+  @SubscribeEvent
+  public static void onColorHandlerEventBlock(RegisterColorHandlersEvent.Block event) {
+    event.register(getFoliageColor(), PVJBlocks.TWIGS.get());
+    event.register(getFoliageColor(), PVJBlocks.FALLEN_LEAVES.get());
+    event.register(getGrassColor(), PVJBlocks.SHORT_GRASS.get());
+  }
 
-    @SubscribeEvent
-    public static void onColorHandlerEventItem(RegisterColorHandlersEvent.Item event) {
-        BlockColors blockColors = event.getBlockColors();
+  @SubscribeEvent
+  public static void onColorHandlerEventItem(RegisterColorHandlersEvent.Item event) {
+    BlockColors blockColors = event.getBlockColors();
 
-        event.register((itemstack, tintIndex) -> {
-            BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
-            return blockColors.getColor(state, null, null, tintIndex);
-        }, PVJBlocks.FALLEN_LEAVES.get());
+    event.register((itemstack, tintIndex) -> {
+      BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
+      return blockColors.getColor(state, null, null, tintIndex);
+    }, PVJBlocks.FALLEN_LEAVES.get());
 
-        event.register((itemstack, tintIndex) -> {
-            BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
-            return blockColors.getColor(state, null, null, tintIndex);
-        }, PVJBlocks.SHORT_GRASS.get());
-    }
+    event.register((itemstack, tintIndex) -> {
+      BlockState state = Blocks.OAK_LEAVES.defaultBlockState();
+      return blockColors.getColor(state, null, null, tintIndex);
+    }, PVJBlocks.SHORT_GRASS.get());
+  }
 
-    private static BlockColor getGrassColor() {
-        return (state, world, pos, tintIndex) -> (world != null && pos != null)
-                ? BiomeColors.getAverageGrassColor(world, pos)
-                : GrassColor.get(0.5D, 1.0D);
-    }
+  private static BlockColor getGrassColor() {
+    return (state, world, pos, tintIndex) -> (world != null && pos != null)
+      ? BiomeColors.getAverageGrassColor(world, pos)
+      : GrassColor.get(0.5D, 1.0D);
+  }
 
-    private static BlockColor getFoliageColor() {
-        return (state, world, pos, tintIndex) -> (world != null && pos != null)
-                ? BiomeColors.getAverageFoliageColor(world, pos)
-                : FoliageColor.getDefaultColor();
-    }
+  private static BlockColor getFoliageColor() {
+    return (state, world, pos, tintIndex) -> (world != null && pos != null)
+      ? BiomeColors.getAverageFoliageColor(world, pos)
+      : FoliageColor.getDefaultColor();
+  }
 }

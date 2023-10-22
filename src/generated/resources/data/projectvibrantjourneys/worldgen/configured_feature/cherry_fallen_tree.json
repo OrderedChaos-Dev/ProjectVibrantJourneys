@@ -1,0 +1,88 @@
+{
+  "type": "projectvibrantjourneys:fallen_tree",
+  "config": {
+    "baseLog": {
+      "Name": "minecraft:cherry_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "canBeMossy": false,
+    "hollowLog": {
+      "Name": "projectvibrantjourneys:cherry_hollow_log",
+      "Properties": {
+        "axis": "y",
+        "mossy": "false",
+        "waterlogged": "false"
+      }
+    },
+    "vegetationProviders": [
+      {
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:grass"
+          }
+        }
+      },
+      {
+        "configOption": "enableFallenLeaves",
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "projectvibrantjourneys:fallen_leaves",
+            "Properties": {
+              "waterlogged": "false"
+            }
+          }
+        }
+      },
+      {
+        "provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "flower_amount",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:pink_petals",
+              "Properties": {
+                "facing": "north",
+                "flower_amount": "1"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_inclusive": 4,
+              "min_inclusive": 1
+            }
+          }
+        }
+      },
+      {
+        "configOption": "enableShortGrass",
+        "provider": {
+          "type": "minecraft:randomized_int_state_provider",
+          "property": "model",
+          "source": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "projectvibrantjourneys:short_grass",
+              "Properties": {
+                "model": "0"
+              }
+            }
+          },
+          "values": {
+            "type": "minecraft:uniform",
+            "value": {
+              "max_inclusive": 6,
+              "min_inclusive": 0
+            }
+          }
+        }
+      }
+    ]
+  }
+}

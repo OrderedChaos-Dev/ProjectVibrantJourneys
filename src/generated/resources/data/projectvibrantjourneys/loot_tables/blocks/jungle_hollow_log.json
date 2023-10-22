@@ -15,6 +15,28 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "projectvibrantjourneys:jungle_hollow_log",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "mossy": "true"
+          }
+        },
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:moss_carpet"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "projectvibrantjourneys:blocks/jungle_hollow_log"

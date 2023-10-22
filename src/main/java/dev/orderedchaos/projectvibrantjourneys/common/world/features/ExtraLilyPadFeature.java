@@ -13,33 +13,33 @@ import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeat
 
 public class ExtraLilyPadFeature extends Feature<ProbabilityFeatureConfiguration> {
 
-    public ExtraLilyPadFeature(Codec<ProbabilityFeatureConfiguration> codec) {
-        super(codec);
+  public ExtraLilyPadFeature(Codec<ProbabilityFeatureConfiguration> codec) {
+    super(codec);
+  }
+
+  @Override
+  public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
+    ProbabilityFeatureConfiguration config = context.config();
+    WorldGenLevel level = context.level();
+    BlockPos origin = context.origin();
+    BlockState blockstate = Blocks.LILY_PAD.defaultBlockState();
+
+    if (level.getBlockState(origin.below()).is(Blocks.ICE)) {
+      return false;
     }
 
-    @Override
-    public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
-        ProbabilityFeatureConfiguration config = context.config();
-        WorldGenLevel level = context.level();
-        BlockPos origin = context.origin();
-        BlockState blockstate = Blocks.LILY_PAD.defaultBlockState();
+    if (context.random().nextFloat() < config.probability && level.getBlockState(origin.below()).is(Blocks.WATER)) {
+      int surfaceY = level.getHeight(Heightmap.Types.WORLD_SURFACE, origin.getX(), origin.getZ());
+      int oceanFloorY = level.getHeight(Heightmap.Types.OCEAN_FLOOR, origin.getX(), origin.getZ());
+      int waterDepth = surfaceY - oceanFloorY;
 
-        if(level.getBlockState(origin.below()).is(Blocks.ICE)) {
-            return false;
-        }
-
-        if (context.random().nextFloat() < config.probability && level.getBlockState(origin.below()).is(Blocks.WATER)) {
-            int surfaceY = level.getHeight(Heightmap.Types.WORLD_SURFACE, origin.getX(), origin.getZ());
-            int oceanFloorY = level.getHeight(Heightmap.Types.OCEAN_FLOOR, origin.getX(), origin.getZ());
-            int waterDepth = surfaceY - oceanFloorY;
-
-            if(waterDepth <= 3) {
-                return LevelUtils.setBlock(level, origin, blockstate, 2);
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+      if (waterDepth <= 3) {
+        return LevelUtils.setBlock(level, origin, blockstate, 2);
+      } else {
+        return false;
+      }
+    } else {
+      return false;
     }
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "parent": "projectvibrantjourneys:block/mossy_hollow_log",
+  "textures": {
+    "particle": "block/birch_log",
+    "log": "block/birch_log",
+    "log_top": "block/birch_log_top",
+    "stripped_log": "block/stripped_birch_log",
+    "moss": "block/moss_block"
+  }
+}

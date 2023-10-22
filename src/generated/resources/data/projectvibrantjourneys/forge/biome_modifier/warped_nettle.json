@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "minecraft:warped_forest"
+  ],
+  "blacklist": [],
+  "configOption": "enableNetherNettles",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:warped_nettle"
+}

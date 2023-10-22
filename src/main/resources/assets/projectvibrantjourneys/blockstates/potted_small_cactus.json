@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "projectvibrantjourneys:block/potted_small_cactus" }
+  "variants": {
+    "": {
+      "model": "projectvibrantjourneys:block/potted_small_cactus"
     }
+  }
 }

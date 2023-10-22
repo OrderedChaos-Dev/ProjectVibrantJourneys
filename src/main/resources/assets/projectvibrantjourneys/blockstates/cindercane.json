@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "projectvibrantjourneys:block/cindercane" }
+  "variants": {
+    "": {
+      "model": "projectvibrantjourneys:block/cindercane"
     }
+  }
 }

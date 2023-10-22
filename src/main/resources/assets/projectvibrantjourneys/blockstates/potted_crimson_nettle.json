@@ -1,5 +1,7 @@
 {
-    "variants": {
-        "": { "model": "projectvibrantjourneys:block/potted_crimson_nettle" }
+  "variants": {
+    "": {
+      "model": "projectvibrantjourneys:block/potted_crimson_nettle"
     }
+  }
 }

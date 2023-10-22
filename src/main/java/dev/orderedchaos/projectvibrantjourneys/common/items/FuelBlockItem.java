@@ -7,15 +7,15 @@ import net.minecraft.world.level.block.Block;
 
 public class FuelBlockItem extends BlockItem {
 
-    private final int burnTime;
+  private final int burnTime;
 
-    public FuelBlockItem(Block block, Properties props, int burnTime) {
-        super(block, props);
-        this.burnTime = burnTime;
-    }
+  public FuelBlockItem(Block block, Properties props, int burnTime) {
+    super(block, props);
+    this.burnTime = burnTime;
+  }
 
-    @Override
-    public int getBurnTime(ItemStack stack, RecipeType type) {
-        return this.burnTime;
-    }
+  @Override
+  public int getBurnTime(ItemStack stack, RecipeType type) {
+    return this.burnTime;
+  }
 }

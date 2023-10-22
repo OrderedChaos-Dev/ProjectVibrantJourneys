@@ -13,21 +13,21 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 
 public class DirectionalStateProvider extends BlockStateProvider {
-    public static final Codec<DirectionalStateProvider> CODEC = BlockState.CODEC.fieldOf("state").xmap(BlockBehaviour.BlockStateBase::getBlock, Block::defaultBlockState).xmap(DirectionalStateProvider::new, (p_68793_) -> {
-        return p_68793_.block;
-    }).codec();
-    private final Block block;
+  public static final Codec<DirectionalStateProvider> CODEC = BlockState.CODEC.fieldOf("state").xmap(BlockBehaviour.BlockStateBase::getBlock, Block::defaultBlockState).xmap(DirectionalStateProvider::new, (p_68793_) -> {
+    return p_68793_.block;
+  }).codec();
+  private final Block block;
 
-    public DirectionalStateProvider(Block block) {
-        this.block = block;
-    }
+  public DirectionalStateProvider(Block block) {
+    this.block = block;
+  }
 
-    protected BlockStateProviderType<?> type() {
-        return PVJFeatures.StateProviders.DIRECTIONAL_STATE_PROVIDER.get();
-    }
+  protected BlockStateProviderType<?> type() {
+    return PVJFeatures.StateProviders.DIRECTIONAL_STATE_PROVIDER.get();
+  }
 
-    public BlockState getState(RandomSource random, BlockPos pos) {
-        Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-        return this.block.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, dir);
-    }
+  public BlockState getState(RandomSource random, BlockPos pos) {
+    Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+    return this.block.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, dir);
+  }
 }

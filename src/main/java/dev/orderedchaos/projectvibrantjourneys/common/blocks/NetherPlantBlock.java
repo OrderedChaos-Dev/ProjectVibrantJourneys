@@ -10,12 +10,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class NetherPlantBlock extends BushBlock {
 
-	public NetherPlantBlock(BlockBehaviour.Properties props) {
-		super(props);
-	}
+  public NetherPlantBlock(BlockBehaviour.Properties props) {
+    super(props);
+  }
 
-	@Override
-	protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return state.is(BlockTags.NYLIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
-	}
+  @Override
+  protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
+    return state.is(BlockTags.NYLIUM) || state.is(Blocks.SOUL_SOIL) || super.mayPlaceOn(state, worldIn, pos);
+  }
 }

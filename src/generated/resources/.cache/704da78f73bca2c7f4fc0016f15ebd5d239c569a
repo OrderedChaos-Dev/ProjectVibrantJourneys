@@ -1,7 +1,9 @@
-// 1.20.1	2023-10-18T23:14:05.8942386	Tags for minecraft:worldgen/biome mod id projectvibrantjourneys
+// 1.20.1	2023-10-21T12:19:13.8361991	Tags for minecraft:worldgen/biome mod id projectvibrantjourneys
 5cee851101977a029051ff62ec021b7f179c6249 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/acacia.json
 379c2720cc0f4666a518ab08f50a182132a74e48 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/birch.json
+a18b42d48e473c1416af02fa30d2722fbc057e77 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/cherry.json
 3f32134c9f929f27812267c8c8b05ee10352afb5 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/dark_oak.json
 b0217aa310e5dc82eac0c2f5099e5ae4f9171df2 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/jungle.json
+a8da2438bebdb3e6080fe1d0eccb1c3de5e5a129 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/mangrove.json
 c7b72ff01e6a82005900d0b11d10c3eb1205e474 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/oak.json
 cfbf2e7a3d82764d80111c180ac98d6cd5b38183 data/projectvibrantjourneys/tags/worldgen/biome/has_logs/spruce.json

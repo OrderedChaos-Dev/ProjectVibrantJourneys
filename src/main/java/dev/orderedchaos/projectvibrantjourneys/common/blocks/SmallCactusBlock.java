@@ -20,42 +20,42 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
 
 public class SmallCactusBlock extends BushBlock implements BonemealableBlock {
-	
-	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-	public SmallCactusBlock(BlockBehaviour.Properties props) {
-		super(props);
-	}
+  protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
 
-	@Override
-	public VoxelShape getShape(BlockState blockstate, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return SHAPE;
-	}
-	
-	@Override
-	public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-		return PlantType.DESERT;
-	}
+  public SmallCactusBlock(BlockBehaviour.Properties props) {
+    super(props);
+  }
 
-	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClientSide) {
-		for (Direction direction : Direction.Plane.HORIZONTAL) {
-			BlockState blockstate = level.getBlockState(pos.relative(direction));
-			if(blockstate.isSolid()) {
-				return false;
-			}
-		}
-		
-		return true;
-	}
+  @Override
+  public VoxelShape getShape(BlockState blockstate, BlockGetter world, BlockPos pos, CollisionContext context) {
+    return SHAPE;
+  }
 
-	@Override
-	public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
-		return true;
-	}
+  @Override
+  public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+    return PlantType.DESERT;
+  }
 
-	@Override
-	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
-		LevelUtils.setBlock(level, pos, Blocks.CACTUS.defaultBlockState(), 2);
-	}
+  @Override
+  public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClientSide) {
+    for (Direction direction : Direction.Plane.HORIZONTAL) {
+      BlockState blockstate = level.getBlockState(pos.relative(direction));
+      if (blockstate.isSolid()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  @Override
+  public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    return true;
+  }
+
+  @Override
+  public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    LevelUtils.setBlock(level, pos, Blocks.CACTUS.defaultBlockState(), 2);
+  }
 }
