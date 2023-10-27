@@ -85,12 +85,9 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
       return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK)));
     });
 
-    add(PVJBlocks.FALLEN_LEAVES.get(), (block) -> {
-      return createShearsOnlyDrop(block);
-    });
-    add(PVJBlocks.DEAD_FALLEN_LEAVES.get(), (block) -> {
-      return createShearsOnlyDrop(block);
-    });
+    shearsOrSilkTouch(PVJBlocks.FALLEN_LEAVES.get());
+    shearsOrSilkTouch(PVJBlocks.DEAD_FALLEN_LEAVES.get());
+    shearsOrSilkTouch(PVJBlocks.SANDY_SPROUTS.get());
 
     add(PVJBlocks.NATURAL_COBWEB.get(), (block) -> {
       return createSilkTouchOrShearsDispatchTable(Blocks.COBWEB, this.applyExplosionCondition(Blocks.COBWEB, LootItem.lootTableItem(Items.STRING)));
@@ -99,7 +96,6 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
       return createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))));
     });
     add(PVJBlocks.SHORT_GRASS.get(), this::createGrassDrops);
-
 
     add(PVJBlocks.SEASHELLS.get(), (block) -> {
       return LootTable.lootTable()
@@ -115,6 +111,12 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
   private void doublePlant(Block plant) {
     add(plant, (block) -> {
       return createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER);
+    });
+  }
+
+  private void shearsOrSilkTouch(Block block) {
+    add(block, (b) -> {
+      return createSilkTouchOrShearsDispatchTable(b, this.applyExplosionCondition(b, LootItem.lootTableItem(b)));
     });
   }
 

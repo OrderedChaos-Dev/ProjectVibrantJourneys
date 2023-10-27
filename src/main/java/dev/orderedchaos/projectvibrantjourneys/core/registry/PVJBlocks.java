@@ -41,6 +41,8 @@ public class PVJBlocks {
     () -> new DoubleHighWaterPlantBlock(replaceablePlant(null)));
   public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle",
     () -> new IcicleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)));
+  public static final RegistryObject<Block> SANDY_SPROUTS = BLOCKS.register("sandy_sprouts",
+    () -> new SandySproutsBlock(replaceablePlant(MapColor.SAND)));
 
   /* NETHER FLORA */
   public static final RegistryObject<Block> CRIMSON_NETTLE = BLOCKS.register("crimson_nettle",

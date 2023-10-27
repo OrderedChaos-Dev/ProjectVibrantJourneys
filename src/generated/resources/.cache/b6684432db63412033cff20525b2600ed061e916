@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-21T13:12:38.8010896	Tags for minecraft:block mod id projectvibrantjourneys
+// 1.20.1	2023-10-26T22:31:52.9496843	Tags for minecraft:block mod id projectvibrantjourneys
 e607d4360ded8461dbcbf2cd25eef5443635ed42 data/minecraft/tags/blocks/birch_logs.json
 050ec04596d15da001679c7dbe9bfbc570eaa5b4 data/minecraft/tags/blocks/cherry_logs.json
 53089328ee640ffdb1e2c7e39ce6a077d8ab25d0 data/minecraft/tags/blocks/dark_oak_logs.json
@@ -11,4 +11,4 @@ eb9a302f35fd9067787dd193b806d3d5e26edda8 data/minecraft/tags/blocks/jungle_logs.
 463e51965c83467cf27ff3aeb5e372f7734045ea data/minecraft/tags/blocks/mushroom_grow_block.json
 7be24047a96ed6433d58337c34eac50c310cb59e data/minecraft/tags/blocks/oak_logs.json
 9e7d3ae66262dea030f1b09eb13cedd50a237b2e data/minecraft/tags/blocks/spruce_logs.json
-6db85464c28556d7c24fd3a843fcfd772c5f009f data/projectvibrantjourneys/tags/blocks/grows_on_hollow_log.json
+dc608fafffc476bd7ae88757d3ea6f8875b1c45e data/projectvibrantjourneys/tags/blocks/grows_on_hollow_log.json

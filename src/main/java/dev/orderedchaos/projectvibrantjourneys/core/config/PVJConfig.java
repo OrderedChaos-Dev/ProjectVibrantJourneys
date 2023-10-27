@@ -35,6 +35,7 @@ public class PVJConfig {
   public static ForgeConfigSpec.BooleanValue enablePricklyBush;
   public static ForgeConfigSpec.BooleanValue enableReeds;
   public static ForgeConfigSpec.BooleanValue enableIcicles;
+  public static ForgeConfigSpec.BooleanValue enableSandySprouts;
 
   public static ForgeConfigSpec.BooleanValue enableExtraLilypads;
   public static ForgeConfigSpec.BooleanValue enableExtraSeagrass;
@@ -72,6 +73,7 @@ public class PVJConfig {
     config("enablePricklyBush", enablePricklyBush, BUILDER.comment("Enable generation of prickly bushes").define("enablePricklyBush", true));
     config("enableReeds", enableReeds, BUILDER.comment("Enable generation of reeds").define("enableReeds", true));
     config("enableIcicles", enableIcicles, BUILDER.comment("Enable generation of icicles").define("enableIcicles ", true));
+    config("enableSandySprouts", enableSandySprouts, BUILDER.comment("Enable generation of sandy sprouts").define("enableSandySprouts ", true));
 
     config("enableExtraLilypads", enableExtraLilypads, BUILDER.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true));
     config("enableExtraSeagrass", enableExtraSeagrass, BUILDER.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true));

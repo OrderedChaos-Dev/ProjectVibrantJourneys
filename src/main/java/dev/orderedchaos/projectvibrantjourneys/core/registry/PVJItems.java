@@ -38,6 +38,8 @@ public class PVJItems {
     () -> new BlockItem(PVJBlocks.REEDS.get(), basicItem()));
   public static final RegistryObject<Item> ICICLE = registerItem("icicle",
     () -> new BlockItem(PVJBlocks.ICICLE.get(), basicItem()));
+  public static final RegistryObject<Item> SANDY_SPROUTS = registerItem("sandy_sprouts",
+    () -> new BlockItem(PVJBlocks.SANDY_SPROUTS.get(), basicItem()));
 
   public static final RegistryObject<Item> CRIMSON_NETTLE = registerItem("crimson_nettle",
     () -> new BlockItem(PVJBlocks.CRIMSON_NETTLE.get(), basicItem()));

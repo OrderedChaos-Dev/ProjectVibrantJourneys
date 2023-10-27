@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "projectvibrantjourneys:fallen_leaves"
+              "name": "projectvibrantjourneys:sandy_sprouts"
             },
             {
               "type": "minecraft:item",
@@ -46,7 +46,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "projectvibrantjourneys:fallen_leaves"
+              "name": "projectvibrantjourneys:sandy_sprouts"
             }
           ]
         }
@@ -54,5 +54,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "projectvibrantjourneys:blocks/fallen_leaves"
+  "random_sequence": "projectvibrantjourneys:blocks/sandy_sprouts"
 }

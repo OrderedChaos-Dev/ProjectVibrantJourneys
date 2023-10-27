@@ -39,7 +39,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> CAVE_ROOTS = createKey("cave_roots");
   public static final ResourceKey<PlacedFeature> REEDS = createKey("reeds");
   public static final ResourceKey<PlacedFeature> PRICKLY_BUSH = createKey("prickly_bush");
-
+  public static final ResourceKey<PlacedFeature> SANDY_SPROUTS = createKey("sandy_sprouts");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -124,6 +124,7 @@ public class PVJPlacements {
     register(context, EXTRA_LILYPADS, holderGetter.getOrThrow(PVJConfiguredFeatures.LILYPADS), worldSurfaceSquaredWithCount(4));
     register(context, EXTRA_GRASS, holderGetter.getOrThrow(VegetationFeatures.PATCH_GRASS), NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
     register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
+    register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5));
   }
 
   private static ResourceKey<PlacedFeature> createKey(String name) {

@@ -81,7 +81,8 @@ public class PVJBlockTags extends BlockTagsProvider {
       Blocks.BLUE_ORCHID,
       PVJBlocks.CATTAIL.get(),
       PVJBlocks.REEDS.get(),
-      PVJBlocks.SHORT_GRASS.get()
+      PVJBlocks.SHORT_GRASS.get(),
+      PVJBlocks.SANDY_SPROUTS.get()
     );
   }
 
