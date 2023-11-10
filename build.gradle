@@ -12,10 +12,11 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.19.2-5.1.0'
+version = '1.19.2-5.1.2'
 group = 'com.projectvibrantjourneys'
 archivesBaseName = 'projectvibrantjourneys'
 
@@ -76,8 +77,12 @@ repositories {
 	maven { url = 'https://alcatrazescapee.jfrog.io/artifactory/mods' }
 }
 
+mixin {
+    add sourceSets.main, "projectvibrantjourneys.refmap.json"
+}
+
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.1'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.3.0'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
