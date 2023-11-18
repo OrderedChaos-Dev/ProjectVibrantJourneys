@@ -43,5 +43,12 @@
   "block.projectvibrantjourneys.potted_warped_nettle": "Potted Warped Nettle",
   "block.projectvibrantjourneys.potted_crimson_nettle": "Potted Crimson Nettle",
   "block.projectvibrantjourneys.potted_glowcap": "Potted Glowcap",
-  "block.projectvibrantjourneys.potted_prickly_bush": "Potted Prickly Bush"
+  "block.projectvibrantjourneys.potted_prickly_bush": "Potted Prickly Bush",
+
+  "item.minecraft.potion.effect.glowing": "Potion of Glowing",
+  "item.minecraft.splash_potion.effect.glowing": "Splash Potion of Glowing",
+  "item.minecraft.lingering_potion.effect.glowing": "Lingering Potion of Glowing",
+  "item.minecraft.potion.effect.long_glowing": "Potion of Glowing",
+  "item.minecraft.splash_potion.effect.long_glowing": "Splash Potion of Glowing",
+  "item.minecraft.lingering_potion.effect.long_glowing": "Lingering Potion of Glowing"
 }

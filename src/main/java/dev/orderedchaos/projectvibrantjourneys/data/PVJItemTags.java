@@ -24,5 +24,6 @@ public class PVJItemTags extends ItemTagsProvider {
     copy(BlockTags.LOGS, ItemTags.LOGS);
     copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
     tag(ItemTags.CREEPER_IGNITERS).add(PVJItems.CINDERCANE.get());
+
   }
 }

@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.core;
 
 import com.mojang.logging.LogUtils;
+import dev.orderedchaos.projectvibrantjourneys.common.PVJBrewingRecipes;
 import dev.orderedchaos.projectvibrantjourneys.common.PVJCompostables;
 import dev.orderedchaos.projectvibrantjourneys.common.PVJGeneralEvents;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportals.RuinedNetherPortalDecorator;
@@ -34,6 +35,7 @@ public class ProjectVibrantJourneys {
     PVJBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(bus);
     PVJConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
     PVJPlacements.PLACED_FEATURES.register(bus);
+    PVJPotions.POTIONS.register(bus);
 
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);
 
@@ -44,7 +46,10 @@ public class ProjectVibrantJourneys {
   }
 
   private void commonSetup(final FMLCommonSetupEvent event) {
-    event.enqueueWork(PVJCompostables::init);
+    event.enqueueWork(() -> {
+      PVJCompostables.init();
+      PVJBrewingRecipes.init();
+    });
     RuinedNetherPortalDecorator.registerPortalDecorators();
   }
 
