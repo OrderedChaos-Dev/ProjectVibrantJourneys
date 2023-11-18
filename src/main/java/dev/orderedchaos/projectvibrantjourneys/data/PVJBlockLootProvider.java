@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -29,6 +30,7 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
   protected PVJBlockLootProvider() {
     super(Set.of(), FeatureFlags.REGISTRY.allFlags());
   }
+  private static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
 
   @Override
   protected void generate() {
@@ -116,7 +118,7 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
 
   private void shearsOrSilkTouch(Block block) {
     add(block, (b) -> {
-      return createSilkTouchOrShearsDispatchTable(b, this.applyExplosionCondition(b, LootItem.lootTableItem(b)));
+      return LootTable.lootTable().withPool(LootPool.lootPool().when(HAS_SHEARS_OR_SILK_TOUCH).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(b)));
     });
   }
 
