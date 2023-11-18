@@ -46,7 +46,8 @@
                     "minecraft:ice",
                     "minecraft:packed_ice",
                     "minecraft:blue_ice",
-                    "minecraft:snow"
+                    "minecraft:snow",
+                    "minecraft:amethyst_block"
                   ],
                   "offset": [
                     0,
