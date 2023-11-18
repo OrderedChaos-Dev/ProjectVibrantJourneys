@@ -162,7 +162,7 @@ public class PVJConfiguredFeatures {
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
-    register(context, DEAD_FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(3, 7, 3, PVJBlocks.DEAD_FALLEN_LEAVES.get().defaultBlockState()));
+    register(context, DEAD_FALLEN_LEAVES, Feature.RANDOM_PATCH, deadFallenLeavesConfig(3, 7, 3, PVJBlocks.DEAD_FALLEN_LEAVES.get().defaultBlockState()));
     register(context, PINECONES, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get()));
     register(context, SEASHELLS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.SEASHELLS.get()));
     register(context, ROCKS, PVJFeatures.ROCKS.get(), groundcoverConfig(4, 7, 3, PVJBlocks.ROCKS.get()));
@@ -217,6 +217,19 @@ public class PVJConfiguredFeatures {
       new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(
         BlockPredicate.replaceable(),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.SNOW)),
+        BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA, Blocks.WATER)),
+        BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA, Fluids.WATER))
+      )
+    ));
+  }
+
+  private static RandomPatchConfiguration deadFallenLeavesConfig(int tries, int xzSpread, int ySpread, BlockState block) {
+    return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(
+      PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
+      new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(
+        BlockPredicate.replaceable(),
+        BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.SNOW, Blocks.RED_SAND)),
+        BlockPredicate.not(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.TERRACOTTA)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA, Blocks.WATER)),
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA, Fluids.WATER))
       )

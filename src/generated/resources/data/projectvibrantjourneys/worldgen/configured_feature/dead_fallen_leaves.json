@@ -33,13 +33,26 @@
                     "minecraft:ice",
                     "minecraft:packed_ice",
                     "minecraft:blue_ice",
-                    "minecraft:snow"
+                    "minecraft:snow",
+                    "minecraft:red_sand"
                   ],
                   "offset": [
                     0,
                     -1,
                     0
                   ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_block_tag",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "tag": "minecraft:terracotta"
                 }
               },
               {
