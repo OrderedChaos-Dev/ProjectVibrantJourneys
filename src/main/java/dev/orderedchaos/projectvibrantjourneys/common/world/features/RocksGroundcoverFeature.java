@@ -30,12 +30,15 @@ public class RocksGroundcoverFeature extends Feature<RandomPatchConfiguration> {
     WorldGenLevel level = context.level();
     BlockState originState = level.getBlockState(origin);
 
-    if (!originState.canBeReplaced()) {
+    if (!originState.canBeReplaced() ) {
       return false;
     }
 
-    Block ground = level.getBlockState(origin.below()).getBlock();
-    BlockState rocks = getRocksToPlace(randomSource, originState, origin, ground);
+    BlockState ground = level.getBlockState(origin.below());
+    if (ground.is(Blocks.SCULK) || ground.is(Blocks.DEEPSLATE) || ground.is(Blocks.AMETHYST_BLOCK)) {
+      return false;
+    }
+    BlockState rocks = getRocksToPlace(randomSource, originState, origin, ground.getBlock());
     if (!rocks.canSurvive(level, origin)) {
       return false;
     } else {
