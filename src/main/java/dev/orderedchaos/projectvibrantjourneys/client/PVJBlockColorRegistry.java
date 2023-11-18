@@ -22,6 +22,7 @@ public class PVJBlockColorRegistry {
     event.register(getFoliageColor(), PVJBlocks.TWIGS.get());
     event.register(getFoliageColor(), PVJBlocks.FALLEN_LEAVES.get());
     event.register(getGrassColor(), PVJBlocks.SHORT_GRASS.get());
+    event.register(getGrassColor(), PVJBlocks.SANDY_SPROUTS.get());
   }
 
   @SubscribeEvent
