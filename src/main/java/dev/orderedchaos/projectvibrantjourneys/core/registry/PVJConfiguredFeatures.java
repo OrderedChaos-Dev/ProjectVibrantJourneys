@@ -154,7 +154,7 @@ public class PVJConfiguredFeatures {
     register(context, BARK_MUSHROOM, PVJFeatures.BARK_MUSHROOM.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, NATURAL_COBWEB, PVJFeatures.NATURAL_COBWEB.get(), new ProbabilityFeatureConfiguration(0.1F));
     register(context, SHORT_GRASS, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(PVJBlocks.SHORT_GRASS.get()), ShortGrassBlock.MODEL, UniformInt.of(0, 6)))));
-    register(context, SMALL_CACTUS, Feature.RANDOM_PATCH, randomPatchConfig(8, 7, 3, PVJBlocks.SMALL_CACTUS.get().defaultBlockState()));
+    register(context, SMALL_CACTUS, Feature.RANDOM_PATCH, smallCactusConfig(8, 7, 3, PVJBlocks.SMALL_CACTUS.get().defaultBlockState()));
     register(context, ICICLE, PVJFeatures.ICICLE.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, REEDS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.REEDS.get().defaultBlockState()));
     register(context, PRICKLY_BUSH, Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState()));
@@ -219,6 +219,16 @@ public class PVJConfiguredFeatures {
         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.SNOW)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA, Blocks.WATER)),
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA, Fluids.WATER))
+      )
+    ));
+  }
+
+  private static RandomPatchConfiguration smallCactusConfig(int tries, int xzSpread, int ySpread, BlockState block) {
+    return new RandomPatchConfiguration(tries, xzSpread, ySpread, PlacementUtils.filtered(
+      PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(),
+      new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(
+        BlockPredicate.replaceable(),
+        BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.SAND)
       )
     ));
   }
