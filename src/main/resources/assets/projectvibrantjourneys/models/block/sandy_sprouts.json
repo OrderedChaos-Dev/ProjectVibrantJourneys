@@ -1,7 +1,0 @@
-{
-  "parent": "projectvibrantjourneys:block/cross_tinted",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "cross": "projectvibrantjourneys:block/sandy_sprouts"
-  }
-}

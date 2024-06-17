@@ -1,8 +1,0 @@
-{
-  "parent": "projectvibrantjourneys:block/rocks4",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "particle": "block/stone",
-    "0": "block/stone"
-  }
-}
