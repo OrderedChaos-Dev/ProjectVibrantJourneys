@@ -8,21 +8,17 @@ version="${mod_version}"
 displayName="${mod_name}"
 displayURL="https://www.orderedchaos.dev/"
 logoFile="${mod_id}_logo.png"
-credits="My wife for the inspiration and encouragement"
+credits="My wife for the inspiration and encouragement to develop these mods"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
 [[mixins]]
 config="${mod_id}.mixins.json"
 
-#[[accessTransformers]]
-#file="META-INF/accesstransformer.cfg"
-
-
 [[dependencies.${mod_id}]]
     modId="neoforge"
-    type="required" #mandatory
-    versionRange="${neo_version_range}" #mandatory
+    type="required"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
 
