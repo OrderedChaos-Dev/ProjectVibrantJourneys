@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package dev.orderedchaos;
 
 import net.minecraft.world.item.*;
 import org.slf4j.Logger;
