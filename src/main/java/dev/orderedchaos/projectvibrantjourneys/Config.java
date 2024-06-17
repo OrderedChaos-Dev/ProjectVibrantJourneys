@@ -1,4 +1,4 @@
-package dev.orderedchaos;
+package dev.orderedchaos.projectvibrantjourneys;
 
 import java.util.List;
 import java.util.Set;

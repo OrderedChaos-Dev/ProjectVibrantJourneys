@@ -1,5 +1,6 @@
-package dev.orderedchaos;
+package dev.orderedchaos.projectvibrantjourneys;
 
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportal.RuinedPortalDecoratorBase;
 import net.minecraft.world.item.*;
 import org.slf4j.Logger;
 
@@ -31,7 +32,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @Mod(ProjectVibrantJourneys.MODID)
 public class ProjectVibrantJourneys {
     public static final String MODID = "projectvibrantjourneys";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -74,6 +75,7 @@ public class ProjectVibrantJourneys {
 //        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 //
 //        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        RuinedPortalDecoratorBase.registerPortalDecorators();
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
