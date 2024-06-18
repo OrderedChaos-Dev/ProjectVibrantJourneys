@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "projectvibrantjourneys:item/sea_oats_item"
+  }
+}

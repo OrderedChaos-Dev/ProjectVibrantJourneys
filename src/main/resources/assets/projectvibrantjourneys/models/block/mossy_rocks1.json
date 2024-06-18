@@ -1,0 +1,8 @@
+{
+  "parent": "projectvibrantjourneys:block/rocks1",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "block/mossy_cobblestone",
+    "0": "block/mossy_cobblestone"
+  }
+}

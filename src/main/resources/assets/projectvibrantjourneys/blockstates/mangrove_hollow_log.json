@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "axis=y,mossy=true": {
+      "model": "projectvibrantjourneys:block/mangrove_hollow_log",
+      "x": 90
+    },
+    "axis=z,mossy=true": {
+      "model": "projectvibrantjourneys:block/mossy_mangrove_hollow_log"
+    },
+    "axis=x,mossy=true": {
+      "model": "projectvibrantjourneys:block/mossy_mangrove_hollow_log",
+      "y": 90
+    },
+    "axis=y,mossy=false": {
+      "model": "projectvibrantjourneys:block/mangrove_hollow_log",
+      "x": 90
+    },
+    "axis=z,mossy=false": {
+      "model": "projectvibrantjourneys:block/mangrove_hollow_log"
+    },
+    "axis=x,mossy=false": {
+      "model": "projectvibrantjourneys:block/mangrove_hollow_log",
+      "y": 90
+    }
+  }
+}

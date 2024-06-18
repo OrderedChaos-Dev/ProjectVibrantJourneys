@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "model=0,facing=north": {
+      "model": "projectvibrantjourneys:block/ice_chunks0"
+    },
+    "model=1,facing=north": {
+      "model": "projectvibrantjourneys:block/ice_chunks1"
+    },
+    "model=2,facing=north": {
+      "model": "projectvibrantjourneys:block/ice_chunks2"
+    },
+    "model=3,facing=north": {
+      "model": "projectvibrantjourneys:block/ice_chunks3"
+    },
+    "model=4,facing=north": {
+      "model": "projectvibrantjourneys:block/ice_chunks4"
+    },
+    "model=0,facing=east": {
+      "model": "projectvibrantjourneys:block/ice_chunks0",
+      "y": 90
+    },
+    "model=1,facing=east": {
+      "model": "projectvibrantjourneys:block/ice_chunks1",
+      "y": 90
+    },
+    "model=2,facing=east": {
+      "model": "projectvibrantjourneys:block/ice_chunks2",
+      "y": 90
+    },
+    "model=3,facing=east": {
+      "model": "projectvibrantjourneys:block/ice_chunks3",
+      "y": 90
+    },
+    "model=4,facing=east": {
+      "model": "projectvibrantjourneys:block/ice_chunks4",
+      "y": 90
+    },
+    "model=0,facing=south": {
+      "model": "projectvibrantjourneys:block/ice_chunks0",
+      "y": 180
+    },
+    "model=1,facing=south": {
+      "model": "projectvibrantjourneys:block/ice_chunks1",
+      "y": 180
+    },
+    "model=2,facing=south": {
+      "model": "projectvibrantjourneys:block/ice_chunks2",
+      "y": 180
+    },
+    "model=3,facing=south": {
+      "model": "projectvibrantjourneys:block/ice_chunks3",
+      "y": 180
+    },
+    "model=4,facing=south": {
+      "model": "projectvibrantjourneys:block/ice_chunks4",
+      "y": 180
+    },
+    "model=0,facing=west": {
+      "model": "projectvibrantjourneys:block/ice_chunks0",
+      "y": 270
+    },
+    "model=1,facing=west": {
+      "model": "projectvibrantjourneys:block/ice_chunks1",
+      "y": 270
+    },
+    "model=2,facing=west": {
+      "model": "projectvibrantjourneys:block/ice_chunks2",
+      "y": 270
+    },
+    "model=3,facing=west": {
+      "model": "projectvibrantjourneys:block/ice_chunks3",
+      "y": 270
+    },
+    "model=4,facing=west": {
+      "model": "projectvibrantjourneys:block/ice_chunks4",
+      "y": 270
+    }
+  }
+}

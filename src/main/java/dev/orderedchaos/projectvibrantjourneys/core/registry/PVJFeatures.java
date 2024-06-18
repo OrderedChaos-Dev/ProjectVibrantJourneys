@@ -1,0 +1,53 @@
+package dev.orderedchaos.projectvibrantjourneys.core.registry;
+
+import com.mojang.serialization.MapCodec;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.*;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.stateproviders.DirectionalStateProvider;
+import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+public class PVJFeatures {
+
+  public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, ProjectVibrantJourneys.MOD_ID);
+
+  public static final DeferredHolder<Feature<?>, Feature<RandomPatchConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(RandomPatchConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkMushroomFeature(NoneFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<FallenTreeConfiguration>> FALLEN_TREE = registerFeature("fallen_tree", new FallenTreeFeature(FallenTreeConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<MultipleVegetationPatchConfiguration>> POOL = registerFeature("pool", new MultipleWaterloggedVegetationPatchFeature(MultipleVegetationPatchConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> LILYPAD = registerFeature("lily_pad", new ExtraLilyPadFeature(ProbabilityFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> ICICLE = registerFeature("icicle", new IcicleFeature(NoneFeatureConfiguration.CODEC));
+
+
+  private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
+    return FEATURES.register(name, () -> feature);
+  }
+
+  public static class StateProviders {
+
+    public static final DeferredRegister<BlockStateProviderType<?>> TYPES = DeferredRegister.create(BuiltInRegistries.BLOCKSTATE_PROVIDER_TYPE, ProjectVibrantJourneys.MOD_ID);
+
+    public static final DeferredHolder<BlockStateProviderType<?>, BlockStateProviderType<DirectionalStateProvider>> DIRECTIONAL_STATE_PROVIDER = TYPES.register("directional_state_provider", () -> {
+      try {
+        // TODO: it looks like this neoforge beta version broke(?) access transformers. Using reflection until fixed
+        Constructor<BlockStateProviderType> constructor = BlockStateProviderType.class.getConstructor(MapCodec.class);
+        constructor.setAccessible(true);
+        return constructor.newInstance(DirectionalStateProvider.CODEC);
+
+      } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+        throw new RuntimeException(e);
+      }
+    });
+  }
+}

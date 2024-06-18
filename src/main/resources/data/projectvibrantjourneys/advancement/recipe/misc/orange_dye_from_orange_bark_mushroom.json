@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_bark_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:orange_bark_mushroom"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:orange_dye_from_orange_bark_mushroom"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_orange_bark_mushroom",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:orange_dye_from_orange_bark_mushroom"
+    ]
+  },
+  "sends_telemetry_event": false
+}

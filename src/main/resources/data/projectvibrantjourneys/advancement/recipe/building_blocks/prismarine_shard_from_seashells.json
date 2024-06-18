@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_seashells": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:seashells"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:prismarine_shard_from_seashells"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_seashells",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:prismarine_shard_from_seashells"
+    ]
+  },
+  "sends_telemetry_event": false
+}

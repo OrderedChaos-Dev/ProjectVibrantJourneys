@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/pointed_dripstone",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "cross": "projectvibrantjourneys:block/icicle_down_base"
+  }
+}

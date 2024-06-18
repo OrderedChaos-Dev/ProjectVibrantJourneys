@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_small_cactus": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:small_cactus"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:small_cactus_to_green_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_small_cactus",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:small_cactus_to_green_dye"
+    ]
+  },
+  "sends_telemetry_event": false
+}

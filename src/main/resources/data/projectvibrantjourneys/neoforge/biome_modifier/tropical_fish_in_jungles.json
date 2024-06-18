@@ -1,0 +1,13 @@
+{
+  "type": "projectvibrantjourneys:spawn_modifier_serializer",
+  "biomes": "#minecraft:is_jungle",
+  "category": "water_ambient",
+  "configOption": "enableJungleTropicalFish",
+  "data": {
+    "type": "minecraft:tropical_fish",
+    "maxCount": 5,
+    "minCount": 5,
+    "weight": 25
+  },
+  "dimension": "minecraft:is_overworld"
+}

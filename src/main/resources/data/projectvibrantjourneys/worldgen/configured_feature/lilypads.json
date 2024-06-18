@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "projectvibrantjourneys:lily_pad",
+        "config": {
+          "probability": 0.75
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 24,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

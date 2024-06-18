@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "crop": "projectvibrantjourneys:block/reeds_lower"
+  }
+}

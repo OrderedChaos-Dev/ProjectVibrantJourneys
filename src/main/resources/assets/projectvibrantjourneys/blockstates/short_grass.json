@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "model=0": {
+      "model": "projectvibrantjourneys:block/short_grass0"
+    },
+    "model=1": {
+      "model": "projectvibrantjourneys:block/short_grass1"
+    },
+    "model=2": {
+      "model": "projectvibrantjourneys:block/short_grass2"
+    },
+    "model=3": {
+      "model": "projectvibrantjourneys:block/short_grass3"
+    },
+    "model=4": {
+      "model": "projectvibrantjourneys:block/short_grass4"
+    },
+    "model=5": {
+      "model": "projectvibrantjourneys:block/short_grass5"
+    },
+    "model=6": {
+      "model": "projectvibrantjourneys:block/short_grass6"
+    }
+  }
+}

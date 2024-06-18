@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "items": "minecraft:shears"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "projectvibrantjourneys:sandy_sprouts"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "projectvibrantjourneys:blocks/sandy_sprouts"
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "projectvibrantjourneys:block/hollow_log",
+  "textures": {
+    "particle": "block/jungle_log",
+    "log": "block/jungle_log",
+    "log_top": "block/jungle_log_top",
+    "stripped_log": "block/stripped_jungle_log"
+  }
+}

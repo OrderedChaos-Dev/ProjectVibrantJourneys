@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ice_chunks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:ice_chunks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:ice_from_ice_chunks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ice_chunks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:ice_from_ice_chunks"
+    ]
+  },
+  "sends_telemetry_event": false
+}

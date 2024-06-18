@@ -1,0 +1,9 @@
+{
+  "parent": "projectvibrantjourneys:block/hollow_log",
+  "textures": {
+    "particle": "block/acacia_log",
+    "log": "block/acacia_log",
+    "log_top": "block/acacia_log_top",
+    "stripped_log": "block/stripped_acacia_log"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "projectvibrantjourneys:block/sandy_sprouts"
+    },
+    "facing=west": {
+      "model": "projectvibrantjourneys:block/sandy_sprouts",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "projectvibrantjourneys:block/sandy_sprouts",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "projectvibrantjourneys:block/sandy_sprouts",
+      "y": 270
+    }
+  }
+}

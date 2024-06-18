@@ -1,0 +1,74 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "projectvibrantjourneys:simple_block_match_water",
+        "config": {
+          "to_place": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "projectvibrantjourneys:cattail",
+              "Properties": {
+                "half": "lower",
+                "waterlogged": "false"
+              }
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:replaceable"
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:ice",
+                    "minecraft:packed_ice",
+                    "minecraft:blue_ice",
+                    "minecraft:snow"
+                  ],
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_blocks",
+                  "blocks": [
+                    "minecraft:snow",
+                    "minecraft:tall_grass",
+                    "minecraft:large_fern",
+                    "minecraft:lava"
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_fluids",
+                  "fluids": "minecraft:lava"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "tries": 128,
+    "xz_spread": 7,
+    "y_spread": 2
+  }
+}

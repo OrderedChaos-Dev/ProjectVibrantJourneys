@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "projectvibrantjourneys:block/glowing_blue_fungus"
+    },
+    "facing=west": {
+      "model": "projectvibrantjourneys:block/glowing_blue_fungus",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "projectvibrantjourneys:block/glowing_blue_fungus",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "projectvibrantjourneys:block/glowing_blue_fungus",
+      "y": 270
+    }
+  }
+}

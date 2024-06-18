@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "#projectvibrantjourneys:has_logs/oak"
+  ],
+  "blacklist": [],
+  "configOption": "enableFallenTrees",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:oak_fallen_tree"
+}

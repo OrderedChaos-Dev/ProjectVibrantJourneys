@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spruce_hollow_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:spruce_hollow_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:spruce_planks_from_spruce_hollow_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_spruce_hollow_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:spruce_planks_from_spruce_hollow_log"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,6 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.common.mixin;
 
-import dev.orderedchaos.projectvibrantjourneys.ProjectVibrantJourneys;
+import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportal.RuinedPortalDecoratorBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -20,7 +20,6 @@ import net.minecraft.world.level.levelgen.structure.structures.RuinedPortalPiece
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
