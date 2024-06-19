@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:stick_from_twigs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twigs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:twigs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twigs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:stick_from_twigs"
+    ]
+  }
+}

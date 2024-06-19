@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 800,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "projectvibrantjourneys:cindercane"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:blaze_powder"
+  }
+}

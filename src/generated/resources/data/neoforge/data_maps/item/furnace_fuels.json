@@ -1,0 +1,49 @@
+{
+  "values": {
+    "projectvibrantjourneys:acacia_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:bark_mushroom": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:birch_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:cherry_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:cindercane": {
+      "burn_time": 800
+    },
+    "projectvibrantjourneys:dark_oak_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:glowing_blue_fungus": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:jungle_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:light_brown_bark_mushroom": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:mangrove_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:oak_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:orange_bark_mushroom": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:pinecones": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:spruce_hollow_log": {
+      "burn_time": 300
+    },
+    "projectvibrantjourneys:twigs": {
+      "burn_time": 100
+    }
+  }
+}

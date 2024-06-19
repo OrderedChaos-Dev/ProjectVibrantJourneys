@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
+import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import dev.orderedchaos.projectvibrantjourneys.common.world.modifiers.PVJBiomeModifier;
 import dev.orderedchaos.projectvibrantjourneys.common.world.modifiers.PVJBiomeModifier.Builder.Dimension;
 import dev.orderedchaos.projectvibrantjourneys.common.world.modifiers.PVJSpawnModifier;

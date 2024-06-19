@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stick",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:twigs"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stick"
+  }
+}

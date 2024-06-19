@@ -168,7 +168,7 @@ public class PVJConfiguredFeatures {
     register(context, ROCKS, PVJFeatures.ROCKS.get(), groundcoverConfig(4, 7, 3, PVJBlocks.ROCKS.get()));
     register(context, ICE_CHUNKS, Feature.RANDOM_PATCH, iceChunksConfig(4, 7, 3, PVJBlocks.ICE_CHUNKS.get()));
     register(context, BONES, Feature.RANDOM_PATCH, groundcoverConfig(1, 7, 3, PVJBlocks.BONES.get()));
-    register(context, CHARRED_BONES, Feature.RANDOM_PATCH, groundcoverConfig(50, 7, 3, PVJBlocks.CHARRED_BONES.get()));
+    register(context, CHARRED_BONES, Feature.RANDOM_PATCH, groundcoverConfig(40, 7, 3, PVJBlocks.CHARRED_BONES.get()));
 
     register(context, WARPED_NETTLE, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(BlockStateProvider.simple(PVJBlocks.WARPED_NETTLE.get()), 8, 4));
     register(context, CRIMSON_NETTLE, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(BlockStateProvider.simple(PVJBlocks.CRIMSON_NETTLE.get()), 8, 4));

@@ -1,0 +1,64 @@
+{
+  "values": {
+    "projectvibrantjourneys:bark_mushroom": {
+      "chance": 0.4
+    },
+    "projectvibrantjourneys:beach_grass": {
+      "chance": 0.25
+    },
+    "projectvibrantjourneys:cattail": {
+      "chance": 0.65
+    },
+    "projectvibrantjourneys:cindercane": {
+      "chance": 0.8
+    },
+    "projectvibrantjourneys:crimson_nettle": {
+      "chance": 0.65
+    },
+    "projectvibrantjourneys:dead_fallen_leaves": {
+      "chance": 0.1
+    },
+    "projectvibrantjourneys:glowcap": {
+      "chance": 0.65
+    },
+    "projectvibrantjourneys:glowing_blue_fungus": {
+      "chance": 0.4
+    },
+    "projectvibrantjourneys:light_brown_bark_mushroom": {
+      "chance": 0.4
+    },
+    "projectvibrantjourneys:oak_fallen_leaves": {
+      "chance": 0.1
+    },
+    "projectvibrantjourneys:orange_bark_mushroom": {
+      "chance": 0.4
+    },
+    "projectvibrantjourneys:pinecones": {
+      "chance": 0.1
+    },
+    "projectvibrantjourneys:prickly_bush": {
+      "chance": 0.2
+    },
+    "projectvibrantjourneys:reeds": {
+      "chance": 0.65
+    },
+    "projectvibrantjourneys:sandy_sprouts": {
+      "chance": 0.15
+    },
+    "projectvibrantjourneys:sea_oats": {
+      "chance": 0.65
+    },
+    "projectvibrantjourneys:short_grass": {
+      "chance": 0.1
+    },
+    "projectvibrantjourneys:small_cactus": {
+      "chance": 0.25
+    },
+    "projectvibrantjourneys:twigs": {
+      "chance": 0.1
+    },
+    "projectvibrantjourneys:warped_nettle": {
+      "chance": 0.65
+    }
+  }
+}

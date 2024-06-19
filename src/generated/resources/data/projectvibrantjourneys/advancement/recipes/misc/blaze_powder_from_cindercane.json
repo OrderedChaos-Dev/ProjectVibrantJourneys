@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cindercane": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:cindercane"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:blaze_powder_from_cindercane"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cindercane"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:blaze_powder_from_cindercane"
+    ]
+  }
+}

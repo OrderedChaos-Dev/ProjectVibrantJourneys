@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:cyan_dye_from_warped_nettle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_nettle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:warped_nettle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_warped_nettle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:cyan_dye_from_warped_nettle"
+    ]
+  }
+}

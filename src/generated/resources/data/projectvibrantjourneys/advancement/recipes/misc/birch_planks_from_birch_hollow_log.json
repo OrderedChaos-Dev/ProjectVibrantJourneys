@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_birch_hollow_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:birch_hollow_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:birch_planks_from_birch_hollow_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_birch_hollow_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:birch_planks_from_birch_hollow_log"
+    ]
+  }
+}

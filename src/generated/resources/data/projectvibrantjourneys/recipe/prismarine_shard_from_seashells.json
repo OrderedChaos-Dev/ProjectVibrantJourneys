@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "prismarine_shard",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:seashells"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:prismarine_shard"
+  }
+}

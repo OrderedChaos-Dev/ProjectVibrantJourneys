@@ -187,31 +187,28 @@ public class MultipleWaterloggedVegetationPatchFeature extends Feature<MultipleV
   private void tryPlaceCoral(WorldGenLevel level, BlockPos pos, RandomSource rand) {
     if (level.getBlockState(pos.below()).isCollisionShapeFullBlock(level, pos.below())) {
       if (rand.nextBoolean()) {
-        Optional<HolderSet.Named<Block>> optional = level.registryAccess().registryOrThrow(Registries.BLOCK).getTag(BlockTags.CORALS);
+
+        Optional<Holder<Block>> optional = BuiltInRegistries.BLOCK.getRandomElementOf(BlockTags.CORALS, rand);
         if (optional.isPresent()) {
-          Stream<Holder<Block>> stream = optional.get().stream();
-          List<Block> corals = stream.map(Holder::value).toList();
-          int random = rand.nextInt(corals.size());
-          Block coral = corals.get(random);
-          BlockState blockstate = coral.defaultBlockState();
-          level.setBlock(pos, blockstate, 2);
+          optional.ifPresent(holder -> {
+            BlockState blockstate = holder.value().defaultBlockState();
+            level.setBlock(pos, blockstate, 2);
+          });
         }
       }
     } else {
       for (Direction direction : Direction.Plane.HORIZONTAL) {
         if (rand.nextBoolean()) {
           if (level.getBlockState(pos.relative(direction)).isCollisionShapeFullBlock(level, pos.relative(direction))) {
-            Optional<HolderSet.Named<Block>> optional = level.registryAccess().registryOrThrow(Registries.BLOCK).getTag(BlockTags.WALL_CORALS);
+            Optional<Holder<Block>> optional = BuiltInRegistries.BLOCK.getRandomElementOf(BlockTags.WALL_CORALS, rand);
             if (optional.isPresent()) {
-              Stream<Holder<Block>> stream = optional.get().stream();
-              List<Block> corals = stream.map(Holder::value).toList();
-              int random = rand.nextInt(corals.size());
-              Block coral = corals.get(random);
-              BlockState blockstate = coral.defaultBlockState();
-              if (blockstate.hasProperty(BaseCoralWallFanBlock.FACING)) {
-                blockstate = blockstate.setValue(BaseCoralWallFanBlock.FACING, direction.getOpposite());
-                level.setBlock(pos, blockstate, 2);
-              }
+              optional.ifPresent(holder -> {
+                BlockState blockstate = holder.value().defaultBlockState();
+                if (blockstate.hasProperty(BaseCoralWallFanBlock.FACING)) {
+                  blockstate = blockstate.setValue(BaseCoralWallFanBlock.FACING, direction.getOpposite());
+                  level.setBlock(pos, blockstate, 2);
+                }
+              });
             }
           }
         }

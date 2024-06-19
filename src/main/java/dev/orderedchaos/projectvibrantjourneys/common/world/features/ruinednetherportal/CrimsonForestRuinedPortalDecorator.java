@@ -1,13 +1,12 @@
 package dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportal;
 
-import dev.orderedchaos.projectvibrantjourneys.common.util.LevelUtils;
+import dev.orderedchaos.projectvibrantjourneys.core.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.NetherFeatures;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;

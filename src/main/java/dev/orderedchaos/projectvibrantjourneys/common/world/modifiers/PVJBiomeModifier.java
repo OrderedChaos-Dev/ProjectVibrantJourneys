@@ -94,8 +94,7 @@ public record PVJBiomeModifier(
     public Builder dimension(Dimension dim) {
       TagKey<Biome> tagKey = BiomeTags.IS_OVERWORLD;
       switch(dim) {
-        case OVERWORLD -> tagKey = BiomeTags.IS_OVERWORLD;
-        case NETHER -> tagKey = BiomeTags.IS_OVERWORLD;
+        case NETHER -> tagKey = BiomeTags.IS_NETHER;
         case END -> tagKey = BiomeTags.IS_END;
       }
 

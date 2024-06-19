@@ -5,16 +5,16 @@ import dev.orderedchaos.projectvibrantjourneys.common.blocks.BarkMushroomBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.FallenLeavesBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.HollowLogBlock;
-import dev.orderedchaos.projectvibrantjourneys.common.util.PVJFeatureVars;
-import dev.orderedchaos.projectvibrantjourneys.common.util.TreeFeatureUtils;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration.FallenTreeVegetation;
 import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.HashSet;
 import java.util.List;
@@ -40,11 +41,10 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
     BlockState hollowLog = context.config().hollowLog();
     BlockState baseLog = context.config().baseLog();
 
-    String biome = level.getBiome(pos).unwrapKey().get().location().toString();
-    HashSet<TreeFeatureUtils.ChanceBiomeEntry> biomeEntries = getEntrySet(baseLog.getBlock());
-    int chance = TreeFeatureUtils.getChance(biome, biomeEntries);
-    if(chance == -1) {
-      chance = 10; //set default
+    Holder<Biome> biome = level.getBiome(pos);
+    int chance = 10;
+    if (biome.is(Tags.Biomes.IS_SPARSE_VEGETATION)) {
+      chance = 5;
     }
 
     if (rand.nextFloat() > chance / 100.0F)
@@ -140,28 +140,6 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
       || world.isEmptyBlock(pos)
       || world.getBlockState(pos).getBlock() instanceof FallenLeavesBlock
       || world.getBlockState(pos).getBlock() instanceof GroundcoverBlock;
-  }
-
-  public HashSet<TreeFeatureUtils.ChanceBiomeEntry> getEntrySet(Block log) {
-    if (log == Blocks.OAK_LOG) {
-      return PVJFeatureVars.OAK;
-    } else if (log == Blocks.BIRCH_LOG) {
-      return PVJFeatureVars.BIRCH;
-    } else if (log == Blocks.SPRUCE_LOG) {
-      return PVJFeatureVars.SPRUCE;
-    } else if (log == Blocks.JUNGLE_LOG) {
-      return PVJFeatureVars.JUNGLE;
-    } else if (log == Blocks.ACACIA_LOG) {
-      return PVJFeatureVars.ACACIA;
-    } else if (log == Blocks.DARK_OAK_LOG) {
-      return PVJFeatureVars.DARK_OAK;
-    } else if (log == Blocks.MANGROVE_LOG) {
-      return PVJFeatureVars.MANGROVE;
-    } else if (log == Blocks.CHERRY_LOG) {
-      return PVJFeatureVars.CHERRY;
-    }
-
-    return PVJFeatureVars.OAK;
   }
 
   private BlockState getVegetationToPlace(List<FallenTreeVegetation> vegetationProviders, RandomSource randomSource, BlockPos pos) {

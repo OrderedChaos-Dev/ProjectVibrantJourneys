@@ -1,6 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
-import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
+import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
