@@ -2,10 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.client;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
-import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJPotions;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class PVJLanguageProvider extends LanguageProvider  {

@@ -26,6 +26,7 @@ public class PVJTags {
   public static final TagKey<Block> FALLEN_LEAVES = createBlockTag("fallen_leaves");
   public static final TagKey<Block> GROUNDCOVER = createBlockTag("groundcover");
   public static final TagKey<Block> GROUNDCOVER_CANNOT_GENERATE_ON = createBlockTag("groundcover_cannot_generate_on");
+  public static final TagKey<Block> CINDERCANE_GROWS_ON = createBlockTag("cindercane_grows_on");
 
   private static TagKey<Biome> createBiomeTag(final String location) {
     return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, location));

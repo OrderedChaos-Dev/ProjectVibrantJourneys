@@ -15,13 +15,6 @@ public class GlowcapBlock extends MushroomBlock {
 
   public GlowcapBlock(BlockBehaviour.Properties props) {
     super(null, props);
-    //Block.Properties.of(Material.PLANT, MaterialColor.COLOR_YELLOW)
-    //				.noCollission()
-    //				.randomTicks()
-    //				.instabreak()
-    //				.sound(SoundType.GRASS).lightLevel((state) -> {
-    //		      return 12;
-    //		   }), () -> null
   }
 
   @Override

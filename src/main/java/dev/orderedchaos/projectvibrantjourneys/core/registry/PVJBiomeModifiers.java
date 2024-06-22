@@ -34,7 +34,7 @@ import java.util.List;
 public class PVJBiomeModifiers {
   public static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIER_SERIALIZERS = DeferredRegister.create(NeoForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, ProjectVibrantJourneys.MOD_ID);
 
-  public static final DeferredHolder<MapCodec<? extends BiomeModifier>, MapCodec<PVJBiomeModifier>> BIOME_MODIFIER_SERIALIZER = BIOME_MODIFIER_SERIALIZERS.register("biome_modifier_serializer",
+  public static final DeferredHolder<MapCodec<? extends BiomeModifier>, MapCodec<PVJBiomeModifier>> BIOME_MODIFIER_SERIALIZER = BIOME_MODIFIER_SERIALIZERS.register("biome_modifier",
     () -> RecordCodecBuilder.mapCodec(builder -> builder.group(
       TagKey.codec(Registries.BIOME).fieldOf("dimension").forGetter(PVJBiomeModifier::dimension),
       Biome.LIST_CODEC.listOf().fieldOf("biomes").forGetter(PVJBiomeModifier::biomes),
@@ -44,7 +44,7 @@ public class PVJBiomeModifiers {
       Codec.STRING.fieldOf("configOption").forGetter(PVJBiomeModifier::configOption)
     ).apply(builder, PVJBiomeModifier::new)));
 
-  public static final DeferredHolder<MapCodec<? extends BiomeModifier>, MapCodec<PVJSpawnModifier>> SPAWN_MODIFIER_SERIALIZER = BIOME_MODIFIER_SERIALIZERS.register("spawn_modifier_serializer",
+  public static final DeferredHolder<MapCodec<? extends BiomeModifier>, MapCodec<PVJSpawnModifier>> SPAWN_MODIFIER_SERIALIZER = BIOME_MODIFIER_SERIALIZERS.register("spawn_modifier",
     () -> RecordCodecBuilder.mapCodec(builder -> builder.group(
       TagKey.codec(Registries.BIOME).fieldOf("dimension").forGetter(PVJSpawnModifier::dimension),
       Biome.LIST_CODEC.fieldOf("biomes").forGetter(PVJSpawnModifier::biomes),

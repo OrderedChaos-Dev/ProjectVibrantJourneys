@@ -1,11 +1,16 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
+import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -35,6 +40,11 @@ public class CindercaneBlock extends Block implements IPlantable {
   @Override
   public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
     return SHAPE;
+  }
+
+  @Override
+  protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
+    super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
   }
 
   @Override
@@ -78,10 +88,7 @@ public class CindercaneBlock extends Block implements IPlantable {
     if (blockstate.getBlock() == this) {
       return true;
     } else {
-      if (blockstate.is(Blocks.NETHERRACK) || blockstate.is(Blocks.CRIMSON_NYLIUM)
-        || blockstate.is(Blocks.WARPED_NYLIUM) || blockstate.is(Blocks.SOUL_SAND)
-        || blockstate.is(Blocks.SOUL_SOIL) || blockstate.is(Blocks.BASALT)
-        || blockstate.is(Blocks.BLACKSTONE)) {
+      if (blockstate.is(PVJTags.CINDERCANE_GROWS_ON)) {
         BlockPos blockpos = pos.below();
 
         for (Direction direction : Direction.Plane.HORIZONTAL) {

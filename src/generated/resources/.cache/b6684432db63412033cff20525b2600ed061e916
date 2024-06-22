@@ -1,15 +1,17 @@
-// 1.21	2024-06-18T18:37:37.0927412	Tags for minecraft:block mod id projectvibrantjourneys
+// 1.21	2024-06-19T22:25:59.1468892	Tags for minecraft:block mod id projectvibrantjourneys
 76fba5cf9646fa58d341cbc844cf1612cc3e6220 data/minecraft/tags/block/flower_pots.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/logs.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/logs_that_burn.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/mineable/axe.json
 1129560dfca4d1ce39317fac575760824a9b2790 data/minecraft/tags/block/mineable/pickaxe.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/mushroom_grow_block.json
-bb1e05ec284350e7e5ffe9dc6a8cb968ec1a71da data/minecraft/tags/block/replaceable.json
+6cfc9f3b633b964bcf2a22cc52bd8d6c3d2abed9 data/minecraft/tags/block/replaceable.json
 6c8fbb94b2efa375a136ded8416107d3d3befdf7 data/minecraft/tags/block/replaceable_by_trees.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/snaps_goat_horn.json
 8978db5af5a0ac69e6c74b4315af1894313107c2 data/minecraft/tags/block/sword_efficient.json
+03af28e3382dccb0a1e66537b2e7af7af7ddc753 data/projectvibrantjourneys/tags/block/cindercane_grows_on.json
 f98fe9263df6815973e30fc33438618de9a67773 data/projectvibrantjourneys/tags/block/fallen_leaves.json
 6225465231f3fc81c45e6d6e044c008a5a97fc54 data/projectvibrantjourneys/tags/block/groundcover.json
+8117b1ea98178d7d801ea23451cd010ca6554536 data/projectvibrantjourneys/tags/block/groundcover_cannot_generate_on.json
 6937317db35d34c1af3301c8c9a8d08b309a939f data/projectvibrantjourneys/tags/block/grows_on_hollow_log.json
 a45d48223caf2dd148986f60e30b0c94e88f5bb5 data/projectvibrantjourneys/tags/block/hollow_logs.json

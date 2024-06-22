@@ -1,4 +1,4 @@
-package dev.orderedchaos.projectvibrantjourneys.common;
+package dev.orderedchaos.projectvibrantjourneys.common.events;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
@@ -11,7 +11,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
-public class PVJBrewingRecipes {
+public class PVJBrewingRecipeEvents {
 
   @SubscribeEvent
   public static void registerBrewingRecipes(RegisterBrewingRecipesEvent event) {

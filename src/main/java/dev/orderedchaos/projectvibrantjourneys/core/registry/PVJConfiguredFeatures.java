@@ -7,6 +7,7 @@ import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurati
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.stateproviders.DirectionalStateProvider;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
@@ -57,6 +58,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> REEDS = createKey("reeds");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PRICKLY_BUSH = createKey("prickly_bush");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SANDY_SPROUTS = createKey("sandy_sprouts");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_SHORT_GRASS = createKey("single_piece_of_short_grass");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES = createKey("fallen_leaves");
@@ -159,6 +161,7 @@ public class PVJConfiguredFeatures {
     register(context, REEDS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.REEDS.get().defaultBlockState()));
     register(context, PRICKLY_BUSH, Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState()));
     register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SANDY_SPROUTS.get().defaultBlockState()));
+    register(context, SINGLE_PIECE_OF_SHORT_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(PVJBlocks.SHORT_GRASS.get()), ShortGrassBlock.MODEL, UniformInt.of(0, 6))));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
@@ -264,7 +267,7 @@ public class PVJConfiguredFeatures {
       new SimpleBlockConfiguration(new RandomizedIntStateProvider(new DirectionalStateProvider(block), GroundcoverBlock.MODEL, UniformInt.of(0, 4))),
       BlockPredicate.allOf(
         BlockPredicate.replaceable(),
-        BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.SNOW, Blocks.AMETHYST_BLOCK)),
+        BlockPredicate.not(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
       )

@@ -2,9 +2,15 @@ package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -12,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ShortGrassBlock extends BushBlock {
+public class ShortGrassBlock extends BushBlock implements BonemealableBlock {
 
   protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
   public static final IntegerProperty MODEL = IntegerProperty.create("model", 0, 6);
@@ -41,5 +47,20 @@ public class ShortGrassBlock extends BushBlock {
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
     builder.add(MODEL);
+  }
+
+  @Override
+  public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState) {
+    return true;
+  }
+
+  @Override
+  public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+    return true;
+  }
+
+  @Override
+  public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+    pLevel.setBlock(pPos, Blocks.SHORT_GRASS.defaultBlockState(), 3);
   }
 }

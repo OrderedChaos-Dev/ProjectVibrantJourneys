@@ -1,5 +1,5 @@
 {
-  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "type": "projectvibrantjourneys:biome_modifier",
   "biomes": [
     "#c:is_plains",
     "#minecraft:is_savanna"

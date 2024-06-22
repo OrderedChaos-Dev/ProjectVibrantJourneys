@@ -1,5 +1,5 @@
 {
-  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "type": "projectvibrantjourneys:biome_modifier",
   "biomes": [
     "#projectvibrantjourneys:has_logs/dark_oak"
   ],

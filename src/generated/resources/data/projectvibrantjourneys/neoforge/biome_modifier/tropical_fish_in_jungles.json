@@ -1,5 +1,5 @@
 {
-  "type": "projectvibrantjourneys:spawn_modifier_serializer",
+  "type": "projectvibrantjourneys:spawn_modifier",
   "biomes": "#minecraft:is_jungle",
   "category": "water_ambient",
   "configOption": "enableJungleTropicalFish",

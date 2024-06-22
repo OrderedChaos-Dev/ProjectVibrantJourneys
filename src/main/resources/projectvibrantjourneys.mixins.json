@@ -4,7 +4,8 @@
   "minVersion": "0.8",
   "refmap": "projectvibrantjourneys.refmap.json",
   "mixins": [
-    "RuinedPortalPieceMixin"
+    "RuinedPortalPieceMixin",
+    "GrassBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

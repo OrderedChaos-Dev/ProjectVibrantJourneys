@@ -1,4 +1,4 @@
-package dev.orderedchaos.projectvibrantjourneys.common;
+package dev.orderedchaos.projectvibrantjourneys.common.events;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
@@ -10,7 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 @EventBusSubscriber(modid = ProjectVibrantJourneys.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
-public class PVJGeneralEvents {
+public class PVJCobwebEvents {
 
   // We need this because the SWORD_EFFICIENT block tag only sets the speed to 1.5
   @SubscribeEvent
