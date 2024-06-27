@@ -1,11 +1,16 @@
 package dev.orderedchaos.projectvibrantjourneys.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 
+import com.mojang.datafixers.util.Pair;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
+
+import javax.annotation.Nullable;
 
 // An example config class. This is not required, but it's a good idea to have one to keep your config organized.
 // Demonstrates how to use Neo's config APIs
@@ -13,8 +18,10 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class PVJConfig
 {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
-    public static HashMap<String, ModConfigSpec.BooleanValue> configOptions = new HashMap<>();
+    public static HashMap<String, Pair<ModConfigSpec.BooleanValue, Optional<ModConfigSpec.DoubleValue>>> configOptions = new HashMap<>();
+    public static HashMap<String, ModConfigSpec.DoubleValue> weightOptions = new HashMap<>();
 
+    // Features
     public static ModConfigSpec.BooleanValue enableRocks;
     public static ModConfigSpec.BooleanValue enableTwigs;
     public static ModConfigSpec.BooleanValue enableFallenLeaves;
@@ -23,9 +30,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableIceChunks;
     public static ModConfigSpec.BooleanValue enablePinecones;
     public static ModConfigSpec.BooleanValue enableSeashells;
-
     public static ModConfigSpec.BooleanValue enableFallenTrees;
-
     public static ModConfigSpec.BooleanValue enableSeaOats;
     public static ModConfigSpec.BooleanValue enableCattails;
     public static ModConfigSpec.BooleanValue enableBeachGrass;
@@ -40,7 +45,6 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableReeds;
     public static ModConfigSpec.BooleanValue enableIcicles;
     public static ModConfigSpec.BooleanValue enableSandySprouts;
-
     public static ModConfigSpec.BooleanValue enableExtraLilypads;
     public static ModConfigSpec.BooleanValue enableExtraSeagrass;
     public static ModConfigSpec.BooleanValue enableExtraRiverGrass;
@@ -49,57 +53,112 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableCaveRoots;
     public static ModConfigSpec.BooleanValue enableBetterRuinedNetherPortals;
 
+    // Feature Weights
+    public static ModConfigSpec.DoubleValue rocksWeight;
+    public static ModConfigSpec.DoubleValue twigsWeight;
+    public static ModConfigSpec.DoubleValue fallenLeavesWeight;
+    public static ModConfigSpec.DoubleValue bonesWeight;
+    public static ModConfigSpec.DoubleValue charredBonesWeight;
+    public static ModConfigSpec.DoubleValue iceChunksWeight;
+    public static ModConfigSpec.DoubleValue pineconesWeight;
+    public static ModConfigSpec.DoubleValue seashellsWeight;
+    public static ModConfigSpec.DoubleValue fallenTreesWeight;
+    public static ModConfigSpec.DoubleValue seaOatsWeight;
+    public static ModConfigSpec.DoubleValue cattailsWeight;
+    public static ModConfigSpec.DoubleValue beachGrassWeight;
+    public static ModConfigSpec.DoubleValue barkMushroomsWeight;
+    public static ModConfigSpec.DoubleValue glowcapWeight;
+    public static ModConfigSpec.DoubleValue cindercaneWeight;
+    public static ModConfigSpec.DoubleValue netherNettlesWeight;
+    public static ModConfigSpec.DoubleValue shortGrassWeight;
+    public static ModConfigSpec.DoubleValue naturalCobwebsWeight;
+    public static ModConfigSpec.DoubleValue smallCactiWeight;
+    public static ModConfigSpec.DoubleValue pricklyBushWeight;
+    public static ModConfigSpec.DoubleValue reedsWeight;
+    public static ModConfigSpec.DoubleValue iciclesWeight;
+    public static ModConfigSpec.DoubleValue sandySproutsWeight;
+    public static ModConfigSpec.DoubleValue extraLilypadsWeight;
+    public static ModConfigSpec.DoubleValue extraSeagrassWeight;
+    public static ModConfigSpec.DoubleValue extraRiverGrassWeight;
+    public static ModConfigSpec.DoubleValue mossCarpetsWeight;
+    public static ModConfigSpec.DoubleValue tidePoolsWeight;
+    public static ModConfigSpec.DoubleValue caveRootsWeight;
+    public static ModConfigSpec.DoubleValue betterRuinedNetherPortalsWeight;
+
+    // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
 
     static {
         BUILDER.push("World Generation");
-        config("enableRocks", enableRocks, BUILDER.comment("Enable generation of rocks").define("enableRocks", true));
-        config("enableTwigs", enableTwigs, BUILDER.comment("Enable generation of twigs").define("enableTwigs", true));
-        config("enableFallenLeaves", enableFallenLeaves, BUILDER.comment("Enable generation of fallen leaves").define("enableFallenLeaves", true));
-        config("enableBones", enableBones, BUILDER.comment("Enable generation of bones").define("enableBones", true));
-        config("enableCharredBones", enableCharredBones, BUILDER.comment("Enable generation of charred bones").define("enableCharredBones", true));
-        config("enableIceChunks", enableIceChunks, BUILDER.comment("Enable generation of ice chunks").define("enableIceChunks", true));
-        config("enablePinecones", enablePinecones, BUILDER.comment("Enable generation of pinecones").define("enablePinecones", true));
-        config("enableSeashells", enableSeashells, BUILDER.comment("Enable generation of seashells").define("enableSeashells", true));
+        assignWeightedConfigValues("enableRocks", enableRocks,"rocksWeight", rocksWeight, "Enable generation of rocks");
+        assignWeightedConfigValues("enableTwigs", enableTwigs, "twigsWeight", twigsWeight, "Enable generation of twigs");
+        assignWeightedConfigValues("enableFallenLeaves", enableFallenLeaves, "fallenLeavesWeight", fallenLeavesWeight, "Enable generation of fallen leaves");
+        assignWeightedConfigValues("enableBones", enableBones, "bonesWeight", bonesWeight, "Enable generation of bones");
+        assignWeightedConfigValues("enableCharredBones", enableCharredBones, "charredBonesWeight", charredBonesWeight, "Enable generation of charred bones");
+        assignWeightedConfigValues("enableIceChunks", enableIceChunks, "iceChunksWeight", iceChunksWeight, "Enable generation of ice chunks");
+        assignWeightedConfigValues("enablePinecones", enablePinecones, "pineconesWeight", pineconesWeight,  "Enable generation of pinecones");
+        assignWeightedConfigValues("enableSeashells", enableSeashells, "seashellsWeight", seashellsWeight, "Enable generation of seashells");
 
-        config("enableFallenTrees", enableFallenTrees, BUILDER.comment("Enable generation of fallen trees").define("enableFallenTrees", true));
+        assignWeightedConfigValues("enableFallenTrees", enableFallenTrees, "fallenTreesWeight", fallenTreesWeight, "Enable generation of fallen trees");
 
-        config("enableSeaOats", enableSeaOats, BUILDER.comment("Enable generation of sea oats").define("enableSeaOats", true));
-        config("enableCattails", enableCattails, BUILDER.comment("Enable generation of cattails").define("enableCattails", true));
-        config("enableBeachGrass", enableBeachGrass, BUILDER.comment("Enable generation of beach grass").define("enableBeachGrass", true));
-        config("enableBarkMushrooms", enableBarkMushrooms, BUILDER.comment("Enable generation of bark mushrooms").define("enableBarkMushrooms", true));
-        config("enableGlowcap", enableGlowcap, BUILDER.comment("Enable generation of glowcap").define("enableGlowcap", true));
-        config("enableCindercane", enableCindercane, BUILDER.comment("Enable generation of cindercane").define("enableCindercane", true));
-        config("enableNetherNettles", enableNetherNettles, BUILDER.comment("Enable generation of nether nettles").define("enableNetherNettles", true));
-        config("enableShortGrass", enableShortGrass, BUILDER.comment("Enable generation of short grass").define("enableShortGrass", true));
-        config("enableNaturalCobwebs", enableNaturalCobwebs, BUILDER.comment("Enable generation of natural cobwebs").define("enableNaturalCobwebs", true));
-        config("enableSmallCacti", enableSmallCacti, BUILDER.comment("Enable generation of small cacti").define("enableSmallCacti", true));
-        config("enablePricklyBush", enablePricklyBush, BUILDER.comment("Enable generation of prickly bushes").define("enablePricklyBush", true));
-        config("enableReeds", enableReeds, BUILDER.comment("Enable generation of reeds").define("enableReeds", true));
-        config("enableIcicles", enableIcicles, BUILDER.comment("Enable generation of icicles").define("enableIcicles", true));
-        config("enableSandySprouts", enableSandySprouts, BUILDER.comment("Enable generation of sandy sprouts").define("enableSandySprouts", true));
+        assignWeightedConfigValues("enableSeaOats", enableSeaOats, "seaOatsWeight", seaOatsWeight, "Enable generation of sea oats");
+        assignWeightedConfigValues("enableCattails", enableCattails, "cattailsWeight", cattailsWeight, "Enable generation of cattails");
+        assignWeightedConfigValues("enableBeachGrass", enableBeachGrass, "beachGrassWeight", beachGrassWeight, "Enable generation of beach grass");
+        assignWeightedConfigValues("enableBarkMushrooms", enableBarkMushrooms, "barkMushroomsWeight", barkMushroomsWeight, "Enable generation of bark mushrooms");
+        assignWeightedConfigValues("enableGlowcap", enableGlowcap, "glowcapWeight", glowcapWeight, "Enable generation of glowcap");
+        assignWeightedConfigValues("enableCindercane", enableCindercane, "cindercaneWeight", cindercaneWeight, "Enable generation of cindercane");
+        assignWeightedConfigValues("enableNetherNettles", enableNetherNettles, "netherNettlesWeight", netherNettlesWeight, "Enable generation of nether nettles");
+        assignWeightedConfigValues("enableShortGrass", enableShortGrass, "shortGrassWeight", shortGrassWeight, "Enable generation of short grass");
+        assignWeightedConfigValues("enableNaturalCobwebs", enableNaturalCobwebs, "naturalCobwebsWeight", naturalCobwebsWeight, "Enable generation of natural cobwebs");
+        assignWeightedConfigValues("enableSmallCacti", enableSmallCacti, "smallCactiWeight", smallCactiWeight, "Enable generation of small cacti");
+        assignWeightedConfigValues("enablePricklyBush", enablePricklyBush, "pricklyBushWeight", pricklyBushWeight, "Enable generation of prickly bushes");
+        assignWeightedConfigValues("enableReeds", enableReeds, "reedsWeight", reedsWeight, "Enable generation of reeds");
+        assignWeightedConfigValues("enableIcicles", enableIcicles, "iciclesWeight", iciclesWeight, "Enable generation of icicles");
+        assignWeightedConfigValues("enableSandySprouts", enableSandySprouts, "sandySproutsWeight", sandySproutsWeight, "Enable generation of sandy sprouts");
 
-        config("enableExtraLilypads", enableExtraLilypads, BUILDER.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true));
-        config("enableExtraSeagrass", enableExtraSeagrass, BUILDER.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true));
-        config("enableExtraRiverGrass", enableExtraRiverGrass, BUILDER.comment("Enable generation of extra grass in rivers").define("enableExtraRiverGrass", true));
-        config("enableMossCarpets", enableMossCarpets, BUILDER.comment("Enable moss carpets in old growth taiga biomes").define("enableMossCarpets", true));
-        config("enableTidePools", enableTidePools, BUILDER.comment("Enable of tide pools in stony shores").define("enableTidePools", true));
-        config("enableCaveRoots", enableCaveRoots, BUILDER.comment("Enable cave roots").define("enableCaveRoots", true));
-        config("enableBetterRuinedNetherPortals", enableBetterRuinedNetherPortals, BUILDER.comment("Enable better ruined nether portals").define("enableBetterRuinedNetherPortals", true));
+        assignWeightedConfigValues("enableExtraLilypads", enableExtraLilypads, "extraLilypadsWeight", extraLilypadsWeight, "Enable generation of extra lilypads in lakes");
+        assignWeightedConfigValues("enableExtraSeagrass", enableExtraSeagrass, "extraSeagrassWeight", extraSeagrassWeight, "Enable generation of extra seagrass in lakes");
+        assignWeightedConfigValues("enableExtraRiverGrass", enableExtraRiverGrass, "extraRiverGrassWeight", extraRiverGrassWeight, "Enable generation of extra grass in rivers");
+        assignWeightedConfigValues("enableMossCarpets", enableMossCarpets, "mossCarpetsWeight", mossCarpetsWeight, "Enable moss carpets in old growth taiga biomes");
+        assignWeightedConfigValues("enableTidePools", enableTidePools, "tidePoolsWeight", tidePoolsWeight, "Enable of tide pools in stony shores");
+        assignWeightedConfigValues("enableCaveRoots", enableCaveRoots, "caveRootsWeight", caveRootsWeight, "Enable cave roots");
+        assignWeightedConfigValues("enableBetterRuinedNetherPortals", enableBetterRuinedNetherPortals, "betterRuinedNetherPortalsWeight", betterRuinedNetherPortalsWeight, "Enable better ruined nether portals");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");
-        config("enableJungleTropicalFish", enableJungleTropicalFish, BUILDER.comment("Enable spawning of tropical fish in jungles").define("enableJungleTropicalFish", true));
+        assignSpawnConfigValue("enableJungleTropicalFish", enableJungleTropicalFish, "Enable spawning of tropical fish in jungles");
         BUILDER.pop();
     }
 
     static final ModConfigSpec COMMON_CONFIG = BUILDER.build();
 
-    private static void config(String name, ModConfigSpec.BooleanValue spec, ModConfigSpec.BooleanValue value) {
-        spec = value;
-        configOptions.put(name, spec);
+    private static void assignWeightedConfigValues(String name, ModConfigSpec.BooleanValue spec, @Nullable String weightSpecName, ModConfigSpec.DoubleValue weightSpec, @Nullable String specComment, @Nullable String weightSpecComment) {
+        if (specComment != null) {
+            BUILDER.comment(specComment);
+        }
+
+        spec = BUILDER.define(name, true);
+        if (weightSpecComment != null) {
+            BUILDER.comment(weightSpecComment);
+        }
+        weightSpec = BUILDER.defineInRange(weightSpecName, 1.0D, 0.0D, 1.0D);
+
+        weightOptions.put(weightSpecName, weightSpec);
+        configOptions.put(name, Pair.of(spec, Optional.ofNullable(weightSpec)));
     }
 
+    private static void assignSpawnConfigValue(String name, ModConfigSpec.BooleanValue spec, @Nullable String specComment) {
+        if (specComment != null) {
+            BUILDER.comment(specComment);
+        }
+        spec = BUILDER.define(name, true);
+        configOptions.put(name, Pair.of(spec, Optional.empty()));
+    }
+
+    private static void assignWeightedConfigValues(String name, ModConfigSpec.BooleanValue spec, @Nullable String weightSpecName, @Nullable ModConfigSpec.DoubleValue weightSpec, @Nullable String specComment) {
+        assignWeightedConfigValues(name, spec, weightSpecName, weightSpec, specComment, null);
+    }
+    
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
 

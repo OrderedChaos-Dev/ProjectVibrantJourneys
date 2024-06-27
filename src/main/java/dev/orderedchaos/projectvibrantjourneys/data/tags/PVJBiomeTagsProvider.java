@@ -3,7 +3,6 @@ package dev.orderedchaos.projectvibrantjourneys.data.tags;
 import dev.orderedchaos.projectvibrantjourneys.core.Constants;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.util.TagUtils;
-import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;

@@ -24,7 +24,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
@@ -93,6 +92,8 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
 
           BlockPos original = pos;
 
+          boolean shouldHaveBarkMushrooms = PVJConfig.configOptions.get("enableBarkMushrooms").getFirst().get();
+
           pos = pos.offset(dirCounterClockwise.getNormal());
           if (canReplace(level, pos)) {
             if (rand.nextFloat() < 0.4F && Block.isFaceFull(level.getBlockState(pos.below()).getCollisionShape(level, pos.below()), Direction.UP)) {
@@ -100,7 +101,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
               if (state.canSurvive(level, pos)) {
                 level.setBlock(pos, state, 2);
               }
-            } else if (rand.nextFloat() < 0.4F && PVJConfig.configOptions.get("enableBarkMushrooms").get()) {
+            } else if (rand.nextFloat() < 0.4F && shouldHaveBarkMushrooms) {
               BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
               level.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirCounterClockwise), 2);
             }
@@ -114,7 +115,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
               if (state.canSurvive(level, pos)) {
                 level.setBlock(pos, state, 2);
               }
-            } else if (rand.nextFloat() < 0.4F && PVJConfig.configOptions.get("enableBarkMushrooms").get()) {
+            } else if (rand.nextFloat() < 0.4F && shouldHaveBarkMushrooms) {
               BarkMushroomBlock mushroom = BarkMushroomBlock.getRandom(rand);
               level.setBlock(pos, mushroom.defaultBlockState().setValue(BarkMushroomBlock.FACING, dirClockwise), 2);
             }
@@ -150,7 +151,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
       FallenTreeVegetation temp = vegetationProviders.get(random);
       if (temp.configOption().isPresent()) {
         String configOption = temp.configOption().get();
-        if (!PVJConfig.configOptions.get(configOption).get()) {
+        if (!PVJConfig.configOptions.get(configOption).getFirst().get()) {
           continue;
         }
       }

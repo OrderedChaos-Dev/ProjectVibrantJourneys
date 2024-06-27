@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.core;
 
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.ChancePlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportal.RuinedPortalDecoratorBase;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.*;
 import dev.orderedchaos.projectvibrantjourneys.data.client.PVJLanguageProvider;
@@ -10,11 +11,14 @@ import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJBiomeTagsProvider;
 import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJBlockTagsProvider;
 import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJItemTagsProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -22,6 +26,7 @@ import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -53,6 +58,7 @@ public class ProjectVibrantJourneys {
         PVJFeatures.StateProviders.TYPES.register(modEventBus);
         PVJBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         PVJConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
+        PVJPlacementModifiers.PLACEMENT_MODIFIERS.register(modEventBus);
         PVJPlacements.PLACED_FEATURES.register(modEventBus);
         PVJPotions.POTIONS.register(modEventBus);
         PVJCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
@@ -61,6 +67,8 @@ public class ProjectVibrantJourneys {
 
         // TODO: mixin in short grass from bonemeal
     }
+
+
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         RuinedPortalDecoratorBase.registerPortalDecorators();

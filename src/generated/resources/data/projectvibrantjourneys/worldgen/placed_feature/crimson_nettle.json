@@ -11,6 +11,10 @@
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+      "type": "projectvibrantjourneys:chance",
+      "weightConfigSpec": "netherNettlesWeight"
     }
   ]
 }

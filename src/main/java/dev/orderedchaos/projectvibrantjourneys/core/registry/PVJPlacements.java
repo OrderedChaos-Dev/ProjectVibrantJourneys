@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import com.google.common.collect.ImmutableList;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.ChancePlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -19,6 +20,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
@@ -83,55 +86,62 @@ public class PVJPlacements {
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
-    register(context, MOSS_CARPET, holderGetter.getOrThrow(PVJConfiguredFeatures.MOSS_CARPETS), worldSurfaceSquaredWithCount(3));
-    register(context, SEA_OATS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEA_OATS), onceEvery(5));
-    register(context, CATTAILS, holderGetter.getOrThrow(PVJConfiguredFeatures.CATTAILS), onceEvery(1));
-    register(context, BEACH_GRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACH_GRASS), onceEvery(5));
-    register(context, BARK_MUSHROOM, holderGetter.getOrThrow(PVJConfiguredFeatures.BARK_MUSHROOM), worldSurfaceSquaredWithCount(30));
-    register(context, SHORT_GRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.SHORT_GRASS), worldSurfaceSquaredWithCount(3));
-    register(context, SMALL_CACTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.SMALL_CACTUS), RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
-    register(context, ICICLE, holderGetter.getOrThrow(PVJConfiguredFeatures.ICICLE), CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome());
-    register(context, CAVE_ROOTS, holderGetter.getOrThrow(PVJConfiguredFeatures.CAVE_ROOTS), CountPlacement.of(188), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome());
-    register(context, REEDS, holderGetter.getOrThrow(PVJConfiguredFeatures.REEDS), onceEvery(1));
-    register(context, PRICKLY_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.PRICKLY_BUSH), onceEvery(2));
-    register(context, TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.TWIGS), worldSurfaceSquaredWithCount(3));
-    register(context, FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.FALLEN_LEAVES), worldSurfaceSquaredWithCount(3));
-    register(context, DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(3));
-    register(context, DENSE_DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(6));
-    register(context, PINECONES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINECONES), worldSurfaceSquaredWithCount(2));
-    register(context, SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), worldSurfaceSquaredWithCount(2));
-    register(context, OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(2));
-    register(context, EXTRA_OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(4));
-    register(context, ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), worldSurfaceSquaredWithCount(2));
-    register(context, ICE_CHUNKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ICE_CHUNKS), worldSurfaceSquaredWithCount(1));
-    register(context, BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), worldSurfaceSquaredWithCount(1));
-    register(context, CHARRED_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.CHARRED_BONES), RarityFilter.onAverageOnceEvery(2), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-    register(context, CAVE_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(100), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
-    register(context, CAVE_ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), CountPlacement.of(250), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
-    register(context, WARPED_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.WARPED_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
-    register(context, CRIMSON_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.CRIMSON_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome());
-    register(context, GLOWCAP, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWCAP), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-    register(context, CINDERCANE, holderGetter.getOrThrow(PVJConfiguredFeatures.CINDERCANE), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
-    register(context, OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, BIRCH_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, SPRUCE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.SPRUCE_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, JUNGLE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.JUNGLE_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, ACACIA_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.ACACIA_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, DARK_OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.DARK_OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, CHERRY_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.CHERRY_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, MANGROVE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.MANGROVE_FALLEN_TREE), worldSurfaceSquaredWithCount(1));
-    register(context, NATURAL_COBWEB, holderGetter.getOrThrow(PVJConfiguredFeatures.NATURAL_COBWEB), worldSurfaceSquaredWithCount(5));
-    register(context, EXTRA_SEAGRASS, holderGetter.getOrThrow(AquaticFeatures.SEAGRASS_SLIGHTLY_LESS_SHORT), seagrassPlacement(48));
-    register(context, EXTRA_LILYPADS, holderGetter.getOrThrow(PVJConfiguredFeatures.LILYPADS), worldSurfaceSquaredWithCount(4));
-    register(context, EXTRA_GRASS, holderGetter.getOrThrow(VegetationFeatures.PATCH_GRASS), NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
-    register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
-    register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5));
+    register(context, MOSS_CARPET, holderGetter.getOrThrow(PVJConfiguredFeatures.MOSS_CARPETS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("mossCarpetsWeight"));
+    register(context, SEA_OATS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEA_OATS), onceEvery(5), ChancePlacementFilter.of("seaOatsWeight"));
+    register(context, CATTAILS, holderGetter.getOrThrow(PVJConfiguredFeatures.CATTAILS), onceEvery(1), ChancePlacementFilter.of("cattailsWeight"));
+    register(context, BEACH_GRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACH_GRASS), onceEvery(5), ChancePlacementFilter.of("beachGrassWeight"));
+    register(context, BARK_MUSHROOM, holderGetter.getOrThrow(PVJConfiguredFeatures.BARK_MUSHROOM), worldSurfaceSquaredWithCount(30), ChancePlacementFilter.of("barkMushroomsWeight"));
+    register(context, SHORT_GRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.SHORT_GRASS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("shortGrassWeight"));
+    register(context, SMALL_CACTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.SMALL_CACTUS), RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("smallCactiWeight"));
+    register(context, ICICLE, holderGetter.getOrThrow(PVJConfiguredFeatures.ICICLE), CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("iciclesWeight"));
+    register(context, CAVE_ROOTS, holderGetter.getOrThrow(PVJConfiguredFeatures.CAVE_ROOTS), CountPlacement.of(188), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("caveRootsWeight"));
+    register(context, REEDS, holderGetter.getOrThrow(PVJConfiguredFeatures.REEDS), onceEvery(1), ChancePlacementFilter.of("reedsWeight"));
+    register(context, PRICKLY_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.PRICKLY_BUSH), onceEvery(2), ChancePlacementFilter.of("pricklyBushWeight"));
+    register(context, TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.TWIGS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("twigsWeight"));
+    register(context, FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
+    register(context, DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
+    register(context, DENSE_DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(6), ChancePlacementFilter.of("fallenLeavesWeight"));
+    register(context, PINECONES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINECONES), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("pineconesWeight"));
+    register(context, SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("seashellsWeight"));
+    register(context, OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(2), ChancePlacementFilter.of("seashellsWeight"));
+    register(context, EXTRA_OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(4), ChancePlacementFilter.of("seashellsWeight"));
+    register(context, ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("rocksWeight"));
+    register(context, ICE_CHUNKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ICE_CHUNKS), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("iceChunksWeight"));
+    register(context, BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("bonesWeight"));
+    register(context, CHARRED_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.CHARRED_BONES), RarityFilter.onAverageOnceEvery(2), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("charredBonesWeight"));
+    register(context, CAVE_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(100), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("bonesWeight"));
+    register(context, CAVE_ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), CountPlacement.of(250), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("rocksWeight"));
+    register(context, WARPED_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.WARPED_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ChancePlacementFilter.of("netherNettlesWeight"));
+    register(context, CRIMSON_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.CRIMSON_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ChancePlacementFilter.of("netherNettlesWeight"));
+    register(context, GLOWCAP, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWCAP), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("glowcapWeight"));
+    register(context, CINDERCANE, holderGetter.getOrThrow(PVJConfiguredFeatures.CINDERCANE), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("cindercaneWeight"));
+    register(context, OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, BIRCH_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, SPRUCE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.SPRUCE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, JUNGLE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.JUNGLE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, ACACIA_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.ACACIA_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, DARK_OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.DARK_OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, CHERRY_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.CHERRY_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, MANGROVE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.MANGROVE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, NATURAL_COBWEB, holderGetter.getOrThrow(PVJConfiguredFeatures.NATURAL_COBWEB), worldSurfaceSquaredWithCount(5), ChancePlacementFilter.of("naturalCobwebsWeight"));
+    register(context, EXTRA_SEAGRASS, holderGetter.getOrThrow(AquaticFeatures.SEAGRASS_SLIGHTLY_LESS_SHORT), seagrassPlacement(48), ChancePlacementFilter.of("extraSeagrassWeight"));
+    register(context, EXTRA_LILYPADS, holderGetter.getOrThrow(PVJConfiguredFeatures.LILYPADS), worldSurfaceSquaredWithCount(4), ChancePlacementFilter.of("extraLilypadsWeight"));
+    register(context, EXTRA_GRASS, holderGetter.getOrThrow(VegetationFeatures.PATCH_GRASS), NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("extraRiverGrassWeight"));
+    register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("tidePoolsWeight"));
+    register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5), ChancePlacementFilter.of("sandySproutsWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }
 
   private static ResourceKey<PlacedFeature> createKey(String name) {
     return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, name));
+  }
+
+  public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers, PlacementModifier... extraModifiers) {
+    List<PlacementModifier> list = new ArrayList<>();
+    list.addAll(modifiers);
+    list.addAll(Arrays.asList(extraModifiers));
+    context.register(key, new PlacedFeature(feature, list));
   }
 
   public static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
@@ -143,13 +153,12 @@ public class PVJPlacements {
   }
 
   public static List<PlacementModifier> onceEvery(int distance) {
-    ImmutableList.Builder<PlacementModifier> builder = ImmutableList.builder();
-    builder.add(RarityFilter.onAverageOnceEvery(distance));
-
-    builder.add(InSquarePlacement.spread());
-    builder.add(PlacementUtils.HEIGHTMAP);
-    builder.add(BiomeFilter.biome());
-    return builder.build();
+    List<PlacementModifier> list = new ArrayList<>();
+    list.add(RarityFilter.onAverageOnceEvery(distance));
+    list.add(InSquarePlacement.spread());
+    list.add(PlacementUtils.HEIGHTMAP);
+    list.add(BiomeFilter.biome());
+    return list;
   }
 
   private static List<PlacementModifier> seagrassPlacement(int count) {

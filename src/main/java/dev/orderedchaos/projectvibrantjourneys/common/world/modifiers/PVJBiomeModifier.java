@@ -1,8 +1,10 @@
 package dev.orderedchaos.projectvibrantjourneys.common.world.modifiers;
 
+import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.MapCodec;
 import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBiomeModifiers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
@@ -14,11 +16,14 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 public record PVJBiomeModifier(
   TagKey<Biome> dimension,
@@ -31,7 +36,16 @@ public record PVJBiomeModifier(
 
   @Override
   public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-    if (phase == Phase.AFTER_EVERYTHING && PVJConfig.configOptions.get(configOption).get()) {
+    Pair<ModConfigSpec.BooleanValue, Optional<ModConfigSpec.DoubleValue>> configValuePair = PVJConfig.configOptions.get(configOption);
+    boolean enabled = configValuePair.getFirst().get();
+    if (!enabled) {
+      return;
+    }
+    if (!configValuePair.getFirst().get()) {
+      return;
+    }
+
+    if (phase == Phase.AFTER_EVERYTHING) {
       if (biome.is(dimension)) {
         boolean flag = false;
 
