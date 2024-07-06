@@ -45,6 +45,20 @@
     "minecraft:waxed_weathered_copper",
     "minecraft:waxed_weathered_cut_copper",
     "minecraft:waxed_weathered_chiseled_copper",
+    "minecraft:hay_block",
+    "minecraft:barrel",
+    "minecraft:beehive",
+    "minecraft:bee_nest",
+    "minecraft:crafting_table",
+    "minecraft:furnace",
+    "minecraft:blast_furnace",
+    "minecraft:smoker",
+    "minecraft:cartography_table",
+    "minecraft:fletching_table",
+    "minecraft:tnt",
+    "minecraft:bee_nest",
+    "minecraft:smithing_table",
+    "minecraft:loom",
     "#minecraft:wool",
     "#minecraft:planks",
     "#minecraft:leaves",
@@ -52,6 +66,8 @@
     "#minecraft:snow",
     "#minecraft:ice",
     "#c:ores",
-    "#c:storage_blocks"
+    "#c:storage_blocks",
+    "#minecraft:fences",
+    "#minecraft:fence_gates"
   ]
 }

@@ -124,7 +124,21 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       Blocks.WAXED_OXIDIZED_CHISELED_COPPER,
       Blocks.WAXED_WEATHERED_COPPER,
       Blocks.WAXED_WEATHERED_CUT_COPPER,
-      Blocks.WAXED_WEATHERED_CHISELED_COPPER
+      Blocks.WAXED_WEATHERED_CHISELED_COPPER,
+      Blocks.HAY_BLOCK,
+      Blocks.BARREL,
+      Blocks.BEEHIVE,
+      Blocks.BEE_NEST,
+      Blocks.CRAFTING_TABLE,
+      Blocks.FURNACE,
+      Blocks.BLAST_FURNACE,
+      Blocks.SMOKER,
+      Blocks.CARTOGRAPHY_TABLE,
+      Blocks.FLETCHING_TABLE,
+      Blocks.TNT,
+      Blocks.BEE_NEST,
+      Blocks.SMITHING_TABLE,
+      Blocks.LOOM
     ).addTags(
       BlockTags.WOOL,
       BlockTags.PLANKS,
@@ -133,7 +147,9 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       BlockTags.SNOW,
       BlockTags.ICE,
       Tags.Blocks.ORES,
-      Tags.Blocks.STORAGE_BLOCKS
+      Tags.Blocks.STORAGE_BLOCKS,
+      BlockTags.FENCES,
+      BlockTags.FENCE_GATES
     );
 
     this.tag(BlockTags.LOGS).addTag(PVJTags.HOLLOW_LOGS);
