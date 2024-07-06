@@ -156,6 +156,9 @@ public class IcicleBlock extends Block implements Fallable {
 
   @Nullable
   private static BlockPos findFillableCauldronBelowStalactiteTip(Level level, BlockPos pos) {
+    if (pos == null) {
+      return null;
+    }
     Predicate<BlockState> predicate = (state) -> {
       return state.getBlock() == Blocks.CAULDRON || state.getBlock() == Blocks.WATER_CAULDRON;
     };
