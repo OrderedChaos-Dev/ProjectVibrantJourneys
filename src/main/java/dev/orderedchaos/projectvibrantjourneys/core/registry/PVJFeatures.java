@@ -38,16 +38,6 @@ public class PVJFeatures {
 
     public static final DeferredRegister<BlockStateProviderType<?>> TYPES = DeferredRegister.create(BuiltInRegistries.BLOCKSTATE_PROVIDER_TYPE, ProjectVibrantJourneys.MOD_ID);
 
-    public static final DeferredHolder<BlockStateProviderType<?>, BlockStateProviderType<DirectionalStateProvider>> DIRECTIONAL_STATE_PROVIDER = TYPES.register("directional_state_provider", () -> {
-      try {
-        // TODO: it looks like this neoforge beta version broke(?) access transformers. Using reflection until fixed
-        Constructor<BlockStateProviderType> constructor = BlockStateProviderType.class.getConstructor(MapCodec.class);
-        constructor.setAccessible(true);
-        return constructor.newInstance(DirectionalStateProvider.CODEC);
-
-      } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
-        throw new RuntimeException(e);
-      }
-    });
+    public static final DeferredHolder<BlockStateProviderType<?>, BlockStateProviderType<DirectionalStateProvider>> DIRECTIONAL_STATE_PROVIDER = TYPES.register("directional_state_provider", () -> new BlockStateProviderType<>(DirectionalStateProvider.CODEC));
   }
 }

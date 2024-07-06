@@ -2,13 +2,17 @@ package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class BeachGrassBlock extends BushBlock {
 
@@ -29,7 +33,11 @@ public class BeachGrassBlock extends BushBlock {
   }
 
   @Override
-  public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-    return PlantType.DESERT;
+  protected boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+    BlockState ground = pLevel.getBlockState(pPos.below());
+    TriState soilDecision = ground.canSustainPlant(pLevel, pPos.below(), Direction.UP, pState);
+    if (!soilDecision.isDefault())
+      return soilDecision.isTrue();
+    return ground.is(BlockTags.SAND);
   }
 }

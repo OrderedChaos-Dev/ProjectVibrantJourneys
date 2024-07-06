@@ -10,6 +10,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class GlowcapBlock extends MushroomBlock {
 
@@ -29,7 +30,8 @@ public class GlowcapBlock extends MushroomBlock {
     if (blockstate.is(BlockTags.MUSHROOM_GROW_BLOCK)) {
       return true;
     } else {
-      return blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, this);
+      TriState soilDecision = blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, state);
+      return soilDecision.isDefault() ? this.mayPlaceOn(blockstate, worldIn, blockpos) : soilDecision.isTrue();
     }
   }
 

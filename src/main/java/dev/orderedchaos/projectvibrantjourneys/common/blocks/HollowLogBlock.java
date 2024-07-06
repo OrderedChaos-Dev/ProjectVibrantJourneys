@@ -25,7 +25,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class HollowLogBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
 
@@ -65,14 +65,13 @@ public class HollowLogBlock extends RotatedPillarBlock implements SimpleWaterlog
   }
 
   @Override
-  public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
+  public TriState canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, BlockState plantable) {
     if (state.getValue(AXIS) == Direction.Axis.Y && facing == Direction.UP) {
-      return false;
+      return TriState.FALSE;
     }
 
-    BlockState plant = plantable.getPlant(world, pos.relative(facing));
-    if (plant.is(PVJTags.GROWS_ON_HOLLOW_LOG)) {
-      return true;
+    if (plantable.is(PVJTags.GROWS_ON_HOLLOW_LOG)) {
+      return TriState.TRUE;
     }
 
     return super.canSustainPlant(state, world, pos, facing, plantable);

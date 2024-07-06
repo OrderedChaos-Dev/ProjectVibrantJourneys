@@ -23,10 +23,9 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.IPlantable;
-import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.common.util.TriState;
 
-public class CindercaneBlock extends Block implements IPlantable {
+public class CindercaneBlock extends Block {
 
   public static final IntegerProperty AGE = BlockStateProperties.AGE_15;
   protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
@@ -88,6 +87,10 @@ public class CindercaneBlock extends Block implements IPlantable {
     if (blockstate.getBlock() == this) {
       return true;
     } else {
+      BlockState ground = world.getBlockState(pos.below());
+      TriState soilDecision = ground.canSustainPlant(world, pos.below(), Direction.UP, state);
+      if (!soilDecision.isDefault())
+        return soilDecision.isTrue();
       if (blockstate.is(PVJTags.CINDERCANE_GROWS_ON)) {
         BlockPos blockpos = pos.below();
 
@@ -107,15 +110,5 @@ public class CindercaneBlock extends Block implements IPlantable {
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> container) {
     container.add(AGE);
-  }
-
-  @Override
-  public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-    return PlantType.NETHER;
-  }
-
-  @Override
-  public BlockState getPlant(BlockGetter world, BlockPos pos) {
-    return defaultBlockState();
   }
 }

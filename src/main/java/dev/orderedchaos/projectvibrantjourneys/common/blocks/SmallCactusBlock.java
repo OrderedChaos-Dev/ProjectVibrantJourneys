@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -16,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.common.util.TriState;
 
 public class SmallCactusBlock extends BushBlock implements BonemealableBlock {
 
@@ -37,8 +38,12 @@ public class SmallCactusBlock extends BushBlock implements BonemealableBlock {
   }
 
   @Override
-  public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-    return PlantType.DESERT;
+  protected boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+    BlockState ground = pLevel.getBlockState(pPos.below());
+    TriState soilDecision = ground.canSustainPlant(pLevel, pPos.below(), Direction.UP, pState);
+    if (!soilDecision.isDefault())
+      return soilDecision.isTrue();
+    return ground.is(BlockTags.SAND);
   }
 
   @Override
@@ -49,7 +54,6 @@ public class SmallCactusBlock extends BushBlock implements BonemealableBlock {
         return false;
       }
     }
-
     return true;
   }
 
