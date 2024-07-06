@@ -136,7 +136,6 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       Blocks.CARTOGRAPHY_TABLE,
       Blocks.FLETCHING_TABLE,
       Blocks.TNT,
-      Blocks.BEE_NEST,
       Blocks.SMITHING_TABLE,
       Blocks.LOOM
     ).addTags(
