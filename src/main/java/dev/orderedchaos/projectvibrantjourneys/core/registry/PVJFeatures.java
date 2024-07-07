@@ -28,7 +28,7 @@ public class PVJFeatures {
   public static final DeferredHolder<Feature<?>, Feature<MultipleVegetationPatchConfiguration>> POOL = registerFeature("pool", new MultipleWaterloggedVegetationPatchFeature(MultipleVegetationPatchConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> LILYPAD = registerFeature("lily_pad", new ExtraLilyPadFeature(ProbabilityFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> ICICLE = registerFeature("icicle", new IcicleFeature(NoneFeatureConfiguration.CODEC));
-
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> GRAVEL_PIT = registerFeature("gravel_pit", new GravelPitFeature(NoneFeatureConfiguration.CODEC));
 
   private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
     return FEATURES.register(name, () -> feature);

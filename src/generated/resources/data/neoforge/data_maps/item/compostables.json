@@ -59,6 +59,9 @@
     },
     "projectvibrantjourneys:warped_nettle": {
       "chance": 0.65
+    },
+    "projectvibrantjourneys:watergrass": {
+      "chance": 0.1
     }
   }
 }

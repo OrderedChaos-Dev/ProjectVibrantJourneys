@@ -68,7 +68,8 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.SANDY_SPROUTS.get(),
       PVJBlocks.BEACH_GRASS.get(),
       PVJBlocks.SEA_OATS.get(),
-      PVJBlocks.PRICKLY_BUSH.get()
+      PVJBlocks.PRICKLY_BUSH.get(),
+      PVJBlocks.WATERGRASS.get()
     );
     this.tag(PVJTags.CINDERCANE_GROWS_ON).add(
       Blocks.BASALT,
@@ -137,7 +138,9 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       Blocks.FLETCHING_TABLE,
       Blocks.TNT,
       Blocks.SMITHING_TABLE,
-      Blocks.LOOM
+      Blocks.LOOM,
+      Blocks.DECORATED_POT,
+      Blocks.VAULT
     ).addTags(
       BlockTags.WOOL,
       BlockTags.PLANKS,
@@ -164,6 +167,8 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
     this.tag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_AXE).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(PVJBlocks.ICICLE.get());
+    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
+    this.tag(Tags.Blocks.GRAVELS).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
     this.tag(BlockTags.SWORD_EFFICIENT)
       .addTag(PVJTags.FALLEN_LEAVES)
       .add(
@@ -176,7 +181,8 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.SEA_OATS.get(),
         PVJBlocks.SANDY_SPROUTS.get(),
         PVJBlocks.CRIMSON_NETTLE.get(),
-        PVJBlocks.WARPED_NETTLE.get()
+        PVJBlocks.WARPED_NETTLE.get(),
+        PVJBlocks.WATERGRASS.get()
       );
     this.tag(BlockTags.REPLACEABLE_BY_TREES)
       .addTag(PVJTags.GROUNDCOVER)
@@ -187,7 +193,8 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.NATURAL_COBWEB.get(),
         PVJBlocks.BARK_MUSHROOM.get(),
         PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
-        PVJBlocks.ORANGE_BARK_MUSHROOM.get()
+        PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
+        PVJBlocks.WATERGRASS.get()
     );
     this.tag(BlockTags.SNAPS_GOAT_HORN)
       .addTag(PVJTags.HOLLOW_LOGS);
@@ -197,7 +204,8 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.NATURAL_COBWEB.get(),
       PVJBlocks.BARK_MUSHROOM.get(),
       PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
-      PVJBlocks.ORANGE_BARK_MUSHROOM.get()
+      PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
+      PVJBlocks.WATERGRASS.get()
     );
     this.tag(BlockTags.REPLACEABLE).addTag(PVJTags.GROUNDCOVER);
   }

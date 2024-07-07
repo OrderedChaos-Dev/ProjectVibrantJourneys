@@ -19,7 +19,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class PVJItemTagsProvider extends ItemTagsProvider {
 
-
   public PVJItemTagsProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pLookupProvider, CompletableFuture<TagLookup<Block>> pBlockTags, @Nullable ExistingFileHelper existingFileHelper) {
     super(pOutput, pLookupProvider, pBlockTags, ProjectVibrantJourneys.MOD_ID, existingFileHelper);
   }
@@ -29,5 +28,6 @@ public class PVJItemTagsProvider extends ItemTagsProvider {
     this.copy(PVJTags.HOLLOW_LOGS, ItemTags.LOGS);
     this.copy(PVJTags.HOLLOW_LOGS, ItemTags.LOGS_THAT_BURN);
     this.tag(ItemTags.CREEPER_IGNITERS).add(PVJBlocks.CINDERCANE.asItem());
+    this.tag(ItemTags.CAMEL_FOOD).add(PVJBlocks.SMALL_CACTUS.asItem());
   }
 }

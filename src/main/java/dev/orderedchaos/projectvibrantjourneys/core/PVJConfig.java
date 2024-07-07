@@ -52,6 +52,8 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableTidePools;
     public static ModConfigSpec.BooleanValue enableCaveRoots;
     public static ModConfigSpec.BooleanValue enableBetterRuinedNetherPortals;
+    public static ModConfigSpec.BooleanValue enableWatergrass;
+    public static ModConfigSpec.BooleanValue enableGravelPits;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -84,6 +86,8 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue tidePoolsWeight;
     public static ModConfigSpec.DoubleValue caveRootsWeight;
     public static ModConfigSpec.DoubleValue betterRuinedNetherPortalsWeight;
+    public static ModConfigSpec.DoubleValue watergrassWeight;
+    public static ModConfigSpec.DoubleValue gravelPitWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -115,6 +119,8 @@ public class PVJConfig
         assignWeightedConfigValues("enableReeds", enableReeds, "reedsWeight", reedsWeight, "Enable generation of reeds");
         assignWeightedConfigValues("enableIcicles", enableIcicles, "iciclesWeight", iciclesWeight, "Enable generation of icicles");
         assignWeightedConfigValues("enableSandySprouts", enableSandySprouts, "sandySproutsWeight", sandySproutsWeight, "Enable generation of sandy sprouts");
+        assignWeightedConfigValues("enableWatergrass", enableWatergrass, "watergrassWeight", watergrassWeight, "Enable generation of watergrass");
+        assignWeightedConfigValues("enableGravelPits", enableGravelPits, "gravelPitWeight", gravelPitWeight, "Enable generation of gravel pits");
 
         assignWeightedConfigValues("enableExtraLilypads", enableExtraLilypads, "extraLilypadsWeight", extraLilypadsWeight, "Enable generation of extra lilypads in lakes");
         assignWeightedConfigValues("enableExtraSeagrass", enableExtraSeagrass, "extraSeagrassWeight", extraSeagrassWeight, "Enable generation of extra seagrass in lakes");

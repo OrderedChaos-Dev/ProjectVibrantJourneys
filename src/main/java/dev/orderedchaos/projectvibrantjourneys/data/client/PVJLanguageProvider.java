@@ -45,6 +45,11 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.WARPED_NETTLE.get(), "Warped Nettle");
     this.add(PVJBlocks.CINDERCANE.get(), "Cindercane");
     this.add(PVJBlocks.ICICLE.get(), "Icicle");
+    this.add(PVJBlocks.WATERGRASS.get(), "Watergrass");
+    this.add(PVJBlocks.FERROUS_GRAVEL.get(), "Ferrous Gravel");
+    this.add(PVJBlocks.GILDED_GRAVEL.get(), "Gilded Gravel");
+
+
     this.add(PVJBlocks.OAK_HOLLOW_LOG.get(), "Oak Hollow Log");
     this.add(PVJBlocks.BIRCH_HOLLOW_LOG.get(), "Birch Hollow Log");
     this.add(PVJBlocks.SPRUCE_HOLLOW_LOG.get(), "Spruce Hollow Log");
@@ -53,6 +58,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.DARK_OAK_HOLLOW_LOG.get(), "Dark Oak Hollow Log");
     this.add(PVJBlocks.CHERRY_HOLLOW_LOG.get(), "Cherry Hollow Log");
     this.add(PVJBlocks.MANGROVE_HOLLOW_LOG.get(), "Mangrove Hollow Log");
+
     this.add(PVJBlocks.POTTED_SMALL_CACTUS.get(), "Potted Small Cactus");
     this.add(PVJBlocks.POTTED_PRICKLY_BUSH.get(), "Potted Prickly Bush");
     this.add(PVJBlocks.POTTED_GLOWCAP.get(), "Potted Glowcap");

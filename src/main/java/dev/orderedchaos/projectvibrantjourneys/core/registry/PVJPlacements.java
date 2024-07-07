@@ -44,6 +44,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> PRICKLY_BUSH = createKey("prickly_bush");
   public static final ResourceKey<PlacedFeature> SANDY_SPROUTS = createKey("sandy_sprouts");
   public static final ResourceKey<PlacedFeature> SHORT_GRASS_BONEMEAL = createKey("short_grass_bonemeal");
+  public static final ResourceKey<PlacedFeature> WATERGRASS = createKey("watergrass");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -83,6 +84,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> EXTRA_LILYPADS = createKey("extra_lilypads");
   public static final ResourceKey<PlacedFeature> EXTRA_GRASS = createKey("extra_grass");
   public static final ResourceKey<PlacedFeature> TIDE_POOL = createKey("tide_pool");
+  public static final ResourceKey<PlacedFeature> GRAVEL_PIT = createKey("gravel_pit");
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -129,6 +131,8 @@ public class PVJPlacements {
     register(context, EXTRA_GRASS, holderGetter.getOrThrow(VegetationFeatures.PATCH_GRASS), NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("extraRiverGrassWeight"));
     register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("tidePoolsWeight"));
     register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5), ChancePlacementFilter.of("sandySproutsWeight"));
+    register(context, WATERGRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.WATERGRASS), onceEvery(1), ChancePlacementFilter.of("watergrassWeight"));
+    register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("gravelPitWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

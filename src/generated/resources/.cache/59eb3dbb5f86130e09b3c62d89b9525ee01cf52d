@@ -1,4 +1,4 @@
-// 1.21	2024-06-18T20:34:59.6777602	Loot Tables
+// 1.21	2024-07-07T17:38:37.8626372	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 945b470e747e110d0ebf451120284297e79df86a data/projectvibrantjourneys/loot_table/blocks/beach_grass.json
@@ -11,6 +11,8 @@ a972583ff11e72499d3a7c5422c9acb95efc5c1b data/projectvibrantjourneys/loot_table/
 9f45efed284e5cd72750fd8a1a8784808b922900 data/projectvibrantjourneys/loot_table/blocks/crimson_nettle.json
 e096b2e1cd7fd479202443f5cf15ecbfdda1dd44 data/projectvibrantjourneys/loot_table/blocks/dark_oak_hollow_log.json
 84c314fa01c393b9e222b974c6daef0fc463f4c3 data/projectvibrantjourneys/loot_table/blocks/dead_fallen_leaves.json
+ae0d7097d9938e3c33e51dd8fcf7271cb61b8e76 data/projectvibrantjourneys/loot_table/blocks/ferrous_gravel.json
+eafb74f091810ac505d1ba85204fabb75f5426d8 data/projectvibrantjourneys/loot_table/blocks/gilded_gravel.json
 760640087ad363cee6a6dba88230492116455900 data/projectvibrantjourneys/loot_table/blocks/glowcap.json
 32d8551094b661b4a7267640cd7a6da6edfc98be data/projectvibrantjourneys/loot_table/blocks/glowing_blue_fungus.json
 dcccd176836a845771e988d0c4e9897e6d5955bf data/projectvibrantjourneys/loot_table/blocks/ice_chunks.json
@@ -43,3 +45,4 @@ ceab1e5a453172e435412de8e1ed3c9019962885 data/projectvibrantjourneys/loot_table/
 c8996204615bd459129c2b3e7ca436155a03620f data/projectvibrantjourneys/loot_table/blocks/spruce_hollow_log.json
 2e05525b47d16e4b68e33ca8fd93bd1e50dd967a data/projectvibrantjourneys/loot_table/blocks/twigs.json
 ff5de13ebeb12f3418fde41a175c3d53aa1aa1dd data/projectvibrantjourneys/loot_table/blocks/warped_nettle.json
+dbee4abd88e6423d871ecdd1181e5f47ead3aed5 data/projectvibrantjourneys/loot_table/blocks/watergrass.json

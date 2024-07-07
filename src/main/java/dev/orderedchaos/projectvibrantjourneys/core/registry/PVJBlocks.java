@@ -4,13 +4,12 @@ import dev.orderedchaos.projectvibrantjourneys.common.blocks.*;
 import dev.orderedchaos.projectvibrantjourneys.common.items.FuelBlockItem;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -29,7 +28,7 @@ public class PVJBlocks {
   public static final DeferredBlock<Block> SEA_OATS = registerBlock("sea_oats",
     () -> new SeaOatsBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT));
   public static final DeferredBlock<Block> CATTAIL = registerBlock("cattail",
-    () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT));
+    () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT, true));
   public static final DeferredBlock<Block> BARK_MUSHROOM = registerBlock("bark_mushroom",
     () -> new BarkMushroomBlock(BlockBehaviorTemplates.BARK_MUSHROOM));
   public static final DeferredBlock<Block> LIGHT_BROWN_BARK_MUSHROOM = registerBlock("light_brown_bark_mushroom",
@@ -45,11 +44,13 @@ public class PVJBlocks {
   public static final DeferredBlock<Block> PRICKLY_BUSH = registerBlock("prickly_bush",
     () -> new ThornsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH).mapColor(MapColor.COLOR_BROWN)));
   public static final DeferredBlock<Block> REEDS = registerBlock("reeds",
-    () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT));
+    () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT, true));
   public static final DeferredBlock<Block> ICICLE = registerBlock("icicle",
     () -> new IcicleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)));
   public static final DeferredBlock<Block> SANDY_SPROUTS = registerBlock("sandy_sprouts",
     () -> new SandySproutsBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT));
+  public static final DeferredBlock<Block> WATERGRASS = registerBlock("watergrass",
+          () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT, false));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",
@@ -86,6 +87,20 @@ public class PVJBlocks {
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.CROP, true)));
   public static final DeferredBlock<Block> SEASHELLS = registerBlock("seashells",
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.STONE, false)));
+
+  public static final DeferredBlock<Block> FERROUS_GRAVEL = registerBlock("ferrous_gravel",
+          () -> new ColoredFallingBlock(
+                  new ColorRGBA(-8356741),
+                  BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.6F).sound(SoundType.GRAVEL)
+          )
+  );
+
+  public static final DeferredBlock<Block> GILDED_GRAVEL = registerBlock("gilded_gravel",
+          () -> new ColoredFallingBlock(
+                  new ColorRGBA(-8356741),
+                  BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.6F).sound(SoundType.GRAVEL)
+          )
+  );
 
   /* MISC */
   public static final DeferredBlock<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb",

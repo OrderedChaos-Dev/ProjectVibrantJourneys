@@ -59,6 +59,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> PRICKLY_BUSH = createKey("prickly_bush");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SANDY_SPROUTS = createKey("sandy_sprouts");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_SHORT_GRASS = createKey("single_piece_of_short_grass");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> WATERGRASS = createKey("watergrass");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES = createKey("fallen_leaves");
@@ -86,6 +87,7 @@ public class PVJConfiguredFeatures {
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> SEA_PICKLE = createKey("sea_pickle");
   public static final ResourceKey<ConfiguredFeature<?, ?>> TIDE_POOL = createKey("tide_pool");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GRAVEL_PIT = createKey("gravel_pit");
 
   public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -162,6 +164,7 @@ public class PVJConfiguredFeatures {
     register(context, PRICKLY_BUSH, Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState()));
     register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SANDY_SPROUTS.get().defaultBlockState()));
     register(context, SINGLE_PIECE_OF_SHORT_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(PVJBlocks.SHORT_GRASS.get()), ShortGrassBlock.MODEL, UniformInt.of(0, 6))));
+    register(context, WATERGRASS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.WATERGRASS.get().defaultBlockState()));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
@@ -203,7 +206,7 @@ public class PVJConfiguredFeatures {
       5,
       0.3F,
       UniformInt.of(2, 3), 0.7F));
-
+    register(context, GRAVEL_PIT, PVJFeatures.GRAVEL_PIT.get(), NoneFeatureConfiguration.INSTANCE);
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
