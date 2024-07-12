@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "shape=top,facing=north": {
+      "model": "projectvibrantjourneys:block/beached_kelp_top"
+    },
+    "shape=straight,facing=north": {
+      "model": "projectvibrantjourneys:block/beached_kelp_straight"
+    },
+    "shape=curved,facing=north": {
+      "model": "projectvibrantjourneys:block/beached_kelp_curved"
+    },
+    "shape=end,facing=north": {
+      "model": "projectvibrantjourneys:block/beached_kelp_end"
+    },
+    "shape=top,facing=east": {
+      "model": "projectvibrantjourneys:block/beached_kelp_top",
+      "y": 90
+    },
+    "shape=straight,facing=east": {
+      "model": "projectvibrantjourneys:block/beached_kelp_straight",
+      "y": 90
+    },
+    "shape=curved,facing=east": {
+      "model": "projectvibrantjourneys:block/beached_kelp_curved",
+      "y": 90
+    },
+    "shape=end,facing=east": {
+      "model": "projectvibrantjourneys:block/beached_kelp_end",
+      "y": 90
+    },
+    "shape=top,facing=south": {
+      "model": "projectvibrantjourneys:block/beached_kelp_top",
+      "y": 180
+    },
+    "shape=straight,facing=south": {
+      "model": "projectvibrantjourneys:block/beached_kelp_straight",
+      "y": 180
+    },
+    "shape=curved,facing=south": {
+      "model": "projectvibrantjourneys:block/beached_kelp_curved",
+      "y": 180
+    },
+    "shape=end,facing=south": {
+      "model": "projectvibrantjourneys:block/beached_kelp_end",
+      "y": 180
+    },
+    "shape=top,facing=west": {
+      "model": "projectvibrantjourneys:block/beached_kelp_top",
+      "y": 270
+    },
+    "shape=straight,facing=west": {
+      "model": "projectvibrantjourneys:block/beached_kelp_straight",
+      "y": 270
+    },
+    "shape=curved,facing=west": {
+      "model": "projectvibrantjourneys:block/beached_kelp_curved",
+      "y": 270
+    },
+    "shape=end,facing=west": {
+      "model": "projectvibrantjourneys:block/beached_kelp_end",
+      "y": 270
+    }
+  }
+}

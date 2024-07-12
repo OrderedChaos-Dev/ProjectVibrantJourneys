@@ -88,6 +88,11 @@ public class PVJBlocks {
   public static final DeferredBlock<Block> SEASHELLS = registerBlock("seashells",
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.STONE, false)));
 
+  public static final DeferredBlock<Block> BEACHED_KELP = registerBlockWithoutItem("beached_kelp",
+          () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
+  public static final DeferredBlock<Block> DRIED_BEACHED_KELP = registerBlockWithoutItem("dried_beached_kelp",
+          () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
+
   public static final DeferredBlock<Block> FERROUS_GRAVEL = registerBlock("ferrous_gravel",
           () -> new ColoredFallingBlock(
                   new ColorRGBA(-8356741),

@@ -27,8 +27,6 @@ import java.util.List;
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
 
 public class PVJPlacements {
-  public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, ProjectVibrantJourneys.MOD_ID);
-
   public static final ResourceKey<PlacedFeature> MOSS_CARPET = createKey("moss_carpet");
 
   /* OVERWORLD PLANTS */
@@ -45,6 +43,8 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> SANDY_SPROUTS = createKey("sandy_sprouts");
   public static final ResourceKey<PlacedFeature> SHORT_GRASS_BONEMEAL = createKey("short_grass_bonemeal");
   public static final ResourceKey<PlacedFeature> WATERGRASS = createKey("watergrass");
+  public static final ResourceKey<PlacedFeature> BEACHED_KELP = createKey("beached_kelp");
+  public static final ResourceKey<PlacedFeature> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -133,6 +133,8 @@ public class PVJPlacements {
     register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5), ChancePlacementFilter.of("sandySproutsWeight"));
     register(context, WATERGRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.WATERGRASS), onceEvery(1), ChancePlacementFilter.of("watergrassWeight"));
     register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("gravelPitWeight"));
+    register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("beachedKelpWeight"));
+    register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2), ChancePlacementFilter.of("driedBeachedKelpWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

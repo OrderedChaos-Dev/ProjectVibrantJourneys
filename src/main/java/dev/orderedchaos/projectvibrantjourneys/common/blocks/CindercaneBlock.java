@@ -42,11 +42,6 @@ public class CindercaneBlock extends Block {
   }
 
   @Override
-  protected void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
-    super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
-  }
-
-  @Override
   public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
     if (!state.canSurvive(world, pos)) {
       world.destroyBlock(pos, true);

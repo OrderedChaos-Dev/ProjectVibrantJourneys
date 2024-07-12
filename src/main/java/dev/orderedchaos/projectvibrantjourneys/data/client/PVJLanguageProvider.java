@@ -48,7 +48,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.WATERGRASS.get(), "Watergrass");
     this.add(PVJBlocks.FERROUS_GRAVEL.get(), "Ferrous Gravel");
     this.add(PVJBlocks.GILDED_GRAVEL.get(), "Gilded Gravel");
-
+    this.add(PVJBlocks.BEACHED_KELP.get(), "Beached Kelp");
 
     this.add(PVJBlocks.OAK_HOLLOW_LOG.get(), "Oak Hollow Log");
     this.add(PVJBlocks.BIRCH_HOLLOW_LOG.get(), "Birch Hollow Log");

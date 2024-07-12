@@ -59,16 +59,11 @@ public class ProjectVibrantJourneys {
         PVJBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         PVJConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
         PVJPlacementModifiers.PLACEMENT_MODIFIERS.register(modEventBus);
-        PVJPlacements.PLACED_FEATURES.register(modEventBus);
         PVJPotions.POTIONS.register(modEventBus);
         PVJCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);
-
-        // TODO: mixin in short grass from bonemeal
     }
-
-
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         RuinedPortalDecoratorBase.registerPortalDecorators();

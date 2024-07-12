@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
+import dev.orderedchaos.projectvibrantjourneys.common.blocks.BeachedKelpBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
@@ -60,6 +61,8 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> SANDY_SPROUTS = createKey("sandy_sprouts");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SINGLE_PIECE_OF_SHORT_GRASS = createKey("single_piece_of_short_grass");
   public static final ResourceKey<ConfiguredFeature<?, ?>> WATERGRASS = createKey("watergrass");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> BEACHED_KELP = createKey("beached_kelp");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES = createKey("fallen_leaves");
@@ -165,6 +168,8 @@ public class PVJConfiguredFeatures {
     register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SANDY_SPROUTS.get().defaultBlockState()));
     register(context, SINGLE_PIECE_OF_SHORT_GRASS, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new RandomizedIntStateProvider(BlockStateProvider.simple(PVJBlocks.SHORT_GRASS.get()), ShortGrassBlock.MODEL, UniformInt.of(0, 6))));
     register(context, WATERGRASS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.WATERGRASS.get().defaultBlockState()));
+    register(context, BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.BEACHED_KELP.get().defaultBlockState()));
+    register(context, DRIED_BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.DRIED_BEACHED_KELP.get().defaultBlockState()));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
