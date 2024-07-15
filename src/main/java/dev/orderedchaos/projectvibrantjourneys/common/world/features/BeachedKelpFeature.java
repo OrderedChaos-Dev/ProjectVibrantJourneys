@@ -32,7 +32,7 @@ public class BeachedKelpFeature extends Feature<BlockStateConfiguration> {
         }
 
         Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-        int length = random.nextInt(3);
+        int length = random.nextInt(4);
 
         boolean hasSpace = checkHasSpace(level, origin, direction, length);
         if (!hasSpace) {
@@ -46,10 +46,12 @@ public class BeachedKelpFeature extends Feature<BlockStateConfiguration> {
             pos.move(direction.getOpposite());
             level.setBlock(pos, state.setValue(BeachedKelpBlock.KELP_SHAPE, BeachedKelpShape.STRAIGHT), 2);
         }
-        pos.move(direction.getOpposite());
-        level.setBlock(pos, state.setValue(BeachedKelpBlock.KELP_SHAPE, BeachedKelpShape.CURVED), 2);
-        pos.move(direction.getCounterClockWise());
-        level.setBlock(pos, state.setValue(BeachedKelpBlock.KELP_SHAPE, BeachedKelpShape.END), 2);
+        if (random.nextFloat() < 0.2F) {
+            pos.move(direction.getOpposite());
+            level.setBlock(pos, state.setValue(BeachedKelpBlock.KELP_SHAPE, BeachedKelpShape.CURVED), 2);
+            pos.move(direction.getCounterClockWise());
+            level.setBlock(pos, state.setValue(BeachedKelpBlock.KELP_SHAPE, BeachedKelpShape.END), 2);
+        }
 
         return true;
     }

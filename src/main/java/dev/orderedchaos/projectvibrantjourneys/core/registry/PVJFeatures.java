@@ -1,6 +1,5 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
-import com.mojang.serialization.MapCodec;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.*;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
@@ -12,9 +11,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 public class PVJFeatures {
 

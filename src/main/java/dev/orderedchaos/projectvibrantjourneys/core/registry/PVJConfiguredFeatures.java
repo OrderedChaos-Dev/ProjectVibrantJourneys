@@ -1,6 +1,5 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
-import dev.orderedchaos.projectvibrantjourneys.common.blocks.BeachedKelpBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
