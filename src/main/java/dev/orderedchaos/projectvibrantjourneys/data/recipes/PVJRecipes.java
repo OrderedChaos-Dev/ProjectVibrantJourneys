@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.recipes;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -9,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -60,6 +62,16 @@ public class PVJRecipes extends RecipeProvider  {
       .define('N', PVJBlocks.GLOWCAP.get())
       .unlockedBy(getHasName(PVJBlocks.GLOWCAP.get()), has(PVJBlocks.GLOWCAP.get()))
       .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, getConversionRecipeName(Items.SHROOMLIGHT, PVJBlocks.GLOWCAP.get())));
+
+    ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PVJItems.NETTLE_SOUP)
+      .requires(PVJBlocks.WARPED_NETTLE)
+      .requires(PVJBlocks.CRIMSON_NETTLE)
+      .requires(Items.BOWL)
+      .unlockedBy("has_nettle_soup", has(PVJItems.NETTLE_SOUP))
+      .unlockedBy("has_bowl", has(Items.BOWL))
+      .unlockedBy("has_warped_nettle", has(PVJBlocks.WARPED_NETTLE))
+      .unlockedBy("has_crimson_nettle", has(PVJBlocks.CRIMSON_NETTLE))
+      .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, "nettle_soup"));
   }
 
   private void buildSmeltingRecipes(RecipeOutput recipeOutput) {
@@ -95,6 +107,15 @@ public class PVJRecipes extends RecipeProvider  {
   }
 
   private void oneToOneShapelessRecipe(RecipeOutput recipeOutput, ItemLike result, ItemLike ingredient, @Nullable String group, int resultCount) {
+    ResourceLocation location = ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, getConversionRecipeName(result, ingredient));
+    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, resultCount)
+      .requires(ingredient)
+      .group(group)
+      .unlockedBy(getHasName(ingredient), has(ingredient))
+      .save(recipeOutput, location);
+  }
+
+  private void soup(RecipeOutput recipeOutput, ItemLike result, ItemLike ingredient, @Nullable String group, int resultCount) {
     ResourceLocation location = ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, getConversionRecipeName(result, ingredient));
     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, resultCount)
       .requires(ingredient)

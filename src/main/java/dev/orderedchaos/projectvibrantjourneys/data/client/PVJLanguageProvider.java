@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.client;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -59,6 +60,8 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.DARK_OAK_HOLLOW_LOG.get(), "Dark Oak Hollow Log");
     this.add(PVJBlocks.CHERRY_HOLLOW_LOG.get(), "Cherry Hollow Log");
     this.add(PVJBlocks.MANGROVE_HOLLOW_LOG.get(), "Mangrove Hollow Log");
+
+    this.add(PVJItems.NETTLE_SOUP.get(), "Nettle Soup");
 
     this.add(PVJBlocks.POTTED_SMALL_CACTUS.get(), "Potted Small Cactus");
     this.add(PVJBlocks.POTTED_PRICKLY_BUSH.get(), "Potted Prickly Bush");

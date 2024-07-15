@@ -12,6 +12,7 @@
   "block.projectvibrantjourneys.crimson_nettle": "Crimson Nettle",
   "block.projectvibrantjourneys.dark_oak_hollow_log": "Dark Oak Hollow Log",
   "block.projectvibrantjourneys.dead_fallen_leaves": "Dead Fallen Leaves",
+  "block.projectvibrantjourneys.dried_beached_kelp": "Dried Beached Kelp",
   "block.projectvibrantjourneys.ferrous_gravel": "Ferrous Gravel",
   "block.projectvibrantjourneys.gilded_gravel": "Gilded Gravel",
   "block.projectvibrantjourneys.glowcap": "Glowcap",
@@ -53,5 +54,6 @@
   "item.minecraft.potion.effect.long_glowing": "Potion of Glowing",
   "item.minecraft.splash_potion.effect.glowing": "Splash Potion of Glowing",
   "item.minecraft.splash_potion.effect.long_glowing": "Splash Potion of Glowing",
+  "item.projectvibrantjourneys.nettle_soup": "Nettle Soup",
   "itemGroup.projectvibrantjourneys": "Project: Vibrant Journeys"
 }
