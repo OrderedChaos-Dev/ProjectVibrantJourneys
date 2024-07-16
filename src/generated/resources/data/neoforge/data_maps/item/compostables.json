@@ -27,6 +27,9 @@
     "projectvibrantjourneys:glowing_blue_fungus": {
       "chance": 0.4
     },
+    "projectvibrantjourneys:huge_glowcap_block": {
+      "chance": 0.85
+    },
     "projectvibrantjourneys:light_brown_bark_mushroom": {
       "chance": 0.4
     },

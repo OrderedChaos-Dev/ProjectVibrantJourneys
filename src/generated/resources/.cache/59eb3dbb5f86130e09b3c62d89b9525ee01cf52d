@@ -1,4 +1,4 @@
-// 1.21	2024-07-15T22:36:02.9402577	Loot Tables
+// 1.21	2024-07-16T00:59:37.6151938	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -19,6 +19,7 @@ eafb74f091810ac505d1ba85204fabb75f5426d8 data/projectvibrantjourneys/loot_table/
 42a6718eb9b3119fa383bcfa0be9c6bbd99ebbd1 data/projectvibrantjourneys/loot_table/blocks/gilded_red_sand.json
 760640087ad363cee6a6dba88230492116455900 data/projectvibrantjourneys/loot_table/blocks/glowcap.json
 32d8551094b661b4a7267640cd7a6da6edfc98be data/projectvibrantjourneys/loot_table/blocks/glowing_blue_fungus.json
+46c10c357d6486e206a8b277feebfd6109f30613 data/projectvibrantjourneys/loot_table/blocks/huge_glowcap_block.json
 dcccd176836a845771e988d0c4e9897e6d5955bf data/projectvibrantjourneys/loot_table/blocks/ice_chunks.json
 20ce8d0504e52604a28f55eddb4d2a9abdfa53b4 data/projectvibrantjourneys/loot_table/blocks/icicle.json
 d0ea81ea151e686f1b3a3f48f156db0364f0deb1 data/projectvibrantjourneys/loot_table/blocks/jungle_hollow_log.json

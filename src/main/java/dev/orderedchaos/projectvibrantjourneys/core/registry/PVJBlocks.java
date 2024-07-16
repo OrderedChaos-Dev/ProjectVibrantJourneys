@@ -59,6 +59,16 @@ public class PVJBlocks {
     () -> new CindercaneBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_STEM).noCollission().randomTicks().instabreak().sound(SoundType.TWISTING_VINES).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
   public static final DeferredBlock<Block> GLOWCAP = registerBlock("glowcap",
     () -> new GlowcapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 12).pushReaction(PushReaction.DESTROY)));
+  public static final DeferredBlock<Block> GLOWCAP_BLOCK = registerBlock("huge_glowcap_block",
+    () -> new HugeMushroomBlock(
+      BlockBehaviour.Properties.of()
+        .mapColor(MapColor.COLOR_YELLOW)
+        .instrument(NoteBlockInstrument.BASS)
+        .strength(0.2F)
+        .lightLevel((state) -> 12)
+        .sound(SoundType.WOOD)
+    ));
+
 
   /* GROUNDCOVER */
   public static final DeferredBlock<Block> FALLEN_LEAVES = registerBlock("oak_fallen_leaves",

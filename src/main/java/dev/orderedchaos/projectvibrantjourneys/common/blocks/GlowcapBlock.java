@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJConfiguredFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -15,12 +16,7 @@ import net.neoforged.neoforge.common.util.TriState;
 public class GlowcapBlock extends MushroomBlock {
 
   public GlowcapBlock(BlockBehaviour.Properties props) {
-    super(null, props);
-  }
-
-  @Override
-  public boolean growMushroom(ServerLevel world, BlockPos pos, BlockState state, RandomSource rand) {
-    return false;
+    super(PVJConfiguredFeatures.HUGE_GLOWCAP, props);
   }
 
   @Override
@@ -33,15 +29,5 @@ public class GlowcapBlock extends MushroomBlock {
       TriState soilDecision = blockstate.canSustainPlant(worldIn, blockpos, Direction.UP, state);
       return soilDecision.isDefault() ? this.mayPlaceOn(blockstate, worldIn, blockpos) : soilDecision.isTrue();
     }
-  }
-
-  @Override
-  public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
-    return false;
-  }
-
-  @Override
-  public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state) {
-    return false;
   }
 }

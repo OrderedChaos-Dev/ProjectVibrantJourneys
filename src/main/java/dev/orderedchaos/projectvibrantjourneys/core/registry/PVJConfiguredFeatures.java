@@ -24,6 +24,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HugeMushroomBlock;
 import net.minecraft.world.level.block.PinkPetalsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -79,6 +80,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_NETTLE = createKey("crimson_nettle");
   public static final ResourceKey<ConfiguredFeature<?, ?>> CINDERCANE = createKey("cindercane");
   public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWCAP = createKey("glowcap");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> HUGE_GLOWCAP = createKey("huge_glowcap");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_FALLEN_TREE = createKey("oak_fallen_tree");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_FALLEN_TREE = createKey("birch_fallen_tree");
@@ -189,6 +191,16 @@ public class PVJConfiguredFeatures {
     register(context, CRIMSON_NETTLE, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(BlockStateProvider.simple(PVJBlocks.CRIMSON_NETTLE.get()), 8, 4));
     register(context, CINDERCANE, Feature.RANDOM_PATCH, columnPlantWithFluid(256, 7, 3, PVJBlocks.CINDERCANE.get(), Fluids.LAVA, Fluids.FLOWING_LAVA));
     register(context, GLOWCAP, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.GLOWCAP.get().defaultBlockState()));
+    register(context, HUGE_GLOWCAP, Feature.HUGE_RED_MUSHROOM, new HugeMushroomFeatureConfiguration(
+      BlockStateProvider.simple(PVJBlocks.GLOWCAP_BLOCK.get().defaultBlockState().setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))),
+      BlockStateProvider.simple(
+        Blocks.MUSHROOM_STEM
+          .defaultBlockState()
+          .setValue(HugeMushroomBlock.UP, Boolean.valueOf(false))
+          .setValue(HugeMushroomBlock.DOWN, Boolean.valueOf(false))
+      ),
+      3
+    ));
 
     register(context, OAK_FALLEN_TREE, PVJFeatures.FALLEN_TREE.get(), fallenTreeConfig(PVJBlocks.OAK_HOLLOW_LOG.get(), Blocks.OAK_LOG, BASIC_FALLEN_TREE_VEGETATION, true));
     register(context, BIRCH_FALLEN_TREE, PVJFeatures.FALLEN_TREE.get(), fallenTreeConfig(PVJBlocks.BIRCH_HOLLOW_LOG.get(), Blocks.BIRCH_LOG, BASIC_FALLEN_TREE_VEGETATION, true));

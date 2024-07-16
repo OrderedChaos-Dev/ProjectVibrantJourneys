@@ -81,6 +81,8 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropOther(PVJBlocks.BEACHED_KELP.get(), Items.KELP);
     this.dropOther(PVJBlocks.DRIED_BEACHED_KELP.get(), Items.DRIED_KELP);
 
+    this.add(PVJBlocks.GLOWCAP_BLOCK.get(), block -> this.createMushroomBlockDrop(block, PVJBlocks.GLOWCAP.get()));
+
     this.add(PVJBlocks.CATTAIL.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
     this.add(PVJBlocks.SEA_OATS.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
     this.add(PVJBlocks.REEDS.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
