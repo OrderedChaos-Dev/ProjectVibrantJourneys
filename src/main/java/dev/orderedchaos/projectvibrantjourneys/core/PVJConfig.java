@@ -52,6 +52,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableBetterRuinedNetherPortals;
     public static ModConfigSpec.BooleanValue enableWatergrass;
     public static ModConfigSpec.BooleanValue enableGravelPits;
+    public static ModConfigSpec.BooleanValue enableGoldPits;
     public static ModConfigSpec.BooleanValue enableBeachedKelp;
     public static ModConfigSpec.BooleanValue enableDriedBeachedKelp;
 
@@ -88,6 +89,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue betterRuinedNetherPortalsWeight;
     public static ModConfigSpec.DoubleValue watergrassWeight;
     public static ModConfigSpec.DoubleValue gravelPitWeight;
+    public static ModConfigSpec.DoubleValue goldPitWeight;
     public static ModConfigSpec.DoubleValue beachedKelpWeight;
     public static ModConfigSpec.DoubleValue driedBeachedKelpWeight;
 
@@ -123,6 +125,7 @@ public class PVJConfig
         assignWeightedConfigValues("enableSandySprouts", enableSandySprouts, "sandySproutsWeight", sandySproutsWeight, "Enable generation of sandy sprouts");
         assignWeightedConfigValues("enableWatergrass", enableWatergrass, "watergrassWeight", watergrassWeight, "Enable generation of watergrass");
         assignWeightedConfigValues("enableGravelPits", enableGravelPits, "gravelPitWeight", gravelPitWeight, "Enable generation of gravel pits");
+        assignWeightedConfigValues("enableGoldPits", enableGoldPits, "goldPitWeight", goldPitWeight, "Enable generation of gold pits");
         assignWeightedConfigValues("enableBeachedKelp", enableBeachedKelp, "beachedKelpWeight", beachedKelpWeight, "Enable generation of beached kelp");
         assignWeightedConfigValues("enableExtraLilypads", enableExtraLilypads, "extraLilypadsWeight", extraLilypadsWeight, "Enable generation of extra lilypads in lakes");
         assignWeightedConfigValues("enableExtraSeagrass", enableExtraSeagrass, "extraSeagrassWeight", extraSeagrassWeight, "Enable generation of extra seagrass in lakes");

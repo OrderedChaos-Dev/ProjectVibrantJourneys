@@ -50,6 +50,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.WATERGRASS.get(), "Watergrass");
     this.add(PVJBlocks.FERROUS_GRAVEL.get(), "Ferrous Gravel");
     this.add(PVJBlocks.GILDED_GRAVEL.get(), "Gilded Gravel");
+    this.add(PVJBlocks.GILDED_RED_SAND.get(), "Gilded Red Sand");
     this.add(PVJBlocks.BEACHED_KELP.get(), "Beached Kelp");
     this.add(PVJBlocks.DRIED_BEACHED_KELP.get(), "Dried Beached Kelp");
 

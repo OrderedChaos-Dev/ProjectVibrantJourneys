@@ -168,8 +168,11 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
     this.tag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_AXE).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(PVJBlocks.ICICLE.get());
-    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
+    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get(), PVJBlocks.GILDED_RED_SAND.get());
     this.tag(Tags.Blocks.GRAVELS).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
+    this.tag(BlockTags.SAND).add(PVJBlocks.GILDED_RED_SAND.get());
+    this.tag(Tags.Blocks.SANDS).add(PVJBlocks.GILDED_RED_SAND.get());
+    this.tag(Tags.Blocks.SANDS_RED).add(PVJBlocks.GILDED_RED_SAND.get());
     this.tag(BlockTags.SWORD_EFFICIENT)
       .addTag(PVJTags.FALLEN_LEAVES)
       .add(

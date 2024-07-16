@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.tags;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
 import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -29,5 +30,6 @@ public class PVJItemTagsProvider extends ItemTagsProvider {
     this.copy(PVJTags.HOLLOW_LOGS, ItemTags.LOGS_THAT_BURN);
     this.tag(ItemTags.CREEPER_IGNITERS).add(PVJBlocks.CINDERCANE.asItem());
     this.tag(ItemTags.CAMEL_FOOD).add(PVJBlocks.SMALL_CACTUS.asItem());
+    this.tag(Tags.Items.FOODS_SOUPS).add(PVJItems.NETTLE_SOUP.get());
   }
 }

@@ -128,6 +128,18 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
               LootItem.lootTableItem(Items.RAW_GOLD).apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))))
       )
     );
+    this.add(
+      PVJBlocks.GILDED_RED_SAND.get(),
+      block -> this.createSilkTouchDispatchTable(block,
+        this.applyExplosionCondition(block, LootItem.lootTableItem(Blocks.RED_SAND))
+      ).withPool(
+        LootPool.lootPool()
+          .when(this.doesNotHaveSilkTouch())
+          .add(
+            this.applyExplosionCondition(block,
+              LootItem.lootTableItem(Items.RAW_GOLD).apply(ApplyBonusCount.addOreBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))))
+      )
+    );
 
     this.dropPottedContents(PVJBlocks.POTTED_CINDERCANE.get());
     this.dropPottedContents(PVJBlocks.POTTED_SMALL_CACTUS.get());

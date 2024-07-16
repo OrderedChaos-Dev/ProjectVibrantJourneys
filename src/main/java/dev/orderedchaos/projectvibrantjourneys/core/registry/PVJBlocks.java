@@ -99,12 +99,17 @@ public class PVJBlocks {
                   BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.6F).sound(SoundType.GRAVEL)
           )
   );
-
   public static final DeferredBlock<Block> GILDED_GRAVEL = registerBlock("gilded_gravel",
           () -> new ColoredFallingBlock(
                   new ColorRGBA(-8356741),
                   BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.SNARE).strength(0.6F).sound(SoundType.GRAVEL)
           )
+  );
+  public static final DeferredBlock<Block> GILDED_RED_SAND = registerBlock("gilded_red_sand",
+    () -> new ColoredFallingBlock(
+      new ColorRGBA(11098145),
+      BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)
+    )
   );
 
   /* MISC */

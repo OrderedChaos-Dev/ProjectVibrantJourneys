@@ -84,6 +84,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> EXTRA_GRASS = createKey("extra_grass");
   public static final ResourceKey<PlacedFeature> TIDE_POOL = createKey("tide_pool");
   public static final ResourceKey<PlacedFeature> GRAVEL_PIT = createKey("gravel_pit");
+  public static final ResourceKey<PlacedFeature> GOLD_PIT = createKey("gold_pit");
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -133,6 +134,7 @@ public class PVJPlacements {
     register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5), ChancePlacementFilter.of("sandySproutsWeight"));
     register(context, WATERGRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.WATERGRASS), onceEvery(1), ChancePlacementFilter.of("watergrassWeight"));
     register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("gravelPitWeight"));
+    register(context, GOLD_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GOLD_PIT), RarityFilter.onAverageOnceEvery(30), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(63), VerticalAnchor.absolute(73)),  InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("goldPitWeight"));
     register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("beachedKelpWeight"));
     register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2), ChancePlacementFilter.of("driedBeachedKelpWeight"));
 

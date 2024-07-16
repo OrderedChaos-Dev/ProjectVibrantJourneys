@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "#minecraft:is_badlands"
+  ],
+  "blacklist": [],
+  "configOption": "enableGoldPits",
+  "decoration": "lakes",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:gold_pit"
+}
