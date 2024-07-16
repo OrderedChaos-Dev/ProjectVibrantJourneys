@@ -45,6 +45,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> BEACHED_KELP = createKey("beached_kelp");
   public static final ResourceKey<PlacedFeature> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
   public static final ResourceKey<PlacedFeature> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
+  public static final ResourceKey<PlacedFeature> CHERRY_GROVE_BAMBOO = createKey("cherry_grove_bamboo");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -140,6 +141,7 @@ public class PVJPlacements {
     register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("beachedKelpWeight"));
     register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2), ChancePlacementFilter.of("driedBeachedKelpWeight"));
     register(context, GLOWING_BLUE_FUNGUS, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWING_BLUE_FUNGUS), CountPlacement.of(50), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-64), VerticalAnchor.absolute(63)), BiomeFilter.biome(), ChancePlacementFilter.of("glowingBlueFungusWeight"));
+    register(context, CHERRY_GROVE_BAMBOO, holderGetter.getOrThrow(VegetationFeatures.BAMBOO_NO_PODZOL), CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("cherryGroveBambooWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

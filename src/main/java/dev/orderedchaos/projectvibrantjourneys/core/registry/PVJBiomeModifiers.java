@@ -12,6 +12,7 @@ import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
@@ -95,6 +96,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.BEACHED_KELP, new PVJBiomeModifier.Builder(context, "enableBeachedKelp").extraBiomes(Biomes.BEACH));
     addBiomeModifier(context, PVJPlacements.DRIED_BEACHED_KELP, new PVJBiomeModifier.Builder(context, "enableDriedBeachedKelp").extraBiomes(Biomes.BEACH));
     addBiomeModifier(context, PVJPlacements.GLOWING_BLUE_FUNGUS, new PVJBiomeModifier.Builder(context, "enableGlowingBlueFungus").extraBiomes(Biomes.DEEP_DARK));
+    addBiomeModifier(context, PVJPlacements.CHERRY_GROVE_BAMBOO, new PVJBiomeModifier.Builder(context, "enableCherryGroveBamboo").extraBiomes(Biomes.CHERRY_GROVE));
 
     addBiomeModifier(context, PVJPlacements.OAK_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_OAK_LOGS)));
     addBiomeModifier(context, PVJPlacements.BIRCH_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_BIRCH_LOGS)));
