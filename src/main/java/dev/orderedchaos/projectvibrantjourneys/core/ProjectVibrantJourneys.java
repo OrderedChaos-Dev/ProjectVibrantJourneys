@@ -50,6 +50,7 @@ public class ProjectVibrantJourneys {
         PVJBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(modEventBus);
         PVJConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
         PVJPlacementModifiers.PLACEMENT_MODIFIERS.register(modEventBus);
+        PVJMobEffects.MOB_EFFECTS.register(modEventBus);
         PVJPotions.POTIONS.register(modEventBus);
         PVJCreativeTabs.CREATIVE_MODE_TABS.register(modEventBus);
 

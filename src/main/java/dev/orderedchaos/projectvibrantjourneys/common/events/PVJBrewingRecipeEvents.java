@@ -18,5 +18,9 @@ public class PVJBrewingRecipeEvents {
     PotionBrewing.Builder builder = event.getBuilder();
     builder.addMix(Potions.AWKWARD, PVJBlocks.GLOWCAP.asItem(), PVJPotions.GLOWING);
     builder.addMix(PVJPotions.GLOWING, Items.REDSTONE, PVJPotions.LONG_GLOWING);
+
+    builder.addMix(Potions.AWKWARD, PVJBlocks.GLOWING_BLUE_FUNGUS.asItem(), PVJPotions.SPORADIC_SILENCE);
+    builder.addMix(PVJPotions.SPORADIC_SILENCE, Items.REDSTONE, PVJPotions.LONG_SPORADIC_SILENCE);
+    builder.addMix(PVJPotions.SPORADIC_SILENCE, Items.GLOWSTONE_DUST, PVJPotions.STRONG_SPORADIC_SILENCE);
   }
 }

@@ -62,6 +62,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> WATERGRASS = createKey("watergrass");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BEACHED_KELP = createKey("beached_kelp");
   public static final ResourceKey<ConfiguredFeature<?, ?>> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TWIGS = createKey("birch_twigs");
@@ -171,6 +172,7 @@ public class PVJConfiguredFeatures {
     register(context, WATERGRASS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.WATERGRASS.get().defaultBlockState()));
     register(context, BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.BEACHED_KELP.get().defaultBlockState()));
     register(context, DRIED_BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.DRIED_BEACHED_KELP.get().defaultBlockState()));
+    register(context, GLOWING_BLUE_FUNGUS, PVJFeatures.GLOWING_BLUE_FUNGUS.get(), NoneFeatureConfiguration.INSTANCE);
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, BIRCH_TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.BIRCH_TWIGS.get()));

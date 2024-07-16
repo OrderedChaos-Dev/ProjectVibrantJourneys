@@ -18,6 +18,7 @@ public class PVJFeatures {
 
   public static final DeferredHolder<Feature<?>, Feature<RandomPatchConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(RandomPatchConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkMushroomFeature(NoneFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> GLOWING_BLUE_FUNGUS = registerFeature("glowing_blue_fungus", new GlowingBlueFungusFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<FallenTreeConfiguration>> FALLEN_TREE = registerFeature("fallen_tree", new FallenTreeFeature(FallenTreeConfiguration.CODEC));

@@ -3,6 +3,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.client;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJMobEffects;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -72,11 +73,23 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.POTTED_WARPED_NETTLE.get(), "Potted Warped Nettle");
     this.add(PVJBlocks.POTTED_CINDERCANE.get(), "Potted Cindercane");
 
+    this.add(PVJMobEffects.SPORADIC_SILENCE.get(), "Sporadic Silence");
+
     this.add("item.minecraft.potion.effect.glowing", "Potion of Glowing");
     this.add("item.minecraft.splash_potion.effect.glowing", "Splash Potion of Glowing");
     this.add("item.minecraft.lingering_potion.effect.glowing", "Lingering Potion of Glowing");
     this.add("item.minecraft.potion.effect.long_glowing", "Potion of Glowing");
     this.add("item.minecraft.splash_potion.effect.long_glowing", "Splash Potion of Glowing");
     this.add("item.minecraft.lingering_potion.effect.long_glowing", "Lingering Potion of Glowing");
+
+    this.add("item.minecraft.potion.effect.sporadic_silence", "Potion of Sporadic Silence");
+    this.add("item.minecraft.splash_potion.effect.sporadic_silence", "Splash Potion of Sporadic Silence");
+    this.add("item.minecraft.lingering_potion.effect.sporadic_silence", "Lingering Potion of Sporadic Silence");
+    this.add("item.minecraft.potion.effect.long_sporadic_silence", "Potion of Sporadic Silence");
+    this.add("item.minecraft.splash_potion.effect.long_sporadic_silence", "Splash Potion of Sporadic Silence");
+    this.add("item.minecraft.lingering_potion.effect.long_sporadic_silence", "Lingering Potion of Sporadic Silence");
+    this.add("item.minecraft.potion.effect.strong_sporadic_silence", "Potion of Sporadic Silence");
+    this.add("item.minecraft.splash_potion.effect.strong_sporadic_silence", "Splash Potion of Sporadic Silence");
+    this.add("item.minecraft.lingering_potion.effect.strong_sporadic_silence", "Lingering Potion of Sporadic Silence");
   }
 }

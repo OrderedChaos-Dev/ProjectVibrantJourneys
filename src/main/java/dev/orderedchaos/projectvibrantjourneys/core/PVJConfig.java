@@ -55,6 +55,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableGoldPits;
     public static ModConfigSpec.BooleanValue enableBeachedKelp;
     public static ModConfigSpec.BooleanValue enableDriedBeachedKelp;
+    public static ModConfigSpec.BooleanValue enableGlowingBlueFungus;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -92,6 +93,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue goldPitWeight;
     public static ModConfigSpec.DoubleValue beachedKelpWeight;
     public static ModConfigSpec.DoubleValue driedBeachedKelpWeight;
+    public static ModConfigSpec.DoubleValue glowingBlueFungusWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -134,7 +136,8 @@ public class PVJConfig
         assignWeightedConfigValues("enableTidePools", enableTidePools, "tidePoolsWeight", tidePoolsWeight, "Enable of tide pools in stony shores");
         assignWeightedConfigValues("enableCaveRoots", enableCaveRoots, "caveRootsWeight", caveRootsWeight, "Enable cave roots");
         assignWeightedConfigValues("enableBetterRuinedNetherPortals", enableBetterRuinedNetherPortals, "betterRuinedNetherPortalsWeight", betterRuinedNetherPortalsWeight, "Enable better ruined nether portals");
-        assignWeightedConfigValues("enableDriedBeachedKelp", enableDriedBeachedKelp, "driedBeachedKelpWeight", driedBeachedKelpWeight, "Enable generation from dried beached kelp");
+        assignWeightedConfigValues("enableDriedBeachedKelp", enableDriedBeachedKelp, "driedBeachedKelpWeight", driedBeachedKelpWeight, "Enable generation of dried beached kelp");
+        assignWeightedConfigValues("enableGlowingBlueFungus", enableGlowingBlueFungus, "glowingBlueFungusWeight", glowingBlueFungusWeight, "Enable generation of glowing blue fungus");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");

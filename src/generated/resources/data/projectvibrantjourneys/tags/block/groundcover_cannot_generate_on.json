@@ -20,6 +20,7 @@
     "minecraft:chiseled_deepslate",
     "minecraft:polished_deepslate",
     "minecraft:cobbled_deepslate",
+    "minecraft:reinforced_deepslate",
     "minecraft:note_block",
     "minecraft:copper_block",
     "minecraft:cut_copper",
@@ -69,6 +70,8 @@
     "#c:ores",
     "#c:storage_blocks",
     "#minecraft:fences",
-    "#minecraft:fence_gates"
+    "#minecraft:fence_gates",
+    "#minecraft:stairs",
+    "#minecraft:stairs"
   ]
 }

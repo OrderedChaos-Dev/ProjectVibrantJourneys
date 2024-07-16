@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -34,6 +35,6 @@ public class GlowingFungusBlock extends EpiphyteBlock {
   @Override
   public boolean canAttachTo(BlockGetter world, BlockPos pos, Direction direction) {
     BlockState blockstate = world.getBlockState(pos);
-    return (blockstate.is(BlockTags.STONE_ORE_REPLACEABLES) || blockstate.is(Tags.Blocks.STONES)) && Block.isFaceFull(world.getBlockState(pos).getCollisionShape(world, pos), direction);
+    return blockstate.is(Blocks.SCULK) && Block.isFaceFull(world.getBlockState(pos).getCollisionShape(world, pos), direction);
   }
 }

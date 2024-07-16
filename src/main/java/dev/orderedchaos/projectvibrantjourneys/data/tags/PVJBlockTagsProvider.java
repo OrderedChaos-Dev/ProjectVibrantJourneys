@@ -102,6 +102,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       Blocks.CHISELED_DEEPSLATE,
       Blocks.POLISHED_DEEPSLATE,
       Blocks.COBBLED_DEEPSLATE,
+      Blocks.REINFORCED_DEEPSLATE,
       Blocks.NOTE_BLOCK,
       Blocks.COPPER_BLOCK,
       Blocks.CUT_COPPER,
@@ -152,7 +153,9 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       Tags.Blocks.ORES,
       Tags.Blocks.STORAGE_BLOCKS,
       BlockTags.FENCES,
-      BlockTags.FENCE_GATES
+      BlockTags.FENCE_GATES,
+      BlockTags.STAIRS,
+      BlockTags.STAIRS
     );
 
     this.tag(BlockTags.LOGS).addTag(PVJTags.HOLLOW_LOGS);
