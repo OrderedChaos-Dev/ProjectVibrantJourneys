@@ -6,6 +6,9 @@
     "projectvibrantjourneys:beach_grass": {
       "chance": 0.25
     },
+    "projectvibrantjourneys:birch_twigs": {
+      "chance": 0.1
+    },
     "projectvibrantjourneys:cattail": {
       "chance": 0.65
     },

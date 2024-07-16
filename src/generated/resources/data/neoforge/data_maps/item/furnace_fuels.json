@@ -9,6 +9,9 @@
     "projectvibrantjourneys:birch_hollow_log": {
       "burn_time": 300
     },
+    "projectvibrantjourneys:birch_twigs": {
+      "burn_time": 100
+    },
     "projectvibrantjourneys:cherry_hollow_log": {
       "burn_time": 300
     },

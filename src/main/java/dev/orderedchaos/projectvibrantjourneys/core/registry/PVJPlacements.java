@@ -46,6 +46,7 @@ public class PVJPlacements {
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
+  public static final ResourceKey<PlacedFeature> BIRCH_TWIGS = createKey("birch_twigs");
   public static final ResourceKey<PlacedFeature> FALLEN_LEAVES = createKey("fallen_leaves");
   public static final ResourceKey<PlacedFeature> DEAD_FALLEN_LEAVES = createKey("dead_fallen_leaves");
   public static final ResourceKey<PlacedFeature> DENSE_DEAD_FALLEN_LEAVES = createKey("dense_dead_fallen_leaves");
@@ -98,6 +99,7 @@ public class PVJPlacements {
     register(context, REEDS, holderGetter.getOrThrow(PVJConfiguredFeatures.REEDS), onceEvery(1), ChancePlacementFilter.of("reedsWeight"));
     register(context, PRICKLY_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.PRICKLY_BUSH), onceEvery(2), ChancePlacementFilter.of("pricklyBushWeight"));
     register(context, TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.TWIGS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("twigsWeight"));
+    register(context, BIRCH_TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_TWIGS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("twigsWeight"));
     register(context, FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
     register(context, DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
     register(context, DENSE_DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(6), ChancePlacementFilter.of("fallenLeavesWeight"));

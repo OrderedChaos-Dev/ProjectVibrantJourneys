@@ -37,6 +37,7 @@ public class PVJRecipes extends RecipeProvider  {
     oneToOneShapelessRecipe(recipeOutput, Items.BONE, PVJBlocks.BONES.get(), "bone");
     oneToOneShapelessRecipe(recipeOutput, Items.BONE, PVJBlocks.CHARRED_BONES.get(), "bone");
     oneToOneShapelessRecipe(recipeOutput, Items.STICK, PVJBlocks.TWIGS.get(), "stick");
+    oneToOneShapelessRecipe(recipeOutput, Items.STICK, PVJBlocks.BIRCH_TWIGS.get(), "stick");
     oneToOneShapelessRecipe(recipeOutput, Items.PRISMARINE_SHARD, PVJBlocks.SEASHELLS.get(), "prismarine_shard");
 
     oneToOneShapelessRecipe(recipeOutput, Items.OAK_PLANKS, PVJBlocks.OAK_HOLLOW_LOG.get(), 2);

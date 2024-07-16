@@ -25,6 +25,7 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setCompostInfo(compostables, PVJBlocks.FALLEN_LEAVES.get(), 0.1F);
     setCompostInfo(compostables, PVJBlocks.DEAD_FALLEN_LEAVES.get(), 0.1F);
     setCompostInfo(compostables, PVJBlocks.TWIGS.get(), 0.1F);
+    setCompostInfo(compostables, PVJBlocks.BIRCH_TWIGS.get(), 0.1F);
     setCompostInfo(compostables, PVJBlocks.PINECONES.get(), 0.1F);
     setCompostInfo(compostables, PVJBlocks.SEA_OATS.get(), 0.65F);
     setCompostInfo(compostables, PVJBlocks.CATTAIL.get(), 0.65F);
@@ -51,6 +52,7 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.GLOWING_BLUE_FUNGUS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.CINDERCANE.get(), 800);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.TWIGS.get(), 100);
+    setFurnaceFuelInfo(furnaceFuels, PVJBlocks.BIRCH_TWIGS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.PINECONES.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.OAK_HOLLOW_LOG.get(), 300);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.BIRCH_HOLLOW_LOG.get(), 300);

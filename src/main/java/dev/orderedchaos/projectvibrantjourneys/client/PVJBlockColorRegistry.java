@@ -20,6 +20,7 @@ public class PVJBlockColorRegistry {
   @SubscribeEvent
   public static void onColorHandlerEventBlock(RegisterColorHandlersEvent.Block event) {
     event.register(getFoliageColor(), PVJBlocks.TWIGS.get());
+    event.register(getBirchColor(), PVJBlocks.BIRCH_TWIGS.get());
     event.register(getFoliageColor(), PVJBlocks.FALLEN_LEAVES.get());
     event.register(getGrassColor(), PVJBlocks.SHORT_GRASS.get());
     event.register(getGrassColor(), PVJBlocks.SANDY_SPROUTS.get());
@@ -51,5 +52,9 @@ public class PVJBlockColorRegistry {
     return (state, world, pos, tintIndex) -> (world != null && pos != null)
       ? BiomeColors.getAverageFoliageColor(world, pos)
       : FoliageColor.getDefaultColor();
+  }
+
+  private static BlockColor getBirchColor() {
+    return (state, world, pos, tintIndex) -> FoliageColor.getBirchColor();
   }
 }

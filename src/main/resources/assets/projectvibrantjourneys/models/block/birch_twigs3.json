@@ -1,0 +1,9 @@
+{
+  "parent": "projectvibrantjourneys:block/twigs3",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "block/birch_log",
+    "0": "block/birch_log",
+    "1": "block/birch_leaves"
+  }
+}

@@ -38,6 +38,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.SANDSTONE_ROCKS.get(),
       PVJBlocks.RED_SANDSTONE_ROCKS.get(),
       PVJBlocks.TWIGS.get(),
+      PVJBlocks.BIRCH_TWIGS.get(),
       PVJBlocks.BONES.get(),
       PVJBlocks.CHARRED_BONES.get(),
       PVJBlocks.ICE_CHUNKS.get(),

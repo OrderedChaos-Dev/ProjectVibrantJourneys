@@ -17,6 +17,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add("itemGroup.projectvibrantjourneys", "Project: Vibrant Journeys");
 
     this.add(PVJBlocks.TWIGS.get(), "Twigs");
+    this.add(PVJBlocks.BIRCH_TWIGS.get(), "Birch Twigs");
     this.add(PVJBlocks.ROCKS.get(), "Rocks");
     this.add(PVJBlocks.MOSSY_ROCKS.get(), "Mossy Rocks");
     this.add(PVJBlocks.SANDSTONE_ROCKS.get(), "Sandstone Rocks");

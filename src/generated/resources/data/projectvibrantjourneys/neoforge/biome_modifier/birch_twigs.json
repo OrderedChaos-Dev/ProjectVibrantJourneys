@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "#projectvibrantjourneys:has_logs/birch"
+  ],
+  "blacklist": [],
+  "configOption": "enableTwigs",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:birch_twigs"
+}

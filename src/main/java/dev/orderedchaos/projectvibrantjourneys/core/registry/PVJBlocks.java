@@ -67,6 +67,8 @@ public class PVJBlocks {
     () -> new FallenLeavesBlock(Block.Properties.of().mapColor(MapColor.COLOR_BROWN).noCollission().strength(0.1F, 0.0F).ignitedByLava().sound(SoundType.GRASS).noOcclusion().pushReaction(PushReaction.DESTROY)));
   public static final DeferredBlock<Block> TWIGS = registerBlock("twigs",
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.CROP, true)));
+  public static final DeferredBlock<Block> BIRCH_TWIGS = registerBlock("birch_twigs",
+    () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.CROP, true)));
   public static final DeferredBlock<Block> ROCKS = registerBlock("rocks",
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.STONE, false)));
   public static final DeferredBlock<Block> MOSSY_ROCKS = registerBlock("mossy_rocks",

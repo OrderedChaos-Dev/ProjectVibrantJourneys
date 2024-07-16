@@ -64,6 +64,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TWIGS = createKey("birch_twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LEAVES = createKey("fallen_leaves");
   public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_FALLEN_LEAVES = createKey("dead_fallen_leaves");
   public static final ResourceKey<ConfiguredFeature<?, ?>> PINECONES = createKey("pinecones");
@@ -171,6 +172,7 @@ public class PVJConfiguredFeatures {
     register(context, DRIED_BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.DRIED_BEACHED_KELP.get().defaultBlockState()));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
+    register(context, BIRCH_TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.BIRCH_TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
     register(context, DEAD_FALLEN_LEAVES, Feature.RANDOM_PATCH, deadFallenLeavesConfig(3, 7, 3, PVJBlocks.DEAD_FALLEN_LEAVES.get().defaultBlockState()));
     register(context, PINECONES, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get()));

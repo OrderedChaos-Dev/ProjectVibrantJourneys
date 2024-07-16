@@ -41,6 +41,7 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
   protected void generate() {
     HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
     this.dropSelf(PVJBlocks.TWIGS.get());
+    this.dropSelf(PVJBlocks.BIRCH_TWIGS.get());
     this.dropSelf(PVJBlocks.ROCKS.get());
     this.dropSelf(PVJBlocks.MOSSY_ROCKS.get());
     this.dropSelf(PVJBlocks.SANDSTONE_ROCKS.get());

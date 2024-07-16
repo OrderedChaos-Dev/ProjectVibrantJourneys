@@ -60,6 +60,7 @@ public class PVJBiomeModifiers {
 
   public static void bootstrapBiomeModifiers(BootstrapContext<BiomeModifier> context) {
     addBiomeModifier(context, PVJPlacements.TWIGS, new PVJBiomeModifier.Builder(context, "enableTwigs").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
+    addBiomeModifier(context, PVJPlacements.BIRCH_TWIGS, new PVJBiomeModifier.Builder(context, "enableTwigs").tag(List.of(PVJTags.HAS_BIRCH_LOGS)));
     addBiomeModifier(context, PVJPlacements.FALLEN_LEAVES, new PVJBiomeModifier.Builder(context, "enableFallenLeaves").tag(overworld()).blacklist(desert(), oceanOrBeach(), mushroom()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
     addBiomeModifier(context, PVJPlacements.DEAD_FALLEN_LEAVES, new PVJBiomeModifier.Builder(context, "enableFallenLeaves").extraBiomes(Biomes.WOODED_BADLANDS));
     addBiomeModifier(context, PVJPlacements.DENSE_DEAD_FALLEN_LEAVES, new PVJBiomeModifier.Builder(context, "enableFallenLeaves").extraBiomes(Biomes.OLD_GROWTH_PINE_TAIGA, Biomes.OLD_GROWTH_SPRUCE_TAIGA));
