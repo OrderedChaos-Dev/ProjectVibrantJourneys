@@ -98,6 +98,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> GOLD_PIT = createKey("gold_pit");
   public static final ResourceKey<ConfiguredFeature<?, ?>> MUDDY_BONES = createKey("muddy_bones");
   public static final ResourceKey<ConfiguredFeature<?, ?>> LOTUS_POND = createKey("lotus_pond");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRINGS = createKey("hot_springs");
 
   public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -235,6 +236,7 @@ public class PVJConfiguredFeatures {
     register(context, GOLD_PIT, PVJFeatures.GOLD_PIT.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, MUDDY_BONES, PVJFeatures.MUDDY_BONES.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, LOTUS_POND, PVJFeatures.LOTUS_POND.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, HOT_SPRINGS, PVJFeatures.HOT_SPRINGS.get(), NoneFeatureConfiguration.INSTANCE);
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
