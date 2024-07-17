@@ -65,6 +65,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> CHARRED_BONES = createKey("charred_bones");
   public static final ResourceKey<PlacedFeature> CAVE_BONES = createKey("cave_bones");
   public static final ResourceKey<PlacedFeature> CAVE_ROCKS = createKey("cave_rocks");
+  public static final ResourceKey<PlacedFeature> NETHER_BONES = createKey("nether_bones");
 
   /* NETHER PLANTS */
   public static final ResourceKey<PlacedFeature> WARPED_NETTLE = createKey("warped_nettle");
@@ -118,6 +119,7 @@ public class PVJPlacements {
     register(context, ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("rocksWeight"));
     register(context, ICE_CHUNKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ICE_CHUNKS), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("iceChunksWeight"));
     register(context, BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("bonesWeight"));
+    register(context, NETHER_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(80), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("bonesWeight"));
     register(context, CHARRED_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.CHARRED_BONES), RarityFilter.onAverageOnceEvery(2), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("charredBonesWeight"));
     register(context, CAVE_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(100), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("bonesWeight"));
     register(context, CAVE_ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), CountPlacement.of(250), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("rocksWeight"));

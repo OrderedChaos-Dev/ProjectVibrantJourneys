@@ -115,6 +115,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.CINDERCANE, new PVJBiomeModifier.Builder(context, "enableCindercane").dimension(Dimension.NETHER).tag(List.of(BiomeTags.IS_NETHER)));
     addBiomeModifier(context, PVJPlacements.WARPED_NETTLE, new PVJBiomeModifier.Builder(context, "enableNetherNettles").dimension(Dimension.NETHER).extraBiomes(Biomes.WARPED_FOREST));
     addBiomeModifier(context, PVJPlacements.CRIMSON_NETTLE, new PVJBiomeModifier.Builder(context, "enableNetherNettles").dimension(Dimension.NETHER).extraBiomes(Biomes.CRIMSON_FOREST));
+    addBiomeModifier(context, PVJPlacements.NETHER_BONES, new PVJBiomeModifier.Builder(context, "enableBones").dimension(Dimension.NETHER).extraBiomes(Biomes.SOUL_SAND_VALLEY));
   }
 
   public static void bootstrapSpawnModifiers(BootstrapContext<BiomeModifier> context) {
