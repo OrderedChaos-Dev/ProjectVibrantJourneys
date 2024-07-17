@@ -152,7 +152,7 @@ public class PVJPlacements {
     register(context, MUDDY_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.MUDDY_BONES), worldSurfaceSquaredWithCount(5), RandomOffsetPlacement.vertical(UniformInt.of(-5, 0)), ChancePlacementFilter.of("muddyBonesWeight"));
     register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("lotusPondWeight"));
     register(context, FLOATING_PINK_LOTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.FLOATING_PINK_LOTUS), worldSurfaceSquaredWithCount(4), ChancePlacementFilter.of("floatingPinkLotusWeight"));
-    register(context, HOT_SPRINGS, holderGetter.getOrThrow(PVJConfiguredFeatures.HOT_SPRINGS), RarityFilter.onAverageOnceEvery(150), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("hotSpringsWeight"));
+    register(context, HOT_SPRINGS, holderGetter.getOrThrow(PVJConfiguredFeatures.HOT_SPRINGS), RarityFilter.onAverageOnceEvery(90), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("hotSpringsWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }
