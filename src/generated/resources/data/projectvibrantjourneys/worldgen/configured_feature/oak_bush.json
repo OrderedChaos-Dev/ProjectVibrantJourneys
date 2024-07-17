@@ -1,0 +1,19 @@
+{
+  "type": "projectvibrantjourneys:bush",
+  "config": {
+    "leaves": {
+      "Name": "minecraft:oak_leaves",
+      "Properties": {
+        "distance": "7",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    },
+    "log": {
+      "Name": "minecraft:oak_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

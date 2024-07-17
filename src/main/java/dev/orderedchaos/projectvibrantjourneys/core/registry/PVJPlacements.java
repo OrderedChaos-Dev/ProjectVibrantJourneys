@@ -48,6 +48,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
   public static final ResourceKey<PlacedFeature> CHERRY_GROVE_BAMBOO = createKey("cherry_grove_bamboo");
   public static final ResourceKey<PlacedFeature> FLOATING_PINK_LOTUS = createKey("floating_pink_lotus");
+  public static final ResourceKey<PlacedFeature> OAK_BUSH = createKey("oak_bush");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -153,6 +154,7 @@ public class PVJPlacements {
     register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("lotusPondWeight"));
     register(context, FLOATING_PINK_LOTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.FLOATING_PINK_LOTUS), worldSurfaceSquaredWithCount(4), ChancePlacementFilter.of("floatingPinkLotusWeight"));
     register(context, HOT_SPRINGS, holderGetter.getOrThrow(PVJConfiguredFeatures.HOT_SPRINGS), RarityFilter.onAverageOnceEvery(90), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("hotSpringsWeight"));
+    register(context, OAK_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_BUSH), worldSurfaceSquaredWithCount(2), RarityFilter.onAverageOnceEvery(12), ChancePlacementFilter.of("bushWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

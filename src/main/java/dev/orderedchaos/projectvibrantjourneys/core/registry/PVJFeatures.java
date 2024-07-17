@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.*;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.BushConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.stateproviders.DirectionalStateProvider;
@@ -32,6 +33,7 @@ public class PVJFeatures {
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> LOTUS_POND = registerFeature("lotus_pond", new LotusPondFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> FLOATING_PINK_LOTUS = registerFeature("floating_pink_lotus", new FloatingPinkLotusFeature(ProbabilityFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> HOT_SPRINGS = registerFeature("hot_springs", new HotSpringsFeature(NoneFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<BushConfiguration>> BUSH = registerFeature("bush", new BushFeature(BushConfiguration.CODEC));
 
   private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
     return FEATURES.register(name, () -> feature);

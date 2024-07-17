@@ -61,6 +61,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableLotusPonds;
     public static ModConfigSpec.BooleanValue enableFloatingPinkLotus;
     public static ModConfigSpec.BooleanValue enableHotSprings;
+    public static ModConfigSpec.BooleanValue enableBushes;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -104,6 +105,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue lotusPondWeight;
     public static ModConfigSpec.DoubleValue floatingPinkLotusWeight;
     public static ModConfigSpec.DoubleValue hotSpringsWeight;
+    public static ModConfigSpec.DoubleValue bushWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -153,6 +155,7 @@ public class PVJConfig
         assignWeightedConfigValues("enableLotusPonds", enableLotusPonds, "lotusPondWeight", lotusPondWeight, "Enable generation of lotus ponds in cherry groves");
         assignWeightedConfigValues("enableFloatingPinkLotus", enableFloatingPinkLotus, "floatingPinkLotusWeight", floatingPinkLotusWeight, "Enable generation of pink lotuses in flower forests");
         assignWeightedConfigValues("enableHotSprings", enableHotSprings, "hotSpringsWeight", hotSpringsWeight, "Enable generation of hot springs");
+        assignWeightedConfigValues("enableBushes", enableBushes, "bushWeight", bushWeight, "Enable generation of bushes");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");
