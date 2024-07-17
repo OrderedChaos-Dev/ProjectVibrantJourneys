@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "projectvibrantjourneys:floating_pink_lotus",
+        "config": {
+          "probability": 0.5
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:matching_blocks",
+            "blocks": "minecraft:air"
+          }
+        }
+      ]
+    },
+    "tries": 24,
+    "xz_spread": 7,
+    "y_spread": 3
+  }
+}

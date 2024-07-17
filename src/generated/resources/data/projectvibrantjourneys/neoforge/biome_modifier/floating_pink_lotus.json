@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "minecraft:flower_forest"
+  ],
+  "blacklist": [],
+  "configOption": "enableFloatingPinkLotus",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:floating_pink_lotus"
+}

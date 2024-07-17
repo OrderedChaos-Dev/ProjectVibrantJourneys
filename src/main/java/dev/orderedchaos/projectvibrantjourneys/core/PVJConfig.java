@@ -59,6 +59,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableCherryGroveBamboo;
     public static ModConfigSpec.BooleanValue enableMuddyBones;
     public static ModConfigSpec.BooleanValue enableLotusPonds;
+    public static ModConfigSpec.BooleanValue enableFloatingPinkLotus;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -100,6 +101,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue cherryGroveBambooWeight;
     public static ModConfigSpec.DoubleValue muddyBonesWeight;
     public static ModConfigSpec.DoubleValue lotusPondWeight;
+    public static ModConfigSpec.DoubleValue floatingPinkLotusWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -147,6 +149,7 @@ public class PVJConfig
         assignWeightedConfigValues("enableCherryGroveBamboo", enableCherryGroveBamboo, "cherryGroveBambooWeight", cherryGroveBambooWeight, "Enable generation of bamboo in cherry groves");
         assignWeightedConfigValues("enableMuddyBones", enableMuddyBones, "muddyBonesWeight", muddyBonesWeight, "Enable generation of muddy bones");
         assignWeightedConfigValues("enableLotusPonds", enableLotusPonds, "lotusPondWeight", lotusPondWeight, "Enable generation of lotus ponds in cherry groves");
+        assignWeightedConfigValues("enableFloatingPinkLotus", enableFloatingPinkLotus, "floatingPinkLotusWeight", floatingPinkLotusWeight, "Enable generation of pink lotuses in flower forests");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");
@@ -160,7 +163,6 @@ public class PVJConfig
         if (specComment != null) {
             BUILDER.comment(specComment);
         }
-
         spec = BUILDER.define(name, true);
         if (weightSpecComment != null) {
             BUILDER.comment(weightSpecComment);

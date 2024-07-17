@@ -1,18 +1,26 @@
 package dev.orderedchaos.projectvibrantjourneys.common.world.features;
 
 import com.mojang.serialization.Codec;
+import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJConfiguredFeatures;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.neoforged.neoforge.common.Tags;
+
+import java.util.Optional;
 
 public class LotusPondFeature extends Feature<NoneFeatureConfiguration> {
   private static final BlockState AIR = Blocks.CAVE_AIR.defaultBlockState();
@@ -26,9 +34,7 @@ public class LotusPondFeature extends Feature<NoneFeatureConfiguration> {
     BlockPos blockpos = pContext.origin();
     WorldGenLevel worldgenlevel = pContext.level();
     RandomSource randomsource = pContext.random();
-    if (blockpos.getY() > 73) {
-      return false; // hardcoding height restriction because placement filter doesn't work for some reason
-    }
+    ChunkGenerator generator = pContext.chunkGenerator();
     if (blockpos.getY() <= worldgenlevel.getMinBuildHeight() + 4) {
       return false;
     } else {
@@ -100,6 +106,10 @@ public class LotusPondFeature extends Feature<NoneFeatureConfiguration> {
                   this.markAboveForPostProcessing(worldgenlevel, blockpos1);
                   if (randomsource.nextFloat() < 0.25F && worldgenlevel.getFluidState(blockpos1.below()).is(Tags.Fluids.WATER)) {
                     worldgenlevel.setBlock(blockpos1, PVJBlocks.PINK_LOTUS.get().defaultBlockState(), 2);
+                  }
+                  if (randomsource.nextFloat() <= 0.3F && PVJConfig.configOptions.get("enableWatergrass").getFirst().get()) {
+                    Optional<? extends Holder<ConfiguredFeature<?, ?>>> watergrassFeature = worldgenlevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(PVJConfiguredFeatures.WATERGRASS);
+                    watergrassFeature.ifPresent((feature) -> feature.value().place(worldgenlevel, generator, randomsource, blockpos1));
                   }
                 }
               }

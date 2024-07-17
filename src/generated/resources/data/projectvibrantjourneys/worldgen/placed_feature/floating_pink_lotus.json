@@ -1,9 +1,9 @@
 {
-  "feature": "projectvibrantjourneys:lotus_pond",
+  "feature": "projectvibrantjourneys:floating_pink_lotus",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 3
+      "type": "minecraft:count",
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
@@ -17,7 +17,7 @@
     },
     {
       "type": "projectvibrantjourneys:chance",
-      "weightConfigSpec": "lotusPondWeight"
+      "weightConfigSpec": "floatingPinkLotusWeight"
     }
   ]
 }

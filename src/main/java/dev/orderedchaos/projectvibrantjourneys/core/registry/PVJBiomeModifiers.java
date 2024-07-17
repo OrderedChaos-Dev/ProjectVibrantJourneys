@@ -99,6 +99,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.CHERRY_GROVE_BAMBOO, new PVJBiomeModifier.Builder(context, "enableCherryGroveBamboo").extraBiomes(Biomes.CHERRY_GROVE));
     addBiomeModifier(context, PVJPlacements.MUDDY_BONES, new PVJBiomeModifier.Builder(context, "enableMuddyBones").extraBiomes(Biomes.MANGROVE_SWAMP));
     addBiomeModifier(context, PVJPlacements.LOTUS_POND, new PVJBiomeModifier.Builder(context, "enableLotusPonds").decoration(GenerationStep.Decoration.LAKES).extraBiomes(Biomes.CHERRY_GROVE));
+    addBiomeModifier(context, PVJPlacements.FLOATING_PINK_LOTUS, new PVJBiomeModifier.Builder(context, "enableFloatingPinkLotus").extraBiomes(Biomes.FLOWER_FOREST));
 
     addBiomeModifier(context, PVJPlacements.OAK_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_OAK_LOGS)));
     addBiomeModifier(context, PVJPlacements.BIRCH_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_BIRCH_LOGS)));

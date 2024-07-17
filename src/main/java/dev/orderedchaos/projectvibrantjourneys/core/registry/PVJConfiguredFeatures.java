@@ -64,6 +64,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> BEACHED_KELP = createKey("beached_kelp");
   public static final ResourceKey<ConfiguredFeature<?, ?>> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
   public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> FLOATING_PINK_LOTUS = createKey("floating_pink_lotus");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TWIGS = createKey("birch_twigs");
@@ -177,6 +178,7 @@ public class PVJConfiguredFeatures {
     register(context, BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.BEACHED_KELP.get().defaultBlockState()));
     register(context, DRIED_BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.DRIED_BEACHED_KELP.get().defaultBlockState()));
     register(context, GLOWING_BLUE_FUNGUS, PVJFeatures.GLOWING_BLUE_FUNGUS.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, FLOATING_PINK_LOTUS, Feature.RANDOM_PATCH, new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(PVJFeatures.FLOATING_PINK_LOTUS.get(), new ProbabilityFeatureConfiguration(0.5F))));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, BIRCH_TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.BIRCH_TWIGS.get()));

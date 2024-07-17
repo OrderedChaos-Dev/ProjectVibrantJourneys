@@ -30,6 +30,7 @@ public class PVJFeatures {
   public static final DeferredHolder<Feature<?>, Feature<BlockStateConfiguration>> BEACHED_KELP = registerFeature("beached_kelp", new BeachedKelpFeature(BlockStateConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> MUDDY_BONES = registerFeature("muddy_bones", new MuddyBonesFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> LOTUS_POND = registerFeature("lotus_pond", new LotusPondFeature(NoneFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> FLOATING_PINK_LOTUS = registerFeature("floating_pink_lotus", new FloatingPinkLotusFeature(ProbabilityFeatureConfiguration.CODEC));
 
   private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
     return FEATURES.register(name, () -> feature);
