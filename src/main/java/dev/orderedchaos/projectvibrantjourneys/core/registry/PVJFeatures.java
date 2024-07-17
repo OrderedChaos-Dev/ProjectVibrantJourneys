@@ -28,6 +28,7 @@ public class PVJFeatures {
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> GRAVEL_PIT = registerFeature("gravel_pit", new GravelPitFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> GOLD_PIT = registerFeature("gold_pit", new GoldPitFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<BlockStateConfiguration>> BEACHED_KELP = registerFeature("beached_kelp", new BeachedKelpFeature(BlockStateConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> MUDDY_BONES = registerFeature("muddy_bones", new MuddyBonesFeature(NoneFeatureConfiguration.CODEC));
 
   private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
     return FEATURES.register(name, () -> feature);

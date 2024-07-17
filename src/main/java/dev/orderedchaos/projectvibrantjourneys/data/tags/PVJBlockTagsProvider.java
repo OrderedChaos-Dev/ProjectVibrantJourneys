@@ -6,6 +6,7 @@ import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -171,7 +172,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
     this.tag(BlockTags.MUSHROOM_GROW_BLOCK).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_AXE).addTag(PVJTags.HOLLOW_LOGS);
     this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(PVJBlocks.ICICLE.get());
-    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get(), PVJBlocks.GILDED_RED_SAND.get());
+    this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get(), PVJBlocks.GILDED_RED_SAND.get(), PVJBlocks.MUDDY_BONES.get());
     this.tag(Tags.Blocks.GRAVELS).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
     this.tag(BlockTags.SAND).add(PVJBlocks.GILDED_RED_SAND.get());
     this.tag(Tags.Blocks.SANDS).add(PVJBlocks.GILDED_RED_SAND.get());

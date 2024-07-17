@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "model=0,facing=north": {
+      "model": "projectvibrantjourneys:block/muddy_bones0"
+    },
+    "model=1,facing=north": {
+      "model": "projectvibrantjourneys:block/muddy_bones1"
+    },
+    "model=2,facing=north": {
+      "model": "projectvibrantjourneys:block/muddy_bones2"
+    },
+    "model=0,facing=east": {
+      "model": "projectvibrantjourneys:block/muddy_bones0",
+      "y": 90
+    },
+    "model=1,facing=east": {
+      "model": "projectvibrantjourneys:block/muddy_bones1",
+      "y": 90
+    },
+    "model=2,facing=east": {
+      "model": "projectvibrantjourneys:block/muddy_bones2",
+      "y": 90
+    },
+    "model=0,facing=south": {
+      "model": "projectvibrantjourneys:block/muddy_bones0",
+      "y": 180
+    },
+    "model=1,facing=south": {
+      "model": "projectvibrantjourneys:block/muddy_bones1",
+      "y": 180
+    },
+    "model=2,facing=south": {
+      "model": "projectvibrantjourneys:block/muddy_bones2",
+      "y": 180
+    },
+    "model=0,facing=west": {
+      "model": "projectvibrantjourneys:block/muddy_bones0",
+      "y": 270
+    },
+    "model=1,facing=west": {
+      "model": "projectvibrantjourneys:block/muddy_bones1",
+      "y": 270
+    },
+    "model=2,facing=west": {
+      "model": "projectvibrantjourneys:block/muddy_bones2",
+      "y": 270
+    }
+  }
+}

@@ -57,6 +57,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableDriedBeachedKelp;
     public static ModConfigSpec.BooleanValue enableGlowingBlueFungus;
     public static ModConfigSpec.BooleanValue enableCherryGroveBamboo;
+    public static ModConfigSpec.BooleanValue enableMuddyBones;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -96,6 +97,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue driedBeachedKelpWeight;
     public static ModConfigSpec.DoubleValue glowingBlueFungusWeight;
     public static ModConfigSpec.DoubleValue cherryGroveBambooWeight;
+    public static ModConfigSpec.DoubleValue muddyBonesWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -141,6 +143,7 @@ public class PVJConfig
         assignWeightedConfigValues("enableDriedBeachedKelp", enableDriedBeachedKelp, "driedBeachedKelpWeight", driedBeachedKelpWeight, "Enable generation of dried beached kelp");
         assignWeightedConfigValues("enableGlowingBlueFungus", enableGlowingBlueFungus, "glowingBlueFungusWeight", glowingBlueFungusWeight, "Enable generation of glowing blue fungus");
         assignWeightedConfigValues("enableCherryGroveBamboo", enableCherryGroveBamboo, "cherryGroveBambooWeight", cherryGroveBambooWeight, "Enable generation of bamboo in cherry groves");
+        assignWeightedConfigValues("enableMuddyBones", enableMuddyBones, "muddyBonesWeight", muddyBonesWeight, "Enable generation of muddy bones");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");

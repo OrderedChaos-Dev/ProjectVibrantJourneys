@@ -1,4 +1,4 @@
-// 1.21	2024-07-16T00:59:37.6151938	Loot Tables
+// 1.21	2024-07-16T17:03:59.1464981	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -26,6 +26,7 @@ d0ea81ea151e686f1b3a3f48f156db0364f0deb1 data/projectvibrantjourneys/loot_table/
 f6d9b24fd01ebda4539ea996c3c7b48fdffdb557 data/projectvibrantjourneys/loot_table/blocks/light_brown_bark_mushroom.json
 a97b7bda98d3f095d7cff90a0e5ce4752fd7d886 data/projectvibrantjourneys/loot_table/blocks/mangrove_hollow_log.json
 982d7593abbf3061c9318bd1adbee84009fa142b data/projectvibrantjourneys/loot_table/blocks/mossy_rocks.json
+8c1342cb08afa958aba528029e0c16f6f56bc5d7 data/projectvibrantjourneys/loot_table/blocks/muddy_bones.json
 b8d78e7553c629ea466f1d1ccb098ec639ce1564 data/projectvibrantjourneys/loot_table/blocks/natural_cobweb.json
 cdd3fce174f04ac75b632194152ad5b26ab22b3e data/projectvibrantjourneys/loot_table/blocks/oak_fallen_leaves.json
 33f4917533c8c35e25d1e0481a5a134410465e6c data/projectvibrantjourneys/loot_table/blocks/oak_hollow_log.json

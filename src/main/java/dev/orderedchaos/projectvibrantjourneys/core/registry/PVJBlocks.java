@@ -2,11 +2,15 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.*;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.ColorRGBA;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -49,6 +53,10 @@ public class PVJBlocks {
     () -> new SandySproutsBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT));
   public static final DeferredBlock<Block> WATERGRASS = registerBlock("watergrass",
           () -> new DoubleHighWaterPlantBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT, false));
+  public static final DeferredBlock<Block> BEACHED_KELP = registerBlockWithoutItem("beached_kelp",
+    () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
+  public static final DeferredBlock<Block> DRIED_BEACHED_KELP = registerBlockWithoutItem("dried_beached_kelp",
+    () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",
@@ -68,7 +76,6 @@ public class PVJBlocks {
         .lightLevel((state) -> 12)
         .sound(SoundType.WOOD)
     ));
-
 
   /* GROUNDCOVER */
   public static final DeferredBlock<Block> FALLEN_LEAVES = registerBlock("oak_fallen_leaves",
@@ -98,11 +105,7 @@ public class PVJBlocks {
   public static final DeferredBlock<Block> SEASHELLS = registerBlock("seashells",
     () -> new GroundcoverBlock(BlockBehaviorTemplates.groundcover(SoundType.STONE, false)));
 
-  public static final DeferredBlock<Block> BEACHED_KELP = registerBlockWithoutItem("beached_kelp",
-          () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
-  public static final DeferredBlock<Block> DRIED_BEACHED_KELP = registerBlockWithoutItem("dried_beached_kelp",
-          () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
-
+  /* RESOURCE BLOCKS */
   public static final DeferredBlock<Block> FERROUS_GRAVEL = registerBlock("ferrous_gravel",
           () -> new ColoredFallingBlock(
                   new ColorRGBA(-8356741),
@@ -121,11 +124,23 @@ public class PVJBlocks {
       BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.SNARE).strength(0.5F).sound(SoundType.SAND)
     )
   );
+  public static final DeferredBlock<Block> MUDDY_BONES = registerBlock("muddy_bones",
+    () -> new MuddyBonesBlock(
+      BlockBehaviour.Properties.ofLegacyCopy(Blocks.DIRT)
+        .mapColor(MapColor.TERRACOTTA_CYAN)
+        .isValidSpawn(BlockBehaviorTemplates::always)
+        .isRedstoneConductor(BlockBehaviorTemplates::always)
+        .isViewBlocking(BlockBehaviorTemplates::always)
+        .isSuffocating(BlockBehaviorTemplates::always)
+        .sound(SoundType.MUD)
+    )
+  );
 
   /* MISC */
   public static final DeferredBlock<Block> NATURAL_COBWEB = registerBlockWithoutItem("natural_cobweb",
     NaturalCobwebBlock::new);
 
+  /* HOLLOW LOGS */
   public static final DeferredBlock<Block> OAK_HOLLOW_LOG = registerBlock("oak_hollow_log",
     () -> new HollowLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
   public static final DeferredBlock<Block> BIRCH_HOLLOW_LOG = registerBlock("birch_hollow_log",
@@ -143,6 +158,7 @@ public class PVJBlocks {
   public static final DeferredBlock<Block> MANGROVE_HOLLOW_LOG = registerBlock("mangrove_hollow_log",
     () -> new HollowLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MANGROVE_LOG)));
 
+  /* POTTED PLANTS */
   public static final DeferredBlock<Block> POTTED_GLOWCAP = registerBlockWithoutItem("potted_glowcap",
     () -> createFlowerPot(GLOWCAP.get()));
   public static final DeferredBlock<Block> POTTED_CRIMSON_NETTLE = registerBlockWithoutItem("potted_crimson_nettle",
@@ -213,6 +229,14 @@ public class PVJBlocks {
       }
 
       return groundcover;
+    }
+
+    public static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
+      return true;
+    }
+
+    public static boolean always(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType) {
+      return true;
     }
   }
 }

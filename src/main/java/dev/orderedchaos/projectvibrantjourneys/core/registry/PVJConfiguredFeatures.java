@@ -95,6 +95,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> TIDE_POOL = createKey("tide_pool");
   public static final ResourceKey<ConfiguredFeature<?, ?>> GRAVEL_PIT = createKey("gravel_pit");
   public static final ResourceKey<ConfiguredFeature<?, ?>> GOLD_PIT = createKey("gold_pit");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MUDDY_BONES = createKey("muddy_bones");
 
   public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -229,6 +230,7 @@ public class PVJConfiguredFeatures {
       UniformInt.of(2, 3), 0.7F));
     register(context, GRAVEL_PIT, PVJFeatures.GRAVEL_PIT.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, GOLD_PIT, PVJFeatures.GOLD_PIT.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, MUDDY_BONES, PVJFeatures.MUDDY_BONES.get(), NoneFeatureConfiguration.INSTANCE);
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {

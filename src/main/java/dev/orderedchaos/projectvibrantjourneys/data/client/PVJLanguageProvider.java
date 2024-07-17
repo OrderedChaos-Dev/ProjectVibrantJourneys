@@ -55,6 +55,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.BEACHED_KELP.get(), "Beached Kelp");
     this.add(PVJBlocks.DRIED_BEACHED_KELP.get(), "Dried Beached Kelp");
     this.add(PVJBlocks.GLOWCAP_BLOCK.get(), "Glowcap Block");
+    this.add(PVJBlocks.MUDDY_BONES.get(), "Muddy Bones");
 
     this.add(PVJBlocks.OAK_HOLLOW_LOG.get(), "Oak Hollow Log");
     this.add(PVJBlocks.BIRCH_HOLLOW_LOG.get(), "Birch Hollow Log");
