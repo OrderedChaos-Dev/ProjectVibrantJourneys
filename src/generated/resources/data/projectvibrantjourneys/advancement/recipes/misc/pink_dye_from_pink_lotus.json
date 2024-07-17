@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_lotus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:pink_lotus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:pink_dye_from_pink_lotus"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_lotus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:pink_dye_from_pink_lotus"
+    ]
+  }
+}

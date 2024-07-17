@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "projectvibrantjourneys:block/pink_lotus"
+      },
+      {
+        "model": "projectvibrantjourneys:block/pink_lotus",
+        "y": 90
+      },
+      {
+        "model": "projectvibrantjourneys:block/pink_lotus",
+        "y": 180
+      },
+      {
+        "model": "projectvibrantjourneys:block/pink_lotus",
+        "y": 270
+      }
+    ]
+  }
+}

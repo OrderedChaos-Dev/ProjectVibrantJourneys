@@ -42,6 +42,9 @@
     "projectvibrantjourneys:pinecones": {
       "chance": 0.1
     },
+    "projectvibrantjourneys:pink_lotus": {
+      "chance": 0.5
+    },
     "projectvibrantjourneys:prickly_bush": {
       "chance": 0.2
     },

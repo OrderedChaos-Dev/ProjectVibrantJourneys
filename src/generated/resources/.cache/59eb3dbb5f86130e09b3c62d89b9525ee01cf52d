@@ -1,4 +1,4 @@
-// 1.21	2024-07-16T17:03:59.1464981	Loot Tables
+// 1.21	2024-07-16T21:08:28.0084931	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -32,6 +32,7 @@ cdd3fce174f04ac75b632194152ad5b26ab22b3e data/projectvibrantjourneys/loot_table/
 33f4917533c8c35e25d1e0481a5a134410465e6c data/projectvibrantjourneys/loot_table/blocks/oak_hollow_log.json
 6dad9b091bb37f89db37dc0da39e5c9c5e31c9b6 data/projectvibrantjourneys/loot_table/blocks/orange_bark_mushroom.json
 b0d3ddd306c9abf890c253e6cdf7db7157831409 data/projectvibrantjourneys/loot_table/blocks/pinecones.json
+c31cfb3b645a57d31d8e87f4ebbf7bc7bbda5b3d data/projectvibrantjourneys/loot_table/blocks/pink_lotus.json
 e83771131e19786ea179bfd6f1502a0160975c5a data/projectvibrantjourneys/loot_table/blocks/potted_cindercane.json
 992f77c526d6b7f3e234fc18e073f0bbc9a01cea data/projectvibrantjourneys/loot_table/blocks/potted_crimson_nettle.json
 5715db21c0e6af1d649c0b735a2ff919ca1c2932 data/projectvibrantjourneys/loot_table/blocks/potted_glowcap.json

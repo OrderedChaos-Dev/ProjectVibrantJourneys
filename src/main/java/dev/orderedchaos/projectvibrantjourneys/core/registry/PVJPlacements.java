@@ -47,6 +47,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
   public static final ResourceKey<PlacedFeature> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
   public static final ResourceKey<PlacedFeature> CHERRY_GROVE_BAMBOO = createKey("cherry_grove_bamboo");
+  public static final ResourceKey<PlacedFeature> PINK_LOTUS = createKey("cherry_grove_bamboo");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -90,6 +91,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> GRAVEL_PIT = createKey("gravel_pit");
   public static final ResourceKey<PlacedFeature> GOLD_PIT = createKey("gold_pit");
   public static final ResourceKey<PlacedFeature> MUDDY_BONES = createKey("muddy_bones");
+  public static final ResourceKey<PlacedFeature> LOTUS_POND = createKey("lotus_pond");
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -138,13 +140,14 @@ public class PVJPlacements {
     register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("tidePoolsWeight"));
     register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5), ChancePlacementFilter.of("sandySproutsWeight"));
     register(context, WATERGRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.WATERGRASS), onceEvery(1), ChancePlacementFilter.of("watergrassWeight"));
-    register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("gravelPitWeight"));
-    register(context, GOLD_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GOLD_PIT), RarityFilter.onAverageOnceEvery(30), CountPlacement.of(1), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(63), VerticalAnchor.absolute(73)),  InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("goldPitWeight"));
+    register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("gravelPitWeight"));
+    register(context, GOLD_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GOLD_PIT), RarityFilter.onAverageOnceEvery(30), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(63), VerticalAnchor.absolute(73)),  InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("goldPitWeight"));
     register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("beachedKelpWeight"));
     register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2), ChancePlacementFilter.of("driedBeachedKelpWeight"));
     register(context, GLOWING_BLUE_FUNGUS, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWING_BLUE_FUNGUS), CountPlacement.of(50), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-64), VerticalAnchor.absolute(63)), BiomeFilter.biome(), ChancePlacementFilter.of("glowingBlueFungusWeight"));
     register(context, CHERRY_GROVE_BAMBOO, holderGetter.getOrThrow(VegetationFeatures.BAMBOO_NO_PODZOL), CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("cherryGroveBambooWeight"));
     register(context, MUDDY_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.MUDDY_BONES), worldSurfaceSquaredWithCount(5), RandomOffsetPlacement.vertical(UniformInt.of(-5, 0)), ChancePlacementFilter.of("muddyBonesWeight"));
+    register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), RarityFilter.onAverageOnceEvery(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("lotusPondWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

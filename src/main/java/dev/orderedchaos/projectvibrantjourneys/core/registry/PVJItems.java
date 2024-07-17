@@ -7,6 +7,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PlaceOnWaterBlockItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -18,6 +19,8 @@ public class PVJItems {
   public static final ArrayList<DeferredItem<?>> ITEMS_FOR_CREATIVE_TAB = new ArrayList<>();
 
   public static final DeferredItem<Item> NETTLE_SOUP = register("nettle_soup", () -> new Item(new Item.Properties().stacksTo(1).food(Foods.NETTLE_SOUP)));
+
+  public static final DeferredItem<Item> PINK_LOTUS = register("pink_lotus", () -> new PlaceOnWaterBlockItem(PVJBlocks.PINK_LOTUS.get(), new Item.Properties()));
 
   public static DeferredItem<Item> register(String name, Supplier<Item> itemSupplier) {
     DeferredItem<Item> item = ITEMS.register(name, itemSupplier);

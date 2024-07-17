@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "minecraft:cherry_grove"
+  ],
+  "blacklist": [],
+  "configOption": "enableLotusPonds",
+  "decoration": "lakes",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:lotus_pond"
+}

@@ -57,6 +57,8 @@ public class PVJBlocks {
     () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
   public static final DeferredBlock<Block> DRIED_BEACHED_KELP = registerBlockWithoutItem("dried_beached_kelp",
     () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
+  public static final DeferredBlock<Block> PINK_LOTUS = registerBlockWithoutItem("pink_lotus",
+    () -> new LotusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",

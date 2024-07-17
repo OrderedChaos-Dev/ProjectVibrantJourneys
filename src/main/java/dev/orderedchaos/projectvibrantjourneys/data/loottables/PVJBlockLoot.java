@@ -69,6 +69,7 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropSelf(PVJBlocks.CHERRY_HOLLOW_LOG.get());
     this.dropSelf(PVJBlocks.MANGROVE_HOLLOW_LOG.get());
     this.dropSelf(PVJBlocks.ICICLE.get());
+    this.dropSelf(PVJBlocks.PINK_LOTUS.get());
 
     this.add(PVJBlocks.BEACH_GRASS.get(), BlockLootSubProvider::createShearsOnlyDrop);
     this.add(PVJBlocks.FALLEN_LEAVES.get(), BlockLootSubProvider::createShearsOnlyDrop);

@@ -1,9 +1,9 @@
 {
-  "feature": "projectvibrantjourneys:gravel_pit",
+  "feature": "projectvibrantjourneys:lotus_pond",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 20
+      "chance": 5
     },
     {
       "type": "minecraft:in_square"
@@ -17,7 +17,7 @@
     },
     {
       "type": "projectvibrantjourneys:chance",
-      "weightConfigSpec": "gravelPitWeight"
+      "weightConfigSpec": "lotusPondWeight"
     }
   ]
 }

@@ -13,8 +13,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.features.AquaticFeatures;
-import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.features.*;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -30,6 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
@@ -96,6 +96,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> GRAVEL_PIT = createKey("gravel_pit");
   public static final ResourceKey<ConfiguredFeature<?, ?>> GOLD_PIT = createKey("gold_pit");
   public static final ResourceKey<ConfiguredFeature<?, ?>> MUDDY_BONES = createKey("muddy_bones");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LOTUS_POND = createKey("lotus_pond");
 
   public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -231,6 +232,7 @@ public class PVJConfiguredFeatures {
     register(context, GRAVEL_PIT, PVJFeatures.GRAVEL_PIT.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, GOLD_PIT, PVJFeatures.GOLD_PIT.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, MUDDY_BONES, PVJFeatures.MUDDY_BONES.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, LOTUS_POND, PVJFeatures.LOTUS_POND.get(), NoneFeatureConfiguration.INSTANCE);
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
