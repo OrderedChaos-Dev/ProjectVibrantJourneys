@@ -59,6 +59,18 @@ public class PVJBlocks {
     () -> new BeachedKelpBlock(BlockBehaviorTemplates.REPLACEABLE_PLANT.sound(SoundType.WET_GRASS).offsetType(BlockBehaviour.OffsetType.NONE)));
   public static final DeferredBlock<Block> PINK_LOTUS = registerBlockWithoutItem("pink_lotus",
     () -> new LotusBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noCollission().noOcclusion().pushReaction(PushReaction.DESTROY)));
+  public static final DeferredBlock<Block> YELLOW_WILDFLOWERS = registerBlock("yellow_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> ORANGE_WILDFLOWERS = registerBlock("orange_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> BLUE_WILDFLOWERS = registerBlock("blue_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> PURPLE_WILDFLOWERS = registerBlock("purple_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> WHITE_WILDFLOWERS = registerBlock("white_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> MIXED_WILDFLOWERS = registerBlock("mixed_wildflowers",
+    () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",
@@ -205,6 +217,11 @@ public class PVJBlocks {
       .instabreak()
       .sound(SoundType.WOOD)
       .destroyTime(0.2F);
+    public static final BlockBehaviour.Properties WILDFLOWERS = BlockBehaviour.Properties.of()
+      .mapColor(MapColor.PLANT)
+      .noCollission()
+      .sound(SoundType.PINK_PETALS)
+      .pushReaction(PushReaction.DESTROY);
 
     public static BlockBehaviour.Properties replaceablePlant(@Nullable MapColor mapColorOverride) {
       return BlockBehaviour.Properties.of()

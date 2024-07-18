@@ -17,7 +17,7 @@
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 15
+      "chance": 12
     },
     {
       "type": "projectvibrantjourneys:chance",

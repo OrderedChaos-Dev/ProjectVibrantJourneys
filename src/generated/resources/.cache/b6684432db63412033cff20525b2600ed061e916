@@ -1,4 +1,4 @@
-// 1.21	2024-07-16T17:03:59.1490077	Tags for minecraft:block mod id projectvibrantjourneys
+// 1.21	2024-07-18T00:49:12.7522372	Tags for minecraft:block mod id projectvibrantjourneys
 97a56113914dadaab1bdcdf472144039f027a2ce data/c/tags/block/gravels.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/c/tags/block/sands.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/c/tags/block/sands/red.json
@@ -10,13 +10,13 @@ ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/mineable/axe.
 0d1e8e16e7efeba4e7e6b9368bb5bab5a6915895 data/minecraft/tags/block/mineable/shovel.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/mushroom_grow_block.json
 629ff570bef2024491bad88e286c69a97851c10d data/minecraft/tags/block/replaceable.json
-5d0890a1a1e39edf0bea5c5b362060b4fe0ec0fd data/minecraft/tags/block/replaceable_by_trees.json
+5650e6483254b92bee35f7714b6379b956f4d3ab data/minecraft/tags/block/replaceable_by_trees.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/minecraft/tags/block/sand.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/snaps_goat_horn.json
-baf9b1201a011bef1b5d9918f1991f5805bb0320 data/minecraft/tags/block/sword_efficient.json
+3a5c53ffc52b331399920aac63cb9a8a36fe9184 data/minecraft/tags/block/sword_efficient.json
 03af28e3382dccb0a1e66537b2e7af7af7ddc753 data/projectvibrantjourneys/tags/block/cindercane_grows_on.json
 f98fe9263df6815973e30fc33438618de9a67773 data/projectvibrantjourneys/tags/block/fallen_leaves.json
 309653f3a7851aea31f3e969ab42ec7356e095fb data/projectvibrantjourneys/tags/block/groundcover.json
 2d3c66b694d81eab5ab71149a210a3716f45bbe9 data/projectvibrantjourneys/tags/block/groundcover_cannot_generate_on.json
-e43762f80b1dd1d973042af71188b895ace01d17 data/projectvibrantjourneys/tags/block/grows_on_hollow_log.json
+e225947fbccf070d7572c6745f20e25b97c27b50 data/projectvibrantjourneys/tags/block/grows_on_hollow_log.json
 a45d48223caf2dd148986f60e30b0c94e88f5bb5 data/projectvibrantjourneys/tags/block/hollow_logs.json

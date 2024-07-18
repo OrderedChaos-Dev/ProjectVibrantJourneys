@@ -102,6 +102,18 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.FLOATING_PINK_LOTUS, new PVJBiomeModifier.Builder(context, "enableFloatingPinkLotus").extraBiomes(Biomes.FLOWER_FOREST));
     addBiomeModifier(context, PVJPlacements.HOT_SPRINGS, new PVJBiomeModifier.Builder(context, "enableHotSprings").tag(List.of(BiomeTags.IS_TAIGA)));
     addBiomeModifier(context, PVJPlacements.OAK_BUSH, new PVJBiomeModifier.Builder(context, "enableBushes").tag(plainsType()));
+    addBiomeModifier(context, PVJPlacements.YELLOW_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.ORANGE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.BLUE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.PURPLE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.WHITE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.MIXED_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.MEADOW));
+    addBiomeModifier(context, PVJPlacements.MANY_YELLOW_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.MANY_ORANGE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.MANY_BLUE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.MANY_PURPLE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.MANY_WHITE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.MANY_MIXED_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
 
     addBiomeModifier(context, PVJPlacements.OAK_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_OAK_LOGS)));
     addBiomeModifier(context, PVJPlacements.BIRCH_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_BIRCH_LOGS)));

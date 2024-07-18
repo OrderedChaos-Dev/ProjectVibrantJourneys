@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orange_wildflowers": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:orange_wildflowers"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:orange_dye_from_orange_wildflowers"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange_wildflowers"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:orange_dye_from_orange_wildflowers"
+    ]
+  }
+}

@@ -107,9 +107,14 @@ public class LotusPondFeature extends Feature<NoneFeatureConfiguration> {
                   if (randomsource.nextFloat() < 0.25F && worldgenlevel.getFluidState(blockpos1.below()).is(Tags.Fluids.WATER)) {
                     worldgenlevel.setBlock(blockpos1, PVJBlocks.PINK_LOTUS.get().defaultBlockState(), 2);
                   }
-                  if (randomsource.nextFloat() <= 0.3F && PVJConfig.configOptions.get("enableWatergrass").getFirst().get()) {
-                    Optional<? extends Holder<ConfiguredFeature<?, ?>>> watergrassFeature = worldgenlevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(PVJConfiguredFeatures.WATERGRASS);
-                    watergrassFeature.ifPresent((feature) -> feature.value().place(worldgenlevel, generator, randomsource, blockpos1));
+                } else {
+                  if (
+                    PVJConfig.configOptions.get("enableWatergrass").getFirst().get()
+                      && worldgenlevel.isEmptyBlock(blockpos1.above())
+                      && worldgenlevel.getBlockState(blockpos1.below()).is(BlockTags.DIRT)
+                      && randomsource.nextFloat() <= 0.7F
+                  ) {
+                    worldgenlevel.setBlock(blockpos1, PVJBlocks.WATERGRASS.get().defaultBlockState(), 2);
                   }
                 }
               }
@@ -134,7 +139,7 @@ public class LotusPondFeature extends Feature<NoneFeatureConfiguration> {
               BlockState blockstate = worldgenlevel.getBlockState(blockpos.offset(j2, l3, j3));
               if (blockstate.isSolid() && !blockstate.is(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE)) {
                 BlockPos blockpos3 = blockpos.offset(j2, l3, j3);
-                if (worldgenlevel.isEmptyBlock(blockpos3.above())) {
+                if (worldgenlevel.getBlockState(blockpos3.above()).canBeReplaced()) {
                   worldgenlevel.setBlock(blockpos3, Blocks.GRASS_BLOCK.defaultBlockState(), 2);
                 } else {
                   worldgenlevel.setBlock(blockpos3, Blocks.DIRT.defaultBlockState(), 2);

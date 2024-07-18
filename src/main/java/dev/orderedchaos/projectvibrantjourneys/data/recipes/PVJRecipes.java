@@ -34,6 +34,12 @@ public class PVJRecipes extends RecipeProvider  {
     oneToOneShapelessRecipe(recipeOutput, Items.CYAN_DYE, PVJBlocks.WARPED_NETTLE.get(), "brown_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.RED_DYE, PVJBlocks.CRIMSON_NETTLE.get(), "red_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.PINK_DYE, PVJBlocks.PINK_LOTUS.get(), "pink_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.YELLOW_DYE, PVJBlocks.YELLOW_WILDFLOWERS.get(), "yellow_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.ORANGE_DYE, PVJBlocks.ORANGE_WILDFLOWERS.get(), "orange_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.BLUE_DYE, PVJBlocks.BLUE_WILDFLOWERS.get(), "bblue_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.PURPLE_DYE, PVJBlocks.PURPLE_WILDFLOWERS.get(), "purple_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.WHITE_DYE, PVJBlocks.WHITE_WILDFLOWERS.get(), "white_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.GREEN_DYE, PVJBlocks.MIXED_WILDFLOWERS.get(), "pink_dye");
 
     oneToOneShapelessRecipe(recipeOutput, Items.BONE, PVJBlocks.BONES.get(), "bone");
     oneToOneShapelessRecipe(recipeOutput, Items.BONE, PVJBlocks.CHARRED_BONES.get(), "bone");

@@ -57,6 +57,12 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.GLOWCAP_BLOCK.get(), "Glowcap Block");
     this.add(PVJBlocks.MUDDY_BONES.get(), "Muddy Bones");
     this.add(PVJBlocks.PINK_LOTUS.get(), "Pink Lotus");
+    this.add(PVJBlocks.YELLOW_WILDFLOWERS.get(), "Yellow Wildflowers");
+    this.add(PVJBlocks.ORANGE_WILDFLOWERS.get(), "Orange Wildflowers");
+    this.add(PVJBlocks.BLUE_WILDFLOWERS.get(), "Blue Wildflowers");
+    this.add(PVJBlocks.PURPLE_WILDFLOWERS.get(), "Purple Wildflowers");
+    this.add(PVJBlocks.WHITE_WILDFLOWERS.get(), "White Wildflowers");
+    this.add(PVJBlocks.MIXED_WILDFLOWERS.get(), "Mixed Wildflowers");
 
     this.add(PVJBlocks.OAK_HOLLOW_LOG.get(), "Oak Hollow Log");
     this.add(PVJBlocks.BIRCH_HOLLOW_LOG.get(), "Birch Hollow Log");

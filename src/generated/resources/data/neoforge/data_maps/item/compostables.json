@@ -9,6 +9,9 @@
     "projectvibrantjourneys:birch_twigs": {
       "chance": 0.1
     },
+    "projectvibrantjourneys:blue_wildflowers": {
+      "chance": 0.25
+    },
     "projectvibrantjourneys:cattail": {
       "chance": 0.65
     },
@@ -33,11 +36,17 @@
     "projectvibrantjourneys:light_brown_bark_mushroom": {
       "chance": 0.4
     },
+    "projectvibrantjourneys:mixed_wildflowers": {
+      "chance": 0.25
+    },
     "projectvibrantjourneys:oak_fallen_leaves": {
       "chance": 0.1
     },
     "projectvibrantjourneys:orange_bark_mushroom": {
       "chance": 0.4
+    },
+    "projectvibrantjourneys:orange_wildflowers": {
+      "chance": 0.25
     },
     "projectvibrantjourneys:pinecones": {
       "chance": 0.1
@@ -47,6 +56,9 @@
     },
     "projectvibrantjourneys:prickly_bush": {
       "chance": 0.2
+    },
+    "projectvibrantjourneys:purple_wildflowers": {
+      "chance": 0.25
     },
     "projectvibrantjourneys:reeds": {
       "chance": 0.65
@@ -71,6 +83,12 @@
     },
     "projectvibrantjourneys:watergrass": {
       "chance": 0.1
+    },
+    "projectvibrantjourneys:white_wildflowers": {
+      "chance": 0.25
+    },
+    "projectvibrantjourneys:yellow_wildflowers": {
+      "chance": 0.25
     }
   }
 }

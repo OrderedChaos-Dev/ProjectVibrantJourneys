@@ -13,7 +13,6 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -49,6 +48,18 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> CHERRY_GROVE_BAMBOO = createKey("cherry_grove_bamboo");
   public static final ResourceKey<PlacedFeature> FLOATING_PINK_LOTUS = createKey("floating_pink_lotus");
   public static final ResourceKey<PlacedFeature> OAK_BUSH = createKey("oak_bush");
+  public static final ResourceKey<PlacedFeature> YELLOW_WILDFLOWERS = createKey("yellow_wildflowers");
+  public static final ResourceKey<PlacedFeature> ORANGE_WILDFLOWERS = createKey("orange_wildflowers");
+  public static final ResourceKey<PlacedFeature> BLUE_WILDFLOWERS = createKey("blue_wildflowers");
+  public static final ResourceKey<PlacedFeature> PURPLE_WILDFLOWERS = createKey("purple_wildflowers");
+  public static final ResourceKey<PlacedFeature> WHITE_WILDFLOWERS = createKey("white_wildflowers");
+  public static final ResourceKey<PlacedFeature> MIXED_WILDFLOWERS = createKey("mixed_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_YELLOW_WILDFLOWERS = createKey("many_yellow_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_ORANGE_WILDFLOWERS = createKey("many_orange_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_BLUE_WILDFLOWERS = createKey("many_blue_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_PURPLE_WILDFLOWERS = createKey("many_purple_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_WHITE_WILDFLOWERS = createKey("many_white_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_MIXED_WILDFLOWERS = createKey("many_mixed_wildflowers");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -149,12 +160,24 @@ public class PVJPlacements {
     register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("beachedKelpWeight"));
     register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2), ChancePlacementFilter.of("driedBeachedKelpWeight"));
     register(context, GLOWING_BLUE_FUNGUS, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWING_BLUE_FUNGUS), CountPlacement.of(50), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-64), VerticalAnchor.absolute(63)), BiomeFilter.biome(), ChancePlacementFilter.of("glowingBlueFungusWeight"));
-    register(context, CHERRY_GROVE_BAMBOO, holderGetter.getOrThrow(VegetationFeatures.BAMBOO_NO_PODZOL), CountPlacement.of(3), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("cherryGroveBambooWeight"));
+    register(context, CHERRY_GROVE_BAMBOO, holderGetter.getOrThrow(VegetationFeatures.BAMBOO_NO_PODZOL), CountPlacement.of(5), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("cherryGroveBambooWeight"));
     register(context, MUDDY_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.MUDDY_BONES), worldSurfaceSquaredWithCount(5), RandomOffsetPlacement.vertical(UniformInt.of(-5, 0)), ChancePlacementFilter.of("muddyBonesWeight"));
-    register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("lotusPondWeight"));
+    register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("lotusPondWeight"));
     register(context, FLOATING_PINK_LOTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.FLOATING_PINK_LOTUS), worldSurfaceSquaredWithCount(4), ChancePlacementFilter.of("floatingPinkLotusWeight"));
     register(context, HOT_SPRINGS, holderGetter.getOrThrow(PVJConfiguredFeatures.HOT_SPRINGS), RarityFilter.onAverageOnceEvery(90), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(), ChancePlacementFilter.of("hotSpringsWeight"));
     register(context, OAK_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_BUSH), worldSurfaceSquaredWithCount(2), RarityFilter.onAverageOnceEvery(12), ChancePlacementFilter.of("bushWeight"));
+    register(context, YELLOW_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.YELLOW_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, ORANGE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.ORANGE_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, BLUE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.BLUE_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, PURPLE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.PURPLE_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(10), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_YELLOW_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.YELLOW_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_ORANGE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.ORANGE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_BLUE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.BLUE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_PURPLE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.PURPLE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, MANY_MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

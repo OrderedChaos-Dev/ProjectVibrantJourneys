@@ -71,6 +71,13 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropSelf(PVJBlocks.ICICLE.get());
     this.dropSelf(PVJBlocks.PINK_LOTUS.get());
 
+    this.add(PVJBlocks.YELLOW_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.YELLOW_WILDFLOWERS.get()));
+    this.add(PVJBlocks.ORANGE_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.ORANGE_WILDFLOWERS.get()));
+    this.add(PVJBlocks.BLUE_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.BLUE_WILDFLOWERS.get()));
+    this.add(PVJBlocks.PURPLE_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.PURPLE_WILDFLOWERS.get()));
+    this.add(PVJBlocks.WHITE_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.WHITE_WILDFLOWERS.get()));
+    this.add(PVJBlocks.MIXED_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.MIXED_WILDFLOWERS.get()));
+
     this.add(PVJBlocks.BEACH_GRASS.get(), BlockLootSubProvider::createShearsOnlyDrop);
     this.add(PVJBlocks.FALLEN_LEAVES.get(), BlockLootSubProvider::createShearsOnlyDrop);
     this.add(PVJBlocks.DEAD_FALLEN_LEAVES.get(), BlockLootSubProvider::createShearsOnlyDrop);

@@ -71,7 +71,13 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.BEACH_GRASS.get(),
       PVJBlocks.SEA_OATS.get(),
       PVJBlocks.PRICKLY_BUSH.get(),
-      PVJBlocks.WATERGRASS.get()
+      PVJBlocks.WATERGRASS.get(),
+      PVJBlocks.YELLOW_WILDFLOWERS.get(),
+      PVJBlocks.ORANGE_WILDFLOWERS.get(),
+      PVJBlocks.BLUE_WILDFLOWERS.get(),
+      PVJBlocks.PURPLE_WILDFLOWERS.get(),
+      PVJBlocks.WHITE_WILDFLOWERS.get(),
+      PVJBlocks.MIXED_WILDFLOWERS.get()
     );
     this.tag(PVJTags.CINDERCANE_GROWS_ON).add(
       Blocks.BASALT,
@@ -190,7 +196,14 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.SANDY_SPROUTS.get(),
         PVJBlocks.CRIMSON_NETTLE.get(),
         PVJBlocks.WARPED_NETTLE.get(),
-        PVJBlocks.WATERGRASS.get()
+        PVJBlocks.WATERGRASS.get(),
+        PVJBlocks.PINK_LOTUS.get(),
+        PVJBlocks.YELLOW_WILDFLOWERS.get(),
+        PVJBlocks.ORANGE_WILDFLOWERS.get(),
+        PVJBlocks.BLUE_WILDFLOWERS.get(),
+        PVJBlocks.PURPLE_WILDFLOWERS.get(),
+        PVJBlocks.WHITE_WILDFLOWERS.get(),
+        PVJBlocks.MIXED_WILDFLOWERS.get()
       );
     this.tag(BlockTags.REPLACEABLE_BY_TREES)
       .addTag(PVJTags.GROUNDCOVER)
@@ -202,7 +215,14 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.BARK_MUSHROOM.get(),
         PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
         PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
-        PVJBlocks.WATERGRASS.get()
+        PVJBlocks.WATERGRASS.get(),
+        PVJBlocks.PINK_LOTUS.get(),
+        PVJBlocks.YELLOW_WILDFLOWERS.get(),
+        PVJBlocks.ORANGE_WILDFLOWERS.get(),
+        PVJBlocks.BLUE_WILDFLOWERS.get(),
+        PVJBlocks.PURPLE_WILDFLOWERS.get(),
+        PVJBlocks.WHITE_WILDFLOWERS.get(),
+        PVJBlocks.MIXED_WILDFLOWERS.get()
     );
     this.tag(BlockTags.SNAPS_GOAT_HORN)
       .addTag(PVJTags.HOLLOW_LOGS);

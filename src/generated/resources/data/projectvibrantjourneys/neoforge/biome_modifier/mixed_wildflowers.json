@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "minecraft:meadow"
+  ],
+  "blacklist": [],
+  "configOption": "enableWildflowers",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:mixed_wildflowers"
+}
