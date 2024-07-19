@@ -1,5 +1,8 @@
 {
   "values": {
+    "minecraft:air": {
+      "chance": 0.2
+    },
     "projectvibrantjourneys:bark_mushroom": {
       "chance": 0.4
     },
@@ -53,6 +56,9 @@
     },
     "projectvibrantjourneys:pink_lotus": {
       "chance": 0.5
+    },
+    "projectvibrantjourneys:pink_vines": {
+      "chance": 0.2
     },
     "projectvibrantjourneys:prickly_bush": {
       "chance": 0.2

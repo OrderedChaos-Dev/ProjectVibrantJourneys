@@ -8,12 +8,14 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.AquaticFeatures;
+import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -61,6 +63,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> MANY_WHITE_WILDFLOWERS = createKey("many_white_wildflowers");
   public static final ResourceKey<PlacedFeature> MANY_MIXED_WILDFLOWERS = createKey("many_mixed_wildflowers");
   public static final ResourceKey<PlacedFeature> SLIME_NODULE = createKey("slime_nodule");
+  public static final ResourceKey<PlacedFeature> PINK_VINES = createKey("pink_vines");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -111,6 +114,7 @@ public class PVJPlacements {
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
+
     register(context, MOSS_CARPET, holderGetter.getOrThrow(PVJConfiguredFeatures.MOSS_CARPETS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("mossCarpetsWeight"));
     register(context, SEA_OATS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEA_OATS), onceEvery(5), ChancePlacementFilter.of("seaOatsWeight"));
     register(context, CATTAILS, holderGetter.getOrThrow(PVJConfiguredFeatures.CATTAILS), onceEvery(1), ChancePlacementFilter.of("cattailsWeight"));
@@ -182,6 +186,7 @@ public class PVJPlacements {
     register(context, MANY_MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
     register(context, BOGGED_REMAINS, holderGetter.getOrThrow(PVJConfiguredFeatures.BOGGED_REMAINS), RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), ChancePlacementFilter.of("boggedRemainsWeight"));
     register(context, SLIME_NODULE, holderGetter.getOrThrow(PVJConfiguredFeatures.SLIME_NODULE), worldSurfaceSquaredWithCount(5), ChancePlacementFilter.of("slimeNodulesWeight"));
+    register(context, PINK_VINES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINK_VINES), CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.matchesBlocks(Blocks.CHERRY_LEAVES), 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("pinkVinesWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

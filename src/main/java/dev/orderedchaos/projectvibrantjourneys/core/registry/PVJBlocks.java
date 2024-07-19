@@ -79,6 +79,20 @@ public class PVJBlocks {
       .lightLevel((state) -> 5)
       .sound(SoundType.SLIME_BLOCK)
       .destroyTime(0.2F)));
+  public static final DeferredBlock<Block> PINK_VINES_PLANT = registerBlockWithoutItem("pink_vines_plant",
+    () -> new PinkVinesPlantBlock(BlockBehaviour.Properties.of()
+      .mapColor(MapColor.COLOR_PINK)
+      .noCollission()
+      .instabreak()
+      .sound(SoundType.CAVE_VINES)
+      .pushReaction(PushReaction.DESTROY)));
+  public static final DeferredBlock<Block> PINK_VINES = registerBlock("pink_vines",
+    () -> new PinkVinesBlock(BlockBehaviour.Properties.of()
+      .mapColor(MapColor.COLOR_PINK)
+      .noCollission()
+      .instabreak()
+      .sound(SoundType.CAVE_VINES)
+      .pushReaction(PushReaction.DESTROY)));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",

@@ -52,6 +52,8 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setCompostInfo(compostables, PVJBlocks.PURPLE_WILDFLOWERS.get(), 0.25F);
     setCompostInfo(compostables, PVJBlocks.WHITE_WILDFLOWERS.get(), 0.25F);
     setCompostInfo(compostables, PVJBlocks.MIXED_WILDFLOWERS.get(), 0.25F);
+    setCompostInfo(compostables, PVJBlocks.PINK_VINES.get(), 0.2F);
+    setCompostInfo(compostables, PVJBlocks.PINK_VINES_PLANT.get(), 0.2F);
 
     Builder<FurnaceFuel, Item> furnaceFuels = builder(NeoForgeDataMaps.FURNACE_FUELS);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.BARK_MUSHROOM.get(), 100);

@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "minecraft:cherry_grove"
+  ],
+  "blacklist": [],
+  "configOption": "enablePinkVines",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:pink_vines"
+}

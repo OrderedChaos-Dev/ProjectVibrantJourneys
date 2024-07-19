@@ -20,9 +20,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.util.valueproviders.BiasedToBottomInt;
-import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -77,6 +75,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_WILDFLOWERS = createKey("white_wildflowers");
   public static final ResourceKey<ConfiguredFeature<?, ?>> MIXED_WILDFLOWERS = createKey("mixed_wildflowers");
   public static final ResourceKey<ConfiguredFeature<?, ?>> SLIME_NODULE = createKey("slime_nodule");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_VINES = createKey("pink_vines");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TWIGS = createKey("birch_twigs");
@@ -201,6 +200,25 @@ public class PVJConfiguredFeatures {
     register(context, WHITE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.WHITE_WILDFLOWERS.get(),40));
     register(context, MIXED_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.MIXED_WILDFLOWERS.get(),40));
     register(context, SLIME_NODULE, PVJFeatures.SLIME_NODULE.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, PINK_VINES, Feature.RANDOM_PATCH, new RandomPatchConfiguration(20, 4, 1, PlacementUtils.filtered(Feature.BLOCK_COLUMN, new BlockColumnConfiguration(
+      List.of(
+        BlockColumnConfiguration.layer(
+          new WeightedListInt(
+            SimpleWeightedRandomList.<IntProvider>builder()
+              .add(UniformInt.of(0, 1), 1)
+              .add(UniformInt.of(0, 2), 1)
+              .add(UniformInt.of(0, 3), 1)
+              .add(UniformInt.of(0, 4), 1)
+              .build()
+          ),
+          BlockStateProvider.simple(PVJBlocks.PINK_VINES_PLANT.get())
+        ),
+        BlockColumnConfiguration.layer(ConstantInt.of(1), BlockStateProvider.simple(PVJBlocks.PINK_VINES.get()))
+      ),
+      Direction.DOWN,
+      BlockPredicate.ONLY_IN_AIR_PREDICATE,
+      true
+    ), BlockPredicate.matchesBlocks(Direction.UP.getNormal(), Blocks.CHERRY_LEAVES))));
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, BIRCH_TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.BIRCH_TWIGS.get()));

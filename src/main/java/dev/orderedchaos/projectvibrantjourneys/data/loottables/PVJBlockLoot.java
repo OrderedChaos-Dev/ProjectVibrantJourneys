@@ -83,6 +83,9 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.add(PVJBlocks.FALLEN_LEAVES.get(), BlockLootSubProvider::createShearsOnlyDrop);
     this.add(PVJBlocks.DEAD_FALLEN_LEAVES.get(), BlockLootSubProvider::createShearsOnlyDrop);
     this.add(PVJBlocks.SANDY_SPROUTS.get(), BlockLootSubProvider::createShearsOnlyDrop);
+    this.add(PVJBlocks.PINK_VINES.get(), BlockLootSubProvider::createShearsOnlyDrop);
+    this.add(PVJBlocks.PINK_VINES_PLANT.get(), block -> LootTable.lootTable()
+      .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_SHEARS).add(LootItem.lootTableItem(PVJBlocks.PINK_VINES.get()))));
 
     this.add(PVJBlocks.SHORT_GRASS.get(), this::createGrassDrops);
     this.add(PVJBlocks.WATERGRASS.get(), block -> this.createDoublePlantWithSeedDrops(block, block));
