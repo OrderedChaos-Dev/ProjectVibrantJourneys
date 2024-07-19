@@ -1,4 +1,4 @@
-// 1.21	2024-07-18T00:49:12.7447206	Loot Tables
+// 1.21	2024-07-18T18:27:08.0154059	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -6,6 +6,7 @@ dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/
 867cdfb79e1f2534dc2c92373e8a04029587198a data/projectvibrantjourneys/loot_table/blocks/birch_hollow_log.json
 91d46dcb60ca2a4332a071df48622862f44ed5e5 data/projectvibrantjourneys/loot_table/blocks/birch_twigs.json
 b1c53e996fe8434f68b0c9d184d27b9362749797 data/projectvibrantjourneys/loot_table/blocks/blue_wildflowers.json
+d15d805cc7c93c401eb03304c698351659025bb2 data/projectvibrantjourneys/loot_table/blocks/bogged_remains.json
 7240bd3e5913fb3f698f312897ad8a4189e4bd52 data/projectvibrantjourneys/loot_table/blocks/bones.json
 faf3b3b8e7ee8bc3ad88efd105c31b7ecdd91c12 data/projectvibrantjourneys/loot_table/blocks/cattail.json
 058218b1b9bf0b25ae87677adf025c77809203c5 data/projectvibrantjourneys/loot_table/blocks/charred_bones.json

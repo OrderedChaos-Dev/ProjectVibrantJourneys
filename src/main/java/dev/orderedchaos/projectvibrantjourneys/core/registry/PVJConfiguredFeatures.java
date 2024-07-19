@@ -110,6 +110,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> MUDDY_BONES = createKey("muddy_bones");
   public static final ResourceKey<ConfiguredFeature<?, ?>> LOTUS_POND = createKey("lotus_pond");
   public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRINGS = createKey("hot_springs");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> BOGGED_REMAINS = createKey("bogged_remains");
 
   public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -255,6 +256,7 @@ public class PVJConfiguredFeatures {
     register(context, MUDDY_BONES, PVJFeatures.MUDDY_BONES.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, LOTUS_POND, PVJFeatures.LOTUS_POND.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, HOT_SPRINGS, PVJFeatures.HOT_SPRINGS.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, BOGGED_REMAINS, PVJFeatures.SIMPLE_BLOCK_MATCH_WATER.get(), new SimpleBlockConfiguration(new DirectionalStateProvider(PVJBlocks.BOGGED_REMAINS.get())));
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {

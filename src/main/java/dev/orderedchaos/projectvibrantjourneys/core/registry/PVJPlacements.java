@@ -106,6 +106,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> MUDDY_BONES = createKey("muddy_bones");
   public static final ResourceKey<PlacedFeature> LOTUS_POND = createKey("lotus_pond");
   public static final ResourceKey<PlacedFeature> HOT_SPRINGS = createKey("hot_springs");
+  public static final ResourceKey<PlacedFeature> BOGGED_REMAINS = createKey("bogged_remains");
 
   public static void bootstrap(BootstrapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -178,6 +179,7 @@ public class PVJPlacements {
     register(context, MANY_PURPLE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.PURPLE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
     register(context, MANY_WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
     register(context, MANY_MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
+    register(context, BOGGED_REMAINS, holderGetter.getOrThrow(PVJConfiguredFeatures.BOGGED_REMAINS), RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), ChancePlacementFilter.of("boggedRemainsWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

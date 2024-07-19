@@ -63,6 +63,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableHotSprings;
     public static ModConfigSpec.BooleanValue enableBushes;
     public static ModConfigSpec.BooleanValue enableWildflowers;
+    public static ModConfigSpec.BooleanValue enableBoggedRemains;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -108,9 +109,14 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue hotSpringsWeight;
     public static ModConfigSpec.DoubleValue bushWeight;
     public static ModConfigSpec.DoubleValue wildflowersWeight;
+    public static ModConfigSpec.DoubleValue boggedRemainsWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
+
+    // Other
+    public static ModConfigSpec.BooleanValue allowBoggedFromBoggedRemains;
+    public static ModConfigSpec.DoubleValue boggedChance;
 
     static {
         BUILDER.push("World Generation");
@@ -159,10 +165,16 @@ public class PVJConfig
         assignWeightedConfigValues("enableHotSprings", enableHotSprings, "hotSpringsWeight", hotSpringsWeight, "Enable generation of hot springs");
         assignWeightedConfigValues("enableBushes", enableBushes, "bushWeight", bushWeight, "Enable generation of bushes");
         assignWeightedConfigValues("enableWildflowers", enableWildflowers, "wildflowersWeight", wildflowersWeight, "Enable generation of wildflowers");
+        assignWeightedConfigValues("enableBoggedRemains", enableBoggedRemains, "boggedRemainsWeight", boggedRemainsWeight, "Enable generation of bogged remains");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");
         assignSpawnConfigValue("enableJungleTropicalFish", enableJungleTropicalFish, "Enable spawning of tropical fish in jungles");
+        BUILDER.pop();
+
+        BUILDER.push("Feature Options");
+        allowBoggedFromBoggedRemains = BUILDER.comment("Allow bogged to spawn from bogged remains").define("allowBoggedFromBoggedRemains", true);
+        boggedChance = BUILDER.comment("Chance for a bogged to spawn from bogged remains").defineInRange("boggedChance", 0.15D, 0.0D, 1.0D);
         BUILDER.pop();
     }
 

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "projectvibrantjourneys:block/bogged_remains"
+    },
+    "facing=west": {
+      "model": "projectvibrantjourneys:block/bogged_remains",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "projectvibrantjourneys:block/bogged_remains",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "projectvibrantjourneys:block/bogged_remains",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "projectvibrantjourneys:simple_block_match_water",
+  "config": {
+    "to_place": {
+      "type": "projectvibrantjourneys:directional_state_provider",
+      "state": {
+        "Name": "projectvibrantjourneys:bogged_remains",
+        "Properties": {
+          "facing": "north",
+          "waterlogged": "false"
+        }
+      }
+    }
+  }
+}

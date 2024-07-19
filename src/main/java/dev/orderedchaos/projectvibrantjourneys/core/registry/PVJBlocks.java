@@ -71,6 +71,8 @@ public class PVJBlocks {
     () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
   public static final DeferredBlock<Block> MIXED_WILDFLOWERS = registerBlock("mixed_wildflowers",
     () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
+  public static final DeferredBlock<Block> BOGGED_REMAINS = registerBlock("bogged_remains",
+    () -> new BoggedRemainsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).dynamicShape().sound(SoundType.BONE_BLOCK).pushReaction(PushReaction.DESTROY).offsetType(BlockBehaviour.OffsetType.XYZ).instrument(NoteBlockInstrument.SKELETON).strength(1.0F)));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",

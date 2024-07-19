@@ -114,6 +114,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.MANY_PURPLE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
     addBiomeModifier(context, PVJPlacements.MANY_WHITE_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
     addBiomeModifier(context, PVJPlacements.MANY_MIXED_WILDFLOWERS, new PVJBiomeModifier.Builder(context, "enableWildflowers").extraBiomes(Biomes.FLOWER_FOREST));
+    addBiomeModifier(context, PVJPlacements.BOGGED_REMAINS, new PVJBiomeModifier.Builder(context, "enableBoggedRemains").tag(List.of(Tags.Biomes.IS_SWAMP)));
 
     addBiomeModifier(context, PVJPlacements.OAK_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_OAK_LOGS)));
     addBiomeModifier(context, PVJPlacements.BIRCH_FALLEN_TREE, new PVJBiomeModifier.Builder(context, "enableFallenTrees").tag(List.of(PVJTags.HAS_BIRCH_LOGS)));

@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.ConditionUserBuilder;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.Collections;
@@ -161,6 +162,30 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
             this.applyExplosionCondition(block,
               LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))
       )
+    );
+
+    this.add(
+      PVJBlocks.BOGGED_REMAINS.get(),
+      block -> this.createSilkTouchDispatchTable(block,
+        this.applyExplosionDecay(
+          block,
+          LootItem.lootTableItem(Items.BONE)
+            .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+        )
+      ).withPool(
+        LootPool.lootPool()
+          .when(this.doesNotHaveSilkTouch())
+          .setRolls(ConstantValue.exactly(1.0F))
+          .add(
+            this.applyExplosionCondition(block,
+              LootItem.lootTableItem(Blocks.RED_MUSHROOM)))
+      ).withPool(
+      LootPool.lootPool()
+        .when(this.doesNotHaveSilkTouch())
+        .setRolls(ConstantValue.exactly(1.0F))
+        .add(
+          this.applyExplosionCondition(block,
+            LootItem.lootTableItem(Blocks.BROWN_MUSHROOM))))
     );
 
     this.dropPottedContents(PVJBlocks.POTTED_CINDERCANE.get());
