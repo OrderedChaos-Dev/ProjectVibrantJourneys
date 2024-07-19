@@ -1,5 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.common.mixin;
 
+import com.mojang.datafixers.util.Pair;
+import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportal.RuinedPortalDecoratorBase;
 import net.minecraft.core.BlockPos;
@@ -19,18 +21,18 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.structures.RuinedPortalPiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+import java.util.Optional;
 import java.util.function.Function;
 
 @Mixin(RuinedPortalPiece.class)
 public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
-
-  private final float MODIFY_PORTAL_CHANCE = 1f;
 
   public RuinedPortalPieceMixin(StructurePieceType pType, CompoundTag pTag, StructureTemplateManager pStructureTemplateManager, Function<ResourceLocation, StructurePlaceSettings> pPlaceSettingsFactory) {
     super(pType, pTag, pStructureTemplateManager, pPlaceSettingsFactory);
@@ -46,28 +48,33 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
     )
   )
   public void postProcess(WorldGenLevel pLevel, StructureManager pStructureManager, ChunkGenerator pGenerator, RandomSource pRandom, BoundingBox pBox, ChunkPos pChunkPos, BlockPos pPos, CallbackInfo info, BoundingBox boundingbox) {
-    boolean isInOverworld = pLevel.getLevel().dimension() == Level.OVERWORLD;
-    boolean shouldGenerate = (1.0F - pRandom.nextFloat() < MODIFY_PORTAL_CHANCE);
-    if (isInOverworld && shouldGenerate) {
-      RuinedPortalDecoratorBase ruinedPortalDecorator = RuinedPortalDecoratorBase.getRandomPortalDecorator(pRandom);
-      ProjectVibrantJourneys.LOGGER.debug(String.format("Modifying ruined nether portal at %s with %s", pPos, ruinedPortalDecorator));
-      BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
-        if (pLevel.getBlockState(pos).is(Blocks.NETHERRACK) || pLevel.getBlockState(pos).is(Blocks.MAGMA_BLOCK)) {
-          boolean isAboveEmpty = pLevel.isEmptyBlock(pos.above());
-          if (isAboveEmpty) {
-            BlockState topSoil = ruinedPortalDecorator.getTopSoil(pLevel, pRandom);
-            if (topSoil != null) {
-              pLevel.setBlock(pos, topSoil, 2);
-            }
-            ruinedPortalDecorator.decorate(pLevel, pGenerator, pRandom, pos);
-          } else {
-            BlockState fillerSoil = ruinedPortalDecorator.getFillerSoil(pLevel, pRandom);
-            if (fillerSoil != null) {
-              pLevel.setBlock(pos, fillerSoil, 2);
+    Pair<ModConfigSpec.BooleanValue, Optional<ModConfigSpec.DoubleValue>> pair = PVJConfig.configOptions.get("enableBetterRuinedNetherPortals");
+
+    if (pair.getFirst().get()) {
+      double modifyPortalChance = pair.getSecond().get().getAsDouble();
+      boolean isInOverworld = pLevel.getLevel().dimension() == Level.OVERWORLD;
+      boolean shouldGenerate = (1.0D - pRandom.nextDouble() <= modifyPortalChance);
+      if (isInOverworld && shouldGenerate) {
+        RuinedPortalDecoratorBase ruinedPortalDecorator = RuinedPortalDecoratorBase.getRandomPortalDecorator(pRandom);
+        ProjectVibrantJourneys.LOGGER.debug(String.format("Modifying ruined nether portal at %s with %s", pPos, ruinedPortalDecorator));
+        BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
+          if (pLevel.getBlockState(pos).is(Blocks.NETHERRACK) || pLevel.getBlockState(pos).is(Blocks.MAGMA_BLOCK)) {
+            boolean isAboveEmpty = pLevel.isEmptyBlock(pos.above());
+            if (isAboveEmpty) {
+              BlockState topSoil = ruinedPortalDecorator.getTopSoil(pLevel, pRandom);
+              if (topSoil != null) {
+                pLevel.setBlock(pos, topSoil, 2);
+              }
+              ruinedPortalDecorator.decorate(pLevel, pGenerator, pRandom, pos);
+            } else {
+              BlockState fillerSoil = ruinedPortalDecorator.getFillerSoil(pLevel, pRandom);
+              if (fillerSoil != null) {
+                pLevel.setBlock(pos, fillerSoil, 2);
+              }
             }
           }
-        }
-      });
+        });
+      }
     }
   }
 }

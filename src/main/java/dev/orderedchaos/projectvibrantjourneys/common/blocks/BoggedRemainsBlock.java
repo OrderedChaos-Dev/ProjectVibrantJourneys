@@ -84,10 +84,10 @@ public class BoggedRemainsBlock extends HorizontalDirectionalBlock implements Si
     pPlayer.awardStat(Stats.BLOCK_MINED.get(this));
     pPlayer.causeFoodExhaustion(0.005F);
     boolean shouldDropResources = false;
-    if (PVJConfig.boggedChance.get() > 0.0D && PVJConfig.allowBoggedFromBoggedRemains.get()) {
+    if (PVJConfig.allowBoggedFromBoggedRemains.get()) {
       if (!pLevel.isClientSide()) {
         RandomSource randomSource = pLevel.getRandom();
-        if (randomSource.nextDouble() < PVJConfig.boggedChance.get()) {
+        if (1.0D - randomSource.nextDouble() <= PVJConfig.boggedChance.get()) {
           Bogged bogged = EntityType.BOGGED.create(pLevel);
           if (bogged != null) {
             bogged.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.BOW));

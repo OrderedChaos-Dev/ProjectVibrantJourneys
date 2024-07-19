@@ -119,6 +119,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
 
     // Other
+    public static ModConfigSpec.BooleanValue shortGrassFromBoneMeal;
     public static ModConfigSpec.BooleanValue allowBoggedFromBoggedRemains;
     public static ModConfigSpec.DoubleValue boggedChance;
 
@@ -181,6 +182,7 @@ public class PVJConfig
         BUILDER.push("Feature Options");
         allowBoggedFromBoggedRemains = BUILDER.comment("Allow bogged to spawn from bogged remains").define("allowBoggedFromBoggedRemains", true);
         boggedChance = BUILDER.comment("Chance for a bogged to spawn from bogged remains").defineInRange("boggedChance", 0.15D, 0.0D, 1.0D);
+        shortGrassFromBoneMeal = BUILDER.comment("Allow short grass to grow when use bone meal grass blocks").define("shortGrassFromBoneMeal", true);
         BUILDER.pop();
     }
 
