@@ -79,6 +79,11 @@
   "item.minecraft.splash_potion.effect.long_sporadic_silence": "Splash Potion of Sporadic Silence",
   "item.minecraft.splash_potion.effect.sporadic_silence": "Splash Potion of Sporadic Silence",
   "item.minecraft.splash_potion.effect.strong_sporadic_silence": "Splash Potion of Sporadic Silence",
+  "item.minecraft.tipped_arrow.effect.glowing": "Arrow of Glowing",
+  "item.minecraft.tipped_arrow.effect.long_glowing": "Arrow of Glowing",
+  "item.minecraft.tipped_arrow.effect.long_sporadic_silence": "Arrow of Sporadic Silence",
+  "item.minecraft.tipped_arrow.effect.sporadic_silence": "Arrow of Sporadic Silence",
+  "item.minecraft.tipped_arrow.effect.strong_sporadic_silence": "Arrow of Sporadic Silence",
   "item.projectvibrantjourneys.nettle_soup": "Nettle Soup",
   "itemGroup.projectvibrantjourneys": "Project: Vibrant Journeys"
 }

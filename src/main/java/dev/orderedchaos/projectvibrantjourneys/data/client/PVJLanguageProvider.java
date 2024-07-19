@@ -104,5 +104,11 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add("item.minecraft.potion.effect.strong_sporadic_silence", "Potion of Sporadic Silence");
     this.add("item.minecraft.splash_potion.effect.strong_sporadic_silence", "Splash Potion of Sporadic Silence");
     this.add("item.minecraft.lingering_potion.effect.strong_sporadic_silence", "Lingering Potion of Sporadic Silence");
+
+    this.add("item.minecraft.tipped_arrow.effect.glowing", "Arrow of Glowing");
+    this.add("item.minecraft.tipped_arrow.effect.long_glowing", "Arrow of Glowing");
+    this.add("item.minecraft.tipped_arrow.effect.sporadic_silence", "Arrow of Sporadic Silence");
+    this.add("item.minecraft.tipped_arrow.effect.long_sporadic_silence", "Arrow of Sporadic Silence");
+    this.add("item.minecraft.tipped_arrow.effect.strong_sporadic_silence", "Arrow of Sporadic Silence");
   }
 }
