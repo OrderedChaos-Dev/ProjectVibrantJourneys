@@ -1,4 +1,4 @@
-// 1.21	2024-07-18T00:49:12.7522372	Tags for minecraft:block mod id projectvibrantjourneys
+// 1.21	2024-07-19T01:10:58.1210849	Tags for minecraft:block mod id projectvibrantjourneys
 97a56113914dadaab1bdcdf472144039f027a2ce data/c/tags/block/gravels.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/c/tags/block/sands.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/c/tags/block/sands/red.json
@@ -12,8 +12,9 @@ ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/mushroom_grow
 629ff570bef2024491bad88e286c69a97851c10d data/minecraft/tags/block/replaceable.json
 5650e6483254b92bee35f7714b6379b956f4d3ab data/minecraft/tags/block/replaceable_by_trees.json
 c8616a47d8519a12c09ad1abf686961898be92f5 data/minecraft/tags/block/sand.json
+09106e9a63e228eb996565b16bfc4303cb914b05 data/minecraft/tags/block/small_flowers.json
 ca75de43a87991e219dcffa59bc7a769ae1345ce data/minecraft/tags/block/snaps_goat_horn.json
-3a5c53ffc52b331399920aac63cb9a8a36fe9184 data/minecraft/tags/block/sword_efficient.json
+08efd468dd27c5efb2354d36baecc7f9bc941733 data/minecraft/tags/block/sword_efficient.json
 03af28e3382dccb0a1e66537b2e7af7af7ddc753 data/projectvibrantjourneys/tags/block/cindercane_grows_on.json
 f98fe9263df6815973e30fc33438618de9a67773 data/projectvibrantjourneys/tags/block/fallen_leaves.json
 309653f3a7851aea31f3e969ab42ec7356e095fb data/projectvibrantjourneys/tags/block/groundcover.json

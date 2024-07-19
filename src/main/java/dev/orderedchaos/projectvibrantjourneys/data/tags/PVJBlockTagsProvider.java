@@ -203,7 +203,9 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.BLUE_WILDFLOWERS.get(),
         PVJBlocks.PURPLE_WILDFLOWERS.get(),
         PVJBlocks.WHITE_WILDFLOWERS.get(),
-        PVJBlocks.MIXED_WILDFLOWERS.get()
+        PVJBlocks.MIXED_WILDFLOWERS.get(),
+        PVJBlocks.PINK_VINES.get(),
+        PVJBlocks.PINK_VINES_PLANT.get()
       );
     this.tag(BlockTags.REPLACEABLE_BY_TREES)
       .addTag(PVJTags.GROUNDCOVER)
@@ -236,5 +238,14 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.WATERGRASS.get()
     );
     this.tag(BlockTags.REPLACEABLE).addTag(PVJTags.GROUNDCOVER);
+    this.tag(BlockTags.SMALL_FLOWERS).add(
+      PVJBlocks.PINK_LOTUS.get(),
+      PVJBlocks.YELLOW_WILDFLOWERS.get(),
+      PVJBlocks.ORANGE_WILDFLOWERS.get(),
+      PVJBlocks.BLUE_WILDFLOWERS.get(),
+      PVJBlocks.PURPLE_WILDFLOWERS.get(),
+      PVJBlocks.WHITE_WILDFLOWERS.get(),
+      PVJBlocks.MIXED_WILDFLOWERS.get()
+    );
   }
 }
