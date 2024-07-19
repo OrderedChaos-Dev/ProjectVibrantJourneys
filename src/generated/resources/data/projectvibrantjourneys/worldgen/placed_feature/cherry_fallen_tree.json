@@ -16,6 +16,9 @@
       "type": "minecraft:biome"
     },
     {
+      "type": "projectvibrantjourneys:vegetation_density"
+    },
+    {
       "type": "projectvibrantjourneys:chance",
       "weightConfigSpec": "fallenTreesWeight"
     }

@@ -40,13 +40,7 @@ public class FallenTreeFeature extends Feature<FallenTreeConfiguration> {
     BlockState hollowLog = context.config().hollowLog();
     BlockState baseLog = context.config().baseLog();
 
-    Holder<Biome> biome = level.getBiome(pos);
-    int chance = 10;
-    if (biome.is(Tags.Biomes.IS_SPARSE_VEGETATION)) {
-      chance = 5;
-    }
-
-    if (rand.nextFloat() > chance / 100.0F)
+    if (rand.nextFloat() > 10 / 100.0F)
       return false;
 
     BlockState below = level.getBlockState(pos.below());

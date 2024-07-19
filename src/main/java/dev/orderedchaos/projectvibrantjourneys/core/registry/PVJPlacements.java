@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.BiomeDensityPlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.ChancePlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.Direction;
@@ -126,12 +127,12 @@ public class PVJPlacements {
     register(context, CAVE_ROOTS, holderGetter.getOrThrow(PVJConfiguredFeatures.CAVE_ROOTS), CountPlacement.of(188), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("caveRootsWeight"));
     register(context, REEDS, holderGetter.getOrThrow(PVJConfiguredFeatures.REEDS), onceEvery(1), ChancePlacementFilter.of("reedsWeight"));
     register(context, PRICKLY_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.PRICKLY_BUSH), onceEvery(2), ChancePlacementFilter.of("pricklyBushWeight"));
-    register(context, TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.TWIGS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("twigsWeight"));
-    register(context, BIRCH_TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_TWIGS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("twigsWeight"));
-    register(context, FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
+    register(context, TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.TWIGS), worldSurfaceSquaredWithCount(3), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("twigsWeight"));
+    register(context, BIRCH_TWIGS, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_TWIGS), worldSurfaceSquaredWithCount(3), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("twigsWeight"));
+    register(context, FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenLeavesWeight"));
     register(context, DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("fallenLeavesWeight"));
     register(context, DENSE_DEAD_FALLEN_LEAVES, holderGetter.getOrThrow(PVJConfiguredFeatures.DEAD_FALLEN_LEAVES), worldSurfaceSquaredWithCount(6), ChancePlacementFilter.of("fallenLeavesWeight"));
-    register(context, PINECONES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINECONES), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("pineconesWeight"));
+    register(context, PINECONES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINECONES), worldSurfaceSquaredWithCount(2), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("pineconesWeight"));
     register(context, SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("seashellsWeight"));
     register(context, OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(2), ChancePlacementFilter.of("seashellsWeight"));
     register(context, EXTRA_OCEAN_FLOOR_SEASHELLS, holderGetter.getOrThrow(PVJConfiguredFeatures.SEASHELLS), seagrassPlacement(4), ChancePlacementFilter.of("seashellsWeight"));
@@ -146,14 +147,14 @@ public class PVJPlacements {
     register(context, CRIMSON_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.CRIMSON_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ChancePlacementFilter.of("netherNettlesWeight"));
     register(context, GLOWCAP, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWCAP), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("glowcapWeight"));
     register(context, CINDERCANE, holderGetter.getOrThrow(PVJConfiguredFeatures.CINDERCANE), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("cindercaneWeight"));
-    register(context, OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, BIRCH_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, SPRUCE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.SPRUCE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, JUNGLE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.JUNGLE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, ACACIA_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.ACACIA_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, DARK_OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.DARK_OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, CHERRY_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.CHERRY_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
-    register(context, MANGROVE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.MANGROVE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, BIRCH_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, SPRUCE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.SPRUCE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, JUNGLE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.JUNGLE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, ACACIA_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.ACACIA_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, DARK_OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.DARK_OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, CHERRY_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.CHERRY_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
+    register(context, MANGROVE_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.MANGROVE_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
     register(context, NATURAL_COBWEB, holderGetter.getOrThrow(PVJConfiguredFeatures.NATURAL_COBWEB), worldSurfaceSquaredWithCount(5), ChancePlacementFilter.of("naturalCobwebsWeight"));
     register(context, EXTRA_SEAGRASS, holderGetter.getOrThrow(AquaticFeatures.SEAGRASS_SLIGHTLY_LESS_SHORT), seagrassPlacement(48), ChancePlacementFilter.of("extraSeagrassWeight"));
     register(context, EXTRA_LILYPADS, holderGetter.getOrThrow(PVJConfiguredFeatures.LILYPADS), worldSurfaceSquaredWithCount(4), ChancePlacementFilter.of("extraLilypadsWeight"));
