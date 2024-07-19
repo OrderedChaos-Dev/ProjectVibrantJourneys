@@ -31,11 +31,11 @@ public class BarkMushroomBlock extends EpiphyteBlock {
 
   public static BarkMushroomBlock getRandom(RandomSource rand) {
     float f = rand.nextFloat();
-    if (f > 0.75F)
+    if (f > 0.70F)
       return (BarkMushroomBlock) PVJBlocks.BARK_MUSHROOM.get();
-    else if (f > 0.5F)
+    else if (f > 0.4F)
       return (BarkMushroomBlock) PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get();
-    else if (f > 0.25F)
+    else if (f > 0.1F)
       return (BarkMushroomBlock) PVJBlocks.ORANGE_BARK_MUSHROOM.get();
 
     return (BarkMushroomBlock) PVJBlocks.WHITE_BARK_MUSHROOM.get();

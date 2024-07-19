@@ -5,7 +5,7 @@
   ],
   "blacklist": [],
   "configOption": "enableGoldPits",
-  "decoration": "lakes",
+  "decoration": "local_modifications",
   "dimension": "minecraft:is_overworld",
   "feature": "projectvibrantjourneys:gold_pit"
 }

@@ -129,17 +129,17 @@ public class HotSpringsFeature extends Feature<NoneFeatureConfiguration> {
                 BlockPos blockpos3 = blockpos.offset(j2, l3, j3);
                 if (!worldgenlevel.getFluidState(blockpos3.above()).is(Tags.Fluids.WATER)) {
                   if (worldgenlevel.isEmptyBlock(blockpos3.above()) || worldgenlevel.getBlockState(blockpos3.above()).canBeReplaced()) {
-                    boolean flag3 = randomsource.nextFloat() < 0.3F;
-                    worldgenlevel.setBlock(blockpos3, flag3 ? Blocks.PODZOL.defaultBlockState() :  Blocks.STONE.defaultBlockState(), 2);
-                    if (randomsource.nextFloat() < 0.45F) {
+                    BlockState perimeterBlock = this.getRandomPerimeterBlock(randomsource);
+                    worldgenlevel.setBlock(blockpos3, perimeterBlock, 2);
+                    boolean flag4 = randomsource.nextFloat() < 0.45F;
+                    if (flag4) {
                       worldgenlevel.setBlock(blockpos3.above(), getAmethyst(randomsource), 2);
                     }
                   }
                 } else {
-                  boolean flag4 = randomsource.nextFloat() < 0.12F;
+                  BlockState innerBlock = this.getRandomInnerBlock(randomsource);
+                  worldgenlevel.setBlock(blockpos3, innerBlock, 2);
                   boolean flag5 = randomsource.nextFloat() < 0.3F;
-                  worldgenlevel.setBlock(blockpos3, flag4 ? Blocks.MAGMA_BLOCK.defaultBlockState() : Blocks.STONE.defaultBlockState(), 2);
-
                   if (flag5) {
                     Optional<? extends Holder<ConfiguredFeature<?, ?>>> watergrassFeature = worldgenlevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(AquaticFeatures.SEAGRASS_SIMPLE);
                     watergrassFeature.ifPresent((feature) -> feature.value().place(worldgenlevel, generator, randomsource, blockpos3.above()));
@@ -154,6 +154,34 @@ public class HotSpringsFeature extends Feature<NoneFeatureConfiguration> {
       }
       return true;
     }
+  }
+
+  private BlockState getRandomPerimeterBlock(RandomSource randomSource) {
+    float random = randomSource.nextFloat();
+    if (random < 0.3F) {
+      return Blocks.STONE.defaultBlockState();
+    } else if (random < 0.5F) {
+      return Blocks.COBBLESTONE.defaultBlockState();
+    } else if (random < 0.7F) {
+      return Blocks.MOSSY_COBBLESTONE.defaultBlockState();
+    }
+
+    return Blocks.PODZOL.defaultBlockState();
+  }
+
+  private BlockState getRandomInnerBlock(RandomSource randomSource) {
+    float random = randomSource.nextFloat();
+    if (random < 0.3F) {
+      return Blocks.STONE.defaultBlockState();
+    } else if (random < 0.5F) {
+      return Blocks.COBBLESTONE.defaultBlockState();
+    } else if (random < 0.7F) {
+      return Blocks.MOSSY_COBBLESTONE.defaultBlockState();
+    } else if (random < 0.83F) {
+      return Blocks.MAGMA_BLOCK.defaultBlockState();
+    }
+
+    return Blocks.DIORITE.defaultBlockState();
   }
 
   private boolean canReplaceBlock(BlockState pState) {

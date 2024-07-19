@@ -8,7 +8,7 @@
   ],
   "blacklist": [],
   "configOption": "enableGravelPits",
-  "decoration": "lakes",
+  "decoration": "local_modifications",
   "dimension": "minecraft:is_overworld",
   "feature": "projectvibrantjourneys:gravel_pit"
 }

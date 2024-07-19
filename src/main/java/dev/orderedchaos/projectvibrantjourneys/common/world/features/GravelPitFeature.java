@@ -126,19 +126,6 @@ public class GravelPitFeature extends Feature<NoneFeatureConfiguration> {
                 }
             }
 
-            if (blockstate1.getFluidState().is(FluidTags.WATER)) {
-                for (int k2 = 0; k2 < 16; k2++) {
-                    for (int k3 = 0; k3 < 16; k3++) {
-                        int i4 = 4;
-                        BlockPos blockpos2 = blockpos.offset(k2, 4, k3);
-                        if (worldgenlevel.getBiome(blockpos2).value().shouldFreeze(worldgenlevel, blockpos2, false)
-                                && this.canReplaceBlock(worldgenlevel.getBlockState(blockpos2))) {
-                            worldgenlevel.setBlock(blockpos2, Blocks.ICE.defaultBlockState(), 2);
-                        }
-                    }
-                }
-            }
-
             return true;
         }
     }

@@ -47,6 +47,9 @@
     },
     "projectvibrantjourneys:twigs": {
       "burn_time": 100
+    },
+    "projectvibrantjourneys:white_bark_mushroom": {
+      "burn_time": 100
     }
   }
 }
