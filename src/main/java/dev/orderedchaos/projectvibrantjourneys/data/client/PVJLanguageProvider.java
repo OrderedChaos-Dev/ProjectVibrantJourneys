@@ -42,6 +42,7 @@ public class PVJLanguageProvider extends LanguageProvider  {
     this.add(PVJBlocks.BARK_MUSHROOM.get(), "Bark Mushroom");
     this.add(PVJBlocks.ORANGE_BARK_MUSHROOM.get(), "Orange Bark Mushroom");
     this.add(PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), "Light Brown Bark Mushroom");
+    this.add(PVJBlocks.WHITE_BARK_MUSHROOM.get(), "White Bark Mushroom");
     this.add(PVJBlocks.GLOWING_BLUE_FUNGUS.get(), "Glowing Blue Fungus");
     this.add(PVJBlocks.GLOWCAP.get(), "Glowcap");
     this.add(PVJBlocks.CRIMSON_NETTLE.get(), "Crimson Nettle");

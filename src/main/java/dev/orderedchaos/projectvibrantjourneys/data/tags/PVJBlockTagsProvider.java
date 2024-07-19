@@ -217,6 +217,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
         PVJBlocks.BARK_MUSHROOM.get(),
         PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
         PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
+        PVJBlocks.WHITE_BARK_MUSHROOM.get(),
         PVJBlocks.WATERGRASS.get(),
         PVJBlocks.PINK_LOTUS.get(),
         PVJBlocks.YELLOW_WILDFLOWERS.get(),
@@ -234,6 +235,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.NATURAL_COBWEB.get(),
       PVJBlocks.BARK_MUSHROOM.get(),
       PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
+      PVJBlocks.WHITE_BARK_MUSHROOM.get(),
       PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
       PVJBlocks.WATERGRASS.get()
     );

@@ -31,6 +31,7 @@ public class PVJRecipes extends RecipeProvider  {
     oneToOneShapelessRecipe(recipeOutput, Items.BROWN_DYE, PVJBlocks.BARK_MUSHROOM.get(), "brown_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.BROWN_DYE, PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), "brown_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.ORANGE_DYE, PVJBlocks.ORANGE_BARK_MUSHROOM.get(), "orange_dye");
+    oneToOneShapelessRecipe(recipeOutput, Items.WHITE_DYE, PVJBlocks.WHITE_BARK_MUSHROOM.get(), "white_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.CYAN_DYE, PVJBlocks.WARPED_NETTLE.get(), "brown_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.RED_DYE, PVJBlocks.CRIMSON_NETTLE.get(), "red_dye");
     oneToOneShapelessRecipe(recipeOutput, Items.PINK_DYE, PVJBlocks.PINK_LOTUS.get(), "pink_dye");

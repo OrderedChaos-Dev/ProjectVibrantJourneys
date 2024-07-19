@@ -37,6 +37,8 @@ public class PVJBlocks {
     () -> new BarkMushroomBlock(BlockBehaviorTemplates.BARK_MUSHROOM));
   public static final DeferredBlock<Block> ORANGE_BARK_MUSHROOM = registerBlock("orange_bark_mushroom",
     () -> new BarkMushroomBlock(BlockBehaviorTemplates.BARK_MUSHROOM));
+  public static final DeferredBlock<Block> WHITE_BARK_MUSHROOM = registerBlock("white_bark_mushroom",
+    () -> new BarkMushroomBlock(BlockBehaviorTemplates.BARK_MUSHROOM));
   public static final DeferredBlock<Block> GLOWING_BLUE_FUNGUS = registerBlock("glowing_blue_fungus",
     () -> new GlowingFungusBlock(BlockBehaviorTemplates.BARK_MUSHROOM.lightLevel((state) -> 6).sound(SoundType.SMALL_DRIPLEAF).emissiveRendering((state, level, pos) -> true)));
   public static final DeferredBlock<Block> SHORT_GRASS = registerBlock("short_grass",

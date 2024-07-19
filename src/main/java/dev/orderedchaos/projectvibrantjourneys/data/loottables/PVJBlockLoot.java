@@ -60,6 +60,7 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropSelf(PVJBlocks.BARK_MUSHROOM.get());
     this.dropSelf(PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get());
     this.dropSelf(PVJBlocks.ORANGE_BARK_MUSHROOM.get());
+    this.dropSelf(PVJBlocks.WHITE_BARK_MUSHROOM.get());
     this.dropSelf(PVJBlocks.GLOWING_BLUE_FUNGUS.get());
     this.dropSelf(PVJBlocks.OAK_HOLLOW_LOG.get());
     this.dropSelf(PVJBlocks.BIRCH_HOLLOW_LOG.get());

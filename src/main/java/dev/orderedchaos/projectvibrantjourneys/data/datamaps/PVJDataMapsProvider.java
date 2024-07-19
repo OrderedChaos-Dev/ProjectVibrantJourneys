@@ -32,6 +32,7 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setCompostInfo(compostables, PVJBlocks.BARK_MUSHROOM.get(), 0.4F);
     setCompostInfo(compostables, PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), 0.4F);
     setCompostInfo(compostables, PVJBlocks.ORANGE_BARK_MUSHROOM.get(), 0.4F);
+    setCompostInfo(compostables, PVJBlocks.WHITE_BARK_MUSHROOM.get(), 0.4F);
     setCompostInfo(compostables, PVJBlocks.GLOWING_BLUE_FUNGUS.get(), 0.4F);
     setCompostInfo(compostables, PVJBlocks.FALLEN_LEAVES.get(), 0.1F);
     setCompostInfo(compostables, PVJBlocks.GLOWCAP.get(), 0.65F);
@@ -59,6 +60,7 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.BARK_MUSHROOM.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.ORANGE_BARK_MUSHROOM.get(), 100);
+    setFurnaceFuelInfo(furnaceFuels, PVJBlocks.WHITE_BARK_MUSHROOM.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.GLOWING_BLUE_FUNGUS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.CINDERCANE.get(), 800);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.TWIGS.get(), 100);

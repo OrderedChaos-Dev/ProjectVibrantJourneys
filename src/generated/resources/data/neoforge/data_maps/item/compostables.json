@@ -90,6 +90,9 @@
     "projectvibrantjourneys:watergrass": {
       "chance": 0.1
     },
+    "projectvibrantjourneys:white_bark_mushroom": {
+      "chance": 0.4
+    },
     "projectvibrantjourneys:white_wildflowers": {
       "chance": 0.25
     },

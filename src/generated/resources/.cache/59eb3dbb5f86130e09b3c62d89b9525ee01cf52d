@@ -1,4 +1,4 @@
-// 1.21	2024-07-18T22:35:46.255415	Loot Tables
+// 1.21	2024-07-19T13:16:22.5647045	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -61,5 +61,6 @@ c8996204615bd459129c2b3e7ca436155a03620f data/projectvibrantjourneys/loot_table/
 2e05525b47d16e4b68e33ca8fd93bd1e50dd967a data/projectvibrantjourneys/loot_table/blocks/twigs.json
 ff5de13ebeb12f3418fde41a175c3d53aa1aa1dd data/projectvibrantjourneys/loot_table/blocks/warped_nettle.json
 dbee4abd88e6423d871ecdd1181e5f47ead3aed5 data/projectvibrantjourneys/loot_table/blocks/watergrass.json
+825f985238632bdb2110a623c10b6951aa0536f9 data/projectvibrantjourneys/loot_table/blocks/white_bark_mushroom.json
 c1be42bafcfa7dc95bda89849c2dca2810554094 data/projectvibrantjourneys/loot_table/blocks/white_wildflowers.json
 01de0b4e3372e5904e58e726a61731ec2b49ac7b data/projectvibrantjourneys/loot_table/blocks/yellow_wildflowers.json
