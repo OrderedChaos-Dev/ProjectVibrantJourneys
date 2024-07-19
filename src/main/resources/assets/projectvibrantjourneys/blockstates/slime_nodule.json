@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "projectvibrantjourneys:block/slime_nodule"
+    },
+    "facing=west": {
+      "model": "projectvibrantjourneys:block/slime_nodule",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "projectvibrantjourneys:block/slime_nodule",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "projectvibrantjourneys:block/slime_nodule",
+      "y": 270
+    }
+  }
+}

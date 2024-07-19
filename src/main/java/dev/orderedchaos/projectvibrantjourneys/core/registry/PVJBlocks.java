@@ -73,6 +73,12 @@ public class PVJBlocks {
     () -> new PinkPetalsBlock(BlockBehaviorTemplates.WILDFLOWERS));
   public static final DeferredBlock<Block> BOGGED_REMAINS = registerBlock("bogged_remains",
     () -> new BoggedRemainsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).dynamicShape().sound(SoundType.BONE_BLOCK).pushReaction(PushReaction.DESTROY).offsetType(BlockBehaviour.OffsetType.XYZ).instrument(NoteBlockInstrument.SKELETON).strength(1.0F)));
+  public static final DeferredBlock<Block> SLIME_NODULE = registerBlock("slime_nodule",
+    () -> new SlimeNoduleBlock(Block.Properties.of()
+      .noCollission()
+      .lightLevel((state) -> 5)
+      .sound(SoundType.SLIME_BLOCK)
+      .destroyTime(0.2F)));
 
   /* NETHER FLORA */
   public static final DeferredBlock<Block> CRIMSON_NETTLE = registerBlock("crimson_nettle",
@@ -216,7 +222,6 @@ public class PVJBlocks {
     public static final BlockBehaviour.Properties REPLACEABLE_PLANT = replaceablePlant(null);
     public static final BlockBehaviour.Properties BARK_MUSHROOM = Block.Properties.of()
       .noCollission()
-      .instabreak()
       .sound(SoundType.WOOD)
       .destroyTime(0.2F);
     public static final BlockBehaviour.Properties WILDFLOWERS = BlockBehaviour.Properties.of()

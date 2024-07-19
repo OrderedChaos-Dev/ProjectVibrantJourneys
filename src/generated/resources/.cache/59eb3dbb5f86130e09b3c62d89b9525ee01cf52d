@@ -1,4 +1,4 @@
-// 1.21	2024-07-18T18:27:08.0154059	Loot Tables
+// 1.21	2024-07-18T21:25:41.3671843	Loot Tables
 f6c049a145c5cef982e95afa2e4c75c5dceacce6 data/projectvibrantjourneys/loot_table/blocks/acacia_hollow_log.json
 dc26e22c1c3a86cbad53cebd67c7e4c632bc63d8 data/projectvibrantjourneys/loot_table/blocks/bark_mushroom.json
 0689f46bcc4062f56383d6ea954080b08293aa98 data/projectvibrantjourneys/loot_table/blocks/beached_kelp.json
@@ -53,6 +53,7 @@ ceab1e5a453172e435412de8e1ed3c9019962885 data/projectvibrantjourneys/loot_table/
 84982975c2d54c7551c6daec48919a378d5f9dd1 data/projectvibrantjourneys/loot_table/blocks/seashells.json
 9ced981607203bdbbcf4f68d7cc733ff15e75d2f data/projectvibrantjourneys/loot_table/blocks/sea_oats.json
 63009d1181a05e2e4ddb60c367c6cd67cda3f66b data/projectvibrantjourneys/loot_table/blocks/short_grass.json
+00254b98724b647a5aff79c7d594a081ba8e31b3 data/projectvibrantjourneys/loot_table/blocks/slime_nodule.json
 337c86c80ef1ed67dc380a4a1ac96a50e64736bd data/projectvibrantjourneys/loot_table/blocks/small_cactus.json
 c8996204615bd459129c2b3e7ca436155a03620f data/projectvibrantjourneys/loot_table/blocks/spruce_hollow_log.json
 2e05525b47d16e4b68e33ca8fd93bd1e50dd967a data/projectvibrantjourneys/loot_table/blocks/twigs.json

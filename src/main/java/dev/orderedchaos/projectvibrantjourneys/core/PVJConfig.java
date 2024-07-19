@@ -64,6 +64,7 @@ public class PVJConfig
     public static ModConfigSpec.BooleanValue enableBushes;
     public static ModConfigSpec.BooleanValue enableWildflowers;
     public static ModConfigSpec.BooleanValue enableBoggedRemains;
+    public static ModConfigSpec.BooleanValue enableSlimeNodules;
 
     // Feature Weights
     public static ModConfigSpec.DoubleValue rocksWeight;
@@ -110,6 +111,7 @@ public class PVJConfig
     public static ModConfigSpec.DoubleValue bushWeight;
     public static ModConfigSpec.DoubleValue wildflowersWeight;
     public static ModConfigSpec.DoubleValue boggedRemainsWeight;
+    public static ModConfigSpec.DoubleValue slimeNodulesWeight;
 
     // Spawns
     public static ModConfigSpec.BooleanValue enableJungleTropicalFish;
@@ -166,6 +168,7 @@ public class PVJConfig
         assignWeightedConfigValues("enableBushes", enableBushes, "bushWeight", bushWeight, "Enable generation of bushes");
         assignWeightedConfigValues("enableWildflowers", enableWildflowers, "wildflowersWeight", wildflowersWeight, "Enable generation of wildflowers");
         assignWeightedConfigValues("enableBoggedRemains", enableBoggedRemains, "boggedRemainsWeight", boggedRemainsWeight, "Enable generation of bogged remains");
+        assignWeightedConfigValues("enableSlimeNodules", enableSlimeNodules, "slimeNodulesWeight", slimeNodulesWeight, "Enable generation of slime nodules");
         BUILDER.pop();
 
         BUILDER.push("Entity Options");

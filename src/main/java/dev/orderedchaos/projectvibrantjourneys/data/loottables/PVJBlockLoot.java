@@ -96,6 +96,8 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.add(PVJBlocks.SEA_OATS.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
     this.add(PVJBlocks.REEDS.get(), block -> this.createSinglePropConditionTable(block, DoublePlantBlock.HALF, DoubleBlockHalf.LOWER));
 
+    this.add(PVJBlocks.SLIME_NODULE.get(), block -> this.createSingleItemTableWithSilkTouch(block, Items.SLIME_BALL));
+
     this.add(
       PVJBlocks.PRICKLY_BUSH.get(),
       block -> this.createShearsDispatchTable(

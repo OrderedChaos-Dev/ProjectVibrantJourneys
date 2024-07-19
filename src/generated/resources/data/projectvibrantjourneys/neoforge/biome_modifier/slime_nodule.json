@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "#c:is_swamp"
+  ],
+  "blacklist": [],
+  "configOption": "enableSlimeNodules",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:slime_nodule"
+}

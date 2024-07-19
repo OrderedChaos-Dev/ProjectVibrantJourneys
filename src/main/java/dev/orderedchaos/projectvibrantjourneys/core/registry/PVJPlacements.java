@@ -60,6 +60,7 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> MANY_PURPLE_WILDFLOWERS = createKey("many_purple_wildflowers");
   public static final ResourceKey<PlacedFeature> MANY_WHITE_WILDFLOWERS = createKey("many_white_wildflowers");
   public static final ResourceKey<PlacedFeature> MANY_MIXED_WILDFLOWERS = createKey("many_mixed_wildflowers");
+  public static final ResourceKey<PlacedFeature> SLIME_NODULE = createKey("slime_nodule");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -180,6 +181,7 @@ public class PVJPlacements {
     register(context, MANY_WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
     register(context, MANY_MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(3), ChancePlacementFilter.of("wildflowersWeight"));
     register(context, BOGGED_REMAINS, holderGetter.getOrThrow(PVJConfiguredFeatures.BOGGED_REMAINS), RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome(), ChancePlacementFilter.of("boggedRemainsWeight"));
+    register(context, SLIME_NODULE, holderGetter.getOrThrow(PVJConfiguredFeatures.SLIME_NODULE), worldSurfaceSquaredWithCount(5), ChancePlacementFilter.of("slimeNodulesWeight"));
 
     register(context, SHORT_GRASS_BONEMEAL, holderGetter.getOrThrow(PVJConfiguredFeatures.SINGLE_PIECE_OF_SHORT_GRASS), PlacementUtils.isEmpty());
   }

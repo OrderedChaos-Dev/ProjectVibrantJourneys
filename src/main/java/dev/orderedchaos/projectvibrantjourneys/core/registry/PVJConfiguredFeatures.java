@@ -76,6 +76,7 @@ public class PVJConfiguredFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_WILDFLOWERS = createKey("purple_wildflowers");
   public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_WILDFLOWERS = createKey("white_wildflowers");
   public static final ResourceKey<ConfiguredFeature<?, ?>> MIXED_WILDFLOWERS = createKey("mixed_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SLIME_NODULE = createKey("slime_nodule");
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> TWIGS = createKey("twigs");
   public static final ResourceKey<ConfiguredFeature<?, ?>> BIRCH_TWIGS = createKey("birch_twigs");
@@ -199,6 +200,7 @@ public class PVJConfiguredFeatures {
     register(context, PURPLE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.PURPLE_WILDFLOWERS.get(),40));
     register(context, WHITE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.WHITE_WILDFLOWERS.get(),40));
     register(context, MIXED_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.MIXED_WILDFLOWERS.get(),40));
+    register(context, SLIME_NODULE, PVJFeatures.SLIME_NODULE.get(), NoneFeatureConfiguration.INSTANCE);
 
     register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, BIRCH_TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.BIRCH_TWIGS.get()));

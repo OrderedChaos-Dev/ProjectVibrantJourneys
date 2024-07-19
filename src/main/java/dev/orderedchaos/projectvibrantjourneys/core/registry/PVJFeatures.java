@@ -34,6 +34,7 @@ public class PVJFeatures {
   public static final DeferredHolder<Feature<?>, Feature<ProbabilityFeatureConfiguration>> FLOATING_PINK_LOTUS = registerFeature("floating_pink_lotus", new FloatingPinkLotusFeature(ProbabilityFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> HOT_SPRINGS = registerFeature("hot_springs", new HotSpringsFeature(NoneFeatureConfiguration.CODEC));
   public static final DeferredHolder<Feature<?>, Feature<BushConfiguration>> BUSH = registerFeature("bush", new BushFeature(BushConfiguration.CODEC));
+  public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SLIME_NODULE = registerFeature("slime_nodule", new SlimeNoduleFeature(NoneFeatureConfiguration.CODEC));
 
   private static <FC extends FeatureConfiguration> DeferredHolder<Feature<?>, Feature<FC>> registerFeature(String name, Feature<FC> feature) {
     return FEATURES.register(name, () -> feature);
