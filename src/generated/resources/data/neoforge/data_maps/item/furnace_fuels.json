@@ -42,6 +42,12 @@
     "projectvibrantjourneys:pinecones": {
       "burn_time": 100
     },
+    "projectvibrantjourneys:prickly_bush": {
+      "burn_time": 100
+    },
+    "projectvibrantjourneys:reeds": {
+      "burn_time": 100
+    },
     "projectvibrantjourneys:spruce_hollow_log": {
       "burn_time": 300
     },

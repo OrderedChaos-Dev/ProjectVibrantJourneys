@@ -25,7 +25,6 @@ public class MuddyBonesBlock extends MudBlock  {
   public BlockState getStateForPlacement(BlockPlaceContext context) {
     int model = context.getLevel().getRandom().nextInt(3);
     Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(context.getLevel().getRandom());
-    FluidState ifluidstate = context.getLevel().getFluidState(context.getClickedPos());
     return this.defaultBlockState()
       .setValue(MODEL, model)
       .setValue(FACING, facing);

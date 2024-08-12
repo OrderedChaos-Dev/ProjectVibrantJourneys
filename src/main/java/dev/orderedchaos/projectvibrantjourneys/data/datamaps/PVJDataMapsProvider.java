@@ -63,6 +63,8 @@ public class PVJDataMapsProvider extends DataMapProvider {
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.WHITE_BARK_MUSHROOM.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.GLOWING_BLUE_FUNGUS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.CINDERCANE.get(), 800);
+    setFurnaceFuelInfo(furnaceFuels, PVJBlocks.REEDS.get(), 100);
+    setFurnaceFuelInfo(furnaceFuels, PVJBlocks.PRICKLY_BUSH.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.TWIGS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.BIRCH_TWIGS.get(), 100);
     setFurnaceFuelInfo(furnaceFuels, PVJBlocks.PINECONES.get(), 100);
