@@ -15,6 +15,9 @@
     "projectvibrantjourneys:blue_wildflowers": {
       "chance": 0.25
     },
+    "projectvibrantjourneys:bogged_remains": {
+      "chance": 1.0
+    },
     "projectvibrantjourneys:cattail": {
       "chance": 0.65
     },

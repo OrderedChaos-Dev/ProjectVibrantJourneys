@@ -81,6 +81,11 @@ public class PVJRecipes extends RecipeProvider  {
       .unlockedBy("has_warped_nettle", has(PVJBlocks.WARPED_NETTLE))
       .unlockedBy("has_crimson_nettle", has(PVJBlocks.CRIMSON_NETTLE))
       .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, "nettle_soup"));
+
+    ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, Items.PAPER, 2)
+      .requires(PVJBlocks.REEDS, 4)
+      .unlockedBy("has_reeds", has(PVJBlocks.REEDS))
+      .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, "paper_from_reeds"));
   }
 
   private void buildSmeltingRecipes(RecipeOutput recipeOutput) {

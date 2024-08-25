@@ -2,14 +2,19 @@ package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
-public class SeaOatsBlock extends DoublePlantBlock {
+public class SeaOatsBlock extends DoublePlantBlock implements BonemealableBlock {
 
   public SeaOatsBlock(BlockBehaviour.Properties props) {
     super(props);
@@ -29,5 +34,20 @@ public class SeaOatsBlock extends DoublePlantBlock {
         return false;
       return blockstate.getBlock() == this && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
     }
+  }
+
+  @Override
+  public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState) {
+    return true;
+  }
+
+  @Override
+  public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+    return true;
+  }
+
+  @Override
+  public void performBonemeal(ServerLevel pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+    popResource(pLevel, pPos, new ItemStack(this));
   }
 }

@@ -1,0 +1,14 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    [
+      "minecraft:frozen_peaks",
+      "minecraft:snowy_slopes"
+    ]
+  ],
+  "blacklist": [],
+  "configOption": "enableIcicles",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:more_icicles"
+}

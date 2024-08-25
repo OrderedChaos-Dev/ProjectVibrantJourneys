@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier",
+  "biomes": [
+    "minecraft:ice_spikes"
+  ],
+  "blacklist": [],
+  "configOption": "enableIcicles",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:many_icicles"
+}

@@ -89,6 +89,8 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.REEDS, new PVJBiomeModifier.Builder(context, "enableReeds").tag(plainsType()).extraBlacklist(Biomes.SNOWY_PLAINS));
     addBiomeModifier(context, PVJPlacements.PRICKLY_BUSH, new PVJBiomeModifier.Builder(context, "enablePricklyBush").extraBiomes(Biomes.WOODED_BADLANDS));
     addBiomeModifier(context, PVJPlacements.ICICLE, new PVJBiomeModifier.Builder(context, "enableIcicles").tag(snowy()));
+    addBiomeModifier(context, PVJPlacements.MORE_ICICLES, new PVJBiomeModifier.Builder(context, "enableIcicles").extraBiomes(Biomes.FROZEN_PEAKS, Biomes.SNOWY_SLOPES));
+    addBiomeModifier(context, PVJPlacements.MANY_ICICLES, new PVJBiomeModifier.Builder(context, "enableIcicles").extraBiomes(Biomes.ICE_SPIKES));
     addBiomeModifier(context, PVJPlacements.SANDY_SPROUTS, new PVJBiomeModifier.Builder(context, "enableSandySprouts").tag(beach()).extraBlacklist(veryCold()));
     addBiomeModifier(context, PVJPlacements.WATERGRASS, new PVJBiomeModifier.Builder(context, "enableWatergrass").tag(overworld()).blacklist(oceanOrBeach(), badlands()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
     addBiomeModifier(context, PVJPlacements.GRAVEL_PIT, new PVJBiomeModifier.Builder(context, "enableGravelPits").decoration(GenerationStep.Decoration.LOCAL_MODIFICATIONS).extraBiomes(Biomes.OLD_GROWTH_BIRCH_FOREST, Biomes.BIRCH_FOREST));

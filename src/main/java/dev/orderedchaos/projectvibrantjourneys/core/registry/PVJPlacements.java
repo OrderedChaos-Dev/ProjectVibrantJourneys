@@ -39,6 +39,8 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> SHORT_GRASS = createKey("short_grass");
   public static final ResourceKey<PlacedFeature> SMALL_CACTUS = createKey("small_cactus");
   public static final ResourceKey<PlacedFeature> ICICLE = createKey("icicle");
+  public static final ResourceKey<PlacedFeature> MORE_ICICLES = createKey("more_icicles");
+  public static final ResourceKey<PlacedFeature> MANY_ICICLES = createKey("many_icicles");
   public static final ResourceKey<PlacedFeature> CAVE_ROOTS = createKey("cave_roots");
   public static final ResourceKey<PlacedFeature> REEDS = createKey("reeds");
   public static final ResourceKey<PlacedFeature> PRICKLY_BUSH = createKey("prickly_bush");
@@ -124,6 +126,8 @@ public class PVJPlacements {
     register(context, SHORT_GRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.SHORT_GRASS), worldSurfaceSquaredWithCount(3), ChancePlacementFilter.of("shortGrassWeight"));
     register(context, SMALL_CACTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.SMALL_CACTUS), RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome(), ChancePlacementFilter.of("smallCactiWeight"));
     register(context, ICICLE, holderGetter.getOrThrow(PVJConfiguredFeatures.ICICLE), CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("iciclesWeight"));
+    register(context, MORE_ICICLES, holderGetter.getOrThrow(PVJConfiguredFeatures.ICICLE), CountPlacement.of(200), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("iciclesWeight"));
+    register(context, MANY_ICICLES, holderGetter.getOrThrow(PVJConfiguredFeatures.ICICLE), CountPlacement.of(256), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(50), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("iciclesWeight"));
     register(context, CAVE_ROOTS, holderGetter.getOrThrow(PVJConfiguredFeatures.CAVE_ROOTS), CountPlacement.of(188), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome(), ChancePlacementFilter.of("caveRootsWeight"));
     register(context, REEDS, holderGetter.getOrThrow(PVJConfiguredFeatures.REEDS), onceEvery(1), ChancePlacementFilter.of("reedsWeight"));
     register(context, PRICKLY_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.PRICKLY_BUSH), onceEvery(2), ChancePlacementFilter.of("pricklyBushWeight"));

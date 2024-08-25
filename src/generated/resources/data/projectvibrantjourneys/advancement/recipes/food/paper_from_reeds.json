@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_reeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projectvibrantjourneys:reeds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:paper_from_reeds"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_reeds"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:paper_from_reeds"
+    ]
+  }
+}
