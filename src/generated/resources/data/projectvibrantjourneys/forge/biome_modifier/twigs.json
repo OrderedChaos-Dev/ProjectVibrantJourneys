@@ -4,9 +4,7 @@
     "#minecraft:is_overworld"
   ],
   "blacklist": [
-    "#minecraft:has_structure/desert_pyramid",
-    "#minecraft:is_badlands",
-    "#minecraft:has_structure/village_desert",
+    "#forge:is_desert",
     "#minecraft:is_beach",
     "#minecraft:is_ocean",
     "#forge:is_mushroom",

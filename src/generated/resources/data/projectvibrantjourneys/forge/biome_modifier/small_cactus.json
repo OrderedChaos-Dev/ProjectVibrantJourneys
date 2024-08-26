@@ -1,9 +1,7 @@
 {
   "type": "projectvibrantjourneys:biome_modifier_serializer",
   "biomes": [
-    "#minecraft:has_structure/desert_pyramid",
-    "#minecraft:is_badlands",
-    "#minecraft:has_structure/village_desert"
+    "#forge:is_desert"
   ],
   "blacklist": [],
   "configOption": "enableSmallCacti",

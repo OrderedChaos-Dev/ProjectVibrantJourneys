@@ -6,9 +6,7 @@
   "blacklist": [
     "#minecraft:is_beach",
     "#minecraft:is_ocean",
-    "#minecraft:has_structure/desert_pyramid",
-    "#minecraft:is_badlands",
-    "#minecraft:has_structure/village_desert",
+    "#forge:is_desert",
     [
       "minecraft:frozen_river",
       "minecraft:snowy_plains",

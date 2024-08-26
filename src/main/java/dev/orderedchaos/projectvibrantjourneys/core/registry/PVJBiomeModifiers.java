@@ -74,7 +74,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.BARK_MUSHROOM, new PVJBiomeModifier.Builder(context, "enableBarkMushrooms").tag(overworld()));
     addBiomeModifier(context, PVJPlacements.SEA_OATS, new PVJBiomeModifier.Builder(context, "enableSeaOats").tag(beach()).extraBlacklist(veryCold()));
     addBiomeModifier(context, PVJPlacements.BEACH_GRASS, new PVJBiomeModifier.Builder(context, "enableBeachGrass").tag(beach()).extraBlacklist(veryCold()));
-    addBiomeModifier(context, PVJPlacements.CATTAILS, new PVJBiomeModifier.Builder(context, "enableCattails").tag(overworld()).blacklist(oceanOrBeach(), badlands()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
+    addBiomeModifier(context, PVJPlacements.CATTAILS, new PVJBiomeModifier.Builder(context, "enableCattails").tag(overworld()).blacklist(oceanOrBeach()).extraBlacklist(veryCold()).extraBlacklist(Biomes.STONY_SHORE));
     addBiomeModifier(context, PVJPlacements.SHORT_GRASS, new PVJBiomeModifier.Builder(context, "enableShortGrass").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
     addBiomeModifier(context, PVJPlacements.NATURAL_COBWEB, new PVJBiomeModifier.Builder(context, "enableNaturalCobwebs").tag(overworld()).blacklist(mushroom()).extraBlacklist(Biomes.SNOWY_PLAINS));
     addBiomeModifier(context, PVJPlacements.SMALL_CACTUS, new PVJBiomeModifier.Builder(context, "enableSmallCacti").tag(desert()));
@@ -83,7 +83,7 @@ public class PVJBiomeModifiers {
     addBiomeModifier(context, PVJPlacements.EXTRA_GRASS, new PVJBiomeModifier.Builder(context, "enableExtraRiverGrass").tag(river()));
     addBiomeModifier(context, PVJPlacements.TIDE_POOL, new PVJBiomeModifier.Builder(context, "enableTidePools").extraBiomes(Biomes.STONY_SHORE));
     addBiomeModifier(context, PVJPlacements.CAVE_ROOTS, new PVJBiomeModifier.Builder(context, "enableCaveRoots").tag(overworld()));
-    addBiomeModifier(context, PVJPlacements.REEDS, new PVJBiomeModifier.Builder(context, "enableReeds").extraBlacklist(Biomes.SNOWY_PLAINS));
+    addBiomeModifier(context, PVJPlacements.REEDS, new PVJBiomeModifier.Builder(context, "enableReeds").tag(plainsType()).extraBlacklist(Biomes.SNOWY_PLAINS));
     addBiomeModifier(context, PVJPlacements.PRICKLY_BUSH, new PVJBiomeModifier.Builder(context, "enablePricklyBush").extraBiomes(Biomes.WOODED_BADLANDS));
     addBiomeModifier(context, PVJPlacements.ICICLE, new PVJBiomeModifier.Builder(context, "enableIcicles").tag(snowy()));
     addBiomeModifier(context, PVJPlacements.SANDY_SPROUTS, new PVJBiomeModifier.Builder(context, "enableSandySprouts").tag(beach()).extraBlacklist(veryCold()));
@@ -176,8 +176,7 @@ public class PVJBiomeModifiers {
   }
 
   private static List<TagKey<Biome>> desert() {
-    /* rip BiomeCategory, going to take a risk and hope modded biomes with desert pyramids are also actually deserts */
-    return List.of(BiomeTags.HAS_DESERT_PYRAMID, BiomeTags.IS_BADLANDS, BiomeTags.HAS_VILLAGE_DESERT);
+    return List.of(Tags.Biomes.IS_DESERT);
   }
 
   private static List<TagKey<Biome>> overworld() {
