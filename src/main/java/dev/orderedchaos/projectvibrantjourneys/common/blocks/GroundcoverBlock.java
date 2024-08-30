@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
+import dev.orderedchaos.projectvibrantjourneys.core.config.PVJConfig;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -47,6 +49,22 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
   public GroundcoverBlock(BlockBehaviour.Properties props) {
     super(props);
     this.registerDefaultState(this.stateDefinition.any().setValue(MODEL, 0).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+    if (PVJConfig.configOptions.get("replaceableGroundcover").get()) {
+      return context.getItemInHand().isEmpty() || !context.getItemInHand().is(this.asItem());
+    }
+    return super.canBeReplaced(state, context);
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, Fluid fluid) {
+    if (PVJConfig.configOptions.get("replaceableGroundcover").get()) {
+      return true;
+    }
+    return super.canBeReplaced(state, fluid);
   }
 
   @Override

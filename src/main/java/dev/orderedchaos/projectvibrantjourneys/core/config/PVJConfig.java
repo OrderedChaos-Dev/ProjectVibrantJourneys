@@ -47,6 +47,8 @@ public class PVJConfig {
 
   public static ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 
+  public static ForgeConfigSpec.BooleanValue replaceableGroundcover;
+
   static {
     BUILDER.push("World Generation");
     config("enableRocks", enableRocks, BUILDER.comment("Enable generation of rocks").define("enableRocks", true));
@@ -86,6 +88,10 @@ public class PVJConfig {
 
     BUILDER.push("Entity Options");
     config("enableJungleTropicalFish", enableJungleTropicalFish, BUILDER.comment("Enable spawning of tropical fish in jungles").define("enableJungleTropicalFish", true));
+    BUILDER.pop();
+
+    BUILDER.push("Misc Options");
+      config("replaceableGroundcover", replaceableGroundcover, BUILDER.comment("Enable replaceable groundcover behavior - i.e. makes it behave like tall grass when placing blocks").define("replaceableGroundcover", true));
     BUILDER.pop();
   }
 
