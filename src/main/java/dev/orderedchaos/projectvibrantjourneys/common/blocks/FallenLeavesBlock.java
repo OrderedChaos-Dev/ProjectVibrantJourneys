@@ -1,7 +1,9 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
+import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -27,6 +30,22 @@ public class FallenLeavesBlock extends Block implements SimpleWaterloggedBlock {
   public FallenLeavesBlock(BlockBehaviour.Properties props) {
     super(props);
     this.registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+    if (PVJConfig.replaceableGroundcover.get()) {
+      return context.getItemInHand().isEmpty() || !context.getItemInHand().is(this.asItem());
+    }
+    return super.canBeReplaced(state, context);
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, Fluid fluid) {
+    if (PVJConfig.replaceableGroundcover.get()) {
+      return true;
+    }
+    return super.canBeReplaced(state, fluid);
   }
 
   @Override

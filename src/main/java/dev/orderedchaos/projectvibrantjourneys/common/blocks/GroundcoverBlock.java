@@ -1,18 +1,14 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import com.mojang.serialization.MapCodec;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import dev.orderedchaos.projectvibrantjourneys.core.PVJConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,12 +23,9 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -53,6 +46,22 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
   @Override
   protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
     return simpleCodec(GroundcoverBlock::new);
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+    if (PVJConfig.replaceableGroundcover.get()) {
+      return context.getItemInHand().isEmpty() || !context.getItemInHand().is(this.asItem());
+    }
+    return super.canBeReplaced(state, context);
+  }
+
+  @Override
+  public boolean canBeReplaced(BlockState state, Fluid fluid) {
+    if (PVJConfig.replaceableGroundcover.get()) {
+      return true;
+    }
+    return super.canBeReplaced(state, fluid);
   }
 
   @Override
@@ -93,11 +102,14 @@ public class GroundcoverBlock extends HorizontalDirectionalBlock implements Simp
 
   @Override
   public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult brt) {
+    if (!player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
+      return super.useWithoutItem(state, world, pos, player, brt);
+    }
     if (!player.isCreative() && player.mayBuild()) {
-      Containers.dropItemStack(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(this));
+      popResource(world, pos, new ItemStack(this));
     }
 
-    world.removeBlock(pos, true);
+    world.removeBlock(pos, false);
 
     return InteractionResult.SUCCESS;
   }
