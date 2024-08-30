@@ -91,7 +91,7 @@ public class PVJConfig {
     BUILDER.pop();
 
     BUILDER.push("Misc Options");
-      config("replaceableGroundcover", replaceableGroundcover, BUILDER.comment("Enable replaceable groundcover behavior - i.e. makes it behave like tall grass when placing blocks").define("replaceableGroundcover", true));
+    config("replaceableGroundcover", replaceableGroundcover, BUILDER.comment("Enable replaceable groundcover behavior - i.e. makes it behave like tall grass when placing blocks").define("replaceableGroundcover", true));
     BUILDER.pop();
   }
 
