@@ -77,37 +77,25 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
     dropWhenSilkTouch(PVJBlocks.ICE_CHUNKS.get());
     dropWhenSilkTouch(PVJBlocks.PINECONES.get());
 
-    add(PVJBlocks.BONES.get(), (block) -> {
-      return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.BONE)));
-    });
-    add(PVJBlocks.CHARRED_BONES.get(), (block) -> {
-      return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.BONE)));
-    });
-    add(PVJBlocks.TWIGS.get(), (block) -> {
-      return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK)));
-    });
+    add(PVJBlocks.BONES.get(), (block) -> createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.BONE))));
+    add(PVJBlocks.CHARRED_BONES.get(), (block) -> createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.BONE))));
+    add(PVJBlocks.TWIGS.get(), (block) -> createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK))));
 
     shearsOrSilkTouch(PVJBlocks.FALLEN_LEAVES.get());
     shearsOrSilkTouch(PVJBlocks.DEAD_FALLEN_LEAVES.get());
     shearsOrSilkTouch(PVJBlocks.SANDY_SPROUTS.get());
 
-    add(PVJBlocks.NATURAL_COBWEB.get(), (block) -> {
-      return createSilkTouchOrShearsDispatchTable(Blocks.COBWEB, this.applyExplosionCondition(Blocks.COBWEB, LootItem.lootTableItem(Items.STRING)));
-    });
-    add(PVJBlocks.PRICKLY_BUSH.get(), (block) -> {
-      return createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))));
-    });
+    add(PVJBlocks.NATURAL_COBWEB.get(), (block) -> createSilkTouchOrShearsDispatchTable(Blocks.COBWEB, this.applyExplosionCondition(Blocks.COBWEB, LootItem.lootTableItem(Items.STRING))));
+    add(PVJBlocks.PRICKLY_BUSH.get(), (block) -> createShearsDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F))))));
     add(PVJBlocks.SHORT_GRASS.get(), this::createGrassDrops);
 
-    add(PVJBlocks.SEASHELLS.get(), (block) -> {
-      return LootTable.lootTable()
-        .withPool(
-          LootPool.lootPool()
-            .setRolls(ConstantValue.exactly(1.0F))
-            .add(applyExplosionDecay(block,
-              LootItem.lootTableItem(Items.PRISMARINE_SHARD)
-                .when(LootItemRandomChanceCondition.randomChance(0.125F)))));
-    });
+    add(PVJBlocks.SEASHELLS.get(), (block) -> LootTable.lootTable()
+      .withPool(
+        LootPool.lootPool()
+          .setRolls(ConstantValue.exactly(1.0F))
+          .add(applyExplosionDecay(block,
+            LootItem.lootTableItem(Items.PRISMARINE_SHARD)
+              .when(LootItemRandomChanceCondition.randomChance(0.125F))))));
   }
 
   private void doublePlant(Block plant) {

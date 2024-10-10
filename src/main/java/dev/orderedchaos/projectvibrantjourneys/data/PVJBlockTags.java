@@ -21,6 +21,11 @@ public class PVJBlockTags extends BlockTagsProvider {
 
   @Override
   protected void addTags(HolderLookup.Provider provider) {
+    this.addModTags(provider);
+    this.addModCompatTags(provider);
+  }
+
+  private void addModTags(HolderLookup.Provider provider) {
     tag(BlockTags.OAK_LOGS).add(PVJBlocks.OAK_HOLLOW_LOG.get());
     tag(BlockTags.BIRCH_LOGS).add(PVJBlocks.BIRCH_HOLLOW_LOG.get());
     tag(BlockTags.SPRUCE_LOGS).add(PVJBlocks.SPRUCE_HOLLOW_LOG.get());
@@ -86,4 +91,8 @@ public class PVJBlockTags extends BlockTagsProvider {
     );
   }
 
+  private void addModCompatTags(HolderLookup.Provider provider) {
+    tag(PVJTags.COMPOST_ACTIVATORS)
+      .add(PVJBlocks.GLOWCAP.get());
+  }
 }

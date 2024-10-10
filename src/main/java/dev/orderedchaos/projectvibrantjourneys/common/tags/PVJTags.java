@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.common.tags;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import dev.orderedchaos.projectvibrantjourneys.util.ModCompatUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -20,11 +21,18 @@ public class PVJTags {
 
   public static final TagKey<Block> GROWS_ON_HOLLOW_LOG = createBlockTag("grows_on_hollow_log");
 
+  /* MOD COMPAT */
+  public static final TagKey<Block> COMPOST_ACTIVATORS = createBlockTag(ModCompatUtils.ModIds.FARMERS_DELIGHT, "compost_activators");
+
   private static TagKey<Biome> createBiomeTag(final String location) {
     return TagKey.create(Registries.BIOME, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, location));
   }
 
   private static TagKey<Block> createBlockTag(final String location) {
     return BlockTags.create(new ResourceLocation(ProjectVibrantJourneys.MOD_ID, location));
+  }
+
+  private static TagKey<Block> createBlockTag(final String namespace, final String location) {
+    return BlockTags.create(new ResourceLocation(namespace, location));
   }
 }
