@@ -1,8 +1,5 @@
 {
   "values": {
-    "minecraft:air": {
-      "chance": 0.2
-    },
     "projectvibrantjourneys:bark_mushroom": {
       "chance": 0.4
     },
