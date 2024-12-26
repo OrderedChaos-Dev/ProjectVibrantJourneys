@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.BiomeDensityPlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.ChancePlacementFilter;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.NetherNoBedrockFilter;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
@@ -13,4 +14,5 @@ public class PVJPlacementModifiers {
 
   public static final DeferredHolder<PlacementModifierType<?>, PlacementModifierType<ChancePlacementFilter>> CHANCE = PLACEMENT_MODIFIERS.register("chance", () -> () -> ChancePlacementFilter.CODEC);
   public static final DeferredHolder<PlacementModifierType<?>, PlacementModifierType<BiomeDensityPlacementFilter>> VEGETATION_DENSITY = PLACEMENT_MODIFIERS.register("vegetation_density", () -> () -> BiomeDensityPlacementFilter.CODEC);
+  public static final DeferredHolder<PlacementModifierType<?>, PlacementModifierType<NetherNoBedrockFilter>> NETHER_NO_BEDROCK = PLACEMENT_MODIFIERS.register("nether_no_bedrock", () -> () -> NetherNoBedrockFilter.CODEC);
 }

@@ -24,6 +24,9 @@
       "type": "minecraft:biome"
     },
     {
+      "type": "projectvibrantjourneys:nether_no_bedrock"
+    },
+    {
       "type": "projectvibrantjourneys:chance",
       "weightConfigSpec": "glowcapWeight"
     }

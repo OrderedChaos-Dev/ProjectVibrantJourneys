@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.BiomeDensityPlacementFilter;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.ChancePlacementFilter;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.placementmodifiers.NetherNoBedrockFilter;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -143,13 +144,13 @@ public class PVJPlacements {
     register(context, ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), worldSurfaceSquaredWithCount(2), ChancePlacementFilter.of("rocksWeight"));
     register(context, ICE_CHUNKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ICE_CHUNKS), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("iceChunksWeight"));
     register(context, BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), worldSurfaceSquaredWithCount(1), ChancePlacementFilter.of("bonesWeight"));
-    register(context, NETHER_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(80), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("bonesWeight"));
-    register(context, CHARRED_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.CHARRED_BONES), RarityFilter.onAverageOnceEvery(2), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("charredBonesWeight"));
+    register(context, NETHER_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(80), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), NetherNoBedrockFilter.noBedrockFilter(), ChancePlacementFilter.of("bonesWeight"));
+    register(context, CHARRED_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.CHARRED_BONES), RarityFilter.onAverageOnceEvery(2), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), NetherNoBedrockFilter.noBedrockFilter(), ChancePlacementFilter.of("charredBonesWeight"));
     register(context, CAVE_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.BONES), CountPlacement.of(100), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("bonesWeight"));
     register(context, CAVE_ROCKS, holderGetter.getOrThrow(PVJConfiguredFeatures.ROCKS), CountPlacement.of(250), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(4), VerticalAnchor.absolute(60)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome(), ChancePlacementFilter.of("rocksWeight"));
     register(context, WARPED_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.WARPED_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ChancePlacementFilter.of("netherNettlesWeight"));
     register(context, CRIMSON_NETTLE, holderGetter.getOrThrow(PVJConfiguredFeatures.CRIMSON_NETTLE), RarityFilter.onAverageOnceEvery(4), CountOnEveryLayerPlacement.of(2), BiomeFilter.biome(), ChancePlacementFilter.of("netherNettlesWeight"));
-    register(context, GLOWCAP, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWCAP), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("glowcapWeight"));
+    register(context, GLOWCAP, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWCAP), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), NetherNoBedrockFilter.noBedrockFilter(), ChancePlacementFilter.of("glowcapWeight"));
     register(context, CINDERCANE, holderGetter.getOrThrow(PVJConfiguredFeatures.CINDERCANE), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome(), ChancePlacementFilter.of("cindercaneWeight"));
     register(context, OAK_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
     register(context, BIRCH_FALLEN_TREE, holderGetter.getOrThrow(PVJConfiguredFeatures.BIRCH_FALLEN_TREE), worldSurfaceSquaredWithCount(1), BiomeDensityPlacementFilter.filter(), ChancePlacementFilter.of("fallenTreesWeight"));
