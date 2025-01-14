@@ -10,13 +10,14 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.common.crafting.StrictNBTIngredient;
 
 public class PVJBrewingRecipes {
 
-  private static final Ingredient AWKWARD_POTION = Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD));
-  private static final Ingredient GLOWING_POTION = Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), PVJPotions.GLOWING.get()));
-  private static final Ingredient GLOWING_SPLASH_POTION = Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.SPLASH_POTION), PVJPotions.GLOWING.get()));
-  private static final Ingredient GLOWING_LINGERING_POTION = Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.LINGERING_POTION), PVJPotions.GLOWING.get()));
+  private static final Ingredient AWKWARD_POTION = StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD));
+  private static final Ingredient GLOWING_POTION = StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), PVJPotions.GLOWING.get()));
+  private static final Ingredient GLOWING_SPLASH_POTION = StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.SPLASH_POTION), PVJPotions.GLOWING.get()));
+  private static final Ingredient GLOWING_LINGERING_POTION = StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.LINGERING_POTION), PVJPotions.GLOWING.get()));
 
 
   public static void init() {
