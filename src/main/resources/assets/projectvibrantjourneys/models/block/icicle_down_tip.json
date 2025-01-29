@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pointed_dripstone",
-  "render_type": "minecraft:translucent",
+  "render_type": "minecraft:tripwire",
   "textures": {
     "cross": "projectvibrantjourneys:block/icicle_down_tip"
   }
