@@ -1,6 +1,8 @@
 package dev.orderedchaos.projectvibrantjourneys.data.loottables;
 
+import dev.orderedchaos.projectvibrantjourneys.common.blocks.HollowLogBlock;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -9,6 +11,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DoublePlantBlock;
@@ -21,6 +24,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.ConditionUserBuilder;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -62,16 +66,17 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropSelf(PVJBlocks.ORANGE_BARK_MUSHROOM.get());
     this.dropSelf(PVJBlocks.WHITE_BARK_MUSHROOM.get());
     this.dropSelf(PVJBlocks.GLOWING_BLUE_FUNGUS.get());
-    this.dropSelf(PVJBlocks.OAK_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.BIRCH_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.SPRUCE_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.JUNGLE_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.ACACIA_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.DARK_OAK_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.CHERRY_HOLLOW_LOG.get());
-    this.dropSelf(PVJBlocks.MANGROVE_HOLLOW_LOG.get());
     this.dropSelf(PVJBlocks.ICICLE.get());
     this.dropSelf(PVJBlocks.PINK_LOTUS.get());
+
+    this.hollowLog(PVJBlocks.OAK_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.BIRCH_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.SPRUCE_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.JUNGLE_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.ACACIA_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.DARK_OAK_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.CHERRY_HOLLOW_LOG.get());
+    this.hollowLog(PVJBlocks.MANGROVE_HOLLOW_LOG.get());
 
     this.add(PVJBlocks.YELLOW_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.YELLOW_WILDFLOWERS.get()));
     this.add(PVJBlocks.ORANGE_WILDFLOWERS.get(), this.createPetalsDrops(PVJBlocks.ORANGE_WILDFLOWERS.get()));
@@ -200,5 +205,29 @@ public class PVJBlockLoot extends BlockLootSubProvider  {
     this.dropPottedContents(PVJBlocks.POTTED_WARPED_NETTLE.get());
     this.dropPottedContents(PVJBlocks.POTTED_CRIMSON_NETTLE.get());
     this.dropPottedContents(PVJBlocks.POTTED_GLOWCAP.get());
+  }
+
+  public void hollowLog(Block hollowLog) {
+    this.add(hollowLog,
+      this.createSingleItemTable(hollowLog)
+        .withPool(
+          LootPool.lootPool()
+            .setRolls(ConstantValue.exactly(1.0F))
+            .add(
+              this.applyExplosionDecay(
+                hollowLog,
+                LootItem.lootTableItem(Items.MOSS_CARPET)
+                  .apply(
+                    SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))
+                      .when(
+                        LootItemBlockStatePropertyCondition
+                          .hasBlockStateProperties(hollowLog)
+                          .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HollowLogBlock.MOSSY, true))
+                      )
+                  )
+              )
+            )
+        )
+    );
   }
 }

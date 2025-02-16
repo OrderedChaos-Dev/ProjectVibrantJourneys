@@ -1,5 +1,6 @@
-// 1.21.1	2024-08-12T00:29:42.2428277	Tags for minecraft:item mod id projectvibrantjourneys
+// 1.21.1	2025-02-16T10:56:38.9819725	Tags for minecraft:item mod id projectvibrantjourneys
 3ebdad4a1b6dfa96c3b8b472de985fa75357f9ca data/c/tags/item/foods/soup.json
 c5160785336cb26848922da2502156df41c94f39 data/minecraft/tags/item/camel_food.json
 94211d3c4ce277cc4b33a5348e5df2c1b34b81ae data/minecraft/tags/item/creeper_igniters.json
 a45d48223caf2dd148986f60e30b0c94e88f5bb5 data/minecraft/tags/item/logs_that_burn.json
+5e7c760621586934c47d721d06be94fdb2693f4e data/projectvibrantjourneys/tags/item/harvests_mossy_hollow_logs.json

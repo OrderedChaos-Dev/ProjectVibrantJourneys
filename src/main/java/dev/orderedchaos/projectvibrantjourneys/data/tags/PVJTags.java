@@ -4,7 +4,9 @@ import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
@@ -28,11 +30,18 @@ public class PVJTags {
   public static final TagKey<Block> GROUNDCOVER_CANNOT_GENERATE_ON = createBlockTag("groundcover_cannot_generate_on");
   public static final TagKey<Block> CINDERCANE_GROWS_ON = createBlockTag("cindercane_grows_on");
 
+  /* ITEMS */
+  public static final TagKey<Item> HARVESTS_MOSSY_HOLLOW_LOGS = createItemTag("harvests_mossy_hollow_logs");
+
   private static TagKey<Biome> createBiomeTag(final String location) {
     return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, location));
   }
 
   private static TagKey<Block> createBlockTag(final String location) {
     return BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, location));
+  }
+
+  private static TagKey<Item> createItemTag(final String location) {
+    return ItemTags.create(ResourceLocation.fromNamespaceAndPath(ProjectVibrantJourneys.MOD_ID, location));
   }
 }

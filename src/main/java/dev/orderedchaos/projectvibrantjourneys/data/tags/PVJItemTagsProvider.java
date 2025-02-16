@@ -31,5 +31,7 @@ public class PVJItemTagsProvider extends ItemTagsProvider {
     this.tag(ItemTags.CREEPER_IGNITERS).add(PVJBlocks.CINDERCANE.asItem());
     this.tag(ItemTags.CAMEL_FOOD).add(PVJBlocks.SMALL_CACTUS.asItem());
     this.tag(Tags.Items.FOODS_SOUP).add(PVJItems.NETTLE_SOUP.get());
+
+    this.tag(PVJTags.HARVESTS_MOSSY_HOLLOW_LOGS).addTag(ItemTags.SHOVELS);
   }
 }
