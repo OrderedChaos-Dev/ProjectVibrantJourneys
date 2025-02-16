@@ -1,5 +1,5 @@
 {
-	"render_type": "minecraft:translucent",
+	"render_type": "minecraft:tripwire",
 	"textures": {
 		"0": "minecraft:block/slime_block",
 		"particle": "minecraft:block/slime_block"
