@@ -1,4 +1,5 @@
-// 1.20.1	2023-10-21T12:19:13.8371983	Tags for minecraft:item mod id projectvibrantjourneys
+// 1.20.1	2025-02-17T19:00:36.5895787	Tags for minecraft:item mod id projectvibrantjourneys
 94211d3c4ce277cc4b33a5348e5df2c1b34b81ae data/minecraft/tags/items/creeper_igniters.json
 463e51965c83467cf27ff3aeb5e372f7734045ea data/minecraft/tags/items/logs.json
 463e51965c83467cf27ff3aeb5e372f7734045ea data/minecraft/tags/items/logs_that_burn.json
+5e7c760621586934c47d721d06be94fdb2693f4e data/projectvibrantjourneys/tags/items/harvests_mossy_hollow_logs.json

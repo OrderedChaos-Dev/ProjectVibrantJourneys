@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-29T21:47:42.06506	Tags for minecraft:block mod id projectvibrantjourneys
+// 1.20.1	2025-02-17T18:52:51.0830001	Tags for minecraft:block mod id projectvibrantjourneys
 6f8fdd392c3b84e0148c6f8e999d09995299581e data/farmersdelight/tags/blocks/compost_activators.json
 e607d4360ded8461dbcbf2cd25eef5443635ed42 data/minecraft/tags/blocks/birch_logs.json
 050ec04596d15da001679c7dbe9bfbc570eaa5b4 data/minecraft/tags/blocks/cherry_logs.json
@@ -12,4 +12,5 @@ eb9a302f35fd9067787dd193b806d3d5e26edda8 data/minecraft/tags/blocks/jungle_logs.
 463e51965c83467cf27ff3aeb5e372f7734045ea data/minecraft/tags/blocks/mushroom_grow_block.json
 7be24047a96ed6433d58337c34eac50c310cb59e data/minecraft/tags/blocks/oak_logs.json
 9e7d3ae66262dea030f1b09eb13cedd50a237b2e data/minecraft/tags/blocks/spruce_logs.json
+b1d90fd3f792a35172af8ba39440277bd69a70e6 data/projectvibrantjourneys/tags/blocks/groundcover_cannot_generate_on.json
 dc608fafffc476bd7ae88757d3ea6f8875b1c45e data/projectvibrantjourneys/tags/blocks/grows_on_hollow_log.json

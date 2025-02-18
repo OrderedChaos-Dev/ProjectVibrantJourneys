@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.common.world.features;
 
 import com.mojang.serialization.Codec;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
+import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
 import net.minecraft.core.BlockPos;
@@ -35,7 +36,7 @@ public class RocksGroundcoverFeature extends Feature<RandomPatchConfiguration> {
     }
 
     BlockState ground = level.getBlockState(origin.below());
-    if (ground.is(Blocks.SCULK) || ground.is(Blocks.DEEPSLATE) || ground.is(Blocks.AMETHYST_BLOCK)) {
+    if (ground.is(Blocks.SCULK) || ground.is(Blocks.DEEPSLATE) || ground.is(Blocks.AMETHYST_BLOCK) || ground.is(PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON)) {
       return false;
     }
     BlockState rocks = getRocksToPlace(randomSource, originState, origin, ground.getBlock());

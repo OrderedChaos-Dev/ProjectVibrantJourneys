@@ -2,6 +2,7 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.ShortGrassBlock;
+import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration.FallenTreeVegetation;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
@@ -160,15 +161,15 @@ public class PVJConfiguredFeatures {
     register(context, PRICKLY_BUSH, Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState()));
     register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SANDY_SPROUTS.get().defaultBlockState()));
 
-    register(context, TWIGS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
+    register(context, TWIGS, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));
     register(context, DEAD_FALLEN_LEAVES, Feature.RANDOM_PATCH, deadFallenLeavesConfig(3, 7, 3, PVJBlocks.DEAD_FALLEN_LEAVES.get().defaultBlockState()));
-    register(context, PINECONES, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get()));
-    register(context, SEASHELLS, Feature.RANDOM_PATCH, groundcoverConfig(4, 7, 3, PVJBlocks.SEASHELLS.get()));
+    register(context, PINECONES, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(4, 7, 3, PVJBlocks.PINECONES.get()));
+    register(context, SEASHELLS, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(4, 7, 3, PVJBlocks.SEASHELLS.get()));
     register(context, ROCKS, PVJFeatures.ROCKS.get(), groundcoverConfig(4, 7, 3, PVJBlocks.ROCKS.get()));
-    register(context, ICE_CHUNKS, Feature.RANDOM_PATCH, iceChunksConfig(4, 7, 3, PVJBlocks.ICE_CHUNKS.get()));
-    register(context, BONES, Feature.RANDOM_PATCH, groundcoverConfig(1, 7, 3, PVJBlocks.BONES.get()));
-    register(context, CHARRED_BONES, Feature.RANDOM_PATCH, groundcoverConfig(50, 7, 3, PVJBlocks.CHARRED_BONES.get()));
+    register(context, ICE_CHUNKS, PVJFeatures.GROUNDCOVER.get(), iceChunksConfig(4, 7, 3, PVJBlocks.ICE_CHUNKS.get()));
+    register(context, BONES, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(1, 7, 3, PVJBlocks.BONES.get()));
+    register(context, CHARRED_BONES, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(50, 7, 3, PVJBlocks.CHARRED_BONES.get()));
 
     register(context, WARPED_NETTLE, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(BlockStateProvider.simple(PVJBlocks.WARPED_NETTLE.get()), 8, 4));
     register(context, CRIMSON_NETTLE, Feature.NETHER_FOREST_VEGETATION, new NetherForestVegetationConfig(BlockStateProvider.simple(PVJBlocks.CRIMSON_NETTLE.get()), 8, 4));
@@ -264,7 +265,7 @@ public class PVJConfiguredFeatures {
       new SimpleBlockConfiguration(new RandomizedIntStateProvider(new DirectionalStateProvider(block), GroundcoverBlock.MODEL, UniformInt.of(0, 4))),
       BlockPredicate.allOf(
         BlockPredicate.replaceable(),
-        BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.ICE, Blocks.PACKED_ICE, Blocks.BLUE_ICE, Blocks.SNOW, Blocks.AMETHYST_BLOCK)),
+        BlockPredicate.not(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))
       )
@@ -277,6 +278,7 @@ public class PVJConfiguredFeatures {
       new SimpleBlockConfiguration(new RandomizedIntStateProvider(new DirectionalStateProvider(block), GroundcoverBlock.MODEL, UniformInt.of(0, 4))),
       BlockPredicate.allOf(
         BlockPredicate.replaceable(),
+        BlockPredicate.not(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.SNOW)),
         BlockPredicate.not(BlockPredicate.matchesBlocks(Blocks.SNOW, Blocks.TALL_GRASS, Blocks.LARGE_FERN, Blocks.LAVA)),
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA))

@@ -17,6 +17,7 @@ public class PVJFeatures {
   public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, ProjectVibrantJourneys.MOD_ID);
 
   public static final RegistryObject<Feature<RandomPatchConfiguration>> ROCKS = registerFeature("rocks", new RocksGroundcoverFeature(RandomPatchConfiguration.CODEC));
+  public static final RegistryObject<Feature<RandomPatchConfiguration>> GROUNDCOVER = registerFeature("groundcover", new RocksGroundcoverFeature(RandomPatchConfiguration.CODEC));
   public static final RegistryObject<Feature<NoneFeatureConfiguration>> BARK_MUSHROOM = registerFeature("bark_mushroom", new BarkMushroomFeature(NoneFeatureConfiguration.CODEC));
   public static final RegistryObject<Feature<SimpleBlockConfiguration>> SIMPLE_BLOCK_MATCH_WATER = registerFeature("simple_block_match_water", new SimpleBlockMatchWaterFeature(SimpleBlockConfiguration.CODEC));
   public static final RegistryObject<Feature<ProbabilityFeatureConfiguration>> NATURAL_COBWEB = registerFeature("natural_cobweb", new NaturalCobwebFeature(ProbabilityFeatureConfiguration.CODEC));

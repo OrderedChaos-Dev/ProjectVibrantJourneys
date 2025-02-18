@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "projectvibrantjourneys:groundcover",
   "config": {
     "feature": {
       "feature": {
@@ -37,6 +37,18 @@
             "predicates": [
               {
                 "type": "minecraft:replaceable"
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_block_tag",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "tag": "projectvibrantjourneys:groundcover_cannot_generate_on"
+                }
               },
               {
                 "type": "minecraft:not",

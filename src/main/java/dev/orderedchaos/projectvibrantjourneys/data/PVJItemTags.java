@@ -1,5 +1,6 @@
 package dev.orderedchaos.projectvibrantjourneys.data;
 
+import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
 import net.minecraft.core.HolderLookup;
@@ -24,6 +25,6 @@ public class PVJItemTags extends ItemTagsProvider {
     copy(BlockTags.LOGS, ItemTags.LOGS);
     copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
     tag(ItemTags.CREEPER_IGNITERS).add(PVJItems.CINDERCANE.get());
-
+    tag(PVJTags.HARVESTS_MOSSY_HOLLOW_LOGS).addTag(ItemTags.SHOVELS);
   }
 }

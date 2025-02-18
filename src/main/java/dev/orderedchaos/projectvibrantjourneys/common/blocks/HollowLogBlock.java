@@ -1,11 +1,17 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -78,16 +84,27 @@ public class HollowLogBlock extends RotatedPillarBlock implements SimpleWaterlog
 
   @Override
   public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult brt) {
+    ItemStack stack = player.getItemInHand(hand);
     if (state.getValue(AXIS) == Direction.Axis.Y) {
       return InteractionResult.PASS;
-    } else if (player.getItemInHand(hand).is(Items.MOSS_CARPET) && player.mayBuild()) {
+    } else if (stack.is(Items.MOSS_CARPET) && player.mayBuild()) {
       if (!state.getValue(MOSSY)) {
         level.setBlock(pos, state.setValue(MOSSY, true), 2);
         if (!player.isCreative()) {
-          player.getItemInHand(hand).shrink(1);
+          stack.shrink(1);
         }
+        level.playSound(player, pos, SoundEvents.MOSS_CARPET_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
         return InteractionResult.SUCCESS;
       }
+    } else if (state.getValue(MOSSY) && stack.is(PVJTags.HARVESTS_MOSSY_HOLLOW_LOGS)) {
+      if (player instanceof ServerPlayer) {
+        CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, pos, stack);
+      }
+      stack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(hand));
+      level.setBlock(pos, state.setValue(MOSSY, false), 2);
+      level.playSound(player, pos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
+      Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.MOSS_CARPET));
+      return InteractionResult.SUCCESS;
     }
 
     return InteractionResult.PASS;

@@ -7,10 +7,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class PVJBlockTags extends BlockTagsProvider {
@@ -88,6 +89,72 @@ public class PVJBlockTags extends BlockTagsProvider {
       PVJBlocks.REEDS.get(),
       PVJBlocks.SHORT_GRASS.get(),
       PVJBlocks.SANDY_SPROUTS.get()
+    );
+
+    tag(PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON).add(
+      Blocks.DEEPSLATE,
+      Blocks.SCULK,
+      Blocks.STONE_BRICKS,
+      Blocks.MOSSY_STONE_BRICKS,
+      Blocks.CRACKED_STONE_BRICKS,
+      Blocks.MAGMA_BLOCK,
+      Blocks.SPAWNER,
+      Blocks.FARMLAND,
+      Blocks.DIRT_PATH,
+      Blocks.MYCELIUM,
+      Blocks.AMETHYST_BLOCK,
+      Blocks.DEEPSLATE_BRICKS,
+      Blocks.DEEPSLATE_TILES,
+      Blocks.CRACKED_DEEPSLATE_TILES,
+      Blocks.CRACKED_DEEPSLATE_BRICKS,
+      Blocks.CHISELED_DEEPSLATE,
+      Blocks.POLISHED_DEEPSLATE,
+      Blocks.COBBLED_DEEPSLATE,
+      Blocks.REINFORCED_DEEPSLATE,
+      Blocks.NOTE_BLOCK,
+      Blocks.COPPER_BLOCK,
+      Blocks.CUT_COPPER,
+      Blocks.EXPOSED_COPPER,
+      Blocks.EXPOSED_CUT_COPPER,
+      Blocks.OXIDIZED_COPPER,
+      Blocks.OXIDIZED_CUT_COPPER,
+      Blocks.WEATHERED_COPPER,
+      Blocks.WEATHERED_CUT_COPPER,
+      Blocks.WAXED_COPPER_BLOCK,
+      Blocks.WAXED_CUT_COPPER,
+      Blocks.WAXED_EXPOSED_COPPER,
+      Blocks.WAXED_EXPOSED_CUT_COPPER,
+      Blocks.WAXED_OXIDIZED_COPPER,
+      Blocks.WAXED_OXIDIZED_CUT_COPPER,
+      Blocks.WAXED_WEATHERED_COPPER,
+      Blocks.WAXED_WEATHERED_CUT_COPPER,
+      Blocks.HAY_BLOCK,
+      Blocks.BARREL,
+      Blocks.BEEHIVE,
+      Blocks.BEE_NEST,
+      Blocks.CRAFTING_TABLE,
+      Blocks.FURNACE,
+      Blocks.BLAST_FURNACE,
+      Blocks.SMOKER,
+      Blocks.CARTOGRAPHY_TABLE,
+      Blocks.FLETCHING_TABLE,
+      Blocks.TNT,
+      Blocks.SMITHING_TABLE,
+      Blocks.LOOM,
+      Blocks.DECORATED_POT
+    ).addTags(
+      BlockTags.WOOL,
+      BlockTags.PLANKS,
+      BlockTags.LEAVES,
+      BlockTags.TERRACOTTA,
+      BlockTags.SNOW,
+      BlockTags.ICE,
+      Tags.Blocks.ORES,
+      Tags.Blocks.STORAGE_BLOCKS,
+      BlockTags.FENCES,
+      BlockTags.FENCE_GATES,
+      BlockTags.STAIRS,
+      BlockTags.STAIRS
     );
   }
 
