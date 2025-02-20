@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import dev.orderedchaos.projectvibrantjourneys.common.PVJBrewingRecipes;
 import dev.orderedchaos.projectvibrantjourneys.common.PVJCompostables;
 import dev.orderedchaos.projectvibrantjourneys.common.PVJGeneralEvents;
-import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportals.RuinedNetherPortalDecorator;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportals.RuinedPortalDecoratorBase;
 import dev.orderedchaos.projectvibrantjourneys.core.config.ChanceTreeFeatureConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.config.PVJConfig;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.*;
@@ -50,7 +50,7 @@ public class ProjectVibrantJourneys {
       PVJCompostables.init();
       PVJBrewingRecipes.init();
     });
-    RuinedNetherPortalDecorator.registerPortalDecorators();
+    RuinedPortalDecoratorBase.registerPortalDecorators();
   }
 
   private void clientSetup(final FMLClientSetupEvent event) {

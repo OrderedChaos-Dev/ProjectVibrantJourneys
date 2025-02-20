@@ -1,19 +1,18 @@
 package dev.orderedchaos.projectvibrantjourneys.common.mixin;
 
-import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportals.RuinedNetherPortalDecorator;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.ruinednetherportals.RuinedPortalDecoratorBase;
 import dev.orderedchaos.projectvibrantjourneys.core.config.PVJConfig;
-import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.TemplateStructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
@@ -31,6 +30,8 @@ import java.util.function.Function;
 @Mixin(RuinedPortalPiece.class)
 public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
 
+  private final float MODIFY_PORTAL_CHANCE = 1f;
+
   public RuinedPortalPieceMixin(StructurePieceType type, CompoundTag tag, StructureTemplateManager manager, Function<ResourceLocation, StructurePlaceSettings> settings) {
     super(type, tag, manager, settings);
   }
@@ -42,21 +43,29 @@ public abstract class RuinedPortalPieceMixin extends TemplateStructurePiece {
       shift = At.Shift.AFTER),
     locals = LocalCapture.CAPTURE_FAILEXCEPTION)
   public void postProcess(WorldGenLevel level, StructureManager manager, ChunkGenerator generator, RandomSource random, BoundingBox box, ChunkPos chunkPos, BlockPos blockPos, CallbackInfo info, BoundingBox boundingbox) {
-    if (PVJConfig.configOptions.get("enableBetterRuinedNetherPortals").get() && random.nextFloat() > 0.3F && level.getLevel().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD) {
-      RuinedNetherPortalDecorator decorator = RuinedNetherPortalDecorator.getRandomDecorator(random);
-      BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
-        if (level.getBlockState(pos).is(Blocks.NETHERRACK) && (level.isEmptyBlock(pos.above()) || level.getBlockState(pos.above()).is(Blocks.WATER))) {
-          BlockState topSoil = decorator.getTopSoil(level, random);
-          if(topSoil != null) {
-            if(LevelUtils.setBlock(level, pos, topSoil, 3)) {
-              if(level.isEmptyBlock(pos.above())) {
-                decorator.decorate(level, random, pos);
+    if (PVJConfig.configOptions.get("enableBetterRuinedNetherPortals").get()) {
+      boolean isInOverworld = level.getLevel().dimension() == Level.OVERWORLD;
+      boolean shouldGenerate = (1.0F - random.nextFloat() < MODIFY_PORTAL_CHANCE);
+      if (isInOverworld && shouldGenerate) {
+        RuinedPortalDecoratorBase decorator = RuinedPortalDecoratorBase.getRandomPortalDecorator(random);
+        BlockPos.betweenClosedStream(this.getBoundingBox().inflatedBy(5)).forEach((pos) -> {
+          if (level.getBlockState(pos).is(Blocks.NETHERRACK) || level.getBlockState(pos).is(Blocks.MAGMA_BLOCK)) {
+            boolean isAboveEmpty = level.isEmptyBlock(pos.above());
+            if (isAboveEmpty) {
+              BlockState topSoil = decorator.getTopSoil(level, random);
+              if (topSoil != null) {
+                level.setBlock(pos, topSoil, 2);
+              }
+              decorator.decorate(level, generator, random, pos);
+            } else {
+              BlockState fillerSoil = decorator.getFillerSoil(level, random);
+              if (fillerSoil != null) {
+                level.setBlock(pos, fillerSoil, 2);
               }
             }
           }
-
-        }
-      });
+        });
+      }
     }
   }
 

@@ -5,8 +5,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.WorldGenRegion;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class LevelUtils {
@@ -16,6 +18,10 @@ public class LevelUtils {
     }
 
     return level.setBlock(position, blockState, parameter);
+  }
+
+  public static boolean isEmptyOrReplaceable(ServerLevelAccessor level, BlockPos pos) {
+    return level.isEmptyBlock(pos) || level.getBlockState(pos).is(BlockTags.REPLACEABLE);
   }
 
   public static boolean setBlockAndUpdate(final LevelAccessor level, final BlockPos position, final BlockState blockState) {
