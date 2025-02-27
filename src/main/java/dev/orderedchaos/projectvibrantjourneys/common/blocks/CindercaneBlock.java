@@ -1,6 +1,5 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
-import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -38,28 +37,34 @@ public class CindercaneBlock extends Block implements IPlantable {
     return SHAPE;
   }
 
+  public BlockState getStateForAge(int age) {
+    return this.defaultBlockState().setValue(AGE, Integer.valueOf(age));
+  }
+
   @Override
-  public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
-    if (!state.canSurvive(world, pos)) {
-      world.destroyBlock(pos, true);
+  public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
+    if (!state.canSurvive(level, pos)) {
+      level.destroyBlock(pos, true);
+    } else if (level.getDayTime() % 300 == 0) {
+      this.randomTick(state, level, pos, rand);
     }
   }
 
   @Override
-  public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
-    if (world.isEmptyBlock(pos.above())) {
+  public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource rand) {
+    if (level.isEmptyBlock(pos.above())) {
       int i;
-      for (i = 1; world.getBlockState(pos.below(i)).is(this); ++i) {
+      for (i = 1; level.getBlockState(pos.below(i)).is(this); ++i) {
       }
 
-      if (i < MAX_HEIGHT && rand.nextInt(4) == 0) {
+      if (i < MAX_HEIGHT && rand.nextInt(3) == 0) {
         int j = state.getValue(AGE);
-        if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(world, pos, state, true)) {
+        if (net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, pos, state, true)) {
           if (j == 15) {
-            LevelUtils.setBlockAndUpdate(world, pos.above(), this.defaultBlockState());
-            LevelUtils.setBlock(world, pos, state.setValue(AGE, Integer.valueOf(0)), 4);
+            level.setBlockAndUpdate(pos.above(), this.defaultBlockState());
+            level.setBlock(pos, this.getStateForAge(0), 4);
           } else {
-            LevelUtils.setBlock(world, pos, state.setValue(AGE, Integer.valueOf(j + 1)), 4);
+            level.setBlock(pos, this.getStateForAge(j + 1), 4);
           }
         }
       }
