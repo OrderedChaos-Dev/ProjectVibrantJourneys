@@ -3,6 +3,7 @@ package dev.orderedchaos.projectvibrantjourneys.data.tags;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.data.tags.PVJTags;
+import dev.orderedchaos.projectvibrantjourneys.integration.AppliedEnergistics2.AE2Tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -249,5 +250,7 @@ public class PVJBlockTagsProvider extends BlockTagsProvider {
       PVJBlocks.WHITE_WILDFLOWERS.get(),
       PVJBlocks.MIXED_WILDFLOWERS.get()
     );
+
+    this.tag(AE2Tags.GROWTH_ACCELERATABLE).add(PVJBlocks.CINDERCANE.get());
   }
 }
