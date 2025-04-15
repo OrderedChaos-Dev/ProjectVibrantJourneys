@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:yellow_dye_from_yellow_wildflowers"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_wildflowers": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:yellow_wildflowers"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_wildflowers",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:yellow_dye_from_yellow_wildflowers"
+    ]
+  },
+  "sends_telemetry_event": false
+}

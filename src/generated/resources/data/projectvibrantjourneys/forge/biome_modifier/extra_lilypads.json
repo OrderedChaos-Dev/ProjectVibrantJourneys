@@ -7,6 +7,7 @@
     "#minecraft:is_beach",
     "#minecraft:is_ocean",
     "#forge:is_desert",
+    "#minecraft:is_badlands",
     [
       "minecraft:frozen_river",
       "minecraft:snowy_plains",

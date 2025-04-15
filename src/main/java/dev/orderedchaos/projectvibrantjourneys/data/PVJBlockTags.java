@@ -67,6 +67,11 @@ public class PVJBlockTags extends BlockTagsProvider {
     tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
       PVJBlocks.ICICLE.get()
     );
+    tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get(), PVJBlocks.GILDED_RED_SAND.get(), PVJBlocks.MUDDY_BONES.get());
+    tag(Tags.Blocks.GRAVEL).add(PVJBlocks.FERROUS_GRAVEL.get(), PVJBlocks.GILDED_GRAVEL.get());
+    tag(BlockTags.SAND).add(PVJBlocks.GILDED_RED_SAND.get());
+    tag(Tags.Blocks.SAND).add(PVJBlocks.GILDED_RED_SAND.get());
+    tag(Tags.Blocks.SAND_RED).add(PVJBlocks.GILDED_RED_SAND.get());
     tag(BlockTags.MUSHROOM_GROW_BLOCK).add(
       PVJBlocks.OAK_HOLLOW_LOG.get(),
       PVJBlocks.BIRCH_HOLLOW_LOG.get(),
@@ -77,6 +82,28 @@ public class PVJBlockTags extends BlockTagsProvider {
       PVJBlocks.CHERRY_HOLLOW_LOG.get(),
       PVJBlocks.MANGROVE_HOLLOW_LOG.get()
     );
+    tag(BlockTags.SWORD_EFFICIENT)
+      .add(
+        PVJBlocks.FALLEN_LEAVES.get(),
+        PVJBlocks.DEAD_FALLEN_LEAVES.get(),
+        PVJBlocks.CATTAIL.get(),
+        PVJBlocks.REEDS.get(),
+        PVJBlocks.CINDERCANE.get(),
+        PVJBlocks.GLOWCAP.get(),
+        PVJBlocks.PRICKLY_BUSH.get(),
+        PVJBlocks.BEACH_GRASS.get(),
+        PVJBlocks.SEA_OATS.get(),
+        PVJBlocks.SANDY_SPROUTS.get(),
+        PVJBlocks.CRIMSON_NETTLE.get(),
+        PVJBlocks.WARPED_NETTLE.get(),
+        PVJBlocks.WATERGRASS.get(),
+        PVJBlocks.YELLOW_WILDFLOWERS.get(),
+        PVJBlocks.ORANGE_WILDFLOWERS.get(),
+        PVJBlocks.BLUE_WILDFLOWERS.get(),
+        PVJBlocks.PURPLE_WILDFLOWERS.get(),
+        PVJBlocks.WHITE_WILDFLOWERS.get(),
+        PVJBlocks.MIXED_WILDFLOWERS.get()
+      );
 
     tag(PVJTags.GROWS_ON_HOLLOW_LOG).add(
       Blocks.GRASS,
@@ -85,11 +112,54 @@ public class PVJBlockTags extends BlockTagsProvider {
       Blocks.LARGE_FERN,
       Blocks.PINK_PETALS,
       Blocks.BLUE_ORCHID,
+      Blocks.PITCHER_CROP,
+      Blocks.PITCHER_PLANT,
+      Blocks.TORCHFLOWER,
+      Blocks.MANGROVE_PROPAGULE,
+      Blocks.DEAD_BUSH,
       PVJBlocks.CATTAIL.get(),
       PVJBlocks.REEDS.get(),
       PVJBlocks.SHORT_GRASS.get(),
-      PVJBlocks.SANDY_SPROUTS.get()
+      PVJBlocks.SANDY_SPROUTS.get(),
+      PVJBlocks.BEACH_GRASS.get(),
+      PVJBlocks.SEA_OATS.get(),
+      PVJBlocks.PRICKLY_BUSH.get(),
+      PVJBlocks.WATERGRASS.get(),
+      PVJBlocks.YELLOW_WILDFLOWERS.get(),
+      PVJBlocks.ORANGE_WILDFLOWERS.get(),
+      PVJBlocks.BLUE_WILDFLOWERS.get(),
+      PVJBlocks.PURPLE_WILDFLOWERS.get(),
+      PVJBlocks.WHITE_WILDFLOWERS.get(),
+      PVJBlocks.MIXED_WILDFLOWERS.get()
     );
+    tag(BlockTags.REPLACEABLE_BY_TREES)
+      .add(
+        PVJBlocks.TWIGS.get(),
+        PVJBlocks.ROCKS.get(),
+        PVJBlocks.SEASHELLS.get(),
+        PVJBlocks.PINECONES.get(),
+        PVJBlocks.RED_SANDSTONE_ROCKS.get(),
+        PVJBlocks.SANDSTONE_ROCKS.get(),
+        PVJBlocks.MOSSY_ROCKS.get(),
+        PVJBlocks.ICE_CHUNKS.get(),
+        PVJBlocks.BONES.get(),
+        PVJBlocks.CHARRED_BONES.get(),
+        PVJBlocks.FALLEN_LEAVES.get(),
+        PVJBlocks.DEAD_FALLEN_LEAVES.get(),
+        PVJBlocks.SHORT_GRASS.get(),
+        PVJBlocks.SANDY_SPROUTS.get(),
+        PVJBlocks.NATURAL_COBWEB.get(),
+        PVJBlocks.BARK_MUSHROOM.get(),
+        PVJBlocks.LIGHT_BROWN_BARK_MUSHROOM.get(),
+        PVJBlocks.ORANGE_BARK_MUSHROOM.get(),
+        PVJBlocks.WATERGRASS.get(),
+        PVJBlocks.YELLOW_WILDFLOWERS.get(),
+        PVJBlocks.ORANGE_WILDFLOWERS.get(),
+        PVJBlocks.BLUE_WILDFLOWERS.get(),
+        PVJBlocks.PURPLE_WILDFLOWERS.get(),
+        PVJBlocks.WHITE_WILDFLOWERS.get(),
+        PVJBlocks.MIXED_WILDFLOWERS.get()
+      );
 
     tag(PVJTags.GROUNDCOVER_CANNOT_GENERATE_ON).add(
       Blocks.DEEPSLATE,

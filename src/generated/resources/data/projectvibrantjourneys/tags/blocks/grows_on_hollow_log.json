@@ -6,9 +6,24 @@
     "minecraft:large_fern",
     "minecraft:pink_petals",
     "minecraft:blue_orchid",
+    "minecraft:pitcher_crop",
+    "minecraft:pitcher_plant",
+    "minecraft:torchflower",
+    "minecraft:mangrove_propagule",
+    "minecraft:dead_bush",
     "projectvibrantjourneys:cattail",
     "projectvibrantjourneys:reeds",
     "projectvibrantjourneys:short_grass",
-    "projectvibrantjourneys:sandy_sprouts"
+    "projectvibrantjourneys:sandy_sprouts",
+    "projectvibrantjourneys:beach_grass",
+    "projectvibrantjourneys:sea_oats",
+    "projectvibrantjourneys:prickly_bush",
+    "projectvibrantjourneys:watergrass",
+    "projectvibrantjourneys:yellow_wildflowers",
+    "projectvibrantjourneys:orange_wildflowers",
+    "projectvibrantjourneys:blue_wildflowers",
+    "projectvibrantjourneys:purple_wildflowers",
+    "projectvibrantjourneys:white_wildflowers",
+    "projectvibrantjourneys:mixed_wildflowers"
   ]
 }

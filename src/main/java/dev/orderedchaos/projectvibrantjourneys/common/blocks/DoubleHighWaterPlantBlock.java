@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.common.blocks;
 
 import dev.orderedchaos.projectvibrantjourneys.common.tags.ForgeTags;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.util.LevelUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,10 +32,12 @@ import javax.annotation.Nullable;
 public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements SimpleWaterloggedBlock {
 
   public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+  private boolean allowAdjacentToWater;
 
-  public DoubleHighWaterPlantBlock(BlockBehaviour.Properties props) {
+  public DoubleHighWaterPlantBlock(BlockBehaviour.Properties props, boolean allowAdjacentToWater) {
     super(props);
     this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER).setValue(WATERLOGGED, false));
+    this.allowAdjacentToWater = allowAdjacentToWater;
   }
 
   @Override
@@ -49,9 +52,11 @@ public class DoubleHighWaterPlantBlock extends DoublePlantBlock implements Simpl
       if (level.getFluidState(pos).getType() == Fluids.WATER)
         return canGrow(level, groundPos, Direction.UP, ground);
 
-      for (Direction direction : Direction.Plane.HORIZONTAL) {
-        if (level.getFluidState(groundPos.offset(direction.getNormal())).getType() == Fluids.WATER) {
-          return canGrow(level, groundPos, Direction.UP, ground);
+      if (this.allowAdjacentToWater) {
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+          if (level.getFluidState(groundPos.offset(direction.getNormal())).getType() == Fluids.WATER) {
+            return canGrow(level, groundPos, Direction.UP, ground);
+          }
         }
       }
 

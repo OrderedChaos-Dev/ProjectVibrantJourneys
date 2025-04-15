@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "projectvibrantjourneys:white_dye_from_white_wildflowers"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_wildflowers": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projectvibrantjourneys:white_wildflowers"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_white_wildflowers",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "projectvibrantjourneys:white_dye_from_white_wildflowers"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "minecraft:flower_forest"
+  ],
+  "blacklist": [],
+  "configOption": "enableWildflowers",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:many_blue_wildflowers"
+}

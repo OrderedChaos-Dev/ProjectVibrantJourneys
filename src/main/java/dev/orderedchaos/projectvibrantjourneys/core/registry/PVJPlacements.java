@@ -13,12 +13,16 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.DeferredRegister;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.minecraft.data.worldgen.placement.VegetationPlacements.worldSurfaceSquaredWithCount;
@@ -40,6 +44,26 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> REEDS = createKey("reeds");
   public static final ResourceKey<PlacedFeature> PRICKLY_BUSH = createKey("prickly_bush");
   public static final ResourceKey<PlacedFeature> SANDY_SPROUTS = createKey("sandy_sprouts");
+  public static final ResourceKey<PlacedFeature> WATERGRASS = createKey("watergrass");
+  public static final ResourceKey<PlacedFeature> BEACHED_KELP = createKey("beached_kelp");
+  public static final ResourceKey<PlacedFeature> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
+  public static final ResourceKey<PlacedFeature> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
+  public static final ResourceKey<PlacedFeature> FLOATING_PINK_LOTUS = createKey("floating_pink_lotus");
+  public static final ResourceKey<PlacedFeature> OAK_BUSH = createKey("oak_bush");
+  public static final ResourceKey<PlacedFeature> YELLOW_WILDFLOWERS = createKey("yellow_wildflowers");
+  public static final ResourceKey<PlacedFeature> ORANGE_WILDFLOWERS = createKey("orange_wildflowers");
+  public static final ResourceKey<PlacedFeature> BLUE_WILDFLOWERS = createKey("blue_wildflowers");
+  public static final ResourceKey<PlacedFeature> PURPLE_WILDFLOWERS = createKey("purple_wildflowers");
+  public static final ResourceKey<PlacedFeature> WHITE_WILDFLOWERS = createKey("white_wildflowers");
+  public static final ResourceKey<PlacedFeature> MIXED_WILDFLOWERS = createKey("mixed_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_YELLOW_WILDFLOWERS = createKey("many_yellow_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_ORANGE_WILDFLOWERS = createKey("many_orange_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_BLUE_WILDFLOWERS = createKey("many_blue_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_PURPLE_WILDFLOWERS = createKey("many_purple_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_WHITE_WILDFLOWERS = createKey("many_white_wildflowers");
+  public static final ResourceKey<PlacedFeature> MANY_MIXED_WILDFLOWERS = createKey("many_mixed_wildflowers");
+  public static final ResourceKey<PlacedFeature> SLIME_NODULE = createKey("slime_nodule");
+  public static final ResourceKey<PlacedFeature> PINK_VINES = createKey("pink_vines");
 
   /* GROUNDCOVER */
   public static final ResourceKey<PlacedFeature> TWIGS = createKey("twigs");
@@ -79,6 +103,11 @@ public class PVJPlacements {
   public static final ResourceKey<PlacedFeature> EXTRA_LILYPADS = createKey("extra_lilypads");
   public static final ResourceKey<PlacedFeature> EXTRA_GRASS = createKey("extra_grass");
   public static final ResourceKey<PlacedFeature> TIDE_POOL = createKey("tide_pool");
+  public static final ResourceKey<PlacedFeature> GRAVEL_PIT = createKey("gravel_pit");
+  public static final ResourceKey<PlacedFeature> GOLD_PIT = createKey("gold_pit");
+  public static final ResourceKey<PlacedFeature> MUDDY_BONES = createKey("muddy_bones");
+  public static final ResourceKey<PlacedFeature> LOTUS_POND = createKey("lotus_pond");
+  public static final ResourceKey<PlacedFeature> HOT_SPRINGS = createKey("hot_springs");
 
   public static void bootstrap(BootstapContext<PlacedFeature> context) {
     HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -125,6 +154,31 @@ public class PVJPlacements {
     register(context, EXTRA_GRASS, holderGetter.getOrThrow(VegetationFeatures.PATCH_GRASS), NoiseThresholdCountPlacement.of(-0.8D, 5, 10), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
     register(context, TIDE_POOL, holderGetter.getOrThrow(PVJConfiguredFeatures.TIDE_POOL), CountPlacement.of(1), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.solid(), BlockPredicate.ONLY_IN_AIR_PREDICATE, 12), RandomOffsetPlacement.vertical(ConstantInt.of(1)), BiomeFilter.biome());
     register(context, SANDY_SPROUTS, holderGetter.getOrThrow(PVJConfiguredFeatures.SANDY_SPROUTS), onceEvery(5));
+    register(context, WATERGRASS, holderGetter.getOrThrow(PVJConfiguredFeatures.WATERGRASS), onceEvery(1));
+    register(context, GRAVEL_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GRAVEL_PIT), RarityFilter.onAverageOnceEvery(20), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    register(context, GOLD_PIT, holderGetter.getOrThrow(PVJConfiguredFeatures.GOLD_PIT), RarityFilter.onAverageOnceEvery(30), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(63), VerticalAnchor.absolute(73)),  InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    register(context, BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.BEACHED_KELP), worldSurfaceSquaredWithCount(2));
+    register(context, DRIED_BEACHED_KELP, holderGetter.getOrThrow(PVJConfiguredFeatures.DRIED_BEACHED_KELP), worldSurfaceSquaredWithCount(1), RarityFilter.onAverageOnceEvery(2));
+    register(context, GLOWING_BLUE_FUNGUS, holderGetter.getOrThrow(PVJConfiguredFeatures.GLOWING_BLUE_FUNGUS), CountPlacement.of(30), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(-64), VerticalAnchor.absolute(63)), BiomeFilter.biome());
+    register(context, MUDDY_BONES, holderGetter.getOrThrow(PVJConfiguredFeatures.MUDDY_BONES), worldSurfaceSquaredWithCount(5), RandomOffsetPlacement.vertical(UniformInt.of(-5, 0)));
+    register(context, LOTUS_POND, holderGetter.getOrThrow(PVJConfiguredFeatures.LOTUS_POND), RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    register(context, FLOATING_PINK_LOTUS, holderGetter.getOrThrow(PVJConfiguredFeatures.FLOATING_PINK_LOTUS), worldSurfaceSquaredWithCount(4));
+    register(context, HOT_SPRINGS, holderGetter.getOrThrow(PVJConfiguredFeatures.HOT_SPRINGS), RarityFilter.onAverageOnceEvery(90), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+    register(context, OAK_BUSH, holderGetter.getOrThrow(PVJConfiguredFeatures.OAK_BUSH), worldSurfaceSquaredWithCount(2), RarityFilter.onAverageOnceEvery(12));
+    register(context, YELLOW_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.YELLOW_WILDFLOWERS), onceEvery(10));
+    register(context, ORANGE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.ORANGE_WILDFLOWERS), onceEvery(10));
+    register(context, BLUE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.BLUE_WILDFLOWERS), onceEvery(10));
+    register(context, PURPLE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.PURPLE_WILDFLOWERS), onceEvery(10));
+    register(context, WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(10));
+    register(context, MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(10));
+    register(context, MANY_YELLOW_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.YELLOW_WILDFLOWERS), onceEvery(3));
+    register(context, MANY_ORANGE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.ORANGE_WILDFLOWERS), onceEvery(3));
+    register(context, MANY_BLUE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.BLUE_WILDFLOWERS), onceEvery(3));
+    register(context, MANY_PURPLE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.PURPLE_WILDFLOWERS), onceEvery(3));
+    register(context, MANY_WHITE_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.WHITE_WILDFLOWERS), onceEvery(3));
+    register(context, MANY_MIXED_WILDFLOWERS, holderGetter.getOrThrow(PVJConfiguredFeatures.MIXED_WILDFLOWERS), onceEvery(3));
+    register(context, SLIME_NODULE, holderGetter.getOrThrow(PVJConfiguredFeatures.SLIME_NODULE), worldSurfaceSquaredWithCount(5));
+    register(context, PINK_VINES, holderGetter.getOrThrow(PVJConfiguredFeatures.PINK_VINES), CountPlacement.of(150), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.UP, BlockPredicate.matchesBlocks(Blocks.CHERRY_LEAVES), 12), RandomOffsetPlacement.vertical(ConstantInt.of(-1)), BiomeFilter.biome());
   }
 
   private static ResourceKey<PlacedFeature> createKey(String name) {
@@ -133,6 +187,13 @@ public class PVJPlacements {
 
   public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
     context.register(key, new PlacedFeature(feature, modifiers));
+  }
+
+  public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers, PlacementModifier... extraModifiers) {
+    List<PlacementModifier> list = new ArrayList<>();
+    list.addAll(modifiers);
+    list.addAll(Arrays.asList(extraModifiers));
+    context.register(key, new PlacedFeature(feature, list));
   }
 
   public static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> feature, PlacementModifier... modifiers) {

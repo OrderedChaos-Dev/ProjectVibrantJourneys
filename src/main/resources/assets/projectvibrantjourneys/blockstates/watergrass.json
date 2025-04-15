@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "projectvibrantjourneys:block/watergrass_upper"
+    },
+    "half=lower": {
+      "model": "projectvibrantjourneys:block/watergrass_lower"
+    }
+  }
+}

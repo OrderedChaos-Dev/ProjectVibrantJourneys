@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "minecraft:beach"
+  ],
+  "blacklist": [],
+  "configOption": "enableDriedBeachedKelp",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:dried_beached_kelp"
+}

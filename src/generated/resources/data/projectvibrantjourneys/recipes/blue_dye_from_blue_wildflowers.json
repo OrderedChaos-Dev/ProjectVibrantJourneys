@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:blue_wildflowers"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye"
+  }
+}

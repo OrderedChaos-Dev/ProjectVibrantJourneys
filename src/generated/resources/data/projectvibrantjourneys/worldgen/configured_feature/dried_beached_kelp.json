@@ -1,0 +1,13 @@
+{
+  "type": "projectvibrantjourneys:beached_kelp",
+  "config": {
+    "state": {
+      "Name": "projectvibrantjourneys:dried_beached_kelp",
+      "Properties": {
+        "facing": "north",
+        "shape": "top",
+        "waterlogged": "false"
+      }
+    }
+  }
+}

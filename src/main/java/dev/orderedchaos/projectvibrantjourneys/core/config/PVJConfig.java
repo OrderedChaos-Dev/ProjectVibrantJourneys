@@ -45,6 +45,21 @@ public class PVJConfig {
   public static ForgeConfigSpec.BooleanValue enableCaveRoots;
   public static ForgeConfigSpec.BooleanValue enableBetterRuinedNetherPortals;
 
+  public static ForgeConfigSpec.BooleanValue enableWatergrass;
+  public static ForgeConfigSpec.BooleanValue enableGravelPits;
+  public static ForgeConfigSpec.BooleanValue enableGoldPits;
+  public static ForgeConfigSpec.BooleanValue enableBeachedKelp;
+  public static ForgeConfigSpec.BooleanValue enableDriedBeachedKelp;
+  public static ForgeConfigSpec.BooleanValue enableGlowingBlueFungus;
+  public static ForgeConfigSpec.BooleanValue enableMuddyBones;
+  public static ForgeConfigSpec.BooleanValue enableLotusPonds;
+  public static ForgeConfigSpec.BooleanValue enableFloatingPinkLotus;
+  public static ForgeConfigSpec.BooleanValue enableHotSprings;
+  public static ForgeConfigSpec.BooleanValue enableBushes;
+  public static ForgeConfigSpec.BooleanValue enableWildflowers;
+  public static ForgeConfigSpec.BooleanValue enableSlimeNodules;
+  public static ForgeConfigSpec.BooleanValue enablePinkVines;
+
   public static ForgeConfigSpec.BooleanValue enableJungleTropicalFish;
 
   public static ForgeConfigSpec.BooleanValue replaceableGroundcover;
@@ -74,8 +89,22 @@ public class PVJConfig {
     config("enableSmallCacti", enableSmallCacti, BUILDER.comment("Enable generation of small cacti").define("enableSmallCacti", true));
     config("enablePricklyBush", enablePricklyBush, BUILDER.comment("Enable generation of prickly bushes").define("enablePricklyBush", true));
     config("enableReeds", enableReeds, BUILDER.comment("Enable generation of reeds").define("enableReeds", true));
-    config("enableIcicles", enableIcicles, BUILDER.comment("Enable generation of icicles").define("enableIcicles ", true));
-    config("enableSandySprouts", enableSandySprouts, BUILDER.comment("Enable generation of sandy sprouts").define("enableSandySprouts ", true));
+    config("enableIcicles", enableIcicles, BUILDER.comment("Enable generation of icicles").define("enableIcicles", true));
+    config("enableSandySprouts", enableSandySprouts, BUILDER.comment("Enable generation of sandy sprouts").define("enableSandySprouts", true));
+    config("enableDriedBeachedKelp", enableDriedBeachedKelp, BUILDER.comment("Enable generation of dried beached kelp").define("enableDriedBeachedKelp", true));
+    config("enableGlowingBlueFungus", enableGlowingBlueFungus, BUILDER.comment("Enable generation of glowing blue fungus").define("enableGlowingBlueFungus", true));
+    config("enableMuddyBones", enableMuddyBones, BUILDER.comment("Enable generation of muddy bones").define("enableMuddyBones", true));
+    config("enableLotusPonds", enableLotusPonds, BUILDER.comment("Enable generation of lotus ponds in cherry groves").define("enableLotusPonds", true));
+    config("enableFloatingPinkLotus", enableFloatingPinkLotus, BUILDER.comment("Enable generation of pink lotuses in flower forests").define("enableFloatingPinkLotus", true));
+    config("enableHotSprings", enableHotSprings, BUILDER.comment("Enable generation of hot springs").define("enableHotSprings", true));
+    config("enableBushes", enableBushes, BUILDER.comment("Enable generation of bushes").define("enableBushes", true));
+    config("enableWildflowers", enableWildflowers, BUILDER.comment("Enable generation of wildflowers").define("enableWildflowers", true));
+    config("enableSlimeNodules", enableSlimeNodules, BUILDER.comment("Enable generation of slime nodules").define("enableSlimeNodules", true));
+    config("enablePinkVines", enablePinkVines, BUILDER.comment("Enable generation of pink vines").define("enablePinkVines", true));
+    config("enableWatergrass", enableWatergrass, BUILDER.comment("Enable generation of watergrass").define("enableWatergrass", true));
+    config("enableGravelPits", enableGravelPits, BUILDER.comment("Enable generation of gravel pits").define("enableGravelPits", true));
+    config("enableGoldPits", enableGoldPits, BUILDER.comment("Enable generation of gold pits").define("enableGoldPits", true));
+    config("enableBeachedKelp", enableBeachedKelp, BUILDER.comment("Enable generation of beached kelp").define("enableBeachedKelp", true));
 
     config("enableExtraLilypads", enableExtraLilypads, BUILDER.comment("Enable generation of extra lilypads in lakes").define("enableExtraLilypads", true));
     config("enableExtraSeagrass", enableExtraSeagrass, BUILDER.comment("Enable generation of extra seagrass in lakes").define("enableExtraSeagrass", true));

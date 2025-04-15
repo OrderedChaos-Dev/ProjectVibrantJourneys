@@ -1,6 +1,7 @@
 package dev.orderedchaos.projectvibrantjourneys.data;
 
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -31,6 +32,13 @@ public class PVJRecipes extends RecipeProvider {
     simpleDye(consumer, Items.CYAN_DYE, PVJItems.WARPED_NETTLE.get(), 1);
     simpleDye(consumer, Items.RED_DYE, PVJItems.CRIMSON_NETTLE.get(), 1);
 
+    simpleDye(consumer, Items.YELLOW_DYE, PVJItems.YELLOW_WILDFLOWERS.get(), 1);
+    simpleDye(consumer, Items.ORANGE_DYE, PVJItems.ORANGE_WILDFLOWERS.get(), 1);
+    simpleDye(consumer, Items.BLUE_DYE, PVJItems.BLUE_WILDFLOWERS.get(), 1);
+    simpleDye(consumer, Items.PURPLE_DYE, PVJItems.PURPLE_WILDFLOWERS.get(), 1);
+    simpleDye(consumer, Items.WHITE_DYE, PVJItems.WHITE_WILDFLOWERS.get(), 1);
+    simpleDye(consumer, Items.GREEN_DYE, PVJItems.MIXED_WILDFLOWERS.get(), 1);
+
     simpleShapeless(consumer, Items.OAK_PLANKS, PVJItems.OAK_HOLLOW_LOG.get(), 2);
     simpleShapeless(consumer, Items.BIRCH_PLANKS, PVJItems.BIRCH_HOLLOW_LOG.get(), 2);
     simpleShapeless(consumer, Items.SPRUCE_PLANKS, PVJItems.SPRUCE_HOLLOW_LOG.get(), 2);
@@ -59,6 +67,16 @@ public class PVJRecipes extends RecipeProvider {
       .define('N', PVJItems.GLOWCAP.get())
       .unlockedBy("has_glowcap", has(PVJItems.GLOWCAP.get()))
       .save(consumer, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "glowcap_to_shroomlight"));
+
+    ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PVJItems.NETTLE_SOUP.get())
+      .requires(PVJBlocks.WARPED_NETTLE.get())
+      .requires(PVJBlocks.CRIMSON_NETTLE.get())
+      .requires(Items.BOWL)
+      .unlockedBy("has_nettle_soup", has(PVJItems.NETTLE_SOUP.get()))
+      .unlockedBy("has_bowl", has(Items.BOWL))
+      .unlockedBy("has_warped_nettle", has(PVJBlocks.WARPED_NETTLE.get()))
+      .unlockedBy("has_crimson_nettle", has(PVJBlocks.CRIMSON_NETTLE.get()))
+      .save(consumer, new ResourceLocation(ProjectVibrantJourneys.MOD_ID, "nettle_soup"));
   }
 
   private void buildCookingRecipes(Consumer<FinishedRecipe> consumer) {

@@ -2,8 +2,10 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 
 import dev.orderedchaos.projectvibrantjourneys.common.items.FuelBlockItem;
 import dev.orderedchaos.projectvibrantjourneys.core.ProjectVibrantJourneys;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -13,6 +15,8 @@ import java.util.function.Supplier;
 public class PVJItems {
 
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ProjectVibrantJourneys.MOD_ID);
+
+  public static final RegistryObject<Item> NETTLE_SOUP = registerItem("nettle_soup", () -> new BowlFoodItem(new Item.Properties().stacksTo(1).food(Foods.NETTLE_SOUP)));
 
   public static final RegistryObject<Item> BEACH_GRASS = registerItem("beach_grass",
     () -> new BlockItem(PVJBlocks.BEACH_GRASS.get(), basicItem()));
@@ -40,6 +44,27 @@ public class PVJItems {
     () -> new BlockItem(PVJBlocks.ICICLE.get(), basicItem()));
   public static final RegistryObject<Item> SANDY_SPROUTS = registerItem("sandy_sprouts",
     () -> new BlockItem(PVJBlocks.SANDY_SPROUTS.get(), basicItem()));
+  public static final RegistryObject<Item> WATERGRASS = registerItem("watergrass",
+    () -> new BlockItem(PVJBlocks.WATERGRASS.get(), basicItem()));
+  public static final RegistryObject<Item> PINK_LOTUS = registerItem("pink_lotus",
+    () -> new PlaceOnWaterBlockItem(PVJBlocks.PINK_LOTUS.get(), basicItem()));
+
+  public static final RegistryObject<Item> SLIME_NODULE = registerItem("slime_nodule",
+    () -> new BlockItem(PVJBlocks.SLIME_NODULE.get(), basicItem()));
+  public static final RegistryObject<Item> PINK_VINES = registerItem("pink_vines",
+    () -> new BlockItem(PVJBlocks.PINK_VINES.get(), basicItem()));
+  public static final RegistryObject<Item> YELLOW_WILDFLOWERS = registerItem("yellow_wildflowers",
+    () -> new BlockItem(PVJBlocks.YELLOW_WILDFLOWERS.get(), basicItem()));
+  public static final RegistryObject<Item> ORANGE_WILDFLOWERS = registerItem("orange_wildflowers",
+    () -> new BlockItem(PVJBlocks.ORANGE_WILDFLOWERS.get(), basicItem()));
+  public static final RegistryObject<Item> BLUE_WILDFLOWERS = registerItem("blue_wildflowers",
+    () -> new BlockItem(PVJBlocks.BLUE_WILDFLOWERS.get(), basicItem()));
+  public static final RegistryObject<Item> PURPLE_WILDFLOWERS = registerItem("purple_wildflowers",
+    () -> new BlockItem(PVJBlocks.PURPLE_WILDFLOWERS.get(), basicItem()));
+  public static final RegistryObject<Item> WHITE_WILDFLOWERS = registerItem("white_wildflowers",
+    () -> new BlockItem(PVJBlocks.WHITE_WILDFLOWERS.get(), basicItem()));
+  public static final RegistryObject<Item> MIXED_WILDFLOWERS = registerItem("mixed_wildflowers",
+    () -> new BlockItem(PVJBlocks.MIXED_WILDFLOWERS.get(), basicItem()));
 
   public static final RegistryObject<Item> CRIMSON_NETTLE = registerItem("crimson_nettle",
     () -> new BlockItem(PVJBlocks.CRIMSON_NETTLE.get(), basicItem()));
@@ -92,6 +117,15 @@ public class PVJItems {
   public static final RegistryObject<Item> MANGROVE_HOLLOW_LOG = registerItem("mangrove_hollow_log",
     () -> new FuelBlockItem(PVJBlocks.MANGROVE_HOLLOW_LOG.get(), basicItem(), 300));
 
+  public static final RegistryObject<Item> FERROUS_GRAVEL = registerItem("ferrous_gravel",
+    () -> new BlockItem(PVJBlocks.FERROUS_GRAVEL.get(), basicItem()));
+  public static final RegistryObject<Item> GILDED_GRAVEL = registerItem("gilded_gravel",
+    () -> new BlockItem(PVJBlocks.GILDED_GRAVEL.get(), basicItem()));
+  public static final RegistryObject<Item> GILDED_RED_SAND = registerItem("gilded_red_sand",
+    () -> new BlockItem(PVJBlocks.GILDED_RED_SAND.get(), basicItem()));
+
+  public static final RegistryObject<Item> MUDDY_BONES = registerItem("muddy_bones",
+    () -> new BlockItem(PVJBlocks.MUDDY_BONES.get(), basicItem()));
 
   private static Item.Properties basicItem() {
     return new Item.Properties();
@@ -101,5 +135,14 @@ public class PVJItems {
     RegistryObject<Item> registryItem = ITEMS.register(name, item);
     PVJCreativeModeTab.TAB_ITEMS.add(registryItem);
     return registryItem;
+  }
+
+  public static class Foods {
+    public static final FoodProperties NETTLE_SOUP = new FoodProperties.Builder()
+      .nutrition(3)
+      .saturationMod(0.3F)
+      .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 200), 1.0F)
+      .alwaysEat()
+      .build();
   }
 }

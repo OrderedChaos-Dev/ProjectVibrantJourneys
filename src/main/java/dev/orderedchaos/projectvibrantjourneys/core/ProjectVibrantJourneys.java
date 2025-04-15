@@ -35,6 +35,7 @@ public class ProjectVibrantJourneys {
     PVJBiomeModifiers.BIOME_MODIFIER_SERIALIZERS.register(bus);
     PVJConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
     PVJPlacements.PLACED_FEATURES.register(bus);
+    PVJMobEffects.MOB_EFFECTS.register(bus);
     PVJPotions.POTIONS.register(bus);
 
     ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, PVJConfig.COMMON_CONFIG);

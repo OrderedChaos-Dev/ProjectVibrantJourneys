@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:yellow_wildflowers"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_dye"
+  }
+}

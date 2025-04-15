@@ -1,0 +1,14 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    [
+      "minecraft:old_growth_birch_forest",
+      "minecraft:birch_forest"
+    ]
+  ],
+  "blacklist": [],
+  "configOption": "enableGravelPits",
+  "decoration": "lakes",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:gravel_pit"
+}

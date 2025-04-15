@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "projectvibrantjourneys:warped_nettle"
+    },
+    {
+      "item": "projectvibrantjourneys:crimson_nettle"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "projectvibrantjourneys:nettle_soup"
+  }
+}

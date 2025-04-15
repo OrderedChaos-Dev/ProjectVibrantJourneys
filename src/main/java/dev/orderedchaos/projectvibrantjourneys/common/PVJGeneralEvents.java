@@ -1,9 +1,15 @@
 package dev.orderedchaos.projectvibrantjourneys.common;
 
 import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJBlocks;
+import dev.orderedchaos.projectvibrantjourneys.core.registry.PVJMobEffects;
+import net.minecraft.tags.GameEventTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraftforge.event.VanillaGameEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -30,4 +36,20 @@ public class PVJGeneralEvents {
     }
   }
 
+
+  @SubscribeEvent
+  public void checkVibrationEvent(VanillaGameEvent event) {
+    if (event.getVanillaEvent().is(GameEventTags.VIBRATIONS)) {
+      if (event.getCause() instanceof LivingEntity entity) {
+        MobEffectInstance mobEffectInstance = entity.getEffect(PVJMobEffects.SPORADIC_SILENCE.get());
+        if (mobEffectInstance != null) {
+          RandomSource random = event.getLevel().getRandom();
+          float threshold = ((mobEffectInstance.getAmplifier() + 1) * 0.25F) + ((mobEffectInstance.getAmplifier() + 1) * 0.05F * random.nextFloat());
+          if (random.nextFloat() < threshold) {
+            event.setCanceled(true);
+          }
+        }
+      }
+    }
+  }
 }

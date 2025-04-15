@@ -23,6 +23,13 @@ public class PVJBlockColorRegistry {
     event.register(getFoliageColor(), PVJBlocks.FALLEN_LEAVES.get());
     event.register(getGrassColor(), PVJBlocks.SHORT_GRASS.get());
     event.register(getGrassColor(), PVJBlocks.SANDY_SPROUTS.get());
+    event.register(getGrassColor(), PVJBlocks.WATERGRASS.get());
+    event.register(getGrassColor(), PVJBlocks.BLUE_WILDFLOWERS.get());
+    event.register(getGrassColor(), PVJBlocks.ORANGE_WILDFLOWERS.get());
+    event.register(getGrassColor(), PVJBlocks.PURPLE_WILDFLOWERS.get());
+    event.register(getGrassColor(), PVJBlocks.YELLOW_WILDFLOWERS.get());
+    event.register(getGrassColor(), PVJBlocks.WHITE_WILDFLOWERS.get());
+    event.register(getGrassColor(), PVJBlocks.MIXED_WILDFLOWERS.get());
   }
 
   @SubscribeEvent

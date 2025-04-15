@@ -1,0 +1,11 @@
+{
+  "type": "projectvibrantjourneys:biome_modifier_serializer",
+  "biomes": [
+    "minecraft:mangrove_swamp"
+  ],
+  "blacklist": [],
+  "configOption": "enableMuddyBones",
+  "decoration": "vegetal_decoration",
+  "dimension": "minecraft:is_overworld",
+  "feature": "projectvibrantjourneys:muddy_bones"
+}

@@ -3,6 +3,7 @@ package dev.orderedchaos.projectvibrantjourneys.core.registry;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.GroundcoverBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.blocks.ShortGrassBlock;
 import dev.orderedchaos.projectvibrantjourneys.common.tags.PVJTags;
+import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.BushConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.FallenTreeConfiguration.FallenTreeVegetation;
 import dev.orderedchaos.projectvibrantjourneys.common.world.features.configurations.MultipleVegetationPatchConfiguration;
@@ -19,9 +20,8 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.valueproviders.BiasedToBottomInt;
-import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.util.valueproviders.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PinkPetalsBlock;
@@ -32,6 +32,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.RandomizedIntStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -85,6 +86,26 @@ public class PVJConfiguredFeatures {
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> SEA_PICKLE = createKey("sea_pickle");
   public static final ResourceKey<ConfiguredFeature<?, ?>> TIDE_POOL = createKey("tide_pool");
+
+  public static final ResourceKey<ConfiguredFeature<?, ?>> WATERGRASS = createKey("watergrass");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> BEACHED_KELP = createKey("beached_kelp");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> DRIED_BEACHED_KELP = createKey("dried_beached_kelp");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GLOWING_BLUE_FUNGUS = createKey("glowing_blue_fungus");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> FLOATING_PINK_LOTUS = createKey("floating_pink_lotus");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> OAK_BUSH = createKey("oak_bush");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_WILDFLOWERS = createKey("yellow_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_WILDFLOWERS = createKey("orange_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_WILDFLOWERS = createKey("blue_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_WILDFLOWERS = createKey("purple_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_WILDFLOWERS = createKey("white_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MIXED_WILDFLOWERS = createKey("mixed_wildflowers");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> SLIME_NODULE = createKey("slime_nodule");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_VINES = createKey("pink_vines");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GRAVEL_PIT = createKey("gravel_pit");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GOLD_PIT = createKey("gold_pit");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MUDDY_BONES = createKey("muddy_bones");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LOTUS_POND = createKey("lotus_pond");
+  public static final ResourceKey<ConfiguredFeature<?, ?>> HOT_SPRINGS = createKey("hot_springs");
 
   public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 
@@ -185,6 +206,39 @@ public class PVJConfiguredFeatures {
     register(context, CHERRY_FALLEN_TREE, PVJFeatures.FALLEN_TREE.get(), fallenTreeConfig(PVJBlocks.CHERRY_HOLLOW_LOG.get(), Blocks.CHERRY_LOG, CHERRY_FALLEN_TREE_VEGETATION, false));
     register(context, MANGROVE_FALLEN_TREE, PVJFeatures.FALLEN_TREE.get(), fallenTreeConfig(PVJBlocks.MANGROVE_HOLLOW_LOG.get(), Blocks.MANGROVE_LOG, BASIC_FALLEN_TREE_VEGETATION, true));
 
+    register(context, WATERGRASS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.WATERGRASS.get().defaultBlockState()));
+    register(context, BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.BEACHED_KELP.get().defaultBlockState()));
+    register(context, DRIED_BEACHED_KELP, PVJFeatures.BEACHED_KELP.get(), new BlockStateConfiguration(PVJBlocks.DRIED_BEACHED_KELP.get().defaultBlockState()));
+    register(context, GLOWING_BLUE_FUNGUS, PVJFeatures.GLOWING_BLUE_FUNGUS.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, FLOATING_PINK_LOTUS, Feature.RANDOM_PATCH, new RandomPatchConfiguration(24, 7, 3, PlacementUtils.onlyWhenEmpty(PVJFeatures.FLOATING_PINK_LOTUS.get(), new ProbabilityFeatureConfiguration(0.5F))));
+    register(context, OAK_BUSH, PVJFeatures.BUSH.get(), new BushConfiguration(Blocks.OAK_LOG.defaultBlockState(), Blocks.OAK_LEAVES.defaultBlockState()));
+    register(context, YELLOW_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.YELLOW_WILDFLOWERS.get(),40));
+    register(context, ORANGE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.ORANGE_WILDFLOWERS.get(),40));
+    register(context, BLUE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.BLUE_WILDFLOWERS.get(),40));
+    register(context, PURPLE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.PURPLE_WILDFLOWERS.get(),40));
+    register(context, WHITE_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.WHITE_WILDFLOWERS.get(),40));
+    register(context, MIXED_WILDFLOWERS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.MIXED_WILDFLOWERS.get(),40));
+    register(context, SLIME_NODULE, PVJFeatures.SLIME_NODULE.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, PINK_VINES, Feature.RANDOM_PATCH, new RandomPatchConfiguration(20, 4, 1, PlacementUtils.filtered(Feature.BLOCK_COLUMN, new BlockColumnConfiguration(
+      List.of(
+        BlockColumnConfiguration.layer(
+          new WeightedListInt(
+            SimpleWeightedRandomList.<IntProvider>builder()
+              .add(UniformInt.of(0, 1), 1)
+              .add(UniformInt.of(0, 2), 1)
+              .add(UniformInt.of(0, 3), 1)
+              .add(UniformInt.of(0, 4), 1)
+              .build()
+          ),
+          BlockStateProvider.simple(PVJBlocks.PINK_VINES_PLANT.get())
+        ),
+        BlockColumnConfiguration.layer(ConstantInt.of(1), BlockStateProvider.simple(PVJBlocks.PINK_VINES.get()))
+      ),
+      Direction.DOWN,
+      BlockPredicate.ONLY_IN_AIR_PREDICATE,
+      true
+    ), BlockPredicate.matchesBlocks(Direction.UP.getNormal(), Blocks.CHERRY_LEAVES))));
+
     register(context, SEA_PICKLE, Feature.SEA_PICKLE, new CountConfiguration(1));
     register(context, TIDE_POOL, PVJFeatures.POOL.get(), new MultipleVegetationPatchConfiguration(
       BlockTags.LUSH_GROUND_REPLACEABLE,
@@ -201,7 +255,11 @@ public class PVJConfiguredFeatures {
       5,
       0.3F,
       UniformInt.of(2, 3), 0.7F));
-
+    register(context, GRAVEL_PIT, PVJFeatures.GRAVEL_PIT.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, GOLD_PIT, PVJFeatures.GOLD_PIT.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, MUDDY_BONES, PVJFeatures.MUDDY_BONES.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, LOTUS_POND, PVJFeatures.LOTUS_POND.get(), NoneFeatureConfiguration.INSTANCE);
+    register(context, HOT_SPRINGS, PVJFeatures.HOT_SPRINGS.get(), NoneFeatureConfiguration.INSTANCE);
   }
 
   private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
@@ -222,6 +280,21 @@ public class PVJConfiguredFeatures {
         BlockPredicate.not(BlockPredicate.matchesFluids(Fluids.LAVA, Fluids.WATER))
       )
     ));
+  }
+
+  private static RandomPatchConfiguration wildflower(PinkPetalsBlock block, int tries) {
+    SimpleWeightedRandomList.Builder<BlockState> builder = SimpleWeightedRandomList.builder();
+    for (int i = 1; i <= 4; i++) {
+      for (Direction direction : Direction.Plane.HORIZONTAL) {
+        builder.add(
+          block.defaultBlockState().setValue(PinkPetalsBlock.AMOUNT, Integer.valueOf(i)).setValue(PinkPetalsBlock.FACING, direction), 1
+        );
+      }
+    }
+
+    return new RandomPatchConfiguration(
+      tries, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(builder)))
+    );
   }
 
   private static RandomPatchConfiguration smallCactusConfig(int tries, int xzSpread, int ySpread, BlockState block) {
