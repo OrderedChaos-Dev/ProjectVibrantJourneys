@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
@@ -43,8 +44,14 @@ public class RocksGroundcoverFeature extends Feature<RandomPatchConfiguration> {
     if (!rocks.canSurvive(level, origin)) {
       return false;
     } else {
-      return LevelUtils.setBlock(level, origin, rocks, 2);
+      if (LevelUtils.setBlock(level, origin, rocks, 2)) {
+        if (level.getBlockState(origin.above()).hasProperty(BlockStateProperties.DOUBLE_BLOCK_HALF) && level.getBlockState(origin.above()).getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER) {
+          level.removeBlock(origin.above(), false);
+        }
+        return true;
+      }
     }
+    return false;
   }
 
   private BlockState getRocksToPlace(RandomSource randomSource, BlockState originState, BlockPos origin, Block ground) {
