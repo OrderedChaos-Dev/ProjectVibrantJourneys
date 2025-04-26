@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/flowerbed_1",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "flowerbed": "projectvibrantjourneys:block/sandy_sprouts",
+    "stem": "projectvibrantjourneys:block/sandy_stem"
+  }
+}

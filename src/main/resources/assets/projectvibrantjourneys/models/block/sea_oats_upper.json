@@ -1,7 +1,7 @@
 {
-  "parent": "block/crop",
+  "parent": "block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "crop": "projectvibrantjourneys:block/sea_oats_upper"
+    "cross": "projectvibrantjourneys:block/sea_oats_upper"
   }
 }

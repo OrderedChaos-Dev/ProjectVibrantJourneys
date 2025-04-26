@@ -47,7 +47,7 @@ public class PVJBlocks {
   public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle",
     () -> new IcicleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(1.5F, 3.0F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ)));
   public static final RegistryObject<Block> SANDY_SPROUTS = BLOCKS.register("sandy_sprouts",
-    () -> new SandySproutsBlock(replaceablePlant(MapColor.SAND)));
+    () -> new SandySproutsBlock(wildflowers()));
   public static final RegistryObject<Block> WATERGRASS = BLOCKS.register("watergrass",
     () -> new DoubleHighWaterPlantBlock(replaceablePlant(null), false));
   public static final RegistryObject<Block> PINK_LOTUS = BLOCKS.register("pink_lotus",

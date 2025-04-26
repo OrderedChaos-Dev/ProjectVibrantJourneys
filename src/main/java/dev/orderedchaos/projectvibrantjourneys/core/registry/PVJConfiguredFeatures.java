@@ -180,7 +180,7 @@ public class PVJConfiguredFeatures {
     register(context, ICICLE, PVJFeatures.ICICLE.get(), NoneFeatureConfiguration.INSTANCE);
     register(context, REEDS, Feature.RANDOM_PATCH, cattailConfig(250, 12, 2, PVJBlocks.REEDS.get().defaultBlockState()));
     register(context, PRICKLY_BUSH, Feature.RANDOM_PATCH, randomPatchConfig(10, 7, 3, PVJBlocks.PRICKLY_BUSH.get().defaultBlockState()));
-    register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, simpleRandomPatch(PVJBlocks.SANDY_SPROUTS.get().defaultBlockState()));
+    register(context, SANDY_SPROUTS, Feature.RANDOM_PATCH, wildflower((PinkPetalsBlock) PVJBlocks.SANDY_SPROUTS.get(), 50));
 
     register(context, TWIGS, PVJFeatures.GROUNDCOVER.get(), groundcoverConfig(4, 7, 3, PVJBlocks.TWIGS.get()));
     register(context, FALLEN_LEAVES, Feature.RANDOM_PATCH, randomPatchConfig(4, 7, 3, PVJBlocks.FALLEN_LEAVES.get().defaultBlockState()));

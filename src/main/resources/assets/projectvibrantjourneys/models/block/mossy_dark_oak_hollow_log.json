@@ -1,6 +1,7 @@
 {
   "parent": "projectvibrantjourneys:block/mossy_hollow_log",
   "textures": {
+    "moss_side_overlay": "projectvibrantjourneys:block/moss_side_overlay",
     "particle": "block/dark_oak_log",
     "log": "block/dark_oak_log",
     "log_top": "block/dark_oak_log_top",

@@ -1,19 +1,160 @@
 {
-  "variants": {
-    "facing=south": {
-      "model": "projectvibrantjourneys:block/sandy_sprouts"
+  "multipart": [
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts1"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "1|2|3|4"
+      }
     },
-    "facing=west": {
-      "model": "projectvibrantjourneys:block/sandy_sprouts",
-      "y": 90
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "1|2|3|4"
+      }
     },
-    "facing=north": {
-      "model": "projectvibrantjourneys:block/sandy_sprouts",
-      "y": 180
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "1|2|3|4"
+      }
     },
-    "facing=east": {
-      "model": "projectvibrantjourneys:block/sandy_sprouts",
-      "y": 270
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "1|2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts2"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts3"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts4"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "projectvibrantjourneys:block/sandy_sprouts4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "4"
+      }
     }
-  }
+  ]
 }
