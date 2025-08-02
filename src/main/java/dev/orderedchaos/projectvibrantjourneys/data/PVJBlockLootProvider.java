@@ -56,6 +56,7 @@ public class PVJBlockLootProvider extends BlockLootSubProvider {
     dropSelf(PVJBlocks.WARPED_NETTLE.get());
     dropSelf(PVJBlocks.CRIMSON_NETTLE.get());
     dropSelf(PVJBlocks.CINDERCANE.get());
+    dropSelf(PVJBlocks.PINK_LOTUS.get());
 
     hollowLog(PVJBlocks.OAK_HOLLOW_LOG.get());
     hollowLog(PVJBlocks.BIRCH_HOLLOW_LOG.get());
