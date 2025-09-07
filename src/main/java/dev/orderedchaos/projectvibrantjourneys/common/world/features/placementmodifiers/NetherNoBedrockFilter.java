@@ -21,7 +21,8 @@ public class NetherNoBedrockFilter extends PlacementFilter {
   @Override
   protected boolean shouldPlace(PlacementContext context, RandomSource random, BlockPos pos) {
     WorldGenLevel level = context.getLevel();
-    return !level.getBlockState(pos).is(Blocks.BEDROCK);
+    int height = pos.getY();
+    return !level.getBlockState(pos).is(Blocks.BEDROCK) && height < 127;
   }
 
   public static NetherNoBedrockFilter noBedrockFilter() {
