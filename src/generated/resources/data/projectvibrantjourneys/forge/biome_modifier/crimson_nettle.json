@@ -6,6 +6,6 @@
   "blacklist": [],
   "configOption": "enableNetherNettles",
   "decoration": "vegetal_decoration",
-  "dimension": "minecraft:is_overworld",
+  "dimension": "minecraft:is_nether",
   "feature": "projectvibrantjourneys:crimson_nettle"
 }

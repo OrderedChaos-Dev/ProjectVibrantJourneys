@@ -6,6 +6,6 @@
   "blacklist": [],
   "configOption": "enableGlowcap",
   "decoration": "vegetal_decoration",
-  "dimension": "minecraft:is_overworld",
+  "dimension": "minecraft:is_nether",
   "feature": "projectvibrantjourneys:glowcap"
 }
